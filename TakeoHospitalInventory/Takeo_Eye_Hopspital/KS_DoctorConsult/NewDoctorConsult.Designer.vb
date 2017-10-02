@@ -621,7 +621,7 @@ Partial Class NewDoctorConsult
         Me.GroupFollowup.ForeColor = System.Drawing.Color.Red
         Me.GroupFollowup.Location = New System.Drawing.Point(11, 27)
         Me.GroupFollowup.Name = "GroupFollowup"
-        Me.GroupFollowup.Size = New System.Drawing.Size(756, 182)
+        Me.GroupFollowup.Size = New System.Drawing.Size(756, 173)
         Me.GroupFollowup.TabIndex = 1
         Me.GroupFollowup.TabStop = False
         '
@@ -657,7 +657,7 @@ Partial Class NewDoctorConsult
         Me.TxtFollowUpNote.Multiline = True
         Me.TxtFollowUpNote.Name = "TxtFollowUpNote"
         Me.TxtFollowUpNote.ScrollBars = System.Windows.Forms.ScrollBars.Both
-        Me.TxtFollowUpNote.Size = New System.Drawing.Size(744, 102)
+        Me.TxtFollowUpNote.Size = New System.Drawing.Size(744, 93)
         Me.TxtFollowUpNote.TabIndex = 2
         '
         'Label24
@@ -1043,7 +1043,7 @@ Partial Class NewDoctorConsult
         Me.Panel2.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel2.Location = New System.Drawing.Point(0, 0)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(1594, 796)
+        Me.Panel2.Size = New System.Drawing.Size(1438, 796)
         Me.Panel2.TabIndex = 0
         '
         'UiTab1
@@ -1053,7 +1053,7 @@ Partial Class NewDoctorConsult
                     Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.UiTab1.Location = New System.Drawing.Point(10, 272)
         Me.UiTab1.Name = "UiTab1"
-        Me.UiTab1.Size = New System.Drawing.Size(1573, 512)
+        Me.UiTab1.Size = New System.Drawing.Size(1544, 495)
         Me.UiTab1.TabIndex = 34
         Me.UiTab1.TabPages.AddRange(New Janus.Windows.UI.Tab.UITabPage() {Me.UiTabPage2})
         Me.UiTab1.TabsStateStyles.FormatStyle.FontSize = 12.0!
@@ -1068,7 +1068,7 @@ Partial Class NewDoctorConsult
         Me.UiTabPage2.Controls.Add(Me.Label4)
         Me.UiTabPage2.Location = New System.Drawing.Point(1, 28)
         Me.UiTabPage2.Name = "UiTabPage2"
-        Me.UiTabPage2.Size = New System.Drawing.Size(1571, 483)
+        Me.UiTabPage2.Size = New System.Drawing.Size(1542, 466)
         Me.UiTabPage2.TabStop = True
         Me.UiTabPage2.Text = "     Patient Diagnosis(ICD-10)     "
         '
@@ -1109,8 +1109,8 @@ Partial Class NewDoctorConsult
         'SplitContainer2.Panel2
         '
         Me.SplitContainer2.Panel2.Controls.Add(Me.UiTab2)
-        Me.SplitContainer2.Size = New System.Drawing.Size(2240, 466)
-        Me.SplitContainer2.SplitterDistance = 201
+        Me.SplitContainer2.Size = New System.Drawing.Size(2240, 449)
+        Me.SplitContainer2.SplitterDistance = 193
         Me.SplitContainer2.TabIndex = 22
         '
         'CboEyeDiagnosis
@@ -1520,7 +1520,7 @@ Partial Class NewDoctorConsult
         Me.UiTab2.Dock = System.Windows.Forms.DockStyle.Fill
         Me.UiTab2.Location = New System.Drawing.Point(0, 0)
         Me.UiTab2.Name = "UiTab2"
-        Me.UiTab2.Size = New System.Drawing.Size(2238, 259)
+        Me.UiTab2.Size = New System.Drawing.Size(2238, 250)
         Me.UiTab2.TabIndex = 6
         Me.UiTab2.TabPages.AddRange(New Janus.Windows.UI.Tab.UITabPage() {Me.UiTabPage1, Me.UiTabPage3})
         Me.UiTab2.VisualStyle = Janus.Windows.UI.Tab.TabVisualStyle.Office2003
@@ -1530,7 +1530,7 @@ Partial Class NewDoctorConsult
         Me.UiTabPage1.Controls.Add(Me.SplitContainer3)
         Me.UiTabPage1.Location = New System.Drawing.Point(1, 28)
         Me.UiTabPage1.Name = "UiTabPage1"
-        Me.UiTabPage1.Size = New System.Drawing.Size(2236, 230)
+        Me.UiTabPage1.Size = New System.Drawing.Size(2236, 221)
         Me.UiTabPage1.StateStyles.FormatStyle.FontSize = 12.0!
         Me.UiTabPage1.StateStyles.FormatStyle.ForeColor = System.Drawing.Color.Red
         Me.UiTabPage1.TabStop = True
@@ -1552,7 +1552,7 @@ Partial Class NewDoctorConsult
         '
         Me.SplitContainer3.Panel2.Controls.Add(Me.ChFollowUp)
         Me.SplitContainer3.Panel2.Controls.Add(Me.GroupFollowup)
-        Me.SplitContainer3.Size = New System.Drawing.Size(2236, 230)
+        Me.SplitContainer3.Size = New System.Drawing.Size(2236, 221)
         Me.SplitContainer3.SplitterDistance = 1333
         Me.SplitContainer3.TabIndex = 1
         '
@@ -1583,7 +1583,7 @@ Partial Class NewDoctorConsult
         Me.GroupBox5.ForeColor = System.Drawing.Color.Blue
         Me.GroupBox5.Location = New System.Drawing.Point(0, 0)
         Me.GroupBox5.Name = "GroupBox5"
-        Me.GroupBox5.Size = New System.Drawing.Size(1331, 228)
+        Me.GroupBox5.Size = New System.Drawing.Size(1331, 219)
         Me.GroupBox5.TabIndex = 0
         Me.GroupBox5.TabStop = False
         '
@@ -1597,7 +1597,7 @@ Partial Class NewDoctorConsult
         Me.GroupBox3.ForeColor = System.Drawing.Color.Blue
         Me.GroupBox3.Location = New System.Drawing.Point(410, 10)
         Me.GroupBox3.Name = "GroupBox3"
-        Me.GroupBox3.Size = New System.Drawing.Size(893, 190)
+        Me.GroupBox3.Size = New System.Drawing.Size(893, 181)
         Me.GroupBox3.TabIndex = 3
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "Medicince Usage:"
@@ -1617,7 +1617,7 @@ Partial Class NewDoctorConsult
         Me.GridPrescription.Location = New System.Drawing.Point(3, 22)
         Me.GridPrescription.Name = "GridPrescription"
         Me.GridPrescription.RecordNavigator = True
-        Me.GridPrescription.Size = New System.Drawing.Size(887, 165)
+        Me.GridPrescription.Size = New System.Drawing.Size(887, 156)
         Me.GridPrescription.TabIndex = 0
         Me.GridPrescription.VisualStyle = Janus.Windows.GridEX.VisualStyle.Office2003
         '
@@ -2097,7 +2097,7 @@ Partial Class NewDoctorConsult
         Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripButton1, Me.ToolStripSeparator2, Me.BtnNewReferral, Me.ToolStripSeparator3, Me.BtnCertificate, Me.ToolStripSeparator5, Me.BtnViewHistory, Me.ToolStripSeparator4, Me.ToolStripButton2})
         Me.ToolStrip1.Location = New System.Drawing.Point(0, 0)
         Me.ToolStrip1.Name = "ToolStrip1"
-        Me.ToolStrip1.Size = New System.Drawing.Size(1596, 53)
+        Me.ToolStrip1.Size = New System.Drawing.Size(1440, 53)
         Me.ToolStrip1.TabIndex = 1
         Me.ToolStrip1.Text = "ToolStrip1"
         '
@@ -2127,7 +2127,7 @@ Partial Class NewDoctorConsult
         Me.BtnNewReferral.Image = Global.TakeoHospitalInventory.My.Resources.Resources.referral_iconX
         Me.BtnNewReferral.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.BtnNewReferral.Name = "BtnNewReferral"
-        Me.BtnNewReferral.Size = New System.Drawing.Size(173, 50)
+        Me.BtnNewReferral.Size = New System.Drawing.Size(172, 50)
         Me.BtnNewReferral.Text = "  New Patient Referral  "
         Me.BtnNewReferral.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
         '
@@ -2145,7 +2145,7 @@ Partial Class NewDoctorConsult
         Me.BtnCertificate.Image = Global.TakeoHospitalInventory.My.Resources.Resources.Certificate1
         Me.BtnCertificate.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.BtnCertificate.Name = "BtnCertificate"
-        Me.BtnCertificate.Size = New System.Drawing.Size(156, 50)
+        Me.BtnCertificate.Size = New System.Drawing.Size(155, 50)
         Me.BtnCertificate.Text = "   Patient Certificate  "
         Me.BtnCertificate.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
         '
@@ -2199,7 +2199,7 @@ Partial Class NewDoctorConsult
         '
         Me.SplitContainer1.Panel2.Controls.Add(Me.AxAcroPDF1)
         Me.SplitContainer1.Panel2Collapsed = True
-        Me.SplitContainer1.Size = New System.Drawing.Size(1596, 798)
+        Me.SplitContainer1.Size = New System.Drawing.Size(1440, 798)
         Me.SplitContainer1.SplitterDistance = 1115
         Me.SplitContainer1.TabIndex = 2
         '
@@ -2235,7 +2235,7 @@ Partial Class NewDoctorConsult
         Me.RibbonStatusBar1.Name = "RibbonStatusBar1"
         Me.RibbonStatusBar1.Office2007CustomColor = System.Drawing.Color.Empty
         Me.RibbonStatusBar1.ShowToolTips = False
-        Me.RibbonStatusBar1.Size = New System.Drawing.Size(1596, 23)
+        Me.RibbonStatusBar1.Size = New System.Drawing.Size(1440, 23)
         '
         '
         '
@@ -2279,7 +2279,7 @@ Partial Class NewDoctorConsult
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(196, Byte), Integer), CType(CType(218, Byte), Integer), CType(CType(250, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(1596, 874)
+        Me.ClientSize = New System.Drawing.Size(1440, 874)
         Me.Controls.Add(Me.SplitContainer1)
         Me.Controls.Add(Me.ToolStrip1)
         Me.Controls.Add(Me.RibbonStatusBar1)

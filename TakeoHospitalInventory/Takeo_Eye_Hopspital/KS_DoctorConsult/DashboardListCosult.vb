@@ -44,7 +44,7 @@ Public Class DashboardListCosult
         Application.DoEvents()
         Application.DoEvents()
         AxAcroPDF1.src = My.Application.Info.DirectoryPath & "\DRConsult.pdf"
-        AxAcroPDF1.setZoom(100)
+        AxAcroPDF1.setZoom(70)
     End Sub
 
     Private Sub ChDoctor_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ChDoctor.CheckedChanged

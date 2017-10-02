@@ -348,7 +348,7 @@ Partial Class DashboardDoctorConsult
         Me.TxtNote.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
                     Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.TxtNote.BackColor = System.Drawing.Color.White
-        Me.TxtNote.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TxtNote.Font = New System.Drawing.Font("Khmer OS Battambang", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TxtNote.Location = New System.Drawing.Point(6, 45)
         Me.TxtNote.Multiline = True
         Me.TxtNote.Name = "TxtNote"
@@ -597,7 +597,7 @@ Partial Class DashboardDoctorConsult
         Me.UiTabPage9.Controls.Add(Me.GridOT)
         Me.UiTabPage9.Location = New System.Drawing.Point(1, 28)
         Me.UiTabPage9.Name = "UiTabPage9"
-        Me.UiTabPage9.Size = New System.Drawing.Size(1257, 312)
+        Me.UiTabPage9.Size = New System.Drawing.Size(1257, 491)
         Me.UiTabPage9.TabStop = True
         Me.UiTabPage9.Text = "     Operation Note History    "
         '
@@ -621,7 +621,7 @@ Partial Class DashboardDoctorConsult
         Me.GridOT.Name = "GridOT"
         Me.GridOT.RecordNavigator = True
         Me.GridOT.RowFormatStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Center
-        Me.GridOT.Size = New System.Drawing.Size(1257, 312)
+        Me.GridOT.Size = New System.Drawing.Size(1257, 491)
         Me.GridOT.TabIndex = 4
         Me.GridOT.VisualStyle = Janus.Windows.GridEX.VisualStyle.Office2003
         '
@@ -1548,25 +1548,25 @@ Partial Class DashboardDoctorConsult
         Me.ContextMenuFollowUp.Font = New System.Drawing.Font("Segoe UI", 12.0!)
         Me.ContextMenuFollowUp.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.BtnNewConsultFollow, Me.ToolStripMenuItem1, Me.BtnCancelFollowUP})
         Me.ContextMenuFollowUp.Name = "ContextMenuFollowUp"
-        Me.ContextMenuFollowUp.Size = New System.Drawing.Size(292, 62)
+        Me.ContextMenuFollowUp.Size = New System.Drawing.Size(291, 62)
         '
         'BtnNewConsultFollow
         '
         Me.BtnNewConsultFollow.ForeColor = System.Drawing.Color.Blue
         Me.BtnNewConsultFollow.Name = "BtnNewConsultFollow"
-        Me.BtnNewConsultFollow.Size = New System.Drawing.Size(291, 26)
+        Me.BtnNewConsultFollow.Size = New System.Drawing.Size(290, 26)
         Me.BtnNewConsultFollow.Text = "New Consult Patient FollowUp"
         '
         'ToolStripMenuItem1
         '
         Me.ToolStripMenuItem1.Name = "ToolStripMenuItem1"
-        Me.ToolStripMenuItem1.Size = New System.Drawing.Size(288, 6)
+        Me.ToolStripMenuItem1.Size = New System.Drawing.Size(287, 6)
         '
         'BtnCancelFollowUP
         '
         Me.BtnCancelFollowUP.ForeColor = System.Drawing.Color.Blue
         Me.BtnCancelFollowUP.Name = "BtnCancelFollowUP"
-        Me.BtnCancelFollowUP.Size = New System.Drawing.Size(291, 26)
+        Me.BtnCancelFollowUP.Size = New System.Drawing.Size(290, 26)
         Me.BtnCancelFollowUP.Text = "Cancel FollowUp"
         '
         'UiTab1
