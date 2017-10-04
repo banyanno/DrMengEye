@@ -3567,6 +3567,18 @@ Represents the strongly named DataTable class.
 	<summary>
 Represents the strongly named DataTable class.
 </summary>
+</member><member name="T:TakeoHospitalInventory.DS_Invest_Laser.S_LASER_CONSULTDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:TakeoHospitalInventory.DS_Invest_Laser.S_INVESTIGATE_CONSULTDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:TakeoHospitalInventory.DS_Invest_Laser.S_LABORATE_CONSULTDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
 </member><member name="T:TakeoHospitalInventory.DS_Invest_Laser.S_LASERRow">
 	<summary>
 Represents strongly named DataRow class.
@@ -3587,6 +3599,18 @@ Represents strongly named DataRow class.
 	<summary>
 Represents strongly named DataRow class.
 </summary>
+</member><member name="T:TakeoHospitalInventory.DS_Invest_Laser.S_LASER_CONSULTRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:TakeoHospitalInventory.DS_Invest_Laser.S_INVESTIGATE_CONSULTRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:TakeoHospitalInventory.DS_Invest_Laser.S_LABORATE_CONSULTRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
 </member><member name="T:TakeoHospitalInventory.DS_Invest_Laser.S_LASERRowChangeEvent">
 	<summary>
 Row event argument class
@@ -3604,6 +3628,18 @@ Row event argument class
 Row event argument class
 </summary>
 </member><member name="T:TakeoHospitalInventory.DS_Invest_Laser.S_PATIENT_LABO_DETIALRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:TakeoHospitalInventory.DS_Invest_Laser.S_LASER_CONSULTRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:TakeoHospitalInventory.DS_Invest_Laser.S_INVESTIGATE_CONSULTRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:TakeoHospitalInventory.DS_Invest_Laser.S_LABORATE_CONSULTRowChangeEvent">
 	<summary>
 Row event argument class
 </summary>
@@ -3628,6 +3664,18 @@ Represents the connection and commands used to retrieve and save data.
 Represents the connection and commands used to retrieve and save data.
 </summary>
 </member><member name="T:TakeoHospitalInventory.DS_Invest_LaserTableAdapters.S_PATIENT_LABO_DETIALTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:TakeoHospitalInventory.DS_Invest_LaserTableAdapters.S_LASER_CONSULTTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:TakeoHospitalInventory.DS_Invest_LaserTableAdapters.S_INVESTIGATE_CONSULTTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:TakeoHospitalInventory.DS_Invest_LaserTableAdapters.S_LABORATE_CONSULTTableAdapter">
 	<summary>
 Represents the connection and commands used to retrieve and save data.
 </summary>

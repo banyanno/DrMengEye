@@ -621,7 +621,7 @@ Partial Class NewDoctorConsult
         Me.GroupFollowup.ForeColor = System.Drawing.Color.Red
         Me.GroupFollowup.Location = New System.Drawing.Point(11, 27)
         Me.GroupFollowup.Name = "GroupFollowup"
-        Me.GroupFollowup.Size = New System.Drawing.Size(756, 173)
+        Me.GroupFollowup.Size = New System.Drawing.Size(756, 179)
         Me.GroupFollowup.TabIndex = 1
         Me.GroupFollowup.TabStop = False
         '
@@ -657,7 +657,7 @@ Partial Class NewDoctorConsult
         Me.TxtFollowUpNote.Multiline = True
         Me.TxtFollowUpNote.Name = "TxtFollowUpNote"
         Me.TxtFollowUpNote.ScrollBars = System.Windows.Forms.ScrollBars.Both
-        Me.TxtFollowUpNote.Size = New System.Drawing.Size(744, 93)
+        Me.TxtFollowUpNote.Size = New System.Drawing.Size(744, 99)
         Me.TxtFollowUpNote.TabIndex = 2
         '
         'Label24
@@ -1048,12 +1048,10 @@ Partial Class NewDoctorConsult
         '
         'UiTab1
         '
-        Me.UiTab1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-                    Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.UiTab1.Location = New System.Drawing.Point(10, 272)
+        Me.UiTab1.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.UiTab1.Location = New System.Drawing.Point(0, 275)
         Me.UiTab1.Name = "UiTab1"
-        Me.UiTab1.Size = New System.Drawing.Size(1544, 495)
+        Me.UiTab1.Size = New System.Drawing.Size(1565, 504)
         Me.UiTab1.TabIndex = 34
         Me.UiTab1.TabPages.AddRange(New Janus.Windows.UI.Tab.UITabPage() {Me.UiTabPage2})
         Me.UiTab1.TabsStateStyles.FormatStyle.FontSize = 12.0!
@@ -1068,7 +1066,7 @@ Partial Class NewDoctorConsult
         Me.UiTabPage2.Controls.Add(Me.Label4)
         Me.UiTabPage2.Location = New System.Drawing.Point(1, 28)
         Me.UiTabPage2.Name = "UiTabPage2"
-        Me.UiTabPage2.Size = New System.Drawing.Size(1542, 466)
+        Me.UiTabPage2.Size = New System.Drawing.Size(1563, 475)
         Me.UiTabPage2.TabStop = True
         Me.UiTabPage2.Text = "     Patient Diagnosis(ICD-10)     "
         '
@@ -1109,8 +1107,8 @@ Partial Class NewDoctorConsult
         'SplitContainer2.Panel2
         '
         Me.SplitContainer2.Panel2.Controls.Add(Me.UiTab2)
-        Me.SplitContainer2.Size = New System.Drawing.Size(2240, 449)
-        Me.SplitContainer2.SplitterDistance = 193
+        Me.SplitContainer2.Size = New System.Drawing.Size(2240, 458)
+        Me.SplitContainer2.SplitterDistance = 196
         Me.SplitContainer2.TabIndex = 22
         '
         'CboEyeDiagnosis
@@ -1520,7 +1518,7 @@ Partial Class NewDoctorConsult
         Me.UiTab2.Dock = System.Windows.Forms.DockStyle.Fill
         Me.UiTab2.Location = New System.Drawing.Point(0, 0)
         Me.UiTab2.Name = "UiTab2"
-        Me.UiTab2.Size = New System.Drawing.Size(2238, 250)
+        Me.UiTab2.Size = New System.Drawing.Size(2238, 256)
         Me.UiTab2.TabIndex = 6
         Me.UiTab2.TabPages.AddRange(New Janus.Windows.UI.Tab.UITabPage() {Me.UiTabPage1, Me.UiTabPage3})
         Me.UiTab2.VisualStyle = Janus.Windows.UI.Tab.TabVisualStyle.Office2003
@@ -1530,7 +1528,7 @@ Partial Class NewDoctorConsult
         Me.UiTabPage1.Controls.Add(Me.SplitContainer3)
         Me.UiTabPage1.Location = New System.Drawing.Point(1, 28)
         Me.UiTabPage1.Name = "UiTabPage1"
-        Me.UiTabPage1.Size = New System.Drawing.Size(2236, 221)
+        Me.UiTabPage1.Size = New System.Drawing.Size(2236, 227)
         Me.UiTabPage1.StateStyles.FormatStyle.FontSize = 12.0!
         Me.UiTabPage1.StateStyles.FormatStyle.ForeColor = System.Drawing.Color.Red
         Me.UiTabPage1.TabStop = True
@@ -1552,7 +1550,7 @@ Partial Class NewDoctorConsult
         '
         Me.SplitContainer3.Panel2.Controls.Add(Me.ChFollowUp)
         Me.SplitContainer3.Panel2.Controls.Add(Me.GroupFollowup)
-        Me.SplitContainer3.Size = New System.Drawing.Size(2236, 221)
+        Me.SplitContainer3.Size = New System.Drawing.Size(2236, 227)
         Me.SplitContainer3.SplitterDistance = 1333
         Me.SplitContainer3.TabIndex = 1
         '
@@ -1583,7 +1581,7 @@ Partial Class NewDoctorConsult
         Me.GroupBox5.ForeColor = System.Drawing.Color.Blue
         Me.GroupBox5.Location = New System.Drawing.Point(0, 0)
         Me.GroupBox5.Name = "GroupBox5"
-        Me.GroupBox5.Size = New System.Drawing.Size(1331, 219)
+        Me.GroupBox5.Size = New System.Drawing.Size(1331, 225)
         Me.GroupBox5.TabIndex = 0
         Me.GroupBox5.TabStop = False
         '
@@ -1597,7 +1595,7 @@ Partial Class NewDoctorConsult
         Me.GroupBox3.ForeColor = System.Drawing.Color.Blue
         Me.GroupBox3.Location = New System.Drawing.Point(410, 10)
         Me.GroupBox3.Name = "GroupBox3"
-        Me.GroupBox3.Size = New System.Drawing.Size(893, 181)
+        Me.GroupBox3.Size = New System.Drawing.Size(893, 187)
         Me.GroupBox3.TabIndex = 3
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "Medicince Usage:"
@@ -1617,7 +1615,7 @@ Partial Class NewDoctorConsult
         Me.GridPrescription.Location = New System.Drawing.Point(3, 22)
         Me.GridPrescription.Name = "GridPrescription"
         Me.GridPrescription.RecordNavigator = True
-        Me.GridPrescription.Size = New System.Drawing.Size(887, 156)
+        Me.GridPrescription.Size = New System.Drawing.Size(887, 162)
         Me.GridPrescription.TabIndex = 0
         Me.GridPrescription.VisualStyle = Janus.Windows.GridEX.VisualStyle.Office2003
         '
@@ -1862,7 +1860,7 @@ Partial Class NewDoctorConsult
         Me.UiTabPage3.Controls.Add(Me.BtnRemoveImage)
         Me.UiTabPage3.Location = New System.Drawing.Point(1, 28)
         Me.UiTabPage3.Name = "UiTabPage3"
-        Me.UiTabPage3.Size = New System.Drawing.Size(2236, 230)
+        Me.UiTabPage3.Size = New System.Drawing.Size(2236, 212)
         Me.UiTabPage3.StateStyles.FormatStyle.FontSize = 12.0!
         Me.UiTabPage3.StateStyles.FormatStyle.ForeColor = System.Drawing.Color.Red
         Me.UiTabPage3.TabStop = True

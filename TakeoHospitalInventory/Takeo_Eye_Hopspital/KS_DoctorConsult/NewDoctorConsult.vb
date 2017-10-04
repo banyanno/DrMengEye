@@ -9,7 +9,13 @@ Public Class NewDoctorConsult
     Dim DA_FollowUp As New DSWaitingConsultTableAdapters.S_PATIENT_FOLLOWUPTableAdapter
     Public DA_ImageDiagnosis As New DSWaitingConsultTableAdapters.S_IMAGE_DIAGNOSISTableAdapter
     Dim DA_Waiting As New DSWaitingConsultTableAdapters.S_PATIENT_WAITINGTableAdapter
+    'Data Investigate 
     Dim DA_TemConsult As New DS_KSPAYMENTTableAdapters.S_TEM_LISTPAYMENTTableAdapter
+    Dim DA_LASER_CONSULT As New DS_Invest_LaserTableAdapters.S_LASER_CONSULTTableAdapter
+    Dim DA_INVESTIGATE_CONSULT As New DS_Invest_LaserTableAdapters.S_INVESTIGATE_CONSULTTableAdapter
+    Dim DA_LABORATE_CONSULT As New DS_Invest_LaserTableAdapters.S_LABORATE_CONSULTTableAdapter
+
+
     Dim DA_New_OldPatientBook As New DSConsultHistoryTableAdapters.TblNew_Old_OutPatientTableAdapter
     Dim DA_New_Operation As New DSConsultHistoryTableAdapters.TblNewInPatientTableAdapter
     Dim DA_DoctorConsult As New DSConsultHistoryTableAdapters.S_DOCTOR_CONSULTTableAdapter
@@ -810,6 +816,7 @@ Public Class NewDoctorConsult
                             DA_TemConsult.InsertNewWaitingPayment(WAITING_NO, "Laser:" & chMul.ToString, LaserPrice)
                             LASER = LASER + chMul.ToString + vbCrLf
                             TotalLaser = TotalLaser + LaserPrice
+                            DA_LASER_CONSULT.InsertLaserConsult(WAITING_NO, chMul.ToString, LaserPrice)
                         Next
                         'DA_TemConsult.InsertNewWaitingPayment(WAITING_NO, "Laser:" & CboLaser.Text, CDbl(LblLaserPrice.Text))
                     End If
@@ -819,6 +826,7 @@ Public Class NewDoctorConsult
                             DA_TemConsult.InsertNewWaitingPayment(WAITING_NO, "Investigate:" & chMul.ToString, CDbl(DA_Invest.SelectInvestigatePriceByName(chMul.ToString)))
                             INVESTIGATE = INVESTIGATE + chMul.ToString + vbCrLf
                             TotalInvestigate = TotalInvestigate + InvesPrice
+                            DA_INVESTIGATE_CONSULT.InsertInvestConsult(WAITING_NO, chMul.ToString, InvesPrice)
                         Next
                         'DA_TemConsult.InsertNewWaitingPayment(WAITING_NO, "Investigate:" & cboInvestigate.Text, CDbl(LblInvestPrice.Text))
                     End If
@@ -832,6 +840,7 @@ Public Class NewDoctorConsult
                             DA_Lab_Check_Detail.InsertLaboDetail(WAITING_NO, chMul.ToString, "")
                             LABOLARY = LABOLARY + chMul.ToString + vbCrLf
                             TotalLabo = TotalLabo + PriceLabo
+                            DA_LABORATE_CONSULT.InsertLaborateConsult(WAITING_NO, chMul.ToString, PriceLabo)
                         Next
                     End If
 
@@ -839,7 +848,7 @@ Public Class NewDoctorConsult
                                                             TxtPatientNo.Text, TxtNameEng.Text, TxtNameKhmer.Text, CboSexPatien.Text, "", _
                                                             CboDiagRight.Text, IS_Management, CboSurgery.Text, CDbl(IIf(ChConsultFree.Checked = True, 0, CDbl(CboExamFee.SelectedValue))), _
                                                             EmptyString(TxtPriceSurgery.Text), CBool(IIf(ChConsultFree.Checked = True, True, False)), CboExamFee.Text, _
-                                                            CDbl(IIf(ChLaser.Checked = False, 0, TotalLaser)), CDbl(IIf(ChInvestigate.Checked = False, 0, TotalInvestigate)), CDbl(IIf(ChLaborat.Checked = False, 0, TotalLabo)))
+                                                            CDbl(IIf(ChLaser.Checked = False, 0, TotalLaser)), CDbl(IIf(ChInvestigate.Checked = False, 0, TotalInvestigate)), CDbl(IIf(ChLaborat.Checked = False, 0, TotalLabo)), WAITING_NO)
                     'Save Into New or Old Patient Book
                     DA_New_OldPatientBook.InsertNewPatientBook(0, TxtPatientNo.Text, CboDiagRight.Text & " (" & TxtDiagnosisCode.Text & ")", Now.Date, Is_Old, TxtDiagnosisCode.Text)
                     'Save into patient Surgery
