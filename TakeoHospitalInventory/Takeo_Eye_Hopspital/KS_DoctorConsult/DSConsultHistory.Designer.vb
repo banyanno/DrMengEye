@@ -15437,7 +15437,7 @@ Namespace DSConsultHistoryTableAdapters
                 "_NAME, MANAGE_PATIENT, ON_EYE, PATIENT_KHMER, PATIENT_NAME, PATIENT_NO, PATIENT_"& _ 
                 "SEX, PRICE_CONSULTATION, PRICE_LASER, PRICE_SURGERY, SURGERY, TOTAL_INVEST, TOTA"& _ 
                 "L_LABO, WAITING_ID FROM S_DOCTOR_CONSULT WHERE (DR_CONSULT_DATE BETWEEN @DFrom A"& _ 
-                "ND @DTo)"
+                "ND @DTo)"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"ORDER BY PRICE_CONSULTATION"
             Me._commandCollection(1).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DFrom", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "DR_CONSULT_DATE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DTo", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "DR_CONSULT_DATE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -15447,7 +15447,7 @@ Namespace DSConsultHistoryTableAdapters
                 "_NAME, MANAGE_PATIENT, ON_EYE, PATIENT_KHMER, PATIENT_NAME, PATIENT_NO, PATIENT_"& _ 
                 "SEX, PRICE_CONSULTATION, PRICE_LASER, PRICE_SURGERY, SURGERY, TOTAL_INVEST, TOTA"& _ 
                 "L_LABO, WAITING_ID FROM S_DOCTOR_CONSULT WHERE (DR_CONSULT_DATE BETWEEN @DFrom A"& _ 
-                "ND @DTo) AND (DR_ID = @DR_ID)"
+                "ND @DTo) AND (DR_ID = @DR_ID)"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"ORDER BY PRICE_CONSULTATION"
             Me._commandCollection(2).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DFrom", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "DR_CONSULT_DATE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DTo", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "DR_CONSULT_DATE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
