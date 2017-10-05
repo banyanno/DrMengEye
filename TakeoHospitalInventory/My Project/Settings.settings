@@ -16,5 +16,8 @@
 &lt;/SerializableConnectionString&gt;</DesignTimeValue>
       <Value Profile="(Default)">Data Source=NBC120\sql2008;Failover Partner=192.168.111.252\sql2;Initial Catalog=NgyMengDB;Persist Security Info=True;User ID=sa;Password=P@ssw0rd;Max Pool Size=4000;Asynchronous Processing=True;Connect Timeout=1000;Packet Size=2768</Value>
     </Setting>
+    <Setting Name="IMAGEConnection" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Data Source=NBC120\sql2012;Initial Catalog=ImageEnt;Persist Security Info=True;User ID=sa;Password=P@ssw0rd;Max Pool Size=4000;Asynchronous Processing=True;Connect Timeout=1000;Packet Size=2768</Value>
+    </Setting>
   </Settings>
 </SettingsFile>
