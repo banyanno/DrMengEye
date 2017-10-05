@@ -1,0 +1,6 @@
+﻿--Insert Into database ImgEnet
+insert into Persons(PersonUid,_InsertedDate,_InsertedId,_ModifiedDate,_ModifiedId,SurName,BirthDate,Occupation,Gender) 
+values(NEWID(),GETDATE(),'00000000-0000-0000-0000-000000000000',GETDATE(),'00000000-0000-0000-0000-000000000000',N'បាន យ៉ានណូ',GETDATE(),'',1);
+
+insert into Patients (PatientUid,_InsertedDate,_InsertedId,_ModifiedDate,_ModifiedId,PatientIdentifier,PersonUid,Active,Deceased,EthnicGroup,InterpreterReq,Pglass,Psunglass,Sftlens,Hrdlens,Hearingaid,ConsentInfoSharing,Suspended,GeneticDisposition)
+Values               (NEWID(),GETDATE(),'00000000-0000-0000-0000-000000000000',getdate(),'00000000-0000-0000-0000-000000000000','1224455','6AB80064-FF7B-4C7E-9371-B6FBC5F039CA',1,0,'Asian',0,0,0,0,0,0,0,0,0)
