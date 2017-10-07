@@ -5,6 +5,7 @@ Public MustInherit Class AbstractConnection
 
 
 
+
     ' Look at file App.config
     Dim CnnString = My.Settings.TakeoDBConnectionString
 
@@ -133,5 +134,21 @@ Public MustInherit Class AbstractConnection
 
     Public Function InsertTransaction2012(ByVal ObjSQL As Object) As Integer Implements IDataTransaction.InsertTransaction2012
         Return InitTransaction2012(ObjSQL)
+    End Function
+
+    Public Function SelectAsScalar2012(ByVal sql As Object) As Object Implements IDataTransaction.SelectAsScalar2012
+        Try
+
+            Dim cmdScalar As SqlCommand = New SqlCommand(CStr(sql), Me.GetConnection2012)
+            cmdScalar.CommandType = CommandType.Text
+            Return cmdScalar.ExecuteScalar
+            cmdScalar.Dispose()
+            Me.GetConnection2012.Dispose()
+            Me.GetConnection2012.Close()
+        Catch ex As Exception
+            Return 0
+        Finally
+            cnn.Close()
+        End Try
     End Function
 End Class

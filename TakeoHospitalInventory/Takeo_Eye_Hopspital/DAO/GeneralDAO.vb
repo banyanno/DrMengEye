@@ -28,4 +28,8 @@ Public Class GeneralDAO
     Public Function InsertDAO2012(ByVal sql As String) As Integer Implements IGeneralDAO.InsertDAO2012
         Return InsertTransaction2012(sql)
     End Function
+
+    Public Function SelectDAOAsScalar2012(ByVal sql As String) As Object Implements IGeneralDAO.SelectDAOAsScalar2012
+        Return SelectAsScalar2012(sql)
+    End Function
 End Class

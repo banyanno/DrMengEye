@@ -6,5 +6,6 @@ Public Interface IGeneralDAO
     Function SelectDAOAsDataSet(ByVal sql As String) As DataSet
     Function SelectDAOAsDataTatabl(ByVal sql As String) As DataTable
     Function SelectDAOAsScalar(ByVal sql As String) As Object
+    Function SelectDAOAsScalar2012(ByVal sql As String) As Object
     Function InsertDAO2012(ByVal sql As String) As Integer
 End Interface
