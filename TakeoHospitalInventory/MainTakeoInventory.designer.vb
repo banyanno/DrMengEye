@@ -597,6 +597,7 @@ Partial Class MainTakeoInventory
         BottonBarMain_Item_1_2.Key = "DoctorConsut"
         BottonBarMain_Item_1_2.LargeImageIndex = 6
         BottonBarMain_Item_1_2.Text = "Doctor Examination"
+        BottonBarMain_Item_1_3.Cursor = System.Windows.Forms.Cursors.Hand
         BottonBarMain_Item_1_3.Enabled = False
         BottonBarMain_Item_1_3.Key = "ListDoctorConsult"
         BottonBarMain_Item_1_3.LargeImageIndex = 3

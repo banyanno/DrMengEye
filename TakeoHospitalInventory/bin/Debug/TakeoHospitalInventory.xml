@@ -4827,6 +4827,18 @@ Represents the strongly named DataTable class.
 	<summary>
 Represents the strongly named DataTable class.
 </summary>
+</member><member name="T:TakeoHospitalInventory.DSConsultHistory.VIEW_S_LASER_CONSULTDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:TakeoHospitalInventory.DSConsultHistory.VIEW_S_LABORATE_CONSULTDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:TakeoHospitalInventory.DSConsultHistory.VIEW_S_INVESTIGATE_CONSULTDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
 </member><member name="T:TakeoHospitalInventory.DSConsultHistory.S_FOLLOWUPRow">
 	<summary>
 Represents strongly named DataRow class.
@@ -4875,6 +4887,18 @@ Represents strongly named DataRow class.
 	<summary>
 Represents strongly named DataRow class.
 </summary>
+</member><member name="T:TakeoHospitalInventory.DSConsultHistory.VIEW_S_LASER_CONSULTRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:TakeoHospitalInventory.DSConsultHistory.VIEW_S_LABORATE_CONSULTRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:TakeoHospitalInventory.DSConsultHistory.VIEW_S_INVESTIGATE_CONSULTRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
 </member><member name="T:TakeoHospitalInventory.DSConsultHistory.S_FOLLOWUPRowChangeEvent">
 	<summary>
 Row event argument class
@@ -4920,6 +4944,18 @@ Row event argument class
 Row event argument class
 </summary>
 </member><member name="T:TakeoHospitalInventory.DSConsultHistory.S_REFERRALRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:TakeoHospitalInventory.DSConsultHistory.VIEW_S_LASER_CONSULTRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:TakeoHospitalInventory.DSConsultHistory.VIEW_S_LABORATE_CONSULTRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:TakeoHospitalInventory.DSConsultHistory.VIEW_S_INVESTIGATE_CONSULTRowChangeEvent">
 	<summary>
 Row event argument class
 </summary>
@@ -4972,6 +5008,18 @@ Represents the connection and commands used to retrieve and save data.
 Represents the connection and commands used to retrieve and save data.
 </summary>
 </member><member name="T:TakeoHospitalInventory.DSConsultHistoryTableAdapters.S_REFERRALTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:TakeoHospitalInventory.DSConsultHistoryTableAdapters.VIEW_S_LASER_CONSULTTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:TakeoHospitalInventory.DSConsultHistoryTableAdapters.VIEW_S_LABORATE_CONSULTTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:TakeoHospitalInventory.DSConsultHistoryTableAdapters.VIEW_S_INVESTIGATE_CONSULTTableAdapter">
 	<summary>
 Represents the connection and commands used to retrieve and save data.
 </summary>

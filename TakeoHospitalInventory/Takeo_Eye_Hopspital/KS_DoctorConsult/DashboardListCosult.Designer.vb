@@ -24,6 +24,12 @@ Partial Class DashboardListCosult
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(DashboardListCosult))
         Me.GroupBox1 = New System.Windows.Forms.GroupBox
+        Me.GroupBox2 = New System.Windows.Forms.GroupBox
+        Me.DateTimePicker2 = New System.Windows.Forms.DateTimePicker
+        Me.Label4 = New System.Windows.Forms.Label
+        Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker
+        Me.Label3 = New System.Windows.Forms.Label
+        Me.BtnTotalInvestigate = New System.Windows.Forms.Button
         Me.BtnPrintPreview = New System.Windows.Forms.Button
         Me.CboDoctor = New System.Windows.Forms.ComboBox
         Me.ChDoctor = New System.Windows.Forms.CheckBox
@@ -33,11 +39,13 @@ Partial Class DashboardListCosult
         Me.Label1 = New System.Windows.Forms.Label
         Me.AxAcroPDF1 = New AxAcroPDFLib.AxAcroPDF
         Me.GroupBox1.SuspendLayout()
+        Me.GroupBox2.SuspendLayout()
         CType(Me.AxAcroPDF1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.GroupBox2)
         Me.GroupBox1.Controls.Add(Me.BtnPrintPreview)
         Me.GroupBox1.Controls.Add(Me.CboDoctor)
         Me.GroupBox1.Controls.Add(Me.ChDoctor)
@@ -53,6 +61,73 @@ Partial Class DashboardListCosult
         Me.GroupBox1.TabIndex = 0
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Doctor Information"
+        '
+        'GroupBox2
+        '
+        Me.GroupBox2.Controls.Add(Me.DateTimePicker2)
+        Me.GroupBox2.Controls.Add(Me.Label4)
+        Me.GroupBox2.Controls.Add(Me.DateTimePicker1)
+        Me.GroupBox2.Controls.Add(Me.Label3)
+        Me.GroupBox2.Controls.Add(Me.BtnTotalInvestigate)
+        Me.GroupBox2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.GroupBox2.Location = New System.Drawing.Point(437, 9)
+        Me.GroupBox2.Name = "GroupBox2"
+        Me.GroupBox2.Size = New System.Drawing.Size(399, 125)
+        Me.GroupBox2.TabIndex = 7
+        Me.GroupBox2.TabStop = False
+        Me.GroupBox2.Text = "Total Laser, Inves, Labo..."
+        '
+        'DateTimePicker2
+        '
+        Me.DateTimePicker2.CustomFormat = "dd-MM-yyyy"
+        Me.DateTimePicker2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.DateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Custom
+        Me.DateTimePicker2.Location = New System.Drawing.Point(109, 84)
+        Me.DateTimePicker2.Name = "DateTimePicker2"
+        Me.DateTimePicker2.Size = New System.Drawing.Size(131, 26)
+        Me.DateTimePicker2.TabIndex = 12
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Location = New System.Drawing.Point(14, 90)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(70, 20)
+        Me.Label4.TabIndex = 11
+        Me.Label4.Text = "Date To:"
+        '
+        'DateTimePicker1
+        '
+        Me.DateTimePicker1.CustomFormat = "dd-MM-yyyy"
+        Me.DateTimePicker1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.DateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom
+        Me.DateTimePicker1.Location = New System.Drawing.Point(109, 55)
+        Me.DateTimePicker1.Name = "DateTimePicker1"
+        Me.DateTimePicker1.Size = New System.Drawing.Size(131, 26)
+        Me.DateTimePicker1.TabIndex = 10
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Location = New System.Drawing.Point(14, 61)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(89, 20)
+        Me.Label3.TabIndex = 9
+        Me.Label3.Text = "Date From:"
+        '
+        'BtnTotalInvestigate
+        '
+        Me.BtnTotalInvestigate.BackgroundImage = Global.TakeoHospitalInventory.My.Resources.Resources.mZihS
+        Me.BtnTotalInvestigate.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.BtnTotalInvestigate.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.BtnTotalInvestigate.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.BtnTotalInvestigate.ForeColor = System.Drawing.Color.White
+        Me.BtnTotalInvestigate.Location = New System.Drawing.Point(246, 80)
+        Me.BtnTotalInvestigate.Name = "BtnTotalInvestigate"
+        Me.BtnTotalInvestigate.Size = New System.Drawing.Size(142, 30)
+        Me.BtnTotalInvestigate.TabIndex = 8
+        Me.BtnTotalInvestigate.Text = "Print Preview"
+        Me.BtnTotalInvestigate.UseVisualStyleBackColor = True
         '
         'BtnPrintPreview
         '
@@ -147,6 +222,8 @@ Partial Class DashboardListCosult
         Me.Size = New System.Drawing.Size(1109, 617)
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
+        Me.GroupBox2.ResumeLayout(False)
+        Me.GroupBox2.PerformLayout()
         CType(Me.AxAcroPDF1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
@@ -160,6 +237,12 @@ Partial Class DashboardListCosult
     Friend WithEvents ChDoctor As System.Windows.Forms.CheckBox
     Friend WithEvents BtnPrintPreview As System.Windows.Forms.Button
     Friend WithEvents AxAcroPDF1 As AxAcroPDFLib.AxAcroPDF
+    Friend WithEvents GroupBox2 As System.Windows.Forms.GroupBox
+    Friend WithEvents BtnTotalInvestigate As System.Windows.Forms.Button
+    Friend WithEvents DateTimePicker2 As System.Windows.Forms.DateTimePicker
+    Friend WithEvents Label4 As System.Windows.Forms.Label
+    Friend WithEvents DateTimePicker1 As System.Windows.Forms.DateTimePicker
+    Friend WithEvents Label3 As System.Windows.Forms.Label
 
 
 End Class

@@ -629,6 +629,15 @@
     <Compile Include="Takeo_Eye_Hopspital\DrMeng\Laser\FormLaser.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Takeo_Eye_Hopspital\KS_DoctorConsult\DoctorConsultInvestigate.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DoctorConsultInvestigate.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Takeo_Eye_Hopspital\KS_DoctorConsult\DSConsultHistory.vb">
+      <DependentUpon>DSConsultHistory.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Takeo_Eye_Hopspital\KS_DoctorConsult\EditPrescription.Designer.vb">
       <DependentUpon>EditPrescription.vb</DependentUpon>
     </Compile>
@@ -3332,6 +3341,10 @@
     <EmbeddedResource Include="Takeo_Eye_Hopspital\DrMeng\Laser\FormLaser.resx">
       <DependentUpon>FormLaser.vb</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Takeo_Eye_Hopspital\KS_DoctorConsult\DoctorConsultInvestigate.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>DoctorConsultInvestigate.vb</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Takeo_Eye_Hopspital\KS_DoctorConsult\EditPrescription.resx">
       <DependentUpon>EditPrescription.vb</DependentUpon>

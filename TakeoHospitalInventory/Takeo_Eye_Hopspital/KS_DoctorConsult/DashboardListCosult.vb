@@ -3,6 +3,10 @@
 Public Class DashboardListCosult
     Dim DA_DRConsult As New DSConsultHistoryTableAdapters.S_DOCTOR_CONSULTTableAdapter
     Dim DA_USER As New DSUserManagementTableAdapters.VUsersInGroupTableAdapter
+
+    Dim DA_COUNT_LASER As New DSConsultHistoryTableAdapters.VIEW_S_LASER_CONSULTTableAdapter
+    Dim DA_COUNT_INVES As New DSConsultHistoryTableAdapters.VIEW_S_INVESTIGATE_CONSULTTableAdapter
+    Dim DA_COUNT_LABO As New DSConsultHistoryTableAdapters.VIEW_S_LABORATE_CONSULTTableAdapter
     Sub New()
 
         ' This call is required by the Windows Form Designer.
@@ -49,5 +53,32 @@ Public Class DashboardListCosult
 
     Private Sub ChDoctor_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ChDoctor.CheckedChanged
         CboDoctor.Enabled = ChDoctor.Checked
+    End Sub
+
+    Private Sub BtnTotalInvestigate_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnTotalInvestigate.Click
+        Dim TblLaser As DataTable = DA_COUNT_LASER.GetData
+        Dim TblInves As DataTable = DA_COUNT_INVES.GetData
+        Dim TblLabo As DataTable = DA_COUNT_LABO.GetData
+        Dim CrTotalInves As New DoctorConsultInvestigate
+        CrTotalInves.Subreports("TotalLaser").SetDataSource(TblLaser)
+        CrTotalInves.Subreports("TotalInvestigate").SetDataSource(TblInves)
+        CrTotalInves.Subreports("TotalLabo").SetDataSource(TblLabo)
+
+        Dim CrExportOptionsBig As ExportOptions
+        Dim CrDiskFileDestinationOptionsBig As New DiskFileDestinationOptions()
+        Dim CrFormatTypeOptionsBig As New PdfRtfWordFormatOptions()
+        CrDiskFileDestinationOptionsBig.DiskFileName = My.Application.Info.DirectoryPath & "\DRTotalInvestigage.pdf"
+        CrExportOptionsBig = CrTotalInves.ExportOptions
+        With CrExportOptionsBig
+            .ExportDestinationType = ExportDestinationType.DiskFile
+            .ExportFormatType = ExportFormatType.PortableDocFormat
+            .DestinationOptions = CrDiskFileDestinationOptionsBig
+            .FormatOptions = CrFormatTypeOptionsBig
+        End With
+        CrTotalInves.Export()
+        Application.DoEvents()
+        Application.DoEvents()
+        AxAcroPDF1.src = My.Application.Info.DirectoryPath & "\DRTotalInvestigage.pdf"
+        AxAcroPDF1.setZoom(70)
     End Sub
 End Class
