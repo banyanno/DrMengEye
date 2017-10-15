@@ -91,6 +91,10 @@ GO
 
 
 
+-- add more field to Table (S_DOCTOR_CONSULT)
+
+WAITING_ID	numeric(18, 0)	Checked
+
 
 -- =============================================
 -- Author:		<Author,,Name>
