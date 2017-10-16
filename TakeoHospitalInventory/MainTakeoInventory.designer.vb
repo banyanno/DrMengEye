@@ -505,6 +505,7 @@ Partial Class MainTakeoInventory
         '
         'BottonBarMain
         '
+        Me.BottonBarMain.BorderStyle = Janus.Windows.ButtonBar.BorderStyle.Flat
         Me.BottonBarMain.Dock = System.Windows.Forms.DockStyle.Fill
         Me.BottonBarMain.FlatBorderColor = System.Drawing.Color.Cornsilk
         Me.BottonBarMain.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.0!)

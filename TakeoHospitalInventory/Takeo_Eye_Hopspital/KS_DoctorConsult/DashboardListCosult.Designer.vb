@@ -25,9 +25,9 @@ Partial Class DashboardListCosult
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(DashboardListCosult))
         Me.GroupBox1 = New System.Windows.Forms.GroupBox
         Me.GroupBox2 = New System.Windows.Forms.GroupBox
-        Me.DateTimePicker2 = New System.Windows.Forms.DateTimePicker
+        Me.DateTo1 = New System.Windows.Forms.DateTimePicker
         Me.Label4 = New System.Windows.Forms.Label
-        Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker
+        Me.DateFrom1 = New System.Windows.Forms.DateTimePicker
         Me.Label3 = New System.Windows.Forms.Label
         Me.BtnTotalInvestigate = New System.Windows.Forms.Button
         Me.BtnPrintPreview = New System.Windows.Forms.Button
@@ -38,6 +38,8 @@ Partial Class DashboardListCosult
         Me.Label2 = New System.Windows.Forms.Label
         Me.Label1 = New System.Windows.Forms.Label
         Me.AxAcroPDF1 = New AxAcroPDFLib.AxAcroPDF
+        Me.CboDoctor1 = New System.Windows.Forms.ComboBox
+        Me.ChDoctor1 = New System.Windows.Forms.CheckBox
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         CType(Me.AxAcroPDF1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -64,28 +66,30 @@ Partial Class DashboardListCosult
         '
         'GroupBox2
         '
-        Me.GroupBox2.Controls.Add(Me.DateTimePicker2)
+        Me.GroupBox2.Controls.Add(Me.CboDoctor1)
+        Me.GroupBox2.Controls.Add(Me.ChDoctor1)
+        Me.GroupBox2.Controls.Add(Me.DateTo1)
         Me.GroupBox2.Controls.Add(Me.Label4)
-        Me.GroupBox2.Controls.Add(Me.DateTimePicker1)
+        Me.GroupBox2.Controls.Add(Me.DateFrom1)
         Me.GroupBox2.Controls.Add(Me.Label3)
         Me.GroupBox2.Controls.Add(Me.BtnTotalInvestigate)
         Me.GroupBox2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox2.Location = New System.Drawing.Point(437, 9)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(399, 125)
+        Me.GroupBox2.Size = New System.Drawing.Size(503, 141)
         Me.GroupBox2.TabIndex = 7
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Total Laser, Inves, Labo..."
         '
-        'DateTimePicker2
+        'DateTo1
         '
-        Me.DateTimePicker2.CustomFormat = "dd-MM-yyyy"
-        Me.DateTimePicker2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.DateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Custom
-        Me.DateTimePicker2.Location = New System.Drawing.Point(109, 84)
-        Me.DateTimePicker2.Name = "DateTimePicker2"
-        Me.DateTimePicker2.Size = New System.Drawing.Size(131, 26)
-        Me.DateTimePicker2.TabIndex = 12
+        Me.DateTo1.CustomFormat = "dd-MM-yyyy"
+        Me.DateTo1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.DateTo1.Format = System.Windows.Forms.DateTimePickerFormat.Custom
+        Me.DateTo1.Location = New System.Drawing.Point(140, 88)
+        Me.DateTo1.Name = "DateTo1"
+        Me.DateTo1.Size = New System.Drawing.Size(154, 26)
+        Me.DateTo1.TabIndex = 12
         '
         'Label4
         '
@@ -96,15 +100,15 @@ Partial Class DashboardListCosult
         Me.Label4.TabIndex = 11
         Me.Label4.Text = "Date To:"
         '
-        'DateTimePicker1
+        'DateFrom1
         '
-        Me.DateTimePicker1.CustomFormat = "dd-MM-yyyy"
-        Me.DateTimePicker1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.DateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom
-        Me.DateTimePicker1.Location = New System.Drawing.Point(109, 55)
-        Me.DateTimePicker1.Name = "DateTimePicker1"
-        Me.DateTimePicker1.Size = New System.Drawing.Size(131, 26)
-        Me.DateTimePicker1.TabIndex = 10
+        Me.DateFrom1.CustomFormat = "dd-MM-yyyy"
+        Me.DateFrom1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.DateFrom1.Format = System.Windows.Forms.DateTimePickerFormat.Custom
+        Me.DateFrom1.Location = New System.Drawing.Point(140, 59)
+        Me.DateFrom1.Name = "DateFrom1"
+        Me.DateFrom1.Size = New System.Drawing.Size(154, 26)
+        Me.DateFrom1.TabIndex = 10
         '
         'Label3
         '
@@ -122,7 +126,7 @@ Partial Class DashboardListCosult
         Me.BtnTotalInvestigate.Cursor = System.Windows.Forms.Cursors.Hand
         Me.BtnTotalInvestigate.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.BtnTotalInvestigate.ForeColor = System.Drawing.Color.White
-        Me.BtnTotalInvestigate.Location = New System.Drawing.Point(246, 80)
+        Me.BtnTotalInvestigate.Location = New System.Drawing.Point(311, 80)
         Me.BtnTotalInvestigate.Name = "BtnTotalInvestigate"
         Me.BtnTotalInvestigate.Size = New System.Drawing.Size(142, 30)
         Me.BtnTotalInvestigate.TabIndex = 8
@@ -211,6 +215,26 @@ Partial Class DashboardListCosult
         Me.AxAcroPDF1.Size = New System.Drawing.Size(1109, 451)
         Me.AxAcroPDF1.TabIndex = 1
         '
+        'CboDoctor1
+        '
+        Me.CboDoctor1.Enabled = False
+        Me.CboDoctor1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CboDoctor1.FormattingEnabled = True
+        Me.CboDoctor1.Location = New System.Drawing.Point(140, 23)
+        Me.CboDoctor1.Name = "CboDoctor1"
+        Me.CboDoctor1.Size = New System.Drawing.Size(154, 28)
+        Me.CboDoctor1.TabIndex = 14
+        '
+        'ChDoctor1
+        '
+        Me.ChDoctor1.AutoSize = True
+        Me.ChDoctor1.Location = New System.Drawing.Point(18, 27)
+        Me.ChDoctor1.Name = "ChDoctor1"
+        Me.ChDoctor1.Size = New System.Drawing.Size(116, 24)
+        Me.ChDoctor1.TabIndex = 13
+        Me.ChDoctor1.Text = "With Doctor:"
+        Me.ChDoctor1.UseVisualStyleBackColor = True
+        '
         'DashboardListCosult
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -239,10 +263,12 @@ Partial Class DashboardListCosult
     Friend WithEvents AxAcroPDF1 As AxAcroPDFLib.AxAcroPDF
     Friend WithEvents GroupBox2 As System.Windows.Forms.GroupBox
     Friend WithEvents BtnTotalInvestigate As System.Windows.Forms.Button
-    Friend WithEvents DateTimePicker2 As System.Windows.Forms.DateTimePicker
+    Friend WithEvents DateTo1 As System.Windows.Forms.DateTimePicker
     Friend WithEvents Label4 As System.Windows.Forms.Label
-    Friend WithEvents DateTimePicker1 As System.Windows.Forms.DateTimePicker
+    Friend WithEvents DateFrom1 As System.Windows.Forms.DateTimePicker
     Friend WithEvents Label3 As System.Windows.Forms.Label
+    Friend WithEvents CboDoctor1 As System.Windows.Forms.ComboBox
+    Friend WithEvents ChDoctor1 As System.Windows.Forms.CheckBox
 
 
 End Class
