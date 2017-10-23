@@ -1580,4 +1580,9 @@ Public Class UCPatientPayment
         '    End If
         'End If
     End Sub
+
+    Private Sub BtnFollowup_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnFollowup.Click
+        Dim pFollowupBydr As New PatientFollowupByDoctor
+        pFollowupBydr.ShowDialog()
+    End Sub
 End Class

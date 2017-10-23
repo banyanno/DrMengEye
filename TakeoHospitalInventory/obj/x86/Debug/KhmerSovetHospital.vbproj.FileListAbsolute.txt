@@ -602,3 +602,4 @@ C:\BanYanno\SoftProject\DrMengEye\TakeoHospitalInventory\obj\x86\Debug\TakeoHosp
 C:\BanYanno\SoftProject\DrMengEye\TakeoHospitalInventory\obj\x86\Debug\ca-ES\TakeoHospitalInventory.resources.dll
 C:\BanYanno\SoftProject\DrMengEye\TakeoHospitalInventory\obj\x86\Debug\ca\TakeoHospitalInventory.resources.dll
 C:\BanYanno\SoftProject\DrMengEye\TakeoHospitalInventory\obj\x86\Debug\TakeoHospitalInventory.exe
+C:\BanYanno\SoftProject\DrMengEye\TakeoHospitalInventory\obj\x86\Debug\TakeoHospitalInventory.PatientFollowupByDoctor.resources

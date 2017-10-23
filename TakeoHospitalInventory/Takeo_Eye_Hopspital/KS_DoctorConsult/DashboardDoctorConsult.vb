@@ -1174,4 +1174,9 @@
         EyeExam.PatientID.Text = GridPatientWaiting.GetRow.Cells("PATIENT_NO").Value
         EyeExam.ShowDialog()
     End Sub
+
+    Private Sub BtnPatientFollowUp_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnPatientFollowUp.Click
+        Dim pFollowupBydr As New PatientFollowupByDoctor
+        pFollowupBydr.ShowDialog()
+    End Sub
 End Class

@@ -700,6 +700,12 @@
     <Compile Include="Takeo_Eye_Hopspital\KS_DoctorConsult\Lab\UCWaitingLabolatory.vb">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="Takeo_Eye_Hopspital\KS_DoctorConsult\PatientFollowupByDoctor.Designer.vb">
+      <DependentUpon>PatientFollowupByDoctor.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Takeo_Eye_Hopspital\KS_DoctorConsult\PatientFollowupByDoctor.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Takeo_Eye_Hopspital\KS_DoctorConsult\Referal\DashboardReferral.Designer.vb">
       <DependentUpon>DashboardReferral.vb</DependentUpon>
     </Compile>
@@ -3380,6 +3386,9 @@
       <DependentUpon>UCWaitingLabolatory.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="Takeo_Eye_Hopspital\KS_DoctorConsult\PatientFollowupByDoctor.resx">
+      <DependentUpon>PatientFollowupByDoctor.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Takeo_Eye_Hopspital\KS_DoctorConsult\Referal\DashboardReferral.resx">
       <DependentUpon>DashboardReferral.vb</DependentUpon>
       <SubType>Designer</SubType>
@@ -5108,6 +5117,7 @@
     <None Include="Resources\gblue.png" />
     <None Include="Resources\expences-button-png-hi_2.png" />
     <None Include="Resources\Eye Health System Components.png" />
+    <None Include="Resources\followup-icon.png" />
     <Content Include="Resources\ichemical.ico" />
     <Content Include="Resources\icontainer.ico" />
     <None Include="Resources\IDCard.png" />
