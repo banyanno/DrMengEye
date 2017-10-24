@@ -166,6 +166,7 @@
             ViewPatientVANewExam(GridPatientWaiting.GetRow.Cells("WAIT_ID").Value)
             ViewPatientHistory(GridPatientWaiting.GetRow.Cells("PATIENT_NO").Value)
             ShowOperationHistory(GridPatientWaiting.GetRow.Cells("PATIENT_NO").Value)
+            GridFollowDetial.DataSource = DA_HistoryFollowUp.SelectFollowUpByPatient(GridPatientWaiting.GetRow.Cells("PATIENT_NO").Value)
         Catch ex As Exception
 
         End Try
@@ -330,10 +331,10 @@
     End Sub
     Sub NewPatientExam()
         If GridPatientWaiting.SelectedItems.Count = 0 Then Exit Sub
-        If GridPatientWaiting.FilterRow.Selected = True Then
-            MessageBox.Show("Please select patient before do examination", "Examination", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            Exit Sub
-        End If
+        'If GridPatientWaiting.FilterRow.Selected = True Then
+        '    MessageBox.Show("Please select patient before do examination", "Examination", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        '    Exit Sub
+        'End If
         If DA_Waiting.CheckDoctorConsulting(GridPatientWaiting.GetRow.Cells("WAIT_ID").Value).Rows.Count > 0 Then
             MessageBox.Show("Doctor is consulting this patient. you can not start consult", "Consultation", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Exit Sub

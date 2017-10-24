@@ -901,8 +901,8 @@ Public Class NewDoctorConsult
                         IS_HAVE_Presc = True
                     Next
                     '============ Print Prescription =====================
-                    LblLoadPring.Visible = True
-                    ContainerControlCommand1.Visible = True
+                    'LblLoadPring.Visible = True
+                    'ContainerControlCommand1.Visible = True
                     PicLoadReport.Visible = True
                     BgLoadRegistrationForm.RunWorkerAsync()
              
@@ -990,8 +990,8 @@ Public Class NewDoctorConsult
     Dim DA_Patient_Image As New DSConsultHistoryTableAdapters.S_PATIENT_IMAGE_VIEWTableAdapter
     Private Sub BtnViewHistory_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnViewHistory.Click
         If BtnViewHistory.Text = "View History" Then
-            LblLoadPring.Visible = True
-            ContainerControlCommand1.Visible = True
+            'LblLoadPring.Visible = True
+            'ContainerControlCommand1.Visible = True
             BgLoadHistoryPatient.RunWorkerAsync()
 
         Else
@@ -1084,9 +1084,9 @@ Public Class NewDoctorConsult
     End Sub
 
     Private Sub BgLoadRegistrationForm_RunWorkerCompleted(ByVal sender As System.Object, ByVal e As System.ComponentModel.RunWorkerCompletedEventArgs) Handles BgLoadRegistrationForm.RunWorkerCompleted
-        LblLoadPring.Visible = False
+        ' LblLoadPring.Visible = False
         PicLoadReport.Visible = False
-        ContainerControlCommand1.Visible = False
+        '  ContainerControlCommand1.Visible = False
         DA_PrePrescription.DeletePreWaiting(CInt(WAITING_NO))
         DA_Waiting.UpdatePatientStatus("", "3", "2", WAITING_NO)
         Me.DispostProcessDeclaration()
@@ -1100,8 +1100,8 @@ Public Class NewDoctorConsult
     End Sub
 
     Private Sub BgLoadHistory_RunWorkerCompleted(ByVal sender As System.Object, ByVal e As System.ComponentModel.RunWorkerCompletedEventArgs) Handles BgLoadHistoryPatient.RunWorkerCompleted
-        LblLoadPring.Visible = False
-        ContainerControlCommand1.Visible = False
+        'LblLoadPring.Visible = False
+        'ContainerControlCommand1.Visible = False
     End Sub
 
     Private Sub Button2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)

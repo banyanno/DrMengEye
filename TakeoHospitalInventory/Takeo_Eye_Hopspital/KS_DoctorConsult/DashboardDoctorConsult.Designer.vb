@@ -25,6 +25,7 @@ Partial Class DashboardDoctorConsult
         Me.components = New System.ComponentModel.Container
         Dim GridPatientWaiting_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(DashboardDoctorConsult))
+        Dim GridFollowDetial_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout
         Dim GridOT_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout
         Dim GridHistoy_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout
         Dim GridPrescription_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout
@@ -34,8 +35,16 @@ Partial Class DashboardDoctorConsult
         Me.SplitContainer3 = New System.Windows.Forms.SplitContainer
         Me.GroupBox3 = New System.Windows.Forms.GroupBox
         Me.GridPatientWaiting = New Janus.Windows.GridEX.GridEX
+        Me.GroupBox7 = New System.Windows.Forms.GroupBox
+        Me.GridFollowDetial = New Janus.Windows.GridEX.GridEX
+        Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.BtnSendToConsult = New System.Windows.Forms.ToolStripMenuItem
+        Me.ToolStripMenuItem10 = New System.Windows.Forms.ToolStripSeparator
+        Me.NewPatientFollowupToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
         Me.GroupBox9 = New System.Windows.Forms.GroupBox
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox
         Me.UiTab4 = New Janus.Windows.UI.Tab.UITab
+        Me.UiTabPage6 = New Janus.Windows.UI.Tab.UITabPage
         Me.GroupBox1 = New System.Windows.Forms.GroupBox
         Me.TxtNote = New System.Windows.Forms.TextBox
         Me.Label28 = New System.Windows.Forms.Label
@@ -59,6 +68,7 @@ Partial Class DashboardDoctorConsult
         Me.Label5 = New System.Windows.Forms.Label
         Me.Label3 = New System.Windows.Forms.Label
         Me.Label2 = New System.Windows.Forms.Label
+        Me.UiTabPage9 = New Janus.Windows.UI.Tab.UITabPage
         Me.GridOT = New Janus.Windows.GridEX.GridEX
         Me.MenuOperationNote = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.BtnUpdateOPNote = New System.Windows.Forms.ToolStripMenuItem
@@ -76,11 +86,14 @@ Partial Class DashboardDoctorConsult
         Me.Label24 = New System.Windows.Forms.Label
         Me.Label16 = New System.Windows.Forms.Label
         Me.UiTab2 = New Janus.Windows.UI.Tab.UITab
+        Me.UiTabPage4 = New Janus.Windows.UI.Tab.UITabPage
         Me.TxtDiagnosisCodeLeft = New System.Windows.Forms.TextBox
         Me.CboDiagnosisLeft = New System.Windows.Forms.ComboBox
         Me.Label27 = New System.Windows.Forms.Label
         Me.UiTab3 = New Janus.Windows.UI.Tab.UITab
+        Me.UiTabPage7 = New Janus.Windows.UI.Tab.UITabPage
         Me.GridPrescription = New Janus.Windows.GridEX.GridEX
+        Me.UiTabPage8 = New Janus.Windows.UI.Tab.UITabPage
         Me.GridImageList = New Janus.Windows.GridEX.GridEX
         Me.Label15 = New System.Windows.Forms.Label
         Me.Label45 = New System.Windows.Forms.Label
@@ -125,36 +138,26 @@ Partial Class DashboardDoctorConsult
         Me.Label22 = New System.Windows.Forms.Label
         Me.Label23 = New System.Windows.Forms.Label
         Me.ToolStrip1 = New System.Windows.Forms.ToolStrip
+        Me.BtnStartConsult = New System.Windows.Forms.ToolStripButton
         Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator
+        Me.btnRefreshData = New System.Windows.Forms.ToolStripButton
         Me.ToolStripSeparator2 = New System.Windows.Forms.ToolStripSeparator
+        Me.BtnDeleteWaiting = New System.Windows.Forms.ToolStripButton
         Me.ToolStripSeparator3 = New System.Windows.Forms.ToolStripSeparator
+        Me.BtnPatientHistory = New System.Windows.Forms.ToolStripButton
         Me.ToolStripSeparator4 = New System.Windows.Forms.ToolStripSeparator
+        Me.BtnPatientFollowUp = New System.Windows.Forms.ToolStripButton
+        Me.ToolStripSeparator5 = New System.Windows.Forms.ToolStripSeparator
+        Me.BtnEyeExam = New System.Windows.Forms.ToolStripButton
         Me.ContextMenuFollowUp = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.BtnNewConsultFollow = New System.Windows.Forms.ToolStripMenuItem
         Me.ToolStripMenuItem1 = New System.Windows.Forms.ToolStripSeparator
         Me.BtnCancelFollowUP = New System.Windows.Forms.ToolStripMenuItem
         Me.UiTab1 = New Janus.Windows.UI.Tab.UITab
-        Me.GridFollowUp = New Janus.Windows.GridEX.GridEX
-        Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
-        Me.BtnSendToConsult = New System.Windows.Forms.ToolStripMenuItem
-        Me.ToolStripMenuItem10 = New System.Windows.Forms.ToolStripSeparator
-        Me.NewPatientFollowupToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
-        Me.ToolStripSeparator5 = New System.Windows.Forms.ToolStripSeparator
         Me.UiTabPage1 = New Janus.Windows.UI.Tab.UITabPage
         Me.UiTabPage3 = New Janus.Windows.UI.Tab.UITabPage
         Me.UiTabPage2 = New Janus.Windows.UI.Tab.UITabPage
-        Me.BtnStartConsult = New System.Windows.Forms.ToolStripButton
-        Me.btnRefreshData = New System.Windows.Forms.ToolStripButton
-        Me.BtnDeleteWaiting = New System.Windows.Forms.ToolStripButton
-        Me.BtnPatientHistory = New System.Windows.Forms.ToolStripButton
-        Me.BtnPatientFollowUp = New System.Windows.Forms.ToolStripButton
-        Me.BtnEyeExam = New System.Windows.Forms.ToolStripButton
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox
-        Me.UiTabPage6 = New Janus.Windows.UI.Tab.UITabPage
-        Me.UiTabPage9 = New Janus.Windows.UI.Tab.UITabPage
-        Me.UiTabPage4 = New Janus.Windows.UI.Tab.UITabPage
-        Me.UiTabPage7 = New Janus.Windows.UI.Tab.UITabPage
-        Me.UiTabPage8 = New Janus.Windows.UI.Tab.UITabPage
+        Me.GridFollowUp = New Janus.Windows.GridEX.GridEX
         Me.SplitContainer1.Panel1.SuspendLayout()
         Me.SplitContainer1.Panel2.SuspendLayout()
         Me.SplitContainer1.SuspendLayout()
@@ -163,11 +166,17 @@ Partial Class DashboardDoctorConsult
         Me.SplitContainer3.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
         CType(Me.GridPatientWaiting, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.GroupBox7.SuspendLayout()
+        CType(Me.GridFollowDetial, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.ContextMenuStrip1.SuspendLayout()
         Me.GroupBox9.SuspendLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.UiTab4, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.UiTab4.SuspendLayout()
+        Me.UiTabPage6.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
+        Me.UiTabPage9.SuspendLayout()
         CType(Me.GridOT, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.MenuOperationNote.SuspendLayout()
         Me.SplitContainer2.Panel1.SuspendLayout()
@@ -179,9 +188,12 @@ Partial Class DashboardDoctorConsult
         Me.Panel1.SuspendLayout()
         CType(Me.UiTab2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.UiTab2.SuspendLayout()
+        Me.UiTabPage4.SuspendLayout()
         CType(Me.UiTab3, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.UiTab3.SuspendLayout()
+        Me.UiTabPage7.SuspendLayout()
         CType(Me.GridPrescription, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.UiTabPage8.SuspendLayout()
         CType(Me.GridImageList, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupEye.SuspendLayout()
         Me.GroupMangement.SuspendLayout()
@@ -190,23 +202,17 @@ Partial Class DashboardDoctorConsult
         Me.ContextMenuFollowUp.SuspendLayout()
         CType(Me.UiTab1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.UiTab1.SuspendLayout()
-        CType(Me.GridFollowUp, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.ContextMenuStrip1.SuspendLayout()
         Me.UiTabPage1.SuspendLayout()
         Me.UiTabPage3.SuspendLayout()
         Me.UiTabPage2.SuspendLayout()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.UiTabPage6.SuspendLayout()
-        Me.UiTabPage9.SuspendLayout()
-        Me.UiTabPage4.SuspendLayout()
-        Me.UiTabPage7.SuspendLayout()
-        Me.UiTabPage8.SuspendLayout()
+        CType(Me.GridFollowUp, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'SplitContainer1
         '
         Me.SplitContainer1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.SplitContainer1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.SplitContainer1.FixedPanel = System.Windows.Forms.FixedPanel.Panel2
         Me.SplitContainer1.Location = New System.Drawing.Point(0, 0)
         Me.SplitContainer1.Name = "SplitContainer1"
         Me.SplitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal
@@ -219,13 +225,14 @@ Partial Class DashboardDoctorConsult
         '
         Me.SplitContainer1.Panel2.Controls.Add(Me.UiTab4)
         Me.SplitContainer1.Size = New System.Drawing.Size(1261, 1047)
-        Me.SplitContainer1.SplitterDistance = 523
+        Me.SplitContainer1.SplitterDistance = 771
         Me.SplitContainer1.TabIndex = 0
         '
         'SplitContainer3
         '
         Me.SplitContainer3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.SplitContainer3.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.SplitContainer3.FixedPanel = System.Windows.Forms.FixedPanel.Panel1
         Me.SplitContainer3.Location = New System.Drawing.Point(0, 0)
         Me.SplitContainer3.Name = "SplitContainer3"
         '
@@ -235,9 +242,10 @@ Partial Class DashboardDoctorConsult
         '
         'SplitContainer3.Panel2
         '
+        Me.SplitContainer3.Panel2.Controls.Add(Me.GroupBox7)
         Me.SplitContainer3.Panel2.Controls.Add(Me.GroupBox9)
-        Me.SplitContainer3.Size = New System.Drawing.Size(1261, 523)
-        Me.SplitContainer3.SplitterDistance = 978
+        Me.SplitContainer3.Size = New System.Drawing.Size(1261, 771)
+        Me.SplitContainer3.SplitterDistance = 996
         Me.SplitContainer3.TabIndex = 8
         '
         'GroupBox3
@@ -248,7 +256,7 @@ Partial Class DashboardDoctorConsult
         Me.GroupBox3.ForeColor = System.Drawing.Color.Blue
         Me.GroupBox3.Location = New System.Drawing.Point(0, 0)
         Me.GroupBox3.Name = "GroupBox3"
-        Me.GroupBox3.Size = New System.Drawing.Size(976, 521)
+        Me.GroupBox3.Size = New System.Drawing.Size(994, 769)
         Me.GroupBox3.TabIndex = 7
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "ចំនួនអ្នកជំងឺរងចាំ"
@@ -261,9 +269,9 @@ Partial Class DashboardDoctorConsult
         GridPatientWaiting_DesignTimeLayout.LayoutString = resources.GetString("GridPatientWaiting_DesignTimeLayout.LayoutString")
         Me.GridPatientWaiting.DesignTimeLayout = GridPatientWaiting_DesignTimeLayout
         Me.GridPatientWaiting.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.GridPatientWaiting.FilterMode = Janus.Windows.GridEX.FilterMode.Automatic
         Me.GridPatientWaiting.FilterRowFormatStyle.BackColor = System.Drawing.SystemColors.Info
         Me.GridPatientWaiting.FilterRowUpdateMode = Janus.Windows.GridEX.FilterRowUpdateMode.WhenValueChanges
+        Me.GridPatientWaiting.FocusStyle = Janus.Windows.GridEX.FocusStyle.Solid
         Me.GridPatientWaiting.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
         Me.GridPatientWaiting.GridLineStyle = Janus.Windows.GridEX.GridLineStyle.Solid
         Me.GridPatientWaiting.GroupByBoxVisible = False
@@ -280,29 +288,104 @@ Partial Class DashboardDoctorConsult
         Me.GridPatientWaiting.SelectedInactiveFormatStyle.FontBold = Janus.Windows.GridEX.TriState.[True]
         Me.GridPatientWaiting.SelectedInactiveFormatStyle.FontSize = 12.0!
         Me.GridPatientWaiting.SelectedInactiveFormatStyle.ForeColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.GridPatientWaiting.Size = New System.Drawing.Size(970, 485)
+        Me.GridPatientWaiting.Size = New System.Drawing.Size(988, 733)
         Me.GridPatientWaiting.TabIndex = 6
         Me.GridPatientWaiting.VisualStyle = Janus.Windows.GridEX.VisualStyle.Office2003
+        '
+        'GroupBox7
+        '
+        Me.GroupBox7.Controls.Add(Me.GridFollowDetial)
+        Me.GroupBox7.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.GroupBox7.Location = New System.Drawing.Point(0, 0)
+        Me.GroupBox7.Name = "GroupBox7"
+        Me.GroupBox7.Size = New System.Drawing.Size(259, 769)
+        Me.GroupBox7.TabIndex = 2
+        Me.GroupBox7.TabStop = False
+        Me.GroupBox7.Text = "Follow up History"
+        '
+        'GridFollowDetial
+        '
+        Me.GridFollowDetial.AllowEdit = Janus.Windows.GridEX.InheritableBoolean.[False]
+        Me.GridFollowDetial.BackColor = System.Drawing.Color.FromArgb(CType(CType(196, Byte), Integer), CType(CType(218, Byte), Integer), CType(CType(250, Byte), Integer))
+        Me.GridFollowDetial.ContextMenuStrip = Me.ContextMenuStrip1
+        GridFollowDetial_DesignTimeLayout.LayoutString = resources.GetString("GridFollowDetial_DesignTimeLayout.LayoutString")
+        Me.GridFollowDetial.DesignTimeLayout = GridFollowDetial_DesignTimeLayout
+        Me.GridFollowDetial.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.GridFollowDetial.FilterMode = Janus.Windows.GridEX.FilterMode.Automatic
+        Me.GridFollowDetial.FilterRowFormatStyle.BackColor = System.Drawing.SystemColors.Info
+        Me.GridFollowDetial.FilterRowUpdateMode = Janus.Windows.GridEX.FilterRowUpdateMode.WhenValueChanges
+        Me.GridFollowDetial.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
+        Me.GridFollowDetial.GridLineStyle = Janus.Windows.GridEX.GridLineStyle.Solid
+        Me.GridFollowDetial.GroupByBoxVisible = False
+        Me.GridFollowDetial.HeaderFormatStyle.FontSize = 12.0!
+        Me.GridFollowDetial.HeaderFormatStyle.ForeColor = System.Drawing.Color.Blue
+        Me.GridFollowDetial.HeaderFormatStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Center
+        Me.GridFollowDetial.HideSelection = Janus.Windows.GridEX.HideSelection.HighlightInactive
+        Me.GridFollowDetial.Location = New System.Drawing.Point(3, 22)
+        Me.GridFollowDetial.Name = "GridFollowDetial"
+        Me.GridFollowDetial.RecordNavigator = True
+        Me.GridFollowDetial.RowFormatStyle.FontSize = 12.0!
+        Me.GridFollowDetial.Size = New System.Drawing.Size(253, 744)
+        Me.GridFollowDetial.TabIndex = 8
+        Me.GridFollowDetial.VisualStyle = Janus.Windows.GridEX.VisualStyle.Office2003
+        '
+        'ContextMenuStrip1
+        '
+        Me.ContextMenuStrip1.Font = New System.Drawing.Font("Segoe UI", 12.0!)
+        Me.ContextMenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.BtnSendToConsult, Me.ToolStripMenuItem10, Me.NewPatientFollowupToolStripMenuItem})
+        Me.ContextMenuStrip1.Name = "ContextMenuStrip1"
+        Me.ContextMenuStrip1.Size = New System.Drawing.Size(243, 62)
+        '
+        'BtnSendToConsult
+        '
+        Me.BtnSendToConsult.ForeColor = System.Drawing.Color.Blue
+        Me.BtnSendToConsult.Name = "BtnSendToConsult"
+        Me.BtnSendToConsult.Size = New System.Drawing.Size(242, 26)
+        Me.BtnSendToConsult.Text = "Send to waiting consult"
+        '
+        'ToolStripMenuItem10
+        '
+        Me.ToolStripMenuItem10.Name = "ToolStripMenuItem10"
+        Me.ToolStripMenuItem10.Size = New System.Drawing.Size(239, 6)
+        Me.ToolStripMenuItem10.Visible = False
+        '
+        'NewPatientFollowupToolStripMenuItem
+        '
+        Me.NewPatientFollowupToolStripMenuItem.ForeColor = System.Drawing.Color.Blue
+        Me.NewPatientFollowupToolStripMenuItem.Name = "NewPatientFollowupToolStripMenuItem"
+        Me.NewPatientFollowupToolStripMenuItem.Size = New System.Drawing.Size(242, 26)
+        Me.NewPatientFollowupToolStripMenuItem.Text = "New patient followup"
+        Me.NewPatientFollowupToolStripMenuItem.Visible = False
         '
         'GroupBox9
         '
         Me.GroupBox9.Controls.Add(Me.PictureBox1)
-        Me.GroupBox9.Dock = System.Windows.Forms.DockStyle.Fill
         Me.GroupBox9.Font = New System.Drawing.Font("Kh Battambang", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox9.ForeColor = System.Drawing.Color.Blue
-        Me.GroupBox9.Location = New System.Drawing.Point(0, 0)
+        Me.GroupBox9.Location = New System.Drawing.Point(64, 110)
         Me.GroupBox9.Name = "GroupBox9"
-        Me.GroupBox9.Size = New System.Drawing.Size(277, 521)
+        Me.GroupBox9.Size = New System.Drawing.Size(213, 411)
         Me.GroupBox9.TabIndex = 1
         Me.GroupBox9.TabStop = False
         Me.GroupBox9.Text = "រូបភាព"
+        '
+        'PictureBox1
+        '
+        Me.PictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.PictureBox1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.PictureBox1.Location = New System.Drawing.Point(3, 33)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(207, 375)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox1.TabIndex = 0
+        Me.PictureBox1.TabStop = False
         '
         'UiTab4
         '
         Me.UiTab4.Dock = System.Windows.Forms.DockStyle.Fill
         Me.UiTab4.Location = New System.Drawing.Point(0, 0)
         Me.UiTab4.Name = "UiTab4"
-        Me.UiTab4.Size = New System.Drawing.Size(1259, 518)
+        Me.UiTab4.Size = New System.Drawing.Size(1259, 270)
         Me.UiTab4.TabIndex = 1
         Me.UiTab4.TabPages.AddRange(New Janus.Windows.UI.Tab.UITabPage() {Me.UiTabPage6, Me.UiTabPage9})
         Me.UiTab4.TabsStateStyles.FormatStyle.ForeColor = System.Drawing.Color.Red
@@ -310,6 +393,15 @@ Partial Class DashboardDoctorConsult
         Me.UiTab4.TabsStateStyles.HotFormatStyle.ForeColor = System.Drawing.Color.Blue
         Me.UiTab4.TabStripFormatStyle.ForeColor = System.Drawing.Color.Red
         Me.UiTab4.VisualStyle = Janus.Windows.UI.Tab.TabVisualStyle.Office2003
+        '
+        'UiTabPage6
+        '
+        Me.UiTabPage6.Controls.Add(Me.GroupBox1)
+        Me.UiTabPage6.Location = New System.Drawing.Point(1, 28)
+        Me.UiTabPage6.Name = "UiTabPage6"
+        Me.UiTabPage6.Size = New System.Drawing.Size(1257, 241)
+        Me.UiTabPage6.TabStop = True
+        Me.UiTabPage6.Text = "    New Visual Acuity    "
         '
         'GroupBox1
         '
@@ -321,7 +413,7 @@ Partial Class DashboardDoctorConsult
         Me.GroupBox1.ForeColor = System.Drawing.Color.Blue
         Me.GroupBox1.Location = New System.Drawing.Point(0, 0)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(1257, 489)
+        Me.GroupBox1.Size = New System.Drawing.Size(1257, 241)
         Me.GroupBox1.TabIndex = 0
         Me.GroupBox1.TabStop = False
         '
@@ -331,12 +423,12 @@ Partial Class DashboardDoctorConsult
                     Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.TxtNote.BackColor = System.Drawing.Color.White
         Me.TxtNote.Font = New System.Drawing.Font("Khmer OS Battambang", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TxtNote.Location = New System.Drawing.Point(6, 45)
+        Me.TxtNote.Location = New System.Drawing.Point(6, 38)
         Me.TxtNote.Multiline = True
         Me.TxtNote.Name = "TxtNote"
         Me.TxtNote.ReadOnly = True
         Me.TxtNote.ScrollBars = System.Windows.Forms.ScrollBars.Both
-        Me.TxtNote.Size = New System.Drawing.Size(1245, 138)
+        Me.TxtNote.Size = New System.Drawing.Size(1245, 85)
         Me.TxtNote.TabIndex = 17
         '
         'Label28
@@ -345,7 +437,7 @@ Partial Class DashboardDoctorConsult
         Me.Label28.BackColor = System.Drawing.Color.Transparent
         Me.Label28.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label28.ForeColor = System.Drawing.Color.Blue
-        Me.Label28.Location = New System.Drawing.Point(6, 22)
+        Me.Label28.Location = New System.Drawing.Point(6, 15)
         Me.Label28.Name = "Label28"
         Me.Label28.Size = New System.Drawing.Size(139, 20)
         Me.Label28.TabIndex = 30
@@ -376,9 +468,9 @@ Partial Class DashboardDoctorConsult
         Me.GroupBox2.Controls.Add(Me.Label2)
         Me.GroupBox2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox2.ForeColor = System.Drawing.Color.Blue
-        Me.GroupBox2.Location = New System.Drawing.Point(4, 189)
+        Me.GroupBox2.Location = New System.Drawing.Point(4, 133)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(1251, 136)
+        Me.GroupBox2.Size = New System.Drawing.Size(1251, 102)
         Me.GroupBox2.TabIndex = 1
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "New Visual Acuity"
@@ -387,7 +479,7 @@ Partial Class DashboardDoctorConsult
         '
         Me.TxtIOPLE.BackColor = System.Drawing.Color.White
         Me.TxtIOPLE.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.TxtIOPLE.Location = New System.Drawing.Point(659, 81)
+        Me.TxtIOPLE.Location = New System.Drawing.Point(660, 57)
         Me.TxtIOPLE.Name = "TxtIOPLE"
         Me.TxtIOPLE.ReadOnly = True
         Me.TxtIOPLE.Size = New System.Drawing.Size(82, 26)
@@ -398,7 +490,7 @@ Partial Class DashboardDoctorConsult
         '
         Me.TxtIOPRE.BackColor = System.Drawing.Color.White
         Me.TxtIOPRE.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.TxtIOPRE.Location = New System.Drawing.Point(659, 49)
+        Me.TxtIOPRE.Location = New System.Drawing.Point(660, 25)
         Me.TxtIOPRE.Name = "TxtIOPRE"
         Me.TxtIOPRE.ReadOnly = True
         Me.TxtIOPRE.Size = New System.Drawing.Size(82, 26)
@@ -409,7 +501,7 @@ Partial Class DashboardDoctorConsult
         '
         Me.TxtLLE.BackColor = System.Drawing.Color.White
         Me.TxtLLE.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.TxtLLE.Location = New System.Drawing.Point(548, 81)
+        Me.TxtLLE.Location = New System.Drawing.Point(549, 57)
         Me.TxtLLE.Name = "TxtLLE"
         Me.TxtLLE.ReadOnly = True
         Me.TxtLLE.Size = New System.Drawing.Size(82, 26)
@@ -420,7 +512,7 @@ Partial Class DashboardDoctorConsult
         '
         Me.TxtRRE.BackColor = System.Drawing.Color.White
         Me.TxtRRE.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.TxtRRE.Location = New System.Drawing.Point(548, 49)
+        Me.TxtRRE.Location = New System.Drawing.Point(549, 25)
         Me.TxtRRE.Name = "TxtRRE"
         Me.TxtRRE.ReadOnly = True
         Me.TxtRRE.Size = New System.Drawing.Size(82, 26)
@@ -431,7 +523,7 @@ Partial Class DashboardDoctorConsult
         '
         Me.TxtLREF.BackColor = System.Drawing.Color.White
         Me.TxtLREF.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.TxtLREF.Location = New System.Drawing.Point(375, 81)
+        Me.TxtLREF.Location = New System.Drawing.Point(376, 57)
         Me.TxtLREF.Name = "TxtLREF"
         Me.TxtLREF.ReadOnly = True
         Me.TxtLREF.Size = New System.Drawing.Size(123, 26)
@@ -442,7 +534,7 @@ Partial Class DashboardDoctorConsult
         '
         Me.TxtRREF.BackColor = System.Drawing.Color.White
         Me.TxtRREF.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.TxtRREF.Location = New System.Drawing.Point(375, 49)
+        Me.TxtRREF.Location = New System.Drawing.Point(376, 25)
         Me.TxtRREF.Name = "TxtRREF"
         Me.TxtRREF.ReadOnly = True
         Me.TxtRREF.Size = New System.Drawing.Size(123, 26)
@@ -453,7 +545,7 @@ Partial Class DashboardDoctorConsult
         '
         Me.TxtLPh.BackColor = System.Drawing.Color.White
         Me.TxtLPh.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.TxtLPh.Location = New System.Drawing.Point(218, 81)
+        Me.TxtLPh.Location = New System.Drawing.Point(219, 57)
         Me.TxtLPh.Name = "TxtLPh"
         Me.TxtLPh.ReadOnly = True
         Me.TxtLPh.Size = New System.Drawing.Size(104, 26)
@@ -464,7 +556,7 @@ Partial Class DashboardDoctorConsult
         '
         Me.TxtRPh.BackColor = System.Drawing.Color.White
         Me.TxtRPh.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.TxtRPh.Location = New System.Drawing.Point(218, 49)
+        Me.TxtRPh.Location = New System.Drawing.Point(219, 25)
         Me.TxtRPh.Name = "TxtRPh"
         Me.TxtRPh.ReadOnly = True
         Me.TxtRPh.Size = New System.Drawing.Size(104, 26)
@@ -475,7 +567,7 @@ Partial Class DashboardDoctorConsult
         '
         Me.TxtLE.BackColor = System.Drawing.Color.White
         Me.TxtLE.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.TxtLE.Location = New System.Drawing.Point(48, 81)
+        Me.TxtLE.Location = New System.Drawing.Point(49, 57)
         Me.TxtLE.Name = "TxtLE"
         Me.TxtLE.ReadOnly = True
         Me.TxtLE.Size = New System.Drawing.Size(123, 26)
@@ -486,7 +578,7 @@ Partial Class DashboardDoctorConsult
         '
         Me.TxtRE.BackColor = System.Drawing.Color.White
         Me.TxtRE.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.TxtRE.Location = New System.Drawing.Point(48, 49)
+        Me.TxtRE.Location = New System.Drawing.Point(49, 25)
         Me.TxtRE.Name = "TxtRE"
         Me.TxtRE.ReadOnly = True
         Me.TxtRE.Size = New System.Drawing.Size(123, 26)
@@ -496,7 +588,7 @@ Partial Class DashboardDoctorConsult
         'Label10
         '
         Me.Label10.AutoSize = True
-        Me.Label10.Location = New System.Drawing.Point(679, 26)
+        Me.Label10.Location = New System.Drawing.Point(757, 41)
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(36, 20)
         Me.Label10.TabIndex = 8
@@ -505,7 +597,7 @@ Partial Class DashboardDoctorConsult
         'Label8
         '
         Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(509, 87)
+        Me.Label8.Location = New System.Drawing.Point(510, 63)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(29, 20)
         Me.Label8.TabIndex = 7
@@ -514,7 +606,7 @@ Partial Class DashboardDoctorConsult
         'Label9
         '
         Me.Label9.AutoSize = True
-        Me.Label9.Location = New System.Drawing.Point(509, 55)
+        Me.Label9.Location = New System.Drawing.Point(510, 31)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(32, 20)
         Me.Label9.TabIndex = 6
@@ -523,7 +615,7 @@ Partial Class DashboardDoctorConsult
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(327, 87)
+        Me.Label6.Location = New System.Drawing.Point(328, 63)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(42, 20)
         Me.Label6.TabIndex = 5
@@ -532,7 +624,7 @@ Partial Class DashboardDoctorConsult
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(327, 55)
+        Me.Label7.Location = New System.Drawing.Point(328, 31)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(42, 20)
         Me.Label7.TabIndex = 4
@@ -541,7 +633,7 @@ Partial Class DashboardDoctorConsult
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(184, 87)
+        Me.Label4.Location = New System.Drawing.Point(185, 63)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(28, 20)
         Me.Label4.TabIndex = 3
@@ -550,7 +642,7 @@ Partial Class DashboardDoctorConsult
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(184, 55)
+        Me.Label5.Location = New System.Drawing.Point(185, 31)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(28, 20)
         Me.Label5.TabIndex = 2
@@ -559,7 +651,7 @@ Partial Class DashboardDoctorConsult
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(13, 87)
+        Me.Label3.Location = New System.Drawing.Point(14, 63)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(29, 20)
         Me.Label3.TabIndex = 1
@@ -568,11 +660,20 @@ Partial Class DashboardDoctorConsult
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(13, 55)
+        Me.Label2.Location = New System.Drawing.Point(14, 31)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(32, 20)
         Me.Label2.TabIndex = 0
         Me.Label2.Text = "RE"
+        '
+        'UiTabPage9
+        '
+        Me.UiTabPage9.Controls.Add(Me.GridOT)
+        Me.UiTabPage9.Location = New System.Drawing.Point(1, 28)
+        Me.UiTabPage9.Name = "UiTabPage9"
+        Me.UiTabPage9.Size = New System.Drawing.Size(1257, 491)
+        Me.UiTabPage9.TabStop = True
+        Me.UiTabPage9.Text = "     Operation Note History    "
         '
         'GridOT
         '
@@ -792,6 +893,31 @@ Partial Class DashboardDoctorConsult
         Me.UiTab2.TabPages.AddRange(New Janus.Windows.UI.Tab.UITabPage() {Me.UiTabPage4})
         Me.UiTab2.VisualStyle = Janus.Windows.UI.Tab.TabVisualStyle.Office2003
         '
+        'UiTabPage4
+        '
+        Me.UiTabPage4.AutoScroll = True
+        Me.UiTabPage4.Controls.Add(Me.TxtDiagnosisCodeLeft)
+        Me.UiTabPage4.Controls.Add(Me.CboDiagnosisLeft)
+        Me.UiTabPage4.Controls.Add(Me.Label27)
+        Me.UiTabPage4.Controls.Add(Me.UiTab3)
+        Me.UiTabPage4.Controls.Add(Me.Label15)
+        Me.UiTabPage4.Controls.Add(Me.Label45)
+        Me.UiTabPage4.Controls.Add(Me.CboDoctorConsult)
+        Me.UiTabPage4.Controls.Add(Me.TxtMedication)
+        Me.UiTabPage4.Controls.Add(Me.TxtDiagnosisNote)
+        Me.UiTabPage4.Controls.Add(Me.Label12)
+        Me.UiTabPage4.Controls.Add(Me.Label1)
+        Me.UiTabPage4.Controls.Add(Me.GroupEye)
+        Me.UiTabPage4.Controls.Add(Me.CboDiagnosis)
+        Me.UiTabPage4.Controls.Add(Me.Label11)
+        Me.UiTabPage4.Controls.Add(Me.TxtDiagnosisCodeRight)
+        Me.UiTabPage4.Controls.Add(Me.GroupMangement)
+        Me.UiTabPage4.Location = New System.Drawing.Point(1, 28)
+        Me.UiTabPage4.Name = "UiTabPage4"
+        Me.UiTabPage4.Size = New System.Drawing.Size(1533, 610)
+        Me.UiTabPage4.TabStop = True
+        Me.UiTabPage4.Text = "      Diagnosis(ICD-10)      "
+        '
         'TxtDiagnosisCodeLeft
         '
         Me.TxtDiagnosisCodeLeft.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
@@ -835,6 +961,15 @@ Partial Class DashboardDoctorConsult
         Me.UiTab3.TabPages.AddRange(New Janus.Windows.UI.Tab.UITabPage() {Me.UiTabPage7, Me.UiTabPage8})
         Me.UiTab3.VisualStyle = Janus.Windows.UI.Tab.TabVisualStyle.Office2003
         '
+        'UiTabPage7
+        '
+        Me.UiTabPage7.Controls.Add(Me.GridPrescription)
+        Me.UiTabPage7.Location = New System.Drawing.Point(1, 28)
+        Me.UiTabPage7.Name = "UiTabPage7"
+        Me.UiTabPage7.Size = New System.Drawing.Size(2039, 370)
+        Me.UiTabPage7.TabStop = True
+        Me.UiTabPage7.Text = "      Prescription     "
+        '
         'GridPrescription
         '
         Me.GridPrescription.AllowEdit = Janus.Windows.GridEX.InheritableBoolean.[False]
@@ -852,9 +987,18 @@ Partial Class DashboardDoctorConsult
         Me.GridPrescription.Location = New System.Drawing.Point(0, 0)
         Me.GridPrescription.Name = "GridPrescription"
         Me.GridPrescription.RecordNavigator = True
-        Me.GridPrescription.Size = New System.Drawing.Size(2016, 447)
+        Me.GridPrescription.Size = New System.Drawing.Size(2016, 440)
         Me.GridPrescription.TabIndex = 1
         Me.GridPrescription.VisualStyle = Janus.Windows.GridEX.VisualStyle.Office2003
+        '
+        'UiTabPage8
+        '
+        Me.UiTabPage8.Controls.Add(Me.GridImageList)
+        Me.UiTabPage8.Location = New System.Drawing.Point(1, 28)
+        Me.UiTabPage8.Name = "UiTabPage8"
+        Me.UiTabPage8.Size = New System.Drawing.Size(2039, 370)
+        Me.UiTabPage8.TabStop = True
+        Me.UiTabPage8.Text = "   Images    "
         '
         'GridImageList
         '
@@ -1390,25 +1534,100 @@ Partial Class DashboardDoctorConsult
         Me.ToolStrip1.TabIndex = 1
         Me.ToolStrip1.Text = "ToolStrip1"
         '
+        'BtnStartConsult
+        '
+        Me.BtnStartConsult.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.BtnStartConsult.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnStartConsult.ForeColor = System.Drawing.Color.Blue
+        Me.BtnStartConsult.Image = Global.TakeoHospitalInventory.My.Resources.Resources.dokter
+        Me.BtnStartConsult.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.BtnStartConsult.Name = "BtnStartConsult"
+        Me.BtnStartConsult.Size = New System.Drawing.Size(183, 60)
+        Me.BtnStartConsult.Text = "      New Examination      "
+        Me.BtnStartConsult.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
+        '
         'ToolStripSeparator1
         '
         Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
         Me.ToolStripSeparator1.Size = New System.Drawing.Size(6, 63)
+        '
+        'btnRefreshData
+        '
+        Me.btnRefreshData.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.btnRefreshData.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnRefreshData.ForeColor = System.Drawing.Color.Blue
+        Me.btnRefreshData.Image = Global.TakeoHospitalInventory.My.Resources.Resources.refresh
+        Me.btnRefreshData.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.btnRefreshData.Name = "btnRefreshData"
+        Me.btnRefreshData.Size = New System.Drawing.Size(157, 60)
+        Me.btnRefreshData.Text = "      Refresh Data      "
+        Me.btnRefreshData.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
         '
         'ToolStripSeparator2
         '
         Me.ToolStripSeparator2.Name = "ToolStripSeparator2"
         Me.ToolStripSeparator2.Size = New System.Drawing.Size(6, 63)
         '
+        'BtnDeleteWaiting
+        '
+        Me.BtnDeleteWaiting.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.BtnDeleteWaiting.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnDeleteWaiting.ForeColor = System.Drawing.Color.Blue
+        Me.BtnDeleteWaiting.Image = Global.TakeoHospitalInventory.My.Resources.Resources.delete_appointment
+        Me.BtnDeleteWaiting.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.BtnDeleteWaiting.Name = "BtnDeleteWaiting"
+        Me.BtnDeleteWaiting.Size = New System.Drawing.Size(199, 60)
+        Me.BtnDeleteWaiting.Text = "   Delete Waiting Consult   "
+        Me.BtnDeleteWaiting.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
+        '
         'ToolStripSeparator3
         '
         Me.ToolStripSeparator3.Name = "ToolStripSeparator3"
         Me.ToolStripSeparator3.Size = New System.Drawing.Size(6, 63)
         '
+        'BtnPatientHistory
+        '
+        Me.BtnPatientHistory.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.BtnPatientHistory.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnPatientHistory.ForeColor = System.Drawing.Color.Blue
+        Me.BtnPatientHistory.Image = Global.TakeoHospitalInventory.My.Resources.Resources._1417699293_Scheduled
+        Me.BtnPatientHistory.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.BtnPatientHistory.Name = "BtnPatientHistory"
+        Me.BtnPatientHistory.Size = New System.Drawing.Size(197, 60)
+        Me.BtnPatientHistory.Text = "    Patient History Report   "
+        Me.BtnPatientHistory.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
+        '
         'ToolStripSeparator4
         '
         Me.ToolStripSeparator4.Name = "ToolStripSeparator4"
         Me.ToolStripSeparator4.Size = New System.Drawing.Size(6, 63)
+        '
+        'BtnPatientFollowUp
+        '
+        Me.BtnPatientFollowUp.Font = New System.Drawing.Font("Segoe UI", 12.0!)
+        Me.BtnPatientFollowUp.ForeColor = System.Drawing.Color.Blue
+        Me.BtnPatientFollowUp.Image = Global.TakeoHospitalInventory.My.Resources.Resources.followup_icon
+        Me.BtnPatientFollowUp.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.BtnPatientFollowUp.Name = "BtnPatientFollowUp"
+        Me.BtnPatientFollowUp.Size = New System.Drawing.Size(133, 60)
+        Me.BtnPatientFollowUp.Text = "Patient Follow up"
+        Me.BtnPatientFollowUp.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
+        '
+        'ToolStripSeparator5
+        '
+        Me.ToolStripSeparator5.Name = "ToolStripSeparator5"
+        Me.ToolStripSeparator5.Size = New System.Drawing.Size(6, 63)
+        '
+        'BtnEyeExam
+        '
+        Me.BtnEyeExam.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
+        Me.BtnEyeExam.Font = New System.Drawing.Font("Segoe UI", 12.0!)
+        Me.BtnEyeExam.ForeColor = System.Drawing.Color.Blue
+        Me.BtnEyeExam.Image = CType(resources.GetObject("BtnEyeExam.Image"), System.Drawing.Image)
+        Me.BtnEyeExam.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.BtnEyeExam.Name = "BtnEyeExam"
+        Me.BtnEyeExam.Size = New System.Drawing.Size(127, 60)
+        Me.BtnEyeExam.Text = "Eye Examination"
         '
         'ContextMenuFollowUp
         '
@@ -1453,64 +1672,6 @@ Partial Class DashboardDoctorConsult
         Me.UiTab1.TabStripFormatStyle.ForeColor = System.Drawing.Color.Red
         Me.UiTab1.VisualStyle = Janus.Windows.UI.Tab.TabVisualStyle.Office2003
         '
-        'GridFollowUp
-        '
-        Me.GridFollowUp.AllowEdit = Janus.Windows.GridEX.InheritableBoolean.[False]
-        Me.GridFollowUp.BackColor = System.Drawing.Color.FromArgb(CType(CType(196, Byte), Integer), CType(CType(218, Byte), Integer), CType(CType(250, Byte), Integer))
-        Me.GridFollowUp.ContextMenuStrip = Me.ContextMenuStrip1
-        GridFollowUp_DesignTimeLayout.LayoutString = resources.GetString("GridFollowUp_DesignTimeLayout.LayoutString")
-        Me.GridFollowUp.DesignTimeLayout = GridFollowUp_DesignTimeLayout
-        Me.GridFollowUp.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.GridFollowUp.FilterMode = Janus.Windows.GridEX.FilterMode.Automatic
-        Me.GridFollowUp.FilterRowFormatStyle.BackColor = System.Drawing.SystemColors.Info
-        Me.GridFollowUp.FilterRowUpdateMode = Janus.Windows.GridEX.FilterRowUpdateMode.WhenValueChanges
-        Me.GridFollowUp.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
-        Me.GridFollowUp.GroupByBoxVisible = False
-        Me.GridFollowUp.HeaderFormatStyle.FontSize = 12.0!
-        Me.GridFollowUp.HeaderFormatStyle.ForeColor = System.Drawing.Color.Blue
-        Me.GridFollowUp.HeaderFormatStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Center
-        Me.GridFollowUp.HideSelection = Janus.Windows.GridEX.HideSelection.HighlightInactive
-        Me.GridFollowUp.Location = New System.Drawing.Point(0, 0)
-        Me.GridFollowUp.Name = "GridFollowUp"
-        Me.GridFollowUp.RecordNavigator = True
-        Me.GridFollowUp.RowFormatStyle.FontSize = 12.0!
-        Me.GridFollowUp.Size = New System.Drawing.Size(1261, 1047)
-        Me.GridFollowUp.TabIndex = 7
-        Me.GridFollowUp.VisualStyle = Janus.Windows.GridEX.VisualStyle.Office2003
-        '
-        'ContextMenuStrip1
-        '
-        Me.ContextMenuStrip1.Font = New System.Drawing.Font("Segoe UI", 12.0!)
-        Me.ContextMenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.BtnSendToConsult, Me.ToolStripMenuItem10, Me.NewPatientFollowupToolStripMenuItem})
-        Me.ContextMenuStrip1.Name = "ContextMenuStrip1"
-        Me.ContextMenuStrip1.Size = New System.Drawing.Size(243, 62)
-        '
-        'BtnSendToConsult
-        '
-        Me.BtnSendToConsult.ForeColor = System.Drawing.Color.Blue
-        Me.BtnSendToConsult.Name = "BtnSendToConsult"
-        Me.BtnSendToConsult.Size = New System.Drawing.Size(242, 26)
-        Me.BtnSendToConsult.Text = "Send to waiting consult"
-        '
-        'ToolStripMenuItem10
-        '
-        Me.ToolStripMenuItem10.Name = "ToolStripMenuItem10"
-        Me.ToolStripMenuItem10.Size = New System.Drawing.Size(239, 6)
-        Me.ToolStripMenuItem10.Visible = False
-        '
-        'NewPatientFollowupToolStripMenuItem
-        '
-        Me.NewPatientFollowupToolStripMenuItem.ForeColor = System.Drawing.Color.Blue
-        Me.NewPatientFollowupToolStripMenuItem.Name = "NewPatientFollowupToolStripMenuItem"
-        Me.NewPatientFollowupToolStripMenuItem.Size = New System.Drawing.Size(242, 26)
-        Me.NewPatientFollowupToolStripMenuItem.Text = "New patient followup"
-        Me.NewPatientFollowupToolStripMenuItem.Visible = False
-        '
-        'ToolStripSeparator5
-        '
-        Me.ToolStripSeparator5.Name = "ToolStripSeparator5"
-        Me.ToolStripSeparator5.Size = New System.Drawing.Size(6, 63)
-        '
         'UiTabPage1
         '
         Me.UiTabPage1.Controls.Add(Me.SplitContainer1)
@@ -1540,147 +1701,30 @@ Partial Class DashboardDoctorConsult
         Me.UiTabPage2.TabStop = True
         Me.UiTabPage2.Text = "Patient Follow Up Today"
         '
-        'BtnStartConsult
+        'GridFollowUp
         '
-        Me.BtnStartConsult.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.BtnStartConsult.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnStartConsult.ForeColor = System.Drawing.Color.Blue
-        Me.BtnStartConsult.Image = Global.TakeoHospitalInventory.My.Resources.Resources.dokter
-        Me.BtnStartConsult.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.BtnStartConsult.Name = "BtnStartConsult"
-        Me.BtnStartConsult.Size = New System.Drawing.Size(183, 60)
-        Me.BtnStartConsult.Text = "      New Examination      "
-        Me.BtnStartConsult.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
-        '
-        'btnRefreshData
-        '
-        Me.btnRefreshData.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.btnRefreshData.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnRefreshData.ForeColor = System.Drawing.Color.Blue
-        Me.btnRefreshData.Image = Global.TakeoHospitalInventory.My.Resources.Resources.refresh
-        Me.btnRefreshData.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.btnRefreshData.Name = "btnRefreshData"
-        Me.btnRefreshData.Size = New System.Drawing.Size(157, 60)
-        Me.btnRefreshData.Text = "      Refresh Data      "
-        Me.btnRefreshData.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
-        '
-        'BtnDeleteWaiting
-        '
-        Me.BtnDeleteWaiting.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.BtnDeleteWaiting.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnDeleteWaiting.ForeColor = System.Drawing.Color.Blue
-        Me.BtnDeleteWaiting.Image = Global.TakeoHospitalInventory.My.Resources.Resources.delete_appointment
-        Me.BtnDeleteWaiting.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.BtnDeleteWaiting.Name = "BtnDeleteWaiting"
-        Me.BtnDeleteWaiting.Size = New System.Drawing.Size(199, 60)
-        Me.BtnDeleteWaiting.Text = "   Delete Waiting Consult   "
-        Me.BtnDeleteWaiting.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
-        '
-        'BtnPatientHistory
-        '
-        Me.BtnPatientHistory.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.BtnPatientHistory.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnPatientHistory.ForeColor = System.Drawing.Color.Blue
-        Me.BtnPatientHistory.Image = Global.TakeoHospitalInventory.My.Resources.Resources._1417699293_Scheduled
-        Me.BtnPatientHistory.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.BtnPatientHistory.Name = "BtnPatientHistory"
-        Me.BtnPatientHistory.Size = New System.Drawing.Size(197, 60)
-        Me.BtnPatientHistory.Text = "    Patient History Report   "
-        Me.BtnPatientHistory.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
-        '
-        'BtnPatientFollowUp
-        '
-        Me.BtnPatientFollowUp.Font = New System.Drawing.Font("Segoe UI", 12.0!)
-        Me.BtnPatientFollowUp.ForeColor = System.Drawing.Color.Blue
-        Me.BtnPatientFollowUp.Image = Global.TakeoHospitalInventory.My.Resources.Resources.followup_icon
-        Me.BtnPatientFollowUp.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.BtnPatientFollowUp.Name = "BtnPatientFollowUp"
-        Me.BtnPatientFollowUp.Size = New System.Drawing.Size(133, 60)
-        Me.BtnPatientFollowUp.Text = "Patient Follow up"
-        Me.BtnPatientFollowUp.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
-        '
-        'BtnEyeExam
-        '
-        Me.BtnEyeExam.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
-        Me.BtnEyeExam.Font = New System.Drawing.Font("Segoe UI", 12.0!)
-        Me.BtnEyeExam.ForeColor = System.Drawing.Color.Blue
-        Me.BtnEyeExam.Image = CType(resources.GetObject("BtnEyeExam.Image"), System.Drawing.Image)
-        Me.BtnEyeExam.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.BtnEyeExam.Name = "BtnEyeExam"
-        Me.BtnEyeExam.Size = New System.Drawing.Size(127, 60)
-        Me.BtnEyeExam.Text = "Eye Examination"
-        '
-        'PictureBox1
-        '
-        Me.PictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.PictureBox1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.PictureBox1.Location = New System.Drawing.Point(3, 33)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(271, 485)
-        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox1.TabIndex = 0
-        Me.PictureBox1.TabStop = False
-        '
-        'UiTabPage6
-        '
-        Me.UiTabPage6.Controls.Add(Me.GroupBox1)
-        Me.UiTabPage6.Location = New System.Drawing.Point(1, 28)
-        Me.UiTabPage6.Name = "UiTabPage6"
-        Me.UiTabPage6.Size = New System.Drawing.Size(1257, 489)
-        Me.UiTabPage6.TabStop = True
-        Me.UiTabPage6.Text = "    New Visual Acuity    "
-        '
-        'UiTabPage9
-        '
-        Me.UiTabPage9.Controls.Add(Me.GridOT)
-        Me.UiTabPage9.Location = New System.Drawing.Point(1, 28)
-        Me.UiTabPage9.Name = "UiTabPage9"
-        Me.UiTabPage9.Size = New System.Drawing.Size(1257, 491)
-        Me.UiTabPage9.TabStop = True
-        Me.UiTabPage9.Text = "     Operation Note History    "
-        '
-        'UiTabPage4
-        '
-        Me.UiTabPage4.AutoScroll = True
-        Me.UiTabPage4.Controls.Add(Me.TxtDiagnosisCodeLeft)
-        Me.UiTabPage4.Controls.Add(Me.CboDiagnosisLeft)
-        Me.UiTabPage4.Controls.Add(Me.Label27)
-        Me.UiTabPage4.Controls.Add(Me.UiTab3)
-        Me.UiTabPage4.Controls.Add(Me.Label15)
-        Me.UiTabPage4.Controls.Add(Me.Label45)
-        Me.UiTabPage4.Controls.Add(Me.CboDoctorConsult)
-        Me.UiTabPage4.Controls.Add(Me.TxtMedication)
-        Me.UiTabPage4.Controls.Add(Me.TxtDiagnosisNote)
-        Me.UiTabPage4.Controls.Add(Me.Label12)
-        Me.UiTabPage4.Controls.Add(Me.Label1)
-        Me.UiTabPage4.Controls.Add(Me.GroupEye)
-        Me.UiTabPage4.Controls.Add(Me.CboDiagnosis)
-        Me.UiTabPage4.Controls.Add(Me.Label11)
-        Me.UiTabPage4.Controls.Add(Me.TxtDiagnosisCodeRight)
-        Me.UiTabPage4.Controls.Add(Me.GroupMangement)
-        Me.UiTabPage4.Location = New System.Drawing.Point(1, 28)
-        Me.UiTabPage4.Name = "UiTabPage4"
-        Me.UiTabPage4.Size = New System.Drawing.Size(1533, 610)
-        Me.UiTabPage4.TabStop = True
-        Me.UiTabPage4.Text = "      Diagnosis(ICD-10)      "
-        '
-        'UiTabPage7
-        '
-        Me.UiTabPage7.Controls.Add(Me.GridPrescription)
-        Me.UiTabPage7.Location = New System.Drawing.Point(1, 21)
-        Me.UiTabPage7.Name = "UiTabPage7"
-        Me.UiTabPage7.Size = New System.Drawing.Size(2039, 377)
-        Me.UiTabPage7.TabStop = True
-        Me.UiTabPage7.Text = "      Prescription     "
-        '
-        'UiTabPage8
-        '
-        Me.UiTabPage8.Controls.Add(Me.GridImageList)
-        Me.UiTabPage8.Location = New System.Drawing.Point(1, 28)
-        Me.UiTabPage8.Name = "UiTabPage8"
-        Me.UiTabPage8.Size = New System.Drawing.Size(2039, 370)
-        Me.UiTabPage8.TabStop = True
-        Me.UiTabPage8.Text = "   Images    "
+        Me.GridFollowUp.AllowEdit = Janus.Windows.GridEX.InheritableBoolean.[False]
+        Me.GridFollowUp.BackColor = System.Drawing.Color.FromArgb(CType(CType(196, Byte), Integer), CType(CType(218, Byte), Integer), CType(CType(250, Byte), Integer))
+        Me.GridFollowUp.ContextMenuStrip = Me.ContextMenuStrip1
+        GridFollowUp_DesignTimeLayout.LayoutString = resources.GetString("GridFollowUp_DesignTimeLayout.LayoutString")
+        Me.GridFollowUp.DesignTimeLayout = GridFollowUp_DesignTimeLayout
+        Me.GridFollowUp.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.GridFollowUp.FilterMode = Janus.Windows.GridEX.FilterMode.Automatic
+        Me.GridFollowUp.FilterRowFormatStyle.BackColor = System.Drawing.SystemColors.Info
+        Me.GridFollowUp.FilterRowUpdateMode = Janus.Windows.GridEX.FilterRowUpdateMode.WhenValueChanges
+        Me.GridFollowUp.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
+        Me.GridFollowUp.GroupByBoxVisible = False
+        Me.GridFollowUp.HeaderFormatStyle.FontSize = 12.0!
+        Me.GridFollowUp.HeaderFormatStyle.ForeColor = System.Drawing.Color.Blue
+        Me.GridFollowUp.HeaderFormatStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Center
+        Me.GridFollowUp.HideSelection = Janus.Windows.GridEX.HideSelection.HighlightInactive
+        Me.GridFollowUp.Location = New System.Drawing.Point(0, 0)
+        Me.GridFollowUp.Name = "GridFollowUp"
+        Me.GridFollowUp.RecordNavigator = True
+        Me.GridFollowUp.RowFormatStyle.FontSize = 12.0!
+        Me.GridFollowUp.Size = New System.Drawing.Size(1261, 1047)
+        Me.GridFollowUp.TabIndex = 7
+        Me.GridFollowUp.VisualStyle = Janus.Windows.GridEX.VisualStyle.Office2003
         '
         'DashboardDoctorConsult
         '
@@ -1699,13 +1743,19 @@ Partial Class DashboardDoctorConsult
         Me.SplitContainer3.ResumeLayout(False)
         Me.GroupBox3.ResumeLayout(False)
         CType(Me.GridPatientWaiting, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.GroupBox7.ResumeLayout(False)
+        CType(Me.GridFollowDetial, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.ContextMenuStrip1.ResumeLayout(False)
         Me.GroupBox9.ResumeLayout(False)
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.UiTab4, System.ComponentModel.ISupportInitialize).EndInit()
         Me.UiTab4.ResumeLayout(False)
+        Me.UiTabPage6.ResumeLayout(False)
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox2.PerformLayout()
+        Me.UiTabPage9.ResumeLayout(False)
         CType(Me.GridOT, System.ComponentModel.ISupportInitialize).EndInit()
         Me.MenuOperationNote.ResumeLayout(False)
         Me.SplitContainer2.Panel1.ResumeLayout(False)
@@ -1718,9 +1768,13 @@ Partial Class DashboardDoctorConsult
         Me.Panel1.PerformLayout()
         CType(Me.UiTab2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.UiTab2.ResumeLayout(False)
+        Me.UiTabPage4.ResumeLayout(False)
+        Me.UiTabPage4.PerformLayout()
         CType(Me.UiTab3, System.ComponentModel.ISupportInitialize).EndInit()
         Me.UiTab3.ResumeLayout(False)
+        Me.UiTabPage7.ResumeLayout(False)
         CType(Me.GridPrescription, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.UiTabPage8.ResumeLayout(False)
         CType(Me.GridImageList, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupEye.ResumeLayout(False)
         Me.GroupEye.PerformLayout()
@@ -1733,18 +1787,10 @@ Partial Class DashboardDoctorConsult
         Me.ContextMenuFollowUp.ResumeLayout(False)
         CType(Me.UiTab1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.UiTab1.ResumeLayout(False)
-        CType(Me.GridFollowUp, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.ContextMenuStrip1.ResumeLayout(False)
         Me.UiTabPage1.ResumeLayout(False)
         Me.UiTabPage3.ResumeLayout(False)
         Me.UiTabPage2.ResumeLayout(False)
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.UiTabPage6.ResumeLayout(False)
-        Me.UiTabPage9.ResumeLayout(False)
-        Me.UiTabPage4.ResumeLayout(False)
-        Me.UiTabPage4.PerformLayout()
-        Me.UiTabPage7.ResumeLayout(False)
-        Me.UiTabPage8.ResumeLayout(False)
+        CType(Me.GridFollowUp, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -1874,5 +1920,7 @@ Partial Class DashboardDoctorConsult
     Friend WithEvents BtnEyeExam As System.Windows.Forms.ToolStripButton
     Friend WithEvents ToolStripSeparator5 As System.Windows.Forms.ToolStripSeparator
     Friend WithEvents BtnPatientFollowUp As System.Windows.Forms.ToolStripButton
+    Friend WithEvents GroupBox7 As System.Windows.Forms.GroupBox
+    Friend WithEvents GridFollowDetial As Janus.Windows.GridEX.GridEX
 
 End Class
