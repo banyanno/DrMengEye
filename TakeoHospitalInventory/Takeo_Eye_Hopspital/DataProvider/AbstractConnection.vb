@@ -23,6 +23,7 @@ Public MustInherit Class AbstractConnection
     Dim sqlDataAdapter2012 As SqlDataAdapter
     Public Sub New()
         Me.getConnection()
+        'GetConnection2012()
     End Sub
     Public Function GetConnection2012() As SqlConnection
         Try
@@ -30,6 +31,7 @@ Public MustInherit Class AbstractConnection
             ' Case connect 1 error will change to connection 2
             cnn2012.Open()
         Catch ex As Exception
+            cnn2012.Close()
             MsgBox(ex.Message)
 
         End Try

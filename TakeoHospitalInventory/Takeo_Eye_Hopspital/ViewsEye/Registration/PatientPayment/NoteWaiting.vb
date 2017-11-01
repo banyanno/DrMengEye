@@ -18,4 +18,11 @@
             End If
         End If
     End Sub
+    Dim DA_USER As New DSUserManagementTableAdapters.VUsersInGroupTableAdapter
+    Private Sub NoteWaiting_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        Dim tblDoctor As DataTable = DA_USER.GetDataUserByGroup(36)
+        For Each rows As DataRow In tblDoctor.Rows
+            AutoDotor.AddItem(rows("UserName"))
+        Next
+    End Sub
 End Class

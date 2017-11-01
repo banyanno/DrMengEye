@@ -156,6 +156,7 @@ Partial Class NewDoctorConsult
         Me.Label8 = New System.Windows.Forms.Label
         Me.BtnOrdinance = New System.Windows.Forms.Button
         Me.UiTabPage3 = New Janus.Windows.UI.Tab.UITabPage
+        Me.GroupBox6 = New System.Windows.Forms.GroupBox
         Me.Button1 = New System.Windows.Forms.Button
         Me.GroupBox2 = New System.Windows.Forms.GroupBox
         Me.MchLaborate = New System.Windows.Forms.CheckedListBox
@@ -189,7 +190,6 @@ Partial Class NewDoctorConsult
         Me.BgLoadRegistrationForm = New System.ComponentModel.BackgroundWorker
         Me.BgLoadHistoryPatient = New System.ComponentModel.BackgroundWorker
         Me.AutoDiagnosis = New AutocompleteMenuNS.AutocompleteMenu
-        Me.GroupBox6 = New System.Windows.Forms.GroupBox
         Me.GroupBox4.SuspendLayout()
         CType(Me.GridImageList, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupFollowup.SuspendLayout()
@@ -214,6 +214,7 @@ Partial Class NewDoctorConsult
         Me.GroupBox3.SuspendLayout()
         CType(Me.GridPrescription, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.UiTabPage3.SuspendLayout()
+        Me.GroupBox6.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.ToolStrip1.SuspendLayout()
         Me.SplitContainer1.Panel1.SuspendLayout()
@@ -221,7 +222,6 @@ Partial Class NewDoctorConsult
         Me.SplitContainer1.SuspendLayout()
         CType(Me.AxAcroPDF1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PicLoadReport, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.GroupBox6.SuspendLayout()
         Me.SuspendLayout()
         '
         'TxtDiagnosisCode
@@ -1067,7 +1067,7 @@ Partial Class NewDoctorConsult
         Me.SplitContainer2.BackColor = System.Drawing.Color.Transparent
         Me.SplitContainer2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.SplitContainer2.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.SplitContainer2.FixedPanel = System.Windows.Forms.FixedPanel.Panel2
+        Me.SplitContainer2.FixedPanel = System.Windows.Forms.FixedPanel.Panel1
         Me.SplitContainer2.Location = New System.Drawing.Point(0, 0)
         Me.SplitContainer2.Name = "SplitContainer2"
         Me.SplitContainer2.Orientation = System.Windows.Forms.Orientation.Horizontal
@@ -1862,6 +1862,19 @@ Partial Class NewDoctorConsult
         Me.UiTabPage3.TabStop = True
         Me.UiTabPage3.Text = "      Add Image     "
         '
+        'GroupBox6
+        '
+        Me.GroupBox6.Controls.Add(Me.BtnRemoveImage)
+        Me.GroupBox6.Controls.Add(Me.Button1)
+        Me.GroupBox6.Controls.Add(Me.BtnAddImage)
+        Me.GroupBox6.Dock = System.Windows.Forms.DockStyle.Top
+        Me.GroupBox6.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.GroupBox6.Location = New System.Drawing.Point(0, 0)
+        Me.GroupBox6.Name = "GroupBox6"
+        Me.GroupBox6.Size = New System.Drawing.Size(2236, 54)
+        Me.GroupBox6.TabIndex = 4
+        Me.GroupBox6.TabStop = False
+        '
         'Button1
         '
         Me.Button1.BackColor = System.Drawing.Color.Transparent
@@ -2204,7 +2217,7 @@ Partial Class NewDoctorConsult
         Me.AxAcroPDF1.Location = New System.Drawing.Point(0, 0)
         Me.AxAcroPDF1.Name = "AxAcroPDF1"
         Me.AxAcroPDF1.OcxState = CType(resources.GetObject("AxAcroPDF1.OcxState"), System.Windows.Forms.AxHost.State)
-        Me.AxAcroPDF1.Size = New System.Drawing.Size(580, 784)
+        Me.AxAcroPDF1.Size = New System.Drawing.Size(94, 98)
         Me.AxAcroPDF1.TabIndex = 1
         '
         'PicLoadReport
@@ -2233,19 +2246,6 @@ Partial Class NewDoctorConsult
         Me.AutoDiagnosis.MinFragmentLength = 1
         Me.AutoDiagnosis.TargetControlWrapper = Nothing
         Me.AutoDiagnosis.ToolTipDuration = 3000
-        '
-        'GroupBox6
-        '
-        Me.GroupBox6.Controls.Add(Me.BtnRemoveImage)
-        Me.GroupBox6.Controls.Add(Me.Button1)
-        Me.GroupBox6.Controls.Add(Me.BtnAddImage)
-        Me.GroupBox6.Dock = System.Windows.Forms.DockStyle.Top
-        Me.GroupBox6.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.GroupBox6.Location = New System.Drawing.Point(0, 0)
-        Me.GroupBox6.Name = "GroupBox6"
-        Me.GroupBox6.Size = New System.Drawing.Size(2236, 54)
-        Me.GroupBox6.TabIndex = 4
-        Me.GroupBox6.TabStop = False
         '
         'NewDoctorConsult
         '
@@ -2292,6 +2292,7 @@ Partial Class NewDoctorConsult
         Me.GroupBox3.ResumeLayout(False)
         CType(Me.GridPrescription, System.ComponentModel.ISupportInitialize).EndInit()
         Me.UiTabPage3.ResumeLayout(False)
+        Me.GroupBox6.ResumeLayout(False)
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox2.PerformLayout()
         Me.ToolStrip1.ResumeLayout(False)
@@ -2302,7 +2303,6 @@ Partial Class NewDoctorConsult
         Me.SplitContainer1.ResumeLayout(False)
         CType(Me.AxAcroPDF1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PicLoadReport, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.GroupBox6.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

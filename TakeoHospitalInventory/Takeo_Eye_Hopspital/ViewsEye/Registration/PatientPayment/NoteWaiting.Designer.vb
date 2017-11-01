@@ -28,6 +28,7 @@ Partial Class NoteWaiting
         Me.BtnSave = New System.Windows.Forms.Button
         Me.BtnCancel = New System.Windows.Forms.Button
         Me.LblPatientNo = New System.Windows.Forms.Label
+        Me.AutoDotor = New AutocompleteMenuNS.AutocompleteMenu
         Me.SuspendLayout()
         '
         'Label1
@@ -41,6 +42,7 @@ Partial Class NoteWaiting
         '
         'TxtNote
         '
+        Me.AutoDotor.SetAutocompleteMenu(Me.TxtNote, Me.AutoDotor)
         Me.TxtNote.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.TxtNote.Font = New System.Drawing.Font("Khmer OS Battambang", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TxtNote.Location = New System.Drawing.Point(15, 34)
@@ -79,6 +81,16 @@ Partial Class NoteWaiting
         Me.LblPatientNo.Text = "0"
         Me.LblPatientNo.Visible = False
         '
+        'AutoDotor
+        '
+        Me.AutoDotor.AppearInterval = 100
+        Me.AutoDotor.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
+        Me.AutoDotor.ImageList = Nothing
+        Me.AutoDotor.Items = New String(-1) {}
+        Me.AutoDotor.MinFragmentLength = 1
+        Me.AutoDotor.TargetControlWrapper = Nothing
+        Me.AutoDotor.ToolTipDuration = 3000
+        '
         'NoteWaiting
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -106,4 +118,5 @@ Partial Class NoteWaiting
     Friend WithEvents BtnSave As System.Windows.Forms.Button
     Friend WithEvents BtnCancel As System.Windows.Forms.Button
     Friend WithEvents LblPatientNo As System.Windows.Forms.Label
+    Friend WithEvents AutoDotor As AutocompleteMenuNS.AutocompleteMenu
 End Class

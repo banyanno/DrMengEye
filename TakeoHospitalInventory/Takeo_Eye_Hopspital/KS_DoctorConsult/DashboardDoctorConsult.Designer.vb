@@ -311,7 +311,6 @@ Partial Class DashboardDoctorConsult
         GridFollowDetial_DesignTimeLayout.LayoutString = resources.GetString("GridFollowDetial_DesignTimeLayout.LayoutString")
         Me.GridFollowDetial.DesignTimeLayout = GridFollowDetial_DesignTimeLayout
         Me.GridFollowDetial.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.GridFollowDetial.FilterMode = Janus.Windows.GridEX.FilterMode.Automatic
         Me.GridFollowDetial.FilterRowFormatStyle.BackColor = System.Drawing.SystemColors.Info
         Me.GridFollowDetial.FilterRowUpdateMode = Janus.Windows.GridEX.FilterRowUpdateMode.WhenValueChanges
         Me.GridFollowDetial.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
