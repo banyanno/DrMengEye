@@ -693,10 +693,7 @@ Public Class NewDoctorConsult
         End If
     End Sub
     Private Sub ToolStripButton1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ToolStripButton1.Click
-        If ValidateCombobox(CboExamFee, "", ErrConsult) = False Then
-            UiTab1.SelectedIndex = 0
-            Exit Sub
-        End If
+      
         If ChLaser.Checked = True Then
             'If ValidateCombobox(CboLaser, "", ErrConsult) = False Then
             '    Exit Sub
@@ -1231,5 +1228,9 @@ Public Class NewDoctorConsult
         DA_Labo.Dispose()
         DA_Lab_check.Dispose()
         DA_Lab_Check_Detail.Dispose()
+    End Sub
+
+    Private Sub TxtFollowUpNote_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles TxtFollowUpNote.TextChanged
+
     End Sub
 End Class
