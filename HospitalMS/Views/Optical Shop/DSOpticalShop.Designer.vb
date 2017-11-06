@@ -15050,90 +15050,90 @@ Namespace DSOpticalShopTableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Private Sub InitConnection()
             Me._connection = New Global.System.Data.SqlClient.SqlConnection
-            Me._connection.ConnectionString = Global.HospitalMS.My.MySettings.Default.TakeoDBConnectionString
+            Me._connection.ConnectionString = Global.HospitalMS.My.MySettings.Default.AppConnection
         End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
         Private Sub InitCommandCollection()
             Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(0) {}
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT ItemID, Barcode, ItemName, Price, IsUSD, IsKHR, IsCurPrice, Picture FROM d"& _ 
+            Me._commandCollection(0).CommandText = "SELECT ItemID, Barcode, ItemName, Price, IsUSD, IsKHR, IsCurPrice, Picture FROM d" & _
                 "bo.VItemPriceOpticalShop"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
         End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, true)>  _
-        Public Overloads Overridable Function Fill(ByVal dataTable As DSOpticalShop.VItemPriceOpticalShopDataTable) As Integer
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, True)> _
+        Public Overridable Overloads Function Fill(ByVal dataTable As DSOpticalShop.VItemPriceOpticalShopDataTable) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
-            If (Me.ClearBeforeFill = true) Then
-                dataTable.Clear
+            If (Me.ClearBeforeFill = True) Then
+                dataTable.Clear()
             End If
             Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
             Return returnValue
         End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], true)>  _
-        Public Overloads Overridable Function GetData() As DSOpticalShop.VItemPriceOpticalShopDataTable
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], True)> _
+        Public Overridable Overloads Function GetData() As DSOpticalShop.VItemPriceOpticalShopDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
             Dim dataTable As DSOpticalShop.VItemPriceOpticalShopDataTable = New DSOpticalShop.VItemPriceOpticalShopDataTable
             Me.Adapter.Fill(dataTable)
             Return dataTable
         End Function
     End Class
-    
+
     '''<summary>
     '''Represents the connection and commands used to retrieve and save data.
     '''</summary>
-    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0"),  _
-     Global.System.ComponentModel.DesignerCategoryAttribute("code"),  _
-     Global.System.ComponentModel.ToolboxItem(true),  _
-     Global.System.ComponentModel.DataObjectAttribute(true),  _
-     Global.System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner"& _ 
-        ", Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"),  _
-     Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0"), _
+     Global.System.ComponentModel.DesignerCategoryAttribute("code"), _
+     Global.System.ComponentModel.ToolboxItem(True), _
+     Global.System.ComponentModel.DataObjectAttribute(True), _
+     Global.System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" & _
+        ", Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"), _
+     Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")> _
     Partial Public Class INCOME_TYPETableAdapter
         Inherits Global.System.ComponentModel.Component
-        
+
         Private WithEvents _adapter As Global.System.Data.SqlClient.SqlDataAdapter
-        
+
         Private _connection As Global.System.Data.SqlClient.SqlConnection
-        
+
         Private _transaction As Global.System.Data.SqlClient.SqlTransaction
-        
+
         Private _commandCollection() As Global.System.Data.SqlClient.SqlCommand
-        
+
         Private _clearBeforeFill As Boolean
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
         Public Sub New()
-            MyBase.New
-            Me.ClearBeforeFill = true
+            MyBase.New()
+            Me.ClearBeforeFill = True
         End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
         Protected Friend ReadOnly Property Adapter() As Global.System.Data.SqlClient.SqlDataAdapter
             Get
                 If (Me._adapter Is Nothing) Then
-                    Me.InitAdapter
+                    Me.InitAdapter()
                 End If
                 Return Me._adapter
             End Get
         End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
         Friend Property Connection() As Global.System.Data.SqlClient.SqlConnection
             Get
                 If (Me._connection Is Nothing) Then
-                    Me.InitConnection
+                    Me.InitConnection()
                 End If
                 Return Me._connection
             End Get
-            Set
+            Set(ByVal value As Global.System.Data.SqlClient.SqlConnection)
                 Me._connection = value
                 If (Not (Me.Adapter.InsertCommand) Is Nothing) Then
                     Me.Adapter.InsertCommand.Connection = value
@@ -15147,61 +15147,61 @@ Namespace DSOpticalShopTableAdapters
                 Dim i As Integer = 0
                 Do While (i < Me.CommandCollection.Length)
                     If (Not (Me.CommandCollection(i)) Is Nothing) Then
-                        CType(Me.CommandCollection(i),Global.System.Data.SqlClient.SqlCommand).Connection = value
+                        CType(Me.CommandCollection(i), Global.System.Data.SqlClient.SqlCommand).Connection = value
                     End If
                     i = (i + 1)
                 Loop
             End Set
         End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
         Friend Property Transaction() As Global.System.Data.SqlClient.SqlTransaction
             Get
                 Return Me._transaction
             End Get
-            Set
+            Set(ByVal value As Global.System.Data.SqlClient.SqlTransaction)
                 Me._transaction = value
                 Dim i As Integer = 0
                 Do While (i < Me.CommandCollection.Length)
                     Me.CommandCollection(i).Transaction = Me._transaction
                     i = (i + 1)
                 Loop
-                If ((Not (Me.Adapter) Is Nothing)  _
+                If ((Not (Me.Adapter) Is Nothing) _
                             AndAlso (Not (Me.Adapter.DeleteCommand) Is Nothing)) Then
                     Me.Adapter.DeleteCommand.Transaction = Me._transaction
                 End If
-                If ((Not (Me.Adapter) Is Nothing)  _
+                If ((Not (Me.Adapter) Is Nothing) _
                             AndAlso (Not (Me.Adapter.InsertCommand) Is Nothing)) Then
                     Me.Adapter.InsertCommand.Transaction = Me._transaction
                 End If
-                If ((Not (Me.Adapter) Is Nothing)  _
+                If ((Not (Me.Adapter) Is Nothing) _
                             AndAlso (Not (Me.Adapter.UpdateCommand) Is Nothing)) Then
                     Me.Adapter.UpdateCommand.Transaction = Me._transaction
                 End If
             End Set
         End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
         Protected ReadOnly Property CommandCollection() As Global.System.Data.SqlClient.SqlCommand()
             Get
                 If (Me._commandCollection Is Nothing) Then
-                    Me.InitCommandCollection
+                    Me.InitCommandCollection()
                 End If
                 Return Me._commandCollection
             End Get
         End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
         Public Property ClearBeforeFill() As Boolean
             Get
                 Return Me._clearBeforeFill
             End Get
-            Set
+            Set(ByVal value As Boolean)
                 Me._clearBeforeFill = value
             End Set
         End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
         Private Sub InitAdapter()
             Me._adapter = New Global.System.Data.SqlClient.SqlDataAdapter
             Dim tableMapping As Global.System.Data.Common.DataTableMapping = New Global.System.Data.Common.DataTableMapping
@@ -15213,49 +15213,49 @@ Namespace DSOpticalShopTableAdapters
             Me._adapter.TableMappings.Add(tableMapping)
             Me._adapter.DeleteCommand = New Global.System.Data.SqlClient.SqlCommand
             Me._adapter.DeleteCommand.Connection = Me.Connection
-            Me._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[INCOME_TYPE] WHERE (([ICID] = @Original_ICID) AND ((@IsNull_IC"& _ 
-                "Type = 1 AND [ICType] IS NULL) OR ([ICType] = @Original_ICType)) AND ((@IsNull_D"& _ 
-                "escription = 1 AND [Description] IS NULL) OR ([Description] = @Original_Descript"& _ 
+            Me._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[INCOME_TYPE] WHERE (([ICID] = @Original_ICID) AND ((@IsNull_IC" & _
+                "Type = 1 AND [ICType] IS NULL) OR ([ICType] = @Original_ICType)) AND ((@IsNull_D" & _
+                "escription = 1 AND [Description] IS NULL) OR ([Description] = @Original_Descript" & _
                 "ion)))"
             Me._adapter.DeleteCommand.CommandType = Global.System.Data.CommandType.Text
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_ICID", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "ICID", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_ICType", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ICType", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_ICType", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ICType", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Description", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Description", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Description", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Description", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_ICID", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "ICID", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_ICType", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ICType", Global.System.Data.DataRowVersion.Original, True, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_ICType", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ICType", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Description", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Description", Global.System.Data.DataRowVersion.Original, True, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Description", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Description", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
             Me._adapter.InsertCommand = New Global.System.Data.SqlClient.SqlCommand
             Me._adapter.InsertCommand.Connection = Me.Connection
-            Me._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[INCOME_TYPE] ([ICType], [Description]) VALUES (@ICType, @Descr"& _ 
-                "iption);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT ICID, ICType, Description FROM INCOME_TYPE WHERE (ICID = SCOPE_"& _ 
+            Me._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[INCOME_TYPE] ([ICType], [Description]) VALUES (@ICType, @Descr" & _
+                "iption);" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "SELECT ICID, ICType, Description FROM INCOME_TYPE WHERE (ICID = SCOPE_" & _
                 "IDENTITY())"
             Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ICType", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ICType", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Description", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Description", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ICType", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ICType", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Description", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Description", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
             Me._adapter.UpdateCommand = New Global.System.Data.SqlClient.SqlCommand
             Me._adapter.UpdateCommand.Connection = Me.Connection
-            Me._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[INCOME_TYPE] SET [ICType] = @ICType, [Description] = @Description W"& _ 
-                "HERE (([ICID] = @Original_ICID) AND ((@IsNull_ICType = 1 AND [ICType] IS NULL) O"& _ 
-                "R ([ICType] = @Original_ICType)) AND ((@IsNull_Description = 1 AND [Description]"& _ 
-                " IS NULL) OR ([Description] = @Original_Description)));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT ICID, ICType, De"& _ 
+            Me._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[INCOME_TYPE] SET [ICType] = @ICType, [Description] = @Description W" & _
+                "HERE (([ICID] = @Original_ICID) AND ((@IsNull_ICType = 1 AND [ICType] IS NULL) O" & _
+                "R ([ICType] = @Original_ICType)) AND ((@IsNull_Description = 1 AND [Description]" & _
+                " IS NULL) OR ([Description] = @Original_Description)));" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "SELECT ICID, ICType, De" & _
                 "scription FROM INCOME_TYPE WHERE (ICID = @ICID)"
             Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ICType", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ICType", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Description", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Description", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_ICID", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "ICID", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_ICType", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ICType", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_ICType", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ICType", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Description", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Description", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Description", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Description", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ICID", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "ICID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ICType", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ICType", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Description", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Description", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_ICID", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "ICID", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_ICType", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ICType", Global.System.Data.DataRowVersion.Original, True, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_ICType", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ICType", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Description", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Description", Global.System.Data.DataRowVersion.Original, True, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Description", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Description", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ICID", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "ICID", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
         End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
         Private Sub InitConnection()
             Me._connection = New Global.System.Data.SqlClient.SqlConnection
-            Me._connection.ConnectionString = Global.HospitalMS.My.MySettings.Default.TakeoDBConnectionString
+            Me._connection.ConnectionString = Global.HospitalMS.My.MySettings.Default.AppConnection
         End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
         Private Sub InitCommandCollection()
             Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(0) {}
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand
@@ -15263,217 +15263,217 @@ Namespace DSOpticalShopTableAdapters
             Me._commandCollection(0).CommandText = "SELECT ICID, ICType, Description FROM dbo.INCOME_TYPE"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
         End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, true)>  _
-        Public Overloads Overridable Function Fill(ByVal dataTable As DSOpticalShop.INCOME_TYPEDataTable) As Integer
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, True)> _
+        Public Overridable Overloads Function Fill(ByVal dataTable As DSOpticalShop.INCOME_TYPEDataTable) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
-            If (Me.ClearBeforeFill = true) Then
-                dataTable.Clear
+            If (Me.ClearBeforeFill = True) Then
+                dataTable.Clear()
             End If
             Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
             Return returnValue
         End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], true)>  _
-        Public Overloads Overridable Function GetData() As DSOpticalShop.INCOME_TYPEDataTable
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], True)> _
+        Public Overridable Overloads Function GetData() As DSOpticalShop.INCOME_TYPEDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
             Dim dataTable As DSOpticalShop.INCOME_TYPEDataTable = New DSOpticalShop.INCOME_TYPEDataTable
             Me.Adapter.Fill(dataTable)
             Return dataTable
         End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
-        Public Overloads Overridable Function Update(ByVal dataTable As DSOpticalShop.INCOME_TYPEDataTable) As Integer
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")> _
+        Public Overridable Overloads Function Update(ByVal dataTable As DSOpticalShop.INCOME_TYPEDataTable) As Integer
             Return Me.Adapter.Update(dataTable)
         End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
-        Public Overloads Overridable Function Update(ByVal dataSet As DSOpticalShop) As Integer
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")> _
+        Public Overridable Overloads Function Update(ByVal dataSet As DSOpticalShop) As Integer
             Return Me.Adapter.Update(dataSet, "INCOME_TYPE")
         End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
-        Public Overloads Overridable Function Update(ByVal dataRow As Global.System.Data.DataRow) As Integer
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")> _
+        Public Overridable Overloads Function Update(ByVal dataRow As Global.System.Data.DataRow) As Integer
             Return Me.Adapter.Update(New Global.System.Data.DataRow() {dataRow})
         End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
-        Public Overloads Overridable Function Update(ByVal dataRows() As Global.System.Data.DataRow) As Integer
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")> _
+        Public Overridable Overloads Function Update(ByVal dataRows() As Global.System.Data.DataRow) As Integer
             Return Me.Adapter.Update(dataRows)
         End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Delete, true)>  _
-        Public Overloads Overridable Function Delete(ByVal Original_ICID As Decimal, ByVal Original_ICType As String, ByVal Original_Description As String) As Integer
-            Me.Adapter.DeleteCommand.Parameters(0).Value = CType(Original_ICID,Decimal)
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Delete, True)> _
+        Public Overridable Overloads Function Delete(ByVal Original_ICID As Decimal, ByVal Original_ICType As String, ByVal Original_Description As String) As Integer
+            Me.Adapter.DeleteCommand.Parameters(0).Value = CType(Original_ICID, Decimal)
             If (Original_ICType Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(1).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(1).Value = CType(1, Object)
                 Me.Adapter.DeleteCommand.Parameters(2).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.DeleteCommand.Parameters(1).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(2).Value = CType(Original_ICType,String)
+                Me.Adapter.DeleteCommand.Parameters(1).Value = CType(0, Object)
+                Me.Adapter.DeleteCommand.Parameters(2).Value = CType(Original_ICType, String)
             End If
             If (Original_Description Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(3).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(3).Value = CType(1, Object)
                 Me.Adapter.DeleteCommand.Parameters(4).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.DeleteCommand.Parameters(3).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(4).Value = CType(Original_Description,String)
+                Me.Adapter.DeleteCommand.Parameters(3).Value = CType(0, Object)
+                Me.Adapter.DeleteCommand.Parameters(4).Value = CType(Original_Description, String)
             End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.DeleteCommand.Connection.State
-            If ((Me.Adapter.DeleteCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
+            If ((Me.Adapter.DeleteCommand.Connection.State And Global.System.Data.ConnectionState.Open) _
                         <> Global.System.Data.ConnectionState.Open) Then
-                Me.Adapter.DeleteCommand.Connection.Open
+                Me.Adapter.DeleteCommand.Connection.Open()
             End If
-            Try 
+            Try
                 Dim returnValue As Integer = Me.Adapter.DeleteCommand.ExecuteNonQuery
                 Return returnValue
             Finally
                 If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
-                    Me.Adapter.DeleteCommand.Connection.Close
+                    Me.Adapter.DeleteCommand.Connection.Close()
                 End If
             End Try
         End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, true)>  _
-        Public Overloads Overridable Function Insert(ByVal ICType As String, ByVal Description As String) As Integer
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, True)> _
+        Public Overridable Overloads Function Insert(ByVal ICType As String, ByVal Description As String) As Integer
             If (ICType Is Nothing) Then
                 Me.Adapter.InsertCommand.Parameters(0).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.InsertCommand.Parameters(0).Value = CType(ICType,String)
+                Me.Adapter.InsertCommand.Parameters(0).Value = CType(ICType, String)
             End If
             If (Description Is Nothing) Then
                 Me.Adapter.InsertCommand.Parameters(1).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.InsertCommand.Parameters(1).Value = CType(Description,String)
+                Me.Adapter.InsertCommand.Parameters(1).Value = CType(Description, String)
             End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.InsertCommand.Connection.State
-            If ((Me.Adapter.InsertCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
+            If ((Me.Adapter.InsertCommand.Connection.State And Global.System.Data.ConnectionState.Open) _
                         <> Global.System.Data.ConnectionState.Open) Then
-                Me.Adapter.InsertCommand.Connection.Open
+                Me.Adapter.InsertCommand.Connection.Open()
             End If
-            Try 
+            Try
                 Dim returnValue As Integer = Me.Adapter.InsertCommand.ExecuteNonQuery
                 Return returnValue
             Finally
                 If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
-                    Me.Adapter.InsertCommand.Connection.Close
+                    Me.Adapter.InsertCommand.Connection.Close()
                 End If
             End Try
         End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
-        Public Overloads Overridable Function Update(ByVal ICType As String, ByVal Description As String, ByVal Original_ICID As Decimal, ByVal Original_ICType As String, ByVal Original_Description As String, ByVal ICID As Decimal) As Integer
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, True)> _
+        Public Overridable Overloads Function Update(ByVal ICType As String, ByVal Description As String, ByVal Original_ICID As Decimal, ByVal Original_ICType As String, ByVal Original_Description As String, ByVal ICID As Decimal) As Integer
             If (ICType Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(0).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(0).Value = CType(ICType,String)
+                Me.Adapter.UpdateCommand.Parameters(0).Value = CType(ICType, String)
             End If
             If (Description Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(1).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(1).Value = CType(Description,String)
+                Me.Adapter.UpdateCommand.Parameters(1).Value = CType(Description, String)
             End If
-            Me.Adapter.UpdateCommand.Parameters(2).Value = CType(Original_ICID,Decimal)
+            Me.Adapter.UpdateCommand.Parameters(2).Value = CType(Original_ICID, Decimal)
             If (Original_ICType Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(3).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(3).Value = CType(1, Object)
                 Me.Adapter.UpdateCommand.Parameters(4).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(3).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(4).Value = CType(Original_ICType,String)
+                Me.Adapter.UpdateCommand.Parameters(3).Value = CType(0, Object)
+                Me.Adapter.UpdateCommand.Parameters(4).Value = CType(Original_ICType, String)
             End If
             If (Original_Description Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(5).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(5).Value = CType(1, Object)
                 Me.Adapter.UpdateCommand.Parameters(6).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(5).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(6).Value = CType(Original_Description,String)
+                Me.Adapter.UpdateCommand.Parameters(5).Value = CType(0, Object)
+                Me.Adapter.UpdateCommand.Parameters(6).Value = CType(Original_Description, String)
             End If
-            Me.Adapter.UpdateCommand.Parameters(7).Value = CType(ICID,Decimal)
+            Me.Adapter.UpdateCommand.Parameters(7).Value = CType(ICID, Decimal)
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.UpdateCommand.Connection.State
-            If ((Me.Adapter.UpdateCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
+            If ((Me.Adapter.UpdateCommand.Connection.State And Global.System.Data.ConnectionState.Open) _
                         <> Global.System.Data.ConnectionState.Open) Then
-                Me.Adapter.UpdateCommand.Connection.Open
+                Me.Adapter.UpdateCommand.Connection.Open()
             End If
-            Try 
+            Try
                 Dim returnValue As Integer = Me.Adapter.UpdateCommand.ExecuteNonQuery
                 Return returnValue
             Finally
                 If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
-                    Me.Adapter.UpdateCommand.Connection.Close
+                    Me.Adapter.UpdateCommand.Connection.Close()
                 End If
             End Try
         End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
-        Public Overloads Overridable Function Update(ByVal ICType As String, ByVal Description As String, ByVal Original_ICID As Decimal, ByVal Original_ICType As String, ByVal Original_Description As String) As Integer
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, True)> _
+        Public Overridable Overloads Function Update(ByVal ICType As String, ByVal Description As String, ByVal Original_ICID As Decimal, ByVal Original_ICType As String, ByVal Original_Description As String) As Integer
             Return Me.Update(ICType, Description, Original_ICID, Original_ICType, Original_Description, Original_ICID)
         End Function
     End Class
-    
+
     '''<summary>
     '''Represents the connection and commands used to retrieve and save data.
     '''</summary>
-    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0"),  _
-     Global.System.ComponentModel.DesignerCategoryAttribute("code"),  _
-     Global.System.ComponentModel.ToolboxItem(true),  _
-     Global.System.ComponentModel.DataObjectAttribute(true),  _
-     Global.System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner"& _ 
-        ", Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"),  _
-     Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0"), _
+     Global.System.ComponentModel.DesignerCategoryAttribute("code"), _
+     Global.System.ComponentModel.ToolboxItem(True), _
+     Global.System.ComponentModel.DataObjectAttribute(True), _
+     Global.System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" & _
+        ", Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"), _
+     Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")> _
     Partial Public Class DataTableReceiptMaxTableAdapter
         Inherits Global.System.ComponentModel.Component
-        
+
         Private WithEvents _adapter As Global.System.Data.SqlClient.SqlDataAdapter
-        
+
         Private _connection As Global.System.Data.SqlClient.SqlConnection
-        
+
         Private _transaction As Global.System.Data.SqlClient.SqlTransaction
-        
+
         Private _commandCollection() As Global.System.Data.SqlClient.SqlCommand
-        
+
         Private _clearBeforeFill As Boolean
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
         Public Sub New()
-            MyBase.New
-            Me.ClearBeforeFill = true
+            MyBase.New()
+            Me.ClearBeforeFill = True
         End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
         Protected Friend ReadOnly Property Adapter() As Global.System.Data.SqlClient.SqlDataAdapter
             Get
                 If (Me._adapter Is Nothing) Then
-                    Me.InitAdapter
+                    Me.InitAdapter()
                 End If
                 Return Me._adapter
             End Get
         End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
         Friend Property Connection() As Global.System.Data.SqlClient.SqlConnection
             Get
                 If (Me._connection Is Nothing) Then
-                    Me.InitConnection
+                    Me.InitConnection()
                 End If
                 Return Me._connection
             End Get
-            Set
+            Set(ByVal value As Global.System.Data.SqlClient.SqlConnection)
                 Me._connection = value
                 If (Not (Me.Adapter.InsertCommand) Is Nothing) Then
                     Me.Adapter.InsertCommand.Connection = value
@@ -15487,61 +15487,61 @@ Namespace DSOpticalShopTableAdapters
                 Dim i As Integer = 0
                 Do While (i < Me.CommandCollection.Length)
                     If (Not (Me.CommandCollection(i)) Is Nothing) Then
-                        CType(Me.CommandCollection(i),Global.System.Data.SqlClient.SqlCommand).Connection = value
+                        CType(Me.CommandCollection(i), Global.System.Data.SqlClient.SqlCommand).Connection = value
                     End If
                     i = (i + 1)
                 Loop
             End Set
         End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
         Friend Property Transaction() As Global.System.Data.SqlClient.SqlTransaction
             Get
                 Return Me._transaction
             End Get
-            Set
+            Set(ByVal value As Global.System.Data.SqlClient.SqlTransaction)
                 Me._transaction = value
                 Dim i As Integer = 0
                 Do While (i < Me.CommandCollection.Length)
                     Me.CommandCollection(i).Transaction = Me._transaction
                     i = (i + 1)
                 Loop
-                If ((Not (Me.Adapter) Is Nothing)  _
+                If ((Not (Me.Adapter) Is Nothing) _
                             AndAlso (Not (Me.Adapter.DeleteCommand) Is Nothing)) Then
                     Me.Adapter.DeleteCommand.Transaction = Me._transaction
                 End If
-                If ((Not (Me.Adapter) Is Nothing)  _
+                If ((Not (Me.Adapter) Is Nothing) _
                             AndAlso (Not (Me.Adapter.InsertCommand) Is Nothing)) Then
                     Me.Adapter.InsertCommand.Transaction = Me._transaction
                 End If
-                If ((Not (Me.Adapter) Is Nothing)  _
+                If ((Not (Me.Adapter) Is Nothing) _
                             AndAlso (Not (Me.Adapter.UpdateCommand) Is Nothing)) Then
                     Me.Adapter.UpdateCommand.Transaction = Me._transaction
                 End If
             End Set
         End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
         Protected ReadOnly Property CommandCollection() As Global.System.Data.SqlClient.SqlCommand()
             Get
                 If (Me._commandCollection Is Nothing) Then
-                    Me.InitCommandCollection
+                    Me.InitCommandCollection()
                 End If
                 Return Me._commandCollection
             End Get
         End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
         Public Property ClearBeforeFill() As Boolean
             Get
                 Return Me._clearBeforeFill
             End Get
-            Set
+            Set(ByVal value As Boolean)
                 Me._clearBeforeFill = value
             End Set
         End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
         Private Sub InitAdapter()
             Me._adapter = New Global.System.Data.SqlClient.SqlDataAdapter
             Dim tableMapping As Global.System.Data.Common.DataTableMapping = New Global.System.Data.Common.DataTableMapping
@@ -15550,93 +15550,93 @@ Namespace DSOpticalShopTableAdapters
             tableMapping.ColumnMappings.Add("ReceiptMaxAuto", "ReceiptMaxAuto")
             Me._adapter.TableMappings.Add(tableMapping)
         End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
         Private Sub InitConnection()
             Me._connection = New Global.System.Data.SqlClient.SqlConnection
-            Me._connection.ConnectionString = Global.HospitalMS.My.MySettings.Default.TakeoDBConnectionString
+            Me._connection.ConnectionString = Global.HospitalMS.My.MySettings.Default.AppConnection
         End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
         Private Sub InitCommandCollection()
             Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(0) {}
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT MAX(ReceiptID) AS ReceiptMaxAuto"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM  RECEIPT"
+            Me._commandCollection(0).CommandText = "SELECT MAX(ReceiptID) AS ReceiptMaxAuto" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "FROM  RECEIPT"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
         End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, true)>  _
-        Public Overloads Overridable Function Fill(ByVal dataTable As DSOpticalShop.DataTableReceiptMaxDataTable) As Integer
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, True)> _
+        Public Overridable Overloads Function Fill(ByVal dataTable As DSOpticalShop.DataTableReceiptMaxDataTable) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
-            If (Me.ClearBeforeFill = true) Then
-                dataTable.Clear
+            If (Me.ClearBeforeFill = True) Then
+                dataTable.Clear()
             End If
             Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
             Return returnValue
         End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], true)>  _
-        Public Overloads Overridable Function GetDataReceiptMax() As DSOpticalShop.DataTableReceiptMaxDataTable
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], True)> _
+        Public Overridable Overloads Function GetDataReceiptMax() As DSOpticalShop.DataTableReceiptMaxDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
             Dim dataTable As DSOpticalShop.DataTableReceiptMaxDataTable = New DSOpticalShop.DataTableReceiptMaxDataTable
             Me.Adapter.Fill(dataTable)
             Return dataTable
         End Function
     End Class
-    
+
     '''<summary>
     '''Represents the connection and commands used to retrieve and save data.
     '''</summary>
-    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0"),  _
-     Global.System.ComponentModel.DesignerCategoryAttribute("code"),  _
-     Global.System.ComponentModel.ToolboxItem(true),  _
-     Global.System.ComponentModel.DataObjectAttribute(true),  _
-     Global.System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner"& _ 
-        ", Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"),  _
-     Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0"), _
+     Global.System.ComponentModel.DesignerCategoryAttribute("code"), _
+     Global.System.ComponentModel.ToolboxItem(True), _
+     Global.System.ComponentModel.DataObjectAttribute(True), _
+     Global.System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" & _
+        ", Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"), _
+     Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")> _
     Partial Public Class VReceiptDetailTableAdapter
         Inherits Global.System.ComponentModel.Component
-        
+
         Private WithEvents _adapter As Global.System.Data.SqlClient.SqlDataAdapter
-        
+
         Private _connection As Global.System.Data.SqlClient.SqlConnection
-        
+
         Private _transaction As Global.System.Data.SqlClient.SqlTransaction
-        
+
         Private _commandCollection() As Global.System.Data.SqlClient.SqlCommand
-        
+
         Private _clearBeforeFill As Boolean
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
         Public Sub New()
-            MyBase.New
-            Me.ClearBeforeFill = true
+            MyBase.New()
+            Me.ClearBeforeFill = True
         End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
         Protected Friend ReadOnly Property Adapter() As Global.System.Data.SqlClient.SqlDataAdapter
             Get
                 If (Me._adapter Is Nothing) Then
-                    Me.InitAdapter
+                    Me.InitAdapter()
                 End If
                 Return Me._adapter
             End Get
         End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
         Friend Property Connection() As Global.System.Data.SqlClient.SqlConnection
             Get
                 If (Me._connection Is Nothing) Then
-                    Me.InitConnection
+                    Me.InitConnection()
                 End If
                 Return Me._connection
             End Get
-            Set
+            Set(ByVal value As Global.System.Data.SqlClient.SqlConnection)
                 Me._connection = value
                 If (Not (Me.Adapter.InsertCommand) Is Nothing) Then
                     Me.Adapter.InsertCommand.Connection = value
@@ -15650,61 +15650,61 @@ Namespace DSOpticalShopTableAdapters
                 Dim i As Integer = 0
                 Do While (i < Me.CommandCollection.Length)
                     If (Not (Me.CommandCollection(i)) Is Nothing) Then
-                        CType(Me.CommandCollection(i),Global.System.Data.SqlClient.SqlCommand).Connection = value
+                        CType(Me.CommandCollection(i), Global.System.Data.SqlClient.SqlCommand).Connection = value
                     End If
                     i = (i + 1)
                 Loop
             End Set
         End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
         Friend Property Transaction() As Global.System.Data.SqlClient.SqlTransaction
             Get
                 Return Me._transaction
             End Get
-            Set
+            Set(ByVal value As Global.System.Data.SqlClient.SqlTransaction)
                 Me._transaction = value
                 Dim i As Integer = 0
                 Do While (i < Me.CommandCollection.Length)
                     Me.CommandCollection(i).Transaction = Me._transaction
                     i = (i + 1)
                 Loop
-                If ((Not (Me.Adapter) Is Nothing)  _
+                If ((Not (Me.Adapter) Is Nothing) _
                             AndAlso (Not (Me.Adapter.DeleteCommand) Is Nothing)) Then
                     Me.Adapter.DeleteCommand.Transaction = Me._transaction
                 End If
-                If ((Not (Me.Adapter) Is Nothing)  _
+                If ((Not (Me.Adapter) Is Nothing) _
                             AndAlso (Not (Me.Adapter.InsertCommand) Is Nothing)) Then
                     Me.Adapter.InsertCommand.Transaction = Me._transaction
                 End If
-                If ((Not (Me.Adapter) Is Nothing)  _
+                If ((Not (Me.Adapter) Is Nothing) _
                             AndAlso (Not (Me.Adapter.UpdateCommand) Is Nothing)) Then
                     Me.Adapter.UpdateCommand.Transaction = Me._transaction
                 End If
             End Set
         End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
         Protected ReadOnly Property CommandCollection() As Global.System.Data.SqlClient.SqlCommand()
             Get
                 If (Me._commandCollection Is Nothing) Then
-                    Me.InitCommandCollection
+                    Me.InitCommandCollection()
                 End If
                 Return Me._commandCollection
             End Get
         End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
         Public Property ClearBeforeFill() As Boolean
             Get
                 Return Me._clearBeforeFill
             End Get
-            Set
+            Set(ByVal value As Boolean)
                 Me._clearBeforeFill = value
             End Set
         End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
         Private Sub InitAdapter()
             Me._adapter = New Global.System.Data.SqlClient.SqlDataAdapter
             Dim tableMapping As Global.System.Data.Common.DataTableMapping = New Global.System.Data.Common.DataTableMapping
@@ -15723,133 +15723,133 @@ Namespace DSOpticalShopTableAdapters
             tableMapping.ColumnMappings.Add("ReceiptNo", "ReceiptNo")
             Me._adapter.TableMappings.Add(tableMapping)
         End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
         Private Sub InitConnection()
             Me._connection = New Global.System.Data.SqlClient.SqlConnection
-            Me._connection.ConnectionString = Global.HospitalMS.My.MySettings.Default.TakeoDBConnectionString
+            Me._connection.ConnectionString = Global.HospitalMS.My.MySettings.Default.AppConnection
         End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
         Private Sub InitCommandCollection()
             Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(1) {}
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT     ReceiptDID, ItemID, ItemName, ItemQTY, SubTotalReal, SubTotalDolar, In"& _ 
-                "comeID, ReceiptDate, Barcode, ItemPrice, ReceiptNo"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM         VReceiptDetail"
+            Me._commandCollection(0).CommandText = "SELECT     ReceiptDID, ItemID, ItemName, ItemQTY, SubTotalReal, SubTotalDolar, In" & _
+                "comeID, ReceiptDate, Barcode, ItemPrice, ReceiptNo" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "FROM         VReceiptDetail"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(1) = New Global.System.Data.SqlClient.SqlCommand
             Me._commandCollection(1).Connection = Me.Connection
-            Me._commandCollection(1).CommandText = "SELECT Barcode, IncomeID, ItemID, ItemName, ItemPrice, ItemQTY, ReceiptDID, Recei"& _ 
-                "ptDate, ReceiptNo, SubTotalDolar, SubTotalReal FROM VReceiptDetail WHERE (Receip"& _ 
+            Me._commandCollection(1).CommandText = "SELECT Barcode, IncomeID, ItemID, ItemName, ItemPrice, ItemQTY, ReceiptDID, Recei" & _
+                "ptDate, ReceiptNo, SubTotalDolar, SubTotalReal FROM VReceiptDetail WHERE (Receip" & _
                 "tNo = @ReceiptNo)"
             Me._commandCollection(1).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ReceiptNo", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "ReceiptNo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ReceiptNo", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "ReceiptNo", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
         End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, true)>  _
-        Public Overloads Overridable Function Fill(ByVal dataTable As DSOpticalShop.VReceiptDetailDataTable) As Integer
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, True)> _
+        Public Overridable Overloads Function Fill(ByVal dataTable As DSOpticalShop.VReceiptDetailDataTable) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
-            If (Me.ClearBeforeFill = true) Then
-                dataTable.Clear
+            If (Me.ClearBeforeFill = True) Then
+                dataTable.Clear()
             End If
             Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
             Return returnValue
         End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], true)>  _
-        Public Overloads Overridable Function GetData() As DSOpticalShop.VReceiptDetailDataTable
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], True)> _
+        Public Overridable Overloads Function GetData() As DSOpticalShop.VReceiptDetailDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
             Dim dataTable As DSOpticalShop.VReceiptDetailDataTable = New DSOpticalShop.VReceiptDetailDataTable
             Me.Adapter.Fill(dataTable)
             Return dataTable
         End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
-        Public Overloads Overridable Function FillBy(ByVal dataTable As DSOpticalShop.VReceiptDetailDataTable, ByVal ReceiptNo As String) As Integer
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, False)> _
+        Public Overridable Overloads Function FillBy(ByVal dataTable As DSOpticalShop.VReceiptDetailDataTable, ByVal ReceiptNo As String) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(1)
             If (ReceiptNo Is Nothing) Then
                 Me.Adapter.SelectCommand.Parameters(0).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.SelectCommand.Parameters(0).Value = CType(ReceiptNo,String)
+                Me.Adapter.SelectCommand.Parameters(0).Value = CType(ReceiptNo, String)
             End If
-            If (Me.ClearBeforeFill = true) Then
-                dataTable.Clear
+            If (Me.ClearBeforeFill = True) Then
+                dataTable.Clear()
             End If
             Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
             Return returnValue
         End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
-        Public Overloads Overridable Function GetDataByReceiptNo(ByVal ReceiptNo As String) As DSOpticalShop.VReceiptDetailDataTable
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], False)> _
+        Public Overridable Overloads Function GetDataByReceiptNo(ByVal ReceiptNo As String) As DSOpticalShop.VReceiptDetailDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(1)
             If (ReceiptNo Is Nothing) Then
                 Me.Adapter.SelectCommand.Parameters(0).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.SelectCommand.Parameters(0).Value = CType(ReceiptNo,String)
+                Me.Adapter.SelectCommand.Parameters(0).Value = CType(ReceiptNo, String)
             End If
             Dim dataTable As DSOpticalShop.VReceiptDetailDataTable = New DSOpticalShop.VReceiptDetailDataTable
             Me.Adapter.Fill(dataTable)
             Return dataTable
         End Function
     End Class
-    
+
     '''<summary>
     '''Represents the connection and commands used to retrieve and save data.
     '''</summary>
-    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0"),  _
-     Global.System.ComponentModel.DesignerCategoryAttribute("code"),  _
-     Global.System.ComponentModel.ToolboxItem(true),  _
-     Global.System.ComponentModel.DataObjectAttribute(true),  _
-     Global.System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner"& _ 
-        ", Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"),  _
-     Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0"), _
+     Global.System.ComponentModel.DesignerCategoryAttribute("code"), _
+     Global.System.ComponentModel.ToolboxItem(True), _
+     Global.System.ComponentModel.DataObjectAttribute(True), _
+     Global.System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" & _
+        ", Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"), _
+     Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")> _
     Partial Public Class DONATIONTableAdapter
         Inherits Global.System.ComponentModel.Component
-        
+
         Private WithEvents _adapter As Global.System.Data.SqlClient.SqlDataAdapter
-        
+
         Private _connection As Global.System.Data.SqlClient.SqlConnection
-        
+
         Private _transaction As Global.System.Data.SqlClient.SqlTransaction
-        
+
         Private _commandCollection() As Global.System.Data.SqlClient.SqlCommand
-        
+
         Private _clearBeforeFill As Boolean
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
         Public Sub New()
-            MyBase.New
-            Me.ClearBeforeFill = true
+            MyBase.New()
+            Me.ClearBeforeFill = True
         End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
         Protected Friend ReadOnly Property Adapter() As Global.System.Data.SqlClient.SqlDataAdapter
             Get
                 If (Me._adapter Is Nothing) Then
-                    Me.InitAdapter
+                    Me.InitAdapter()
                 End If
                 Return Me._adapter
             End Get
         End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
         Friend Property Connection() As Global.System.Data.SqlClient.SqlConnection
             Get
                 If (Me._connection Is Nothing) Then
-                    Me.InitConnection
+                    Me.InitConnection()
                 End If
                 Return Me._connection
             End Get
-            Set
+            Set(ByVal value As Global.System.Data.SqlClient.SqlConnection)
                 Me._connection = value
                 If (Not (Me.Adapter.InsertCommand) Is Nothing) Then
                     Me.Adapter.InsertCommand.Connection = value
@@ -15863,61 +15863,61 @@ Namespace DSOpticalShopTableAdapters
                 Dim i As Integer = 0
                 Do While (i < Me.CommandCollection.Length)
                     If (Not (Me.CommandCollection(i)) Is Nothing) Then
-                        CType(Me.CommandCollection(i),Global.System.Data.SqlClient.SqlCommand).Connection = value
+                        CType(Me.CommandCollection(i), Global.System.Data.SqlClient.SqlCommand).Connection = value
                     End If
                     i = (i + 1)
                 Loop
             End Set
         End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
         Friend Property Transaction() As Global.System.Data.SqlClient.SqlTransaction
             Get
                 Return Me._transaction
             End Get
-            Set
+            Set(ByVal value As Global.System.Data.SqlClient.SqlTransaction)
                 Me._transaction = value
                 Dim i As Integer = 0
                 Do While (i < Me.CommandCollection.Length)
                     Me.CommandCollection(i).Transaction = Me._transaction
                     i = (i + 1)
                 Loop
-                If ((Not (Me.Adapter) Is Nothing)  _
+                If ((Not (Me.Adapter) Is Nothing) _
                             AndAlso (Not (Me.Adapter.DeleteCommand) Is Nothing)) Then
                     Me.Adapter.DeleteCommand.Transaction = Me._transaction
                 End If
-                If ((Not (Me.Adapter) Is Nothing)  _
+                If ((Not (Me.Adapter) Is Nothing) _
                             AndAlso (Not (Me.Adapter.InsertCommand) Is Nothing)) Then
                     Me.Adapter.InsertCommand.Transaction = Me._transaction
                 End If
-                If ((Not (Me.Adapter) Is Nothing)  _
+                If ((Not (Me.Adapter) Is Nothing) _
                             AndAlso (Not (Me.Adapter.UpdateCommand) Is Nothing)) Then
                     Me.Adapter.UpdateCommand.Transaction = Me._transaction
                 End If
             End Set
         End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
         Protected ReadOnly Property CommandCollection() As Global.System.Data.SqlClient.SqlCommand()
             Get
                 If (Me._commandCollection Is Nothing) Then
-                    Me.InitCommandCollection
+                    Me.InitCommandCollection()
                 End If
                 Return Me._commandCollection
             End Get
         End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
         Public Property ClearBeforeFill() As Boolean
             Get
                 Return Me._clearBeforeFill
             End Get
-            Set
+            Set(ByVal value As Boolean)
                 Me._clearBeforeFill = value
             End Set
         End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
         Private Sub InitAdapter()
             Me._adapter = New Global.System.Data.SqlClient.SqlDataAdapter
             Dim tableMapping As Global.System.Data.Common.DataTableMapping = New Global.System.Data.Common.DataTableMapping
@@ -15929,50 +15929,50 @@ Namespace DSOpticalShopTableAdapters
             Me._adapter.TableMappings.Add(tableMapping)
             Me._adapter.DeleteCommand = New Global.System.Data.SqlClient.SqlCommand
             Me._adapter.DeleteCommand.Connection = Me.Connection
-            Me._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[DONATION] WHERE (([DonationID] = @Original_DonationID) AND ((@"& _ 
-                "IsNull_DonationName = 1 AND [DonationName] IS NULL) OR ([DonationName] = @Origin"& _ 
-                "al_DonationName)) AND ((@IsNull_Description = 1 AND [Description] IS NULL) OR (["& _ 
+            Me._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[DONATION] WHERE (([DonationID] = @Original_DonationID) AND ((@" & _
+                "IsNull_DonationName = 1 AND [DonationName] IS NULL) OR ([DonationName] = @Origin" & _
+                "al_DonationName)) AND ((@IsNull_Description = 1 AND [Description] IS NULL) OR ([" & _
                 "Description] = @Original_Description)))"
             Me._adapter.DeleteCommand.CommandType = Global.System.Data.CommandType.Text
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_DonationID", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "DonationID", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_DonationName", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DonationName", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_DonationName", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DonationName", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Description", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Description", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Description", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Description", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_DonationID", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "DonationID", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_DonationName", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DonationName", Global.System.Data.DataRowVersion.Original, True, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_DonationName", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DonationName", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Description", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Description", Global.System.Data.DataRowVersion.Original, True, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Description", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Description", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
             Me._adapter.InsertCommand = New Global.System.Data.SqlClient.SqlCommand
             Me._adapter.InsertCommand.Connection = Me.Connection
-            Me._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[DONATION] ([DonationName], [Description]) VALUES (@DonationNam"& _ 
-                "e, @Description);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT DonationID, DonationName, Description FROM DONATION WH"& _ 
+            Me._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[DONATION] ([DonationName], [Description]) VALUES (@DonationNam" & _
+                "e, @Description);" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "SELECT DonationID, DonationName, Description FROM DONATION WH" & _
                 "ERE (DonationID = SCOPE_IDENTITY())"
             Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DonationName", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DonationName", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Description", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Description", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DonationName", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DonationName", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Description", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Description", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
             Me._adapter.UpdateCommand = New Global.System.Data.SqlClient.SqlCommand
             Me._adapter.UpdateCommand.Connection = Me.Connection
-            Me._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[DONATION] SET [DonationName] = @DonationName, [Description] = @Desc"& _ 
-                "ription WHERE (([DonationID] = @Original_DonationID) AND ((@IsNull_DonationName "& _ 
-                "= 1 AND [DonationName] IS NULL) OR ([DonationName] = @Original_DonationName)) AN"& _ 
-                "D ((@IsNull_Description = 1 AND [Description] IS NULL) OR ([Description] = @Orig"& _ 
-                "inal_Description)));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT DonationID, DonationName, Description FROM DONATION"& _ 
+            Me._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[DONATION] SET [DonationName] = @DonationName, [Description] = @Desc" & _
+                "ription WHERE (([DonationID] = @Original_DonationID) AND ((@IsNull_DonationName " & _
+                "= 1 AND [DonationName] IS NULL) OR ([DonationName] = @Original_DonationName)) AN" & _
+                "D ((@IsNull_Description = 1 AND [Description] IS NULL) OR ([Description] = @Orig" & _
+                "inal_Description)));" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "SELECT DonationID, DonationName, Description FROM DONATION" & _
                 " WHERE (DonationID = @DonationID)"
             Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DonationName", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DonationName", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Description", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Description", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_DonationID", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "DonationID", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_DonationName", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DonationName", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_DonationName", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DonationName", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Description", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Description", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Description", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Description", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DonationID", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "DonationID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DonationName", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DonationName", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Description", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Description", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_DonationID", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "DonationID", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_DonationName", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DonationName", Global.System.Data.DataRowVersion.Original, True, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_DonationName", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DonationName", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Description", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Description", Global.System.Data.DataRowVersion.Original, True, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Description", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Description", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DonationID", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "DonationID", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
         End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
         Private Sub InitConnection()
             Me._connection = New Global.System.Data.SqlClient.SqlConnection
-            Me._connection.ConnectionString = Global.HospitalMS.My.MySettings.Default.TakeoDBConnectionString
+            Me._connection.ConnectionString = Global.HospitalMS.My.MySettings.Default.AppConnection
         End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
         Private Sub InitCommandCollection()
             Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(0) {}
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand
@@ -15980,217 +15980,217 @@ Namespace DSOpticalShopTableAdapters
             Me._commandCollection(0).CommandText = "SELECT DonationID, DonationName, Description FROM dbo.DONATION"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
         End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, true)>  _
-        Public Overloads Overridable Function Fill(ByVal dataTable As DSOpticalShop.DONATIONDataTable) As Integer
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, True)> _
+        Public Overridable Overloads Function Fill(ByVal dataTable As DSOpticalShop.DONATIONDataTable) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
-            If (Me.ClearBeforeFill = true) Then
-                dataTable.Clear
+            If (Me.ClearBeforeFill = True) Then
+                dataTable.Clear()
             End If
             Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
             Return returnValue
         End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], true)>  _
-        Public Overloads Overridable Function GetData() As DSOpticalShop.DONATIONDataTable
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], True)> _
+        Public Overridable Overloads Function GetData() As DSOpticalShop.DONATIONDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
             Dim dataTable As DSOpticalShop.DONATIONDataTable = New DSOpticalShop.DONATIONDataTable
             Me.Adapter.Fill(dataTable)
             Return dataTable
         End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
-        Public Overloads Overridable Function Update(ByVal dataTable As DSOpticalShop.DONATIONDataTable) As Integer
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")> _
+        Public Overridable Overloads Function Update(ByVal dataTable As DSOpticalShop.DONATIONDataTable) As Integer
             Return Me.Adapter.Update(dataTable)
         End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
-        Public Overloads Overridable Function Update(ByVal dataSet As DSOpticalShop) As Integer
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")> _
+        Public Overridable Overloads Function Update(ByVal dataSet As DSOpticalShop) As Integer
             Return Me.Adapter.Update(dataSet, "DONATION")
         End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
-        Public Overloads Overridable Function Update(ByVal dataRow As Global.System.Data.DataRow) As Integer
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")> _
+        Public Overridable Overloads Function Update(ByVal dataRow As Global.System.Data.DataRow) As Integer
             Return Me.Adapter.Update(New Global.System.Data.DataRow() {dataRow})
         End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
-        Public Overloads Overridable Function Update(ByVal dataRows() As Global.System.Data.DataRow) As Integer
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")> _
+        Public Overridable Overloads Function Update(ByVal dataRows() As Global.System.Data.DataRow) As Integer
             Return Me.Adapter.Update(dataRows)
         End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Delete, true)>  _
-        Public Overloads Overridable Function Delete(ByVal Original_DonationID As Decimal, ByVal Original_DonationName As String, ByVal Original_Description As String) As Integer
-            Me.Adapter.DeleteCommand.Parameters(0).Value = CType(Original_DonationID,Decimal)
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Delete, True)> _
+        Public Overridable Overloads Function Delete(ByVal Original_DonationID As Decimal, ByVal Original_DonationName As String, ByVal Original_Description As String) As Integer
+            Me.Adapter.DeleteCommand.Parameters(0).Value = CType(Original_DonationID, Decimal)
             If (Original_DonationName Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(1).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(1).Value = CType(1, Object)
                 Me.Adapter.DeleteCommand.Parameters(2).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.DeleteCommand.Parameters(1).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(2).Value = CType(Original_DonationName,String)
+                Me.Adapter.DeleteCommand.Parameters(1).Value = CType(0, Object)
+                Me.Adapter.DeleteCommand.Parameters(2).Value = CType(Original_DonationName, String)
             End If
             If (Original_Description Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(3).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(3).Value = CType(1, Object)
                 Me.Adapter.DeleteCommand.Parameters(4).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.DeleteCommand.Parameters(3).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(4).Value = CType(Original_Description,String)
+                Me.Adapter.DeleteCommand.Parameters(3).Value = CType(0, Object)
+                Me.Adapter.DeleteCommand.Parameters(4).Value = CType(Original_Description, String)
             End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.DeleteCommand.Connection.State
-            If ((Me.Adapter.DeleteCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
+            If ((Me.Adapter.DeleteCommand.Connection.State And Global.System.Data.ConnectionState.Open) _
                         <> Global.System.Data.ConnectionState.Open) Then
-                Me.Adapter.DeleteCommand.Connection.Open
+                Me.Adapter.DeleteCommand.Connection.Open()
             End If
-            Try 
+            Try
                 Dim returnValue As Integer = Me.Adapter.DeleteCommand.ExecuteNonQuery
                 Return returnValue
             Finally
                 If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
-                    Me.Adapter.DeleteCommand.Connection.Close
+                    Me.Adapter.DeleteCommand.Connection.Close()
                 End If
             End Try
         End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, true)>  _
-        Public Overloads Overridable Function Insert(ByVal DonationName As String, ByVal Description As String) As Integer
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, True)> _
+        Public Overridable Overloads Function Insert(ByVal DonationName As String, ByVal Description As String) As Integer
             If (DonationName Is Nothing) Then
                 Me.Adapter.InsertCommand.Parameters(0).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.InsertCommand.Parameters(0).Value = CType(DonationName,String)
+                Me.Adapter.InsertCommand.Parameters(0).Value = CType(DonationName, String)
             End If
             If (Description Is Nothing) Then
                 Me.Adapter.InsertCommand.Parameters(1).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.InsertCommand.Parameters(1).Value = CType(Description,String)
+                Me.Adapter.InsertCommand.Parameters(1).Value = CType(Description, String)
             End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.InsertCommand.Connection.State
-            If ((Me.Adapter.InsertCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
+            If ((Me.Adapter.InsertCommand.Connection.State And Global.System.Data.ConnectionState.Open) _
                         <> Global.System.Data.ConnectionState.Open) Then
-                Me.Adapter.InsertCommand.Connection.Open
+                Me.Adapter.InsertCommand.Connection.Open()
             End If
-            Try 
+            Try
                 Dim returnValue As Integer = Me.Adapter.InsertCommand.ExecuteNonQuery
                 Return returnValue
             Finally
                 If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
-                    Me.Adapter.InsertCommand.Connection.Close
+                    Me.Adapter.InsertCommand.Connection.Close()
                 End If
             End Try
         End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
-        Public Overloads Overridable Function Update(ByVal DonationName As String, ByVal Description As String, ByVal Original_DonationID As Decimal, ByVal Original_DonationName As String, ByVal Original_Description As String, ByVal DonationID As Decimal) As Integer
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, True)> _
+        Public Overridable Overloads Function Update(ByVal DonationName As String, ByVal Description As String, ByVal Original_DonationID As Decimal, ByVal Original_DonationName As String, ByVal Original_Description As String, ByVal DonationID As Decimal) As Integer
             If (DonationName Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(0).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(0).Value = CType(DonationName,String)
+                Me.Adapter.UpdateCommand.Parameters(0).Value = CType(DonationName, String)
             End If
             If (Description Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(1).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(1).Value = CType(Description,String)
+                Me.Adapter.UpdateCommand.Parameters(1).Value = CType(Description, String)
             End If
-            Me.Adapter.UpdateCommand.Parameters(2).Value = CType(Original_DonationID,Decimal)
+            Me.Adapter.UpdateCommand.Parameters(2).Value = CType(Original_DonationID, Decimal)
             If (Original_DonationName Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(3).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(3).Value = CType(1, Object)
                 Me.Adapter.UpdateCommand.Parameters(4).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(3).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(4).Value = CType(Original_DonationName,String)
+                Me.Adapter.UpdateCommand.Parameters(3).Value = CType(0, Object)
+                Me.Adapter.UpdateCommand.Parameters(4).Value = CType(Original_DonationName, String)
             End If
             If (Original_Description Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(5).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(5).Value = CType(1, Object)
                 Me.Adapter.UpdateCommand.Parameters(6).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(5).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(6).Value = CType(Original_Description,String)
+                Me.Adapter.UpdateCommand.Parameters(5).Value = CType(0, Object)
+                Me.Adapter.UpdateCommand.Parameters(6).Value = CType(Original_Description, String)
             End If
-            Me.Adapter.UpdateCommand.Parameters(7).Value = CType(DonationID,Decimal)
+            Me.Adapter.UpdateCommand.Parameters(7).Value = CType(DonationID, Decimal)
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.UpdateCommand.Connection.State
-            If ((Me.Adapter.UpdateCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
+            If ((Me.Adapter.UpdateCommand.Connection.State And Global.System.Data.ConnectionState.Open) _
                         <> Global.System.Data.ConnectionState.Open) Then
-                Me.Adapter.UpdateCommand.Connection.Open
+                Me.Adapter.UpdateCommand.Connection.Open()
             End If
-            Try 
+            Try
                 Dim returnValue As Integer = Me.Adapter.UpdateCommand.ExecuteNonQuery
                 Return returnValue
             Finally
                 If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
-                    Me.Adapter.UpdateCommand.Connection.Close
+                    Me.Adapter.UpdateCommand.Connection.Close()
                 End If
             End Try
         End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
-        Public Overloads Overridable Function Update(ByVal DonationName As String, ByVal Description As String, ByVal Original_DonationID As Decimal, ByVal Original_DonationName As String, ByVal Original_Description As String) As Integer
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, True)> _
+        Public Overridable Overloads Function Update(ByVal DonationName As String, ByVal Description As String, ByVal Original_DonationID As Decimal, ByVal Original_DonationName As String, ByVal Original_Description As String) As Integer
             Return Me.Update(DonationName, Description, Original_DonationID, Original_DonationName, Original_Description, Original_DonationID)
         End Function
     End Class
-    
+
     '''<summary>
     '''Represents the connection and commands used to retrieve and save data.
     '''</summary>
-    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0"),  _
-     Global.System.ComponentModel.DesignerCategoryAttribute("code"),  _
-     Global.System.ComponentModel.ToolboxItem(true),  _
-     Global.System.ComponentModel.DataObjectAttribute(true),  _
-     Global.System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner"& _ 
-        ", Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"),  _
-     Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0"), _
+     Global.System.ComponentModel.DesignerCategoryAttribute("code"), _
+     Global.System.ComponentModel.ToolboxItem(True), _
+     Global.System.ComponentModel.DataObjectAttribute(True), _
+     Global.System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" & _
+        ", Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"), _
+     Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")> _
     Partial Public Class VMainReceiptDetailTableAdapter
         Inherits Global.System.ComponentModel.Component
-        
+
         Private WithEvents _adapter As Global.System.Data.SqlClient.SqlDataAdapter
-        
+
         Private _connection As Global.System.Data.SqlClient.SqlConnection
-        
+
         Private _transaction As Global.System.Data.SqlClient.SqlTransaction
-        
+
         Private _commandCollection() As Global.System.Data.SqlClient.SqlCommand
-        
+
         Private _clearBeforeFill As Boolean
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
         Public Sub New()
-            MyBase.New
-            Me.ClearBeforeFill = true
+            MyBase.New()
+            Me.ClearBeforeFill = True
         End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
         Protected Friend ReadOnly Property Adapter() As Global.System.Data.SqlClient.SqlDataAdapter
             Get
                 If (Me._adapter Is Nothing) Then
-                    Me.InitAdapter
+                    Me.InitAdapter()
                 End If
                 Return Me._adapter
             End Get
         End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
         Friend Property Connection() As Global.System.Data.SqlClient.SqlConnection
             Get
                 If (Me._connection Is Nothing) Then
-                    Me.InitConnection
+                    Me.InitConnection()
                 End If
                 Return Me._connection
             End Get
-            Set
+            Set(ByVal value As Global.System.Data.SqlClient.SqlConnection)
                 Me._connection = value
                 If (Not (Me.Adapter.InsertCommand) Is Nothing) Then
                     Me.Adapter.InsertCommand.Connection = value
@@ -16204,61 +16204,61 @@ Namespace DSOpticalShopTableAdapters
                 Dim i As Integer = 0
                 Do While (i < Me.CommandCollection.Length)
                     If (Not (Me.CommandCollection(i)) Is Nothing) Then
-                        CType(Me.CommandCollection(i),Global.System.Data.SqlClient.SqlCommand).Connection = value
+                        CType(Me.CommandCollection(i), Global.System.Data.SqlClient.SqlCommand).Connection = value
                     End If
                     i = (i + 1)
                 Loop
             End Set
         End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
         Friend Property Transaction() As Global.System.Data.SqlClient.SqlTransaction
             Get
                 Return Me._transaction
             End Get
-            Set
+            Set(ByVal value As Global.System.Data.SqlClient.SqlTransaction)
                 Me._transaction = value
                 Dim i As Integer = 0
                 Do While (i < Me.CommandCollection.Length)
                     Me.CommandCollection(i).Transaction = Me._transaction
                     i = (i + 1)
                 Loop
-                If ((Not (Me.Adapter) Is Nothing)  _
+                If ((Not (Me.Adapter) Is Nothing) _
                             AndAlso (Not (Me.Adapter.DeleteCommand) Is Nothing)) Then
                     Me.Adapter.DeleteCommand.Transaction = Me._transaction
                 End If
-                If ((Not (Me.Adapter) Is Nothing)  _
+                If ((Not (Me.Adapter) Is Nothing) _
                             AndAlso (Not (Me.Adapter.InsertCommand) Is Nothing)) Then
                     Me.Adapter.InsertCommand.Transaction = Me._transaction
                 End If
-                If ((Not (Me.Adapter) Is Nothing)  _
+                If ((Not (Me.Adapter) Is Nothing) _
                             AndAlso (Not (Me.Adapter.UpdateCommand) Is Nothing)) Then
                     Me.Adapter.UpdateCommand.Transaction = Me._transaction
                 End If
             End Set
         End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
         Protected ReadOnly Property CommandCollection() As Global.System.Data.SqlClient.SqlCommand()
             Get
                 If (Me._commandCollection Is Nothing) Then
-                    Me.InitCommandCollection
+                    Me.InitCommandCollection()
                 End If
                 Return Me._commandCollection
             End Get
         End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
         Public Property ClearBeforeFill() As Boolean
             Get
                 Return Me._clearBeforeFill
             End Get
-            Set
+            Set(ByVal value As Boolean)
                 Me._clearBeforeFill = value
             End Set
         End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
         Private Sub InitAdapter()
             Me._adapter = New Global.System.Data.SqlClient.SqlDataAdapter
             Dim tableMapping As Global.System.Data.Common.DataTableMapping = New Global.System.Data.Common.DataTableMapping
@@ -16324,306 +16324,306 @@ Namespace DSOpticalShopTableAdapters
             tableMapping.ColumnMappings.Add("SubReceiptType", "SubReceiptType")
             Me._adapter.TableMappings.Add(tableMapping)
         End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
         Private Sub InitConnection()
             Me._connection = New Global.System.Data.SqlClient.SqlConnection
-            Me._connection.ConnectionString = Global.HospitalMS.My.MySettings.Default.TakeoDBConnectionString
+            Me._connection.ConnectionString = Global.HospitalMS.My.MySettings.Default.AppConnection
         End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
         Private Sub InitCommandCollection()
             Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(14) {}
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT     ReceiptID, ReceiptDate, CustomerNo, MedicReal, MedicDolar, EyeGlassesR"& _ 
-                "eal, EyeGlassesDolar, TotalReal, TotalDolar, AmountInWords, AmountFigureReal, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)& _ 
-                "                      AmountFigureDolar, IsCurrency, IsDonation, DonationID, Pay"& _ 
-                "BySelf, PayByDonation, IsPaid, ReceiptNote, UserID, UserName, CusName, Sex, Age,"& _ 
-                " Occupation, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      Address, ReadyModR, SpectacleR, OtherR, Ret"& _ 
-                "urnReal, ReturnDolar, FundRaisingR, SpectacleDolar, ReadyModDolar, FundRaisingDo"& _ 
-                "lar, OtherDolar, IncomType, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      DonationName, Glasses, Donat"& _ 
-                "eAmount, SupportedAmtR, SupportedAmtDolar, ReceiptType, PaidR, PaidDollar, CusNa"& _ 
-                "meEng, IsOldPatient, FullAmount, NilAmount, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      SocialAmount"& _ 
-                ", PaymentCur, PaymentType, Comment, Expr1, ReceiptNo, CustID, TotalSocial, SubRe"& _ 
-                "ceiptType"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM         VMainReceiptDetail"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE     (IsPaid = @IsPaid)"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"ORDER "& _ 
+            Me._commandCollection(0).CommandText = "SELECT     ReceiptID, ReceiptDate, CustomerNo, MedicReal, MedicDolar, EyeGlassesR" & _
+                "eal, EyeGlassesDolar, TotalReal, TotalDolar, AmountInWords, AmountFigureReal, " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & _
+                "                      AmountFigureDolar, IsCurrency, IsDonation, DonationID, Pay" & _
+                "BySelf, PayByDonation, IsPaid, ReceiptNote, UserID, UserName, CusName, Sex, Age," & _
+                " Occupation, " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                      Address, ReadyModR, SpectacleR, OtherR, Ret" & _
+                "urnReal, ReturnDolar, FundRaisingR, SpectacleDolar, ReadyModDolar, FundRaisingDo" & _
+                "lar, OtherDolar, IncomType, " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                      DonationName, Glasses, Donat" & _
+                "eAmount, SupportedAmtR, SupportedAmtDolar, ReceiptType, PaidR, PaidDollar, CusNa" & _
+                "meEng, IsOldPatient, FullAmount, NilAmount, " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                      SocialAmount" & _
+                ", PaymentCur, PaymentType, Comment, Expr1, ReceiptNo, CustID, TotalSocial, SubRe" & _
+                "ceiptType" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "FROM         VMainReceiptDetail" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "WHERE     (IsPaid = @IsPaid)" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "ORDER " & _
                 "BY ReceiptID DESC"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsPaid", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "IsPaid", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsPaid", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "IsPaid", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
             Me._commandCollection(1) = New Global.System.Data.SqlClient.SqlCommand
             Me._commandCollection(1).Connection = Me.Connection
-            Me._commandCollection(1).CommandText = "SELECT Address, Age, AmountFigureDolar, AmountFigureReal, AmountInWords, Comment,"& _ 
-                " CusName, CusNameEng, CustID, CustomerNo, DonateAmount, DonationID, DonationName"& _ 
-                ", Expr1, EyeGlassesDolar, EyeGlassesReal, FullAmount, FundRaisingDolar, FundRais"& _ 
-                "ingR, Glasses, IncomType, IsCurrency, IsDonation, IsOldPatient, IsPaid, MedicDol"& _ 
-                "ar, MedicReal, NilAmount, Occupation, OtherDolar, OtherR, PaidDollar, PaidR, Pay"& _ 
-                "ByDonation, PayBySelf, PaymentCur, PaymentType, ReadyModDolar, ReadyModR, Receip"& _ 
-                "tDate, ReceiptID, ReceiptNo, ReceiptNote, ReceiptType, ReturnDolar, ReturnReal, "& _ 
-                "Sex, SocialAmount, SpectacleDolar, SpectacleR, SubReceiptType, SupportedAmtDolar"& _ 
-                ", SupportedAmtR, TotalDolar, TotalReal, TotalSocial, UserID, UserName FROM VMain"& _ 
+            Me._commandCollection(1).CommandText = "SELECT Address, Age, AmountFigureDolar, AmountFigureReal, AmountInWords, Comment," & _
+                " CusName, CusNameEng, CustID, CustomerNo, DonateAmount, DonationID, DonationName" & _
+                ", Expr1, EyeGlassesDolar, EyeGlassesReal, FullAmount, FundRaisingDolar, FundRais" & _
+                "ingR, Glasses, IncomType, IsCurrency, IsDonation, IsOldPatient, IsPaid, MedicDol" & _
+                "ar, MedicReal, NilAmount, Occupation, OtherDolar, OtherR, PaidDollar, PaidR, Pay" & _
+                "ByDonation, PayBySelf, PaymentCur, PaymentType, ReadyModDolar, ReadyModR, Receip" & _
+                "tDate, ReceiptID, ReceiptNo, ReceiptNote, ReceiptType, ReturnDolar, ReturnReal, " & _
+                "Sex, SocialAmount, SpectacleDolar, SpectacleR, SubReceiptType, SupportedAmtDolar" & _
+                ", SupportedAmtR, TotalDolar, TotalReal, TotalSocial, UserID, UserName FROM VMain" & _
                 "ReceiptDetail ORDER BY ReceiptID DESC"
             Me._commandCollection(1).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(2) = New Global.System.Data.SqlClient.SqlCommand
             Me._commandCollection(2).Connection = Me.Connection
-            Me._commandCollection(2).CommandText = "SELECT Address, Age, AmountFigureDolar, AmountFigureReal, AmountInWords, Comment,"& _ 
-                " CusName, CusNameEng, CustID, CustomerNo, DonateAmount, DonationID, DonationName"& _ 
-                ", Expr1, EyeGlassesDolar, EyeGlassesReal, FullAmount, FundRaisingDolar, FundRais"& _ 
-                "ingR, Glasses, IncomType, IsCurrency, IsDonation, IsOldPatient, IsPaid, MedicDol"& _ 
-                "ar, MedicReal, NilAmount, Occupation, OtherDolar, OtherR, PaidDollar, PaidR, Pay"& _ 
-                "ByDonation, PayBySelf, PaymentCur, PaymentType, ReadyModDolar, ReadyModR, Receip"& _ 
-                "tDate, ReceiptID, ReceiptNo, ReceiptNote, ReceiptType, ReturnDolar, ReturnReal, "& _ 
-                "Sex, SocialAmount, SpectacleDolar, SpectacleR, SubReceiptType, SupportedAmtDolar"& _ 
-                ", SupportedAmtR, TotalDolar, TotalReal, TotalSocial, UserID, UserName FROM VMain"& _ 
-                "ReceiptDetail WHERE (IsPaid = @IsPaid) AND (CAST(CONVERT (VARCHAR(10), ReceiptDa"& _ 
-                "te, 1) AS DateTime) BETWEEN CAST(CONVERT (VARCHAR(10), CAST(@DateFrom AS DATETIM"& _ 
-                "E), 1) AS Datetime) AND CAST(CONVERT (VARCHAR(10), CAST(@DateTO AS DATETIME), 1)"& _ 
+            Me._commandCollection(2).CommandText = "SELECT Address, Age, AmountFigureDolar, AmountFigureReal, AmountInWords, Comment," & _
+                " CusName, CusNameEng, CustID, CustomerNo, DonateAmount, DonationID, DonationName" & _
+                ", Expr1, EyeGlassesDolar, EyeGlassesReal, FullAmount, FundRaisingDolar, FundRais" & _
+                "ingR, Glasses, IncomType, IsCurrency, IsDonation, IsOldPatient, IsPaid, MedicDol" & _
+                "ar, MedicReal, NilAmount, Occupation, OtherDolar, OtherR, PaidDollar, PaidR, Pay" & _
+                "ByDonation, PayBySelf, PaymentCur, PaymentType, ReadyModDolar, ReadyModR, Receip" & _
+                "tDate, ReceiptID, ReceiptNo, ReceiptNote, ReceiptType, ReturnDolar, ReturnReal, " & _
+                "Sex, SocialAmount, SpectacleDolar, SpectacleR, SubReceiptType, SupportedAmtDolar" & _
+                ", SupportedAmtR, TotalDolar, TotalReal, TotalSocial, UserID, UserName FROM VMain" & _
+                "ReceiptDetail WHERE (IsPaid = @IsPaid) AND (CAST(CONVERT (VARCHAR(10), ReceiptDa" & _
+                "te, 1) AS DateTime) BETWEEN CAST(CONVERT (VARCHAR(10), CAST(@DateFrom AS DATETIM" & _
+                "E), 1) AS Datetime) AND CAST(CONVERT (VARCHAR(10), CAST(@DateTO AS DATETIME), 1)" & _
                 " AS Datetime)) AND (DonateAmount <> 0)"
             Me._commandCollection(2).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsPaid", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "IsPaid", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateFrom", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateTO", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsPaid", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "IsPaid", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateFrom", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateTO", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
             Me._commandCollection(3) = New Global.System.Data.SqlClient.SqlCommand
             Me._commandCollection(3).Connection = Me.Connection
-            Me._commandCollection(3).CommandText = "SELECT Address, Age, AmountFigureDolar, AmountFigureReal, AmountInWords, Comment,"& _ 
-                " CusName, CusNameEng, CustID, CustomerNo, DonateAmount, DonationID, DonationName"& _ 
-                ", Expr1, EyeGlassesDolar, EyeGlassesReal, FullAmount, FundRaisingDolar, FundRais"& _ 
-                "ingR, Glasses, IncomType, IsCurrency, IsDonation, IsOldPatient, IsPaid, MedicDol"& _ 
-                "ar, MedicReal, NilAmount, Occupation, OtherDolar, OtherR, PaidDollar, PaidR, Pay"& _ 
-                "ByDonation, PayBySelf, PaymentCur, PaymentType, ReadyModDolar, ReadyModR, Receip"& _ 
-                "tDate, ReceiptID, ReceiptNo, ReceiptNote, ReceiptType, ReturnDolar, ReturnReal, "& _ 
-                "Sex, SocialAmount, SpectacleDolar, SpectacleR, SubReceiptType, SupportedAmtDolar"& _ 
-                ", SupportedAmtR, TotalDolar, TotalReal, TotalSocial, UserID, UserName FROM VMain"& _ 
-                "ReceiptDetail WHERE (IsPaid = @IsPaid) AND (CAST(CONVERT (VARCHAR(10), ReceiptDa"& _ 
-                "te, 1) AS DateTime) BETWEEN CAST(CONVERT (VARCHAR(10), CAST(@DateFrom AS DATETIM"& _ 
-                "E), 1) AS Datetime) AND CAST(CONVERT (VARCHAR(10), CAST(@DateTO AS DATETIME), 1)"& _ 
+            Me._commandCollection(3).CommandText = "SELECT Address, Age, AmountFigureDolar, AmountFigureReal, AmountInWords, Comment," & _
+                " CusName, CusNameEng, CustID, CustomerNo, DonateAmount, DonationID, DonationName" & _
+                ", Expr1, EyeGlassesDolar, EyeGlassesReal, FullAmount, FundRaisingDolar, FundRais" & _
+                "ingR, Glasses, IncomType, IsCurrency, IsDonation, IsOldPatient, IsPaid, MedicDol" & _
+                "ar, MedicReal, NilAmount, Occupation, OtherDolar, OtherR, PaidDollar, PaidR, Pay" & _
+                "ByDonation, PayBySelf, PaymentCur, PaymentType, ReadyModDolar, ReadyModR, Receip" & _
+                "tDate, ReceiptID, ReceiptNo, ReceiptNote, ReceiptType, ReturnDolar, ReturnReal, " & _
+                "Sex, SocialAmount, SpectacleDolar, SpectacleR, SubReceiptType, SupportedAmtDolar" & _
+                ", SupportedAmtR, TotalDolar, TotalReal, TotalSocial, UserID, UserName FROM VMain" & _
+                "ReceiptDetail WHERE (IsPaid = @IsPaid) AND (CAST(CONVERT (VARCHAR(10), ReceiptDa" & _
+                "te, 1) AS DateTime) BETWEEN CAST(CONVERT (VARCHAR(10), CAST(@DateFrom AS DATETIM" & _
+                "E), 1) AS Datetime) AND CAST(CONVERT (VARCHAR(10), CAST(@DateTO AS DATETIME), 1)" & _
                 " AS Datetime)) AND (DonationID = @DonationID) AND (DonateAmount <> 0)"
             Me._commandCollection(3).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsPaid", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "IsPaid", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateFrom", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateTO", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DonationID", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "DonationID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsPaid", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "IsPaid", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateFrom", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateTO", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DonationID", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "DonationID", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
             Me._commandCollection(4) = New Global.System.Data.SqlClient.SqlCommand
             Me._commandCollection(4).Connection = Me.Connection
-            Me._commandCollection(4).CommandText = "SELECT Address, Age, AmountFigureDolar, AmountFigureReal, AmountInWords, Comment,"& _ 
-                " CusName, CusNameEng, CustID, CustomerNo, DonateAmount, DonationID, DonationName"& _ 
-                ", Expr1, EyeGlassesDolar, EyeGlassesReal, FullAmount, FundRaisingDolar, FundRais"& _ 
-                "ingR, Glasses, IncomType, IsCurrency, IsDonation, IsOldPatient, IsPaid, MedicDol"& _ 
-                "ar, MedicReal, NilAmount, Occupation, OtherDolar, OtherR, PaidDollar, PaidR, Pay"& _ 
-                "ByDonation, PayBySelf, PaymentCur, PaymentType, ReadyModDolar, ReadyModR, Receip"& _ 
-                "tDate, ReceiptID, ReceiptNo, ReceiptNote, ReceiptType, ReturnDolar, ReturnReal, "& _ 
-                "Sex, SocialAmount, SpectacleDolar, SpectacleR, SubReceiptType, SupportedAmtDolar"& _ 
-                ", SupportedAmtR, TotalDolar, TotalReal, TotalSocial, UserID, UserName FROM VMain"& _ 
+            Me._commandCollection(4).CommandText = "SELECT Address, Age, AmountFigureDolar, AmountFigureReal, AmountInWords, Comment," & _
+                " CusName, CusNameEng, CustID, CustomerNo, DonateAmount, DonationID, DonationName" & _
+                ", Expr1, EyeGlassesDolar, EyeGlassesReal, FullAmount, FundRaisingDolar, FundRais" & _
+                "ingR, Glasses, IncomType, IsCurrency, IsDonation, IsOldPatient, IsPaid, MedicDol" & _
+                "ar, MedicReal, NilAmount, Occupation, OtherDolar, OtherR, PaidDollar, PaidR, Pay" & _
+                "ByDonation, PayBySelf, PaymentCur, PaymentType, ReadyModDolar, ReadyModR, Receip" & _
+                "tDate, ReceiptID, ReceiptNo, ReceiptNote, ReceiptType, ReturnDolar, ReturnReal, " & _
+                "Sex, SocialAmount, SpectacleDolar, SpectacleR, SubReceiptType, SupportedAmtDolar" & _
+                ", SupportedAmtR, TotalDolar, TotalReal, TotalSocial, UserID, UserName FROM VMain" & _
                 "ReceiptDetail WHERE (ReceiptID = @ReceiptID) ORDER BY ReceiptID DESC"
             Me._commandCollection(4).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(4).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ReceiptID", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "ReceiptID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(4).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ReceiptID", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "ReceiptID", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
             Me._commandCollection(5) = New Global.System.Data.SqlClient.SqlCommand
             Me._commandCollection(5).Connection = Me.Connection
-            Me._commandCollection(5).CommandText = "SELECT Address, Age, AmountFigureDolar, AmountFigureReal, AmountInWords, Comment,"& _ 
-                " CusName, CusNameEng, CustID, CustomerNo, DonateAmount, DonationID, DonationName"& _ 
-                ", Expr1, EyeGlassesDolar, EyeGlassesReal, FullAmount, FundRaisingDolar, FundRais"& _ 
-                "ingR, Glasses, IncomType, IsCurrency, IsDonation, IsOldPatient, IsPaid, MedicDol"& _ 
-                "ar, MedicReal, NilAmount, Occupation, OtherDolar, OtherR, PaidDollar, PaidR, Pay"& _ 
-                "ByDonation, PayBySelf, PaymentCur, PaymentType, ReadyModDolar, ReadyModR, Receip"& _ 
-                "tDate, ReceiptID, ReceiptNo, ReceiptNote, ReceiptType, ReturnDolar, ReturnReal, "& _ 
-                "Sex, SocialAmount, SpectacleDolar, SpectacleR, SubReceiptType, SupportedAmtDolar"& _ 
-                ", SupportedAmtR, TotalDolar, TotalReal, TotalSocial, UserID, UserName FROM VMain"& _ 
+            Me._commandCollection(5).CommandText = "SELECT Address, Age, AmountFigureDolar, AmountFigureReal, AmountInWords, Comment," & _
+                " CusName, CusNameEng, CustID, CustomerNo, DonateAmount, DonationID, DonationName" & _
+                ", Expr1, EyeGlassesDolar, EyeGlassesReal, FullAmount, FundRaisingDolar, FundRais" & _
+                "ingR, Glasses, IncomType, IsCurrency, IsDonation, IsOldPatient, IsPaid, MedicDol" & _
+                "ar, MedicReal, NilAmount, Occupation, OtherDolar, OtherR, PaidDollar, PaidR, Pay" & _
+                "ByDonation, PayBySelf, PaymentCur, PaymentType, ReadyModDolar, ReadyModR, Receip" & _
+                "tDate, ReceiptID, ReceiptNo, ReceiptNote, ReceiptType, ReturnDolar, ReturnReal, " & _
+                "Sex, SocialAmount, SpectacleDolar, SpectacleR, SubReceiptType, SupportedAmtDolar" & _
+                ", SupportedAmtR, TotalDolar, TotalReal, TotalSocial, UserID, UserName FROM VMain" & _
                 "ReceiptDetail WHERE (ReceiptNo = @ReceiptNo) ORDER BY ReceiptID DESC"
             Me._commandCollection(5).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(5).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ReceiptNo", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "ReceiptNo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(5).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ReceiptNo", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "ReceiptNo", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
             Me._commandCollection(6) = New Global.System.Data.SqlClient.SqlCommand
             Me._commandCollection(6).Connection = Me.Connection
-            Me._commandCollection(6).CommandText = "SELECT Address, Age, AmountFigureDolar, AmountFigureReal, AmountInWords, Comment,"& _ 
-                " CusName, CusNameEng, CustID, CustomerNo, DonateAmount, DonationID, DonationName"& _ 
-                ", Expr1, EyeGlassesDolar, EyeGlassesReal, FullAmount, FundRaisingDolar, FundRais"& _ 
-                "ingR, Glasses, IncomType, IsCurrency, IsDonation, IsOldPatient, IsPaid, MedicDol"& _ 
-                "ar, MedicReal, NilAmount, Occupation, OtherDolar, OtherR, PaidDollar, PaidR, Pay"& _ 
-                "ByDonation, PayBySelf, PaymentCur, PaymentType, ReadyModDolar, ReadyModR, Receip"& _ 
-                "tDate, ReceiptID, ReceiptNo, ReceiptNote, ReceiptType, ReturnDolar, ReturnReal, "& _ 
-                "Sex, SocialAmount, SpectacleDolar, SpectacleR, SubReceiptType, SupportedAmtDolar"& _ 
-                ", SupportedAmtR, TotalDolar, TotalReal, TotalSocial, UserID, UserName FROM VMain"& _ 
-                "ReceiptDetail WHERE (IsPaid = @IsPaid) AND (PaymentType = @PaymentType) AND (CAS"& _ 
-                "T(CONVERT (VARCHAR(10), ReceiptDate, 1) AS DateTime) BETWEEN CAST(CONVERT (VARCH"& _ 
-                "AR(10), CAST(@DateFrom AS DATETIME), 1) AS Datetime) AND CAST(CONVERT (VARCHAR(1"& _ 
+            Me._commandCollection(6).CommandText = "SELECT Address, Age, AmountFigureDolar, AmountFigureReal, AmountInWords, Comment," & _
+                " CusName, CusNameEng, CustID, CustomerNo, DonateAmount, DonationID, DonationName" & _
+                ", Expr1, EyeGlassesDolar, EyeGlassesReal, FullAmount, FundRaisingDolar, FundRais" & _
+                "ingR, Glasses, IncomType, IsCurrency, IsDonation, IsOldPatient, IsPaid, MedicDol" & _
+                "ar, MedicReal, NilAmount, Occupation, OtherDolar, OtherR, PaidDollar, PaidR, Pay" & _
+                "ByDonation, PayBySelf, PaymentCur, PaymentType, ReadyModDolar, ReadyModR, Receip" & _
+                "tDate, ReceiptID, ReceiptNo, ReceiptNote, ReceiptType, ReturnDolar, ReturnReal, " & _
+                "Sex, SocialAmount, SpectacleDolar, SpectacleR, SubReceiptType, SupportedAmtDolar" & _
+                ", SupportedAmtR, TotalDolar, TotalReal, TotalSocial, UserID, UserName FROM VMain" & _
+                "ReceiptDetail WHERE (IsPaid = @IsPaid) AND (PaymentType = @PaymentType) AND (CAS" & _
+                "T(CONVERT (VARCHAR(10), ReceiptDate, 1) AS DateTime) BETWEEN CAST(CONVERT (VARCH" & _
+                "AR(10), CAST(@DateFrom AS DATETIME), 1) AS Datetime) AND CAST(CONVERT (VARCHAR(1" & _
                 "0), CAST(@DateTO AS DATETIME), 1) AS Datetime)) ORDER BY ReceiptID DESC"
             Me._commandCollection(6).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(6).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsPaid", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "IsPaid", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(6).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PaymentType", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "PaymentType", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(6).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateFrom", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(6).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateTO", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(6).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsPaid", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "IsPaid", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._commandCollection(6).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PaymentType", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "PaymentType", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._commandCollection(6).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateFrom", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._commandCollection(6).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateTO", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
             Me._commandCollection(7) = New Global.System.Data.SqlClient.SqlCommand
             Me._commandCollection(7).Connection = Me.Connection
-            Me._commandCollection(7).CommandText = "SELECT Address, Age, AmountFigureDolar, AmountFigureReal, AmountInWords, Comment,"& _ 
-                " CusName, CusNameEng, CustID, CustomerNo, DonateAmount, DonationID, DonationName"& _ 
-                ", Expr1, EyeGlassesDolar, EyeGlassesReal, FullAmount, FundRaisingDolar, FundRais"& _ 
-                "ingR, Glasses, IncomType, IsCurrency, IsDonation, IsOldPatient, IsPaid, MedicDol"& _ 
-                "ar, MedicReal, NilAmount, Occupation, OtherDolar, OtherR, PaidDollar, PaidR, Pay"& _ 
-                "ByDonation, PayBySelf, PaymentCur, PaymentType, ReadyModDolar, ReadyModR, Receip"& _ 
-                "tDate, ReceiptID, ReceiptNo, ReceiptNote, ReceiptType, ReturnDolar, ReturnReal, "& _ 
-                "Sex, SocialAmount, SpectacleDolar, SpectacleR, SubReceiptType, SupportedAmtDolar"& _ 
-                ", SupportedAmtR, TotalDolar, TotalReal, TotalSocial, UserID, UserName FROM VMain"& _ 
-                "ReceiptDetail WHERE (IsPaid = @IsPaid) AND (CAST(CONVERT (VARCHAR(10), ReceiptDa"& _ 
-                "te, 1) AS DateTime) BETWEEN CAST(CONVERT (VARCHAR(10), CAST(@DateFrom AS DATETIM"& _ 
-                "E), 1) AS Datetime) AND CAST(CONVERT (VARCHAR(10), CAST(@DateTO AS DATETIME), 1)"& _ 
+            Me._commandCollection(7).CommandText = "SELECT Address, Age, AmountFigureDolar, AmountFigureReal, AmountInWords, Comment," & _
+                " CusName, CusNameEng, CustID, CustomerNo, DonateAmount, DonationID, DonationName" & _
+                ", Expr1, EyeGlassesDolar, EyeGlassesReal, FullAmount, FundRaisingDolar, FundRais" & _
+                "ingR, Glasses, IncomType, IsCurrency, IsDonation, IsOldPatient, IsPaid, MedicDol" & _
+                "ar, MedicReal, NilAmount, Occupation, OtherDolar, OtherR, PaidDollar, PaidR, Pay" & _
+                "ByDonation, PayBySelf, PaymentCur, PaymentType, ReadyModDolar, ReadyModR, Receip" & _
+                "tDate, ReceiptID, ReceiptNo, ReceiptNote, ReceiptType, ReturnDolar, ReturnReal, " & _
+                "Sex, SocialAmount, SpectacleDolar, SpectacleR, SubReceiptType, SupportedAmtDolar" & _
+                ", SupportedAmtR, TotalDolar, TotalReal, TotalSocial, UserID, UserName FROM VMain" & _
+                "ReceiptDetail WHERE (IsPaid = @IsPaid) AND (CAST(CONVERT (VARCHAR(10), ReceiptDa" & _
+                "te, 1) AS DateTime) BETWEEN CAST(CONVERT (VARCHAR(10), CAST(@DateFrom AS DATETIM" & _
+                "E), 1) AS Datetime) AND CAST(CONVERT (VARCHAR(10), CAST(@DateTO AS DATETIME), 1)" & _
                 " AS Datetime)) AND (PaymentType <> 2) ORDER BY ReceiptID DESC"
             Me._commandCollection(7).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(7).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsPaid", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "IsPaid", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(7).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateFrom", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(7).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateTO", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(7).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsPaid", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "IsPaid", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._commandCollection(7).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateFrom", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._commandCollection(7).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateTO", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
             Me._commandCollection(8) = New Global.System.Data.SqlClient.SqlCommand
             Me._commandCollection(8).Connection = Me.Connection
-            Me._commandCollection(8).CommandText = "SELECT Address, Age, AmountFigureDolar, AmountFigureReal, AmountInWords, Comment,"& _ 
-                " CusName, CusNameEng, CustID, CustomerNo, DonateAmount, DonationID, DonationName"& _ 
-                ", Expr1, EyeGlassesDolar, EyeGlassesReal, FullAmount, FundRaisingDolar, FundRais"& _ 
-                "ingR, Glasses, IncomType, IsCurrency, IsDonation, IsOldPatient, IsPaid, MedicDol"& _ 
-                "ar, MedicReal, NilAmount, Occupation, OtherDolar, OtherR, PaidDollar, PaidR, Pay"& _ 
-                "ByDonation, PayBySelf, PaymentCur, PaymentType, ReadyModDolar, ReadyModR, Receip"& _ 
-                "tDate, ReceiptID, ReceiptNo, ReceiptNote, ReceiptType, ReturnDolar, ReturnReal, "& _ 
-                "Sex, SocialAmount, SpectacleDolar, SpectacleR, SubReceiptType, SupportedAmtDolar"& _ 
-                ", SupportedAmtR, TotalDolar, TotalReal, TotalSocial, UserID, UserName FROM VMain"& _ 
+            Me._commandCollection(8).CommandText = "SELECT Address, Age, AmountFigureDolar, AmountFigureReal, AmountInWords, Comment," & _
+                " CusName, CusNameEng, CustID, CustomerNo, DonateAmount, DonationID, DonationName" & _
+                ", Expr1, EyeGlassesDolar, EyeGlassesReal, FullAmount, FundRaisingDolar, FundRais" & _
+                "ingR, Glasses, IncomType, IsCurrency, IsDonation, IsOldPatient, IsPaid, MedicDol" & _
+                "ar, MedicReal, NilAmount, Occupation, OtherDolar, OtherR, PaidDollar, PaidR, Pay" & _
+                "ByDonation, PayBySelf, PaymentCur, PaymentType, ReadyModDolar, ReadyModR, Receip" & _
+                "tDate, ReceiptID, ReceiptNo, ReceiptNote, ReceiptType, ReturnDolar, ReturnReal, " & _
+                "Sex, SocialAmount, SpectacleDolar, SpectacleR, SubReceiptType, SupportedAmtDolar" & _
+                ", SupportedAmtR, TotalDolar, TotalReal, TotalSocial, UserID, UserName FROM VMain" & _
                 "ReceiptDetail WHERE (PaymentType = @PaymentType) ORDER BY ReceiptID DESC"
             Me._commandCollection(8).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(8).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PaymentType", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "PaymentType", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(8).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PaymentType", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "PaymentType", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
             Me._commandCollection(9) = New Global.System.Data.SqlClient.SqlCommand
             Me._commandCollection(9).Connection = Me.Connection
-            Me._commandCollection(9).CommandText = "SELECT Address, Age, AmountFigureDolar, AmountFigureReal, AmountInWords, Comment,"& _ 
-                " CusName, CusNameEng, CustID, CustomerNo, DonateAmount, DonationID, DonationName"& _ 
-                ", Expr1, EyeGlassesDolar, EyeGlassesReal, FullAmount, FundRaisingDolar, FundRais"& _ 
-                "ingR, Glasses, IncomType, IsCurrency, IsDonation, IsOldPatient, IsPaid, MedicDol"& _ 
-                "ar, MedicReal, NilAmount, Occupation, OtherDolar, OtherR, PaidDollar, PaidR, Pay"& _ 
-                "ByDonation, PayBySelf, PaymentCur, PaymentType, ReadyModDolar, ReadyModR, Receip"& _ 
-                "tDate, ReceiptID, ReceiptNo, ReceiptNote, ReceiptType, ReturnDolar, ReturnReal, "& _ 
-                "Sex, SocialAmount, SpectacleDolar, SpectacleR, SubReceiptType, SupportedAmtDolar"& _ 
-                ", SupportedAmtR, TotalDolar, TotalReal, TotalSocial, UserID, UserName FROM VMain"& _ 
-                "ReceiptDetail WHERE (PaymentType = @PaymentType) AND (CAST(CONVERT (VARCHAR(10),"& _ 
-                " ReceiptDate, 1) AS DateTime) BETWEEN CAST(CONVERT (VARCHAR(10), CAST(@DateFrom "& _ 
-                "AS DATETIME), 1) AS Datetime) AND CAST(CONVERT (VARCHAR(10), CAST(@DateTO AS DAT"& _ 
+            Me._commandCollection(9).CommandText = "SELECT Address, Age, AmountFigureDolar, AmountFigureReal, AmountInWords, Comment," & _
+                " CusName, CusNameEng, CustID, CustomerNo, DonateAmount, DonationID, DonationName" & _
+                ", Expr1, EyeGlassesDolar, EyeGlassesReal, FullAmount, FundRaisingDolar, FundRais" & _
+                "ingR, Glasses, IncomType, IsCurrency, IsDonation, IsOldPatient, IsPaid, MedicDol" & _
+                "ar, MedicReal, NilAmount, Occupation, OtherDolar, OtherR, PaidDollar, PaidR, Pay" & _
+                "ByDonation, PayBySelf, PaymentCur, PaymentType, ReadyModDolar, ReadyModR, Receip" & _
+                "tDate, ReceiptID, ReceiptNo, ReceiptNote, ReceiptType, ReturnDolar, ReturnReal, " & _
+                "Sex, SocialAmount, SpectacleDolar, SpectacleR, SubReceiptType, SupportedAmtDolar" & _
+                ", SupportedAmtR, TotalDolar, TotalReal, TotalSocial, UserID, UserName FROM VMain" & _
+                "ReceiptDetail WHERE (PaymentType = @PaymentType) AND (CAST(CONVERT (VARCHAR(10)," & _
+                " ReceiptDate, 1) AS DateTime) BETWEEN CAST(CONVERT (VARCHAR(10), CAST(@DateFrom " & _
+                "AS DATETIME), 1) AS Datetime) AND CAST(CONVERT (VARCHAR(10), CAST(@DateTO AS DAT" & _
                 "ETIME), 1) AS Datetime)) ORDER BY ReceiptID DESC"
             Me._commandCollection(9).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(9).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PaymentType", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "PaymentType", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(9).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateFrom", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(9).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateTO", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(9).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PaymentType", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "PaymentType", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._commandCollection(9).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateFrom", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._commandCollection(9).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateTO", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
             Me._commandCollection(10) = New Global.System.Data.SqlClient.SqlCommand
             Me._commandCollection(10).Connection = Me.Connection
-            Me._commandCollection(10).CommandText = "SELECT Address, Age, AmountFigureDolar, AmountFigureReal, AmountInWords, Comment,"& _ 
-                " CusName, CusNameEng, CustID, CustomerNo, DonateAmount, DonationID, DonationName"& _ 
-                ", Expr1, EyeGlassesDolar, EyeGlassesReal, FullAmount, FundRaisingDolar, FundRais"& _ 
-                "ingR, Glasses, IncomType, IsCurrency, IsDonation, IsOldPatient, IsPaid, MedicDol"& _ 
-                "ar, MedicReal, NilAmount, Occupation, OtherDolar, OtherR, PaidDollar, PaidR, Pay"& _ 
-                "ByDonation, PayBySelf, PaymentCur, PaymentType, ReadyModDolar, ReadyModR, Receip"& _ 
-                "tDate, ReceiptID, ReceiptNo, ReceiptNote, ReceiptType, ReturnDolar, ReturnReal, "& _ 
-                "Sex, SocialAmount, SpectacleDolar, SpectacleR, SubReceiptType, SupportedAmtDolar"& _ 
-                ", SupportedAmtR, TotalDolar, TotalReal, TotalSocial, UserID, UserName FROM VMain"& _ 
-                "ReceiptDetail WHERE (CAST(CONVERT (VARCHAR(10), ReceiptDate, 1) AS DateTime) BET"& _ 
-                "WEEN CAST(CONVERT (VARCHAR(10), CAST(@DateFrom AS DATETIME), 1) AS Datetime) AND"& _ 
-                " CAST(CONVERT (VARCHAR(10), CAST(@DateTO AS DATETIME), 1) AS Datetime)) AND (Pay"& _ 
+            Me._commandCollection(10).CommandText = "SELECT Address, Age, AmountFigureDolar, AmountFigureReal, AmountInWords, Comment," & _
+                " CusName, CusNameEng, CustID, CustomerNo, DonateAmount, DonationID, DonationName" & _
+                ", Expr1, EyeGlassesDolar, EyeGlassesReal, FullAmount, FundRaisingDolar, FundRais" & _
+                "ingR, Glasses, IncomType, IsCurrency, IsDonation, IsOldPatient, IsPaid, MedicDol" & _
+                "ar, MedicReal, NilAmount, Occupation, OtherDolar, OtherR, PaidDollar, PaidR, Pay" & _
+                "ByDonation, PayBySelf, PaymentCur, PaymentType, ReadyModDolar, ReadyModR, Receip" & _
+                "tDate, ReceiptID, ReceiptNo, ReceiptNote, ReceiptType, ReturnDolar, ReturnReal, " & _
+                "Sex, SocialAmount, SpectacleDolar, SpectacleR, SubReceiptType, SupportedAmtDolar" & _
+                ", SupportedAmtR, TotalDolar, TotalReal, TotalSocial, UserID, UserName FROM VMain" & _
+                "ReceiptDetail WHERE (CAST(CONVERT (VARCHAR(10), ReceiptDate, 1) AS DateTime) BET" & _
+                "WEEN CAST(CONVERT (VARCHAR(10), CAST(@DateFrom AS DATETIME), 1) AS Datetime) AND" & _
+                " CAST(CONVERT (VARCHAR(10), CAST(@DateTO AS DATETIME), 1) AS Datetime)) AND (Pay" & _
                 "mentType = 2) ORDER BY ReceiptID DESC"
             Me._commandCollection(10).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(10).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateFrom", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(10).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateTO", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(10).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateFrom", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._commandCollection(10).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateTO", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
             Me._commandCollection(11) = New Global.System.Data.SqlClient.SqlCommand
             Me._commandCollection(11).Connection = Me.Connection
-            Me._commandCollection(11).CommandText = "SELECT     ReceiptID, ReceiptDate, CustomerNo, MedicReal, MedicDolar, EyeGlassesR"& _ 
-                "eal, EyeGlassesDolar, TotalReal, TotalDolar, AmountInWords, AmountFigureReal, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)& _ 
-                "                      AmountFigureDolar, IsCurrency, IsDonation, DonationID, Pay"& _ 
-                "BySelf, PayByDonation, IsPaid, ReceiptNote, UserID, UserName, CusName, Sex, Age,"& _ 
-                " Occupation, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      Address, ReadyModR, SpectacleR, OtherR, Ret"& _ 
-                "urnReal, ReturnDolar, FundRaisingR, SpectacleDolar, ReadyModDolar, FundRaisingDo"& _ 
-                "lar, OtherDolar, IncomType, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      DonationName, Glasses, Donat"& _ 
-                "eAmount, SupportedAmtR, SupportedAmtDolar, ReceiptType, PaidR, PaidDollar, CusNa"& _ 
-                "meEng, IsOldPatient, FullAmount, NilAmount, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      SocialAmount"& _ 
-                ", PaymentCur, PaymentType, Comment, Expr1, ReceiptNo, CustID, TotalSocial, SubRe"& _ 
-                "ceiptType"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM         VMainReceiptDetail"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE     (CAST(CONVERT (VARCHAR(10)"& _ 
-                ", ReceiptDate, 1) AS DateTime) "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"BETWEEN CAST(CONVERT (VARCHAR(10), CAST(@DateFr"& _ 
-                "om AS DATETIME), 1) AS Datetime) "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"AND CAST(CONVERT (VARCHAR(10), CAST(@DateTO A"& _ 
-                "S DATETIME), 1) AS Datetime)) "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"AND (IsPaid = @IsPaid1) AND (PaymentType=@Paymen"& _ 
+            Me._commandCollection(11).CommandText = "SELECT     ReceiptID, ReceiptDate, CustomerNo, MedicReal, MedicDolar, EyeGlassesR" & _
+                "eal, EyeGlassesDolar, TotalReal, TotalDolar, AmountInWords, AmountFigureReal, " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & _
+                "                      AmountFigureDolar, IsCurrency, IsDonation, DonationID, Pay" & _
+                "BySelf, PayByDonation, IsPaid, ReceiptNote, UserID, UserName, CusName, Sex, Age," & _
+                " Occupation, " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                      Address, ReadyModR, SpectacleR, OtherR, Ret" & _
+                "urnReal, ReturnDolar, FundRaisingR, SpectacleDolar, ReadyModDolar, FundRaisingDo" & _
+                "lar, OtherDolar, IncomType, " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                      DonationName, Glasses, Donat" & _
+                "eAmount, SupportedAmtR, SupportedAmtDolar, ReceiptType, PaidR, PaidDollar, CusNa" & _
+                "meEng, IsOldPatient, FullAmount, NilAmount, " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                      SocialAmount" & _
+                ", PaymentCur, PaymentType, Comment, Expr1, ReceiptNo, CustID, TotalSocial, SubRe" & _
+                "ceiptType" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "FROM         VMainReceiptDetail" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "WHERE     (CAST(CONVERT (VARCHAR(10)" & _
+                ", ReceiptDate, 1) AS DateTime) " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "BETWEEN CAST(CONVERT (VARCHAR(10), CAST(@DateFr" & _
+                "om AS DATETIME), 1) AS Datetime) " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "AND CAST(CONVERT (VARCHAR(10), CAST(@DateTO A" & _
+                "S DATETIME), 1) AS Datetime)) " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "AND (IsPaid = @IsPaid1) AND (PaymentType=@Paymen" & _
                 "tType) ORDER BY ReceiptID DESC"
             Me._commandCollection(11).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(11).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateFrom", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(11).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateTO", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(11).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsPaid1", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "IsPaid", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(11).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PaymentType", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "PaymentType", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(11).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateFrom", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._commandCollection(11).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateTO", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._commandCollection(11).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsPaid1", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "IsPaid", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._commandCollection(11).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PaymentType", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "PaymentType", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
             Me._commandCollection(12) = New Global.System.Data.SqlClient.SqlCommand
             Me._commandCollection(12).Connection = Me.Connection
-            Me._commandCollection(12).CommandText = "SELECT Address, Age, AmountFigureDolar, AmountFigureReal, AmountInWords, Comment,"& _ 
-                " CusName, CusNameEng, CustID, CustomerNo, DonateAmount, DonationID, DonationName"& _ 
-                ", Expr1, EyeGlassesDolar, EyeGlassesReal, FullAmount, FundRaisingDolar, FundRais"& _ 
-                "ingR, Glasses, IncomType, IsCurrency, IsDonation, IsOldPatient, IsPaid, MedicDol"& _ 
-                "ar, MedicReal, NilAmount, Occupation, OtherDolar, OtherR, PaidDollar, PaidR, Pay"& _ 
-                "ByDonation, PayBySelf, PaymentCur, PaymentType, ReadyModDolar, ReadyModR, Receip"& _ 
-                "tDate, ReceiptID, ReceiptNo, ReceiptNote, ReceiptType, ReturnDolar, ReturnReal, "& _ 
-                "Sex, SocialAmount, SpectacleDolar, SpectacleR, SubReceiptType, SupportedAmtDolar"& _ 
-                ", SupportedAmtR, TotalDolar, TotalReal, TotalSocial, UserID, UserName FROM VMain"& _ 
-                "ReceiptDetail WHERE (CAST(CONVERT (VARCHAR(10), ReceiptDate, 1) AS DateTime) BET"& _ 
-                "WEEN CAST(CONVERT (VARCHAR(10), CAST(@DateFrom AS DATETIME), 1) AS Datetime) AND"& _ 
-                " CAST(CONVERT (VARCHAR(10), CAST(@DateTO AS DATETIME), 1) AS Datetime)) ORDER BY"& _ 
+            Me._commandCollection(12).CommandText = "SELECT Address, Age, AmountFigureDolar, AmountFigureReal, AmountInWords, Comment," & _
+                " CusName, CusNameEng, CustID, CustomerNo, DonateAmount, DonationID, DonationName" & _
+                ", Expr1, EyeGlassesDolar, EyeGlassesReal, FullAmount, FundRaisingDolar, FundRais" & _
+                "ingR, Glasses, IncomType, IsCurrency, IsDonation, IsOldPatient, IsPaid, MedicDol" & _
+                "ar, MedicReal, NilAmount, Occupation, OtherDolar, OtherR, PaidDollar, PaidR, Pay" & _
+                "ByDonation, PayBySelf, PaymentCur, PaymentType, ReadyModDolar, ReadyModR, Receip" & _
+                "tDate, ReceiptID, ReceiptNo, ReceiptNote, ReceiptType, ReturnDolar, ReturnReal, " & _
+                "Sex, SocialAmount, SpectacleDolar, SpectacleR, SubReceiptType, SupportedAmtDolar" & _
+                ", SupportedAmtR, TotalDolar, TotalReal, TotalSocial, UserID, UserName FROM VMain" & _
+                "ReceiptDetail WHERE (CAST(CONVERT (VARCHAR(10), ReceiptDate, 1) AS DateTime) BET" & _
+                "WEEN CAST(CONVERT (VARCHAR(10), CAST(@DateFrom AS DATETIME), 1) AS Datetime) AND" & _
+                " CAST(CONVERT (VARCHAR(10), CAST(@DateTO AS DATETIME), 1) AS Datetime)) ORDER BY" & _
                 " ReceiptID DESC"
             Me._commandCollection(12).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(12).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateFrom", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(12).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateTO", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(12).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateFrom", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._commandCollection(12).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateTO", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
             Me._commandCollection(13) = New Global.System.Data.SqlClient.SqlCommand
             Me._commandCollection(13).Connection = Me.Connection
-            Me._commandCollection(13).CommandText = "SELECT Address, Age, AmountFigureDolar, AmountFigureReal, AmountInWords, Comment,"& _ 
-                " CusName, CusNameEng, CustID, CustomerNo, DonateAmount, DonationID, DonationName"& _ 
-                ", Expr1, EyeGlassesDolar, EyeGlassesReal, FullAmount, FundRaisingDolar, FundRais"& _ 
-                "ingR, Glasses, IncomType, IsCurrency, IsDonation, IsOldPatient, IsPaid, MedicDol"& _ 
-                "ar, MedicReal, NilAmount, Occupation, OtherDolar, OtherR, PaidDollar, PaidR, Pay"& _ 
-                "ByDonation, PayBySelf, PaymentCur, PaymentType, ReadyModDolar, ReadyModR, Receip"& _ 
-                "tDate, ReceiptID, ReceiptNo, ReceiptNote, ReceiptType, ReturnDolar, ReturnReal, "& _ 
-                "Sex, SocialAmount, SpectacleDolar, SpectacleR, SubReceiptType, SupportedAmtDolar"& _ 
-                ", SupportedAmtR, TotalDolar, TotalReal, TotalSocial, UserID, UserName FROM VMain"& _ 
-                "ReceiptDetail WHERE (CAST(CONVERT (VARCHAR(10), ReceiptDate, 1) AS DateTime) BET"& _ 
-                "WEEN CAST(CONVERT (VARCHAR(10), CAST(@DateFrom AS DATETIME), 1) AS Datetime) AND"& _ 
-                " CAST(CONVERT (VARCHAR(10), CAST(@DateTO AS DATETIME), 1) AS Datetime)) AND (IsP"& _ 
+            Me._commandCollection(13).CommandText = "SELECT Address, Age, AmountFigureDolar, AmountFigureReal, AmountInWords, Comment," & _
+                " CusName, CusNameEng, CustID, CustomerNo, DonateAmount, DonationID, DonationName" & _
+                ", Expr1, EyeGlassesDolar, EyeGlassesReal, FullAmount, FundRaisingDolar, FundRais" & _
+                "ingR, Glasses, IncomType, IsCurrency, IsDonation, IsOldPatient, IsPaid, MedicDol" & _
+                "ar, MedicReal, NilAmount, Occupation, OtherDolar, OtherR, PaidDollar, PaidR, Pay" & _
+                "ByDonation, PayBySelf, PaymentCur, PaymentType, ReadyModDolar, ReadyModR, Receip" & _
+                "tDate, ReceiptID, ReceiptNo, ReceiptNote, ReceiptType, ReturnDolar, ReturnReal, " & _
+                "Sex, SocialAmount, SpectacleDolar, SpectacleR, SubReceiptType, SupportedAmtDolar" & _
+                ", SupportedAmtR, TotalDolar, TotalReal, TotalSocial, UserID, UserName FROM VMain" & _
+                "ReceiptDetail WHERE (CAST(CONVERT (VARCHAR(10), ReceiptDate, 1) AS DateTime) BET" & _
+                "WEEN CAST(CONVERT (VARCHAR(10), CAST(@DateFrom AS DATETIME), 1) AS Datetime) AND" & _
+                " CAST(CONVERT (VARCHAR(10), CAST(@DateTO AS DATETIME), 1) AS Datetime)) AND (IsP" & _
                 "aid = @IsPaid) ORDER BY ReceiptID DESC"
             Me._commandCollection(13).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(13).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateFrom", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(13).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateTO", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(13).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsPaid", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "IsPaid", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(13).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateFrom", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._commandCollection(13).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateTO", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._commandCollection(13).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsPaid", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "IsPaid", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
             Me._commandCollection(14) = New Global.System.Data.SqlClient.SqlCommand
             Me._commandCollection(14).Connection = Me.Connection
-            Me._commandCollection(14).CommandText = "SELECT Address, Age, AmountFigureDolar, AmountFigureReal, AmountInWords, Comment,"& _ 
-                " CusName, CusNameEng, CustID, CustomerNo, DonateAmount, DonationID, DonationName"& _ 
-                ", Expr1, EyeGlassesDolar, EyeGlassesReal, FullAmount, FundRaisingDolar, FundRais"& _ 
-                "ingR, Glasses, IncomType, IsCurrency, IsDonation, IsOldPatient, IsPaid, MedicDol"& _ 
-                "ar, MedicReal, NilAmount, Occupation, OtherDolar, OtherR, PaidDollar, PaidR, Pay"& _ 
-                "ByDonation, PayBySelf, PaymentCur, PaymentType, ReadyModDolar, ReadyModR, Receip"& _ 
-                "tDate, ReceiptID, ReceiptNo, ReceiptNote, ReceiptType, ReturnDolar, ReturnReal, "& _ 
-                "Sex, SocialAmount, SpectacleDolar, SpectacleR, SubReceiptType, SupportedAmtDolar"& _ 
-                ", SupportedAmtR, TotalDolar, TotalReal, TotalSocial, UserID, UserName FROM VMain"& _ 
-                "ReceiptDetail WHERE (CAST(CONVERT (VARCHAR(10), ReceiptDate, 1) AS DateTime) BET"& _ 
-                "WEEN CAST(CONVERT (VARCHAR(10), CAST(@DateFrom AS DATETIME), 1) AS Datetime) AND"& _ 
-                " CAST(CONVERT (VARCHAR(10), CAST(@DateTO AS DATETIME), 1) AS Datetime)) AND (IsP"& _ 
+            Me._commandCollection(14).CommandText = "SELECT Address, Age, AmountFigureDolar, AmountFigureReal, AmountInWords, Comment," & _
+                " CusName, CusNameEng, CustID, CustomerNo, DonateAmount, DonationID, DonationName" & _
+                ", Expr1, EyeGlassesDolar, EyeGlassesReal, FullAmount, FundRaisingDolar, FundRais" & _
+                "ingR, Glasses, IncomType, IsCurrency, IsDonation, IsOldPatient, IsPaid, MedicDol" & _
+                "ar, MedicReal, NilAmount, Occupation, OtherDolar, OtherR, PaidDollar, PaidR, Pay" & _
+                "ByDonation, PayBySelf, PaymentCur, PaymentType, ReadyModDolar, ReadyModR, Receip" & _
+                "tDate, ReceiptID, ReceiptNo, ReceiptNote, ReceiptType, ReturnDolar, ReturnReal, " & _
+                "Sex, SocialAmount, SpectacleDolar, SpectacleR, SubReceiptType, SupportedAmtDolar" & _
+                ", SupportedAmtR, TotalDolar, TotalReal, TotalSocial, UserID, UserName FROM VMain" & _
+                "ReceiptDetail WHERE (CAST(CONVERT (VARCHAR(10), ReceiptDate, 1) AS DateTime) BET" & _
+                "WEEN CAST(CONVERT (VARCHAR(10), CAST(@DateFrom AS DATETIME), 1) AS Datetime) AND" & _
+                " CAST(CONVERT (VARCHAR(10), CAST(@DateTO AS DATETIME), 1) AS Datetime)) AND (IsP" & _
                 "aid <> @IsPaid1) ORDER BY ReceiptID DESC"
             Me._commandCollection(14).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(14).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateFrom", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(14).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateTO", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(14).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsPaid1", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "IsPaid", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(14).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateFrom", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._commandCollection(14).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateTO", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._commandCollection(14).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsPaid1", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "IsPaid", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
         End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, true)>  _
-        Public Overloads Overridable Function FillGetDataByPaid(ByVal dataTable As DSOpticalShop.VMainReceiptDetailDataTable, ByVal IsPaid As Global.System.Nullable(Of Decimal)) As Integer
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, True)> _
+        Public Overridable Overloads Function FillGetDataByPaid(ByVal dataTable As DSOpticalShop.VMainReceiptDetailDataTable, ByVal IsPaid As Global.System.Nullable(Of Decimal)) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
-            If (IsPaid.HasValue = true) Then
-                Me.Adapter.SelectCommand.Parameters(0).Value = CType(IsPaid.Value,Decimal)
+            If (IsPaid.HasValue = True) Then
+                Me.Adapter.SelectCommand.Parameters(0).Value = CType(IsPaid.Value, Decimal)
             Else
                 Me.Adapter.SelectCommand.Parameters(0).Value = Global.System.DBNull.Value
             End If
-            If (Me.ClearBeforeFill = true) Then
-                dataTable.Clear
+            If (Me.ClearBeforeFill = True) Then
+                dataTable.Clear()
             End If
             Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
             Return returnValue
         End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], true)>  _
-        Public Overloads Overridable Function GetDataByPaid(ByVal IsPaid As Global.System.Nullable(Of Decimal)) As DSOpticalShop.VMainReceiptDetailDataTable
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], True)> _
+        Public Overridable Overloads Function GetDataByPaid(ByVal IsPaid As Global.System.Nullable(Of Decimal)) As DSOpticalShop.VMainReceiptDetailDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
-            If (IsPaid.HasValue = true) Then
-                Me.Adapter.SelectCommand.Parameters(0).Value = CType(IsPaid.Value,Decimal)
+            If (IsPaid.HasValue = True) Then
+                Me.Adapter.SelectCommand.Parameters(0).Value = CType(IsPaid.Value, Decimal)
             Else
                 Me.Adapter.SelectCommand.Parameters(0).Value = Global.System.DBNull.Value
             End If
@@ -16631,103 +16631,103 @@ Namespace DSOpticalShopTableAdapters
             Me.Adapter.Fill(dataTable)
             Return dataTable
         End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
-        Public Overloads Overridable Function Fill(ByVal dataTable As DSOpticalShop.VMainReceiptDetailDataTable) As Integer
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, False)> _
+        Public Overridable Overloads Function Fill(ByVal dataTable As DSOpticalShop.VMainReceiptDetailDataTable) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(1)
-            If (Me.ClearBeforeFill = true) Then
-                dataTable.Clear
+            If (Me.ClearBeforeFill = True) Then
+                dataTable.Clear()
             End If
             Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
             Return returnValue
         End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
-        Public Overloads Overridable Function GetData() As DSOpticalShop.VMainReceiptDetailDataTable
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], False)> _
+        Public Overridable Overloads Function GetData() As DSOpticalShop.VMainReceiptDetailDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(1)
             Dim dataTable As DSOpticalShop.VMainReceiptDetailDataTable = New DSOpticalShop.VMainReceiptDetailDataTable
             Me.Adapter.Fill(dataTable)
             Return dataTable
         End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
-        Public Overloads Overridable Function FillBy(ByVal dataTable As DSOpticalShop.VMainReceiptDetailDataTable, ByVal IsPaid As Global.System.Nullable(Of Decimal), ByVal DateFrom As Date, ByVal DateTO As Date) As Integer
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, False)> _
+        Public Overridable Overloads Function FillBy(ByVal dataTable As DSOpticalShop.VMainReceiptDetailDataTable, ByVal IsPaid As Global.System.Nullable(Of Decimal), ByVal DateFrom As Date, ByVal DateTO As Date) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(2)
-            If (IsPaid.HasValue = true) Then
-                Me.Adapter.SelectCommand.Parameters(0).Value = CType(IsPaid.Value,Decimal)
+            If (IsPaid.HasValue = True) Then
+                Me.Adapter.SelectCommand.Parameters(0).Value = CType(IsPaid.Value, Decimal)
             Else
                 Me.Adapter.SelectCommand.Parameters(0).Value = Global.System.DBNull.Value
             End If
-            Me.Adapter.SelectCommand.Parameters(1).Value = CType(DateFrom,Date)
-            Me.Adapter.SelectCommand.Parameters(2).Value = CType(DateTO,Date)
-            If (Me.ClearBeforeFill = true) Then
-                dataTable.Clear
+            Me.Adapter.SelectCommand.Parameters(1).Value = CType(DateFrom, Date)
+            Me.Adapter.SelectCommand.Parameters(2).Value = CType(DateTO, Date)
+            If (Me.ClearBeforeFill = True) Then
+                dataTable.Clear()
             End If
             Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
             Return returnValue
         End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
-        Public Overloads Overridable Function GetDonatorSupportInfo(ByVal IsPaid As Global.System.Nullable(Of Decimal), ByVal DateFrom As Date, ByVal DateTO As Date) As DSOpticalShop.VMainReceiptDetailDataTable
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], False)> _
+        Public Overridable Overloads Function GetDonatorSupportInfo(ByVal IsPaid As Global.System.Nullable(Of Decimal), ByVal DateFrom As Date, ByVal DateTO As Date) As DSOpticalShop.VMainReceiptDetailDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(2)
-            If (IsPaid.HasValue = true) Then
-                Me.Adapter.SelectCommand.Parameters(0).Value = CType(IsPaid.Value,Decimal)
+            If (IsPaid.HasValue = True) Then
+                Me.Adapter.SelectCommand.Parameters(0).Value = CType(IsPaid.Value, Decimal)
             Else
                 Me.Adapter.SelectCommand.Parameters(0).Value = Global.System.DBNull.Value
             End If
-            Me.Adapter.SelectCommand.Parameters(1).Value = CType(DateFrom,Date)
-            Me.Adapter.SelectCommand.Parameters(2).Value = CType(DateTO,Date)
+            Me.Adapter.SelectCommand.Parameters(1).Value = CType(DateFrom, Date)
+            Me.Adapter.SelectCommand.Parameters(2).Value = CType(DateTO, Date)
             Dim dataTable As DSOpticalShop.VMainReceiptDetailDataTable = New DSOpticalShop.VMainReceiptDetailDataTable
             Me.Adapter.Fill(dataTable)
             Return dataTable
         End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
-        Public Overloads Overridable Function FillBy1(ByVal dataTable As DSOpticalShop.VMainReceiptDetailDataTable, ByVal IsPaid As Global.System.Nullable(Of Decimal), ByVal DateFrom As Date, ByVal DateTO As Date, ByVal DonationID As Global.System.Nullable(Of Decimal)) As Integer
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, False)> _
+        Public Overridable Overloads Function FillBy1(ByVal dataTable As DSOpticalShop.VMainReceiptDetailDataTable, ByVal IsPaid As Global.System.Nullable(Of Decimal), ByVal DateFrom As Date, ByVal DateTO As Date, ByVal DonationID As Global.System.Nullable(Of Decimal)) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(3)
-            If (IsPaid.HasValue = true) Then
-                Me.Adapter.SelectCommand.Parameters(0).Value = CType(IsPaid.Value,Decimal)
+            If (IsPaid.HasValue = True) Then
+                Me.Adapter.SelectCommand.Parameters(0).Value = CType(IsPaid.Value, Decimal)
             Else
                 Me.Adapter.SelectCommand.Parameters(0).Value = Global.System.DBNull.Value
             End If
-            Me.Adapter.SelectCommand.Parameters(1).Value = CType(DateFrom,Date)
-            Me.Adapter.SelectCommand.Parameters(2).Value = CType(DateTO,Date)
-            If (DonationID.HasValue = true) Then
-                Me.Adapter.SelectCommand.Parameters(3).Value = CType(DonationID.Value,Decimal)
+            Me.Adapter.SelectCommand.Parameters(1).Value = CType(DateFrom, Date)
+            Me.Adapter.SelectCommand.Parameters(2).Value = CType(DateTO, Date)
+            If (DonationID.HasValue = True) Then
+                Me.Adapter.SelectCommand.Parameters(3).Value = CType(DonationID.Value, Decimal)
             Else
                 Me.Adapter.SelectCommand.Parameters(3).Value = Global.System.DBNull.Value
             End If
-            If (Me.ClearBeforeFill = true) Then
-                dataTable.Clear
+            If (Me.ClearBeforeFill = True) Then
+                dataTable.Clear()
             End If
             Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
             Return returnValue
         End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
-        Public Overloads Overridable Function GetDonationSupportInfoByDonateID(ByVal IsPaid As Global.System.Nullable(Of Decimal), ByVal DateFrom As Date, ByVal DateTO As Date, ByVal DonationID As Global.System.Nullable(Of Decimal)) As DSOpticalShop.VMainReceiptDetailDataTable
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], False)> _
+        Public Overridable Overloads Function GetDonationSupportInfoByDonateID(ByVal IsPaid As Global.System.Nullable(Of Decimal), ByVal DateFrom As Date, ByVal DateTO As Date, ByVal DonationID As Global.System.Nullable(Of Decimal)) As DSOpticalShop.VMainReceiptDetailDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(3)
-            If (IsPaid.HasValue = true) Then
-                Me.Adapter.SelectCommand.Parameters(0).Value = CType(IsPaid.Value,Decimal)
+            If (IsPaid.HasValue = True) Then
+                Me.Adapter.SelectCommand.Parameters(0).Value = CType(IsPaid.Value, Decimal)
             Else
                 Me.Adapter.SelectCommand.Parameters(0).Value = Global.System.DBNull.Value
             End If
-            Me.Adapter.SelectCommand.Parameters(1).Value = CType(DateFrom,Date)
-            Me.Adapter.SelectCommand.Parameters(2).Value = CType(DateTO,Date)
-            If (DonationID.HasValue = true) Then
-                Me.Adapter.SelectCommand.Parameters(3).Value = CType(DonationID.Value,Decimal)
+            Me.Adapter.SelectCommand.Parameters(1).Value = CType(DateFrom, Date)
+            Me.Adapter.SelectCommand.Parameters(2).Value = CType(DateTO, Date)
+            If (DonationID.HasValue = True) Then
+                Me.Adapter.SelectCommand.Parameters(3).Value = CType(DonationID.Value, Decimal)
             Else
                 Me.Adapter.SelectCommand.Parameters(3).Value = Global.System.DBNull.Value
             End If
@@ -16735,169 +16735,169 @@ Namespace DSOpticalShopTableAdapters
             Me.Adapter.Fill(dataTable)
             Return dataTable
         End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
-        Public Overloads Overridable Function FillBy2(ByVal dataTable As DSOpticalShop.VMainReceiptDetailDataTable, ByVal ReceiptID As Decimal) As Integer
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, False)> _
+        Public Overridable Overloads Function FillBy2(ByVal dataTable As DSOpticalShop.VMainReceiptDetailDataTable, ByVal ReceiptID As Decimal) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(4)
-            Me.Adapter.SelectCommand.Parameters(0).Value = CType(ReceiptID,Decimal)
-            If (Me.ClearBeforeFill = true) Then
-                dataTable.Clear
+            Me.Adapter.SelectCommand.Parameters(0).Value = CType(ReceiptID, Decimal)
+            If (Me.ClearBeforeFill = True) Then
+                dataTable.Clear()
             End If
             Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
             Return returnValue
         End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
-        Public Overloads Overridable Function GetDataByReceiptID(ByVal ReceiptID As Decimal) As DSOpticalShop.VMainReceiptDetailDataTable
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], False)> _
+        Public Overridable Overloads Function GetDataByReceiptID(ByVal ReceiptID As Decimal) As DSOpticalShop.VMainReceiptDetailDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(4)
-            Me.Adapter.SelectCommand.Parameters(0).Value = CType(ReceiptID,Decimal)
+            Me.Adapter.SelectCommand.Parameters(0).Value = CType(ReceiptID, Decimal)
             Dim dataTable As DSOpticalShop.VMainReceiptDetailDataTable = New DSOpticalShop.VMainReceiptDetailDataTable
             Me.Adapter.Fill(dataTable)
             Return dataTable
         End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
-        Public Overloads Overridable Function FillBy3(ByVal dataTable As DSOpticalShop.VMainReceiptDetailDataTable, ByVal ReceiptNo As String) As Integer
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, False)> _
+        Public Overridable Overloads Function FillBy3(ByVal dataTable As DSOpticalShop.VMainReceiptDetailDataTable, ByVal ReceiptNo As String) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(5)
             If (ReceiptNo Is Nothing) Then
                 Me.Adapter.SelectCommand.Parameters(0).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.SelectCommand.Parameters(0).Value = CType(ReceiptNo,String)
+                Me.Adapter.SelectCommand.Parameters(0).Value = CType(ReceiptNo, String)
             End If
-            If (Me.ClearBeforeFill = true) Then
-                dataTable.Clear
+            If (Me.ClearBeforeFill = True) Then
+                dataTable.Clear()
             End If
             Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
             Return returnValue
         End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
-        Public Overloads Overridable Function GetDataByReceiptNo(ByVal ReceiptNo As String) As DSOpticalShop.VMainReceiptDetailDataTable
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], False)> _
+        Public Overridable Overloads Function GetDataByReceiptNo(ByVal ReceiptNo As String) As DSOpticalShop.VMainReceiptDetailDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(5)
             If (ReceiptNo Is Nothing) Then
                 Me.Adapter.SelectCommand.Parameters(0).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.SelectCommand.Parameters(0).Value = CType(ReceiptNo,String)
+                Me.Adapter.SelectCommand.Parameters(0).Value = CType(ReceiptNo, String)
             End If
             Dim dataTable As DSOpticalShop.VMainReceiptDetailDataTable = New DSOpticalShop.VMainReceiptDetailDataTable
             Me.Adapter.Fill(dataTable)
             Return dataTable
         End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
-        Public Overloads Overridable Function FillBy4(ByVal dataTable As DSOpticalShop.VMainReceiptDetailDataTable, ByVal IsPaid As Global.System.Nullable(Of Decimal), ByVal PaymentType As Global.System.Nullable(Of Integer), ByVal DateFrom As Date, ByVal DateTO As Date) As Integer
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, False)> _
+        Public Overridable Overloads Function FillBy4(ByVal dataTable As DSOpticalShop.VMainReceiptDetailDataTable, ByVal IsPaid As Global.System.Nullable(Of Decimal), ByVal PaymentType As Global.System.Nullable(Of Integer), ByVal DateFrom As Date, ByVal DateTO As Date) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(6)
-            If (IsPaid.HasValue = true) Then
-                Me.Adapter.SelectCommand.Parameters(0).Value = CType(IsPaid.Value,Decimal)
+            If (IsPaid.HasValue = True) Then
+                Me.Adapter.SelectCommand.Parameters(0).Value = CType(IsPaid.Value, Decimal)
             Else
                 Me.Adapter.SelectCommand.Parameters(0).Value = Global.System.DBNull.Value
             End If
-            If (PaymentType.HasValue = true) Then
-                Me.Adapter.SelectCommand.Parameters(1).Value = CType(PaymentType.Value,Integer)
+            If (PaymentType.HasValue = True) Then
+                Me.Adapter.SelectCommand.Parameters(1).Value = CType(PaymentType.Value, Integer)
             Else
                 Me.Adapter.SelectCommand.Parameters(1).Value = Global.System.DBNull.Value
             End If
-            Me.Adapter.SelectCommand.Parameters(2).Value = CType(DateFrom,Date)
-            Me.Adapter.SelectCommand.Parameters(3).Value = CType(DateTO,Date)
-            If (Me.ClearBeforeFill = true) Then
-                dataTable.Clear
+            Me.Adapter.SelectCommand.Parameters(2).Value = CType(DateFrom, Date)
+            Me.Adapter.SelectCommand.Parameters(3).Value = CType(DateTO, Date)
+            If (Me.ClearBeforeFill = True) Then
+                dataTable.Clear()
             End If
             Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
             Return returnValue
         End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
-        Public Overloads Overridable Function GetDataByPayTypeAndIsPaid(ByVal IsPaid As Global.System.Nullable(Of Decimal), ByVal PaymentType As Global.System.Nullable(Of Integer), ByVal DateFrom As Date, ByVal DateTO As Date) As DSOpticalShop.VMainReceiptDetailDataTable
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], False)> _
+        Public Overridable Overloads Function GetDataByPayTypeAndIsPaid(ByVal IsPaid As Global.System.Nullable(Of Decimal), ByVal PaymentType As Global.System.Nullable(Of Integer), ByVal DateFrom As Date, ByVal DateTO As Date) As DSOpticalShop.VMainReceiptDetailDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(6)
-            If (IsPaid.HasValue = true) Then
-                Me.Adapter.SelectCommand.Parameters(0).Value = CType(IsPaid.Value,Decimal)
+            If (IsPaid.HasValue = True) Then
+                Me.Adapter.SelectCommand.Parameters(0).Value = CType(IsPaid.Value, Decimal)
             Else
                 Me.Adapter.SelectCommand.Parameters(0).Value = Global.System.DBNull.Value
             End If
-            If (PaymentType.HasValue = true) Then
-                Me.Adapter.SelectCommand.Parameters(1).Value = CType(PaymentType.Value,Integer)
+            If (PaymentType.HasValue = True) Then
+                Me.Adapter.SelectCommand.Parameters(1).Value = CType(PaymentType.Value, Integer)
             Else
                 Me.Adapter.SelectCommand.Parameters(1).Value = Global.System.DBNull.Value
             End If
-            Me.Adapter.SelectCommand.Parameters(2).Value = CType(DateFrom,Date)
-            Me.Adapter.SelectCommand.Parameters(3).Value = CType(DateTO,Date)
+            Me.Adapter.SelectCommand.Parameters(2).Value = CType(DateFrom, Date)
+            Me.Adapter.SelectCommand.Parameters(3).Value = CType(DateTO, Date)
             Dim dataTable As DSOpticalShop.VMainReceiptDetailDataTable = New DSOpticalShop.VMainReceiptDetailDataTable
             Me.Adapter.Fill(dataTable)
             Return dataTable
         End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
-        Public Overloads Overridable Function FillBy5(ByVal dataTable As DSOpticalShop.VMainReceiptDetailDataTable, ByVal IsPaid As Global.System.Nullable(Of Decimal), ByVal DateFrom As Date, ByVal DateTO As Date) As Integer
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, False)> _
+        Public Overridable Overloads Function FillBy5(ByVal dataTable As DSOpticalShop.VMainReceiptDetailDataTable, ByVal IsPaid As Global.System.Nullable(Of Decimal), ByVal DateFrom As Date, ByVal DateTO As Date) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(7)
-            If (IsPaid.HasValue = true) Then
-                Me.Adapter.SelectCommand.Parameters(0).Value = CType(IsPaid.Value,Decimal)
+            If (IsPaid.HasValue = True) Then
+                Me.Adapter.SelectCommand.Parameters(0).Value = CType(IsPaid.Value, Decimal)
             Else
                 Me.Adapter.SelectCommand.Parameters(0).Value = Global.System.DBNull.Value
             End If
-            Me.Adapter.SelectCommand.Parameters(1).Value = CType(DateFrom,Date)
-            Me.Adapter.SelectCommand.Parameters(2).Value = CType(DateTO,Date)
-            If (Me.ClearBeforeFill = true) Then
-                dataTable.Clear
+            Me.Adapter.SelectCommand.Parameters(1).Value = CType(DateFrom, Date)
+            Me.Adapter.SelectCommand.Parameters(2).Value = CType(DateTO, Date)
+            If (Me.ClearBeforeFill = True) Then
+                dataTable.Clear()
             End If
             Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
             Return returnValue
         End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
-        Public Overloads Overridable Function GetDataByPaidAndDate(ByVal IsPaid As Global.System.Nullable(Of Decimal), ByVal DateFrom As Date, ByVal DateTO As Date) As DSOpticalShop.VMainReceiptDetailDataTable
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], False)> _
+        Public Overridable Overloads Function GetDataByPaidAndDate(ByVal IsPaid As Global.System.Nullable(Of Decimal), ByVal DateFrom As Date, ByVal DateTO As Date) As DSOpticalShop.VMainReceiptDetailDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(7)
-            If (IsPaid.HasValue = true) Then
-                Me.Adapter.SelectCommand.Parameters(0).Value = CType(IsPaid.Value,Decimal)
+            If (IsPaid.HasValue = True) Then
+                Me.Adapter.SelectCommand.Parameters(0).Value = CType(IsPaid.Value, Decimal)
             Else
                 Me.Adapter.SelectCommand.Parameters(0).Value = Global.System.DBNull.Value
             End If
-            Me.Adapter.SelectCommand.Parameters(1).Value = CType(DateFrom,Date)
-            Me.Adapter.SelectCommand.Parameters(2).Value = CType(DateTO,Date)
+            Me.Adapter.SelectCommand.Parameters(1).Value = CType(DateFrom, Date)
+            Me.Adapter.SelectCommand.Parameters(2).Value = CType(DateTO, Date)
             Dim dataTable As DSOpticalShop.VMainReceiptDetailDataTable = New DSOpticalShop.VMainReceiptDetailDataTable
             Me.Adapter.Fill(dataTable)
             Return dataTable
         End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
-        Public Overloads Overridable Function FillBy6(ByVal dataTable As DSOpticalShop.VMainReceiptDetailDataTable, ByVal PaymentType As Global.System.Nullable(Of Integer)) As Integer
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, False)> _
+        Public Overridable Overloads Function FillBy6(ByVal dataTable As DSOpticalShop.VMainReceiptDetailDataTable, ByVal PaymentType As Global.System.Nullable(Of Integer)) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(8)
-            If (PaymentType.HasValue = true) Then
-                Me.Adapter.SelectCommand.Parameters(0).Value = CType(PaymentType.Value,Integer)
+            If (PaymentType.HasValue = True) Then
+                Me.Adapter.SelectCommand.Parameters(0).Value = CType(PaymentType.Value, Integer)
             Else
                 Me.Adapter.SelectCommand.Parameters(0).Value = Global.System.DBNull.Value
             End If
-            If (Me.ClearBeforeFill = true) Then
-                dataTable.Clear
+            If (Me.ClearBeforeFill = True) Then
+                dataTable.Clear()
             End If
             Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
             Return returnValue
         End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
-        Public Overloads Overridable Function GetDataReceiptNil(ByVal PaymentType As Global.System.Nullable(Of Integer)) As DSOpticalShop.VMainReceiptDetailDataTable
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], False)> _
+        Public Overridable Overloads Function GetDataReceiptNil(ByVal PaymentType As Global.System.Nullable(Of Integer)) As DSOpticalShop.VMainReceiptDetailDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(8)
-            If (PaymentType.HasValue = true) Then
-                Me.Adapter.SelectCommand.Parameters(0).Value = CType(PaymentType.Value,Integer)
+            If (PaymentType.HasValue = True) Then
+                Me.Adapter.SelectCommand.Parameters(0).Value = CType(PaymentType.Value, Integer)
             Else
                 Me.Adapter.SelectCommand.Parameters(0).Value = Global.System.DBNull.Value
             End If
@@ -16905,107 +16905,107 @@ Namespace DSOpticalShopTableAdapters
             Me.Adapter.Fill(dataTable)
             Return dataTable
         End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
-        Public Overloads Overridable Function FillBy7(ByVal dataTable As DSOpticalShop.VMainReceiptDetailDataTable, ByVal PaymentType As Global.System.Nullable(Of Integer), ByVal DateFrom As Date, ByVal DateTO As Date) As Integer
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, False)> _
+        Public Overridable Overloads Function FillBy7(ByVal dataTable As DSOpticalShop.VMainReceiptDetailDataTable, ByVal PaymentType As Global.System.Nullable(Of Integer), ByVal DateFrom As Date, ByVal DateTO As Date) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(9)
-            If (PaymentType.HasValue = true) Then
-                Me.Adapter.SelectCommand.Parameters(0).Value = CType(PaymentType.Value,Integer)
+            If (PaymentType.HasValue = True) Then
+                Me.Adapter.SelectCommand.Parameters(0).Value = CType(PaymentType.Value, Integer)
             Else
                 Me.Adapter.SelectCommand.Parameters(0).Value = Global.System.DBNull.Value
             End If
-            Me.Adapter.SelectCommand.Parameters(1).Value = CType(DateFrom,Date)
-            Me.Adapter.SelectCommand.Parameters(2).Value = CType(DateTO,Date)
-            If (Me.ClearBeforeFill = true) Then
-                dataTable.Clear
+            Me.Adapter.SelectCommand.Parameters(1).Value = CType(DateFrom, Date)
+            Me.Adapter.SelectCommand.Parameters(2).Value = CType(DateTO, Date)
+            If (Me.ClearBeforeFill = True) Then
+                dataTable.Clear()
             End If
             Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
             Return returnValue
         End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
-        Public Overloads Overridable Function GetDataReceiptNilByDate(ByVal PaymentType As Global.System.Nullable(Of Integer), ByVal DateFrom As Date, ByVal DateTO As Date) As DSOpticalShop.VMainReceiptDetailDataTable
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], False)> _
+        Public Overridable Overloads Function GetDataReceiptNilByDate(ByVal PaymentType As Global.System.Nullable(Of Integer), ByVal DateFrom As Date, ByVal DateTO As Date) As DSOpticalShop.VMainReceiptDetailDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(9)
-            If (PaymentType.HasValue = true) Then
-                Me.Adapter.SelectCommand.Parameters(0).Value = CType(PaymentType.Value,Integer)
+            If (PaymentType.HasValue = True) Then
+                Me.Adapter.SelectCommand.Parameters(0).Value = CType(PaymentType.Value, Integer)
             Else
                 Me.Adapter.SelectCommand.Parameters(0).Value = Global.System.DBNull.Value
             End If
-            Me.Adapter.SelectCommand.Parameters(1).Value = CType(DateFrom,Date)
-            Me.Adapter.SelectCommand.Parameters(2).Value = CType(DateTO,Date)
+            Me.Adapter.SelectCommand.Parameters(1).Value = CType(DateFrom, Date)
+            Me.Adapter.SelectCommand.Parameters(2).Value = CType(DateTO, Date)
             Dim dataTable As DSOpticalShop.VMainReceiptDetailDataTable = New DSOpticalShop.VMainReceiptDetailDataTable
             Me.Adapter.Fill(dataTable)
             Return dataTable
         End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
-        Public Overloads Overridable Function FillBy8(ByVal dataTable As DSOpticalShop.VMainReceiptDetailDataTable, ByVal DateFrom As Date, ByVal DateTO As Date) As Integer
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, False)> _
+        Public Overridable Overloads Function FillBy8(ByVal dataTable As DSOpticalShop.VMainReceiptDetailDataTable, ByVal DateFrom As Date, ByVal DateTO As Date) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(10)
-            Me.Adapter.SelectCommand.Parameters(0).Value = CType(DateFrom,Date)
-            Me.Adapter.SelectCommand.Parameters(1).Value = CType(DateTO,Date)
-            If (Me.ClearBeforeFill = true) Then
-                dataTable.Clear
+            Me.Adapter.SelectCommand.Parameters(0).Value = CType(DateFrom, Date)
+            Me.Adapter.SelectCommand.Parameters(1).Value = CType(DateTO, Date)
+            If (Me.ClearBeforeFill = True) Then
+                dataTable.Clear()
             End If
             Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
             Return returnValue
         End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
-        Public Overloads Overridable Function GetDataRecieptNilByDate(ByVal DateFrom As Date, ByVal DateTO As Date) As DSOpticalShop.VMainReceiptDetailDataTable
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], False)> _
+        Public Overridable Overloads Function GetDataRecieptNilByDate(ByVal DateFrom As Date, ByVal DateTO As Date) As DSOpticalShop.VMainReceiptDetailDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(10)
-            Me.Adapter.SelectCommand.Parameters(0).Value = CType(DateFrom,Date)
-            Me.Adapter.SelectCommand.Parameters(1).Value = CType(DateTO,Date)
+            Me.Adapter.SelectCommand.Parameters(0).Value = CType(DateFrom, Date)
+            Me.Adapter.SelectCommand.Parameters(1).Value = CType(DateTO, Date)
             Dim dataTable As DSOpticalShop.VMainReceiptDetailDataTable = New DSOpticalShop.VMainReceiptDetailDataTable
             Me.Adapter.Fill(dataTable)
             Return dataTable
         End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
-        Public Overloads Overridable Function FillBy9(ByVal dataTable As DSOpticalShop.VMainReceiptDetailDataTable, ByVal DateFrom As Date, ByVal DateTO As Date, ByVal IsPaid1 As Global.System.Nullable(Of Decimal), ByVal PaymentType As Global.System.Nullable(Of Integer)) As Integer
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, False)> _
+        Public Overridable Overloads Function FillBy9(ByVal dataTable As DSOpticalShop.VMainReceiptDetailDataTable, ByVal DateFrom As Date, ByVal DateTO As Date, ByVal IsPaid1 As Global.System.Nullable(Of Decimal), ByVal PaymentType As Global.System.Nullable(Of Integer)) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(11)
-            Me.Adapter.SelectCommand.Parameters(0).Value = CType(DateFrom,Date)
-            Me.Adapter.SelectCommand.Parameters(1).Value = CType(DateTO,Date)
-            If (IsPaid1.HasValue = true) Then
-                Me.Adapter.SelectCommand.Parameters(2).Value = CType(IsPaid1.Value,Decimal)
+            Me.Adapter.SelectCommand.Parameters(0).Value = CType(DateFrom, Date)
+            Me.Adapter.SelectCommand.Parameters(1).Value = CType(DateTO, Date)
+            If (IsPaid1.HasValue = True) Then
+                Me.Adapter.SelectCommand.Parameters(2).Value = CType(IsPaid1.Value, Decimal)
             Else
                 Me.Adapter.SelectCommand.Parameters(2).Value = Global.System.DBNull.Value
             End If
-            If (PaymentType.HasValue = true) Then
-                Me.Adapter.SelectCommand.Parameters(3).Value = CType(PaymentType.Value,Integer)
+            If (PaymentType.HasValue = True) Then
+                Me.Adapter.SelectCommand.Parameters(3).Value = CType(PaymentType.Value, Integer)
             Else
                 Me.Adapter.SelectCommand.Parameters(3).Value = Global.System.DBNull.Value
             End If
-            If (Me.ClearBeforeFill = true) Then
-                dataTable.Clear
+            If (Me.ClearBeforeFill = True) Then
+                dataTable.Clear()
             End If
             Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
             Return returnValue
         End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
-        Public Overloads Overridable Function GetDataByPatientPaySocial(ByVal DateFrom As Date, ByVal DateTO As Date, ByVal IsPaid1 As Global.System.Nullable(Of Decimal), ByVal PaymentType As Global.System.Nullable(Of Integer)) As DSOpticalShop.VMainReceiptDetailDataTable
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], False)> _
+        Public Overridable Overloads Function GetDataByPatientPaySocial(ByVal DateFrom As Date, ByVal DateTO As Date, ByVal IsPaid1 As Global.System.Nullable(Of Decimal), ByVal PaymentType As Global.System.Nullable(Of Integer)) As DSOpticalShop.VMainReceiptDetailDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(11)
-            Me.Adapter.SelectCommand.Parameters(0).Value = CType(DateFrom,Date)
-            Me.Adapter.SelectCommand.Parameters(1).Value = CType(DateTO,Date)
-            If (IsPaid1.HasValue = true) Then
-                Me.Adapter.SelectCommand.Parameters(2).Value = CType(IsPaid1.Value,Decimal)
+            Me.Adapter.SelectCommand.Parameters(0).Value = CType(DateFrom, Date)
+            Me.Adapter.SelectCommand.Parameters(1).Value = CType(DateTO, Date)
+            If (IsPaid1.HasValue = True) Then
+                Me.Adapter.SelectCommand.Parameters(2).Value = CType(IsPaid1.Value, Decimal)
             Else
                 Me.Adapter.SelectCommand.Parameters(2).Value = Global.System.DBNull.Value
             End If
-            If (PaymentType.HasValue = true) Then
-                Me.Adapter.SelectCommand.Parameters(3).Value = CType(PaymentType.Value,Integer)
+            If (PaymentType.HasValue = True) Then
+                Me.Adapter.SelectCommand.Parameters(3).Value = CType(PaymentType.Value, Integer)
             Else
                 Me.Adapter.SelectCommand.Parameters(3).Value = Global.System.DBNull.Value
             End If
@@ -17013,61 +17013,61 @@ Namespace DSOpticalShopTableAdapters
             Me.Adapter.Fill(dataTable)
             Return dataTable
         End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
-        Public Overloads Overridable Function FillByDateToFrom(ByVal dataTable As DSOpticalShop.VMainReceiptDetailDataTable, ByVal DateFrom As Date, ByVal DateTO As Date) As Integer
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, False)> _
+        Public Overridable Overloads Function FillByDateToFrom(ByVal dataTable As DSOpticalShop.VMainReceiptDetailDataTable, ByVal DateFrom As Date, ByVal DateTO As Date) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(12)
-            Me.Adapter.SelectCommand.Parameters(0).Value = CType(DateFrom,Date)
-            Me.Adapter.SelectCommand.Parameters(1).Value = CType(DateTO,Date)
-            If (Me.ClearBeforeFill = true) Then
-                dataTable.Clear
+            Me.Adapter.SelectCommand.Parameters(0).Value = CType(DateFrom, Date)
+            Me.Adapter.SelectCommand.Parameters(1).Value = CType(DateTO, Date)
+            If (Me.ClearBeforeFill = True) Then
+                dataTable.Clear()
             End If
             Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
             Return returnValue
         End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
-        Public Overloads Overridable Function GetDataByDateToFrom(ByVal DateFrom As Date, ByVal DateTO As Date) As DSOpticalShop.VMainReceiptDetailDataTable
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], False)> _
+        Public Overridable Overloads Function GetDataByDateToFrom(ByVal DateFrom As Date, ByVal DateTO As Date) As DSOpticalShop.VMainReceiptDetailDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(12)
-            Me.Adapter.SelectCommand.Parameters(0).Value = CType(DateFrom,Date)
-            Me.Adapter.SelectCommand.Parameters(1).Value = CType(DateTO,Date)
+            Me.Adapter.SelectCommand.Parameters(0).Value = CType(DateFrom, Date)
+            Me.Adapter.SelectCommand.Parameters(1).Value = CType(DateTO, Date)
             Dim dataTable As DSOpticalShop.VMainReceiptDetailDataTable = New DSOpticalShop.VMainReceiptDetailDataTable
             Me.Adapter.Fill(dataTable)
             Return dataTable
         End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
-        Public Overloads Overridable Function FillByDateWithCancelPaid(ByVal dataTable As DSOpticalShop.VMainReceiptDetailDataTable, ByVal DateFrom As Date, ByVal DateTO As Date, ByVal IsPaid As Global.System.Nullable(Of Decimal)) As Integer
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, False)> _
+        Public Overridable Overloads Function FillByDateWithCancelPaid(ByVal dataTable As DSOpticalShop.VMainReceiptDetailDataTable, ByVal DateFrom As Date, ByVal DateTO As Date, ByVal IsPaid As Global.System.Nullable(Of Decimal)) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(13)
-            Me.Adapter.SelectCommand.Parameters(0).Value = CType(DateFrom,Date)
-            Me.Adapter.SelectCommand.Parameters(1).Value = CType(DateTO,Date)
-            If (IsPaid.HasValue = true) Then
-                Me.Adapter.SelectCommand.Parameters(2).Value = CType(IsPaid.Value,Decimal)
+            Me.Adapter.SelectCommand.Parameters(0).Value = CType(DateFrom, Date)
+            Me.Adapter.SelectCommand.Parameters(1).Value = CType(DateTO, Date)
+            If (IsPaid.HasValue = True) Then
+                Me.Adapter.SelectCommand.Parameters(2).Value = CType(IsPaid.Value, Decimal)
             Else
                 Me.Adapter.SelectCommand.Parameters(2).Value = Global.System.DBNull.Value
             End If
-            If (Me.ClearBeforeFill = true) Then
-                dataTable.Clear
+            If (Me.ClearBeforeFill = True) Then
+                dataTable.Clear()
             End If
             Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
             Return returnValue
         End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
-        Public Overloads Overridable Function GetDataByDateWithPaid(ByVal DateFrom As Date, ByVal DateTO As Date, ByVal IsPaid As Global.System.Nullable(Of Decimal)) As DSOpticalShop.VMainReceiptDetailDataTable
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], False)> _
+        Public Overridable Overloads Function GetDataByDateWithPaid(ByVal DateFrom As Date, ByVal DateTO As Date, ByVal IsPaid As Global.System.Nullable(Of Decimal)) As DSOpticalShop.VMainReceiptDetailDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(13)
-            Me.Adapter.SelectCommand.Parameters(0).Value = CType(DateFrom,Date)
-            Me.Adapter.SelectCommand.Parameters(1).Value = CType(DateTO,Date)
-            If (IsPaid.HasValue = true) Then
-                Me.Adapter.SelectCommand.Parameters(2).Value = CType(IsPaid.Value,Decimal)
+            Me.Adapter.SelectCommand.Parameters(0).Value = CType(DateFrom, Date)
+            Me.Adapter.SelectCommand.Parameters(1).Value = CType(DateTO, Date)
+            If (IsPaid.HasValue = True) Then
+                Me.Adapter.SelectCommand.Parameters(2).Value = CType(IsPaid.Value, Decimal)
             Else
                 Me.Adapter.SelectCommand.Parameters(2).Value = Global.System.DBNull.Value
             End If
@@ -17075,35 +17075,35 @@ Namespace DSOpticalShopTableAdapters
             Me.Adapter.Fill(dataTable)
             Return dataTable
         End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
-        Public Overloads Overridable Function FillByDateWithWaitingPay(ByVal dataTable As DSOpticalShop.VMainReceiptDetailDataTable, ByVal DateFrom As Date, ByVal DateTO As Date, ByVal IsPaid1 As Global.System.Nullable(Of Decimal)) As Integer
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, False)> _
+        Public Overridable Overloads Function FillByDateWithWaitingPay(ByVal dataTable As DSOpticalShop.VMainReceiptDetailDataTable, ByVal DateFrom As Date, ByVal DateTO As Date, ByVal IsPaid1 As Global.System.Nullable(Of Decimal)) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(14)
-            Me.Adapter.SelectCommand.Parameters(0).Value = CType(DateFrom,Date)
-            Me.Adapter.SelectCommand.Parameters(1).Value = CType(DateTO,Date)
-            If (IsPaid1.HasValue = true) Then
-                Me.Adapter.SelectCommand.Parameters(2).Value = CType(IsPaid1.Value,Decimal)
+            Me.Adapter.SelectCommand.Parameters(0).Value = CType(DateFrom, Date)
+            Me.Adapter.SelectCommand.Parameters(1).Value = CType(DateTO, Date)
+            If (IsPaid1.HasValue = True) Then
+                Me.Adapter.SelectCommand.Parameters(2).Value = CType(IsPaid1.Value, Decimal)
             Else
                 Me.Adapter.SelectCommand.Parameters(2).Value = Global.System.DBNull.Value
             End If
-            If (Me.ClearBeforeFill = true) Then
-                dataTable.Clear
+            If (Me.ClearBeforeFill = True) Then
+                dataTable.Clear()
             End If
             Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
             Return returnValue
         End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
-        Public Overloads Overridable Function GetDataByDateWithWaitingPay(ByVal DateFrom As Date, ByVal DateTO As Date, ByVal IsPaid1 As Global.System.Nullable(Of Decimal)) As DSOpticalShop.VMainReceiptDetailDataTable
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], False)> _
+        Public Overridable Overloads Function GetDataByDateWithWaitingPay(ByVal DateFrom As Date, ByVal DateTO As Date, ByVal IsPaid1 As Global.System.Nullable(Of Decimal)) As DSOpticalShop.VMainReceiptDetailDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(14)
-            Me.Adapter.SelectCommand.Parameters(0).Value = CType(DateFrom,Date)
-            Me.Adapter.SelectCommand.Parameters(1).Value = CType(DateTO,Date)
-            If (IsPaid1.HasValue = true) Then
-                Me.Adapter.SelectCommand.Parameters(2).Value = CType(IsPaid1.Value,Decimal)
+            Me.Adapter.SelectCommand.Parameters(0).Value = CType(DateFrom, Date)
+            Me.Adapter.SelectCommand.Parameters(1).Value = CType(DateTO, Date)
+            If (IsPaid1.HasValue = True) Then
+                Me.Adapter.SelectCommand.Parameters(2).Value = CType(IsPaid1.Value, Decimal)
             Else
                 Me.Adapter.SelectCommand.Parameters(2).Value = Global.System.DBNull.Value
             End If
@@ -17112,55 +17112,55 @@ Namespace DSOpticalShopTableAdapters
             Return dataTable
         End Function
     End Class
-    
+
     '''<summary>
     '''Represents the connection and commands used to retrieve and save data.
     '''</summary>
-    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0"),  _
-     Global.System.ComponentModel.DesignerCategoryAttribute("code"),  _
-     Global.System.ComponentModel.ToolboxItem(true),  _
-     Global.System.ComponentModel.DataObjectAttribute(true),  _
-     Global.System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner"& _ 
-        ", Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"),  _
-     Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0"), _
+     Global.System.ComponentModel.DesignerCategoryAttribute("code"), _
+     Global.System.ComponentModel.ToolboxItem(True), _
+     Global.System.ComponentModel.DataObjectAttribute(True), _
+     Global.System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" & _
+        ", Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"), _
+     Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")> _
     Partial Public Class V_OpticalShopCusStatisticTableAdapter
         Inherits Global.System.ComponentModel.Component
-        
+
         Private WithEvents _adapter As Global.System.Data.SqlClient.SqlDataAdapter
-        
+
         Private _connection As Global.System.Data.SqlClient.SqlConnection
-        
+
         Private _transaction As Global.System.Data.SqlClient.SqlTransaction
-        
+
         Private _commandCollection() As Global.System.Data.SqlClient.SqlCommand
-        
+
         Private _clearBeforeFill As Boolean
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
         Public Sub New()
-            MyBase.New
-            Me.ClearBeforeFill = true
+            MyBase.New()
+            Me.ClearBeforeFill = True
         End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
         Protected Friend ReadOnly Property Adapter() As Global.System.Data.SqlClient.SqlDataAdapter
             Get
                 If (Me._adapter Is Nothing) Then
-                    Me.InitAdapter
+                    Me.InitAdapter()
                 End If
                 Return Me._adapter
             End Get
         End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
         Friend Property Connection() As Global.System.Data.SqlClient.SqlConnection
             Get
                 If (Me._connection Is Nothing) Then
-                    Me.InitConnection
+                    Me.InitConnection()
                 End If
                 Return Me._connection
             End Get
-            Set
+            Set(ByVal value As Global.System.Data.SqlClient.SqlConnection)
                 Me._connection = value
                 If (Not (Me.Adapter.InsertCommand) Is Nothing) Then
                     Me.Adapter.InsertCommand.Connection = value
@@ -17174,61 +17174,61 @@ Namespace DSOpticalShopTableAdapters
                 Dim i As Integer = 0
                 Do While (i < Me.CommandCollection.Length)
                     If (Not (Me.CommandCollection(i)) Is Nothing) Then
-                        CType(Me.CommandCollection(i),Global.System.Data.SqlClient.SqlCommand).Connection = value
+                        CType(Me.CommandCollection(i), Global.System.Data.SqlClient.SqlCommand).Connection = value
                     End If
                     i = (i + 1)
                 Loop
             End Set
         End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
         Friend Property Transaction() As Global.System.Data.SqlClient.SqlTransaction
             Get
                 Return Me._transaction
             End Get
-            Set
+            Set(ByVal value As Global.System.Data.SqlClient.SqlTransaction)
                 Me._transaction = value
                 Dim i As Integer = 0
                 Do While (i < Me.CommandCollection.Length)
                     Me.CommandCollection(i).Transaction = Me._transaction
                     i = (i + 1)
                 Loop
-                If ((Not (Me.Adapter) Is Nothing)  _
+                If ((Not (Me.Adapter) Is Nothing) _
                             AndAlso (Not (Me.Adapter.DeleteCommand) Is Nothing)) Then
                     Me.Adapter.DeleteCommand.Transaction = Me._transaction
                 End If
-                If ((Not (Me.Adapter) Is Nothing)  _
+                If ((Not (Me.Adapter) Is Nothing) _
                             AndAlso (Not (Me.Adapter.InsertCommand) Is Nothing)) Then
                     Me.Adapter.InsertCommand.Transaction = Me._transaction
                 End If
-                If ((Not (Me.Adapter) Is Nothing)  _
+                If ((Not (Me.Adapter) Is Nothing) _
                             AndAlso (Not (Me.Adapter.UpdateCommand) Is Nothing)) Then
                     Me.Adapter.UpdateCommand.Transaction = Me._transaction
                 End If
             End Set
         End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
         Protected ReadOnly Property CommandCollection() As Global.System.Data.SqlClient.SqlCommand()
             Get
                 If (Me._commandCollection Is Nothing) Then
-                    Me.InitCommandCollection
+                    Me.InitCommandCollection()
                 End If
                 Return Me._commandCollection
             End Get
         End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
         Public Property ClearBeforeFill() As Boolean
             Get
                 Return Me._clearBeforeFill
             End Get
-            Set
+            Set(ByVal value As Boolean)
                 Me._clearBeforeFill = value
             End Set
         End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
         Private Sub InitAdapter()
             Me._adapter = New Global.System.Data.SqlClient.SqlDataAdapter
             Dim tableMapping As Global.System.Data.Common.DataTableMapping = New Global.System.Data.Common.DataTableMapping
@@ -17245,179 +17245,179 @@ Namespace DSOpticalShopTableAdapters
             tableMapping.ColumnMappings.Add("SubReceiptType", "SubReceiptType")
             Me._adapter.TableMappings.Add(tableMapping)
         End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
         Private Sub InitConnection()
             Me._connection = New Global.System.Data.SqlClient.SqlConnection
-            Me._connection.ConnectionString = Global.HospitalMS.My.MySettings.Default.TakeoDBConnectionString
+            Me._connection.ConnectionString = Global.HospitalMS.My.MySettings.Default.AppConnection
         End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
         Private Sub InitCommandCollection()
             Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(1) {}
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT        t1.ReceiptType, COUNT(t2.Female) AS F, COUNT(t2.Male) AS M, t2.Age,"& _ 
-                " t2.Sex, t1.IsPaid, '0-4' AS agerange, t1.ReceiptDate,t1.SubReceiptType"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM   "& _ 
-                "         RECEIPT AS t1 INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         RECEIPT_CUSTOMER AS "& _ 
-                "t2 ON t1.CustID = t2.CustID"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (t1.IsPaid <> 2) AND (t2.Age BETWEEN 0"& _ 
-                " AND 4)"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"GROUP BY t1.ReceiptType, t2.Age, t2.Sex, t1.IsPaid, t1.ReceiptDate,t1.S"& _ 
-                "ubReceiptType"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"UNION"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT        t1.ReceiptType, COUNT(t2.Female) AS F, COUNT"& _ 
-                "(t2.Male) AS M, t2.Age, t2.Sex, t1.IsPaid, '5-14' AS agerange, t1.ReceiptDate,t1"& _ 
-                ".SubReceiptType"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            RECEIPT AS t1 INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                     "& _ 
-                "    RECEIPT_CUSTOMER AS t2 ON t1.CustID = t2.CustID"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (t1.IsPaid  <>"& _ 
-                " 2) AND (t2.Age BETWEEN 5 AND 14)"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"GROUP BY t1.ReceiptType, t2.Age, t2.Sex, t1.I"& _ 
-                "sPaid, t1.ReceiptDate,t1.SubReceiptType"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"UNION"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT        t1.ReceiptType, CO"& _ 
-                "UNT(t2.Female) AS F, COUNT(t2.Male) AS M, t2.Age, t2.Sex, t1.IsPaid, '15-49' AS "& _ 
-                "agerange, t1.ReceiptDate,t1.SubReceiptType"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            RECEIPT AS t1 INNER "& _ 
-                "JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         RECEIPT_CUSTOMER AS t2 ON t1.CustID = t2.CustID"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)& _ 
-                "WHERE        (t1.IsPaid <> 1) AND (t2.Age BETWEEN 15 AND 49)"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"GROUP BY t1.Receip"& _ 
-                "tType, t2.Age, t2.Sex, t1.IsPaid, t1.ReceiptDate,t1.SubReceiptType"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"UNION"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELEC"& _ 
-                "T        t1.ReceiptType, COUNT(t2.Female) AS F, COUNT(t2.Male) AS M, t2.Age, t2."& _ 
-                "Sex, t1.IsPaid, '>=50' AS agerange, t1.ReceiptDate,t1.SubReceiptType"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM      "& _ 
-                "      RECEIPT AS t1 INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         RECEIPT_CUSTOMER AS t2 "& _ 
-                "ON t1.CustID = t2.CustID"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (t1.IsPaid <> 2) AND (t2.Age >= 50)"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"GROU"& _ 
-                "P BY t1.ReceiptType, t2.Age, t2.Sex, t1.IsPaid, t1.ReceiptDate,t1.SubReceiptType"& _ 
+            Me._commandCollection(0).CommandText = "SELECT        t1.ReceiptType, COUNT(t2.Female) AS F, COUNT(t2.Male) AS M, t2.Age," & _
+                " t2.Sex, t1.IsPaid, '0-4' AS agerange, t1.ReceiptDate,t1.SubReceiptType" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "FROM   " & _
+                "         RECEIPT AS t1 INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         RECEIPT_CUSTOMER AS " & _
+                "t2 ON t1.CustID = t2.CustID" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "WHERE        (t1.IsPaid <> 2) AND (t2.Age BETWEEN 0" & _
+                " AND 4)" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "GROUP BY t1.ReceiptType, t2.Age, t2.Sex, t1.IsPaid, t1.ReceiptDate,t1.S" & _
+                "ubReceiptType" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "UNION" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "SELECT        t1.ReceiptType, COUNT(t2.Female) AS F, COUNT" & _
+                "(t2.Male) AS M, t2.Age, t2.Sex, t1.IsPaid, '5-14' AS agerange, t1.ReceiptDate,t1" & _
+                ".SubReceiptType" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "FROM            RECEIPT AS t1 INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                     " & _
+                "    RECEIPT_CUSTOMER AS t2 ON t1.CustID = t2.CustID" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "WHERE        (t1.IsPaid  <>" & _
+                " 2) AND (t2.Age BETWEEN 5 AND 14)" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "GROUP BY t1.ReceiptType, t2.Age, t2.Sex, t1.I" & _
+                "sPaid, t1.ReceiptDate,t1.SubReceiptType" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "UNION" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "SELECT        t1.ReceiptType, CO" & _
+                "UNT(t2.Female) AS F, COUNT(t2.Male) AS M, t2.Age, t2.Sex, t1.IsPaid, '15-49' AS " & _
+                "agerange, t1.ReceiptDate,t1.SubReceiptType" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "FROM            RECEIPT AS t1 INNER " & _
+                "JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         RECEIPT_CUSTOMER AS t2 ON t1.CustID = t2.CustID" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & _
+                "WHERE        (t1.IsPaid <> 1) AND (t2.Age BETWEEN 15 AND 49)" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "GROUP BY t1.Receip" & _
+                "tType, t2.Age, t2.Sex, t1.IsPaid, t1.ReceiptDate,t1.SubReceiptType" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "UNION" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "SELEC" & _
+                "T        t1.ReceiptType, COUNT(t2.Female) AS F, COUNT(t2.Male) AS M, t2.Age, t2." & _
+                "Sex, t1.IsPaid, '>=50' AS agerange, t1.ReceiptDate,t1.SubReceiptType" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "FROM      " & _
+                "      RECEIPT AS t1 INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         RECEIPT_CUSTOMER AS t2 " & _
+                "ON t1.CustID = t2.CustID" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "WHERE        (t1.IsPaid <> 2) AND (t2.Age >= 50)" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "GROU" & _
+                "P BY t1.ReceiptType, t2.Age, t2.Sex, t1.IsPaid, t1.ReceiptDate,t1.SubReceiptType" & _
                 ""
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(1) = New Global.System.Data.SqlClient.SqlCommand
             Me._commandCollection(1).Connection = Me.Connection
-            Me._commandCollection(1).CommandText = "SELECT        t1.ReceiptType, COUNT(t2.Female) AS F, COUNT(t2.Male) AS M, t2.Age,"& _ 
-                " t2.Sex, t1.IsPaid, '0-4' AS agerange, t1.ReceiptDate,t1.SubReceiptType"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM   "& _ 
-                "         RECEIPT AS t1 INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         RECEIPT_CUSTOMER AS "& _ 
-                "t2 ON t1.CustID = t2.CustID"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (t1.IsPaid <> 2) AND (t2.Age BETWEEN 0"& _ 
-                " AND 4) AND (CAST(CONVERT(VARCHAR(10), t1.ReceiptDate, 1) AS DateTime) BETWEEN C"& _ 
-                "AST(CONVERT(VARCHAR(10), "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         CAST(@DateFrom AS DATETIME),"& _ 
-                " 1) AS Datetime) AND CAST(CONVERT(VARCHAR(10), CAST(@DateTO AS DATETIME), 1) AS "& _ 
-                "Datetime))"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"GROUP BY t1.ReceiptType, t2.Age, t2.Sex, t1.IsPaid, t1.ReceiptDate,t"& _ 
-                "1.SubReceiptType"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"UNION"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT        t1.ReceiptType, COUNT(t2.Female) AS F, CO"& _ 
-                "UNT(t2.Male) AS M, t2.Age, t2.Sex, t1.IsPaid, '5-14' AS agerange, t1.ReceiptDate"& _ 
-                ",t1.SubReceiptType"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            RECEIPT AS t1 INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                  "& _ 
-                "       RECEIPT_CUSTOMER AS t2 ON t1.CustID = t2.CustID"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (t1.IsPaid "& _ 
-                "<> 2) AND (t2.Age BETWEEN 5 AND 14) AND (CAST(CONVERT(VARCHAR(10), t1.ReceiptDat"& _ 
-                "e, 1) AS DateTime) BETWEEN CAST(CONVERT(VARCHAR(10), "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         "& _ 
-                "CAST(@DateFrom AS DATETIME), 1) AS Datetime) AND CAST(CONVERT(VARCHAR(10), CAST("& _ 
-                "@DateTO AS DATETIME), 1) AS Datetime))"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"GROUP BY t1.ReceiptType, t2.Age, t2.Sex,"& _ 
-                " t1.IsPaid, t1.ReceiptDate,t1.SubReceiptType"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"UNION"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT        t1.ReceiptTyp"& _ 
-                "e, COUNT(t2.Female) AS F, COUNT(t2.Male) AS M, t2.Age, t2.Sex, t1.IsPaid, '15-49"& _ 
-                "' AS agerange, t1.ReceiptDate,t1.SubReceiptType"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            RECEIPT AS t1 I"& _ 
-                "NNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         RECEIPT_CUSTOMER AS t2 ON t1.CustID = t2.Cus"& _ 
-                "tID"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (t1.IsPaid <> 2) AND (t2.Age BETWEEN 15 AND 49) AND (CAST(CONV"& _ 
-                "ERT(VARCHAR(10), t1.ReceiptDate, 1) AS DateTime) BETWEEN CAST(CONVERT(VARCHAR(10"& _ 
-                "), "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         CAST(@DateFrom AS DATETIME), 1) AS Datetime) AND C"& _ 
-                "AST(CONVERT(VARCHAR(10), CAST(@DateTO AS DATETIME), 1) AS Datetime))"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"GROUP BY t"& _ 
-                "1.ReceiptType, t2.Age, t2.Sex, t1.IsPaid, t1.ReceiptDate,t1.SubReceiptType"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"UNIO"& _ 
-                "N"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT        t1.ReceiptType, COUNT(t2.Female) AS F, COUNT(t2.Male) AS M, t2."& _ 
-                "Age, t2.Sex, t1.IsPaid, '>=50' AS agerange, t1.ReceiptDate,t1.SubReceiptType"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FR"& _ 
-                "OM            RECEIPT AS t1 INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         RECEIPT_CUSTOME"& _ 
-                "R AS t2 ON t1.CustID = t2.CustID"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (t1.IsPaid <> 2) AND (t2.Age >= 5"& _ 
-                "0) AND (CAST(CONVERT(VARCHAR(10), t1.ReceiptDate, 1) AS DateTime) BETWEEN CAST(C"& _ 
-                "ONVERT(VARCHAR(10), "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         CAST(@DateFrom AS DATETIME), 1) A"& _ 
-                "S Datetime) AND CAST(CONVERT(VARCHAR(10), CAST(@DateTO AS DATETIME), 1) AS Datet"& _ 
-                "ime))"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"GROUP BY t1.ReceiptType, t2.Age, t2.Sex, t1.IsPaid, t1.ReceiptDate,t1.Sub"& _ 
+            Me._commandCollection(1).CommandText = "SELECT        t1.ReceiptType, COUNT(t2.Female) AS F, COUNT(t2.Male) AS M, t2.Age," & _
+                " t2.Sex, t1.IsPaid, '0-4' AS agerange, t1.ReceiptDate,t1.SubReceiptType" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "FROM   " & _
+                "         RECEIPT AS t1 INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         RECEIPT_CUSTOMER AS " & _
+                "t2 ON t1.CustID = t2.CustID" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "WHERE        (t1.IsPaid <> 2) AND (t2.Age BETWEEN 0" & _
+                " AND 4) AND (CAST(CONVERT(VARCHAR(10), t1.ReceiptDate, 1) AS DateTime) BETWEEN C" & _
+                "AST(CONVERT(VARCHAR(10), " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         CAST(@DateFrom AS DATETIME)," & _
+                " 1) AS Datetime) AND CAST(CONVERT(VARCHAR(10), CAST(@DateTO AS DATETIME), 1) AS " & _
+                "Datetime))" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "GROUP BY t1.ReceiptType, t2.Age, t2.Sex, t1.IsPaid, t1.ReceiptDate,t" & _
+                "1.SubReceiptType" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "UNION" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "SELECT        t1.ReceiptType, COUNT(t2.Female) AS F, CO" & _
+                "UNT(t2.Male) AS M, t2.Age, t2.Sex, t1.IsPaid, '5-14' AS agerange, t1.ReceiptDate" & _
+                ",t1.SubReceiptType" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "FROM            RECEIPT AS t1 INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                  " & _
+                "       RECEIPT_CUSTOMER AS t2 ON t1.CustID = t2.CustID" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "WHERE        (t1.IsPaid " & _
+                "<> 2) AND (t2.Age BETWEEN 5 AND 14) AND (CAST(CONVERT(VARCHAR(10), t1.ReceiptDat" & _
+                "e, 1) AS DateTime) BETWEEN CAST(CONVERT(VARCHAR(10), " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         " & _
+                "CAST(@DateFrom AS DATETIME), 1) AS Datetime) AND CAST(CONVERT(VARCHAR(10), CAST(" & _
+                "@DateTO AS DATETIME), 1) AS Datetime))" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "GROUP BY t1.ReceiptType, t2.Age, t2.Sex," & _
+                " t1.IsPaid, t1.ReceiptDate,t1.SubReceiptType" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "UNION" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "SELECT        t1.ReceiptTyp" & _
+                "e, COUNT(t2.Female) AS F, COUNT(t2.Male) AS M, t2.Age, t2.Sex, t1.IsPaid, '15-49" & _
+                "' AS agerange, t1.ReceiptDate,t1.SubReceiptType" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "FROM            RECEIPT AS t1 I" & _
+                "NNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         RECEIPT_CUSTOMER AS t2 ON t1.CustID = t2.Cus" & _
+                "tID" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "WHERE        (t1.IsPaid <> 2) AND (t2.Age BETWEEN 15 AND 49) AND (CAST(CONV" & _
+                "ERT(VARCHAR(10), t1.ReceiptDate, 1) AS DateTime) BETWEEN CAST(CONVERT(VARCHAR(10" & _
+                "), " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         CAST(@DateFrom AS DATETIME), 1) AS Datetime) AND C" & _
+                "AST(CONVERT(VARCHAR(10), CAST(@DateTO AS DATETIME), 1) AS Datetime))" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "GROUP BY t" & _
+                "1.ReceiptType, t2.Age, t2.Sex, t1.IsPaid, t1.ReceiptDate,t1.SubReceiptType" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "UNIO" & _
+                "N" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "SELECT        t1.ReceiptType, COUNT(t2.Female) AS F, COUNT(t2.Male) AS M, t2." & _
+                "Age, t2.Sex, t1.IsPaid, '>=50' AS agerange, t1.ReceiptDate,t1.SubReceiptType" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "FR" & _
+                "OM            RECEIPT AS t1 INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         RECEIPT_CUSTOME" & _
+                "R AS t2 ON t1.CustID = t2.CustID" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "WHERE        (t1.IsPaid <> 2) AND (t2.Age >= 5" & _
+                "0) AND (CAST(CONVERT(VARCHAR(10), t1.ReceiptDate, 1) AS DateTime) BETWEEN CAST(C" & _
+                "ONVERT(VARCHAR(10), " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         CAST(@DateFrom AS DATETIME), 1) A" & _
+                "S Datetime) AND CAST(CONVERT(VARCHAR(10), CAST(@DateTO AS DATETIME), 1) AS Datet" & _
+                "ime))" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "GROUP BY t1.ReceiptType, t2.Age, t2.Sex, t1.IsPaid, t1.ReceiptDate,t1.Sub" & _
                 "ReceiptType"
             Me._commandCollection(1).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateFrom", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateTO", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateFrom", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateTO", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
         End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, true)>  _
-        Public Overloads Overridable Function Fill(ByVal dataTable As DSOpticalShop.V_OpticalShopCusStatisticDataTable) As Integer
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, True)> _
+        Public Overridable Overloads Function Fill(ByVal dataTable As DSOpticalShop.V_OpticalShopCusStatisticDataTable) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
-            If (Me.ClearBeforeFill = true) Then
-                dataTable.Clear
+            If (Me.ClearBeforeFill = True) Then
+                dataTable.Clear()
             End If
             Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
             Return returnValue
         End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], true)>  _
-        Public Overloads Overridable Function GetData() As DSOpticalShop.V_OpticalShopCusStatisticDataTable
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], True)> _
+        Public Overridable Overloads Function GetData() As DSOpticalShop.V_OpticalShopCusStatisticDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
             Dim dataTable As DSOpticalShop.V_OpticalShopCusStatisticDataTable = New DSOpticalShop.V_OpticalShopCusStatisticDataTable
             Me.Adapter.Fill(dataTable)
             Return dataTable
         End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
-        Public Overloads Overridable Function FillBy(ByVal dataTable As DSOpticalShop.V_OpticalShopCusStatisticDataTable, ByVal DateFrom As Date, ByVal DateTO As Date) As Integer
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, False)> _
+        Public Overridable Overloads Function FillBy(ByVal dataTable As DSOpticalShop.V_OpticalShopCusStatisticDataTable, ByVal DateFrom As Date, ByVal DateTO As Date) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(1)
-            Me.Adapter.SelectCommand.Parameters(0).Value = CType(DateFrom,Date)
-            Me.Adapter.SelectCommand.Parameters(1).Value = CType(DateTO,Date)
-            If (Me.ClearBeforeFill = true) Then
-                dataTable.Clear
+            Me.Adapter.SelectCommand.Parameters(0).Value = CType(DateFrom, Date)
+            Me.Adapter.SelectCommand.Parameters(1).Value = CType(DateTO, Date)
+            If (Me.ClearBeforeFill = True) Then
+                dataTable.Clear()
             End If
             Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
             Return returnValue
         End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
-        Public Overloads Overridable Function GetDataFDateTDate(ByVal DateFrom As Date, ByVal DateTO As Date) As DSOpticalShop.V_OpticalShopCusStatisticDataTable
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], False)> _
+        Public Overridable Overloads Function GetDataFDateTDate(ByVal DateFrom As Date, ByVal DateTO As Date) As DSOpticalShop.V_OpticalShopCusStatisticDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(1)
-            Me.Adapter.SelectCommand.Parameters(0).Value = CType(DateFrom,Date)
-            Me.Adapter.SelectCommand.Parameters(1).Value = CType(DateTO,Date)
+            Me.Adapter.SelectCommand.Parameters(0).Value = CType(DateFrom, Date)
+            Me.Adapter.SelectCommand.Parameters(1).Value = CType(DateTO, Date)
             Dim dataTable As DSOpticalShop.V_OpticalShopCusStatisticDataTable = New DSOpticalShop.V_OpticalShopCusStatisticDataTable
             Me.Adapter.Fill(dataTable)
             Return dataTable
         End Function
     End Class
-    
+
     '''<summary>
     '''Represents the connection and commands used to retrieve and save data.
     '''</summary>
-    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0"),  _
-     Global.System.ComponentModel.DesignerCategoryAttribute("code"),  _
-     Global.System.ComponentModel.ToolboxItem(true),  _
-     Global.System.ComponentModel.DataObjectAttribute(true),  _
-     Global.System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner"& _ 
-        ", Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"),  _
-     Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0"), _
+     Global.System.ComponentModel.DesignerCategoryAttribute("code"), _
+     Global.System.ComponentModel.ToolboxItem(True), _
+     Global.System.ComponentModel.DataObjectAttribute(True), _
+     Global.System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" & _
+        ", Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"), _
+     Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")> _
     Partial Public Class V_OpticalShopItemSaleOffTableAdapter
         Inherits Global.System.ComponentModel.Component
-        
+
         Private WithEvents _adapter As Global.System.Data.SqlClient.SqlDataAdapter
-        
+
         Private _connection As Global.System.Data.SqlClient.SqlConnection
-        
+
         Private _transaction As Global.System.Data.SqlClient.SqlTransaction
-        
+
         Private _commandCollection() As Global.System.Data.SqlClient.SqlCommand
-        
+
         Private _clearBeforeFill As Boolean
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
         Public Sub New()
-            MyBase.New
-            Me.ClearBeforeFill = true
+            MyBase.New()
+            Me.ClearBeforeFill = True
         End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
         Protected Friend ReadOnly Property Adapter() As Global.System.Data.SqlClient.SqlDataAdapter
             Get
                 If (Me._adapter Is Nothing) Then
-                    Me.InitAdapter
+                    Me.InitAdapter()
                 End If
                 Return Me._adapter
             End Get
         End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
         Friend Property Connection() As Global.System.Data.SqlClient.SqlConnection
             Get
                 If (Me._connection Is Nothing) Then
-                    Me.InitConnection
+                    Me.InitConnection()
                 End If
                 Return Me._connection
             End Get
-            Set
+            Set(ByVal value As Global.System.Data.SqlClient.SqlConnection)
                 Me._connection = value
                 If (Not (Me.Adapter.InsertCommand) Is Nothing) Then
                     Me.Adapter.InsertCommand.Connection = value
@@ -17431,61 +17431,61 @@ Namespace DSOpticalShopTableAdapters
                 Dim i As Integer = 0
                 Do While (i < Me.CommandCollection.Length)
                     If (Not (Me.CommandCollection(i)) Is Nothing) Then
-                        CType(Me.CommandCollection(i),Global.System.Data.SqlClient.SqlCommand).Connection = value
+                        CType(Me.CommandCollection(i), Global.System.Data.SqlClient.SqlCommand).Connection = value
                     End If
                     i = (i + 1)
                 Loop
             End Set
         End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
         Friend Property Transaction() As Global.System.Data.SqlClient.SqlTransaction
             Get
                 Return Me._transaction
             End Get
-            Set
+            Set(ByVal value As Global.System.Data.SqlClient.SqlTransaction)
                 Me._transaction = value
                 Dim i As Integer = 0
                 Do While (i < Me.CommandCollection.Length)
                     Me.CommandCollection(i).Transaction = Me._transaction
                     i = (i + 1)
                 Loop
-                If ((Not (Me.Adapter) Is Nothing)  _
+                If ((Not (Me.Adapter) Is Nothing) _
                             AndAlso (Not (Me.Adapter.DeleteCommand) Is Nothing)) Then
                     Me.Adapter.DeleteCommand.Transaction = Me._transaction
                 End If
-                If ((Not (Me.Adapter) Is Nothing)  _
+                If ((Not (Me.Adapter) Is Nothing) _
                             AndAlso (Not (Me.Adapter.InsertCommand) Is Nothing)) Then
                     Me.Adapter.InsertCommand.Transaction = Me._transaction
                 End If
-                If ((Not (Me.Adapter) Is Nothing)  _
+                If ((Not (Me.Adapter) Is Nothing) _
                             AndAlso (Not (Me.Adapter.UpdateCommand) Is Nothing)) Then
                     Me.Adapter.UpdateCommand.Transaction = Me._transaction
                 End If
             End Set
         End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
         Protected ReadOnly Property CommandCollection() As Global.System.Data.SqlClient.SqlCommand()
             Get
                 If (Me._commandCollection Is Nothing) Then
-                    Me.InitCommandCollection
+                    Me.InitCommandCollection()
                 End If
                 Return Me._commandCollection
             End Get
         End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
         Public Property ClearBeforeFill() As Boolean
             Get
                 Return Me._clearBeforeFill
             End Get
-            Set
+            Set(ByVal value As Boolean)
                 Me._clearBeforeFill = value
             End Set
         End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
         Private Sub InitAdapter()
             Me._adapter = New Global.System.Data.SqlClient.SqlDataAdapter
             Dim tableMapping As Global.System.Data.Common.DataTableMapping = New Global.System.Data.Common.DataTableMapping
@@ -17502,130 +17502,130 @@ Namespace DSOpticalShopTableAdapters
             tableMapping.ColumnMappings.Add("ItemPrice", "ItemPrice1")
             Me._adapter.TableMappings.Add(tableMapping)
         End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
         Private Sub InitConnection()
             Me._connection = New Global.System.Data.SqlClient.SqlConnection
-            Me._connection.ConnectionString = Global.HospitalMS.My.MySettings.Default.TakeoDBConnectionString
+            Me._connection.ConnectionString = Global.HospitalMS.My.MySettings.Default.AppConnection
         End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
         Private Sub InitCommandCollection()
             Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(1) {}
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT        ReceiptDate, ReceiptNo, IsPaid, ItemName, ItemPrice, ItemQTY, SubTo"& _ 
-                "talReal, SubTotalDolar, CateName"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            V_OpticalShopItemSaleOff"
+            Me._commandCollection(0).CommandText = "SELECT        ReceiptDate, ReceiptNo, IsPaid, ItemName, ItemPrice, ItemQTY, SubTo" & _
+                "talReal, SubTotalDolar, CateName" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "FROM            V_OpticalShopItemSaleOff"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(1) = New Global.System.Data.SqlClient.SqlCommand
             Me._commandCollection(1).Connection = Me.Connection
-            Me._commandCollection(1).CommandText = "SELECT CateName, IsPaid, ItemName, ItemPrice, ItemQTY, ReceiptDate, ReceiptNo, Su"& _ 
-                "bTotalDolar, SubTotalReal FROM V_OpticalShopItemSaleOff WHERE (IsPaid = 1) AND ("& _ 
-                "CAST(CONVERT (VARCHAR(10), ReceiptDate, 1) AS DateTime) BETWEEN CAST(CONVERT (VA"& _ 
-                "RCHAR(10), CAST(@DateFrom AS DATETIME), 1) AS Datetime) AND CAST(CONVERT (VARCHA"& _ 
+            Me._commandCollection(1).CommandText = "SELECT CateName, IsPaid, ItemName, ItemPrice, ItemQTY, ReceiptDate, ReceiptNo, Su" & _
+                "bTotalDolar, SubTotalReal FROM V_OpticalShopItemSaleOff WHERE (IsPaid = 1) AND (" & _
+                "CAST(CONVERT (VARCHAR(10), ReceiptDate, 1) AS DateTime) BETWEEN CAST(CONVERT (VA" & _
+                "RCHAR(10), CAST(@DateFrom AS DATETIME), 1) AS Datetime) AND CAST(CONVERT (VARCHA" & _
                 "R(10), CAST(@DateTO AS DATETIME), 1) AS Datetime))"
             Me._commandCollection(1).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateFrom", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateTO", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateFrom", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateTO", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
         End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, true)>  _
-        Public Overloads Overridable Function Fill(ByVal dataTable As DSOpticalShop.V_OpticalShopItemSaleOffDataTable) As Integer
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, True)> _
+        Public Overridable Overloads Function Fill(ByVal dataTable As DSOpticalShop.V_OpticalShopItemSaleOffDataTable) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
-            If (Me.ClearBeforeFill = true) Then
-                dataTable.Clear
+            If (Me.ClearBeforeFill = True) Then
+                dataTable.Clear()
             End If
             Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
             Return returnValue
         End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], true)>  _
-        Public Overloads Overridable Function GetData() As DSOpticalShop.V_OpticalShopItemSaleOffDataTable
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], True)> _
+        Public Overridable Overloads Function GetData() As DSOpticalShop.V_OpticalShopItemSaleOffDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
             Dim dataTable As DSOpticalShop.V_OpticalShopItemSaleOffDataTable = New DSOpticalShop.V_OpticalShopItemSaleOffDataTable
             Me.Adapter.Fill(dataTable)
             Return dataTable
         End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
-        Public Overloads Overridable Function FillBy(ByVal dataTable As DSOpticalShop.V_OpticalShopItemSaleOffDataTable, ByVal DateFrom As Date, ByVal DateTO As Date) As Integer
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, False)> _
+        Public Overridable Overloads Function FillBy(ByVal dataTable As DSOpticalShop.V_OpticalShopItemSaleOffDataTable, ByVal DateFrom As Date, ByVal DateTO As Date) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(1)
-            Me.Adapter.SelectCommand.Parameters(0).Value = CType(DateFrom,Date)
-            Me.Adapter.SelectCommand.Parameters(1).Value = CType(DateTO,Date)
-            If (Me.ClearBeforeFill = true) Then
-                dataTable.Clear
+            Me.Adapter.SelectCommand.Parameters(0).Value = CType(DateFrom, Date)
+            Me.Adapter.SelectCommand.Parameters(1).Value = CType(DateTO, Date)
+            If (Me.ClearBeforeFill = True) Then
+                dataTable.Clear()
             End If
             Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
             Return returnValue
         End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
-        Public Overloads Overridable Function GetDataOPItemSaleOff(ByVal DateFrom As Date, ByVal DateTO As Date) As DSOpticalShop.V_OpticalShopItemSaleOffDataTable
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], False)> _
+        Public Overridable Overloads Function GetDataOPItemSaleOff(ByVal DateFrom As Date, ByVal DateTO As Date) As DSOpticalShop.V_OpticalShopItemSaleOffDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(1)
-            Me.Adapter.SelectCommand.Parameters(0).Value = CType(DateFrom,Date)
-            Me.Adapter.SelectCommand.Parameters(1).Value = CType(DateTO,Date)
+            Me.Adapter.SelectCommand.Parameters(0).Value = CType(DateFrom, Date)
+            Me.Adapter.SelectCommand.Parameters(1).Value = CType(DateTO, Date)
             Dim dataTable As DSOpticalShop.V_OpticalShopItemSaleOffDataTable = New DSOpticalShop.V_OpticalShopItemSaleOffDataTable
             Me.Adapter.Fill(dataTable)
             Return dataTable
         End Function
     End Class
-    
+
     '''<summary>
     '''Represents the connection and commands used to retrieve and save data.
     '''</summary>
-    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0"),  _
-     Global.System.ComponentModel.DesignerCategoryAttribute("code"),  _
-     Global.System.ComponentModel.ToolboxItem(true),  _
-     Global.System.ComponentModel.DataObjectAttribute(true),  _
-     Global.System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner"& _ 
-        ", Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"),  _
-     Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0"), _
+     Global.System.ComponentModel.DesignerCategoryAttribute("code"), _
+     Global.System.ComponentModel.ToolboxItem(True), _
+     Global.System.ComponentModel.DataObjectAttribute(True), _
+     Global.System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" & _
+        ", Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"), _
+     Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")> _
     Partial Public Class RECEIPT_CUSTOMERTableAdapter
         Inherits Global.System.ComponentModel.Component
-        
+
         Private WithEvents _adapter As Global.System.Data.SqlClient.SqlDataAdapter
-        
+
         Private _connection As Global.System.Data.SqlClient.SqlConnection
-        
+
         Private _transaction As Global.System.Data.SqlClient.SqlTransaction
-        
+
         Private _commandCollection() As Global.System.Data.SqlClient.SqlCommand
-        
+
         Private _clearBeforeFill As Boolean
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
         Public Sub New()
-            MyBase.New
-            Me.ClearBeforeFill = true
+            MyBase.New()
+            Me.ClearBeforeFill = True
         End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
         Protected Friend ReadOnly Property Adapter() As Global.System.Data.SqlClient.SqlDataAdapter
             Get
                 If (Me._adapter Is Nothing) Then
-                    Me.InitAdapter
+                    Me.InitAdapter()
                 End If
                 Return Me._adapter
             End Get
         End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
         Friend Property Connection() As Global.System.Data.SqlClient.SqlConnection
             Get
                 If (Me._connection Is Nothing) Then
-                    Me.InitConnection
+                    Me.InitConnection()
                 End If
                 Return Me._connection
             End Get
-            Set
+            Set(ByVal value As Global.System.Data.SqlClient.SqlConnection)
                 Me._connection = value
                 If (Not (Me.Adapter.InsertCommand) Is Nothing) Then
                     Me.Adapter.InsertCommand.Connection = value
@@ -17639,61 +17639,61 @@ Namespace DSOpticalShopTableAdapters
                 Dim i As Integer = 0
                 Do While (i < Me.CommandCollection.Length)
                     If (Not (Me.CommandCollection(i)) Is Nothing) Then
-                        CType(Me.CommandCollection(i),Global.System.Data.SqlClient.SqlCommand).Connection = value
+                        CType(Me.CommandCollection(i), Global.System.Data.SqlClient.SqlCommand).Connection = value
                     End If
                     i = (i + 1)
                 Loop
             End Set
         End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
         Friend Property Transaction() As Global.System.Data.SqlClient.SqlTransaction
             Get
                 Return Me._transaction
             End Get
-            Set
+            Set(ByVal value As Global.System.Data.SqlClient.SqlTransaction)
                 Me._transaction = value
                 Dim i As Integer = 0
                 Do While (i < Me.CommandCollection.Length)
                     Me.CommandCollection(i).Transaction = Me._transaction
                     i = (i + 1)
                 Loop
-                If ((Not (Me.Adapter) Is Nothing)  _
+                If ((Not (Me.Adapter) Is Nothing) _
                             AndAlso (Not (Me.Adapter.DeleteCommand) Is Nothing)) Then
                     Me.Adapter.DeleteCommand.Transaction = Me._transaction
                 End If
-                If ((Not (Me.Adapter) Is Nothing)  _
+                If ((Not (Me.Adapter) Is Nothing) _
                             AndAlso (Not (Me.Adapter.InsertCommand) Is Nothing)) Then
                     Me.Adapter.InsertCommand.Transaction = Me._transaction
                 End If
-                If ((Not (Me.Adapter) Is Nothing)  _
+                If ((Not (Me.Adapter) Is Nothing) _
                             AndAlso (Not (Me.Adapter.UpdateCommand) Is Nothing)) Then
                     Me.Adapter.UpdateCommand.Transaction = Me._transaction
                 End If
             End Set
         End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
         Protected ReadOnly Property CommandCollection() As Global.System.Data.SqlClient.SqlCommand()
             Get
                 If (Me._commandCollection Is Nothing) Then
-                    Me.InitCommandCollection
+                    Me.InitCommandCollection()
                 End If
                 Return Me._commandCollection
             End Get
         End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
         Public Property ClearBeforeFill() As Boolean
             Get
                 Return Me._clearBeforeFill
             End Get
-            Set
+            Set(ByVal value As Boolean)
                 Me._clearBeforeFill = value
             End Set
         End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
         Private Sub InitAdapter()
             Me._adapter = New Global.System.Data.SqlClient.SqlDataAdapter
             Dim tableMapping As Global.System.Data.Common.DataTableMapping = New Global.System.Data.Common.DataTableMapping
@@ -17718,837 +17718,837 @@ Namespace DSOpticalShopTableAdapters
             Me._adapter.TableMappings.Add(tableMapping)
             Me._adapter.DeleteCommand = New Global.System.Data.SqlClient.SqlCommand
             Me._adapter.DeleteCommand.Connection = Me.Connection
-            Me._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[RECEIPT_CUSTOMER] WHERE (([CustID] = @Original_CustID) AND ((@"& _ 
-                "IsNull_CustomerNo = 1 AND [CustomerNo] IS NULL) OR ([CustomerNo] = @Original_Cus"& _ 
-                "tomerNo)) AND ((@IsNull_CusName = 1 AND [CusName] IS NULL) OR ([CusName] = @Orig"& _ 
-                "inal_CusName)) AND ((@IsNull_Female = 1 AND [Female] IS NULL) OR ([Female] = @Or"& _ 
-                "iginal_Female)) AND ((@IsNull_Male = 1 AND [Male] IS NULL) OR ([Male] = @Origina"& _ 
-                "l_Male)) AND ((@IsNull_Sex = 1 AND [Sex] IS NULL) OR ([Sex] = @Original_Sex)) AN"& _ 
-                "D ((@IsNull_Age = 1 AND [Age] IS NULL) OR ([Age] = @Original_Age)) AND ((@IsNull"& _ 
-                "_Occupation = 1 AND [Occupation] IS NULL) OR ([Occupation] = @Original_Occupatio"& _ 
-                "n)) AND ((@IsNull_OccNo = 1 AND [OccNo] IS NULL) OR ([OccNo] = @Original_OccNo))"& _ 
-                " AND ((@IsNull_Province = 1 AND [Province] IS NULL) OR ([Province] = @Original_P"& _ 
-                "rovince)) AND ((@IsNull_District = 1 AND [District] IS NULL) OR ([District] = @O"& _ 
-                "riginal_District)) AND ((@IsNull_Commune = 1 AND [Commune] IS NULL) OR ([Commune"& _ 
-                "] = @Original_Commune)) AND ((@IsNull_Village = 1 AND [Village] IS NULL) OR ([Vi"& _ 
-                "llage] = @Original_Village)) AND ((@IsNull_Address = 1 AND [Address] IS NULL) OR"& _ 
-                " ([Address] = @Original_Address)) AND ((@IsNull_IsPatient = 1 AND [IsPatient] IS"& _ 
-                " NULL) OR ([IsPatient] = @Original_IsPatient)) AND ((@IsNull_CusNameEng = 1 AND "& _ 
+            Me._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[RECEIPT_CUSTOMER] WHERE (([CustID] = @Original_CustID) AND ((@" & _
+                "IsNull_CustomerNo = 1 AND [CustomerNo] IS NULL) OR ([CustomerNo] = @Original_Cus" & _
+                "tomerNo)) AND ((@IsNull_CusName = 1 AND [CusName] IS NULL) OR ([CusName] = @Orig" & _
+                "inal_CusName)) AND ((@IsNull_Female = 1 AND [Female] IS NULL) OR ([Female] = @Or" & _
+                "iginal_Female)) AND ((@IsNull_Male = 1 AND [Male] IS NULL) OR ([Male] = @Origina" & _
+                "l_Male)) AND ((@IsNull_Sex = 1 AND [Sex] IS NULL) OR ([Sex] = @Original_Sex)) AN" & _
+                "D ((@IsNull_Age = 1 AND [Age] IS NULL) OR ([Age] = @Original_Age)) AND ((@IsNull" & _
+                "_Occupation = 1 AND [Occupation] IS NULL) OR ([Occupation] = @Original_Occupatio" & _
+                "n)) AND ((@IsNull_OccNo = 1 AND [OccNo] IS NULL) OR ([OccNo] = @Original_OccNo))" & _
+                " AND ((@IsNull_Province = 1 AND [Province] IS NULL) OR ([Province] = @Original_P" & _
+                "rovince)) AND ((@IsNull_District = 1 AND [District] IS NULL) OR ([District] = @O" & _
+                "riginal_District)) AND ((@IsNull_Commune = 1 AND [Commune] IS NULL) OR ([Commune" & _
+                "] = @Original_Commune)) AND ((@IsNull_Village = 1 AND [Village] IS NULL) OR ([Vi" & _
+                "llage] = @Original_Village)) AND ((@IsNull_Address = 1 AND [Address] IS NULL) OR" & _
+                " ([Address] = @Original_Address)) AND ((@IsNull_IsPatient = 1 AND [IsPatient] IS" & _
+                " NULL) OR ([IsPatient] = @Original_IsPatient)) AND ((@IsNull_CusNameEng = 1 AND " & _
                 "[CusNameEng] IS NULL) OR ([CusNameEng] = @Original_CusNameEng)))"
             Me._adapter.DeleteCommand.CommandType = Global.System.Data.CommandType.Text
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_CustID", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "CustID", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_CustomerNo", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CustomerNo", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_CustomerNo", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "CustomerNo", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_CusName", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CusName", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_CusName", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CusName", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Female", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Female", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Female", Global.System.Data.SqlDbType.[Char], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Female", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Male", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Male", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Male", Global.System.Data.SqlDbType.[Char], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Male", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Sex", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Sex", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Sex", Global.System.Data.SqlDbType.[Char], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Sex", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Age", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Age", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Age", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "Age", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Occupation", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Occupation", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Occupation", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Occupation", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_OccNo", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "OccNo", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_OccNo", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "OccNo", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Province", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Province", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Province", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "Province", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_District", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "District", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_District", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "District", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Commune", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Commune", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Commune", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "Commune", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Village", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Village", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Village", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "Village", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Address", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Address", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Address", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Address", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_IsPatient", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "IsPatient", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_IsPatient", Global.System.Data.SqlDbType.Bit, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "IsPatient", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_CusNameEng", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CusNameEng", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_CusNameEng", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CusNameEng", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_CustID", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "CustID", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_CustomerNo", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CustomerNo", Global.System.Data.DataRowVersion.Original, True, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_CustomerNo", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "CustomerNo", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_CusName", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CusName", Global.System.Data.DataRowVersion.Original, True, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_CusName", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CusName", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Female", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Female", Global.System.Data.DataRowVersion.Original, True, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Female", Global.System.Data.SqlDbType.[Char], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Female", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Male", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Male", Global.System.Data.DataRowVersion.Original, True, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Male", Global.System.Data.SqlDbType.[Char], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Male", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Sex", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Sex", Global.System.Data.DataRowVersion.Original, True, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Sex", Global.System.Data.SqlDbType.[Char], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Sex", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Age", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Age", Global.System.Data.DataRowVersion.Original, True, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Age", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "Age", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Occupation", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Occupation", Global.System.Data.DataRowVersion.Original, True, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Occupation", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Occupation", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_OccNo", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "OccNo", Global.System.Data.DataRowVersion.Original, True, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_OccNo", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "OccNo", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Province", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Province", Global.System.Data.DataRowVersion.Original, True, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Province", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "Province", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_District", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "District", Global.System.Data.DataRowVersion.Original, True, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_District", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "District", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Commune", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Commune", Global.System.Data.DataRowVersion.Original, True, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Commune", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "Commune", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Village", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Village", Global.System.Data.DataRowVersion.Original, True, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Village", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "Village", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Address", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Address", Global.System.Data.DataRowVersion.Original, True, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Address", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Address", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_IsPatient", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "IsPatient", Global.System.Data.DataRowVersion.Original, True, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_IsPatient", Global.System.Data.SqlDbType.Bit, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "IsPatient", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_CusNameEng", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CusNameEng", Global.System.Data.DataRowVersion.Original, True, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_CusNameEng", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CusNameEng", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
             Me._adapter.InsertCommand = New Global.System.Data.SqlClient.SqlCommand
             Me._adapter.InsertCommand.Connection = Me.Connection
-            Me._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[RECEIPT_CUSTOMER] ([CustomerNo], [CusName], [Female], [Male], "& _ 
-                "[Sex], [Age], [Occupation], [OccNo], [Province], [District], [Commune], [Village"& _ 
-                "], [Address], [IsPatient], [CusNameEng]) VALUES (@CustomerNo, @CusName, @Female,"& _ 
-                " @Male, @Sex, @Age, @Occupation, @OccNo, @Province, @District, @Commune, @Villag"& _ 
-                "e, @Address, @IsPatient, @CusNameEng);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT CustID, CustomerNo, CusName, Fema"& _ 
-                "le, Male, Sex, Age, Occupation, OccNo, Province, District, Commune, Village, Add"& _ 
-                "ress, IsPatient, CusNameEng FROM RECEIPT_CUSTOMER WHERE (CustID = SCOPE_IDENTITY"& _ 
+            Me._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[RECEIPT_CUSTOMER] ([CustomerNo], [CusName], [Female], [Male], " & _
+                "[Sex], [Age], [Occupation], [OccNo], [Province], [District], [Commune], [Village" & _
+                "], [Address], [IsPatient], [CusNameEng]) VALUES (@CustomerNo, @CusName, @Female," & _
+                " @Male, @Sex, @Age, @Occupation, @OccNo, @Province, @District, @Commune, @Villag" & _
+                "e, @Address, @IsPatient, @CusNameEng);" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "SELECT CustID, CustomerNo, CusName, Fema" & _
+                "le, Male, Sex, Age, Occupation, OccNo, Province, District, Commune, Village, Add" & _
+                "ress, IsPatient, CusNameEng FROM RECEIPT_CUSTOMER WHERE (CustID = SCOPE_IDENTITY" & _
                 "())"
             Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CustomerNo", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "CustomerNo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CusName", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CusName", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Female", Global.System.Data.SqlDbType.[Char], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Female", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Male", Global.System.Data.SqlDbType.[Char], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Male", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Sex", Global.System.Data.SqlDbType.[Char], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Sex", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Age", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "Age", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Occupation", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Occupation", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@OccNo", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "OccNo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Province", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "Province", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@District", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "District", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Commune", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "Commune", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Village", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "Village", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Address", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Address", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsPatient", Global.System.Data.SqlDbType.Bit, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "IsPatient", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CusNameEng", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CusNameEng", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CustomerNo", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "CustomerNo", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CusName", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CusName", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Female", Global.System.Data.SqlDbType.[Char], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Female", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Male", Global.System.Data.SqlDbType.[Char], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Male", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Sex", Global.System.Data.SqlDbType.[Char], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Sex", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Age", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "Age", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Occupation", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Occupation", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@OccNo", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "OccNo", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Province", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "Province", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@District", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "District", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Commune", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "Commune", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Village", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "Village", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Address", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Address", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsPatient", Global.System.Data.SqlDbType.Bit, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "IsPatient", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CusNameEng", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CusNameEng", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
             Me._adapter.UpdateCommand = New Global.System.Data.SqlClient.SqlCommand
             Me._adapter.UpdateCommand.Connection = Me.Connection
-            Me._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[RECEIPT_CUSTOMER] SET [CustomerNo] = @CustomerNo, [CusName] = @CusN"& _ 
-                "ame, [Female] = @Female, [Male] = @Male, [Sex] = @Sex, [Age] = @Age, [Occupation"& _ 
-                "] = @Occupation, [OccNo] = @OccNo, [Province] = @Province, [District] = @Distric"& _ 
-                "t, [Commune] = @Commune, [Village] = @Village, [Address] = @Address, [IsPatient]"& _ 
-                " = @IsPatient, [CusNameEng] = @CusNameEng WHERE (([CustID] = @Original_CustID) A"& _ 
-                "ND ((@IsNull_CustomerNo = 1 AND [CustomerNo] IS NULL) OR ([CustomerNo] = @Origin"& _ 
-                "al_CustomerNo)) AND ((@IsNull_CusName = 1 AND [CusName] IS NULL) OR ([CusName] ="& _ 
-                " @Original_CusName)) AND ((@IsNull_Female = 1 AND [Female] IS NULL) OR ([Female]"& _ 
-                " = @Original_Female)) AND ((@IsNull_Male = 1 AND [Male] IS NULL) OR ([Male] = @O"& _ 
-                "riginal_Male)) AND ((@IsNull_Sex = 1 AND [Sex] IS NULL) OR ([Sex] = @Original_Se"& _ 
-                "x)) AND ((@IsNull_Age = 1 AND [Age] IS NULL) OR ([Age] = @Original_Age)) AND ((@"& _ 
-                "IsNull_Occupation = 1 AND [Occupation] IS NULL) OR ([Occupation] = @Original_Occ"& _ 
-                "upation)) AND ((@IsNull_OccNo = 1 AND [OccNo] IS NULL) OR ([OccNo] = @Original_O"& _ 
-                "ccNo)) AND ((@IsNull_Province = 1 AND [Province] IS NULL) OR ([Province] = @Orig"& _ 
-                "inal_Province)) AND ((@IsNull_District = 1 AND [District] IS NULL) OR ([District"& _ 
-                "] = @Original_District)) AND ((@IsNull_Commune = 1 AND [Commune] IS NULL) OR ([C"& _ 
-                "ommune] = @Original_Commune)) AND ((@IsNull_Village = 1 AND [Village] IS NULL) O"& _ 
-                "R ([Village] = @Original_Village)) AND ((@IsNull_Address = 1 AND [Address] IS NU"& _ 
-                "LL) OR ([Address] = @Original_Address)) AND ((@IsNull_IsPatient = 1 AND [IsPatie"& _ 
-                "nt] IS NULL) OR ([IsPatient] = @Original_IsPatient)) AND ((@IsNull_CusNameEng = "& _ 
-                "1 AND [CusNameEng] IS NULL) OR ([CusNameEng] = @Original_CusNameEng)));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT "& _ 
-                "CustID, CustomerNo, CusName, Female, Male, Sex, Age, Occupation, OccNo, Province"& _ 
-                ", District, Commune, Village, Address, IsPatient, CusNameEng FROM RECEIPT_CUSTOM"& _ 
+            Me._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[RECEIPT_CUSTOMER] SET [CustomerNo] = @CustomerNo, [CusName] = @CusN" & _
+                "ame, [Female] = @Female, [Male] = @Male, [Sex] = @Sex, [Age] = @Age, [Occupation" & _
+                "] = @Occupation, [OccNo] = @OccNo, [Province] = @Province, [District] = @Distric" & _
+                "t, [Commune] = @Commune, [Village] = @Village, [Address] = @Address, [IsPatient]" & _
+                " = @IsPatient, [CusNameEng] = @CusNameEng WHERE (([CustID] = @Original_CustID) A" & _
+                "ND ((@IsNull_CustomerNo = 1 AND [CustomerNo] IS NULL) OR ([CustomerNo] = @Origin" & _
+                "al_CustomerNo)) AND ((@IsNull_CusName = 1 AND [CusName] IS NULL) OR ([CusName] =" & _
+                " @Original_CusName)) AND ((@IsNull_Female = 1 AND [Female] IS NULL) OR ([Female]" & _
+                " = @Original_Female)) AND ((@IsNull_Male = 1 AND [Male] IS NULL) OR ([Male] = @O" & _
+                "riginal_Male)) AND ((@IsNull_Sex = 1 AND [Sex] IS NULL) OR ([Sex] = @Original_Se" & _
+                "x)) AND ((@IsNull_Age = 1 AND [Age] IS NULL) OR ([Age] = @Original_Age)) AND ((@" & _
+                "IsNull_Occupation = 1 AND [Occupation] IS NULL) OR ([Occupation] = @Original_Occ" & _
+                "upation)) AND ((@IsNull_OccNo = 1 AND [OccNo] IS NULL) OR ([OccNo] = @Original_O" & _
+                "ccNo)) AND ((@IsNull_Province = 1 AND [Province] IS NULL) OR ([Province] = @Orig" & _
+                "inal_Province)) AND ((@IsNull_District = 1 AND [District] IS NULL) OR ([District" & _
+                "] = @Original_District)) AND ((@IsNull_Commune = 1 AND [Commune] IS NULL) OR ([C" & _
+                "ommune] = @Original_Commune)) AND ((@IsNull_Village = 1 AND [Village] IS NULL) O" & _
+                "R ([Village] = @Original_Village)) AND ((@IsNull_Address = 1 AND [Address] IS NU" & _
+                "LL) OR ([Address] = @Original_Address)) AND ((@IsNull_IsPatient = 1 AND [IsPatie" & _
+                "nt] IS NULL) OR ([IsPatient] = @Original_IsPatient)) AND ((@IsNull_CusNameEng = " & _
+                "1 AND [CusNameEng] IS NULL) OR ([CusNameEng] = @Original_CusNameEng)));" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "SELECT " & _
+                "CustID, CustomerNo, CusName, Female, Male, Sex, Age, Occupation, OccNo, Province" & _
+                ", District, Commune, Village, Address, IsPatient, CusNameEng FROM RECEIPT_CUSTOM" & _
                 "ER WHERE (CustID = @CustID)"
             Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CustomerNo", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "CustomerNo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CusName", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CusName", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Female", Global.System.Data.SqlDbType.[Char], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Female", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Male", Global.System.Data.SqlDbType.[Char], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Male", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Sex", Global.System.Data.SqlDbType.[Char], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Sex", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Age", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "Age", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Occupation", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Occupation", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@OccNo", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "OccNo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Province", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "Province", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@District", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "District", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Commune", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "Commune", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Village", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "Village", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Address", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Address", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsPatient", Global.System.Data.SqlDbType.Bit, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "IsPatient", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CusNameEng", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CusNameEng", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_CustID", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "CustID", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_CustomerNo", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CustomerNo", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_CustomerNo", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "CustomerNo", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_CusName", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CusName", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_CusName", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CusName", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Female", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Female", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Female", Global.System.Data.SqlDbType.[Char], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Female", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Male", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Male", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Male", Global.System.Data.SqlDbType.[Char], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Male", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Sex", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Sex", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Sex", Global.System.Data.SqlDbType.[Char], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Sex", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Age", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Age", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Age", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "Age", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Occupation", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Occupation", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Occupation", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Occupation", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_OccNo", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "OccNo", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_OccNo", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "OccNo", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Province", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Province", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Province", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "Province", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_District", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "District", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_District", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "District", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Commune", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Commune", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Commune", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "Commune", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Village", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Village", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Village", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "Village", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Address", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Address", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Address", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Address", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_IsPatient", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "IsPatient", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_IsPatient", Global.System.Data.SqlDbType.Bit, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "IsPatient", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_CusNameEng", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CusNameEng", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_CusNameEng", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CusNameEng", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CustID", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "CustID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CustomerNo", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "CustomerNo", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CusName", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CusName", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Female", Global.System.Data.SqlDbType.[Char], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Female", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Male", Global.System.Data.SqlDbType.[Char], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Male", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Sex", Global.System.Data.SqlDbType.[Char], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Sex", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Age", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "Age", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Occupation", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Occupation", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@OccNo", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "OccNo", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Province", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "Province", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@District", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "District", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Commune", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "Commune", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Village", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "Village", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Address", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Address", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsPatient", Global.System.Data.SqlDbType.Bit, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "IsPatient", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CusNameEng", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CusNameEng", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_CustID", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "CustID", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_CustomerNo", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CustomerNo", Global.System.Data.DataRowVersion.Original, True, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_CustomerNo", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "CustomerNo", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_CusName", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CusName", Global.System.Data.DataRowVersion.Original, True, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_CusName", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CusName", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Female", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Female", Global.System.Data.DataRowVersion.Original, True, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Female", Global.System.Data.SqlDbType.[Char], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Female", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Male", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Male", Global.System.Data.DataRowVersion.Original, True, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Male", Global.System.Data.SqlDbType.[Char], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Male", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Sex", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Sex", Global.System.Data.DataRowVersion.Original, True, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Sex", Global.System.Data.SqlDbType.[Char], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Sex", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Age", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Age", Global.System.Data.DataRowVersion.Original, True, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Age", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "Age", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Occupation", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Occupation", Global.System.Data.DataRowVersion.Original, True, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Occupation", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Occupation", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_OccNo", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "OccNo", Global.System.Data.DataRowVersion.Original, True, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_OccNo", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "OccNo", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Province", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Province", Global.System.Data.DataRowVersion.Original, True, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Province", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "Province", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_District", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "District", Global.System.Data.DataRowVersion.Original, True, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_District", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "District", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Commune", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Commune", Global.System.Data.DataRowVersion.Original, True, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Commune", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "Commune", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Village", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Village", Global.System.Data.DataRowVersion.Original, True, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Village", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "Village", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Address", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Address", Global.System.Data.DataRowVersion.Original, True, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Address", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Address", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_IsPatient", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "IsPatient", Global.System.Data.DataRowVersion.Original, True, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_IsPatient", Global.System.Data.SqlDbType.Bit, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "IsPatient", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_CusNameEng", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CusNameEng", Global.System.Data.DataRowVersion.Original, True, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_CusNameEng", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CusNameEng", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CustID", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "CustID", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
         End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
         Private Sub InitConnection()
             Me._connection = New Global.System.Data.SqlClient.SqlConnection
-            Me._connection.ConnectionString = Global.HospitalMS.My.MySettings.Default.TakeoDBConnectionString
+            Me._connection.ConnectionString = Global.HospitalMS.My.MySettings.Default.AppConnection
         End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
         Private Sub InitCommandCollection()
             Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(2) {}
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT CustID, CustomerNo, CusName, Female, Male, Sex, Age, Occupation, OccNo, Pr"& _ 
-                "ovince, District, Commune, Village, Address, IsPatient, CusNameEng FROM dbo.RECE"& _ 
+            Me._commandCollection(0).CommandText = "SELECT CustID, CustomerNo, CusName, Female, Male, Sex, Age, Occupation, OccNo, Pr" & _
+                "ovince, District, Commune, Village, Address, IsPatient, CusNameEng FROM dbo.RECE" & _
                 "IPT_CUSTOMER"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(1) = New Global.System.Data.SqlClient.SqlCommand
             Me._commandCollection(1).Connection = Me.Connection
-            Me._commandCollection(1).CommandText = "SELECT CustID, CustomerNo, CusName, Female, Male, Sex, Age, Occupation, OccNo, Pr"& _ 
-                "ovince, District, Commune, Village, Address, IsPatient, CusNameEng FROM dbo.RECE"& _ 
+            Me._commandCollection(1).CommandText = "SELECT CustID, CustomerNo, CusName, Female, Male, Sex, Age, Occupation, OccNo, Pr" & _
+                "ovince, District, Commune, Village, Address, IsPatient, CusNameEng FROM dbo.RECE" & _
                 "IPT_CUSTOMER WHERE CustID=@CustomerID"
             Me._commandCollection(1).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CustomerID", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "CustID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CustomerID", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "CustID", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
             Me._commandCollection(2) = New Global.System.Data.SqlClient.SqlCommand
             Me._commandCollection(2).Connection = Me.Connection
-            Me._commandCollection(2).CommandText = "SELECT CustID, CustomerNo, CusName, Female, Male, Sex, Age, Occupation, OccNo, Pr"& _ 
-                "ovince, District, Commune, Village, Address, IsPatient, CusNameEng FROM dbo.RECE"& _ 
-                "IPT_CUSTOMER"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"CustID=@CustID"
+            Me._commandCollection(2).CommandText = "SELECT CustID, CustomerNo, CusName, Female, Male, Sex, Age, Occupation, OccNo, Pr" & _
+                "ovince, District, Commune, Village, Address, IsPatient, CusNameEng FROM dbo.RECE" & _
+                "IPT_CUSTOMER" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "WHERE" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "CustID=@CustID"
             Me._commandCollection(2).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CustID", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "CustID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CustID", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "CustID", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
         End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, true)>  _
-        Public Overloads Overridable Function Fill(ByVal dataTable As DSOpticalShop.RECEIPT_CUSTOMERDataTable) As Integer
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, True)> _
+        Public Overridable Overloads Function Fill(ByVal dataTable As DSOpticalShop.RECEIPT_CUSTOMERDataTable) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
-            If (Me.ClearBeforeFill = true) Then
-                dataTable.Clear
+            If (Me.ClearBeforeFill = True) Then
+                dataTable.Clear()
             End If
             Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
             Return returnValue
         End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], true)>  _
-        Public Overloads Overridable Function GetData() As DSOpticalShop.RECEIPT_CUSTOMERDataTable
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], True)> _
+        Public Overridable Overloads Function GetData() As DSOpticalShop.RECEIPT_CUSTOMERDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
             Dim dataTable As DSOpticalShop.RECEIPT_CUSTOMERDataTable = New DSOpticalShop.RECEIPT_CUSTOMERDataTable
             Me.Adapter.Fill(dataTable)
             Return dataTable
         End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
-        Public Overloads Overridable Function FillBy(ByVal dataTable As DSOpticalShop.RECEIPT_CUSTOMERDataTable, ByVal CustomerID As Decimal) As Integer
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, False)> _
+        Public Overridable Overloads Function FillBy(ByVal dataTable As DSOpticalShop.RECEIPT_CUSTOMERDataTable, ByVal CustomerID As Decimal) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(1)
-            Me.Adapter.SelectCommand.Parameters(0).Value = CType(CustomerID,Decimal)
-            If (Me.ClearBeforeFill = true) Then
-                dataTable.Clear
+            Me.Adapter.SelectCommand.Parameters(0).Value = CType(CustomerID, Decimal)
+            If (Me.ClearBeforeFill = True) Then
+                dataTable.Clear()
             End If
             Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
             Return returnValue
         End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
-        Public Overloads Overridable Function GetDataByCustomerNo(ByVal CustomerID As Decimal) As DSOpticalShop.RECEIPT_CUSTOMERDataTable
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], False)> _
+        Public Overridable Overloads Function GetDataByCustomerNo(ByVal CustomerID As Decimal) As DSOpticalShop.RECEIPT_CUSTOMERDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(1)
-            Me.Adapter.SelectCommand.Parameters(0).Value = CType(CustomerID,Decimal)
+            Me.Adapter.SelectCommand.Parameters(0).Value = CType(CustomerID, Decimal)
             Dim dataTable As DSOpticalShop.RECEIPT_CUSTOMERDataTable = New DSOpticalShop.RECEIPT_CUSTOMERDataTable
             Me.Adapter.Fill(dataTable)
             Return dataTable
         End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
-        Public Overloads Overridable Function FillByCustomerID(ByVal dataTable As DSOpticalShop.RECEIPT_CUSTOMERDataTable, ByVal CustID As Decimal) As Integer
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, False)> _
+        Public Overridable Overloads Function FillByCustomerID(ByVal dataTable As DSOpticalShop.RECEIPT_CUSTOMERDataTable, ByVal CustID As Decimal) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(2)
-            Me.Adapter.SelectCommand.Parameters(0).Value = CType(CustID,Decimal)
-            If (Me.ClearBeforeFill = true) Then
-                dataTable.Clear
+            Me.Adapter.SelectCommand.Parameters(0).Value = CType(CustID, Decimal)
+            If (Me.ClearBeforeFill = True) Then
+                dataTable.Clear()
             End If
             Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
             Return returnValue
         End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
-        Public Overloads Overridable Function GetDataByCustomerID(ByVal CustID As Decimal) As DSOpticalShop.RECEIPT_CUSTOMERDataTable
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], False)> _
+        Public Overridable Overloads Function GetDataByCustomerID(ByVal CustID As Decimal) As DSOpticalShop.RECEIPT_CUSTOMERDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(2)
-            Me.Adapter.SelectCommand.Parameters(0).Value = CType(CustID,Decimal)
+            Me.Adapter.SelectCommand.Parameters(0).Value = CType(CustID, Decimal)
             Dim dataTable As DSOpticalShop.RECEIPT_CUSTOMERDataTable = New DSOpticalShop.RECEIPT_CUSTOMERDataTable
             Me.Adapter.Fill(dataTable)
             Return dataTable
         End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
-        Public Overloads Overridable Function Update(ByVal dataTable As DSOpticalShop.RECEIPT_CUSTOMERDataTable) As Integer
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")> _
+        Public Overridable Overloads Function Update(ByVal dataTable As DSOpticalShop.RECEIPT_CUSTOMERDataTable) As Integer
             Return Me.Adapter.Update(dataTable)
         End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
-        Public Overloads Overridable Function Update(ByVal dataSet As DSOpticalShop) As Integer
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")> _
+        Public Overridable Overloads Function Update(ByVal dataSet As DSOpticalShop) As Integer
             Return Me.Adapter.Update(dataSet, "RECEIPT_CUSTOMER")
         End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
-        Public Overloads Overridable Function Update(ByVal dataRow As Global.System.Data.DataRow) As Integer
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")> _
+        Public Overridable Overloads Function Update(ByVal dataRow As Global.System.Data.DataRow) As Integer
             Return Me.Adapter.Update(New Global.System.Data.DataRow() {dataRow})
         End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
-        Public Overloads Overridable Function Update(ByVal dataRows() As Global.System.Data.DataRow) As Integer
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")> _
+        Public Overridable Overloads Function Update(ByVal dataRows() As Global.System.Data.DataRow) As Integer
             Return Me.Adapter.Update(dataRows)
         End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Delete, true)>  _
-        Public Overloads Overridable Function Delete( _
-                    ByVal Original_CustID As Decimal,  _
-                    ByVal Original_CustomerNo As Global.System.Nullable(Of Decimal),  _
-                    ByVal Original_CusName As String,  _
-                    ByVal Original_Female As String,  _
-                    ByVal Original_Male As String,  _
-                    ByVal Original_Sex As String,  _
-                    ByVal Original_Age As Global.System.Nullable(Of Decimal),  _
-                    ByVal Original_Occupation As String,  _
-                    ByVal Original_OccNo As Global.System.Nullable(Of Decimal),  _
-                    ByVal Original_Province As Global.System.Nullable(Of Decimal),  _
-                    ByVal Original_District As Global.System.Nullable(Of Decimal),  _
-                    ByVal Original_Commune As Global.System.Nullable(Of Decimal),  _
-                    ByVal Original_Village As Global.System.Nullable(Of Decimal),  _
-                    ByVal Original_Address As String,  _
-                    ByVal Original_IsPatient As Global.System.Nullable(Of Boolean),  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Delete, True)> _
+        Public Overridable Overloads Function Delete( _
+                    ByVal Original_CustID As Decimal, _
+                    ByVal Original_CustomerNo As Global.System.Nullable(Of Decimal), _
+                    ByVal Original_CusName As String, _
+                    ByVal Original_Female As String, _
+                    ByVal Original_Male As String, _
+                    ByVal Original_Sex As String, _
+                    ByVal Original_Age As Global.System.Nullable(Of Decimal), _
+                    ByVal Original_Occupation As String, _
+                    ByVal Original_OccNo As Global.System.Nullable(Of Decimal), _
+                    ByVal Original_Province As Global.System.Nullable(Of Decimal), _
+                    ByVal Original_District As Global.System.Nullable(Of Decimal), _
+                    ByVal Original_Commune As Global.System.Nullable(Of Decimal), _
+                    ByVal Original_Village As Global.System.Nullable(Of Decimal), _
+                    ByVal Original_Address As String, _
+                    ByVal Original_IsPatient As Global.System.Nullable(Of Boolean), _
                     ByVal Original_CusNameEng As String) As Integer
-            Me.Adapter.DeleteCommand.Parameters(0).Value = CType(Original_CustID,Decimal)
-            If (Original_CustomerNo.HasValue = true) Then
-                Me.Adapter.DeleteCommand.Parameters(1).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(2).Value = CType(Original_CustomerNo.Value,Decimal)
+            Me.Adapter.DeleteCommand.Parameters(0).Value = CType(Original_CustID, Decimal)
+            If (Original_CustomerNo.HasValue = True) Then
+                Me.Adapter.DeleteCommand.Parameters(1).Value = CType(0, Object)
+                Me.Adapter.DeleteCommand.Parameters(2).Value = CType(Original_CustomerNo.Value, Decimal)
             Else
-                Me.Adapter.DeleteCommand.Parameters(1).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(1).Value = CType(1, Object)
                 Me.Adapter.DeleteCommand.Parameters(2).Value = Global.System.DBNull.Value
             End If
             If (Original_CusName Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(3).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(3).Value = CType(1, Object)
                 Me.Adapter.DeleteCommand.Parameters(4).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.DeleteCommand.Parameters(3).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(4).Value = CType(Original_CusName,String)
+                Me.Adapter.DeleteCommand.Parameters(3).Value = CType(0, Object)
+                Me.Adapter.DeleteCommand.Parameters(4).Value = CType(Original_CusName, String)
             End If
             If (Original_Female Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(5).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(5).Value = CType(1, Object)
                 Me.Adapter.DeleteCommand.Parameters(6).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.DeleteCommand.Parameters(5).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(6).Value = CType(Original_Female,String)
+                Me.Adapter.DeleteCommand.Parameters(5).Value = CType(0, Object)
+                Me.Adapter.DeleteCommand.Parameters(6).Value = CType(Original_Female, String)
             End If
             If (Original_Male Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(7).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(7).Value = CType(1, Object)
                 Me.Adapter.DeleteCommand.Parameters(8).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.DeleteCommand.Parameters(7).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(8).Value = CType(Original_Male,String)
+                Me.Adapter.DeleteCommand.Parameters(7).Value = CType(0, Object)
+                Me.Adapter.DeleteCommand.Parameters(8).Value = CType(Original_Male, String)
             End If
             If (Original_Sex Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(9).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(9).Value = CType(1, Object)
                 Me.Adapter.DeleteCommand.Parameters(10).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.DeleteCommand.Parameters(9).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(10).Value = CType(Original_Sex,String)
+                Me.Adapter.DeleteCommand.Parameters(9).Value = CType(0, Object)
+                Me.Adapter.DeleteCommand.Parameters(10).Value = CType(Original_Sex, String)
             End If
-            If (Original_Age.HasValue = true) Then
-                Me.Adapter.DeleteCommand.Parameters(11).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(12).Value = CType(Original_Age.Value,Decimal)
+            If (Original_Age.HasValue = True) Then
+                Me.Adapter.DeleteCommand.Parameters(11).Value = CType(0, Object)
+                Me.Adapter.DeleteCommand.Parameters(12).Value = CType(Original_Age.Value, Decimal)
             Else
-                Me.Adapter.DeleteCommand.Parameters(11).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(11).Value = CType(1, Object)
                 Me.Adapter.DeleteCommand.Parameters(12).Value = Global.System.DBNull.Value
             End If
             If (Original_Occupation Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(13).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(13).Value = CType(1, Object)
                 Me.Adapter.DeleteCommand.Parameters(14).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.DeleteCommand.Parameters(13).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(14).Value = CType(Original_Occupation,String)
+                Me.Adapter.DeleteCommand.Parameters(13).Value = CType(0, Object)
+                Me.Adapter.DeleteCommand.Parameters(14).Value = CType(Original_Occupation, String)
             End If
-            If (Original_OccNo.HasValue = true) Then
-                Me.Adapter.DeleteCommand.Parameters(15).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(16).Value = CType(Original_OccNo.Value,Decimal)
+            If (Original_OccNo.HasValue = True) Then
+                Me.Adapter.DeleteCommand.Parameters(15).Value = CType(0, Object)
+                Me.Adapter.DeleteCommand.Parameters(16).Value = CType(Original_OccNo.Value, Decimal)
             Else
-                Me.Adapter.DeleteCommand.Parameters(15).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(15).Value = CType(1, Object)
                 Me.Adapter.DeleteCommand.Parameters(16).Value = Global.System.DBNull.Value
             End If
-            If (Original_Province.HasValue = true) Then
-                Me.Adapter.DeleteCommand.Parameters(17).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(18).Value = CType(Original_Province.Value,Decimal)
+            If (Original_Province.HasValue = True) Then
+                Me.Adapter.DeleteCommand.Parameters(17).Value = CType(0, Object)
+                Me.Adapter.DeleteCommand.Parameters(18).Value = CType(Original_Province.Value, Decimal)
             Else
-                Me.Adapter.DeleteCommand.Parameters(17).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(17).Value = CType(1, Object)
                 Me.Adapter.DeleteCommand.Parameters(18).Value = Global.System.DBNull.Value
             End If
-            If (Original_District.HasValue = true) Then
-                Me.Adapter.DeleteCommand.Parameters(19).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(20).Value = CType(Original_District.Value,Decimal)
+            If (Original_District.HasValue = True) Then
+                Me.Adapter.DeleteCommand.Parameters(19).Value = CType(0, Object)
+                Me.Adapter.DeleteCommand.Parameters(20).Value = CType(Original_District.Value, Decimal)
             Else
-                Me.Adapter.DeleteCommand.Parameters(19).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(19).Value = CType(1, Object)
                 Me.Adapter.DeleteCommand.Parameters(20).Value = Global.System.DBNull.Value
             End If
-            If (Original_Commune.HasValue = true) Then
-                Me.Adapter.DeleteCommand.Parameters(21).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(22).Value = CType(Original_Commune.Value,Decimal)
+            If (Original_Commune.HasValue = True) Then
+                Me.Adapter.DeleteCommand.Parameters(21).Value = CType(0, Object)
+                Me.Adapter.DeleteCommand.Parameters(22).Value = CType(Original_Commune.Value, Decimal)
             Else
-                Me.Adapter.DeleteCommand.Parameters(21).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(21).Value = CType(1, Object)
                 Me.Adapter.DeleteCommand.Parameters(22).Value = Global.System.DBNull.Value
             End If
-            If (Original_Village.HasValue = true) Then
-                Me.Adapter.DeleteCommand.Parameters(23).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(24).Value = CType(Original_Village.Value,Decimal)
+            If (Original_Village.HasValue = True) Then
+                Me.Adapter.DeleteCommand.Parameters(23).Value = CType(0, Object)
+                Me.Adapter.DeleteCommand.Parameters(24).Value = CType(Original_Village.Value, Decimal)
             Else
-                Me.Adapter.DeleteCommand.Parameters(23).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(23).Value = CType(1, Object)
                 Me.Adapter.DeleteCommand.Parameters(24).Value = Global.System.DBNull.Value
             End If
             If (Original_Address Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(25).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(25).Value = CType(1, Object)
                 Me.Adapter.DeleteCommand.Parameters(26).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.DeleteCommand.Parameters(25).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(26).Value = CType(Original_Address,String)
+                Me.Adapter.DeleteCommand.Parameters(25).Value = CType(0, Object)
+                Me.Adapter.DeleteCommand.Parameters(26).Value = CType(Original_Address, String)
             End If
-            If (Original_IsPatient.HasValue = true) Then
-                Me.Adapter.DeleteCommand.Parameters(27).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(28).Value = CType(Original_IsPatient.Value,Boolean)
+            If (Original_IsPatient.HasValue = True) Then
+                Me.Adapter.DeleteCommand.Parameters(27).Value = CType(0, Object)
+                Me.Adapter.DeleteCommand.Parameters(28).Value = CType(Original_IsPatient.Value, Boolean)
             Else
-                Me.Adapter.DeleteCommand.Parameters(27).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(27).Value = CType(1, Object)
                 Me.Adapter.DeleteCommand.Parameters(28).Value = Global.System.DBNull.Value
             End If
             If (Original_CusNameEng Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(29).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(29).Value = CType(1, Object)
                 Me.Adapter.DeleteCommand.Parameters(30).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.DeleteCommand.Parameters(29).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(30).Value = CType(Original_CusNameEng,String)
+                Me.Adapter.DeleteCommand.Parameters(29).Value = CType(0, Object)
+                Me.Adapter.DeleteCommand.Parameters(30).Value = CType(Original_CusNameEng, String)
             End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.DeleteCommand.Connection.State
-            If ((Me.Adapter.DeleteCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
+            If ((Me.Adapter.DeleteCommand.Connection.State And Global.System.Data.ConnectionState.Open) _
                         <> Global.System.Data.ConnectionState.Open) Then
-                Me.Adapter.DeleteCommand.Connection.Open
+                Me.Adapter.DeleteCommand.Connection.Open()
             End If
-            Try 
+            Try
                 Dim returnValue As Integer = Me.Adapter.DeleteCommand.ExecuteNonQuery
                 Return returnValue
             Finally
                 If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
-                    Me.Adapter.DeleteCommand.Connection.Close
+                    Me.Adapter.DeleteCommand.Connection.Close()
                 End If
             End Try
         End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, true)>  _
-        Public Overloads Overridable Function Insert(ByVal CustomerNo As Global.System.Nullable(Of Decimal), ByVal CusName As String, ByVal Female As String, ByVal Male As String, ByVal Sex As String, ByVal Age As Global.System.Nullable(Of Decimal), ByVal Occupation As String, ByVal OccNo As Global.System.Nullable(Of Decimal), ByVal Province As Global.System.Nullable(Of Decimal), ByVal District As Global.System.Nullable(Of Decimal), ByVal Commune As Global.System.Nullable(Of Decimal), ByVal Village As Global.System.Nullable(Of Decimal), ByVal Address As String, ByVal IsPatient As Global.System.Nullable(Of Boolean), ByVal CusNameEng As String) As Integer
-            If (CustomerNo.HasValue = true) Then
-                Me.Adapter.InsertCommand.Parameters(0).Value = CType(CustomerNo.Value,Decimal)
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, True)> _
+        Public Overridable Overloads Function Insert(ByVal CustomerNo As Global.System.Nullable(Of Decimal), ByVal CusName As String, ByVal Female As String, ByVal Male As String, ByVal Sex As String, ByVal Age As Global.System.Nullable(Of Decimal), ByVal Occupation As String, ByVal OccNo As Global.System.Nullable(Of Decimal), ByVal Province As Global.System.Nullable(Of Decimal), ByVal District As Global.System.Nullable(Of Decimal), ByVal Commune As Global.System.Nullable(Of Decimal), ByVal Village As Global.System.Nullable(Of Decimal), ByVal Address As String, ByVal IsPatient As Global.System.Nullable(Of Boolean), ByVal CusNameEng As String) As Integer
+            If (CustomerNo.HasValue = True) Then
+                Me.Adapter.InsertCommand.Parameters(0).Value = CType(CustomerNo.Value, Decimal)
             Else
                 Me.Adapter.InsertCommand.Parameters(0).Value = Global.System.DBNull.Value
             End If
             If (CusName Is Nothing) Then
                 Me.Adapter.InsertCommand.Parameters(1).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.InsertCommand.Parameters(1).Value = CType(CusName,String)
+                Me.Adapter.InsertCommand.Parameters(1).Value = CType(CusName, String)
             End If
             If (Female Is Nothing) Then
                 Me.Adapter.InsertCommand.Parameters(2).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.InsertCommand.Parameters(2).Value = CType(Female,String)
+                Me.Adapter.InsertCommand.Parameters(2).Value = CType(Female, String)
             End If
             If (Male Is Nothing) Then
                 Me.Adapter.InsertCommand.Parameters(3).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.InsertCommand.Parameters(3).Value = CType(Male,String)
+                Me.Adapter.InsertCommand.Parameters(3).Value = CType(Male, String)
             End If
             If (Sex Is Nothing) Then
                 Me.Adapter.InsertCommand.Parameters(4).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.InsertCommand.Parameters(4).Value = CType(Sex,String)
+                Me.Adapter.InsertCommand.Parameters(4).Value = CType(Sex, String)
             End If
-            If (Age.HasValue = true) Then
-                Me.Adapter.InsertCommand.Parameters(5).Value = CType(Age.Value,Decimal)
+            If (Age.HasValue = True) Then
+                Me.Adapter.InsertCommand.Parameters(5).Value = CType(Age.Value, Decimal)
             Else
                 Me.Adapter.InsertCommand.Parameters(5).Value = Global.System.DBNull.Value
             End If
             If (Occupation Is Nothing) Then
                 Me.Adapter.InsertCommand.Parameters(6).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.InsertCommand.Parameters(6).Value = CType(Occupation,String)
+                Me.Adapter.InsertCommand.Parameters(6).Value = CType(Occupation, String)
             End If
-            If (OccNo.HasValue = true) Then
-                Me.Adapter.InsertCommand.Parameters(7).Value = CType(OccNo.Value,Decimal)
+            If (OccNo.HasValue = True) Then
+                Me.Adapter.InsertCommand.Parameters(7).Value = CType(OccNo.Value, Decimal)
             Else
                 Me.Adapter.InsertCommand.Parameters(7).Value = Global.System.DBNull.Value
             End If
-            If (Province.HasValue = true) Then
-                Me.Adapter.InsertCommand.Parameters(8).Value = CType(Province.Value,Decimal)
+            If (Province.HasValue = True) Then
+                Me.Adapter.InsertCommand.Parameters(8).Value = CType(Province.Value, Decimal)
             Else
                 Me.Adapter.InsertCommand.Parameters(8).Value = Global.System.DBNull.Value
             End If
-            If (District.HasValue = true) Then
-                Me.Adapter.InsertCommand.Parameters(9).Value = CType(District.Value,Decimal)
+            If (District.HasValue = True) Then
+                Me.Adapter.InsertCommand.Parameters(9).Value = CType(District.Value, Decimal)
             Else
                 Me.Adapter.InsertCommand.Parameters(9).Value = Global.System.DBNull.Value
             End If
-            If (Commune.HasValue = true) Then
-                Me.Adapter.InsertCommand.Parameters(10).Value = CType(Commune.Value,Decimal)
+            If (Commune.HasValue = True) Then
+                Me.Adapter.InsertCommand.Parameters(10).Value = CType(Commune.Value, Decimal)
             Else
                 Me.Adapter.InsertCommand.Parameters(10).Value = Global.System.DBNull.Value
             End If
-            If (Village.HasValue = true) Then
-                Me.Adapter.InsertCommand.Parameters(11).Value = CType(Village.Value,Decimal)
+            If (Village.HasValue = True) Then
+                Me.Adapter.InsertCommand.Parameters(11).Value = CType(Village.Value, Decimal)
             Else
                 Me.Adapter.InsertCommand.Parameters(11).Value = Global.System.DBNull.Value
             End If
             If (Address Is Nothing) Then
                 Me.Adapter.InsertCommand.Parameters(12).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.InsertCommand.Parameters(12).Value = CType(Address,String)
+                Me.Adapter.InsertCommand.Parameters(12).Value = CType(Address, String)
             End If
-            If (IsPatient.HasValue = true) Then
-                Me.Adapter.InsertCommand.Parameters(13).Value = CType(IsPatient.Value,Boolean)
+            If (IsPatient.HasValue = True) Then
+                Me.Adapter.InsertCommand.Parameters(13).Value = CType(IsPatient.Value, Boolean)
             Else
                 Me.Adapter.InsertCommand.Parameters(13).Value = Global.System.DBNull.Value
             End If
             If (CusNameEng Is Nothing) Then
                 Me.Adapter.InsertCommand.Parameters(14).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.InsertCommand.Parameters(14).Value = CType(CusNameEng,String)
+                Me.Adapter.InsertCommand.Parameters(14).Value = CType(CusNameEng, String)
             End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.InsertCommand.Connection.State
-            If ((Me.Adapter.InsertCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
+            If ((Me.Adapter.InsertCommand.Connection.State And Global.System.Data.ConnectionState.Open) _
                         <> Global.System.Data.ConnectionState.Open) Then
-                Me.Adapter.InsertCommand.Connection.Open
+                Me.Adapter.InsertCommand.Connection.Open()
             End If
-            Try 
+            Try
                 Dim returnValue As Integer = Me.Adapter.InsertCommand.ExecuteNonQuery
                 Return returnValue
             Finally
                 If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
-                    Me.Adapter.InsertCommand.Connection.Close
+                    Me.Adapter.InsertCommand.Connection.Close()
                 End If
             End Try
         End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
-        Public Overloads Overridable Function Update( _
-                    ByVal CustomerNo As Global.System.Nullable(Of Decimal),  _
-                    ByVal CusName As String,  _
-                    ByVal Female As String,  _
-                    ByVal Male As String,  _
-                    ByVal Sex As String,  _
-                    ByVal Age As Global.System.Nullable(Of Decimal),  _
-                    ByVal Occupation As String,  _
-                    ByVal OccNo As Global.System.Nullable(Of Decimal),  _
-                    ByVal Province As Global.System.Nullable(Of Decimal),  _
-                    ByVal District As Global.System.Nullable(Of Decimal),  _
-                    ByVal Commune As Global.System.Nullable(Of Decimal),  _
-                    ByVal Village As Global.System.Nullable(Of Decimal),  _
-                    ByVal Address As String,  _
-                    ByVal IsPatient As Global.System.Nullable(Of Boolean),  _
-                    ByVal CusNameEng As String,  _
-                    ByVal Original_CustID As Decimal,  _
-                    ByVal Original_CustomerNo As Global.System.Nullable(Of Decimal),  _
-                    ByVal Original_CusName As String,  _
-                    ByVal Original_Female As String,  _
-                    ByVal Original_Male As String,  _
-                    ByVal Original_Sex As String,  _
-                    ByVal Original_Age As Global.System.Nullable(Of Decimal),  _
-                    ByVal Original_Occupation As String,  _
-                    ByVal Original_OccNo As Global.System.Nullable(Of Decimal),  _
-                    ByVal Original_Province As Global.System.Nullable(Of Decimal),  _
-                    ByVal Original_District As Global.System.Nullable(Of Decimal),  _
-                    ByVal Original_Commune As Global.System.Nullable(Of Decimal),  _
-                    ByVal Original_Village As Global.System.Nullable(Of Decimal),  _
-                    ByVal Original_Address As String,  _
-                    ByVal Original_IsPatient As Global.System.Nullable(Of Boolean),  _
-                    ByVal Original_CusNameEng As String,  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, True)> _
+        Public Overridable Overloads Function Update( _
+                    ByVal CustomerNo As Global.System.Nullable(Of Decimal), _
+                    ByVal CusName As String, _
+                    ByVal Female As String, _
+                    ByVal Male As String, _
+                    ByVal Sex As String, _
+                    ByVal Age As Global.System.Nullable(Of Decimal), _
+                    ByVal Occupation As String, _
+                    ByVal OccNo As Global.System.Nullable(Of Decimal), _
+                    ByVal Province As Global.System.Nullable(Of Decimal), _
+                    ByVal District As Global.System.Nullable(Of Decimal), _
+                    ByVal Commune As Global.System.Nullable(Of Decimal), _
+                    ByVal Village As Global.System.Nullable(Of Decimal), _
+                    ByVal Address As String, _
+                    ByVal IsPatient As Global.System.Nullable(Of Boolean), _
+                    ByVal CusNameEng As String, _
+                    ByVal Original_CustID As Decimal, _
+                    ByVal Original_CustomerNo As Global.System.Nullable(Of Decimal), _
+                    ByVal Original_CusName As String, _
+                    ByVal Original_Female As String, _
+                    ByVal Original_Male As String, _
+                    ByVal Original_Sex As String, _
+                    ByVal Original_Age As Global.System.Nullable(Of Decimal), _
+                    ByVal Original_Occupation As String, _
+                    ByVal Original_OccNo As Global.System.Nullable(Of Decimal), _
+                    ByVal Original_Province As Global.System.Nullable(Of Decimal), _
+                    ByVal Original_District As Global.System.Nullable(Of Decimal), _
+                    ByVal Original_Commune As Global.System.Nullable(Of Decimal), _
+                    ByVal Original_Village As Global.System.Nullable(Of Decimal), _
+                    ByVal Original_Address As String, _
+                    ByVal Original_IsPatient As Global.System.Nullable(Of Boolean), _
+                    ByVal Original_CusNameEng As String, _
                     ByVal CustID As Decimal) As Integer
-            If (CustomerNo.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(0).Value = CType(CustomerNo.Value,Decimal)
+            If (CustomerNo.HasValue = True) Then
+                Me.Adapter.UpdateCommand.Parameters(0).Value = CType(CustomerNo.Value, Decimal)
             Else
                 Me.Adapter.UpdateCommand.Parameters(0).Value = Global.System.DBNull.Value
             End If
             If (CusName Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(1).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(1).Value = CType(CusName,String)
+                Me.Adapter.UpdateCommand.Parameters(1).Value = CType(CusName, String)
             End If
             If (Female Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(2).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(2).Value = CType(Female,String)
+                Me.Adapter.UpdateCommand.Parameters(2).Value = CType(Female, String)
             End If
             If (Male Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(3).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(3).Value = CType(Male,String)
+                Me.Adapter.UpdateCommand.Parameters(3).Value = CType(Male, String)
             End If
             If (Sex Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(4).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(4).Value = CType(Sex,String)
+                Me.Adapter.UpdateCommand.Parameters(4).Value = CType(Sex, String)
             End If
-            If (Age.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(5).Value = CType(Age.Value,Decimal)
+            If (Age.HasValue = True) Then
+                Me.Adapter.UpdateCommand.Parameters(5).Value = CType(Age.Value, Decimal)
             Else
                 Me.Adapter.UpdateCommand.Parameters(5).Value = Global.System.DBNull.Value
             End If
             If (Occupation Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(6).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(6).Value = CType(Occupation,String)
+                Me.Adapter.UpdateCommand.Parameters(6).Value = CType(Occupation, String)
             End If
-            If (OccNo.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(7).Value = CType(OccNo.Value,Decimal)
+            If (OccNo.HasValue = True) Then
+                Me.Adapter.UpdateCommand.Parameters(7).Value = CType(OccNo.Value, Decimal)
             Else
                 Me.Adapter.UpdateCommand.Parameters(7).Value = Global.System.DBNull.Value
             End If
-            If (Province.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(8).Value = CType(Province.Value,Decimal)
+            If (Province.HasValue = True) Then
+                Me.Adapter.UpdateCommand.Parameters(8).Value = CType(Province.Value, Decimal)
             Else
                 Me.Adapter.UpdateCommand.Parameters(8).Value = Global.System.DBNull.Value
             End If
-            If (District.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(9).Value = CType(District.Value,Decimal)
+            If (District.HasValue = True) Then
+                Me.Adapter.UpdateCommand.Parameters(9).Value = CType(District.Value, Decimal)
             Else
                 Me.Adapter.UpdateCommand.Parameters(9).Value = Global.System.DBNull.Value
             End If
-            If (Commune.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(10).Value = CType(Commune.Value,Decimal)
+            If (Commune.HasValue = True) Then
+                Me.Adapter.UpdateCommand.Parameters(10).Value = CType(Commune.Value, Decimal)
             Else
                 Me.Adapter.UpdateCommand.Parameters(10).Value = Global.System.DBNull.Value
             End If
-            If (Village.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(11).Value = CType(Village.Value,Decimal)
+            If (Village.HasValue = True) Then
+                Me.Adapter.UpdateCommand.Parameters(11).Value = CType(Village.Value, Decimal)
             Else
                 Me.Adapter.UpdateCommand.Parameters(11).Value = Global.System.DBNull.Value
             End If
             If (Address Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(12).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(12).Value = CType(Address,String)
+                Me.Adapter.UpdateCommand.Parameters(12).Value = CType(Address, String)
             End If
-            If (IsPatient.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(13).Value = CType(IsPatient.Value,Boolean)
+            If (IsPatient.HasValue = True) Then
+                Me.Adapter.UpdateCommand.Parameters(13).Value = CType(IsPatient.Value, Boolean)
             Else
                 Me.Adapter.UpdateCommand.Parameters(13).Value = Global.System.DBNull.Value
             End If
             If (CusNameEng Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(14).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(14).Value = CType(CusNameEng,String)
+                Me.Adapter.UpdateCommand.Parameters(14).Value = CType(CusNameEng, String)
             End If
-            Me.Adapter.UpdateCommand.Parameters(15).Value = CType(Original_CustID,Decimal)
-            If (Original_CustomerNo.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(16).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(17).Value = CType(Original_CustomerNo.Value,Decimal)
+            Me.Adapter.UpdateCommand.Parameters(15).Value = CType(Original_CustID, Decimal)
+            If (Original_CustomerNo.HasValue = True) Then
+                Me.Adapter.UpdateCommand.Parameters(16).Value = CType(0, Object)
+                Me.Adapter.UpdateCommand.Parameters(17).Value = CType(Original_CustomerNo.Value, Decimal)
             Else
-                Me.Adapter.UpdateCommand.Parameters(16).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(16).Value = CType(1, Object)
                 Me.Adapter.UpdateCommand.Parameters(17).Value = Global.System.DBNull.Value
             End If
             If (Original_CusName Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(18).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(18).Value = CType(1, Object)
                 Me.Adapter.UpdateCommand.Parameters(19).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(18).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(19).Value = CType(Original_CusName,String)
+                Me.Adapter.UpdateCommand.Parameters(18).Value = CType(0, Object)
+                Me.Adapter.UpdateCommand.Parameters(19).Value = CType(Original_CusName, String)
             End If
             If (Original_Female Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(20).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(20).Value = CType(1, Object)
                 Me.Adapter.UpdateCommand.Parameters(21).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(20).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(21).Value = CType(Original_Female,String)
+                Me.Adapter.UpdateCommand.Parameters(20).Value = CType(0, Object)
+                Me.Adapter.UpdateCommand.Parameters(21).Value = CType(Original_Female, String)
             End If
             If (Original_Male Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(22).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(22).Value = CType(1, Object)
                 Me.Adapter.UpdateCommand.Parameters(23).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(22).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(23).Value = CType(Original_Male,String)
+                Me.Adapter.UpdateCommand.Parameters(22).Value = CType(0, Object)
+                Me.Adapter.UpdateCommand.Parameters(23).Value = CType(Original_Male, String)
             End If
             If (Original_Sex Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(24).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(24).Value = CType(1, Object)
                 Me.Adapter.UpdateCommand.Parameters(25).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(24).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(25).Value = CType(Original_Sex,String)
+                Me.Adapter.UpdateCommand.Parameters(24).Value = CType(0, Object)
+                Me.Adapter.UpdateCommand.Parameters(25).Value = CType(Original_Sex, String)
             End If
-            If (Original_Age.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(26).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(27).Value = CType(Original_Age.Value,Decimal)
+            If (Original_Age.HasValue = True) Then
+                Me.Adapter.UpdateCommand.Parameters(26).Value = CType(0, Object)
+                Me.Adapter.UpdateCommand.Parameters(27).Value = CType(Original_Age.Value, Decimal)
             Else
-                Me.Adapter.UpdateCommand.Parameters(26).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(26).Value = CType(1, Object)
                 Me.Adapter.UpdateCommand.Parameters(27).Value = Global.System.DBNull.Value
             End If
             If (Original_Occupation Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(28).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(28).Value = CType(1, Object)
                 Me.Adapter.UpdateCommand.Parameters(29).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(28).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(29).Value = CType(Original_Occupation,String)
+                Me.Adapter.UpdateCommand.Parameters(28).Value = CType(0, Object)
+                Me.Adapter.UpdateCommand.Parameters(29).Value = CType(Original_Occupation, String)
             End If
-            If (Original_OccNo.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(30).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(31).Value = CType(Original_OccNo.Value,Decimal)
+            If (Original_OccNo.HasValue = True) Then
+                Me.Adapter.UpdateCommand.Parameters(30).Value = CType(0, Object)
+                Me.Adapter.UpdateCommand.Parameters(31).Value = CType(Original_OccNo.Value, Decimal)
             Else
-                Me.Adapter.UpdateCommand.Parameters(30).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(30).Value = CType(1, Object)
                 Me.Adapter.UpdateCommand.Parameters(31).Value = Global.System.DBNull.Value
             End If
-            If (Original_Province.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(32).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(33).Value = CType(Original_Province.Value,Decimal)
+            If (Original_Province.HasValue = True) Then
+                Me.Adapter.UpdateCommand.Parameters(32).Value = CType(0, Object)
+                Me.Adapter.UpdateCommand.Parameters(33).Value = CType(Original_Province.Value, Decimal)
             Else
-                Me.Adapter.UpdateCommand.Parameters(32).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(32).Value = CType(1, Object)
                 Me.Adapter.UpdateCommand.Parameters(33).Value = Global.System.DBNull.Value
             End If
-            If (Original_District.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(34).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(35).Value = CType(Original_District.Value,Decimal)
+            If (Original_District.HasValue = True) Then
+                Me.Adapter.UpdateCommand.Parameters(34).Value = CType(0, Object)
+                Me.Adapter.UpdateCommand.Parameters(35).Value = CType(Original_District.Value, Decimal)
             Else
-                Me.Adapter.UpdateCommand.Parameters(34).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(34).Value = CType(1, Object)
                 Me.Adapter.UpdateCommand.Parameters(35).Value = Global.System.DBNull.Value
             End If
-            If (Original_Commune.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(36).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(37).Value = CType(Original_Commune.Value,Decimal)
+            If (Original_Commune.HasValue = True) Then
+                Me.Adapter.UpdateCommand.Parameters(36).Value = CType(0, Object)
+                Me.Adapter.UpdateCommand.Parameters(37).Value = CType(Original_Commune.Value, Decimal)
             Else
-                Me.Adapter.UpdateCommand.Parameters(36).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(36).Value = CType(1, Object)
                 Me.Adapter.UpdateCommand.Parameters(37).Value = Global.System.DBNull.Value
             End If
-            If (Original_Village.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(38).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(39).Value = CType(Original_Village.Value,Decimal)
+            If (Original_Village.HasValue = True) Then
+                Me.Adapter.UpdateCommand.Parameters(38).Value = CType(0, Object)
+                Me.Adapter.UpdateCommand.Parameters(39).Value = CType(Original_Village.Value, Decimal)
             Else
-                Me.Adapter.UpdateCommand.Parameters(38).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(38).Value = CType(1, Object)
                 Me.Adapter.UpdateCommand.Parameters(39).Value = Global.System.DBNull.Value
             End If
             If (Original_Address Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(40).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(40).Value = CType(1, Object)
                 Me.Adapter.UpdateCommand.Parameters(41).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(40).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(41).Value = CType(Original_Address,String)
+                Me.Adapter.UpdateCommand.Parameters(40).Value = CType(0, Object)
+                Me.Adapter.UpdateCommand.Parameters(41).Value = CType(Original_Address, String)
             End If
-            If (Original_IsPatient.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(42).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(43).Value = CType(Original_IsPatient.Value,Boolean)
+            If (Original_IsPatient.HasValue = True) Then
+                Me.Adapter.UpdateCommand.Parameters(42).Value = CType(0, Object)
+                Me.Adapter.UpdateCommand.Parameters(43).Value = CType(Original_IsPatient.Value, Boolean)
             Else
-                Me.Adapter.UpdateCommand.Parameters(42).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(42).Value = CType(1, Object)
                 Me.Adapter.UpdateCommand.Parameters(43).Value = Global.System.DBNull.Value
             End If
             If (Original_CusNameEng Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(44).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(44).Value = CType(1, Object)
                 Me.Adapter.UpdateCommand.Parameters(45).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(44).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(45).Value = CType(Original_CusNameEng,String)
+                Me.Adapter.UpdateCommand.Parameters(44).Value = CType(0, Object)
+                Me.Adapter.UpdateCommand.Parameters(45).Value = CType(Original_CusNameEng, String)
             End If
-            Me.Adapter.UpdateCommand.Parameters(46).Value = CType(CustID,Decimal)
+            Me.Adapter.UpdateCommand.Parameters(46).Value = CType(CustID, Decimal)
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.UpdateCommand.Connection.State
-            If ((Me.Adapter.UpdateCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
+            If ((Me.Adapter.UpdateCommand.Connection.State And Global.System.Data.ConnectionState.Open) _
                         <> Global.System.Data.ConnectionState.Open) Then
-                Me.Adapter.UpdateCommand.Connection.Open
+                Me.Adapter.UpdateCommand.Connection.Open()
             End If
-            Try 
+            Try
                 Dim returnValue As Integer = Me.Adapter.UpdateCommand.ExecuteNonQuery
                 Return returnValue
             Finally
                 If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
-                    Me.Adapter.UpdateCommand.Connection.Close
+                    Me.Adapter.UpdateCommand.Connection.Close()
                 End If
             End Try
         End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
-        Public Overloads Overridable Function Update( _
-                    ByVal CustomerNo As Global.System.Nullable(Of Decimal),  _
-                    ByVal CusName As String,  _
-                    ByVal Female As String,  _
-                    ByVal Male As String,  _
-                    ByVal Sex As String,  _
-                    ByVal Age As Global.System.Nullable(Of Decimal),  _
-                    ByVal Occupation As String,  _
-                    ByVal OccNo As Global.System.Nullable(Of Decimal),  _
-                    ByVal Province As Global.System.Nullable(Of Decimal),  _
-                    ByVal District As Global.System.Nullable(Of Decimal),  _
-                    ByVal Commune As Global.System.Nullable(Of Decimal),  _
-                    ByVal Village As Global.System.Nullable(Of Decimal),  _
-                    ByVal Address As String,  _
-                    ByVal IsPatient As Global.System.Nullable(Of Boolean),  _
-                    ByVal CusNameEng As String,  _
-                    ByVal Original_CustID As Decimal,  _
-                    ByVal Original_CustomerNo As Global.System.Nullable(Of Decimal),  _
-                    ByVal Original_CusName As String,  _
-                    ByVal Original_Female As String,  _
-                    ByVal Original_Male As String,  _
-                    ByVal Original_Sex As String,  _
-                    ByVal Original_Age As Global.System.Nullable(Of Decimal),  _
-                    ByVal Original_Occupation As String,  _
-                    ByVal Original_OccNo As Global.System.Nullable(Of Decimal),  _
-                    ByVal Original_Province As Global.System.Nullable(Of Decimal),  _
-                    ByVal Original_District As Global.System.Nullable(Of Decimal),  _
-                    ByVal Original_Commune As Global.System.Nullable(Of Decimal),  _
-                    ByVal Original_Village As Global.System.Nullable(Of Decimal),  _
-                    ByVal Original_Address As String,  _
-                    ByVal Original_IsPatient As Global.System.Nullable(Of Boolean),  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, True)> _
+        Public Overridable Overloads Function Update( _
+                    ByVal CustomerNo As Global.System.Nullable(Of Decimal), _
+                    ByVal CusName As String, _
+                    ByVal Female As String, _
+                    ByVal Male As String, _
+                    ByVal Sex As String, _
+                    ByVal Age As Global.System.Nullable(Of Decimal), _
+                    ByVal Occupation As String, _
+                    ByVal OccNo As Global.System.Nullable(Of Decimal), _
+                    ByVal Province As Global.System.Nullable(Of Decimal), _
+                    ByVal District As Global.System.Nullable(Of Decimal), _
+                    ByVal Commune As Global.System.Nullable(Of Decimal), _
+                    ByVal Village As Global.System.Nullable(Of Decimal), _
+                    ByVal Address As String, _
+                    ByVal IsPatient As Global.System.Nullable(Of Boolean), _
+                    ByVal CusNameEng As String, _
+                    ByVal Original_CustID As Decimal, _
+                    ByVal Original_CustomerNo As Global.System.Nullable(Of Decimal), _
+                    ByVal Original_CusName As String, _
+                    ByVal Original_Female As String, _
+                    ByVal Original_Male As String, _
+                    ByVal Original_Sex As String, _
+                    ByVal Original_Age As Global.System.Nullable(Of Decimal), _
+                    ByVal Original_Occupation As String, _
+                    ByVal Original_OccNo As Global.System.Nullable(Of Decimal), _
+                    ByVal Original_Province As Global.System.Nullable(Of Decimal), _
+                    ByVal Original_District As Global.System.Nullable(Of Decimal), _
+                    ByVal Original_Commune As Global.System.Nullable(Of Decimal), _
+                    ByVal Original_Village As Global.System.Nullable(Of Decimal), _
+                    ByVal Original_Address As String, _
+                    ByVal Original_IsPatient As Global.System.Nullable(Of Boolean), _
                     ByVal Original_CusNameEng As String) As Integer
             Return Me.Update(CustomerNo, CusName, Female, Male, Sex, Age, Occupation, OccNo, Province, District, Commune, Village, Address, IsPatient, CusNameEng, Original_CustID, Original_CustomerNo, Original_CusName, Original_Female, Original_Male, Original_Sex, Original_Age, Original_Occupation, Original_OccNo, Original_Province, Original_District, Original_Commune, Original_Village, Original_Address, Original_IsPatient, Original_CusNameEng, Original_CustID)
         End Function
     End Class
-    
+
     '''<summary>
     '''Represents the connection and commands used to retrieve and save data.
     '''</summary>
-    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0"),  _
-     Global.System.ComponentModel.DesignerCategoryAttribute("code"),  _
-     Global.System.ComponentModel.ToolboxItem(true),  _
-     Global.System.ComponentModel.DataObjectAttribute(true),  _
-     Global.System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner"& _ 
-        ", Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"),  _
-     Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0"), _
+     Global.System.ComponentModel.DesignerCategoryAttribute("code"), _
+     Global.System.ComponentModel.ToolboxItem(True), _
+     Global.System.ComponentModel.DataObjectAttribute(True), _
+     Global.System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" & _
+        ", Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"), _
+     Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")> _
     Partial Public Class V_Receipt_InvoiceTableAdapter
         Inherits Global.System.ComponentModel.Component
-        
+
         Private WithEvents _adapter As Global.System.Data.SqlClient.SqlDataAdapter
-        
+
         Private _connection As Global.System.Data.SqlClient.SqlConnection
-        
+
         Private _transaction As Global.System.Data.SqlClient.SqlTransaction
-        
+
         Private _commandCollection() As Global.System.Data.SqlClient.SqlCommand
-        
+
         Private _clearBeforeFill As Boolean
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
         Public Sub New()
-            MyBase.New
-            Me.ClearBeforeFill = true
+            MyBase.New()
+            Me.ClearBeforeFill = True
         End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
         Protected Friend ReadOnly Property Adapter() As Global.System.Data.SqlClient.SqlDataAdapter
             Get
                 If (Me._adapter Is Nothing) Then
-                    Me.InitAdapter
+                    Me.InitAdapter()
                 End If
                 Return Me._adapter
             End Get
         End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
         Friend Property Connection() As Global.System.Data.SqlClient.SqlConnection
             Get
                 If (Me._connection Is Nothing) Then
-                    Me.InitConnection
+                    Me.InitConnection()
                 End If
                 Return Me._connection
             End Get
-            Set
+            Set(ByVal value As Global.System.Data.SqlClient.SqlConnection)
                 Me._connection = value
                 If (Not (Me.Adapter.InsertCommand) Is Nothing) Then
                     Me.Adapter.InsertCommand.Connection = value
@@ -18562,61 +18562,61 @@ Namespace DSOpticalShopTableAdapters
                 Dim i As Integer = 0
                 Do While (i < Me.CommandCollection.Length)
                     If (Not (Me.CommandCollection(i)) Is Nothing) Then
-                        CType(Me.CommandCollection(i),Global.System.Data.SqlClient.SqlCommand).Connection = value
+                        CType(Me.CommandCollection(i), Global.System.Data.SqlClient.SqlCommand).Connection = value
                     End If
                     i = (i + 1)
                 Loop
             End Set
         End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
         Friend Property Transaction() As Global.System.Data.SqlClient.SqlTransaction
             Get
                 Return Me._transaction
             End Get
-            Set
+            Set(ByVal value As Global.System.Data.SqlClient.SqlTransaction)
                 Me._transaction = value
                 Dim i As Integer = 0
                 Do While (i < Me.CommandCollection.Length)
                     Me.CommandCollection(i).Transaction = Me._transaction
                     i = (i + 1)
                 Loop
-                If ((Not (Me.Adapter) Is Nothing)  _
+                If ((Not (Me.Adapter) Is Nothing) _
                             AndAlso (Not (Me.Adapter.DeleteCommand) Is Nothing)) Then
                     Me.Adapter.DeleteCommand.Transaction = Me._transaction
                 End If
-                If ((Not (Me.Adapter) Is Nothing)  _
+                If ((Not (Me.Adapter) Is Nothing) _
                             AndAlso (Not (Me.Adapter.InsertCommand) Is Nothing)) Then
                     Me.Adapter.InsertCommand.Transaction = Me._transaction
                 End If
-                If ((Not (Me.Adapter) Is Nothing)  _
+                If ((Not (Me.Adapter) Is Nothing) _
                             AndAlso (Not (Me.Adapter.UpdateCommand) Is Nothing)) Then
                     Me.Adapter.UpdateCommand.Transaction = Me._transaction
                 End If
             End Set
         End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
         Protected ReadOnly Property CommandCollection() As Global.System.Data.SqlClient.SqlCommand()
             Get
                 If (Me._commandCollection Is Nothing) Then
-                    Me.InitCommandCollection
+                    Me.InitCommandCollection()
                 End If
                 Return Me._commandCollection
             End Get
         End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
         Public Property ClearBeforeFill() As Boolean
             Get
                 Return Me._clearBeforeFill
             End Get
-            Set
+            Set(ByVal value As Boolean)
                 Me._clearBeforeFill = value
             End Set
         End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
         Private Sub InitAdapter()
             Me._adapter = New Global.System.Data.SqlClient.SqlDataAdapter
             Dim tableMapping As Global.System.Data.Common.DataTableMapping = New Global.System.Data.Common.DataTableMapping
@@ -18696,193 +18696,193 @@ Namespace DSOpticalShopTableAdapters
             tableMapping.ColumnMappings.Add("TotalSocial", "TotalSocial")
             Me._adapter.TableMappings.Add(tableMapping)
         End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
         Private Sub InitConnection()
             Me._connection = New Global.System.Data.SqlClient.SqlConnection
-            Me._connection.ConnectionString = Global.HospitalMS.My.MySettings.Default.TakeoDBConnectionString
+            Me._connection.ConnectionString = Global.HospitalMS.My.MySettings.Default.AppConnection
         End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
         Private Sub InitCommandCollection()
             Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(2) {}
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT     ReceiptID, ReceiptDate, CustomerNo, MedicReal, MedicDolar, EyeGlassesR"& _ 
-                "eal, EyeGlassesDolar, ReadyModDolar, ReadyModR, SpectacleDolar, SpectacleR, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"  "& _ 
-                "                    FundRaisingDolar, FundRaisingR, OtherDolar, OtherR, TotalRea"& _ 
-                "l, TotalDolar, AmountInWords, AmountFigureReal, AmountFigureDolar, ReturnReal, R"& _ 
-                "eturnDolar, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      IsCurrency, IsDonation, DonationID, PayBySel"& _ 
-                "f, PayByDonation, IsPaid, ReceiptNote, UserID, UserName, IncomType, Glasses, Don"& _ 
-                "ateAmount, SupportedAmtDolar, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      SupportedAmtR, ReceiptType"& _ 
-                ", PaidR, PaidDollar, IsOldPatient, PaymentType, FullAmount, NilAmount, SocialAmo"& _ 
-                "unt, PaymentCur, Comment, ItemID, ItemPrice, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      ItemQTY, Su"& _ 
-                "bTotalReal, SubTotalDolar, IncomeID, ItemName, Barcode, CusName, Female, Male, S"& _ 
-                "ex, Age, Occupation, OccNo, Province, District, Commune, Village, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"            "& _ 
-                "          Address, IsPatient, CusNameEng, DonationName, Expr1, ReceiptNo, TotalS"& _ 
-                "ocial"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM         V_Receipt_Invoice"
+            Me._commandCollection(0).CommandText = "SELECT     ReceiptID, ReceiptDate, CustomerNo, MedicReal, MedicDolar, EyeGlassesR" & _
+                "eal, EyeGlassesDolar, ReadyModDolar, ReadyModR, SpectacleDolar, SpectacleR, " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "  " & _
+                "                    FundRaisingDolar, FundRaisingR, OtherDolar, OtherR, TotalRea" & _
+                "l, TotalDolar, AmountInWords, AmountFigureReal, AmountFigureDolar, ReturnReal, R" & _
+                "eturnDolar, " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                      IsCurrency, IsDonation, DonationID, PayBySel" & _
+                "f, PayByDonation, IsPaid, ReceiptNote, UserID, UserName, IncomType, Glasses, Don" & _
+                "ateAmount, SupportedAmtDolar, " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                      SupportedAmtR, ReceiptType" & _
+                ", PaidR, PaidDollar, IsOldPatient, PaymentType, FullAmount, NilAmount, SocialAmo" & _
+                "unt, PaymentCur, Comment, ItemID, ItemPrice, " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                      ItemQTY, Su" & _
+                "bTotalReal, SubTotalDolar, IncomeID, ItemName, Barcode, CusName, Female, Male, S" & _
+                "ex, Age, Occupation, OccNo, Province, District, Commune, Village, " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "            " & _
+                "          Address, IsPatient, CusNameEng, DonationName, Expr1, ReceiptNo, TotalS" & _
+                "ocial" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "FROM         V_Receipt_Invoice"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(1) = New Global.System.Data.SqlClient.SqlCommand
             Me._commandCollection(1).Connection = Me.Connection
-            Me._commandCollection(1).CommandText = "SELECT Address, Age, AmountFigureDolar, AmountFigureReal, AmountInWords, Barcode,"& _ 
-                " Comment, Commune, CusName, CusNameEng, CustomerNo, District, DonateAmount, Dona"& _ 
-                "tionID, DonationName, Expr1, EyeGlassesDolar, EyeGlassesReal, Female, FullAmount"& _ 
-                ", FundRaisingDolar, FundRaisingR, Glasses, IncomType, IncomeID, IsCurrency, IsDo"& _ 
-                "nation, IsOldPatient, IsPaid, IsPatient, ItemID, ItemName, ItemPrice, ItemQTY, M"& _ 
-                "ale, MedicDolar, MedicReal, NilAmount, OccNo, Occupation, OtherDolar, OtherR, Pa"& _ 
-                "idDollar, PaidR, PayByDonation, PayBySelf, PaymentCur, PaymentType, Province, Re"& _ 
-                "adyModDolar, ReadyModR, ReceiptDate, ReceiptID, ReceiptNo, ReceiptNote, ReceiptT"& _ 
-                "ype, ReturnDolar, ReturnReal, Sex, SocialAmount, SpectacleDolar, SpectacleR, Sub"& _ 
-                "TotalDolar, SubTotalReal, SupportedAmtDolar, SupportedAmtR, TotalDolar, TotalRea"& _ 
-                "l, TotalSocial, UserID, UserName, Village FROM V_Receipt_Invoice WHERE (ReceiptN"& _ 
+            Me._commandCollection(1).CommandText = "SELECT Address, Age, AmountFigureDolar, AmountFigureReal, AmountInWords, Barcode," & _
+                " Comment, Commune, CusName, CusNameEng, CustomerNo, District, DonateAmount, Dona" & _
+                "tionID, DonationName, Expr1, EyeGlassesDolar, EyeGlassesReal, Female, FullAmount" & _
+                ", FundRaisingDolar, FundRaisingR, Glasses, IncomType, IncomeID, IsCurrency, IsDo" & _
+                "nation, IsOldPatient, IsPaid, IsPatient, ItemID, ItemName, ItemPrice, ItemQTY, M" & _
+                "ale, MedicDolar, MedicReal, NilAmount, OccNo, Occupation, OtherDolar, OtherR, Pa" & _
+                "idDollar, PaidR, PayByDonation, PayBySelf, PaymentCur, PaymentType, Province, Re" & _
+                "adyModDolar, ReadyModR, ReceiptDate, ReceiptID, ReceiptNo, ReceiptNote, ReceiptT" & _
+                "ype, ReturnDolar, ReturnReal, Sex, SocialAmount, SpectacleDolar, SpectacleR, Sub" & _
+                "TotalDolar, SubTotalReal, SupportedAmtDolar, SupportedAmtR, TotalDolar, TotalRea" & _
+                "l, TotalSocial, UserID, UserName, Village FROM V_Receipt_Invoice WHERE (ReceiptN" & _
                 "o = @ReceiptNo)"
             Me._commandCollection(1).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ReceiptNo", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "ReceiptNo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ReceiptNo", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "ReceiptNo", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
             Me._commandCollection(2) = New Global.System.Data.SqlClient.SqlCommand
             Me._commandCollection(2).Connection = Me.Connection
-            Me._commandCollection(2).CommandText = "SELECT Address, Age, AmountFigureDolar, AmountFigureReal, AmountInWords, Barcode,"& _ 
-                " Comment, Commune, CusName, CusNameEng, CustomerNo, District, DonateAmount, Dona"& _ 
-                "tionID, DonationName, Expr1, EyeGlassesDolar, EyeGlassesReal, Female, FullAmount"& _ 
-                ", FundRaisingDolar, FundRaisingR, Glasses, IncomType, IncomeID, IsCurrency, IsDo"& _ 
-                "nation, IsOldPatient, IsPaid, IsPatient, ItemID, ItemName, ItemPrice, ItemQTY, M"& _ 
-                "ale, MedicDolar, MedicReal, NilAmount, OccNo, Occupation, OtherDolar, OtherR, Pa"& _ 
-                "idDollar, PaidR, PayByDonation, PayBySelf, PaymentCur, PaymentType, Province, Re"& _ 
-                "adyModDolar, ReadyModR, ReceiptDate, ReceiptID, ReceiptNo, ReceiptNote, ReceiptT"& _ 
-                "ype, ReturnDolar, ReturnReal, Sex, SocialAmount, SpectacleDolar, SpectacleR, Sub"& _ 
-                "TotalDolar, SubTotalReal, SupportedAmtDolar, SupportedAmtR, TotalDolar, TotalRea"& _ 
-                "l, TotalSocial, UserID, UserName, Village FROM V_Receipt_Invoice WHERE (ReceiptI"& _ 
+            Me._commandCollection(2).CommandText = "SELECT Address, Age, AmountFigureDolar, AmountFigureReal, AmountInWords, Barcode," & _
+                " Comment, Commune, CusName, CusNameEng, CustomerNo, District, DonateAmount, Dona" & _
+                "tionID, DonationName, Expr1, EyeGlassesDolar, EyeGlassesReal, Female, FullAmount" & _
+                ", FundRaisingDolar, FundRaisingR, Glasses, IncomType, IncomeID, IsCurrency, IsDo" & _
+                "nation, IsOldPatient, IsPaid, IsPatient, ItemID, ItemName, ItemPrice, ItemQTY, M" & _
+                "ale, MedicDolar, MedicReal, NilAmount, OccNo, Occupation, OtherDolar, OtherR, Pa" & _
+                "idDollar, PaidR, PayByDonation, PayBySelf, PaymentCur, PaymentType, Province, Re" & _
+                "adyModDolar, ReadyModR, ReceiptDate, ReceiptID, ReceiptNo, ReceiptNote, ReceiptT" & _
+                "ype, ReturnDolar, ReturnReal, Sex, SocialAmount, SpectacleDolar, SpectacleR, Sub" & _
+                "TotalDolar, SubTotalReal, SupportedAmtDolar, SupportedAmtR, TotalDolar, TotalRea" & _
+                "l, TotalSocial, UserID, UserName, Village FROM V_Receipt_Invoice WHERE (ReceiptI" & _
                 "D = @ReceiptID)"
             Me._commandCollection(2).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ReceiptID", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "ReceiptID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ReceiptID", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "ReceiptID", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
         End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, true)>  _
-        Public Overloads Overridable Function Fill(ByVal dataTable As DSOpticalShop.V_Receipt_InvoiceDataTable) As Integer
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, True)> _
+        Public Overridable Overloads Function Fill(ByVal dataTable As DSOpticalShop.V_Receipt_InvoiceDataTable) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
-            If (Me.ClearBeforeFill = true) Then
-                dataTable.Clear
+            If (Me.ClearBeforeFill = True) Then
+                dataTable.Clear()
             End If
             Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
             Return returnValue
         End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], true)>  _
-        Public Overloads Overridable Function GetData() As DSOpticalShop.V_Receipt_InvoiceDataTable
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], True)> _
+        Public Overridable Overloads Function GetData() As DSOpticalShop.V_Receipt_InvoiceDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
             Dim dataTable As DSOpticalShop.V_Receipt_InvoiceDataTable = New DSOpticalShop.V_Receipt_InvoiceDataTable
             Me.Adapter.Fill(dataTable)
             Return dataTable
         End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
-        Public Overloads Overridable Function FillBy(ByVal dataTable As DSOpticalShop.V_Receipt_InvoiceDataTable, ByVal ReceiptNo As String) As Integer
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, False)> _
+        Public Overridable Overloads Function FillBy(ByVal dataTable As DSOpticalShop.V_Receipt_InvoiceDataTable, ByVal ReceiptNo As String) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(1)
             If (ReceiptNo Is Nothing) Then
                 Me.Adapter.SelectCommand.Parameters(0).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.SelectCommand.Parameters(0).Value = CType(ReceiptNo,String)
+                Me.Adapter.SelectCommand.Parameters(0).Value = CType(ReceiptNo, String)
             End If
-            If (Me.ClearBeforeFill = true) Then
-                dataTable.Clear
+            If (Me.ClearBeforeFill = True) Then
+                dataTable.Clear()
             End If
             Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
             Return returnValue
         End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
-        Public Overloads Overridable Function GetDataByReceiptNo(ByVal ReceiptNo As String) As DSOpticalShop.V_Receipt_InvoiceDataTable
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], False)> _
+        Public Overridable Overloads Function GetDataByReceiptNo(ByVal ReceiptNo As String) As DSOpticalShop.V_Receipt_InvoiceDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(1)
             If (ReceiptNo Is Nothing) Then
                 Me.Adapter.SelectCommand.Parameters(0).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.SelectCommand.Parameters(0).Value = CType(ReceiptNo,String)
+                Me.Adapter.SelectCommand.Parameters(0).Value = CType(ReceiptNo, String)
             End If
             Dim dataTable As DSOpticalShop.V_Receipt_InvoiceDataTable = New DSOpticalShop.V_Receipt_InvoiceDataTable
             Me.Adapter.Fill(dataTable)
             Return dataTable
         End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
-        Public Overloads Overridable Function FillByReceiptID(ByVal dataTable As DSOpticalShop.V_Receipt_InvoiceDataTable, ByVal ReceiptID As Decimal) As Integer
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, False)> _
+        Public Overridable Overloads Function FillByReceiptID(ByVal dataTable As DSOpticalShop.V_Receipt_InvoiceDataTable, ByVal ReceiptID As Decimal) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(2)
-            Me.Adapter.SelectCommand.Parameters(0).Value = CType(ReceiptID,Decimal)
-            If (Me.ClearBeforeFill = true) Then
-                dataTable.Clear
+            Me.Adapter.SelectCommand.Parameters(0).Value = CType(ReceiptID, Decimal)
+            If (Me.ClearBeforeFill = True) Then
+                dataTable.Clear()
             End If
             Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
             Return returnValue
         End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
-        Public Overloads Overridable Function GetDataByReceiptID(ByVal ReceiptID As Decimal) As DSOpticalShop.V_Receipt_InvoiceDataTable
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], False)> _
+        Public Overridable Overloads Function GetDataByReceiptID(ByVal ReceiptID As Decimal) As DSOpticalShop.V_Receipt_InvoiceDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(2)
-            Me.Adapter.SelectCommand.Parameters(0).Value = CType(ReceiptID,Decimal)
+            Me.Adapter.SelectCommand.Parameters(0).Value = CType(ReceiptID, Decimal)
             Dim dataTable As DSOpticalShop.V_Receipt_InvoiceDataTable = New DSOpticalShop.V_Receipt_InvoiceDataTable
             Me.Adapter.Fill(dataTable)
             Return dataTable
         End Function
     End Class
-    
+
     '''<summary>
     '''Represents the connection and commands used to retrieve and save data.
     '''</summary>
-    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0"),  _
-     Global.System.ComponentModel.DesignerCategoryAttribute("code"),  _
-     Global.System.ComponentModel.ToolboxItem(true),  _
-     Global.System.ComponentModel.DataObjectAttribute(true),  _
-     Global.System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner"& _ 
-        ", Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"),  _
-     Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0"), _
+     Global.System.ComponentModel.DesignerCategoryAttribute("code"), _
+     Global.System.ComponentModel.ToolboxItem(True), _
+     Global.System.ComponentModel.DataObjectAttribute(True), _
+     Global.System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" & _
+        ", Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"), _
+     Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")> _
     Partial Public Class VMainReceiptNILTableAdapter
         Inherits Global.System.ComponentModel.Component
-        
+
         Private WithEvents _adapter As Global.System.Data.SqlClient.SqlDataAdapter
-        
+
         Private _connection As Global.System.Data.SqlClient.SqlConnection
-        
+
         Private _transaction As Global.System.Data.SqlClient.SqlTransaction
-        
+
         Private _commandCollection() As Global.System.Data.SqlClient.SqlCommand
-        
+
         Private _clearBeforeFill As Boolean
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
         Public Sub New()
-            MyBase.New
-            Me.ClearBeforeFill = true
+            MyBase.New()
+            Me.ClearBeforeFill = True
         End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
         Protected Friend ReadOnly Property Adapter() As Global.System.Data.SqlClient.SqlDataAdapter
             Get
                 If (Me._adapter Is Nothing) Then
-                    Me.InitAdapter
+                    Me.InitAdapter()
                 End If
                 Return Me._adapter
             End Get
         End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
         Friend Property Connection() As Global.System.Data.SqlClient.SqlConnection
             Get
                 If (Me._connection Is Nothing) Then
-                    Me.InitConnection
+                    Me.InitConnection()
                 End If
                 Return Me._connection
             End Get
-            Set
+            Set(ByVal value As Global.System.Data.SqlClient.SqlConnection)
                 Me._connection = value
                 If (Not (Me.Adapter.InsertCommand) Is Nothing) Then
                     Me.Adapter.InsertCommand.Connection = value
@@ -18896,61 +18896,61 @@ Namespace DSOpticalShopTableAdapters
                 Dim i As Integer = 0
                 Do While (i < Me.CommandCollection.Length)
                     If (Not (Me.CommandCollection(i)) Is Nothing) Then
-                        CType(Me.CommandCollection(i),Global.System.Data.SqlClient.SqlCommand).Connection = value
+                        CType(Me.CommandCollection(i), Global.System.Data.SqlClient.SqlCommand).Connection = value
                     End If
                     i = (i + 1)
                 Loop
             End Set
         End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
         Friend Property Transaction() As Global.System.Data.SqlClient.SqlTransaction
             Get
                 Return Me._transaction
             End Get
-            Set
+            Set(ByVal value As Global.System.Data.SqlClient.SqlTransaction)
                 Me._transaction = value
                 Dim i As Integer = 0
                 Do While (i < Me.CommandCollection.Length)
                     Me.CommandCollection(i).Transaction = Me._transaction
                     i = (i + 1)
                 Loop
-                If ((Not (Me.Adapter) Is Nothing)  _
+                If ((Not (Me.Adapter) Is Nothing) _
                             AndAlso (Not (Me.Adapter.DeleteCommand) Is Nothing)) Then
                     Me.Adapter.DeleteCommand.Transaction = Me._transaction
                 End If
-                If ((Not (Me.Adapter) Is Nothing)  _
+                If ((Not (Me.Adapter) Is Nothing) _
                             AndAlso (Not (Me.Adapter.InsertCommand) Is Nothing)) Then
                     Me.Adapter.InsertCommand.Transaction = Me._transaction
                 End If
-                If ((Not (Me.Adapter) Is Nothing)  _
+                If ((Not (Me.Adapter) Is Nothing) _
                             AndAlso (Not (Me.Adapter.UpdateCommand) Is Nothing)) Then
                     Me.Adapter.UpdateCommand.Transaction = Me._transaction
                 End If
             End Set
         End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
         Protected ReadOnly Property CommandCollection() As Global.System.Data.SqlClient.SqlCommand()
             Get
                 If (Me._commandCollection Is Nothing) Then
-                    Me.InitCommandCollection
+                    Me.InitCommandCollection()
                 End If
                 Return Me._commandCollection
             End Get
         End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
         Public Property ClearBeforeFill() As Boolean
             Get
                 Return Me._clearBeforeFill
             End Get
-            Set
+            Set(ByVal value As Boolean)
                 Me._clearBeforeFill = value
             End Set
         End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
         Private Sub InitAdapter()
             Me._adapter = New Global.System.Data.SqlClient.SqlDataAdapter
             Dim tableMapping As Global.System.Data.Common.DataTableMapping = New Global.System.Data.Common.DataTableMapping
@@ -18981,133 +18981,133 @@ Namespace DSOpticalShopTableAdapters
             tableMapping.ColumnMappings.Add("Achieve", "Achieve")
             Me._adapter.TableMappings.Add(tableMapping)
         End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
         Private Sub InitConnection()
             Me._connection = New Global.System.Data.SqlClient.SqlConnection
-            Me._connection.ConnectionString = Global.HospitalMS.My.MySettings.Default.TakeoDBConnectionString
+            Me._connection.ConnectionString = Global.HospitalMS.My.MySettings.Default.AppConnection
         End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
         Private Sub InitCommandCollection()
             Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(1) {}
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT ReceiptNILId, ReceiptNILDate, PatientNo, UserID, UserName, Glasses, OlePat"& _ 
-                "ientNo, CreateDate, Province, District, Commune, NameEng, NameKhmer, Age, Male, "& _ 
-                "Female, Sex, Address, Occupation, Telephone, Neighborly, Years, Achieve FROM dbo"& _ 
+            Me._commandCollection(0).CommandText = "SELECT ReceiptNILId, ReceiptNILDate, PatientNo, UserID, UserName, Glasses, OlePat" & _
+                "ientNo, CreateDate, Province, District, Commune, NameEng, NameKhmer, Age, Male, " & _
+                "Female, Sex, Address, Occupation, Telephone, Neighborly, Years, Achieve FROM dbo" & _
                 ".VMainReceiptNIL"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(1) = New Global.System.Data.SqlClient.SqlCommand
             Me._commandCollection(1).Connection = Me.Connection
-            Me._commandCollection(1).CommandText = "SELECT ReceiptNILId, ReceiptNILDate, PatientNo, UserID, UserName, Glasses, OlePat"& _ 
-                "ientNo, CreateDate, Province, District, Commune, NameEng, NameKhmer, Age, Male, "& _ 
-                "Female, Sex, Address, Occupation, Telephone, Neighborly, Years, Achieve FROM dbo"& _ 
-                ".VMainReceiptNIL"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE (CAST(CONVERT (VARCHAR(10),  ReceiptNILDate, 1) AS DateT"& _ 
-                "ime) BETWEEN CAST(CONVERT (VARCHAR(10), CAST(@DateFrom AS DATETIME), 1) AS Datet"& _ 
+            Me._commandCollection(1).CommandText = "SELECT ReceiptNILId, ReceiptNILDate, PatientNo, UserID, UserName, Glasses, OlePat" & _
+                "ientNo, CreateDate, Province, District, Commune, NameEng, NameKhmer, Age, Male, " & _
+                "Female, Sex, Address, Occupation, Telephone, Neighborly, Years, Achieve FROM dbo" & _
+                ".VMainReceiptNIL" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "WHERE (CAST(CONVERT (VARCHAR(10),  ReceiptNILDate, 1) AS DateT" & _
+                "ime) BETWEEN CAST(CONVERT (VARCHAR(10), CAST(@DateFrom AS DATETIME), 1) AS Datet" & _
                 "ime) AND CAST(CONVERT (VARCHAR(10), CAST(@DateTO AS DATETIME), 1) AS Datetime))"
             Me._commandCollection(1).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateFrom", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateTO", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateFrom", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateTO", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
         End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, true)>  _
-        Public Overloads Overridable Function Fill(ByVal dataTable As DSOpticalShop.VMainReceiptNILDataTable) As Integer
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, True)> _
+        Public Overridable Overloads Function Fill(ByVal dataTable As DSOpticalShop.VMainReceiptNILDataTable) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
-            If (Me.ClearBeforeFill = true) Then
-                dataTable.Clear
+            If (Me.ClearBeforeFill = True) Then
+                dataTable.Clear()
             End If
             Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
             Return returnValue
         End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], true)>  _
-        Public Overloads Overridable Function GetData() As DSOpticalShop.VMainReceiptNILDataTable
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], True)> _
+        Public Overridable Overloads Function GetData() As DSOpticalShop.VMainReceiptNILDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
             Dim dataTable As DSOpticalShop.VMainReceiptNILDataTable = New DSOpticalShop.VMainReceiptNILDataTable
             Me.Adapter.Fill(dataTable)
             Return dataTable
         End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
-        Public Overloads Overridable Function FillBy(ByVal dataTable As DSOpticalShop.VMainReceiptNILDataTable, ByVal DateFrom As Date, ByVal DateTO As Date) As Integer
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, False)> _
+        Public Overridable Overloads Function FillBy(ByVal dataTable As DSOpticalShop.VMainReceiptNILDataTable, ByVal DateFrom As Date, ByVal DateTO As Date) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(1)
-            Me.Adapter.SelectCommand.Parameters(0).Value = CType(DateFrom,Date)
-            Me.Adapter.SelectCommand.Parameters(1).Value = CType(DateTO,Date)
-            If (Me.ClearBeforeFill = true) Then
-                dataTable.Clear
+            Me.Adapter.SelectCommand.Parameters(0).Value = CType(DateFrom, Date)
+            Me.Adapter.SelectCommand.Parameters(1).Value = CType(DateTO, Date)
+            If (Me.ClearBeforeFill = True) Then
+                dataTable.Clear()
             End If
             Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
             Return returnValue
         End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
-        Public Overloads Overridable Function GetDataReceiptNIL(ByVal DateFrom As Date, ByVal DateTO As Date) As DSOpticalShop.VMainReceiptNILDataTable
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], False)> _
+        Public Overridable Overloads Function GetDataReceiptNIL(ByVal DateFrom As Date, ByVal DateTO As Date) As DSOpticalShop.VMainReceiptNILDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(1)
-            Me.Adapter.SelectCommand.Parameters(0).Value = CType(DateFrom,Date)
-            Me.Adapter.SelectCommand.Parameters(1).Value = CType(DateTO,Date)
+            Me.Adapter.SelectCommand.Parameters(0).Value = CType(DateFrom, Date)
+            Me.Adapter.SelectCommand.Parameters(1).Value = CType(DateTO, Date)
             Dim dataTable As DSOpticalShop.VMainReceiptNILDataTable = New DSOpticalShop.VMainReceiptNILDataTable
             Me.Adapter.Fill(dataTable)
             Return dataTable
         End Function
     End Class
-    
+
     '''<summary>
     '''Represents the connection and commands used to retrieve and save data.
     '''</summary>
-    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0"),  _
-     Global.System.ComponentModel.DesignerCategoryAttribute("code"),  _
-     Global.System.ComponentModel.ToolboxItem(true),  _
-     Global.System.ComponentModel.DataObjectAttribute(true),  _
-     Global.System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner"& _ 
-        ", Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"),  _
-     Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0"), _
+     Global.System.ComponentModel.DesignerCategoryAttribute("code"), _
+     Global.System.ComponentModel.ToolboxItem(True), _
+     Global.System.ComponentModel.DataObjectAttribute(True), _
+     Global.System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" & _
+        ", Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"), _
+     Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")> _
     Partial Public Class VReceiptNILDetailTableAdapter
         Inherits Global.System.ComponentModel.Component
-        
+
         Private WithEvents _adapter As Global.System.Data.SqlClient.SqlDataAdapter
-        
+
         Private _connection As Global.System.Data.SqlClient.SqlConnection
-        
+
         Private _transaction As Global.System.Data.SqlClient.SqlTransaction
-        
+
         Private _commandCollection() As Global.System.Data.SqlClient.SqlCommand
-        
+
         Private _clearBeforeFill As Boolean
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
         Public Sub New()
-            MyBase.New
-            Me.ClearBeforeFill = true
+            MyBase.New()
+            Me.ClearBeforeFill = True
         End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
         Protected Friend ReadOnly Property Adapter() As Global.System.Data.SqlClient.SqlDataAdapter
             Get
                 If (Me._adapter Is Nothing) Then
-                    Me.InitAdapter
+                    Me.InitAdapter()
                 End If
                 Return Me._adapter
             End Get
         End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
         Friend Property Connection() As Global.System.Data.SqlClient.SqlConnection
             Get
                 If (Me._connection Is Nothing) Then
-                    Me.InitConnection
+                    Me.InitConnection()
                 End If
                 Return Me._connection
             End Get
-            Set
+            Set(ByVal value As Global.System.Data.SqlClient.SqlConnection)
                 Me._connection = value
                 If (Not (Me.Adapter.InsertCommand) Is Nothing) Then
                     Me.Adapter.InsertCommand.Connection = value
@@ -19121,61 +19121,61 @@ Namespace DSOpticalShopTableAdapters
                 Dim i As Integer = 0
                 Do While (i < Me.CommandCollection.Length)
                     If (Not (Me.CommandCollection(i)) Is Nothing) Then
-                        CType(Me.CommandCollection(i),Global.System.Data.SqlClient.SqlCommand).Connection = value
+                        CType(Me.CommandCollection(i), Global.System.Data.SqlClient.SqlCommand).Connection = value
                     End If
                     i = (i + 1)
                 Loop
             End Set
         End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
         Friend Property Transaction() As Global.System.Data.SqlClient.SqlTransaction
             Get
                 Return Me._transaction
             End Get
-            Set
+            Set(ByVal value As Global.System.Data.SqlClient.SqlTransaction)
                 Me._transaction = value
                 Dim i As Integer = 0
                 Do While (i < Me.CommandCollection.Length)
                     Me.CommandCollection(i).Transaction = Me._transaction
                     i = (i + 1)
                 Loop
-                If ((Not (Me.Adapter) Is Nothing)  _
+                If ((Not (Me.Adapter) Is Nothing) _
                             AndAlso (Not (Me.Adapter.DeleteCommand) Is Nothing)) Then
                     Me.Adapter.DeleteCommand.Transaction = Me._transaction
                 End If
-                If ((Not (Me.Adapter) Is Nothing)  _
+                If ((Not (Me.Adapter) Is Nothing) _
                             AndAlso (Not (Me.Adapter.InsertCommand) Is Nothing)) Then
                     Me.Adapter.InsertCommand.Transaction = Me._transaction
                 End If
-                If ((Not (Me.Adapter) Is Nothing)  _
+                If ((Not (Me.Adapter) Is Nothing) _
                             AndAlso (Not (Me.Adapter.UpdateCommand) Is Nothing)) Then
                     Me.Adapter.UpdateCommand.Transaction = Me._transaction
                 End If
             End Set
         End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
         Protected ReadOnly Property CommandCollection() As Global.System.Data.SqlClient.SqlCommand()
             Get
                 If (Me._commandCollection Is Nothing) Then
-                    Me.InitCommandCollection
+                    Me.InitCommandCollection()
                 End If
                 Return Me._commandCollection
             End Get
         End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
         Public Property ClearBeforeFill() As Boolean
             Get
                 Return Me._clearBeforeFill
             End Get
-            Set
+            Set(ByVal value As Boolean)
                 Me._clearBeforeFill = value
             End Set
         End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
         Private Sub InitAdapter()
             Me._adapter = New Global.System.Data.SqlClient.SqlDataAdapter
             Dim tableMapping As Global.System.Data.Common.DataTableMapping = New Global.System.Data.Common.DataTableMapping
@@ -19190,94 +19190,94 @@ Namespace DSOpticalShopTableAdapters
             tableMapping.ColumnMappings.Add("Barcode", "Barcode")
             Me._adapter.TableMappings.Add(tableMapping)
         End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
         Private Sub InitConnection()
             Me._connection = New Global.System.Data.SqlClient.SqlConnection
-            Me._connection.ConnectionString = Global.HospitalMS.My.MySettings.Default.TakeoDBConnectionString
+            Me._connection.ConnectionString = Global.HospitalMS.My.MySettings.Default.AppConnection
         End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
         Private Sub InitCommandCollection()
             Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(0) {}
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT ReceiptNILDId, ReceiptNILId, ItemID, ItemPrice, ItemQTY, ItemName, Barcode"& _ 
+            Me._commandCollection(0).CommandText = "SELECT ReceiptNILDId, ReceiptNILId, ItemID, ItemPrice, ItemQTY, ItemName, Barcode" & _
                 " FROM dbo.VReceiptNILDetail"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
         End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, true)>  _
-        Public Overloads Overridable Function Fill(ByVal dataTable As DSOpticalShop.VReceiptNILDetailDataTable) As Integer
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, True)> _
+        Public Overridable Overloads Function Fill(ByVal dataTable As DSOpticalShop.VReceiptNILDetailDataTable) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
-            If (Me.ClearBeforeFill = true) Then
-                dataTable.Clear
+            If (Me.ClearBeforeFill = True) Then
+                dataTable.Clear()
             End If
             Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
             Return returnValue
         End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], true)>  _
-        Public Overloads Overridable Function GetData() As DSOpticalShop.VReceiptNILDetailDataTable
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], True)> _
+        Public Overridable Overloads Function GetData() As DSOpticalShop.VReceiptNILDetailDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
             Dim dataTable As DSOpticalShop.VReceiptNILDetailDataTable = New DSOpticalShop.VReceiptNILDetailDataTable
             Me.Adapter.Fill(dataTable)
             Return dataTable
         End Function
     End Class
-    
+
     '''<summary>
     '''Represents the connection and commands used to retrieve and save data.
     '''</summary>
-    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0"),  _
-     Global.System.ComponentModel.DesignerCategoryAttribute("code"),  _
-     Global.System.ComponentModel.ToolboxItem(true),  _
-     Global.System.ComponentModel.DataObjectAttribute(true),  _
-     Global.System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner"& _ 
-        ", Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"),  _
-     Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0"), _
+     Global.System.ComponentModel.DesignerCategoryAttribute("code"), _
+     Global.System.ComponentModel.ToolboxItem(True), _
+     Global.System.ComponentModel.DataObjectAttribute(True), _
+     Global.System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" & _
+        ", Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"), _
+     Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")> _
     Partial Public Class V_OpticalShopPatientStatisticByIcomeTypeTableAdapter
         Inherits Global.System.ComponentModel.Component
-        
+
         Private WithEvents _adapter As Global.System.Data.SqlClient.SqlDataAdapter
-        
+
         Private _connection As Global.System.Data.SqlClient.SqlConnection
-        
+
         Private _transaction As Global.System.Data.SqlClient.SqlTransaction
-        
+
         Private _commandCollection() As Global.System.Data.SqlClient.SqlCommand
-        
+
         Private _clearBeforeFill As Boolean
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
         Public Sub New()
-            MyBase.New
-            Me.ClearBeforeFill = true
+            MyBase.New()
+            Me.ClearBeforeFill = True
         End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
         Protected Friend ReadOnly Property Adapter() As Global.System.Data.SqlClient.SqlDataAdapter
             Get
                 If (Me._adapter Is Nothing) Then
-                    Me.InitAdapter
+                    Me.InitAdapter()
                 End If
                 Return Me._adapter
             End Get
         End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
         Friend Property Connection() As Global.System.Data.SqlClient.SqlConnection
             Get
                 If (Me._connection Is Nothing) Then
-                    Me.InitConnection
+                    Me.InitConnection()
                 End If
                 Return Me._connection
             End Get
-            Set
+            Set(ByVal value As Global.System.Data.SqlClient.SqlConnection)
                 Me._connection = value
                 If (Not (Me.Adapter.InsertCommand) Is Nothing) Then
                     Me.Adapter.InsertCommand.Connection = value
@@ -19291,61 +19291,61 @@ Namespace DSOpticalShopTableAdapters
                 Dim i As Integer = 0
                 Do While (i < Me.CommandCollection.Length)
                     If (Not (Me.CommandCollection(i)) Is Nothing) Then
-                        CType(Me.CommandCollection(i),Global.System.Data.SqlClient.SqlCommand).Connection = value
+                        CType(Me.CommandCollection(i), Global.System.Data.SqlClient.SqlCommand).Connection = value
                     End If
                     i = (i + 1)
                 Loop
             End Set
         End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
         Friend Property Transaction() As Global.System.Data.SqlClient.SqlTransaction
             Get
                 Return Me._transaction
             End Get
-            Set
+            Set(ByVal value As Global.System.Data.SqlClient.SqlTransaction)
                 Me._transaction = value
                 Dim i As Integer = 0
                 Do While (i < Me.CommandCollection.Length)
                     Me.CommandCollection(i).Transaction = Me._transaction
                     i = (i + 1)
                 Loop
-                If ((Not (Me.Adapter) Is Nothing)  _
+                If ((Not (Me.Adapter) Is Nothing) _
                             AndAlso (Not (Me.Adapter.DeleteCommand) Is Nothing)) Then
                     Me.Adapter.DeleteCommand.Transaction = Me._transaction
                 End If
-                If ((Not (Me.Adapter) Is Nothing)  _
+                If ((Not (Me.Adapter) Is Nothing) _
                             AndAlso (Not (Me.Adapter.InsertCommand) Is Nothing)) Then
                     Me.Adapter.InsertCommand.Transaction = Me._transaction
                 End If
-                If ((Not (Me.Adapter) Is Nothing)  _
+                If ((Not (Me.Adapter) Is Nothing) _
                             AndAlso (Not (Me.Adapter.UpdateCommand) Is Nothing)) Then
                     Me.Adapter.UpdateCommand.Transaction = Me._transaction
                 End If
             End Set
         End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
         Protected ReadOnly Property CommandCollection() As Global.System.Data.SqlClient.SqlCommand()
             Get
                 If (Me._commandCollection Is Nothing) Then
-                    Me.InitCommandCollection
+                    Me.InitCommandCollection()
                 End If
                 Return Me._commandCollection
             End Get
         End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
         Public Property ClearBeforeFill() As Boolean
             Get
                 Return Me._clearBeforeFill
             End Get
-            Set
+            Set(ByVal value As Boolean)
                 Me._clearBeforeFill = value
             End Set
         End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
         Private Sub InitAdapter()
             Me._adapter = New Global.System.Data.SqlClient.SqlDataAdapter
             Dim tableMapping As Global.System.Data.Common.DataTableMapping = New Global.System.Data.Common.DataTableMapping
@@ -19363,84 +19363,84 @@ Namespace DSOpticalShopTableAdapters
             tableMapping.ColumnMappings.Add("ReceiptDate", "ReceiptDate")
             Me._adapter.TableMappings.Add(tableMapping)
         End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
         Private Sub InitConnection()
             Me._connection = New Global.System.Data.SqlClient.SqlConnection
-            Me._connection.ConnectionString = Global.HospitalMS.My.MySettings.Default.TakeoDBConnectionString
+            Me._connection.ConnectionString = Global.HospitalMS.My.MySettings.Default.AppConnection
         End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
         Private Sub InitCommandCollection()
             Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(1) {}
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT     IsOldPatient, IncomType, ReceiptType, F, M, Age, Sex, IsPaid, agerange"& _ 
-                ", ReceiptDate"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM         V_OpticalShopPatientStatisticByIcomeType"
+            Me._commandCollection(0).CommandText = "SELECT     IsOldPatient, IncomType, ReceiptType, F, M, Age, Sex, IsPaid, agerange" & _
+                ", ReceiptDate" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "FROM         V_OpticalShopPatientStatisticByIcomeType"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(1) = New Global.System.Data.SqlClient.SqlCommand
             Me._commandCollection(1).Connection = Me.Connection
-            Me._commandCollection(1).CommandText = "SELECT Age, F, IncomType, IsOldPatient, IsPaid, M, ReceiptDate, ReceiptType, Sex,"& _ 
-                " agerange FROM V_OpticalShopPatientStatisticByIcomeType WHERE (CAST(CONVERT (VAR"& _ 
-                "CHAR(10), ReceiptDate, 1) AS DateTime) BETWEEN CAST(CONVERT (VARCHAR(10), CAST(@"& _ 
-                "DateFrom AS DATETIME), 1) AS Datetime) AND CAST(CONVERT (VARCHAR(10), CAST(@Date"& _ 
+            Me._commandCollection(1).CommandText = "SELECT Age, F, IncomType, IsOldPatient, IsPaid, M, ReceiptDate, ReceiptType, Sex," & _
+                " agerange FROM V_OpticalShopPatientStatisticByIcomeType WHERE (CAST(CONVERT (VAR" & _
+                "CHAR(10), ReceiptDate, 1) AS DateTime) BETWEEN CAST(CONVERT (VARCHAR(10), CAST(@" & _
+                "DateFrom AS DATETIME), 1) AS Datetime) AND CAST(CONVERT (VARCHAR(10), CAST(@Date" & _
                 "TO AS DATETIME), 1) AS Datetime)) AND (IsOldPatient = @IsOldPatient)"
             Me._commandCollection(1).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateFrom", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateTO", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsOldPatient", Global.System.Data.SqlDbType.Bit, 1, Global.System.Data.ParameterDirection.Input, 0, 0, "IsOldPatient", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateFrom", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateTO", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsOldPatient", Global.System.Data.SqlDbType.Bit, 1, Global.System.Data.ParameterDirection.Input, 0, 0, "IsOldPatient", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
         End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, true)>  _
-        Public Overloads Overridable Function Fill(ByVal dataTable As DSOpticalShop.V_OpticalShopPatientStatisticByIcomeTypeDataTable) As Integer
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, True)> _
+        Public Overridable Overloads Function Fill(ByVal dataTable As DSOpticalShop.V_OpticalShopPatientStatisticByIcomeTypeDataTable) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
-            If (Me.ClearBeforeFill = true) Then
-                dataTable.Clear
+            If (Me.ClearBeforeFill = True) Then
+                dataTable.Clear()
             End If
             Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
             Return returnValue
         End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], true)>  _
-        Public Overloads Overridable Function GetData() As DSOpticalShop.V_OpticalShopPatientStatisticByIcomeTypeDataTable
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], True)> _
+        Public Overridable Overloads Function GetData() As DSOpticalShop.V_OpticalShopPatientStatisticByIcomeTypeDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
             Dim dataTable As DSOpticalShop.V_OpticalShopPatientStatisticByIcomeTypeDataTable = New DSOpticalShop.V_OpticalShopPatientStatisticByIcomeTypeDataTable
             Me.Adapter.Fill(dataTable)
             Return dataTable
         End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
-        Public Overloads Overridable Function FillBy(ByVal dataTable As DSOpticalShop.V_OpticalShopPatientStatisticByIcomeTypeDataTable, ByVal DateFrom As Date, ByVal DateTO As Date, ByVal IsOldPatient As Global.System.Nullable(Of Boolean)) As Integer
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, False)> _
+        Public Overridable Overloads Function FillBy(ByVal dataTable As DSOpticalShop.V_OpticalShopPatientStatisticByIcomeTypeDataTable, ByVal DateFrom As Date, ByVal DateTO As Date, ByVal IsOldPatient As Global.System.Nullable(Of Boolean)) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(1)
-            Me.Adapter.SelectCommand.Parameters(0).Value = CType(DateFrom,Date)
-            Me.Adapter.SelectCommand.Parameters(1).Value = CType(DateTO,Date)
-            If (IsOldPatient.HasValue = true) Then
-                Me.Adapter.SelectCommand.Parameters(2).Value = CType(IsOldPatient.Value,Boolean)
+            Me.Adapter.SelectCommand.Parameters(0).Value = CType(DateFrom, Date)
+            Me.Adapter.SelectCommand.Parameters(1).Value = CType(DateTO, Date)
+            If (IsOldPatient.HasValue = True) Then
+                Me.Adapter.SelectCommand.Parameters(2).Value = CType(IsOldPatient.Value, Boolean)
             Else
                 Me.Adapter.SelectCommand.Parameters(2).Value = Global.System.DBNull.Value
             End If
-            If (Me.ClearBeforeFill = true) Then
-                dataTable.Clear
+            If (Me.ClearBeforeFill = True) Then
+                dataTable.Clear()
             End If
             Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
             Return returnValue
         End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
-        Public Overloads Overridable Function GetDataFDateTDate(ByVal DateFrom As Date, ByVal DateTO As Date, ByVal IsOldPatient As Global.System.Nullable(Of Boolean)) As DSOpticalShop.V_OpticalShopPatientStatisticByIcomeTypeDataTable
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], False)> _
+        Public Overridable Overloads Function GetDataFDateTDate(ByVal DateFrom As Date, ByVal DateTO As Date, ByVal IsOldPatient As Global.System.Nullable(Of Boolean)) As DSOpticalShop.V_OpticalShopPatientStatisticByIcomeTypeDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(1)
-            Me.Adapter.SelectCommand.Parameters(0).Value = CType(DateFrom,Date)
-            Me.Adapter.SelectCommand.Parameters(1).Value = CType(DateTO,Date)
-            If (IsOldPatient.HasValue = true) Then
-                Me.Adapter.SelectCommand.Parameters(2).Value = CType(IsOldPatient.Value,Boolean)
+            Me.Adapter.SelectCommand.Parameters(0).Value = CType(DateFrom, Date)
+            Me.Adapter.SelectCommand.Parameters(1).Value = CType(DateTO, Date)
+            If (IsOldPatient.HasValue = True) Then
+                Me.Adapter.SelectCommand.Parameters(2).Value = CType(IsOldPatient.Value, Boolean)
             Else
                 Me.Adapter.SelectCommand.Parameters(2).Value = Global.System.DBNull.Value
             End If
@@ -19449,55 +19449,55 @@ Namespace DSOpticalShopTableAdapters
             Return dataTable
         End Function
     End Class
-    
+
     '''<summary>
     '''Represents the connection and commands used to retrieve and save data.
     '''</summary>
-    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0"),  _
-     Global.System.ComponentModel.DesignerCategoryAttribute("code"),  _
-     Global.System.ComponentModel.ToolboxItem(true),  _
-     Global.System.ComponentModel.DataObjectAttribute(true),  _
-     Global.System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner"& _ 
-        ", Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"),  _
-     Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0"), _
+     Global.System.ComponentModel.DesignerCategoryAttribute("code"), _
+     Global.System.ComponentModel.ToolboxItem(True), _
+     Global.System.ComponentModel.DataObjectAttribute(True), _
+     Global.System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" & _
+        ", Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"), _
+     Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")> _
     Partial Public Class V_OpticalShopPaymentTypeByAgeStatisticTableAdapter
         Inherits Global.System.ComponentModel.Component
-        
+
         Private WithEvents _adapter As Global.System.Data.SqlClient.SqlDataAdapter
-        
+
         Private _connection As Global.System.Data.SqlClient.SqlConnection
-        
+
         Private _transaction As Global.System.Data.SqlClient.SqlTransaction
-        
+
         Private _commandCollection() As Global.System.Data.SqlClient.SqlCommand
-        
+
         Private _clearBeforeFill As Boolean
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
         Public Sub New()
-            MyBase.New
-            Me.ClearBeforeFill = true
+            MyBase.New()
+            Me.ClearBeforeFill = True
         End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
         Protected Friend ReadOnly Property Adapter() As Global.System.Data.SqlClient.SqlDataAdapter
             Get
                 If (Me._adapter Is Nothing) Then
-                    Me.InitAdapter
+                    Me.InitAdapter()
                 End If
                 Return Me._adapter
             End Get
         End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
         Friend Property Connection() As Global.System.Data.SqlClient.SqlConnection
             Get
                 If (Me._connection Is Nothing) Then
-                    Me.InitConnection
+                    Me.InitConnection()
                 End If
                 Return Me._connection
             End Get
-            Set
+            Set(ByVal value As Global.System.Data.SqlClient.SqlConnection)
                 Me._connection = value
                 If (Not (Me.Adapter.InsertCommand) Is Nothing) Then
                     Me.Adapter.InsertCommand.Connection = value
@@ -19511,61 +19511,61 @@ Namespace DSOpticalShopTableAdapters
                 Dim i As Integer = 0
                 Do While (i < Me.CommandCollection.Length)
                     If (Not (Me.CommandCollection(i)) Is Nothing) Then
-                        CType(Me.CommandCollection(i),Global.System.Data.SqlClient.SqlCommand).Connection = value
+                        CType(Me.CommandCollection(i), Global.System.Data.SqlClient.SqlCommand).Connection = value
                     End If
                     i = (i + 1)
                 Loop
             End Set
         End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
         Friend Property Transaction() As Global.System.Data.SqlClient.SqlTransaction
             Get
                 Return Me._transaction
             End Get
-            Set
+            Set(ByVal value As Global.System.Data.SqlClient.SqlTransaction)
                 Me._transaction = value
                 Dim i As Integer = 0
                 Do While (i < Me.CommandCollection.Length)
                     Me.CommandCollection(i).Transaction = Me._transaction
                     i = (i + 1)
                 Loop
-                If ((Not (Me.Adapter) Is Nothing)  _
+                If ((Not (Me.Adapter) Is Nothing) _
                             AndAlso (Not (Me.Adapter.DeleteCommand) Is Nothing)) Then
                     Me.Adapter.DeleteCommand.Transaction = Me._transaction
                 End If
-                If ((Not (Me.Adapter) Is Nothing)  _
+                If ((Not (Me.Adapter) Is Nothing) _
                             AndAlso (Not (Me.Adapter.InsertCommand) Is Nothing)) Then
                     Me.Adapter.InsertCommand.Transaction = Me._transaction
                 End If
-                If ((Not (Me.Adapter) Is Nothing)  _
+                If ((Not (Me.Adapter) Is Nothing) _
                             AndAlso (Not (Me.Adapter.UpdateCommand) Is Nothing)) Then
                     Me.Adapter.UpdateCommand.Transaction = Me._transaction
                 End If
             End Set
         End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
         Protected ReadOnly Property CommandCollection() As Global.System.Data.SqlClient.SqlCommand()
             Get
                 If (Me._commandCollection Is Nothing) Then
-                    Me.InitCommandCollection
+                    Me.InitCommandCollection()
                 End If
                 Return Me._commandCollection
             End Get
         End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
         Public Property ClearBeforeFill() As Boolean
             Get
                 Return Me._clearBeforeFill
             End Get
-            Set
+            Set(ByVal value As Boolean)
                 Me._clearBeforeFill = value
             End Set
         End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
         Private Sub InitAdapter()
             Me._adapter = New Global.System.Data.SqlClient.SqlDataAdapter
             Dim tableMapping As Global.System.Data.Common.DataTableMapping = New Global.System.Data.Common.DataTableMapping
@@ -19584,178 +19584,178 @@ Namespace DSOpticalShopTableAdapters
             tableMapping.ColumnMappings.Add("ReceiptDate", "ReceiptDate")
             Me._adapter.TableMappings.Add(tableMapping)
         End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
         Private Sub InitConnection()
             Me._connection = New Global.System.Data.SqlClient.SqlConnection
-            Me._connection.ConnectionString = Global.HospitalMS.My.MySettings.Default.TakeoDBConnectionString
+            Me._connection.ConnectionString = Global.HospitalMS.My.MySettings.Default.AppConnection
         End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
         Private Sub InitCommandCollection()
             Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(2) {}
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT        PaymentType, IsOldPatient, IncomType, ReceiptType, F, M, Age, Sex, "& _ 
-                "IsPaid, agerange, ReceiptDate"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            V_OpticalShopPaymentTypeByAgeStat"& _ 
+            Me._commandCollection(0).CommandText = "SELECT        PaymentType, IsOldPatient, IncomType, ReceiptType, F, M, Age, Sex, " & _
+                "IsPaid, agerange, ReceiptDate" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "FROM            V_OpticalShopPaymentTypeByAgeStat" & _
                 "istic"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(1) = New Global.System.Data.SqlClient.SqlCommand
             Me._commandCollection(1).Connection = Me.Connection
-            Me._commandCollection(1).CommandText = "SELECT Age, F, IncomType, IsOldPatient, IsPaid, M, PaymentType, ReceiptDate, Rece"& _ 
-                "iptType, Sex, agerange FROM V_OpticalShopPaymentTypeByAgeStatistic WHERE (CAST(C"& _ 
-                "ONVERT (VARCHAR(10), ReceiptDate, 1) AS DateTime) BETWEEN CAST(CONVERT (VARCHAR("& _ 
-                "10), CAST(@DateFrom AS DATETIME), 1) AS Datetime) AND CAST(CONVERT (VARCHAR(10),"& _ 
-                " CAST(@DateTO AS DATETIME), 1) AS Datetime))"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"AND"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"ReceiptType=@ReceiptType"
+            Me._commandCollection(1).CommandText = "SELECT Age, F, IncomType, IsOldPatient, IsPaid, M, PaymentType, ReceiptDate, Rece" & _
+                "iptType, Sex, agerange FROM V_OpticalShopPaymentTypeByAgeStatistic WHERE (CAST(C" & _
+                "ONVERT (VARCHAR(10), ReceiptDate, 1) AS DateTime) BETWEEN CAST(CONVERT (VARCHAR(" & _
+                "10), CAST(@DateFrom AS DATETIME), 1) AS Datetime) AND CAST(CONVERT (VARCHAR(10)," & _
+                " CAST(@DateTO AS DATETIME), 1) AS Datetime))" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "AND" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "ReceiptType=@ReceiptType"
             Me._commandCollection(1).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateFrom", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateTO", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ReceiptType", Global.System.Data.SqlDbType.NVarChar, 100, Global.System.Data.ParameterDirection.Input, 0, 0, "ReceiptType", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateFrom", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateTO", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ReceiptType", Global.System.Data.SqlDbType.NVarChar, 100, Global.System.Data.ParameterDirection.Input, 0, 0, "ReceiptType", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
             Me._commandCollection(2) = New Global.System.Data.SqlClient.SqlCommand
             Me._commandCollection(2).Connection = Me.Connection
-            Me._commandCollection(2).CommandText = "SELECT Age, F, IncomType, IsOldPatient, IsPaid, M, PaymentType, ReceiptDate, Rece"& _ 
-                "iptType, Sex, agerange FROM V_OpticalShopPaymentTypeByAgeStatistic WHERE (CAST(C"& _ 
-                "ONVERT (VARCHAR(10), ReceiptDate, 1) AS DateTime) BETWEEN CAST(CONVERT (VARCHAR("& _ 
-                "10), CAST(@DateFrom AS DATETIME), 1) AS Datetime) AND CAST(CONVERT (VARCHAR(10),"& _ 
+            Me._commandCollection(2).CommandText = "SELECT Age, F, IncomType, IsOldPatient, IsPaid, M, PaymentType, ReceiptDate, Rece" & _
+                "iptType, Sex, agerange FROM V_OpticalShopPaymentTypeByAgeStatistic WHERE (CAST(C" & _
+                "ONVERT (VARCHAR(10), ReceiptDate, 1) AS DateTime) BETWEEN CAST(CONVERT (VARCHAR(" & _
+                "10), CAST(@DateFrom AS DATETIME), 1) AS Datetime) AND CAST(CONVERT (VARCHAR(10)," & _
                 " CAST(@DateTO AS DATETIME), 1) AS Datetime))"
             Me._commandCollection(2).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateFrom", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateTO", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateFrom", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateTO", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
         End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, true)>  _
-        Public Overloads Overridable Function Fill(ByVal dataTable As DSOpticalShop.V_OpticalShopPaymentTypeByAgeStatisticDataTable) As Integer
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, True)> _
+        Public Overridable Overloads Function Fill(ByVal dataTable As DSOpticalShop.V_OpticalShopPaymentTypeByAgeStatisticDataTable) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
-            If (Me.ClearBeforeFill = true) Then
-                dataTable.Clear
+            If (Me.ClearBeforeFill = True) Then
+                dataTable.Clear()
             End If
             Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
             Return returnValue
         End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], true)>  _
-        Public Overloads Overridable Function GetData() As DSOpticalShop.V_OpticalShopPaymentTypeByAgeStatisticDataTable
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], True)> _
+        Public Overridable Overloads Function GetData() As DSOpticalShop.V_OpticalShopPaymentTypeByAgeStatisticDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
             Dim dataTable As DSOpticalShop.V_OpticalShopPaymentTypeByAgeStatisticDataTable = New DSOpticalShop.V_OpticalShopPaymentTypeByAgeStatisticDataTable
             Me.Adapter.Fill(dataTable)
             Return dataTable
         End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
-        Public Overloads Overridable Function FillBy(ByVal dataTable As DSOpticalShop.V_OpticalShopPaymentTypeByAgeStatisticDataTable, ByVal DateFrom As Date, ByVal DateTO As Date, ByVal ReceiptType As String) As Integer
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, False)> _
+        Public Overridable Overloads Function FillBy(ByVal dataTable As DSOpticalShop.V_OpticalShopPaymentTypeByAgeStatisticDataTable, ByVal DateFrom As Date, ByVal DateTO As Date, ByVal ReceiptType As String) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(1)
-            Me.Adapter.SelectCommand.Parameters(0).Value = CType(DateFrom,Date)
-            Me.Adapter.SelectCommand.Parameters(1).Value = CType(DateTO,Date)
+            Me.Adapter.SelectCommand.Parameters(0).Value = CType(DateFrom, Date)
+            Me.Adapter.SelectCommand.Parameters(1).Value = CType(DateTO, Date)
             If (ReceiptType Is Nothing) Then
                 Me.Adapter.SelectCommand.Parameters(2).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.SelectCommand.Parameters(2).Value = CType(ReceiptType,String)
+                Me.Adapter.SelectCommand.Parameters(2).Value = CType(ReceiptType, String)
             End If
-            If (Me.ClearBeforeFill = true) Then
-                dataTable.Clear
+            If (Me.ClearBeforeFill = True) Then
+                dataTable.Clear()
             End If
             Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
             Return returnValue
         End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
-        Public Overloads Overridable Function GetDataFDateTDate(ByVal DateFrom As Date, ByVal DateTO As Date, ByVal ReceiptType As String) As DSOpticalShop.V_OpticalShopPaymentTypeByAgeStatisticDataTable
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], False)> _
+        Public Overridable Overloads Function GetDataFDateTDate(ByVal DateFrom As Date, ByVal DateTO As Date, ByVal ReceiptType As String) As DSOpticalShop.V_OpticalShopPaymentTypeByAgeStatisticDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(1)
-            Me.Adapter.SelectCommand.Parameters(0).Value = CType(DateFrom,Date)
-            Me.Adapter.SelectCommand.Parameters(1).Value = CType(DateTO,Date)
+            Me.Adapter.SelectCommand.Parameters(0).Value = CType(DateFrom, Date)
+            Me.Adapter.SelectCommand.Parameters(1).Value = CType(DateTO, Date)
             If (ReceiptType Is Nothing) Then
                 Me.Adapter.SelectCommand.Parameters(2).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.SelectCommand.Parameters(2).Value = CType(ReceiptType,String)
+                Me.Adapter.SelectCommand.Parameters(2).Value = CType(ReceiptType, String)
             End If
             Dim dataTable As DSOpticalShop.V_OpticalShopPaymentTypeByAgeStatisticDataTable = New DSOpticalShop.V_OpticalShopPaymentTypeByAgeStatisticDataTable
             Me.Adapter.Fill(dataTable)
             Return dataTable
         End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
-        Public Overloads Overridable Function FillByAllPaymentType(ByVal dataTable As DSOpticalShop.V_OpticalShopPaymentTypeByAgeStatisticDataTable, ByVal DateFrom As Date, ByVal DateTO As Date) As Integer
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, False)> _
+        Public Overridable Overloads Function FillByAllPaymentType(ByVal dataTable As DSOpticalShop.V_OpticalShopPaymentTypeByAgeStatisticDataTable, ByVal DateFrom As Date, ByVal DateTO As Date) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(2)
-            Me.Adapter.SelectCommand.Parameters(0).Value = CType(DateFrom,Date)
-            Me.Adapter.SelectCommand.Parameters(1).Value = CType(DateTO,Date)
-            If (Me.ClearBeforeFill = true) Then
-                dataTable.Clear
+            Me.Adapter.SelectCommand.Parameters(0).Value = CType(DateFrom, Date)
+            Me.Adapter.SelectCommand.Parameters(1).Value = CType(DateTO, Date)
+            If (Me.ClearBeforeFill = True) Then
+                dataTable.Clear()
             End If
             Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
             Return returnValue
         End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
-        Public Overloads Overridable Function GetDataByAllPaymentType(ByVal DateFrom As Date, ByVal DateTO As Date) As DSOpticalShop.V_OpticalShopPaymentTypeByAgeStatisticDataTable
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], False)> _
+        Public Overridable Overloads Function GetDataByAllPaymentType(ByVal DateFrom As Date, ByVal DateTO As Date) As DSOpticalShop.V_OpticalShopPaymentTypeByAgeStatisticDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(2)
-            Me.Adapter.SelectCommand.Parameters(0).Value = CType(DateFrom,Date)
-            Me.Adapter.SelectCommand.Parameters(1).Value = CType(DateTO,Date)
+            Me.Adapter.SelectCommand.Parameters(0).Value = CType(DateFrom, Date)
+            Me.Adapter.SelectCommand.Parameters(1).Value = CType(DateTO, Date)
             Dim dataTable As DSOpticalShop.V_OpticalShopPaymentTypeByAgeStatisticDataTable = New DSOpticalShop.V_OpticalShopPaymentTypeByAgeStatisticDataTable
             Me.Adapter.Fill(dataTable)
             Return dataTable
         End Function
     End Class
-    
+
     '''<summary>
     '''Represents the connection and commands used to retrieve and save data.
     '''</summary>
-    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0"),  _
-     Global.System.ComponentModel.DesignerCategoryAttribute("code"),  _
-     Global.System.ComponentModel.ToolboxItem(true),  _
-     Global.System.ComponentModel.DataObjectAttribute(true),  _
-     Global.System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner"& _ 
-        ", Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"),  _
-     Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0"), _
+     Global.System.ComponentModel.DesignerCategoryAttribute("code"), _
+     Global.System.ComponentModel.ToolboxItem(True), _
+     Global.System.ComponentModel.DataObjectAttribute(True), _
+     Global.System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" & _
+        ", Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"), _
+     Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")> _
     Partial Public Class V_ITEM_OPT_TEMTableAdapter
         Inherits Global.System.ComponentModel.Component
-        
+
         Private WithEvents _adapter As Global.System.Data.SqlClient.SqlDataAdapter
-        
+
         Private _connection As Global.System.Data.SqlClient.SqlConnection
-        
+
         Private _transaction As Global.System.Data.SqlClient.SqlTransaction
-        
+
         Private _commandCollection() As Global.System.Data.SqlClient.SqlCommand
-        
+
         Private _clearBeforeFill As Boolean
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
         Public Sub New()
-            MyBase.New
-            Me.ClearBeforeFill = true
+            MyBase.New()
+            Me.ClearBeforeFill = True
         End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
         Protected Friend ReadOnly Property Adapter() As Global.System.Data.SqlClient.SqlDataAdapter
             Get
                 If (Me._adapter Is Nothing) Then
-                    Me.InitAdapter
+                    Me.InitAdapter()
                 End If
                 Return Me._adapter
             End Get
         End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
         Friend Property Connection() As Global.System.Data.SqlClient.SqlConnection
             Get
                 If (Me._connection Is Nothing) Then
-                    Me.InitConnection
+                    Me.InitConnection()
                 End If
                 Return Me._connection
             End Get
-            Set
+            Set(ByVal value As Global.System.Data.SqlClient.SqlConnection)
                 Me._connection = value
                 If (Not (Me.Adapter.InsertCommand) Is Nothing) Then
                     Me.Adapter.InsertCommand.Connection = value
@@ -19769,61 +19769,61 @@ Namespace DSOpticalShopTableAdapters
                 Dim i As Integer = 0
                 Do While (i < Me.CommandCollection.Length)
                     If (Not (Me.CommandCollection(i)) Is Nothing) Then
-                        CType(Me.CommandCollection(i),Global.System.Data.SqlClient.SqlCommand).Connection = value
+                        CType(Me.CommandCollection(i), Global.System.Data.SqlClient.SqlCommand).Connection = value
                     End If
                     i = (i + 1)
                 Loop
             End Set
         End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
         Friend Property Transaction() As Global.System.Data.SqlClient.SqlTransaction
             Get
                 Return Me._transaction
             End Get
-            Set
+            Set(ByVal value As Global.System.Data.SqlClient.SqlTransaction)
                 Me._transaction = value
                 Dim i As Integer = 0
                 Do While (i < Me.CommandCollection.Length)
                     Me.CommandCollection(i).Transaction = Me._transaction
                     i = (i + 1)
                 Loop
-                If ((Not (Me.Adapter) Is Nothing)  _
+                If ((Not (Me.Adapter) Is Nothing) _
                             AndAlso (Not (Me.Adapter.DeleteCommand) Is Nothing)) Then
                     Me.Adapter.DeleteCommand.Transaction = Me._transaction
                 End If
-                If ((Not (Me.Adapter) Is Nothing)  _
+                If ((Not (Me.Adapter) Is Nothing) _
                             AndAlso (Not (Me.Adapter.InsertCommand) Is Nothing)) Then
                     Me.Adapter.InsertCommand.Transaction = Me._transaction
                 End If
-                If ((Not (Me.Adapter) Is Nothing)  _
+                If ((Not (Me.Adapter) Is Nothing) _
                             AndAlso (Not (Me.Adapter.UpdateCommand) Is Nothing)) Then
                     Me.Adapter.UpdateCommand.Transaction = Me._transaction
                 End If
             End Set
         End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
         Protected ReadOnly Property CommandCollection() As Global.System.Data.SqlClient.SqlCommand()
             Get
                 If (Me._commandCollection Is Nothing) Then
-                    Me.InitCommandCollection
+                    Me.InitCommandCollection()
                 End If
                 Return Me._commandCollection
             End Get
         End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
         Public Property ClearBeforeFill() As Boolean
             Get
                 Return Me._clearBeforeFill
             End Get
-            Set
+            Set(ByVal value As Boolean)
                 Me._clearBeforeFill = value
             End Set
         End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
         Private Sub InitAdapter()
             Me._adapter = New Global.System.Data.SqlClient.SqlDataAdapter
             Dim tableMapping As Global.System.Data.Common.DataTableMapping = New Global.System.Data.Common.DataTableMapping
@@ -19836,14 +19836,14 @@ Namespace DSOpticalShopTableAdapters
             tableMapping.ColumnMappings.Add("ItemQTY", "ItemQTY")
             Me._adapter.TableMappings.Add(tableMapping)
         End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
         Private Sub InitConnection()
             Me._connection = New Global.System.Data.SqlClient.SqlConnection
-            Me._connection.ConnectionString = Global.HospitalMS.My.MySettings.Default.TakeoDBConnectionString
+            Me._connection.ConnectionString = Global.HospitalMS.My.MySettings.Default.AppConnection
         End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
         Private Sub InitCommandCollection()
             Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(1) {}
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand
@@ -19852,60 +19852,60 @@ Namespace DSOpticalShopTableAdapters
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(1) = New Global.System.Data.SqlClient.SqlCommand
             Me._commandCollection(1).Connection = Me.Connection
-            Me._commandCollection(1).CommandText = "SELECT ReceiptNo, Expr1, ItemID, ItemPrice, ItemQTY FROM dbo.V_ITEM_OPT_TEM"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHER"& _ 
-                "E"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&" ItemID=@ItemID"
+            Me._commandCollection(1).CommandText = "SELECT ReceiptNo, Expr1, ItemID, ItemPrice, ItemQTY FROM dbo.V_ITEM_OPT_TEM" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "WHER" & _
+                "E" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & " ItemID=@ItemID"
             Me._commandCollection(1).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ItemID", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "ItemID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ItemID", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "ItemID", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
         End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, true)>  _
-        Public Overloads Overridable Function Fill(ByVal dataTable As DSOpticalShop.V_ITEM_OPT_TEMDataTable) As Integer
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, True)> _
+        Public Overridable Overloads Function Fill(ByVal dataTable As DSOpticalShop.V_ITEM_OPT_TEMDataTable) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
-            If (Me.ClearBeforeFill = true) Then
-                dataTable.Clear
+            If (Me.ClearBeforeFill = True) Then
+                dataTable.Clear()
             End If
             Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
             Return returnValue
         End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], true)>  _
-        Public Overloads Overridable Function GetData() As DSOpticalShop.V_ITEM_OPT_TEMDataTable
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], True)> _
+        Public Overridable Overloads Function GetData() As DSOpticalShop.V_ITEM_OPT_TEMDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
             Dim dataTable As DSOpticalShop.V_ITEM_OPT_TEMDataTable = New DSOpticalShop.V_ITEM_OPT_TEMDataTable
             Me.Adapter.Fill(dataTable)
             Return dataTable
         End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
-        Public Overloads Overridable Function FillByItemID(ByVal dataTable As DSOpticalShop.V_ITEM_OPT_TEMDataTable, ByVal ItemID As String) As Integer
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, False)> _
+        Public Overridable Overloads Function FillByItemID(ByVal dataTable As DSOpticalShop.V_ITEM_OPT_TEMDataTable, ByVal ItemID As String) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(1)
             If (ItemID Is Nothing) Then
                 Me.Adapter.SelectCommand.Parameters(0).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.SelectCommand.Parameters(0).Value = CType(ItemID,String)
+                Me.Adapter.SelectCommand.Parameters(0).Value = CType(ItemID, String)
             End If
-            If (Me.ClearBeforeFill = true) Then
-                dataTable.Clear
+            If (Me.ClearBeforeFill = True) Then
+                dataTable.Clear()
             End If
             Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
             Return returnValue
         End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
-        Public Overloads Overridable Function GetDataByItemID(ByVal ItemID As String) As DSOpticalShop.V_ITEM_OPT_TEMDataTable
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], False)> _
+        Public Overridable Overloads Function GetDataByItemID(ByVal ItemID As String) As DSOpticalShop.V_ITEM_OPT_TEMDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(1)
             If (ItemID Is Nothing) Then
                 Me.Adapter.SelectCommand.Parameters(0).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.SelectCommand.Parameters(0).Value = CType(ItemID,String)
+                Me.Adapter.SelectCommand.Parameters(0).Value = CType(ItemID, String)
             End If
             Dim dataTable As DSOpticalShop.V_ITEM_OPT_TEMDataTable = New DSOpticalShop.V_ITEM_OPT_TEMDataTable
             Me.Adapter.Fill(dataTable)

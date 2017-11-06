@@ -7,7 +7,7 @@ Public MustInherit Class AbstractConnection
 
 
     ' Look at file App.config
-    Dim CnnString = My.Settings.TakeoDBConnectionString
+    Dim CnnString = My.Settings.AppConnection
 
 
     Dim cnn As SqlConnection

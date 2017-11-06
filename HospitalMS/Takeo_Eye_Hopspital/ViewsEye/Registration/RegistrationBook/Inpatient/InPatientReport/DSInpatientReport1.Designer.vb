@@ -1757,121 +1757,121 @@ Namespace DSInpatientReportTableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Private Sub InitConnection()
             Me._connection = New Global.System.Data.SqlClient.SqlConnection
-            Me._connection.ConnectionString = Global.HospitalMS.My.MySettings.Default.TakeoDBConnectionString
+            Me._connection.ConnectionString = Global.HospitalMS.My.MySettings.Default.AppConnection
         End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
         Private Sub InitCommandCollection()
             Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(0) {}
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT     p2.Diagnosis, COUNT(p1.Male) AS male, COUNT(p1.Female) AS female, '0-4"& _ 
-                "' AS agerang"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM         TblInpatient AS p2 INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      "& _ 
-                "TblPatients AS p1 ON p2.PatientNo = p1.PatientNo"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE     (p1.Age BETWEEN 0 AN"& _ 
-                "D 4) AND (CAST(CONVERT(VARCHAR(10), p2.CreateDate, 1) AS DateTime) BETWEEN CAST("& _ 
-                "CONVERT(VARCHAR(10), "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      CAST(@DateFrom AS DATETIME), 1) AS "& _ 
-                "Datetime) AND CAST(CONVERT(VARCHAR(10), CAST(@DateTo AS DATETIME), 1) AS Datetim"& _ 
-                "e)) AND "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      (p2.DeleteOption = 'False')"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"GROUP BY p2.Diagnos"& _ 
-                "is"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"UNION"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT     p2.Diagnosis, COUNT(p1.Male) AS male, COUNT(p1.Female) AS "& _ 
-                "female, '5-14' AS agerang"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM         TblInpatient AS p2 INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"         "& _ 
-                "             TblPatients AS p1 ON p2.PatientNo = p1.PatientNo"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE     (p1.Age"& _ 
-                " BETWEEN 5 AND 14) AND (CAST(CONVERT(VARCHAR(10), p2.CreateDate, 1) AS DateTime)"& _ 
-                " BETWEEN CAST(CONVERT(VARCHAR(10), "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      CAST(@DateFrom AS DAT"& _ 
-                "ETIME), 1) AS Datetime) AND CAST(CONVERT(VARCHAR(10), CAST(@DateTo AS DATETIME),"& _ 
-                " 1) AS Datetime)) AND "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      (p2.DeleteOption = 'False')"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"GROUP"& _ 
-                " BY p2.Diagnosis"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"UNION"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT     p2.Diagnosis, COUNT(p1.Male) AS male, COUNT("& _ 
-                "p1.Female) AS female, '15-49' AS agerang"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM         TblInpatient AS p2 INNER "& _ 
-                "JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      TblPatients AS p1 ON p2.PatientNo = p1.PatientNo"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WH"& _ 
-                "ERE     (p1.Age BETWEEN 15 AND 49) AND (CAST(CONVERT(VARCHAR(10), p2.CreateDate,"& _ 
-                " 1) AS DateTime) BETWEEN CAST(CONVERT(VARCHAR(10), "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      CAST("& _ 
-                "@DateFrom AS DATETIME), 1) AS Datetime) AND CAST(CONVERT(VARCHAR(10), CAST(@Date"& _ 
-                "To AS DATETIME), 1) AS Datetime)) AND "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      (p2.DeleteOption ="& _ 
-                " 'False')"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"GROUP BY p2.Diagnosis"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"UNION"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT     p2.Diagnosis, COUNT(p1.Male)"& _ 
-                " AS male, COUNT(p1.Female) AS female, '>=50' AS agerang"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM         TblInpatie"& _ 
-                "nt AS p2 INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      TblPatients AS p1 ON p2.PatientNo = p"& _ 
-                "1.PatientNo"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE     (p1.Age >= 50) AND (CAST(CONVERT(VARCHAR(10), p2.CreateDa"& _ 
-                "te, 1) AS DateTime) BETWEEN CAST(CONVERT(VARCHAR(10), "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      CA"& _ 
-                "ST(@DateFrom AS DATETIME), 1) AS Datetime) AND CAST(CONVERT(VARCHAR(10), CAST(@D"& _ 
-                "ateTo AS DATETIME), 1) AS Datetime)) AND "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      (p2.DeleteOptio"& _ 
-                "n = 'False')"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"GROUP BY p2.Diagnosis"
+            Me._commandCollection(0).CommandText = "SELECT     p2.Diagnosis, COUNT(p1.Male) AS male, COUNT(p1.Female) AS female, '0-4" & _
+                "' AS agerang" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "FROM         TblInpatient AS p2 INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                      " & _
+                "TblPatients AS p1 ON p2.PatientNo = p1.PatientNo" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "WHERE     (p1.Age BETWEEN 0 AN" & _
+                "D 4) AND (CAST(CONVERT(VARCHAR(10), p2.CreateDate, 1) AS DateTime) BETWEEN CAST(" & _
+                "CONVERT(VARCHAR(10), " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                      CAST(@DateFrom AS DATETIME), 1) AS " & _
+                "Datetime) AND CAST(CONVERT(VARCHAR(10), CAST(@DateTo AS DATETIME), 1) AS Datetim" & _
+                "e)) AND " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                      (p2.DeleteOption = 'False')" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "GROUP BY p2.Diagnos" & _
+                "is" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "UNION" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "SELECT     p2.Diagnosis, COUNT(p1.Male) AS male, COUNT(p1.Female) AS " & _
+                "female, '5-14' AS agerang" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "FROM         TblInpatient AS p2 INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "         " & _
+                "             TblPatients AS p1 ON p2.PatientNo = p1.PatientNo" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "WHERE     (p1.Age" & _
+                " BETWEEN 5 AND 14) AND (CAST(CONVERT(VARCHAR(10), p2.CreateDate, 1) AS DateTime)" & _
+                " BETWEEN CAST(CONVERT(VARCHAR(10), " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                      CAST(@DateFrom AS DAT" & _
+                "ETIME), 1) AS Datetime) AND CAST(CONVERT(VARCHAR(10), CAST(@DateTo AS DATETIME)," & _
+                " 1) AS Datetime)) AND " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                      (p2.DeleteOption = 'False')" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "GROUP" & _
+                " BY p2.Diagnosis" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "UNION" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "SELECT     p2.Diagnosis, COUNT(p1.Male) AS male, COUNT(" & _
+                "p1.Female) AS female, '15-49' AS agerang" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "FROM         TblInpatient AS p2 INNER " & _
+                "JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                      TblPatients AS p1 ON p2.PatientNo = p1.PatientNo" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "WH" & _
+                "ERE     (p1.Age BETWEEN 15 AND 49) AND (CAST(CONVERT(VARCHAR(10), p2.CreateDate," & _
+                " 1) AS DateTime) BETWEEN CAST(CONVERT(VARCHAR(10), " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                      CAST(" & _
+                "@DateFrom AS DATETIME), 1) AS Datetime) AND CAST(CONVERT(VARCHAR(10), CAST(@Date" & _
+                "To AS DATETIME), 1) AS Datetime)) AND " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                      (p2.DeleteOption =" & _
+                " 'False')" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "GROUP BY p2.Diagnosis" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "UNION" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "SELECT     p2.Diagnosis, COUNT(p1.Male)" & _
+                " AS male, COUNT(p1.Female) AS female, '>=50' AS agerang" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "FROM         TblInpatie" & _
+                "nt AS p2 INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                      TblPatients AS p1 ON p2.PatientNo = p" & _
+                "1.PatientNo" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "WHERE     (p1.Age >= 50) AND (CAST(CONVERT(VARCHAR(10), p2.CreateDa" & _
+                "te, 1) AS DateTime) BETWEEN CAST(CONVERT(VARCHAR(10), " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                      CA" & _
+                "ST(@DateFrom AS DATETIME), 1) AS Datetime) AND CAST(CONVERT(VARCHAR(10), CAST(@D" & _
+                "ateTo AS DATETIME), 1) AS Datetime)) AND " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                      (p2.DeleteOptio" & _
+                "n = 'False')" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "GROUP BY p2.Diagnosis"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateTo", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateFrom", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateTo", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateFrom", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
         End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, true)>  _
-        Public Overloads Overridable Function Fill(ByVal dataTable As DSInpatientReport.TblInpatientReportDataTable, ByVal DateTo As Date, ByVal DateFrom As Date) As Integer
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, True)> _
+        Public Overridable Overloads Function Fill(ByVal dataTable As DSInpatientReport.TblInpatientReportDataTable, ByVal DateTo As Date, ByVal DateFrom As Date) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
-            Me.Adapter.SelectCommand.Parameters(0).Value = CType(DateTo,Date)
-            Me.Adapter.SelectCommand.Parameters(1).Value = CType(DateFrom,Date)
-            If (Me.ClearBeforeFill = true) Then
-                dataTable.Clear
+            Me.Adapter.SelectCommand.Parameters(0).Value = CType(DateTo, Date)
+            Me.Adapter.SelectCommand.Parameters(1).Value = CType(DateFrom, Date)
+            If (Me.ClearBeforeFill = True) Then
+                dataTable.Clear()
             End If
             Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
             Return returnValue
         End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], true)>  _
-        Public Overloads Overridable Function GetDataByMonth(ByVal DateTo As Date, ByVal DateFrom As Date) As DSInpatientReport.TblInpatientReportDataTable
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], True)> _
+        Public Overridable Overloads Function GetDataByMonth(ByVal DateTo As Date, ByVal DateFrom As Date) As DSInpatientReport.TblInpatientReportDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
-            Me.Adapter.SelectCommand.Parameters(0).Value = CType(DateTo,Date)
-            Me.Adapter.SelectCommand.Parameters(1).Value = CType(DateFrom,Date)
+            Me.Adapter.SelectCommand.Parameters(0).Value = CType(DateTo, Date)
+            Me.Adapter.SelectCommand.Parameters(1).Value = CType(DateFrom, Date)
             Dim dataTable As DSInpatientReport.TblInpatientReportDataTable = New DSInpatientReport.TblInpatientReportDataTable
             Me.Adapter.Fill(dataTable)
             Return dataTable
         End Function
     End Class
-    
+
     '''<summary>
     '''Represents the connection and commands used to retrieve and save data.
     '''</summary>
-    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0"),  _
-     Global.System.ComponentModel.DesignerCategoryAttribute("code"),  _
-     Global.System.ComponentModel.ToolboxItem(true),  _
-     Global.System.ComponentModel.DataObjectAttribute(true),  _
-     Global.System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner"& _ 
-        ", Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"),  _
-     Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0"), _
+     Global.System.ComponentModel.DesignerCategoryAttribute("code"), _
+     Global.System.ComponentModel.ToolboxItem(True), _
+     Global.System.ComponentModel.DataObjectAttribute(True), _
+     Global.System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" & _
+        ", Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"), _
+     Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")> _
     Partial Public Class V_InpatientDetailTableAdapter
         Inherits Global.System.ComponentModel.Component
-        
+
         Private WithEvents _adapter As Global.System.Data.SqlClient.SqlDataAdapter
-        
+
         Private _connection As Global.System.Data.SqlClient.SqlConnection
-        
+
         Private _commandCollection() As Global.System.Data.SqlClient.SqlCommand
-        
+
         Private _clearBeforeFill As Boolean
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
         Public Sub New()
-            MyBase.New
-            Me.ClearBeforeFill = true
+            MyBase.New()
+            Me.ClearBeforeFill = True
         End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
         Private ReadOnly Property Adapter() As Global.System.Data.SqlClient.SqlDataAdapter
             Get
                 If (Me._adapter Is Nothing) Then
-                    Me.InitAdapter
+                    Me.InitAdapter()
                 End If
                 Return Me._adapter
             End Get
         End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
         Friend Property Connection() As Global.System.Data.SqlClient.SqlConnection
             Get
                 If (Me._connection Is Nothing) Then
-                    Me.InitConnection
+                    Me.InitConnection()
                 End If
                 Return Me._connection
             End Get
-            Set
+            Set(ByVal value As Global.System.Data.SqlClient.SqlConnection)
                 Me._connection = value
                 If (Not (Me.Adapter.InsertCommand) Is Nothing) Then
                     Me.Adapter.InsertCommand.Connection = value
@@ -1885,34 +1885,34 @@ Namespace DSInpatientReportTableAdapters
                 Dim i As Integer = 0
                 Do While (i < Me.CommandCollection.Length)
                     If (Not (Me.CommandCollection(i)) Is Nothing) Then
-                        CType(Me.CommandCollection(i),Global.System.Data.SqlClient.SqlCommand).Connection = value
+                        CType(Me.CommandCollection(i), Global.System.Data.SqlClient.SqlCommand).Connection = value
                     End If
                     i = (i + 1)
                 Loop
             End Set
         End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
         Protected ReadOnly Property CommandCollection() As Global.System.Data.SqlClient.SqlCommand()
             Get
                 If (Me._commandCollection Is Nothing) Then
-                    Me.InitCommandCollection
+                    Me.InitCommandCollection()
                 End If
                 Return Me._commandCollection
             End Get
         End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
         Public Property ClearBeforeFill() As Boolean
             Get
                 Return Me._clearBeforeFill
             End Get
-            Set
+            Set(ByVal value As Boolean)
                 Me._clearBeforeFill = value
             End Set
         End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
         Private Sub InitAdapter()
             Me._adapter = New Global.System.Data.SqlClient.SqlDataAdapter
             Dim tableMapping As Global.System.Data.Common.DataTableMapping = New Global.System.Data.Common.DataTableMapping
@@ -1939,153 +1939,153 @@ Namespace DSInpatientReportTableAdapters
             tableMapping.ColumnMappings.Add("CalDolarFull", "CalDolarFull")
             Me._adapter.TableMappings.Add(tableMapping)
         End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
         Private Sub InitConnection()
             Me._connection = New Global.System.Data.SqlClient.SqlConnection
-            Me._connection.ConnectionString = Global.HospitalMS.My.MySettings.Default.TakeoDBConnectionString
+            Me._connection.ConnectionString = Global.HospitalMS.My.MySettings.Default.AppConnection
         End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
         Private Sub InitCommandCollection()
             Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(3) {}
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT InNo, PatientNo, ReceiptNo, NameKhmer, Age, Sex, Address, Diagnosis, TypeO"& _ 
-                "fOperation, HosFee, SosialFee, DolarSosial, FullFee, DolarFull, Other, CreateDat"& _ 
+            Me._commandCollection(0).CommandText = "SELECT InNo, PatientNo, ReceiptNo, NameKhmer, Age, Sex, Address, Diagnosis, TypeO" & _
+                "fOperation, HosFee, SosialFee, DolarSosial, FullFee, DolarFull, Other, CreateDat" & _
                 "e, DeleteOption, CalDolarSosial, CalDolarFull FROM dbo.V_InpatientDetail"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(1) = New Global.System.Data.SqlClient.SqlCommand
             Me._commandCollection(1).Connection = Me.Connection
-            Me._commandCollection(1).CommandText = "SELECT InNo, PatientNo, ReceiptNo, NameKhmer, Age, Sex, Address, Diagnosis, TypeO"& _ 
-                "fOperation, HosFee, SosialFee, DolarSosial, FullFee, DolarFull, Other, CreateDat"& _ 
-                "e, DeleteOption, CalDolarSosial, CalDolarFull"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM dbo.V_InpatientDetail"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE"& _ 
-                ""&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"(CAST(CONVERT (VARCHAR(10), CreateDate, 1) AS DateTime) "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"BETWEEN CAST(CONVERT"& _ 
-                " (VARCHAR(10), CAST(@DateFrom AS DATETIME), 1) AS Datetime) "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"AND CAST(CONVERT ("& _ 
-                "VARCHAR(10), CAST(@DateTO AS DATETIME), 1) AS Datetime))  AND (ReceiptNo<>0) AND"& _ 
+            Me._commandCollection(1).CommandText = "SELECT InNo, PatientNo, ReceiptNo, NameKhmer, Age, Sex, Address, Diagnosis, TypeO" & _
+                "fOperation, HosFee, SosialFee, DolarSosial, FullFee, DolarFull, Other, CreateDat" & _
+                "e, DeleteOption, CalDolarSosial, CalDolarFull" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "FROM dbo.V_InpatientDetail" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "WHERE" & _
+                "" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "(CAST(CONVERT (VARCHAR(10), CreateDate, 1) AS DateTime) " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "BETWEEN CAST(CONVERT" & _
+                " (VARCHAR(10), CAST(@DateFrom AS DATETIME), 1) AS Datetime) " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "AND CAST(CONVERT (" & _
+                "VARCHAR(10), CAST(@DateTO AS DATETIME), 1) AS Datetime))  AND (ReceiptNo<>0) AND" & _
                 " (DeleteOption=0) AND ((FullFee+DolarFull)<>0)"
             Me._commandCollection(1).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateFrom", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateTO", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateFrom", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateTO", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
             Me._commandCollection(2) = New Global.System.Data.SqlClient.SqlCommand
             Me._commandCollection(2).Connection = Me.Connection
-            Me._commandCollection(2).CommandText = "SELECT InNo, PatientNo, ReceiptNo, NameKhmer, Age, Sex, Address, Diagnosis, TypeO"& _ 
-                "fOperation, HosFee, SosialFee, DolarSosial, FullFee, DolarFull, Other, CreateDat"& _ 
-                "e, DeleteOption, CalDolarSosial, CalDolarFull FROM dbo.V_InpatientDetail"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"(CAST(CONVERT (VARCHAR(10), CreateDate, 1) AS DateTime) "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"BETWEEN CAST(CONVERT "& _ 
-                "(VARCHAR(10), CAST(@DateFrom AS DATETIME), 1) AS Datetime) "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"AND CAST(CONVERT (V"& _ 
-                "ARCHAR(10), CAST(@DateTO AS DATETIME), 1) AS Datetime)) AND(ReceiptNo<>0) AND (D"& _ 
+            Me._commandCollection(2).CommandText = "SELECT InNo, PatientNo, ReceiptNo, NameKhmer, Age, Sex, Address, Diagnosis, TypeO" & _
+                "fOperation, HosFee, SosialFee, DolarSosial, FullFee, DolarFull, Other, CreateDat" & _
+                "e, DeleteOption, CalDolarSosial, CalDolarFull FROM dbo.V_InpatientDetail" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "WHERE" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "(CAST(CONVERT (VARCHAR(10), CreateDate, 1) AS DateTime) " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "BETWEEN CAST(CONVERT " & _
+                "(VARCHAR(10), CAST(@DateFrom AS DATETIME), 1) AS Datetime) " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "AND CAST(CONVERT (V" & _
+                "ARCHAR(10), CAST(@DateTO AS DATETIME), 1) AS Datetime)) AND(ReceiptNo<>0) AND (D" & _
                 "eleteOption=0) AND ((SosialFee+ DolarSosial)<>0)"
             Me._commandCollection(2).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateFrom", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateTO", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateFrom", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateTO", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
             Me._commandCollection(3) = New Global.System.Data.SqlClient.SqlCommand
             Me._commandCollection(3).Connection = Me.Connection
-            Me._commandCollection(3).CommandText = "SELECT InNo, PatientNo, ReceiptNo, NameKhmer, Age, Sex, Address, Diagnosis, TypeO"& _ 
-                "fOperation, HosFee, SosialFee, DolarSosial, FullFee, DolarFull, Other, CreateDat"& _ 
-                "e, DeleteOption, CalDolarSosial, CalDolarFull FROM dbo.V_InpatientDetail"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"(CAST(CONVERT (VARCHAR(10), CreateDate, 1) AS DateTime) "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"BETWEEN CAST(CONVERT "& _ 
-                "(VARCHAR(10), CAST(@DateFrom AS DATETIME), 1) AS Datetime) "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"AND CAST(CONVERT (V"& _ 
-                "ARCHAR(10), CAST(@DateTO AS DATETIME), 1) AS Datetime))"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"AND  (ReceiptNo=0) AND "& _ 
+            Me._commandCollection(3).CommandText = "SELECT InNo, PatientNo, ReceiptNo, NameKhmer, Age, Sex, Address, Diagnosis, TypeO" & _
+                "fOperation, HosFee, SosialFee, DolarSosial, FullFee, DolarFull, Other, CreateDat" & _
+                "e, DeleteOption, CalDolarSosial, CalDolarFull FROM dbo.V_InpatientDetail" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "WHERE" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "(CAST(CONVERT (VARCHAR(10), CreateDate, 1) AS DateTime) " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "BETWEEN CAST(CONVERT " & _
+                "(VARCHAR(10), CAST(@DateFrom AS DATETIME), 1) AS Datetime) " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "AND CAST(CONVERT (V" & _
+                "ARCHAR(10), CAST(@DateTO AS DATETIME), 1) AS Datetime))" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "AND  (ReceiptNo=0) AND " & _
                 "(DeleteOption=0)"
             Me._commandCollection(3).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateFrom", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateTO", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateFrom", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateTO", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
         End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, true)>  _
-        Public Overloads Overridable Function Fill(ByVal dataTable As DSInpatientReport.V_InpatientDetailDataTable) As Integer
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, True)> _
+        Public Overridable Overloads Function Fill(ByVal dataTable As DSInpatientReport.V_InpatientDetailDataTable) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
-            If (Me.ClearBeforeFill = true) Then
-                dataTable.Clear
+            If (Me.ClearBeforeFill = True) Then
+                dataTable.Clear()
             End If
             Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
             Return returnValue
         End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], true)>  _
-        Public Overloads Overridable Function GetData() As DSInpatientReport.V_InpatientDetailDataTable
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], True)> _
+        Public Overridable Overloads Function GetData() As DSInpatientReport.V_InpatientDetailDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
             Dim dataTable As DSInpatientReport.V_InpatientDetailDataTable = New DSInpatientReport.V_InpatientDetailDataTable
             Me.Adapter.Fill(dataTable)
             Return dataTable
         End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
-        Public Overloads Overridable Function FillBy(ByVal dataTable As DSInpatientReport.V_InpatientDetailDataTable, ByVal DateFrom As Date, ByVal DateTO As Date) As Integer
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, False)> _
+        Public Overridable Overloads Function FillBy(ByVal dataTable As DSInpatientReport.V_InpatientDetailDataTable, ByVal DateFrom As Date, ByVal DateTO As Date) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(1)
-            Me.Adapter.SelectCommand.Parameters(0).Value = CType(DateFrom,Date)
-            Me.Adapter.SelectCommand.Parameters(1).Value = CType(DateTO,Date)
-            If (Me.ClearBeforeFill = true) Then
-                dataTable.Clear
+            Me.Adapter.SelectCommand.Parameters(0).Value = CType(DateFrom, Date)
+            Me.Adapter.SelectCommand.Parameters(1).Value = CType(DateTO, Date)
+            If (Me.ClearBeforeFill = True) Then
+                dataTable.Clear()
             End If
             Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
             Return returnValue
         End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
-        Public Overloads Overridable Function GetDataByInpatientPayFull(ByVal DateFrom As Date, ByVal DateTO As Date) As DSInpatientReport.V_InpatientDetailDataTable
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], False)> _
+        Public Overridable Overloads Function GetDataByInpatientPayFull(ByVal DateFrom As Date, ByVal DateTO As Date) As DSInpatientReport.V_InpatientDetailDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(1)
-            Me.Adapter.SelectCommand.Parameters(0).Value = CType(DateFrom,Date)
-            Me.Adapter.SelectCommand.Parameters(1).Value = CType(DateTO,Date)
+            Me.Adapter.SelectCommand.Parameters(0).Value = CType(DateFrom, Date)
+            Me.Adapter.SelectCommand.Parameters(1).Value = CType(DateTO, Date)
             Dim dataTable As DSInpatientReport.V_InpatientDetailDataTable = New DSInpatientReport.V_InpatientDetailDataTable
             Me.Adapter.Fill(dataTable)
             Return dataTable
         End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
-        Public Overloads Overridable Function FillBy1(ByVal dataTable As DSInpatientReport.V_InpatientDetailDataTable, ByVal DateFrom As Date, ByVal DateTO As Date) As Integer
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, False)> _
+        Public Overridable Overloads Function FillBy1(ByVal dataTable As DSInpatientReport.V_InpatientDetailDataTable, ByVal DateFrom As Date, ByVal DateTO As Date) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(2)
-            Me.Adapter.SelectCommand.Parameters(0).Value = CType(DateFrom,Date)
-            Me.Adapter.SelectCommand.Parameters(1).Value = CType(DateTO,Date)
-            If (Me.ClearBeforeFill = true) Then
-                dataTable.Clear
+            Me.Adapter.SelectCommand.Parameters(0).Value = CType(DateFrom, Date)
+            Me.Adapter.SelectCommand.Parameters(1).Value = CType(DateTO, Date)
+            If (Me.ClearBeforeFill = True) Then
+                dataTable.Clear()
             End If
             Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
             Return returnValue
         End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
-        Public Overloads Overridable Function GetDataByInPatientPaySocial(ByVal DateFrom As Date, ByVal DateTO As Date) As DSInpatientReport.V_InpatientDetailDataTable
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], False)> _
+        Public Overridable Overloads Function GetDataByInPatientPaySocial(ByVal DateFrom As Date, ByVal DateTO As Date) As DSInpatientReport.V_InpatientDetailDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(2)
-            Me.Adapter.SelectCommand.Parameters(0).Value = CType(DateFrom,Date)
-            Me.Adapter.SelectCommand.Parameters(1).Value = CType(DateTO,Date)
+            Me.Adapter.SelectCommand.Parameters(0).Value = CType(DateFrom, Date)
+            Me.Adapter.SelectCommand.Parameters(1).Value = CType(DateTO, Date)
             Dim dataTable As DSInpatientReport.V_InpatientDetailDataTable = New DSInpatientReport.V_InpatientDetailDataTable
             Me.Adapter.Fill(dataTable)
             Return dataTable
         End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
-        Public Overloads Overridable Function FillBy2(ByVal dataTable As DSInpatientReport.V_InpatientDetailDataTable, ByVal DateFrom As Date, ByVal DateTO As Date) As Integer
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, False)> _
+        Public Overridable Overloads Function FillBy2(ByVal dataTable As DSInpatientReport.V_InpatientDetailDataTable, ByVal DateFrom As Date, ByVal DateTO As Date) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(3)
-            Me.Adapter.SelectCommand.Parameters(0).Value = CType(DateFrom,Date)
-            Me.Adapter.SelectCommand.Parameters(1).Value = CType(DateTO,Date)
-            If (Me.ClearBeforeFill = true) Then
-                dataTable.Clear
+            Me.Adapter.SelectCommand.Parameters(0).Value = CType(DateFrom, Date)
+            Me.Adapter.SelectCommand.Parameters(1).Value = CType(DateTO, Date)
+            If (Me.ClearBeforeFill = True) Then
+                dataTable.Clear()
             End If
             Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
             Return returnValue
         End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
-        Public Overloads Overridable Function GetDataByInPatientNil(ByVal DateFrom As Date, ByVal DateTO As Date) As DSInpatientReport.V_InpatientDetailDataTable
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], False)> _
+        Public Overridable Overloads Function GetDataByInPatientNil(ByVal DateFrom As Date, ByVal DateTO As Date) As DSInpatientReport.V_InpatientDetailDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(3)
-            Me.Adapter.SelectCommand.Parameters(0).Value = CType(DateFrom,Date)
-            Me.Adapter.SelectCommand.Parameters(1).Value = CType(DateTO,Date)
+            Me.Adapter.SelectCommand.Parameters(0).Value = CType(DateFrom, Date)
+            Me.Adapter.SelectCommand.Parameters(1).Value = CType(DateTO, Date)
             Dim dataTable As DSInpatientReport.V_InpatientDetailDataTable = New DSInpatientReport.V_InpatientDetailDataTable
             Me.Adapter.Fill(dataTable)
             Return dataTable

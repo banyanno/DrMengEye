@@ -1262,126 +1262,126 @@ Namespace DSOperationReportTableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Private Sub InitConnection()
             Me._connection = New Global.System.Data.SqlClient.SqlConnection
-            Me._connection.ConnectionString = Global.HospitalMS.My.MySettings.Default.TakeoDBConnectionString
+            Me._connection.ConnectionString = Global.HospitalMS.My.MySettings.Default.AppConnection
         End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
         Private Sub InitCommandCollection()
             Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(0) {}
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT     p3.OperationType, COUNT(p1.Male) AS Male, COUNT(p1.Female) AS Female, "& _ 
-                "'0-4' AS AgeRang"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM         TblPatients AS p1 INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                   "& _ 
-                "   TblNewInPatient AS p2 ON p1.PatientNo = p2.PatientNo INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"            "& _ 
-                "          TblOTRegistration AS p3 ON p2.NewInPatientNo = p3.NewInpatientNo"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHER"& _ 
-                "E    p3.status='True' AND  (p1.Age BETWEEN 0 AND 4) AND (CAST(CONVERT(VARCHAR(10"& _ 
-                "), p3.DateOperated, 1) AS DateTime) BETWEEN CAST(CONVERT(VARCHAR(10), "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"        "& _ 
-                "              CAST(@DateFrom AS DATETIME), 1) AS Datetime) AND CAST(CONVERT(VARC"& _ 
-                "HAR(10), CAST(@DateTo AS DATETIME), 1) AS Datetime))"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"AND p3.DeleteOption='False"& _ 
-                "'"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"GROUP BY p3.OperationType"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"UNION"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT     p3.OperationType, COUNT(p1.Male)"& _ 
-                " AS Male, COUNT(p1.Female) AS Female, '5-14' AS AgeRang"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM         TblPatient"& _ 
-                "s AS p1 INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      TblNewInPatient AS p2 ON p1.PatientNo "& _ 
-                "= p2.PatientNo INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      TblOTRegistration AS p3 ON p2.N"& _ 
-                "ewInPatientNo = p3.NewInpatientNo"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE    p3.status='True' AND  (p1.Age BETWEE"& _ 
-                "N 5 AND 14) AND (CAST(CONVERT(VARCHAR(10), p3.DateOperated, 1) AS DateTime) BETW"& _ 
-                "EEN CAST(CONVERT(VARCHAR(10), "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      CAST(@DateFrom AS DATETIME"& _ 
-                "), 1) AS Datetime) AND CAST(CONVERT(VARCHAR(10), CAST(@DateTo AS DATETIME), 1) A"& _ 
-                "S Datetime))"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"AND p3.DeleteOption='False'"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"GROUP BY p3.OperationType"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"UNION"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SEL"& _ 
-                "ECT     p3.OperationType, COUNT(p1.Male) AS Male, COUNT(p1.Female) AS Female, '1"& _ 
-                "5-49' AS AgeRang"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM         TblPatients AS p1 INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                   "& _ 
-                "   TblNewInPatient AS p2 ON p1.PatientNo = p2.PatientNo INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"            "& _ 
-                "          TblOTRegistration AS p3 ON p2.NewInPatientNo = p3.NewInpatientNo"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHER"& _ 
-                "E    p3.status='True' AND  (p1.Age BETWEEN 15 AND 49) AND (CAST(CONVERT(VARCHAR("& _ 
-                "10), p3.DateOperated, 1) AS DateTime) BETWEEN CAST(CONVERT(VARCHAR(10), "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"      "& _ 
-                "                CAST(@DateFrom AS DATETIME), 1) AS Datetime) AND CAST(CONVERT(VA"& _ 
-                "RCHAR(10), CAST(@DateTo AS DATETIME), 1) AS Datetime))"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"AND p3.DeleteOption='Fal"& _ 
-                "se'"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"GROUP BY p3.OperationType"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"UNION"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT     p3.OperationType, COUNT(p1.Mal"& _ 
-                "e) AS Male, COUNT(p1.Female) AS Female, '>=50' AS AgeRang"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM         TblPatie"& _ 
-                "nts AS p1 INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      TblNewInPatient AS p2 ON p1.PatientN"& _ 
-                "o = p2.PatientNo INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      TblOTRegistration AS p3 ON p2"& _ 
-                ".NewInPatientNo = p3.NewInpatientNo"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE     p3.status='True' AND (p1.Age >= 5"& _ 
-                "0) AND (CAST(CONVERT(VARCHAR(10), p3.DateOperated, 1) AS DateTime) BETWEEN CAST("& _ 
-                "CONVERT(VARCHAR(10), "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      CAST(@DateFrom AS DATETIME), 1) AS "& _ 
-                "Datetime) AND CAST(CONVERT(VARCHAR(10), CAST(@DateTo AS DATETIME), 1) AS Datetim"& _ 
-                "e))"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"AND p3.DeleteOption='False'"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"GROUP BY p3.OperationType"
+            Me._commandCollection(0).CommandText = "SELECT     p3.OperationType, COUNT(p1.Male) AS Male, COUNT(p1.Female) AS Female, " & _
+                "'0-4' AS AgeRang" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "FROM         TblPatients AS p1 INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                   " & _
+                "   TblNewInPatient AS p2 ON p1.PatientNo = p2.PatientNo INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "            " & _
+                "          TblOTRegistration AS p3 ON p2.NewInPatientNo = p3.NewInpatientNo" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "WHER" & _
+                "E    p3.status='True' AND  (p1.Age BETWEEN 0 AND 4) AND (CAST(CONVERT(VARCHAR(10" & _
+                "), p3.DateOperated, 1) AS DateTime) BETWEEN CAST(CONVERT(VARCHAR(10), " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "        " & _
+                "              CAST(@DateFrom AS DATETIME), 1) AS Datetime) AND CAST(CONVERT(VARC" & _
+                "HAR(10), CAST(@DateTo AS DATETIME), 1) AS Datetime))" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "AND p3.DeleteOption='False" & _
+                "'" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "GROUP BY p3.OperationType" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "UNION" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "SELECT     p3.OperationType, COUNT(p1.Male)" & _
+                " AS Male, COUNT(p1.Female) AS Female, '5-14' AS AgeRang" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "FROM         TblPatient" & _
+                "s AS p1 INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                      TblNewInPatient AS p2 ON p1.PatientNo " & _
+                "= p2.PatientNo INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                      TblOTRegistration AS p3 ON p2.N" & _
+                "ewInPatientNo = p3.NewInpatientNo" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "WHERE    p3.status='True' AND  (p1.Age BETWEE" & _
+                "N 5 AND 14) AND (CAST(CONVERT(VARCHAR(10), p3.DateOperated, 1) AS DateTime) BETW" & _
+                "EEN CAST(CONVERT(VARCHAR(10), " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                      CAST(@DateFrom AS DATETIME" & _
+                "), 1) AS Datetime) AND CAST(CONVERT(VARCHAR(10), CAST(@DateTo AS DATETIME), 1) A" & _
+                "S Datetime))" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "AND p3.DeleteOption='False'" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "GROUP BY p3.OperationType" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "UNION" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "SEL" & _
+                "ECT     p3.OperationType, COUNT(p1.Male) AS Male, COUNT(p1.Female) AS Female, '1" & _
+                "5-49' AS AgeRang" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "FROM         TblPatients AS p1 INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                   " & _
+                "   TblNewInPatient AS p2 ON p1.PatientNo = p2.PatientNo INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "            " & _
+                "          TblOTRegistration AS p3 ON p2.NewInPatientNo = p3.NewInpatientNo" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "WHER" & _
+                "E    p3.status='True' AND  (p1.Age BETWEEN 15 AND 49) AND (CAST(CONVERT(VARCHAR(" & _
+                "10), p3.DateOperated, 1) AS DateTime) BETWEEN CAST(CONVERT(VARCHAR(10), " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "      " & _
+                "                CAST(@DateFrom AS DATETIME), 1) AS Datetime) AND CAST(CONVERT(VA" & _
+                "RCHAR(10), CAST(@DateTo AS DATETIME), 1) AS Datetime))" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "AND p3.DeleteOption='Fal" & _
+                "se'" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "GROUP BY p3.OperationType" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "UNION" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "SELECT     p3.OperationType, COUNT(p1.Mal" & _
+                "e) AS Male, COUNT(p1.Female) AS Female, '>=50' AS AgeRang" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "FROM         TblPatie" & _
+                "nts AS p1 INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                      TblNewInPatient AS p2 ON p1.PatientN" & _
+                "o = p2.PatientNo INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                      TblOTRegistration AS p3 ON p2" & _
+                ".NewInPatientNo = p3.NewInpatientNo" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "WHERE     p3.status='True' AND (p1.Age >= 5" & _
+                "0) AND (CAST(CONVERT(VARCHAR(10), p3.DateOperated, 1) AS DateTime) BETWEEN CAST(" & _
+                "CONVERT(VARCHAR(10), " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                      CAST(@DateFrom AS DATETIME), 1) AS " & _
+                "Datetime) AND CAST(CONVERT(VARCHAR(10), CAST(@DateTo AS DATETIME), 1) AS Datetim" & _
+                "e))" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "AND p3.DeleteOption='False'" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "GROUP BY p3.OperationType"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateTo", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateFrom", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateTo", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateFrom", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
         End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, true)>  _
-        Public Overloads Overridable Function Fill(ByVal dataTable As DSOperationReport.DTblOperationDataTable, ByVal DateTo As Date, ByVal DateFrom As Date) As Integer
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, True)> _
+        Public Overridable Overloads Function Fill(ByVal dataTable As DSOperationReport.DTblOperationDataTable, ByVal DateTo As Date, ByVal DateFrom As Date) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
-            Me.Adapter.SelectCommand.Parameters(0).Value = CType(DateTo,Date)
-            Me.Adapter.SelectCommand.Parameters(1).Value = CType(DateFrom,Date)
-            If (Me.ClearBeforeFill = true) Then
-                dataTable.Clear
+            Me.Adapter.SelectCommand.Parameters(0).Value = CType(DateTo, Date)
+            Me.Adapter.SelectCommand.Parameters(1).Value = CType(DateFrom, Date)
+            If (Me.ClearBeforeFill = True) Then
+                dataTable.Clear()
             End If
             Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
             Return returnValue
         End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], true)>  _
-        Public Overloads Overridable Function GetData(ByVal DateTo As Date, ByVal DateFrom As Date) As DSOperationReport.DTblOperationDataTable
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], True)> _
+        Public Overridable Overloads Function GetData(ByVal DateTo As Date, ByVal DateFrom As Date) As DSOperationReport.DTblOperationDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
-            Me.Adapter.SelectCommand.Parameters(0).Value = CType(DateTo,Date)
-            Me.Adapter.SelectCommand.Parameters(1).Value = CType(DateFrom,Date)
+            Me.Adapter.SelectCommand.Parameters(0).Value = CType(DateTo, Date)
+            Me.Adapter.SelectCommand.Parameters(1).Value = CType(DateFrom, Date)
             Dim dataTable As DSOperationReport.DTblOperationDataTable = New DSOperationReport.DTblOperationDataTable
             Me.Adapter.Fill(dataTable)
             Return dataTable
         End Function
     End Class
-    
+
     '''<summary>
     '''Represents the connection and commands used to retrieve and save data.
     '''</summary>
-    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0"),  _
-     Global.System.ComponentModel.DesignerCategoryAttribute("code"),  _
-     Global.System.ComponentModel.ToolboxItem(true),  _
-     Global.System.ComponentModel.DataObjectAttribute(true),  _
-     Global.System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner"& _ 
-        ", Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"),  _
-     Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0"), _
+     Global.System.ComponentModel.DesignerCategoryAttribute("code"), _
+     Global.System.ComponentModel.ToolboxItem(True), _
+     Global.System.ComponentModel.DataObjectAttribute(True), _
+     Global.System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" & _
+        ", Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"), _
+     Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")> _
     Partial Public Class TblOperationIOLTableAdapter
         Inherits Global.System.ComponentModel.Component
-        
+
         Private WithEvents _adapter As Global.System.Data.SqlClient.SqlDataAdapter
-        
+
         Private _connection As Global.System.Data.SqlClient.SqlConnection
-        
+
         Private _commandCollection() As Global.System.Data.SqlClient.SqlCommand
-        
+
         Private _clearBeforeFill As Boolean
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
         Public Sub New()
-            MyBase.New
-            Me.ClearBeforeFill = true
+            MyBase.New()
+            Me.ClearBeforeFill = True
         End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
         Private ReadOnly Property Adapter() As Global.System.Data.SqlClient.SqlDataAdapter
             Get
                 If (Me._adapter Is Nothing) Then
-                    Me.InitAdapter
+                    Me.InitAdapter()
                 End If
                 Return Me._adapter
             End Get
         End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
         Friend Property Connection() As Global.System.Data.SqlClient.SqlConnection
             Get
                 If (Me._connection Is Nothing) Then
-                    Me.InitConnection
+                    Me.InitConnection()
                 End If
                 Return Me._connection
             End Get
-            Set
+            Set(ByVal value As Global.System.Data.SqlClient.SqlConnection)
                 Me._connection = value
                 If (Not (Me.Adapter.InsertCommand) Is Nothing) Then
                     Me.Adapter.InsertCommand.Connection = value
@@ -1395,34 +1395,34 @@ Namespace DSOperationReportTableAdapters
                 Dim i As Integer = 0
                 Do While (i < Me.CommandCollection.Length)
                     If (Not (Me.CommandCollection(i)) Is Nothing) Then
-                        CType(Me.CommandCollection(i),Global.System.Data.SqlClient.SqlCommand).Connection = value
+                        CType(Me.CommandCollection(i), Global.System.Data.SqlClient.SqlCommand).Connection = value
                     End If
                     i = (i + 1)
                 Loop
             End Set
         End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
         Protected ReadOnly Property CommandCollection() As Global.System.Data.SqlClient.SqlCommand()
             Get
                 If (Me._commandCollection Is Nothing) Then
-                    Me.InitCommandCollection
+                    Me.InitCommandCollection()
                 End If
                 Return Me._commandCollection
             End Get
         End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
         Public Property ClearBeforeFill() As Boolean
             Get
                 Return Me._clearBeforeFill
             End Get
-            Set
+            Set(ByVal value As Boolean)
                 Me._clearBeforeFill = value
             End Set
         End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
         Private Sub InitAdapter()
             Me._adapter = New Global.System.Data.SqlClient.SqlDataAdapter
             Dim tableMapping As Global.System.Data.Common.DataTableMapping = New Global.System.Data.Common.DataTableMapping
@@ -1435,87 +1435,87 @@ Namespace DSOperationReportTableAdapters
             tableMapping.ColumnMappings.Add("Diagnosis", "Diagnosis")
             Me._adapter.TableMappings.Add(tableMapping)
         End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
         Private Sub InitConnection()
             Me._connection = New Global.System.Data.SqlClient.SqlConnection
-            Me._connection.ConnectionString = Global.HospitalMS.My.MySettings.Default.TakeoDBConnectionString
+            Me._connection.ConnectionString = Global.HospitalMS.My.MySettings.Default.AppConnection
         End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
         Private Sub InitCommandCollection()
             Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(0) {}
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT     p2.Diagnosis, p3.OperationType + ' ' + P4.IOLNumber AS OTAndIOL, COUNT"& _ 
-                "(p1.Male) AS Male, COUNT(p1.Female) AS Female, '0-4' AS AgeRang"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM         Tb"& _ 
-                "lPatients AS p1 INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      TblNewInPatient AS p2 ON p1.Pa"& _ 
-                "tientNo = p2.PatientNo INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      TblOTRegistration AS p3"& _ 
-                " ON p2.NewInPatientNo = p3.NewInpatientNo INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      TblI"& _ 
-                "OLRegistration AS P4 ON P4.OTNo = p3.OTNo"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE     (p1.Age BETWEEN 0 AND 4) AN"& _ 
-                "D (CAST(CONVERT(VARCHAR(10), p3.DateOperated, 1) AS DateTime) BETWEEN CAST(CONVE"& _ 
-                "RT(VARCHAR(10), "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      CAST(@DateFrom AS DATETIME), 1) AS Datet"& _ 
-                "ime) AND CAST(CONVERT(VARCHAR(10), CAST(@DateTo AS DATETIME), 1) AS Datetime)) A"& _ 
-                "ND "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      (p3.DeleteOption = 'False')"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"GROUP BY p2.Diagnosis, p"& _ 
-                "3.OperationType + ' ' + P4.IOLNumber"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"UNION"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT     p2.Diagnosis, p3.Operati"& _ 
-                "onType + ' ' + P4.IOLNumber AS OTAndIOL, COUNT(p1.Male) AS Male, COUNT(p1.Female"& _ 
-                ") AS Female, '5-14' AS AgeRang"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM         TblPatients AS p1 INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"     "& _ 
-                "                 TblNewInPatient AS p2 ON p1.PatientNo = p2.PatientNo INNER JOIN"& _ 
-                ""&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      TblOTRegistration AS p3 ON p2.NewInPatientNo = p3.NewInp"& _ 
-                "atientNo INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      TblIOLRegistration AS P4 ON P4.OTNo ="& _ 
-                " p3.OTNo"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE     (p1.Age BETWEEN 5 AND 14) AND (CAST(CONVERT(VARCHAR(10), p3."& _ 
-                "DateOperated, 1) AS DateTime) BETWEEN CAST(CONVERT(VARCHAR(10), "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"              "& _ 
-                "        CAST(@DateFrom AS DATETIME), 1) AS Datetime) AND CAST(CONVERT(VARCHAR(10"& _ 
-                "), CAST(@DateTo AS DATETIME), 1) AS Datetime)) AND "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      (p3.D"& _ 
-                "eleteOption = 'False')"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"GROUP BY p2.Diagnosis, p3.OperationType + ' ' + P4.IOLNu"& _ 
-                "mber"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"UNION"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT     p2.Diagnosis, p3.OperationType + ' ' + P4.IOLNumber AS O"& _ 
-                "TAndIOL, COUNT(p1.Male) AS Male, COUNT(p1.Female) AS Female, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                 "& _ 
-                "     '15-49' AS AgeRang"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM         TblPatients AS p1 INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"            "& _ 
-                "          TblNewInPatient AS p2 ON p1.PatientNo = p2.PatientNo INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"     "& _ 
-                "                 TblOTRegistration AS p3 ON p2.NewInPatientNo = p3.NewInpatientN"& _ 
-                "o INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      TblIOLRegistration AS P4 ON P4.OTNo = p3.OTN"& _ 
-                "o"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE     (p1.Age BETWEEN 15 AND 49) AND (CAST(CONVERT(VARCHAR(10), p3.DateOp"& _ 
-                "erated, 1) AS DateTime) BETWEEN CAST(CONVERT(VARCHAR(10), "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                    "& _ 
-                "  CAST(@DateFrom AS DATETIME), 1) AS Datetime) AND CAST(CONVERT(VARCHAR(10), CAS"& _ 
-                "T(@DateTo AS DATETIME), 1) AS Datetime)) AND "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      (p3.DeleteO"& _ 
-                "ption = 'False')"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"GROUP BY p2.Diagnosis, p3.OperationType + ' ' + P4.IOLNumber"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)& _ 
-                "UNION"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT     p2.Diagnosis, p3.OperationType + ' ' + P4.IOLNumber AS OTAndIO"& _ 
-                "L, COUNT(p1.Male) AS Male, COUNT(p1.Female) AS Female, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      '"& _ 
-                ">=50' AS AgeRang"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM         TblPatients AS p1 INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                   "& _ 
-                "   TblNewInPatient AS p2 ON p1.PatientNo = p2.PatientNo INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"            "& _ 
-                "          TblOTRegistration AS p3 ON p2.NewInPatientNo = p3.NewInpatientNo INNER"& _ 
-                " JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      TblIOLRegistration AS P4 ON P4.OTNo = p3.OTNo"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHER"& _ 
-                "E     (p1.Age >= 50) AND (CAST(CONVERT(VARCHAR(10), p3.DateOperated, 1) AS DateT"& _ 
-                "ime) BETWEEN CAST(CONVERT(VARCHAR(10), "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      CAST(@DateFrom AS"& _ 
-                " DATETIME), 1) AS Datetime) AND CAST(CONVERT(VARCHAR(10), CAST(@DateTo AS DATETI"& _ 
-                "ME), 1) AS Datetime)) AND "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      (p3.DeleteOption = 'False')"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"G"& _ 
+            Me._commandCollection(0).CommandText = "SELECT     p2.Diagnosis, p3.OperationType + ' ' + P4.IOLNumber AS OTAndIOL, COUNT" & _
+                "(p1.Male) AS Male, COUNT(p1.Female) AS Female, '0-4' AS AgeRang" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "FROM         Tb" & _
+                "lPatients AS p1 INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                      TblNewInPatient AS p2 ON p1.Pa" & _
+                "tientNo = p2.PatientNo INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                      TblOTRegistration AS p3" & _
+                " ON p2.NewInPatientNo = p3.NewInpatientNo INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                      TblI" & _
+                "OLRegistration AS P4 ON P4.OTNo = p3.OTNo" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "WHERE     (p1.Age BETWEEN 0 AND 4) AN" & _
+                "D (CAST(CONVERT(VARCHAR(10), p3.DateOperated, 1) AS DateTime) BETWEEN CAST(CONVE" & _
+                "RT(VARCHAR(10), " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                      CAST(@DateFrom AS DATETIME), 1) AS Datet" & _
+                "ime) AND CAST(CONVERT(VARCHAR(10), CAST(@DateTo AS DATETIME), 1) AS Datetime)) A" & _
+                "ND " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                      (p3.DeleteOption = 'False')" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "GROUP BY p2.Diagnosis, p" & _
+                "3.OperationType + ' ' + P4.IOLNumber" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "UNION" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "SELECT     p2.Diagnosis, p3.Operati" & _
+                "onType + ' ' + P4.IOLNumber AS OTAndIOL, COUNT(p1.Male) AS Male, COUNT(p1.Female" & _
+                ") AS Female, '5-14' AS AgeRang" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "FROM         TblPatients AS p1 INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "     " & _
+                "                 TblNewInPatient AS p2 ON p1.PatientNo = p2.PatientNo INNER JOIN" & _
+                "" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                      TblOTRegistration AS p3 ON p2.NewInPatientNo = p3.NewInp" & _
+                "atientNo INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                      TblIOLRegistration AS P4 ON P4.OTNo =" & _
+                " p3.OTNo" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "WHERE     (p1.Age BETWEEN 5 AND 14) AND (CAST(CONVERT(VARCHAR(10), p3." & _
+                "DateOperated, 1) AS DateTime) BETWEEN CAST(CONVERT(VARCHAR(10), " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "              " & _
+                "        CAST(@DateFrom AS DATETIME), 1) AS Datetime) AND CAST(CONVERT(VARCHAR(10" & _
+                "), CAST(@DateTo AS DATETIME), 1) AS Datetime)) AND " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                      (p3.D" & _
+                "eleteOption = 'False')" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "GROUP BY p2.Diagnosis, p3.OperationType + ' ' + P4.IOLNu" & _
+                "mber" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "UNION" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "SELECT     p2.Diagnosis, p3.OperationType + ' ' + P4.IOLNumber AS O" & _
+                "TAndIOL, COUNT(p1.Male) AS Male, COUNT(p1.Female) AS Female, " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                 " & _
+                "     '15-49' AS AgeRang" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "FROM         TblPatients AS p1 INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "            " & _
+                "          TblNewInPatient AS p2 ON p1.PatientNo = p2.PatientNo INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "     " & _
+                "                 TblOTRegistration AS p3 ON p2.NewInPatientNo = p3.NewInpatientN" & _
+                "o INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                      TblIOLRegistration AS P4 ON P4.OTNo = p3.OTN" & _
+                "o" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "WHERE     (p1.Age BETWEEN 15 AND 49) AND (CAST(CONVERT(VARCHAR(10), p3.DateOp" & _
+                "erated, 1) AS DateTime) BETWEEN CAST(CONVERT(VARCHAR(10), " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                    " & _
+                "  CAST(@DateFrom AS DATETIME), 1) AS Datetime) AND CAST(CONVERT(VARCHAR(10), CAS" & _
+                "T(@DateTo AS DATETIME), 1) AS Datetime)) AND " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                      (p3.DeleteO" & _
+                "ption = 'False')" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "GROUP BY p2.Diagnosis, p3.OperationType + ' ' + P4.IOLNumber" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & _
+                "UNION" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "SELECT     p2.Diagnosis, p3.OperationType + ' ' + P4.IOLNumber AS OTAndIO" & _
+                "L, COUNT(p1.Male) AS Male, COUNT(p1.Female) AS Female, " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                      '" & _
+                ">=50' AS AgeRang" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "FROM         TblPatients AS p1 INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                   " & _
+                "   TblNewInPatient AS p2 ON p1.PatientNo = p2.PatientNo INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "            " & _
+                "          TblOTRegistration AS p3 ON p2.NewInPatientNo = p3.NewInpatientNo INNER" & _
+                " JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                      TblIOLRegistration AS P4 ON P4.OTNo = p3.OTNo" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "WHER" & _
+                "E     (p1.Age >= 50) AND (CAST(CONVERT(VARCHAR(10), p3.DateOperated, 1) AS DateT" & _
+                "ime) BETWEEN CAST(CONVERT(VARCHAR(10), " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                      CAST(@DateFrom AS" & _
+                " DATETIME), 1) AS Datetime) AND CAST(CONVERT(VARCHAR(10), CAST(@DateTo AS DATETI" & _
+                "ME), 1) AS Datetime)) AND " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                      (p3.DeleteOption = 'False')" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "G" & _
                 "ROUP BY p2.Diagnosis, p3.OperationType + ' ' + P4.IOLNumber"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateTo", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateFrom", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateTo", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateFrom", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
         End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, true)>  _
-        Public Overloads Overridable Function Fill(ByVal dataTable As DSOperationReport.TblOperationIOLDataTable, ByVal DateTo As Date, ByVal DateFrom As Date) As Integer
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, True)> _
+        Public Overridable Overloads Function Fill(ByVal dataTable As DSOperationReport.TblOperationIOLDataTable, ByVal DateTo As Date, ByVal DateFrom As Date) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
-            Me.Adapter.SelectCommand.Parameters(0).Value = CType(DateTo,Date)
-            Me.Adapter.SelectCommand.Parameters(1).Value = CType(DateFrom,Date)
-            If (Me.ClearBeforeFill = true) Then
-                dataTable.Clear
+            Me.Adapter.SelectCommand.Parameters(0).Value = CType(DateTo, Date)
+            Me.Adapter.SelectCommand.Parameters(1).Value = CType(DateFrom, Date)
+            If (Me.ClearBeforeFill = True) Then
+                dataTable.Clear()
             End If
             Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
             Return returnValue
         End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], true)>  _
-        Public Overloads Overridable Function GetData(ByVal DateTo As Date, ByVal DateFrom As Date) As DSOperationReport.TblOperationIOLDataTable
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], True)> _
+        Public Overridable Overloads Function GetData(ByVal DateTo As Date, ByVal DateFrom As Date) As DSOperationReport.TblOperationIOLDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
-            Me.Adapter.SelectCommand.Parameters(0).Value = CType(DateTo,Date)
-            Me.Adapter.SelectCommand.Parameters(1).Value = CType(DateFrom,Date)
+            Me.Adapter.SelectCommand.Parameters(0).Value = CType(DateTo, Date)
+            Me.Adapter.SelectCommand.Parameters(1).Value = CType(DateFrom, Date)
             Dim dataTable As DSOperationReport.TblOperationIOLDataTable = New DSOperationReport.TblOperationIOLDataTable
             Me.Adapter.Fill(dataTable)
             Return dataTable

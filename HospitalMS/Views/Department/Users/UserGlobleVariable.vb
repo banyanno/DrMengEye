@@ -79,7 +79,7 @@ Module UserGlobleVariable
     End Function
     Public Function FillDataSet(ByRef pDataSet As DataSet, ByVal pCommandText As String, ByVal pTableName As String) As String
         Try
-            Dim myConnection As New OleDbConnection("Provider=SQLOLEDB;" & Global.HospitalMS.My.MySettings.Default.TakeoDBConnectionString)
+            Dim myConnection As New OleDbConnection("Provider=SQLOLEDB;" & Global.HospitalMS.My.MySettings.Default.AppConnection)
             Dim myCommand As New OleDbCommand
             Dim myDataAdapter As New OleDbDataAdapter
             'MsgBox(Global.TakeoHospitalInventory.My.MySettings.Default.TakeoInventoryConnectionString)

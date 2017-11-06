@@ -1,6 +1,6 @@
 ﻿Module PrintReportKH
     Dim DS As New DataSet
-    Dim cnn As New SqlClient.SqlConnection(My.Settings.TakeoDBConnectionString)
+    Dim cnn As New SqlClient.SqlConnection(My.Settings.AppConnection)
     Dim myReport As New clsCrystalReport()
     Private Function PrintReport(ByVal FileDir As String, ByVal DataSetName As String, ByVal SQL As String) As clsCrystalReport
         cnn.Open()

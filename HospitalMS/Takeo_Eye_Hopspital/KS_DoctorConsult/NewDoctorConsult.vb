@@ -366,7 +366,7 @@ Public Class NewDoctorConsult
             Application.DoEvents()
             Application.DoEvents()
             VReportPrescrip.AxAcroPDFPrescription.src = My.Application.Info.DirectoryPath & "\Prescription.pdf"
-            VReportPrescrip.AxAcroPDFPrescription.setZoom(100)
+            VReportPrescrip.AxAcroPDFPrescription.setZoom(80)
             VReportPrescrip.ShowDialog()
             VReportPrescrip.AxAcroPDFPrescription.Dispose()
             ViewPrescrip.Close()

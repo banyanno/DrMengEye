@@ -365,7 +365,7 @@
         NConsult.TxtLLE.Text = TxtLLE.Text
         NConsult.TxtIOPLE.Text = TxtIOPLE.Text
         NConsult.TxtIOPRE.Text = TxtIOPRE.Text
-        NConsult.TxtHistory.Text = TxtNote.Text
+        ' NConsult.TxtHistory.Text = TxtNote.Text
         DA_Waiting.UpdateDoctorConsulting(True, GridPatientWaiting.GetRow.Cells("WAIT_ID").Value)
         NConsult.Show()
         'If NConsult.IS_CLOSE = True Then

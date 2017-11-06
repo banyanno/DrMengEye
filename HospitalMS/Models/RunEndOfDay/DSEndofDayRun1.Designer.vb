@@ -2809,402 +2809,402 @@ Namespace DSEndofDayRunTableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Private Sub InitConnection()
             Me._connection = New Global.System.Data.SqlClient.SqlConnection
-            Me._connection.ConnectionString = Global.HospitalMS.My.MySettings.Default.TakeoDBConnectionString
+            Me._connection.ConnectionString = Global.HospitalMS.My.MySettings.Default.AppConnection
         End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
         Private Sub InitCommandCollection()
             Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(7) {}
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT     RunEndOfDayDate, DepartName, ItemName, RequestQty, ReceivedQty, UseQty"& _ 
-                ", ItemID, Barcode, BeginBalance, EndBalance, CateID, CateName, ItemUnitName, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&" "& _ 
-                "                     ContainerName, DepartID"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM         VRunEndofDayResult"
+            Me._commandCollection(0).CommandText = "SELECT     RunEndOfDayDate, DepartName, ItemName, RequestQty, ReceivedQty, UseQty" & _
+                ", ItemID, Barcode, BeginBalance, EndBalance, CateID, CateName, ItemUnitName, " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & " " & _
+                "                     ContainerName, DepartID" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "FROM         VRunEndofDayResult"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(1) = New Global.System.Data.SqlClient.SqlCommand
             Me._commandCollection(1).Connection = Me.Connection
-            Me._commandCollection(1).CommandText = "SELECT Barcode, BeginBalance, CateID, CateName, ContainerName, DepartID, DepartNa"& _ 
-                "me, EndBalance, ItemID, ItemName, ItemUnitName, ReceivedQty, RequestQty, RunEndO"& _ 
-                "fDayDate, UseQty FROM VRunEndofDayResult WHERE (DepartID = @DepartID) AND (CAST("& _ 
-                "CONVERT (VARCHAR(10), RunEndOfDayDate, 1) AS DateTime) = CAST(CONVERT (VARCHAR(1"& _ 
+            Me._commandCollection(1).CommandText = "SELECT Barcode, BeginBalance, CateID, CateName, ContainerName, DepartID, DepartNa" & _
+                "me, EndBalance, ItemID, ItemName, ItemUnitName, ReceivedQty, RequestQty, RunEndO" & _
+                "fDayDate, UseQty FROM VRunEndofDayResult WHERE (DepartID = @DepartID) AND (CAST(" & _
+                "CONVERT (VARCHAR(10), RunEndOfDayDate, 1) AS DateTime) = CAST(CONVERT (VARCHAR(1" & _
                 "0), @RunEndOfDayDate, 1) AS DateTime))"
             Me._commandCollection(1).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DepartID", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "DepartID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@RunEndOfDayDate", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DepartID", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "DepartID", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@RunEndOfDayDate", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
             Me._commandCollection(2) = New Global.System.Data.SqlClient.SqlCommand
             Me._commandCollection(2).Connection = Me.Connection
-            Me._commandCollection(2).CommandText = "SELECT Barcode, BeginBalance, CateID, CateName, ContainerName, DepartID, DepartNa"& _ 
-                "me, EndBalance, ItemID, ItemName, ItemUnitName, ReceivedQty, RequestQty, RunEndO"& _ 
-                "fDayDate, UseQty FROM VRunEndofDayResult WHERE (DepartID = @DepartID) AND (ItemI"& _ 
-                "D = @ItemID) AND (CAST(CONVERT (VARCHAR(10), RunEndOfDayDate, 1) AS DateTime) BE"& _ 
-                "TWEEN CAST(CONVERT (VARCHAR(10), CAST(@FromDate AS DATETIME), 1) AS Datetime) AN"& _ 
+            Me._commandCollection(2).CommandText = "SELECT Barcode, BeginBalance, CateID, CateName, ContainerName, DepartID, DepartNa" & _
+                "me, EndBalance, ItemID, ItemName, ItemUnitName, ReceivedQty, RequestQty, RunEndO" & _
+                "fDayDate, UseQty FROM VRunEndofDayResult WHERE (DepartID = @DepartID) AND (ItemI" & _
+                "D = @ItemID) AND (CAST(CONVERT (VARCHAR(10), RunEndOfDayDate, 1) AS DateTime) BE" & _
+                "TWEEN CAST(CONVERT (VARCHAR(10), CAST(@FromDate AS DATETIME), 1) AS Datetime) AN" & _
                 "D CAST(CONVERT (VARCHAR(10), CAST(@ToDate AS DATETIME), 1) AS Datetime))"
             Me._commandCollection(2).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DepartID", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "DepartID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ItemID", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "ItemID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@FromDate", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ToDate", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DepartID", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "DepartID", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ItemID", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "ItemID", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@FromDate", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ToDate", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
             Me._commandCollection(3) = New Global.System.Data.SqlClient.SqlCommand
             Me._commandCollection(3).Connection = Me.Connection
-            Me._commandCollection(3).CommandText = "SELECT Barcode, BeginBalance, CateID, CateName, ContainerName, DepartID, DepartNa"& _ 
-                "me, EndBalance, ItemID, ItemName, ItemUnitName, ReceivedQty, RequestQty, RunEndO"& _ 
-                "fDayDate, UseQty FROM VRunEndofDayResult WHERE (DepartID = @DepartID) AND (CONVE"& _ 
-                "RT (datetime, RunEndOfDayDate, 101) >= CONVERT (datetime, @FromDate, 101)) AND ("& _ 
-                "CAST(CONVERT (VARCHAR(10), RunEndOfDayDate, 1) AS DateTime) BETWEEN CAST(CONVERT"& _ 
-                " (VARCHAR(10), CAST(@FromDate AS DATETIME), 1) AS Datetime) AND CAST(CONVERT (VA"& _ 
+            Me._commandCollection(3).CommandText = "SELECT Barcode, BeginBalance, CateID, CateName, ContainerName, DepartID, DepartNa" & _
+                "me, EndBalance, ItemID, ItemName, ItemUnitName, ReceivedQty, RequestQty, RunEndO" & _
+                "fDayDate, UseQty FROM VRunEndofDayResult WHERE (DepartID = @DepartID) AND (CONVE" & _
+                "RT (datetime, RunEndOfDayDate, 101) >= CONVERT (datetime, @FromDate, 101)) AND (" & _
+                "CAST(CONVERT (VARCHAR(10), RunEndOfDayDate, 1) AS DateTime) BETWEEN CAST(CONVERT" & _
+                " (VARCHAR(10), CAST(@FromDate AS DATETIME), 1) AS Datetime) AND CAST(CONVERT (VA" & _
                 "RCHAR(10), CAST(@ToDate AS DATETIME), 1) AS Datetime)) ORDER BY RunEndOfDayDate"
             Me._commandCollection(3).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DepartID", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "DepartID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@FromDate", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ToDate", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DepartID", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "DepartID", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@FromDate", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ToDate", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
             Me._commandCollection(4) = New Global.System.Data.SqlClient.SqlCommand
             Me._commandCollection(4).Connection = Me.Connection
-            Me._commandCollection(4).CommandText = "SELECT Barcode, BeginBalance, CateID, CateName, ContainerName, DepartID, DepartNa"& _ 
-                "me, EndBalance, ItemID, ItemName, ItemUnitName, ReceivedQty, RequestQty, RunEndO"& _ 
-                "fDayDate, UseQty FROM VRunEndofDayResult WHERE (DepartID = @DepartID) AND (CateI"& _ 
-                "D = @CateID) AND (CAST(CONVERT (VARCHAR(10), RunEndOfDayDate, 1) AS DateTime) BE"& _ 
-                "TWEEN CAST(CONVERT (VARCHAR(10), CAST(@fromDate AS DATETIME), 1) AS Datetime) AN"& _ 
-                "D CAST(CONVERT (VARCHAR(10), CAST(@toDate AS DATETIME), 1) AS Datetime)) ORDER B"& _ 
+            Me._commandCollection(4).CommandText = "SELECT Barcode, BeginBalance, CateID, CateName, ContainerName, DepartID, DepartNa" & _
+                "me, EndBalance, ItemID, ItemName, ItemUnitName, ReceivedQty, RequestQty, RunEndO" & _
+                "fDayDate, UseQty FROM VRunEndofDayResult WHERE (DepartID = @DepartID) AND (CateI" & _
+                "D = @CateID) AND (CAST(CONVERT (VARCHAR(10), RunEndOfDayDate, 1) AS DateTime) BE" & _
+                "TWEEN CAST(CONVERT (VARCHAR(10), CAST(@fromDate AS DATETIME), 1) AS Datetime) AN" & _
+                "D CAST(CONVERT (VARCHAR(10), CAST(@toDate AS DATETIME), 1) AS Datetime)) ORDER B" & _
                 "Y RunEndOfDayDate, ItemName"
             Me._commandCollection(4).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(4).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DepartID", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "DepartID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(4).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CateID", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "CateID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(4).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@fromDate", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(4).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@toDate", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(4).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DepartID", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "DepartID", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._commandCollection(4).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CateID", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "CateID", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._commandCollection(4).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@fromDate", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._commandCollection(4).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@toDate", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
             Me._commandCollection(5) = New Global.System.Data.SqlClient.SqlCommand
             Me._commandCollection(5).Connection = Me.Connection
-            Me._commandCollection(5).CommandText = "SELECT Barcode, BeginBalance, CateID, CateName, ContainerName, DepartID, DepartNa"& _ 
-                "me, EndBalance, ItemID, ItemName, ItemUnitName, ReceivedQty, RequestQty, RunEndO"& _ 
-                "fDayDate, UseQty FROM VRunEndofDayResult WHERE (DepartID = @DepartID) AND (ItemI"& _ 
-                "D = @ItemID) AND (CAST(CONVERT (VARCHAR(10), RunEndOfDayDate, 1) AS DateTime) BE"& _ 
-                "TWEEN CAST(CONVERT (VARCHAR(10), CAST(@fromDate AS DATETIME), 1) AS Datetime) AN"& _ 
-                "D CAST(CONVERT (VARCHAR(10), CAST(@toDate AS DATETIME), 1) AS Datetime)) ORDER B"& _ 
+            Me._commandCollection(5).CommandText = "SELECT Barcode, BeginBalance, CateID, CateName, ContainerName, DepartID, DepartNa" & _
+                "me, EndBalance, ItemID, ItemName, ItemUnitName, ReceivedQty, RequestQty, RunEndO" & _
+                "fDayDate, UseQty FROM VRunEndofDayResult WHERE (DepartID = @DepartID) AND (ItemI" & _
+                "D = @ItemID) AND (CAST(CONVERT (VARCHAR(10), RunEndOfDayDate, 1) AS DateTime) BE" & _
+                "TWEEN CAST(CONVERT (VARCHAR(10), CAST(@fromDate AS DATETIME), 1) AS Datetime) AN" & _
+                "D CAST(CONVERT (VARCHAR(10), CAST(@toDate AS DATETIME), 1) AS Datetime)) ORDER B" & _
                 "Y RunEndOfDayDate, ItemName"
             Me._commandCollection(5).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(5).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DepartID", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "DepartID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(5).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ItemID", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "ItemID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(5).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@fromDate", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(5).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@toDate", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(5).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DepartID", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "DepartID", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._commandCollection(5).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ItemID", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "ItemID", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._commandCollection(5).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@fromDate", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._commandCollection(5).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@toDate", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
             Me._commandCollection(6) = New Global.System.Data.SqlClient.SqlCommand
             Me._commandCollection(6).Connection = Me.Connection
-            Me._commandCollection(6).CommandText = "SELECT Barcode, BeginBalance, CateID, CateName, ContainerName, DepartID, DepartNa"& _ 
-                "me, EndBalance, ItemID, ItemName, ItemUnitName, ReceivedQty, RequestQty, RunEndO"& _ 
-                "fDayDate, UseQty FROM VRunEndofDayResult WHERE (DepartID = @DepartID) AND (CAST("& _ 
-                "CONVERT (VARCHAR(10), RunEndOfDayDate, 1) AS DateTime) BETWEEN CAST(CONVERT (VAR"& _ 
-                "CHAR(10), CAST(@fromDate AS DATETIME), 1) AS Datetime) AND CAST(CONVERT (VARCHAR"& _ 
-                "(10), CAST(@toDate AS DATETIME), 1) AS Datetime)) ORDER BY RunEndOfDayDate, Item"& _ 
+            Me._commandCollection(6).CommandText = "SELECT Barcode, BeginBalance, CateID, CateName, ContainerName, DepartID, DepartNa" & _
+                "me, EndBalance, ItemID, ItemName, ItemUnitName, ReceivedQty, RequestQty, RunEndO" & _
+                "fDayDate, UseQty FROM VRunEndofDayResult WHERE (DepartID = @DepartID) AND (CAST(" & _
+                "CONVERT (VARCHAR(10), RunEndOfDayDate, 1) AS DateTime) BETWEEN CAST(CONVERT (VAR" & _
+                "CHAR(10), CAST(@fromDate AS DATETIME), 1) AS Datetime) AND CAST(CONVERT (VARCHAR" & _
+                "(10), CAST(@toDate AS DATETIME), 1) AS Datetime)) ORDER BY RunEndOfDayDate, Item" & _
                 "Name"
             Me._commandCollection(6).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(6).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DepartID", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "DepartID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(6).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@fromDate", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(6).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@toDate", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(6).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DepartID", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "DepartID", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._commandCollection(6).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@fromDate", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._commandCollection(6).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@toDate", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
             Me._commandCollection(7) = New Global.System.Data.SqlClient.SqlCommand
             Me._commandCollection(7).Connection = Me.Connection
-            Me._commandCollection(7).CommandText = "SELECT Barcode, BeginBalance, CateID, CateName, ContainerName, DepartID, DepartNa"& _ 
-                "me, EndBalance, ItemID, ItemName, ItemUnitName, ReceivedQty, RequestQty, RunEndO"& _ 
-                "fDayDate, UseQty FROM VRunEndofDayResult WHERE (CONVERT (datetime, RunEndOfDayDa"& _ 
-                "te, 101) >= CONVERT (datetime, @FromDate, 101)) AND (CAST(CONVERT (VARCHAR(10), "& _ 
-                "RunEndOfDayDate, 1) AS DateTime) BETWEEN CAST(CONVERT (VARCHAR(10), CAST(@FromDa"& _ 
-                "te AS DATETIME), 1) AS Datetime) AND CAST(CONVERT (VARCHAR(10), CAST(@ToDate AS "& _ 
+            Me._commandCollection(7).CommandText = "SELECT Barcode, BeginBalance, CateID, CateName, ContainerName, DepartID, DepartNa" & _
+                "me, EndBalance, ItemID, ItemName, ItemUnitName, ReceivedQty, RequestQty, RunEndO" & _
+                "fDayDate, UseQty FROM VRunEndofDayResult WHERE (CONVERT (datetime, RunEndOfDayDa" & _
+                "te, 101) >= CONVERT (datetime, @FromDate, 101)) AND (CAST(CONVERT (VARCHAR(10), " & _
+                "RunEndOfDayDate, 1) AS DateTime) BETWEEN CAST(CONVERT (VARCHAR(10), CAST(@FromDa" & _
+                "te AS DATETIME), 1) AS Datetime) AND CAST(CONVERT (VARCHAR(10), CAST(@ToDate AS " & _
                 "DATETIME), 1) AS Datetime)) ORDER BY RunEndOfDayDate"
             Me._commandCollection(7).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(7).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@FromDate", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(7).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ToDate", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(7).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@FromDate", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._commandCollection(7).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ToDate", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
         End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, true)>  _
-        Public Overloads Overridable Function Fill(ByVal dataTable As DSEndofDayRun.VRunEndofDayResultDataTable) As Integer
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, True)> _
+        Public Overridable Overloads Function Fill(ByVal dataTable As DSEndofDayRun.VRunEndofDayResultDataTable) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
-            If (Me.ClearBeforeFill = true) Then
-                dataTable.Clear
+            If (Me.ClearBeforeFill = True) Then
+                dataTable.Clear()
             End If
             Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
             Return returnValue
         End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], true)>  _
-        Public Overloads Overridable Function GetData() As DSEndofDayRun.VRunEndofDayResultDataTable
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], True)> _
+        Public Overridable Overloads Function GetData() As DSEndofDayRun.VRunEndofDayResultDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
             Dim dataTable As DSEndofDayRun.VRunEndofDayResultDataTable = New DSEndofDayRun.VRunEndofDayResultDataTable
             Me.Adapter.Fill(dataTable)
             Return dataTable
         End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
-        Public Overloads Overridable Function FillBy(ByVal dataTable As DSEndofDayRun.VRunEndofDayResultDataTable, ByVal DepartID As Decimal, ByVal RunEndOfDayDate As Date) As Integer
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, False)> _
+        Public Overridable Overloads Function FillBy(ByVal dataTable As DSEndofDayRun.VRunEndofDayResultDataTable, ByVal DepartID As Decimal, ByVal RunEndOfDayDate As Date) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(1)
-            Me.Adapter.SelectCommand.Parameters(0).Value = CType(DepartID,Decimal)
-            Me.Adapter.SelectCommand.Parameters(1).Value = CType(RunEndOfDayDate,Date)
-            If (Me.ClearBeforeFill = true) Then
-                dataTable.Clear
+            Me.Adapter.SelectCommand.Parameters(0).Value = CType(DepartID, Decimal)
+            Me.Adapter.SelectCommand.Parameters(1).Value = CType(RunEndOfDayDate, Date)
+            If (Me.ClearBeforeFill = True) Then
+                dataTable.Clear()
             End If
             Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
             Return returnValue
         End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
-        Public Overloads Overridable Function GetRunEndofDayByDepartIDandSpecificDate(ByVal DepartID As Decimal, ByVal RunEndOfDayDate As Date) As DSEndofDayRun.VRunEndofDayResultDataTable
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], False)> _
+        Public Overridable Overloads Function GetRunEndofDayByDepartIDandSpecificDate(ByVal DepartID As Decimal, ByVal RunEndOfDayDate As Date) As DSEndofDayRun.VRunEndofDayResultDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(1)
-            Me.Adapter.SelectCommand.Parameters(0).Value = CType(DepartID,Decimal)
-            Me.Adapter.SelectCommand.Parameters(1).Value = CType(RunEndOfDayDate,Date)
+            Me.Adapter.SelectCommand.Parameters(0).Value = CType(DepartID, Decimal)
+            Me.Adapter.SelectCommand.Parameters(1).Value = CType(RunEndOfDayDate, Date)
             Dim dataTable As DSEndofDayRun.VRunEndofDayResultDataTable = New DSEndofDayRun.VRunEndofDayResultDataTable
             Me.Adapter.Fill(dataTable)
             Return dataTable
         End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
-        Public Overloads Overridable Function FillBy1(ByVal dataTable As DSEndofDayRun.VRunEndofDayResultDataTable, ByVal DepartID As Decimal, ByVal ItemID As Global.System.Nullable(Of Integer), ByVal FromDate As Date, ByVal ToDate As Date) As Integer
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, False)> _
+        Public Overridable Overloads Function FillBy1(ByVal dataTable As DSEndofDayRun.VRunEndofDayResultDataTable, ByVal DepartID As Decimal, ByVal ItemID As Global.System.Nullable(Of Integer), ByVal FromDate As Date, ByVal ToDate As Date) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(2)
-            Me.Adapter.SelectCommand.Parameters(0).Value = CType(DepartID,Decimal)
-            If (ItemID.HasValue = true) Then
-                Me.Adapter.SelectCommand.Parameters(1).Value = CType(ItemID.Value,Integer)
+            Me.Adapter.SelectCommand.Parameters(0).Value = CType(DepartID, Decimal)
+            If (ItemID.HasValue = True) Then
+                Me.Adapter.SelectCommand.Parameters(1).Value = CType(ItemID.Value, Integer)
             Else
                 Me.Adapter.SelectCommand.Parameters(1).Value = Global.System.DBNull.Value
             End If
-            Me.Adapter.SelectCommand.Parameters(2).Value = CType(FromDate,Date)
-            Me.Adapter.SelectCommand.Parameters(3).Value = CType(ToDate,Date)
-            If (Me.ClearBeforeFill = true) Then
-                dataTable.Clear
+            Me.Adapter.SelectCommand.Parameters(2).Value = CType(FromDate, Date)
+            Me.Adapter.SelectCommand.Parameters(3).Value = CType(ToDate, Date)
+            If (Me.ClearBeforeFill = True) Then
+                dataTable.Clear()
             End If
             Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
             Return returnValue
         End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
-        Public Overloads Overridable Function GetItemEndofDaySearch(ByVal DepartID As Decimal, ByVal ItemID As Global.System.Nullable(Of Integer), ByVal FromDate As Date, ByVal ToDate As Date) As DSEndofDayRun.VRunEndofDayResultDataTable
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], False)> _
+        Public Overridable Overloads Function GetItemEndofDaySearch(ByVal DepartID As Decimal, ByVal ItemID As Global.System.Nullable(Of Integer), ByVal FromDate As Date, ByVal ToDate As Date) As DSEndofDayRun.VRunEndofDayResultDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(2)
-            Me.Adapter.SelectCommand.Parameters(0).Value = CType(DepartID,Decimal)
-            If (ItemID.HasValue = true) Then
-                Me.Adapter.SelectCommand.Parameters(1).Value = CType(ItemID.Value,Integer)
+            Me.Adapter.SelectCommand.Parameters(0).Value = CType(DepartID, Decimal)
+            If (ItemID.HasValue = True) Then
+                Me.Adapter.SelectCommand.Parameters(1).Value = CType(ItemID.Value, Integer)
             Else
                 Me.Adapter.SelectCommand.Parameters(1).Value = Global.System.DBNull.Value
             End If
-            Me.Adapter.SelectCommand.Parameters(2).Value = CType(FromDate,Date)
-            Me.Adapter.SelectCommand.Parameters(3).Value = CType(ToDate,Date)
+            Me.Adapter.SelectCommand.Parameters(2).Value = CType(FromDate, Date)
+            Me.Adapter.SelectCommand.Parameters(3).Value = CType(ToDate, Date)
             Dim dataTable As DSEndofDayRun.VRunEndofDayResultDataTable = New DSEndofDayRun.VRunEndofDayResultDataTable
             Me.Adapter.Fill(dataTable)
             Return dataTable
         End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
-        Public Overloads Overridable Function FillBy2(ByVal dataTable As DSEndofDayRun.VRunEndofDayResultDataTable, ByVal DepartID As Decimal, ByVal FromDate As Date, ByVal ToDate As Date) As Integer
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, False)> _
+        Public Overridable Overloads Function FillBy2(ByVal dataTable As DSEndofDayRun.VRunEndofDayResultDataTable, ByVal DepartID As Decimal, ByVal FromDate As Date, ByVal ToDate As Date) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(3)
-            Me.Adapter.SelectCommand.Parameters(0).Value = CType(DepartID,Decimal)
-            Me.Adapter.SelectCommand.Parameters(1).Value = CType(FromDate,Date)
-            Me.Adapter.SelectCommand.Parameters(2).Value = CType(ToDate,Date)
-            If (Me.ClearBeforeFill = true) Then
-                dataTable.Clear
+            Me.Adapter.SelectCommand.Parameters(0).Value = CType(DepartID, Decimal)
+            Me.Adapter.SelectCommand.Parameters(1).Value = CType(FromDate, Date)
+            Me.Adapter.SelectCommand.Parameters(2).Value = CType(ToDate, Date)
+            If (Me.ClearBeforeFill = True) Then
+                dataTable.Clear()
             End If
             Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
             Return returnValue
         End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
-        Public Overloads Overridable Function GetAllItemEndofDaySearch(ByVal DepartID As Decimal, ByVal FromDate As Date, ByVal ToDate As Date) As DSEndofDayRun.VRunEndofDayResultDataTable
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], False)> _
+        Public Overridable Overloads Function GetAllItemEndofDaySearch(ByVal DepartID As Decimal, ByVal FromDate As Date, ByVal ToDate As Date) As DSEndofDayRun.VRunEndofDayResultDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(3)
-            Me.Adapter.SelectCommand.Parameters(0).Value = CType(DepartID,Decimal)
-            Me.Adapter.SelectCommand.Parameters(1).Value = CType(FromDate,Date)
-            Me.Adapter.SelectCommand.Parameters(2).Value = CType(ToDate,Date)
+            Me.Adapter.SelectCommand.Parameters(0).Value = CType(DepartID, Decimal)
+            Me.Adapter.SelectCommand.Parameters(1).Value = CType(FromDate, Date)
+            Me.Adapter.SelectCommand.Parameters(2).Value = CType(ToDate, Date)
             Dim dataTable As DSEndofDayRun.VRunEndofDayResultDataTable = New DSEndofDayRun.VRunEndofDayResultDataTable
             Me.Adapter.Fill(dataTable)
             Return dataTable
         End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
-        Public Overloads Overridable Function FillBy3(ByVal dataTable As DSEndofDayRun.VRunEndofDayResultDataTable, ByVal DepartID As Integer, ByVal CateID As Global.System.Nullable(Of Integer), ByVal fromDate As Date, ByVal toDate As Date) As Integer
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, False)> _
+        Public Overridable Overloads Function FillBy3(ByVal dataTable As DSEndofDayRun.VRunEndofDayResultDataTable, ByVal DepartID As Integer, ByVal CateID As Global.System.Nullable(Of Integer), ByVal fromDate As Date, ByVal toDate As Date) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(4)
-            Me.Adapter.SelectCommand.Parameters(0).Value = CType(DepartID,Integer)
-            If (CateID.HasValue = true) Then
-                Me.Adapter.SelectCommand.Parameters(1).Value = CType(CateID.Value,Integer)
+            Me.Adapter.SelectCommand.Parameters(0).Value = CType(DepartID, Integer)
+            If (CateID.HasValue = True) Then
+                Me.Adapter.SelectCommand.Parameters(1).Value = CType(CateID.Value, Integer)
             Else
                 Me.Adapter.SelectCommand.Parameters(1).Value = Global.System.DBNull.Value
             End If
-            Me.Adapter.SelectCommand.Parameters(2).Value = CType(fromDate,Date)
-            Me.Adapter.SelectCommand.Parameters(3).Value = CType(toDate,Date)
-            If (Me.ClearBeforeFill = true) Then
-                dataTable.Clear
+            Me.Adapter.SelectCommand.Parameters(2).Value = CType(fromDate, Date)
+            Me.Adapter.SelectCommand.Parameters(3).Value = CType(toDate, Date)
+            If (Me.ClearBeforeFill = True) Then
+                dataTable.Clear()
             End If
             Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
             Return returnValue
         End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
-        Public Overloads Overridable Function GetDepartTranDataByCateID(ByVal DepartID As Integer, ByVal CateID As Global.System.Nullable(Of Integer), ByVal fromDate As Date, ByVal toDate As Date) As DSEndofDayRun.VRunEndofDayResultDataTable
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], False)> _
+        Public Overridable Overloads Function GetDepartTranDataByCateID(ByVal DepartID As Integer, ByVal CateID As Global.System.Nullable(Of Integer), ByVal fromDate As Date, ByVal toDate As Date) As DSEndofDayRun.VRunEndofDayResultDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(4)
-            Me.Adapter.SelectCommand.Parameters(0).Value = CType(DepartID,Integer)
-            If (CateID.HasValue = true) Then
-                Me.Adapter.SelectCommand.Parameters(1).Value = CType(CateID.Value,Integer)
+            Me.Adapter.SelectCommand.Parameters(0).Value = CType(DepartID, Integer)
+            If (CateID.HasValue = True) Then
+                Me.Adapter.SelectCommand.Parameters(1).Value = CType(CateID.Value, Integer)
             Else
                 Me.Adapter.SelectCommand.Parameters(1).Value = Global.System.DBNull.Value
             End If
-            Me.Adapter.SelectCommand.Parameters(2).Value = CType(fromDate,Date)
-            Me.Adapter.SelectCommand.Parameters(3).Value = CType(toDate,Date)
+            Me.Adapter.SelectCommand.Parameters(2).Value = CType(fromDate, Date)
+            Me.Adapter.SelectCommand.Parameters(3).Value = CType(toDate, Date)
             Dim dataTable As DSEndofDayRun.VRunEndofDayResultDataTable = New DSEndofDayRun.VRunEndofDayResultDataTable
             Me.Adapter.Fill(dataTable)
             Return dataTable
         End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
-        Public Overloads Overridable Function FillBy4(ByVal dataTable As DSEndofDayRun.VRunEndofDayResultDataTable, ByVal DepartID As Integer, ByVal ItemID As Global.System.Nullable(Of Integer), ByVal fromDate As Date, ByVal toDate As Date) As Integer
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, False)> _
+        Public Overridable Overloads Function FillBy4(ByVal dataTable As DSEndofDayRun.VRunEndofDayResultDataTable, ByVal DepartID As Integer, ByVal ItemID As Global.System.Nullable(Of Integer), ByVal fromDate As Date, ByVal toDate As Date) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(5)
-            Me.Adapter.SelectCommand.Parameters(0).Value = CType(DepartID,Integer)
-            If (ItemID.HasValue = true) Then
-                Me.Adapter.SelectCommand.Parameters(1).Value = CType(ItemID.Value,Integer)
+            Me.Adapter.SelectCommand.Parameters(0).Value = CType(DepartID, Integer)
+            If (ItemID.HasValue = True) Then
+                Me.Adapter.SelectCommand.Parameters(1).Value = CType(ItemID.Value, Integer)
             Else
                 Me.Adapter.SelectCommand.Parameters(1).Value = Global.System.DBNull.Value
             End If
-            Me.Adapter.SelectCommand.Parameters(2).Value = CType(fromDate,Date)
-            Me.Adapter.SelectCommand.Parameters(3).Value = CType(toDate,Date)
-            If (Me.ClearBeforeFill = true) Then
-                dataTable.Clear
+            Me.Adapter.SelectCommand.Parameters(2).Value = CType(fromDate, Date)
+            Me.Adapter.SelectCommand.Parameters(3).Value = CType(toDate, Date)
+            If (Me.ClearBeforeFill = True) Then
+                dataTable.Clear()
             End If
             Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
             Return returnValue
         End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
-        Public Overloads Overridable Function GetDepartTranDataByItemID(ByVal DepartID As Integer, ByVal ItemID As Global.System.Nullable(Of Integer), ByVal fromDate As Date, ByVal toDate As Date) As DSEndofDayRun.VRunEndofDayResultDataTable
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], False)> _
+        Public Overridable Overloads Function GetDepartTranDataByItemID(ByVal DepartID As Integer, ByVal ItemID As Global.System.Nullable(Of Integer), ByVal fromDate As Date, ByVal toDate As Date) As DSEndofDayRun.VRunEndofDayResultDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(5)
-            Me.Adapter.SelectCommand.Parameters(0).Value = CType(DepartID,Integer)
-            If (ItemID.HasValue = true) Then
-                Me.Adapter.SelectCommand.Parameters(1).Value = CType(ItemID.Value,Integer)
+            Me.Adapter.SelectCommand.Parameters(0).Value = CType(DepartID, Integer)
+            If (ItemID.HasValue = True) Then
+                Me.Adapter.SelectCommand.Parameters(1).Value = CType(ItemID.Value, Integer)
             Else
                 Me.Adapter.SelectCommand.Parameters(1).Value = Global.System.DBNull.Value
             End If
-            Me.Adapter.SelectCommand.Parameters(2).Value = CType(fromDate,Date)
-            Me.Adapter.SelectCommand.Parameters(3).Value = CType(toDate,Date)
+            Me.Adapter.SelectCommand.Parameters(2).Value = CType(fromDate, Date)
+            Me.Adapter.SelectCommand.Parameters(3).Value = CType(toDate, Date)
             Dim dataTable As DSEndofDayRun.VRunEndofDayResultDataTable = New DSEndofDayRun.VRunEndofDayResultDataTable
             Me.Adapter.Fill(dataTable)
             Return dataTable
         End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
-        Public Overloads Overridable Function FillBy5(ByVal dataTable As DSEndofDayRun.VRunEndofDayResultDataTable, ByVal DepartID As Decimal, ByVal fromDate As Date, ByVal toDate As Date) As Integer
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, False)> _
+        Public Overridable Overloads Function FillBy5(ByVal dataTable As DSEndofDayRun.VRunEndofDayResultDataTable, ByVal DepartID As Decimal, ByVal fromDate As Date, ByVal toDate As Date) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(6)
-            Me.Adapter.SelectCommand.Parameters(0).Value = CType(DepartID,Decimal)
-            Me.Adapter.SelectCommand.Parameters(1).Value = CType(fromDate,Date)
-            Me.Adapter.SelectCommand.Parameters(2).Value = CType(toDate,Date)
-            If (Me.ClearBeforeFill = true) Then
-                dataTable.Clear
+            Me.Adapter.SelectCommand.Parameters(0).Value = CType(DepartID, Decimal)
+            Me.Adapter.SelectCommand.Parameters(1).Value = CType(fromDate, Date)
+            Me.Adapter.SelectCommand.Parameters(2).Value = CType(toDate, Date)
+            If (Me.ClearBeforeFill = True) Then
+                dataTable.Clear()
             End If
             Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
             Return returnValue
         End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
-        Public Overloads Overridable Function GetDepartTranDataByDepartID(ByVal DepartID As Decimal, ByVal fromDate As Date, ByVal toDate As Date) As DSEndofDayRun.VRunEndofDayResultDataTable
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], False)> _
+        Public Overridable Overloads Function GetDepartTranDataByDepartID(ByVal DepartID As Decimal, ByVal fromDate As Date, ByVal toDate As Date) As DSEndofDayRun.VRunEndofDayResultDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(6)
-            Me.Adapter.SelectCommand.Parameters(0).Value = CType(DepartID,Decimal)
-            Me.Adapter.SelectCommand.Parameters(1).Value = CType(fromDate,Date)
-            Me.Adapter.SelectCommand.Parameters(2).Value = CType(toDate,Date)
+            Me.Adapter.SelectCommand.Parameters(0).Value = CType(DepartID, Decimal)
+            Me.Adapter.SelectCommand.Parameters(1).Value = CType(fromDate, Date)
+            Me.Adapter.SelectCommand.Parameters(2).Value = CType(toDate, Date)
             Dim dataTable As DSEndofDayRun.VRunEndofDayResultDataTable = New DSEndofDayRun.VRunEndofDayResultDataTable
             Me.Adapter.Fill(dataTable)
             Return dataTable
         End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
-        Public Overloads Overridable Function FillBy6(ByVal dataTable As DSEndofDayRun.VRunEndofDayResultDataTable, ByVal FromDate As Date, ByVal ToDate As Date) As Integer
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, False)> _
+        Public Overridable Overloads Function FillBy6(ByVal dataTable As DSEndofDayRun.VRunEndofDayResultDataTable, ByVal FromDate As Date, ByVal ToDate As Date) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(7)
-            Me.Adapter.SelectCommand.Parameters(0).Value = CType(FromDate,Date)
-            Me.Adapter.SelectCommand.Parameters(1).Value = CType(ToDate,Date)
-            If (Me.ClearBeforeFill = true) Then
-                dataTable.Clear
+            Me.Adapter.SelectCommand.Parameters(0).Value = CType(FromDate, Date)
+            Me.Adapter.SelectCommand.Parameters(1).Value = CType(ToDate, Date)
+            If (Me.ClearBeforeFill = True) Then
+                dataTable.Clear()
             End If
             Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
             Return returnValue
         End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
-        Public Overloads Overridable Function GetAllRunEndofDayData(ByVal FromDate As Date, ByVal ToDate As Date) As DSEndofDayRun.VRunEndofDayResultDataTable
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], False)> _
+        Public Overridable Overloads Function GetAllRunEndofDayData(ByVal FromDate As Date, ByVal ToDate As Date) As DSEndofDayRun.VRunEndofDayResultDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(7)
-            Me.Adapter.SelectCommand.Parameters(0).Value = CType(FromDate,Date)
-            Me.Adapter.SelectCommand.Parameters(1).Value = CType(ToDate,Date)
+            Me.Adapter.SelectCommand.Parameters(0).Value = CType(FromDate, Date)
+            Me.Adapter.SelectCommand.Parameters(1).Value = CType(ToDate, Date)
             Dim dataTable As DSEndofDayRun.VRunEndofDayResultDataTable = New DSEndofDayRun.VRunEndofDayResultDataTable
             Me.Adapter.Fill(dataTable)
             Return dataTable
         End Function
     End Class
-    
+
     '''<summary>
     '''Represents the connection and commands used to retrieve and save data.
     '''</summary>
-    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0"),  _
-     Global.System.ComponentModel.DesignerCategoryAttribute("code"),  _
-     Global.System.ComponentModel.ToolboxItem(true),  _
-     Global.System.ComponentModel.DataObjectAttribute(true),  _
-     Global.System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner"& _ 
-        ", Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"),  _
-     Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0"), _
+     Global.System.ComponentModel.DesignerCategoryAttribute("code"), _
+     Global.System.ComponentModel.ToolboxItem(True), _
+     Global.System.ComponentModel.DataObjectAttribute(True), _
+     Global.System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" & _
+        ", Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"), _
+     Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")> _
     Partial Public Class tblDepartmentTableAdapter
         Inherits Global.System.ComponentModel.Component
-        
+
         Private WithEvents _adapter As Global.System.Data.SqlClient.SqlDataAdapter
-        
+
         Private _connection As Global.System.Data.SqlClient.SqlConnection
-        
+
         Private _transaction As Global.System.Data.SqlClient.SqlTransaction
-        
+
         Private _commandCollection() As Global.System.Data.SqlClient.SqlCommand
-        
+
         Private _clearBeforeFill As Boolean
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
         Public Sub New()
-            MyBase.New
-            Me.ClearBeforeFill = true
+            MyBase.New()
+            Me.ClearBeforeFill = True
         End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
         Protected Friend ReadOnly Property Adapter() As Global.System.Data.SqlClient.SqlDataAdapter
             Get
                 If (Me._adapter Is Nothing) Then
-                    Me.InitAdapter
+                    Me.InitAdapter()
                 End If
                 Return Me._adapter
             End Get
         End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
         Friend Property Connection() As Global.System.Data.SqlClient.SqlConnection
             Get
                 If (Me._connection Is Nothing) Then
-                    Me.InitConnection
+                    Me.InitConnection()
                 End If
                 Return Me._connection
             End Get
-            Set
+            Set(ByVal value As Global.System.Data.SqlClient.SqlConnection)
                 Me._connection = value
                 If (Not (Me.Adapter.InsertCommand) Is Nothing) Then
                     Me.Adapter.InsertCommand.Connection = value
@@ -3218,61 +3218,61 @@ Namespace DSEndofDayRunTableAdapters
                 Dim i As Integer = 0
                 Do While (i < Me.CommandCollection.Length)
                     If (Not (Me.CommandCollection(i)) Is Nothing) Then
-                        CType(Me.CommandCollection(i),Global.System.Data.SqlClient.SqlCommand).Connection = value
+                        CType(Me.CommandCollection(i), Global.System.Data.SqlClient.SqlCommand).Connection = value
                     End If
                     i = (i + 1)
                 Loop
             End Set
         End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
         Friend Property Transaction() As Global.System.Data.SqlClient.SqlTransaction
             Get
                 Return Me._transaction
             End Get
-            Set
+            Set(ByVal value As Global.System.Data.SqlClient.SqlTransaction)
                 Me._transaction = value
                 Dim i As Integer = 0
                 Do While (i < Me.CommandCollection.Length)
                     Me.CommandCollection(i).Transaction = Me._transaction
                     i = (i + 1)
                 Loop
-                If ((Not (Me.Adapter) Is Nothing)  _
+                If ((Not (Me.Adapter) Is Nothing) _
                             AndAlso (Not (Me.Adapter.DeleteCommand) Is Nothing)) Then
                     Me.Adapter.DeleteCommand.Transaction = Me._transaction
                 End If
-                If ((Not (Me.Adapter) Is Nothing)  _
+                If ((Not (Me.Adapter) Is Nothing) _
                             AndAlso (Not (Me.Adapter.InsertCommand) Is Nothing)) Then
                     Me.Adapter.InsertCommand.Transaction = Me._transaction
                 End If
-                If ((Not (Me.Adapter) Is Nothing)  _
+                If ((Not (Me.Adapter) Is Nothing) _
                             AndAlso (Not (Me.Adapter.UpdateCommand) Is Nothing)) Then
                     Me.Adapter.UpdateCommand.Transaction = Me._transaction
                 End If
             End Set
         End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
         Protected ReadOnly Property CommandCollection() As Global.System.Data.SqlClient.SqlCommand()
             Get
                 If (Me._commandCollection Is Nothing) Then
-                    Me.InitCommandCollection
+                    Me.InitCommandCollection()
                 End If
                 Return Me._commandCollection
             End Get
         End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
         Public Property ClearBeforeFill() As Boolean
             Get
                 Return Me._clearBeforeFill
             End Get
-            Set
+            Set(ByVal value As Boolean)
                 Me._clearBeforeFill = value
             End Set
         End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
         Private Sub InitAdapter()
             Me._adapter = New Global.System.Data.SqlClient.SqlDataAdapter
             Dim tableMapping As Global.System.Data.Common.DataTableMapping = New Global.System.Data.Common.DataTableMapping
@@ -3283,40 +3283,40 @@ Namespace DSEndofDayRunTableAdapters
             Me._adapter.TableMappings.Add(tableMapping)
             Me._adapter.DeleteCommand = New Global.System.Data.SqlClient.SqlCommand
             Me._adapter.DeleteCommand.Connection = Me.Connection
-            Me._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[tblDepartment] WHERE (([DepartID] = @Original_DepartID) AND (("& _ 
-                "@IsNull_DepartName = 1 AND [DepartName] IS NULL) OR ([DepartName] = @Original_De"& _ 
+            Me._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[tblDepartment] WHERE (([DepartID] = @Original_DepartID) AND ((" & _
+                "@IsNull_DepartName = 1 AND [DepartName] IS NULL) OR ([DepartName] = @Original_De" & _
                 "partName)))"
             Me._adapter.DeleteCommand.CommandType = Global.System.Data.CommandType.Text
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_DepartID", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "DepartID", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_DepartName", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DepartName", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_DepartName", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DepartName", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_DepartID", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "DepartID", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_DepartName", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DepartName", Global.System.Data.DataRowVersion.Original, True, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_DepartName", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DepartName", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
             Me._adapter.InsertCommand = New Global.System.Data.SqlClient.SqlCommand
             Me._adapter.InsertCommand.Connection = Me.Connection
-            Me._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[tblDepartment] ([DepartName]) VALUES (@DepartName);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT De"& _ 
+            Me._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[tblDepartment] ([DepartName]) VALUES (@DepartName);" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "SELECT De" & _
                 "partID, DepartName FROM tblDepartment WHERE (DepartID = SCOPE_IDENTITY())"
             Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DepartName", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DepartName", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DepartName", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DepartName", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
             Me._adapter.UpdateCommand = New Global.System.Data.SqlClient.SqlCommand
             Me._adapter.UpdateCommand.Connection = Me.Connection
-            Me._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[tblDepartment] SET [DepartName] = @DepartName WHERE (([DepartID] = "& _ 
-                "@Original_DepartID) AND ((@IsNull_DepartName = 1 AND [DepartName] IS NULL) OR (["& _ 
-                "DepartName] = @Original_DepartName)));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT DepartID, DepartName FROM tblDepa"& _ 
+            Me._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[tblDepartment] SET [DepartName] = @DepartName WHERE (([DepartID] = " & _
+                "@Original_DepartID) AND ((@IsNull_DepartName = 1 AND [DepartName] IS NULL) OR ([" & _
+                "DepartName] = @Original_DepartName)));" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "SELECT DepartID, DepartName FROM tblDepa" & _
                 "rtment WHERE (DepartID = @DepartID)"
             Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DepartName", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DepartName", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_DepartID", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "DepartID", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_DepartName", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DepartName", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_DepartName", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DepartName", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DepartID", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "DepartID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DepartName", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DepartName", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_DepartID", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "DepartID", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_DepartName", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DepartName", Global.System.Data.DataRowVersion.Original, True, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_DepartName", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DepartName", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DepartID", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "DepartID", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
         End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
         Private Sub InitConnection()
             Me._connection = New Global.System.Data.SqlClient.SqlConnection
-            Me._connection.ConnectionString = Global.HospitalMS.My.MySettings.Default.TakeoDBConnectionString
+            Me._connection.ConnectionString = Global.HospitalMS.My.MySettings.Default.AppConnection
         End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
         Private Sub InitCommandCollection()
             Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(0) {}
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand
@@ -3324,193 +3324,193 @@ Namespace DSEndofDayRunTableAdapters
             Me._commandCollection(0).CommandText = "SELECT DepartID, DepartName FROM dbo.tblDepartment"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
         End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, true)>  _
-        Public Overloads Overridable Function Fill(ByVal dataTable As DSEndofDayRun.tblDepartmentDataTable) As Integer
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, True)> _
+        Public Overridable Overloads Function Fill(ByVal dataTable As DSEndofDayRun.tblDepartmentDataTable) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
-            If (Me.ClearBeforeFill = true) Then
-                dataTable.Clear
+            If (Me.ClearBeforeFill = True) Then
+                dataTable.Clear()
             End If
             Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
             Return returnValue
         End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], true)>  _
-        Public Overloads Overridable Function GetData() As DSEndofDayRun.tblDepartmentDataTable
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], True)> _
+        Public Overridable Overloads Function GetData() As DSEndofDayRun.tblDepartmentDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
             Dim dataTable As DSEndofDayRun.tblDepartmentDataTable = New DSEndofDayRun.tblDepartmentDataTable
             Me.Adapter.Fill(dataTable)
             Return dataTable
         End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
-        Public Overloads Overridable Function Update(ByVal dataTable As DSEndofDayRun.tblDepartmentDataTable) As Integer
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")> _
+        Public Overridable Overloads Function Update(ByVal dataTable As DSEndofDayRun.tblDepartmentDataTable) As Integer
             Return Me.Adapter.Update(dataTable)
         End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
-        Public Overloads Overridable Function Update(ByVal dataSet As DSEndofDayRun) As Integer
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")> _
+        Public Overridable Overloads Function Update(ByVal dataSet As DSEndofDayRun) As Integer
             Return Me.Adapter.Update(dataSet, "tblDepartment")
         End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
-        Public Overloads Overridable Function Update(ByVal dataRow As Global.System.Data.DataRow) As Integer
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")> _
+        Public Overridable Overloads Function Update(ByVal dataRow As Global.System.Data.DataRow) As Integer
             Return Me.Adapter.Update(New Global.System.Data.DataRow() {dataRow})
         End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
-        Public Overloads Overridable Function Update(ByVal dataRows() As Global.System.Data.DataRow) As Integer
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")> _
+        Public Overridable Overloads Function Update(ByVal dataRows() As Global.System.Data.DataRow) As Integer
             Return Me.Adapter.Update(dataRows)
         End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Delete, true)>  _
-        Public Overloads Overridable Function Delete(ByVal Original_DepartID As Decimal, ByVal Original_DepartName As String) As Integer
-            Me.Adapter.DeleteCommand.Parameters(0).Value = CType(Original_DepartID,Decimal)
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Delete, True)> _
+        Public Overridable Overloads Function Delete(ByVal Original_DepartID As Decimal, ByVal Original_DepartName As String) As Integer
+            Me.Adapter.DeleteCommand.Parameters(0).Value = CType(Original_DepartID, Decimal)
             If (Original_DepartName Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(1).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(1).Value = CType(1, Object)
                 Me.Adapter.DeleteCommand.Parameters(2).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.DeleteCommand.Parameters(1).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(2).Value = CType(Original_DepartName,String)
+                Me.Adapter.DeleteCommand.Parameters(1).Value = CType(0, Object)
+                Me.Adapter.DeleteCommand.Parameters(2).Value = CType(Original_DepartName, String)
             End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.DeleteCommand.Connection.State
-            If ((Me.Adapter.DeleteCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
+            If ((Me.Adapter.DeleteCommand.Connection.State And Global.System.Data.ConnectionState.Open) _
                         <> Global.System.Data.ConnectionState.Open) Then
-                Me.Adapter.DeleteCommand.Connection.Open
+                Me.Adapter.DeleteCommand.Connection.Open()
             End If
-            Try 
+            Try
                 Dim returnValue As Integer = Me.Adapter.DeleteCommand.ExecuteNonQuery
                 Return returnValue
             Finally
                 If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
-                    Me.Adapter.DeleteCommand.Connection.Close
+                    Me.Adapter.DeleteCommand.Connection.Close()
                 End If
             End Try
         End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, true)>  _
-        Public Overloads Overridable Function Insert(ByVal DepartName As String) As Integer
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, True)> _
+        Public Overridable Overloads Function Insert(ByVal DepartName As String) As Integer
             If (DepartName Is Nothing) Then
                 Me.Adapter.InsertCommand.Parameters(0).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.InsertCommand.Parameters(0).Value = CType(DepartName,String)
+                Me.Adapter.InsertCommand.Parameters(0).Value = CType(DepartName, String)
             End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.InsertCommand.Connection.State
-            If ((Me.Adapter.InsertCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
+            If ((Me.Adapter.InsertCommand.Connection.State And Global.System.Data.ConnectionState.Open) _
                         <> Global.System.Data.ConnectionState.Open) Then
-                Me.Adapter.InsertCommand.Connection.Open
+                Me.Adapter.InsertCommand.Connection.Open()
             End If
-            Try 
+            Try
                 Dim returnValue As Integer = Me.Adapter.InsertCommand.ExecuteNonQuery
                 Return returnValue
             Finally
                 If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
-                    Me.Adapter.InsertCommand.Connection.Close
+                    Me.Adapter.InsertCommand.Connection.Close()
                 End If
             End Try
         End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
-        Public Overloads Overridable Function Update(ByVal DepartName As String, ByVal Original_DepartID As Decimal, ByVal Original_DepartName As String, ByVal DepartID As Decimal) As Integer
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, True)> _
+        Public Overridable Overloads Function Update(ByVal DepartName As String, ByVal Original_DepartID As Decimal, ByVal Original_DepartName As String, ByVal DepartID As Decimal) As Integer
             If (DepartName Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(0).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(0).Value = CType(DepartName,String)
+                Me.Adapter.UpdateCommand.Parameters(0).Value = CType(DepartName, String)
             End If
-            Me.Adapter.UpdateCommand.Parameters(1).Value = CType(Original_DepartID,Decimal)
+            Me.Adapter.UpdateCommand.Parameters(1).Value = CType(Original_DepartID, Decimal)
             If (Original_DepartName Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(2).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(2).Value = CType(1, Object)
                 Me.Adapter.UpdateCommand.Parameters(3).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(2).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(3).Value = CType(Original_DepartName,String)
+                Me.Adapter.UpdateCommand.Parameters(2).Value = CType(0, Object)
+                Me.Adapter.UpdateCommand.Parameters(3).Value = CType(Original_DepartName, String)
             End If
-            Me.Adapter.UpdateCommand.Parameters(4).Value = CType(DepartID,Decimal)
+            Me.Adapter.UpdateCommand.Parameters(4).Value = CType(DepartID, Decimal)
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.UpdateCommand.Connection.State
-            If ((Me.Adapter.UpdateCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
+            If ((Me.Adapter.UpdateCommand.Connection.State And Global.System.Data.ConnectionState.Open) _
                         <> Global.System.Data.ConnectionState.Open) Then
-                Me.Adapter.UpdateCommand.Connection.Open
+                Me.Adapter.UpdateCommand.Connection.Open()
             End If
-            Try 
+            Try
                 Dim returnValue As Integer = Me.Adapter.UpdateCommand.ExecuteNonQuery
                 Return returnValue
             Finally
                 If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
-                    Me.Adapter.UpdateCommand.Connection.Close
+                    Me.Adapter.UpdateCommand.Connection.Close()
                 End If
             End Try
         End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
-        Public Overloads Overridable Function Update(ByVal DepartName As String, ByVal Original_DepartID As Decimal, ByVal Original_DepartName As String) As Integer
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, True)> _
+        Public Overridable Overloads Function Update(ByVal DepartName As String, ByVal Original_DepartID As Decimal, ByVal Original_DepartName As String) As Integer
             Return Me.Update(DepartName, Original_DepartID, Original_DepartName, Original_DepartID)
         End Function
     End Class
-    
+
     '''<summary>
     '''Represents the connection and commands used to retrieve and save data.
     '''</summary>
-    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0"),  _
-     Global.System.ComponentModel.DesignerCategoryAttribute("code"),  _
-     Global.System.ComponentModel.ToolboxItem(true),  _
-     Global.System.ComponentModel.DataObjectAttribute(true),  _
-     Global.System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner"& _ 
-        ", Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"),  _
-     Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0"), _
+     Global.System.ComponentModel.DesignerCategoryAttribute("code"), _
+     Global.System.ComponentModel.ToolboxItem(True), _
+     Global.System.ComponentModel.DataObjectAttribute(True), _
+     Global.System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" & _
+        ", Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"), _
+     Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")> _
     Partial Public Class VRunEndOfPeriodMonthTableAdapter
         Inherits Global.System.ComponentModel.Component
-        
+
         Private WithEvents _adapter As Global.System.Data.SqlClient.SqlDataAdapter
-        
+
         Private _connection As Global.System.Data.SqlClient.SqlConnection
-        
+
         Private _transaction As Global.System.Data.SqlClient.SqlTransaction
-        
+
         Private _commandCollection() As Global.System.Data.SqlClient.SqlCommand
-        
+
         Private _clearBeforeFill As Boolean
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
         Public Sub New()
-            MyBase.New
-            Me.ClearBeforeFill = true
+            MyBase.New()
+            Me.ClearBeforeFill = True
         End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
         Protected Friend ReadOnly Property Adapter() As Global.System.Data.SqlClient.SqlDataAdapter
             Get
                 If (Me._adapter Is Nothing) Then
-                    Me.InitAdapter
+                    Me.InitAdapter()
                 End If
                 Return Me._adapter
             End Get
         End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
         Friend Property Connection() As Global.System.Data.SqlClient.SqlConnection
             Get
                 If (Me._connection Is Nothing) Then
-                    Me.InitConnection
+                    Me.InitConnection()
                 End If
                 Return Me._connection
             End Get
-            Set
+            Set(ByVal value As Global.System.Data.SqlClient.SqlConnection)
                 Me._connection = value
                 If (Not (Me.Adapter.InsertCommand) Is Nothing) Then
                     Me.Adapter.InsertCommand.Connection = value
@@ -3524,61 +3524,61 @@ Namespace DSEndofDayRunTableAdapters
                 Dim i As Integer = 0
                 Do While (i < Me.CommandCollection.Length)
                     If (Not (Me.CommandCollection(i)) Is Nothing) Then
-                        CType(Me.CommandCollection(i),Global.System.Data.SqlClient.SqlCommand).Connection = value
+                        CType(Me.CommandCollection(i), Global.System.Data.SqlClient.SqlCommand).Connection = value
                     End If
                     i = (i + 1)
                 Loop
             End Set
         End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
         Friend Property Transaction() As Global.System.Data.SqlClient.SqlTransaction
             Get
                 Return Me._transaction
             End Get
-            Set
+            Set(ByVal value As Global.System.Data.SqlClient.SqlTransaction)
                 Me._transaction = value
                 Dim i As Integer = 0
                 Do While (i < Me.CommandCollection.Length)
                     Me.CommandCollection(i).Transaction = Me._transaction
                     i = (i + 1)
                 Loop
-                If ((Not (Me.Adapter) Is Nothing)  _
+                If ((Not (Me.Adapter) Is Nothing) _
                             AndAlso (Not (Me.Adapter.DeleteCommand) Is Nothing)) Then
                     Me.Adapter.DeleteCommand.Transaction = Me._transaction
                 End If
-                If ((Not (Me.Adapter) Is Nothing)  _
+                If ((Not (Me.Adapter) Is Nothing) _
                             AndAlso (Not (Me.Adapter.InsertCommand) Is Nothing)) Then
                     Me.Adapter.InsertCommand.Transaction = Me._transaction
                 End If
-                If ((Not (Me.Adapter) Is Nothing)  _
+                If ((Not (Me.Adapter) Is Nothing) _
                             AndAlso (Not (Me.Adapter.UpdateCommand) Is Nothing)) Then
                     Me.Adapter.UpdateCommand.Transaction = Me._transaction
                 End If
             End Set
         End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
         Protected ReadOnly Property CommandCollection() As Global.System.Data.SqlClient.SqlCommand()
             Get
                 If (Me._commandCollection Is Nothing) Then
-                    Me.InitCommandCollection
+                    Me.InitCommandCollection()
                 End If
                 Return Me._commandCollection
             End Get
         End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
         Public Property ClearBeforeFill() As Boolean
             Get
                 Return Me._clearBeforeFill
             End Get
-            Set
+            Set(ByVal value As Boolean)
                 Me._clearBeforeFill = value
             End Set
         End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
         Private Sub InitAdapter()
             Me._adapter = New Global.System.Data.SqlClient.SqlDataAdapter
             Dim tableMapping As Global.System.Data.Common.DataTableMapping = New Global.System.Data.Common.DataTableMapping
@@ -3591,278 +3591,278 @@ Namespace DSEndofDayRunTableAdapters
             tableMapping.ColumnMappings.Add("UsedQty", "UsedQty")
             Me._adapter.TableMappings.Add(tableMapping)
         End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
         Private Sub InitConnection()
             Me._connection = New Global.System.Data.SqlClient.SqlConnection
-            Me._connection.ConnectionString = Global.HospitalMS.My.MySettings.Default.TakeoDBConnectionString
+            Me._connection.ConnectionString = Global.HospitalMS.My.MySettings.Default.AppConnection
         End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
         Private Sub InitCommandCollection()
             Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(3) {}
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT     TOP (100) PERCENT CONVERT(varchar(2), t.M) + '/' + CONVERT(varchar(4),"& _ 
-                " t.Y) AS smonth, SUM(t.RequestQty) AS RequestQty, SUM(t.ReceivedQty) AS Received"& _ 
-                "Qty, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      SUM(t.UseQty) AS UsedQty, t.ItemID, t.DepartID, tbl"& _ 
-                "Item.ItemName, tblItem.CateID"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM         (SELECT     RunEndOfDayDate, ItemNam"& _ 
-                "e, RequestQty, ReceivedQty, UseQty, ItemID, DepartName, Barcode, DepartID, Begin"& _ 
-                "Balance, EndBalance, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                                              YEAR(RunEnd"& _ 
-                "OfDayDate) AS Y, MONTH(RunEndOfDayDate) AS M, DAY(RunEndOfDayDate) AS D"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"       "& _ 
-                "                FROM          VRunEndofDayResult"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                       WHERE  "& _ 
-                "    (CAST(CONVERT(VARCHAR(10), RunEndOfDayDate, 1) AS DateTime) BETWEEN CAST(CON"& _ 
-                "VERT(VARCHAR(10), CAST(@fromDate AS DATETIME), 1) "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                            "& _ 
-                "                  AS Datetime) AND CAST(CONVERT(VARCHAR(10), CAST(@toDate AS DAT"& _ 
-                "ETIME), 1) AS Datetime))) AS t INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      tblItem ON t.It"& _ 
-                "emID = tblItem.ItemID"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"GROUP BY t.Y, t.M, t.ItemID, t.DepartID, tblItem.ItemName"& _ 
-                ", tblItem.CateID"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"ORDER BY  tblItem.ItemName"
+            Me._commandCollection(0).CommandText = "SELECT     TOP (100) PERCENT CONVERT(varchar(2), t.M) + '/' + CONVERT(varchar(4)," & _
+                " t.Y) AS smonth, SUM(t.RequestQty) AS RequestQty, SUM(t.ReceivedQty) AS Received" & _
+                "Qty, " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                      SUM(t.UseQty) AS UsedQty, t.ItemID, t.DepartID, tbl" & _
+                "Item.ItemName, tblItem.CateID" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "FROM         (SELECT     RunEndOfDayDate, ItemNam" & _
+                "e, RequestQty, ReceivedQty, UseQty, ItemID, DepartName, Barcode, DepartID, Begin" & _
+                "Balance, EndBalance, " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                                              YEAR(RunEnd" & _
+                "OfDayDate) AS Y, MONTH(RunEndOfDayDate) AS M, DAY(RunEndOfDayDate) AS D" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "       " & _
+                "                FROM          VRunEndofDayResult" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                       WHERE  " & _
+                "    (CAST(CONVERT(VARCHAR(10), RunEndOfDayDate, 1) AS DateTime) BETWEEN CAST(CON" & _
+                "VERT(VARCHAR(10), CAST(@fromDate AS DATETIME), 1) " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                            " & _
+                "                  AS Datetime) AND CAST(CONVERT(VARCHAR(10), CAST(@toDate AS DAT" & _
+                "ETIME), 1) AS Datetime))) AS t INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                      tblItem ON t.It" & _
+                "emID = tblItem.ItemID" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "GROUP BY t.Y, t.M, t.ItemID, t.DepartID, tblItem.ItemName" & _
+                ", tblItem.CateID" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "ORDER BY  tblItem.ItemName"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@fromDate", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@toDate", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@fromDate", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@toDate", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
             Me._commandCollection(1) = New Global.System.Data.SqlClient.SqlCommand
             Me._commandCollection(1).Connection = Me.Connection
-            Me._commandCollection(1).CommandText = "SELECT     TOP (100) PERCENT CONVERT(varchar(2), t.M) + '/' + CONVERT(varchar(4),"& _ 
-                " t.Y) AS smonth, SUM(t.RequestQty) AS RequestQty, SUM(t.ReceivedQty) AS Received"& _ 
-                "Qty, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      SUM(t.UseQty) AS UsedQty, t.ItemID, t.DepartID, dbo"& _ 
-                ".tblItem.ItemName, dbo.tblItem.CateID"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM         (SELECT     RunEndOfDayDate,"& _ 
-                " ItemName, RequestQty, ReceivedQty, UseQty, ItemID, DepartName, Barcode, DepartI"& _ 
-                "D, BeginBalance, EndBalance, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                                              YEA"& _ 
-                "R(RunEndOfDayDate) AS Y, MONTH(RunEndOfDayDate) AS M, DAY(RunEndOfDayDate) AS D"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                       FROM          dbo.VRunEndofDayResult"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                  "& _ 
-                "     WHERE      ((CAST(CONVERT(VARCHAR(10), RunEndOfDayDate, 1) AS DateTime) BET"& _ 
-                "WEEN CAST(CONVERT(VARCHAR(10), CAST(@fromDate AS DATETIME), 1) AS Datetime) AND "& _ 
-                ""&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      CAST(CONVERT(VARCHAR(10), CAST(@toDate AS DATETIME), 1) "& _ 
-                "AS Datetime)) AND CateID=@CateID AND DepartID=@DepartID)) AS t INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"     "& _ 
-                "                 dbo.tblItem ON t.ItemID = dbo.tblItem.ItemID"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"GROUP BY t.Y, t.M"& _ 
-                ", t.ItemID, t.DepartID, dbo.tblItem.ItemName, dbo.tblItem.CateID"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"ORDER BY  dbo."& _ 
+            Me._commandCollection(1).CommandText = "SELECT     TOP (100) PERCENT CONVERT(varchar(2), t.M) + '/' + CONVERT(varchar(4)," & _
+                " t.Y) AS smonth, SUM(t.RequestQty) AS RequestQty, SUM(t.ReceivedQty) AS Received" & _
+                "Qty, " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                      SUM(t.UseQty) AS UsedQty, t.ItemID, t.DepartID, dbo" & _
+                ".tblItem.ItemName, dbo.tblItem.CateID" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "FROM         (SELECT     RunEndOfDayDate," & _
+                " ItemName, RequestQty, ReceivedQty, UseQty, ItemID, DepartName, Barcode, DepartI" & _
+                "D, BeginBalance, EndBalance, " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                                              YEA" & _
+                "R(RunEndOfDayDate) AS Y, MONTH(RunEndOfDayDate) AS M, DAY(RunEndOfDayDate) AS D" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                       FROM          dbo.VRunEndofDayResult" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                  " & _
+                "     WHERE      ((CAST(CONVERT(VARCHAR(10), RunEndOfDayDate, 1) AS DateTime) BET" & _
+                "WEEN CAST(CONVERT(VARCHAR(10), CAST(@fromDate AS DATETIME), 1) AS Datetime) AND " & _
+                "" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                      CAST(CONVERT(VARCHAR(10), CAST(@toDate AS DATETIME), 1) " & _
+                "AS Datetime)) AND CateID=@CateID AND DepartID=@DepartID)) AS t INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "     " & _
+                "                 dbo.tblItem ON t.ItemID = dbo.tblItem.ItemID" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "GROUP BY t.Y, t.M" & _
+                ", t.ItemID, t.DepartID, dbo.tblItem.ItemName, dbo.tblItem.CateID" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "ORDER BY  dbo." & _
                 "tblItem.ItemName"
             Me._commandCollection(1).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@fromDate", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@toDate", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CateID", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DepartID", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@fromDate", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@toDate", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CateID", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DepartID", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
             Me._commandCollection(2) = New Global.System.Data.SqlClient.SqlCommand
             Me._commandCollection(2).Connection = Me.Connection
-            Me._commandCollection(2).CommandText = "SELECT     TOP (100) PERCENT CONVERT(varchar(2), t.M) + '/' + CONVERT(varchar(4),"& _ 
-                " t.Y) AS smonth, SUM(t.RequestQty) AS RequestQty, SUM(t.ReceivedQty) AS Received"& _ 
-                "Qty, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      SUM(t.UseQty) AS UsedQty, t.ItemID, t.DepartID, dbo"& _ 
-                ".tblItem.ItemName, dbo.tblItem.CateID"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM         (SELECT     RunEndOfDayDate,"& _ 
-                " ItemName, RequestQty, ReceivedQty, UseQty, ItemID, DepartName, Barcode, DepartI"& _ 
-                "D, BeginBalance, EndBalance, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                                              YEA"& _ 
-                "R(RunEndOfDayDate) AS Y, MONTH(RunEndOfDayDate) AS M, DAY(RunEndOfDayDate) AS D"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                       FROM          dbo.VRunEndofDayResult"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                  "& _ 
-                "     WHERE      ((CAST(CONVERT(VARCHAR(10), RunEndOfDayDate, 1) AS DateTime) BET"& _ 
-                "WEEN CAST(CONVERT(VARCHAR(10), CAST(@fromDate AS DATETIME), 1) AS Datetime) AND "& _ 
-                ""&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      CAST(CONVERT(VARCHAR(10), CAST(@toDate AS DATETIME), 1) "& _ 
-                "AS Datetime)) AND ItemID=@ItemID AND DepartID=@DepartID)) AS t INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"     "& _ 
-                "                 dbo.tblItem ON t.ItemID = dbo.tblItem.ItemID"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"GROUP BY t.Y, t.M"& _ 
-                ", t.ItemID, t.DepartID, dbo.tblItem.ItemName, dbo.tblItem.CateID"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"ORDER BY dbo.t"& _ 
+            Me._commandCollection(2).CommandText = "SELECT     TOP (100) PERCENT CONVERT(varchar(2), t.M) + '/' + CONVERT(varchar(4)," & _
+                " t.Y) AS smonth, SUM(t.RequestQty) AS RequestQty, SUM(t.ReceivedQty) AS Received" & _
+                "Qty, " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                      SUM(t.UseQty) AS UsedQty, t.ItemID, t.DepartID, dbo" & _
+                ".tblItem.ItemName, dbo.tblItem.CateID" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "FROM         (SELECT     RunEndOfDayDate," & _
+                " ItemName, RequestQty, ReceivedQty, UseQty, ItemID, DepartName, Barcode, DepartI" & _
+                "D, BeginBalance, EndBalance, " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                                              YEA" & _
+                "R(RunEndOfDayDate) AS Y, MONTH(RunEndOfDayDate) AS M, DAY(RunEndOfDayDate) AS D" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                       FROM          dbo.VRunEndofDayResult" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                  " & _
+                "     WHERE      ((CAST(CONVERT(VARCHAR(10), RunEndOfDayDate, 1) AS DateTime) BET" & _
+                "WEEN CAST(CONVERT(VARCHAR(10), CAST(@fromDate AS DATETIME), 1) AS Datetime) AND " & _
+                "" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                      CAST(CONVERT(VARCHAR(10), CAST(@toDate AS DATETIME), 1) " & _
+                "AS Datetime)) AND ItemID=@ItemID AND DepartID=@DepartID)) AS t INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "     " & _
+                "                 dbo.tblItem ON t.ItemID = dbo.tblItem.ItemID" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "GROUP BY t.Y, t.M" & _
+                ", t.ItemID, t.DepartID, dbo.tblItem.ItemName, dbo.tblItem.CateID" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "ORDER BY dbo.t" & _
                 "blItem.ItemName"
             Me._commandCollection(2).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@fromDate", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@toDate", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ItemID", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DepartID", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@fromDate", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@toDate", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ItemID", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DepartID", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
             Me._commandCollection(3) = New Global.System.Data.SqlClient.SqlCommand
             Me._commandCollection(3).Connection = Me.Connection
-            Me._commandCollection(3).CommandText = "SELECT      CONVERT(varchar(2), t.M) + '/' + CONVERT(varchar(4), t.Y) AS smonth, "& _ 
-                "SUM(t.RequestQty) AS RequestQty, SUM(t.ReceivedQty) AS ReceivedQty, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"          "& _ 
-                "            SUM(t.UseQty) AS UsedQty, t.ItemID, t.DepartID, dbo.tblItem.ItemName"& _ 
-                ", dbo.tblItem.CateID"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM         (SELECT     RunEndOfDayDate, ItemName, Reques"& _ 
-                "tQty, ReceivedQty, UseQty, ItemID, DepartName, Barcode, DepartID, BeginBalance, "& _ 
-                "EndBalance, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                                              YEAR(RunEndOfDayDate"& _ 
-                ") AS Y, MONTH(RunEndOfDayDate) AS M, DAY(RunEndOfDayDate) AS D"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                "& _ 
-                "       FROM          dbo.VRunEndofDayResult"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                       WHERE      ("& _ 
-                "(CAST(CONVERT(VARCHAR(10), RunEndOfDayDate, 1) AS DateTime) BETWEEN CAST(CONVERT"& _ 
-                "(VARCHAR(10), CAST(@fromDate AS DATETIME), 1) AS Datetime) AND "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"               "& _ 
-                "       CAST(CONVERT(VARCHAR(10), CAST(@toDate AS DATETIME), 1) AS Datetime)) AND"& _ 
-                " DepartID=@DepartID )) AS t INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      dbo.tblItem ON t.I"& _ 
-                "temID = dbo.tblItem.ItemID"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"GROUP BY t.Y, t.M, t.ItemID, t.DepartID, dbo.tblItem"& _ 
-                ".ItemName, dbo.tblItem.CateID"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"ORDER BY dbo.tblItem.ItemName"
+            Me._commandCollection(3).CommandText = "SELECT      CONVERT(varchar(2), t.M) + '/' + CONVERT(varchar(4), t.Y) AS smonth, " & _
+                "SUM(t.RequestQty) AS RequestQty, SUM(t.ReceivedQty) AS ReceivedQty, " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "          " & _
+                "            SUM(t.UseQty) AS UsedQty, t.ItemID, t.DepartID, dbo.tblItem.ItemName" & _
+                ", dbo.tblItem.CateID" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "FROM         (SELECT     RunEndOfDayDate, ItemName, Reques" & _
+                "tQty, ReceivedQty, UseQty, ItemID, DepartName, Barcode, DepartID, BeginBalance, " & _
+                "EndBalance, " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                                              YEAR(RunEndOfDayDate" & _
+                ") AS Y, MONTH(RunEndOfDayDate) AS M, DAY(RunEndOfDayDate) AS D" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                " & _
+                "       FROM          dbo.VRunEndofDayResult" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                       WHERE      (" & _
+                "(CAST(CONVERT(VARCHAR(10), RunEndOfDayDate, 1) AS DateTime) BETWEEN CAST(CONVERT" & _
+                "(VARCHAR(10), CAST(@fromDate AS DATETIME), 1) AS Datetime) AND " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "               " & _
+                "       CAST(CONVERT(VARCHAR(10), CAST(@toDate AS DATETIME), 1) AS Datetime)) AND" & _
+                " DepartID=@DepartID )) AS t INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                      dbo.tblItem ON t.I" & _
+                "temID = dbo.tblItem.ItemID" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "GROUP BY t.Y, t.M, t.ItemID, t.DepartID, dbo.tblItem" & _
+                ".ItemName, dbo.tblItem.CateID" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "ORDER BY dbo.tblItem.ItemName"
             Me._commandCollection(3).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@fromDate", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@toDate", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DepartID", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@fromDate", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@toDate", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DepartID", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
         End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, true)>  _
-        Public Overloads Overridable Function Fill(ByVal dataTable As DSEndofDayRun.VRunEndOfPeriodMonthDataTable, ByVal fromDate As Date, ByVal toDate As Date) As Integer
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, True)> _
+        Public Overridable Overloads Function Fill(ByVal dataTable As DSEndofDayRun.VRunEndOfPeriodMonthDataTable, ByVal fromDate As Date, ByVal toDate As Date) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
-            Me.Adapter.SelectCommand.Parameters(0).Value = CType(fromDate,Date)
-            Me.Adapter.SelectCommand.Parameters(1).Value = CType(toDate,Date)
-            If (Me.ClearBeforeFill = true) Then
-                dataTable.Clear
+            Me.Adapter.SelectCommand.Parameters(0).Value = CType(fromDate, Date)
+            Me.Adapter.SelectCommand.Parameters(1).Value = CType(toDate, Date)
+            If (Me.ClearBeforeFill = True) Then
+                dataTable.Clear()
             End If
             Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
             Return returnValue
         End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], true)>  _
-        Public Overloads Overridable Function GetData(ByVal fromDate As Date, ByVal toDate As Date) As DSEndofDayRun.VRunEndOfPeriodMonthDataTable
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], True)> _
+        Public Overridable Overloads Function GetData(ByVal fromDate As Date, ByVal toDate As Date) As DSEndofDayRun.VRunEndOfPeriodMonthDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
-            Me.Adapter.SelectCommand.Parameters(0).Value = CType(fromDate,Date)
-            Me.Adapter.SelectCommand.Parameters(1).Value = CType(toDate,Date)
+            Me.Adapter.SelectCommand.Parameters(0).Value = CType(fromDate, Date)
+            Me.Adapter.SelectCommand.Parameters(1).Value = CType(toDate, Date)
             Dim dataTable As DSEndofDayRun.VRunEndOfPeriodMonthDataTable = New DSEndofDayRun.VRunEndOfPeriodMonthDataTable
             Me.Adapter.Fill(dataTable)
             Return dataTable
         End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
-        Public Overloads Overridable Function FillBy(ByVal dataTable As DSEndofDayRun.VRunEndOfPeriodMonthDataTable, ByVal fromDate As Date, ByVal toDate As Date, ByVal CateID As Global.System.Nullable(Of Integer), ByVal DepartID As Integer) As Integer
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, False)> _
+        Public Overridable Overloads Function FillBy(ByVal dataTable As DSEndofDayRun.VRunEndOfPeriodMonthDataTable, ByVal fromDate As Date, ByVal toDate As Date, ByVal CateID As Global.System.Nullable(Of Integer), ByVal DepartID As Integer) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(1)
-            Me.Adapter.SelectCommand.Parameters(0).Value = CType(fromDate,Date)
-            Me.Adapter.SelectCommand.Parameters(1).Value = CType(toDate,Date)
-            If (CateID.HasValue = true) Then
-                Me.Adapter.SelectCommand.Parameters(2).Value = CType(CateID.Value,Integer)
+            Me.Adapter.SelectCommand.Parameters(0).Value = CType(fromDate, Date)
+            Me.Adapter.SelectCommand.Parameters(1).Value = CType(toDate, Date)
+            If (CateID.HasValue = True) Then
+                Me.Adapter.SelectCommand.Parameters(2).Value = CType(CateID.Value, Integer)
             Else
                 Me.Adapter.SelectCommand.Parameters(2).Value = Global.System.DBNull.Value
             End If
-            Me.Adapter.SelectCommand.Parameters(3).Value = CType(DepartID,Integer)
-            If (Me.ClearBeforeFill = true) Then
-                dataTable.Clear
+            Me.Adapter.SelectCommand.Parameters(3).Value = CType(DepartID, Integer)
+            If (Me.ClearBeforeFill = True) Then
+                dataTable.Clear()
             End If
             Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
             Return returnValue
         End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
-        Public Overloads Overridable Function GetDataByCateIDAndDepartID(ByVal fromDate As Date, ByVal toDate As Date, ByVal CateID As Global.System.Nullable(Of Integer), ByVal DepartID As Integer) As DSEndofDayRun.VRunEndOfPeriodMonthDataTable
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], False)> _
+        Public Overridable Overloads Function GetDataByCateIDAndDepartID(ByVal fromDate As Date, ByVal toDate As Date, ByVal CateID As Global.System.Nullable(Of Integer), ByVal DepartID As Integer) As DSEndofDayRun.VRunEndOfPeriodMonthDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(1)
-            Me.Adapter.SelectCommand.Parameters(0).Value = CType(fromDate,Date)
-            Me.Adapter.SelectCommand.Parameters(1).Value = CType(toDate,Date)
-            If (CateID.HasValue = true) Then
-                Me.Adapter.SelectCommand.Parameters(2).Value = CType(CateID.Value,Integer)
+            Me.Adapter.SelectCommand.Parameters(0).Value = CType(fromDate, Date)
+            Me.Adapter.SelectCommand.Parameters(1).Value = CType(toDate, Date)
+            If (CateID.HasValue = True) Then
+                Me.Adapter.SelectCommand.Parameters(2).Value = CType(CateID.Value, Integer)
             Else
                 Me.Adapter.SelectCommand.Parameters(2).Value = Global.System.DBNull.Value
             End If
-            Me.Adapter.SelectCommand.Parameters(3).Value = CType(DepartID,Integer)
+            Me.Adapter.SelectCommand.Parameters(3).Value = CType(DepartID, Integer)
             Dim dataTable As DSEndofDayRun.VRunEndOfPeriodMonthDataTable = New DSEndofDayRun.VRunEndOfPeriodMonthDataTable
             Me.Adapter.Fill(dataTable)
             Return dataTable
         End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
-        Public Overloads Overridable Function FillBy1(ByVal dataTable As DSEndofDayRun.VRunEndOfPeriodMonthDataTable, ByVal fromDate As Date, ByVal toDate As Date, ByVal ItemID As Global.System.Nullable(Of Integer), ByVal DepartID As Integer) As Integer
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, False)> _
+        Public Overridable Overloads Function FillBy1(ByVal dataTable As DSEndofDayRun.VRunEndOfPeriodMonthDataTable, ByVal fromDate As Date, ByVal toDate As Date, ByVal ItemID As Global.System.Nullable(Of Integer), ByVal DepartID As Integer) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(2)
-            Me.Adapter.SelectCommand.Parameters(0).Value = CType(fromDate,Date)
-            Me.Adapter.SelectCommand.Parameters(1).Value = CType(toDate,Date)
-            If (ItemID.HasValue = true) Then
-                Me.Adapter.SelectCommand.Parameters(2).Value = CType(ItemID.Value,Integer)
+            Me.Adapter.SelectCommand.Parameters(0).Value = CType(fromDate, Date)
+            Me.Adapter.SelectCommand.Parameters(1).Value = CType(toDate, Date)
+            If (ItemID.HasValue = True) Then
+                Me.Adapter.SelectCommand.Parameters(2).Value = CType(ItemID.Value, Integer)
             Else
                 Me.Adapter.SelectCommand.Parameters(2).Value = Global.System.DBNull.Value
             End If
-            Me.Adapter.SelectCommand.Parameters(3).Value = CType(DepartID,Integer)
-            If (Me.ClearBeforeFill = true) Then
-                dataTable.Clear
+            Me.Adapter.SelectCommand.Parameters(3).Value = CType(DepartID, Integer)
+            If (Me.ClearBeforeFill = True) Then
+                dataTable.Clear()
             End If
             Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
             Return returnValue
         End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
-        Public Overloads Overridable Function GetDataByItemIDAndDepartID(ByVal fromDate As Date, ByVal toDate As Date, ByVal ItemID As Global.System.Nullable(Of Integer), ByVal DepartID As Integer) As DSEndofDayRun.VRunEndOfPeriodMonthDataTable
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], False)> _
+        Public Overridable Overloads Function GetDataByItemIDAndDepartID(ByVal fromDate As Date, ByVal toDate As Date, ByVal ItemID As Global.System.Nullable(Of Integer), ByVal DepartID As Integer) As DSEndofDayRun.VRunEndOfPeriodMonthDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(2)
-            Me.Adapter.SelectCommand.Parameters(0).Value = CType(fromDate,Date)
-            Me.Adapter.SelectCommand.Parameters(1).Value = CType(toDate,Date)
-            If (ItemID.HasValue = true) Then
-                Me.Adapter.SelectCommand.Parameters(2).Value = CType(ItemID.Value,Integer)
+            Me.Adapter.SelectCommand.Parameters(0).Value = CType(fromDate, Date)
+            Me.Adapter.SelectCommand.Parameters(1).Value = CType(toDate, Date)
+            If (ItemID.HasValue = True) Then
+                Me.Adapter.SelectCommand.Parameters(2).Value = CType(ItemID.Value, Integer)
             Else
                 Me.Adapter.SelectCommand.Parameters(2).Value = Global.System.DBNull.Value
             End If
-            Me.Adapter.SelectCommand.Parameters(3).Value = CType(DepartID,Integer)
+            Me.Adapter.SelectCommand.Parameters(3).Value = CType(DepartID, Integer)
             Dim dataTable As DSEndofDayRun.VRunEndOfPeriodMonthDataTable = New DSEndofDayRun.VRunEndOfPeriodMonthDataTable
             Me.Adapter.Fill(dataTable)
             Return dataTable
         End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
-        Public Overloads Overridable Function FillBy2(ByVal dataTable As DSEndofDayRun.VRunEndOfPeriodMonthDataTable, ByVal fromDate As Date, ByVal toDate As Date, ByVal DepartID As Integer) As Integer
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, False)> _
+        Public Overridable Overloads Function FillBy2(ByVal dataTable As DSEndofDayRun.VRunEndOfPeriodMonthDataTable, ByVal fromDate As Date, ByVal toDate As Date, ByVal DepartID As Integer) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(3)
-            Me.Adapter.SelectCommand.Parameters(0).Value = CType(fromDate,Date)
-            Me.Adapter.SelectCommand.Parameters(1).Value = CType(toDate,Date)
-            Me.Adapter.SelectCommand.Parameters(2).Value = CType(DepartID,Integer)
-            If (Me.ClearBeforeFill = true) Then
-                dataTable.Clear
+            Me.Adapter.SelectCommand.Parameters(0).Value = CType(fromDate, Date)
+            Me.Adapter.SelectCommand.Parameters(1).Value = CType(toDate, Date)
+            Me.Adapter.SelectCommand.Parameters(2).Value = CType(DepartID, Integer)
+            If (Me.ClearBeforeFill = True) Then
+                dataTable.Clear()
             End If
             Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
             Return returnValue
         End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
-        Public Overloads Overridable Function GetDataByDepartID(ByVal fromDate As Date, ByVal toDate As Date, ByVal DepartID As Integer) As DSEndofDayRun.VRunEndOfPeriodMonthDataTable
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], False)> _
+        Public Overridable Overloads Function GetDataByDepartID(ByVal fromDate As Date, ByVal toDate As Date, ByVal DepartID As Integer) As DSEndofDayRun.VRunEndOfPeriodMonthDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(3)
-            Me.Adapter.SelectCommand.Parameters(0).Value = CType(fromDate,Date)
-            Me.Adapter.SelectCommand.Parameters(1).Value = CType(toDate,Date)
-            Me.Adapter.SelectCommand.Parameters(2).Value = CType(DepartID,Integer)
+            Me.Adapter.SelectCommand.Parameters(0).Value = CType(fromDate, Date)
+            Me.Adapter.SelectCommand.Parameters(1).Value = CType(toDate, Date)
+            Me.Adapter.SelectCommand.Parameters(2).Value = CType(DepartID, Integer)
             Dim dataTable As DSEndofDayRun.VRunEndOfPeriodMonthDataTable = New DSEndofDayRun.VRunEndOfPeriodMonthDataTable
             Me.Adapter.Fill(dataTable)
             Return dataTable
         End Function
     End Class
-    
+
     '''<summary>
     '''Represents the connection and commands used to retrieve and save data.
     '''</summary>
-    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0"),  _
-     Global.System.ComponentModel.DesignerCategoryAttribute("code"),  _
-     Global.System.ComponentModel.ToolboxItem(true),  _
-     Global.System.ComponentModel.DataObjectAttribute(true),  _
-     Global.System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner"& _ 
-        ", Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"),  _
-     Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0"), _
+     Global.System.ComponentModel.DesignerCategoryAttribute("code"), _
+     Global.System.ComponentModel.ToolboxItem(True), _
+     Global.System.ComponentModel.DataObjectAttribute(True), _
+     Global.System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" & _
+        ", Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"), _
+     Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")> _
     Partial Public Class tblEndofMonthRunTableAdapter
         Inherits Global.System.ComponentModel.Component
-        
+
         Private WithEvents _adapter As Global.System.Data.SqlClient.SqlDataAdapter
-        
+
         Private _connection As Global.System.Data.SqlClient.SqlConnection
-        
+
         Private _transaction As Global.System.Data.SqlClient.SqlTransaction
-        
+
         Private _commandCollection() As Global.System.Data.SqlClient.SqlCommand
-        
+
         Private _clearBeforeFill As Boolean
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
         Public Sub New()
-            MyBase.New
-            Me.ClearBeforeFill = true
+            MyBase.New()
+            Me.ClearBeforeFill = True
         End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
         Protected Friend ReadOnly Property Adapter() As Global.System.Data.SqlClient.SqlDataAdapter
             Get
                 If (Me._adapter Is Nothing) Then
-                    Me.InitAdapter
+                    Me.InitAdapter()
                 End If
                 Return Me._adapter
             End Get
         End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
         Friend Property Connection() As Global.System.Data.SqlClient.SqlConnection
             Get
                 If (Me._connection Is Nothing) Then
-                    Me.InitConnection
+                    Me.InitConnection()
                 End If
                 Return Me._connection
             End Get
-            Set
+            Set(ByVal value As Global.System.Data.SqlClient.SqlConnection)
                 Me._connection = value
                 If (Not (Me.Adapter.InsertCommand) Is Nothing) Then
                     Me.Adapter.InsertCommand.Connection = value
@@ -3876,61 +3876,61 @@ Namespace DSEndofDayRunTableAdapters
                 Dim i As Integer = 0
                 Do While (i < Me.CommandCollection.Length)
                     If (Not (Me.CommandCollection(i)) Is Nothing) Then
-                        CType(Me.CommandCollection(i),Global.System.Data.SqlClient.SqlCommand).Connection = value
+                        CType(Me.CommandCollection(i), Global.System.Data.SqlClient.SqlCommand).Connection = value
                     End If
                     i = (i + 1)
                 Loop
             End Set
         End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
         Friend Property Transaction() As Global.System.Data.SqlClient.SqlTransaction
             Get
                 Return Me._transaction
             End Get
-            Set
+            Set(ByVal value As Global.System.Data.SqlClient.SqlTransaction)
                 Me._transaction = value
                 Dim i As Integer = 0
                 Do While (i < Me.CommandCollection.Length)
                     Me.CommandCollection(i).Transaction = Me._transaction
                     i = (i + 1)
                 Loop
-                If ((Not (Me.Adapter) Is Nothing)  _
+                If ((Not (Me.Adapter) Is Nothing) _
                             AndAlso (Not (Me.Adapter.DeleteCommand) Is Nothing)) Then
                     Me.Adapter.DeleteCommand.Transaction = Me._transaction
                 End If
-                If ((Not (Me.Adapter) Is Nothing)  _
+                If ((Not (Me.Adapter) Is Nothing) _
                             AndAlso (Not (Me.Adapter.InsertCommand) Is Nothing)) Then
                     Me.Adapter.InsertCommand.Transaction = Me._transaction
                 End If
-                If ((Not (Me.Adapter) Is Nothing)  _
+                If ((Not (Me.Adapter) Is Nothing) _
                             AndAlso (Not (Me.Adapter.UpdateCommand) Is Nothing)) Then
                     Me.Adapter.UpdateCommand.Transaction = Me._transaction
                 End If
             End Set
         End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
         Protected ReadOnly Property CommandCollection() As Global.System.Data.SqlClient.SqlCommand()
             Get
                 If (Me._commandCollection Is Nothing) Then
-                    Me.InitCommandCollection
+                    Me.InitCommandCollection()
                 End If
                 Return Me._commandCollection
             End Get
         End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
         Public Property ClearBeforeFill() As Boolean
             Get
                 Return Me._clearBeforeFill
             End Get
-            Set
+            Set(ByVal value As Boolean)
                 Me._clearBeforeFill = value
             End Set
         End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
         Private Sub InitAdapter()
             Me._adapter = New Global.System.Data.SqlClient.SqlDataAdapter
             Dim tableMapping As Global.System.Data.Common.DataTableMapping = New Global.System.Data.Common.DataTableMapping
@@ -3948,39 +3948,39 @@ Namespace DSEndofDayRunTableAdapters
             tableMapping.ColumnMappings.Add("Barcode", "Barcode")
             Me._adapter.TableMappings.Add(tableMapping)
         End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
         Private Sub InitConnection()
             Me._connection = New Global.System.Data.SqlClient.SqlConnection
-            Me._connection.ConnectionString = Global.HospitalMS.My.MySettings.Default.TakeoDBConnectionString
+            Me._connection.ConnectionString = Global.HospitalMS.My.MySettings.Default.AppConnection
         End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
         Private Sub InitCommandCollection()
             Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(0) {}
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT     Date, RequestQty, ReceivedQty, UsedQty, BeginBalance, EndBalance, Depa"& _ 
-                "rtID, ItemID, ItemName, Barcode"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM         tblEndofMonthRun"
+            Me._commandCollection(0).CommandText = "SELECT     Date, RequestQty, ReceivedQty, UsedQty, BeginBalance, EndBalance, Depa" & _
+                "rtID, ItemID, ItemName, Barcode" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "FROM         tblEndofMonthRun"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
         End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, true)>  _
-        Public Overloads Overridable Function Fill(ByVal dataTable As DSEndofDayRun.tblEndofMonthRunDataTable) As Integer
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, True)> _
+        Public Overridable Overloads Function Fill(ByVal dataTable As DSEndofDayRun.tblEndofMonthRunDataTable) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
-            If (Me.ClearBeforeFill = true) Then
-                dataTable.Clear
+            If (Me.ClearBeforeFill = True) Then
+                dataTable.Clear()
             End If
             Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
             Return returnValue
         End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], true)>  _
-        Public Overloads Overridable Function GetData() As DSEndofDayRun.tblEndofMonthRunDataTable
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], True)> _
+        Public Overridable Overloads Function GetData() As DSEndofDayRun.tblEndofMonthRunDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
             Dim dataTable As DSEndofDayRun.tblEndofMonthRunDataTable = New DSEndofDayRun.tblEndofMonthRunDataTable
             Me.Adapter.Fill(dataTable)

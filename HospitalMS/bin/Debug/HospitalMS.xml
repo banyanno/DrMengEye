@@ -6,27 +6,7 @@ HospitalMS
 </name>
 </assembly>
 <members>
-<member name="T:HospitalMS.DataSetCashReceipt.tblPatientReceiptDataTable">
-	<summary>
-Represents the strongly named DataTable class.
-</summary>
-</member><member name="T:HospitalMS.DataSetCashReceipt.tblPatientReceiptRow">
-	<summary>
-Represents strongly named DataRow class.
-</summary>
-</member><member name="T:HospitalMS.DataSetCashReceipt.tblPatientReceiptRowChangeEvent">
-	<summary>
-Row event argument class
-</summary>
-</member><member name="T:HospitalMS.DataSetCashReceipt">
-	<summary>
-Represents a strongly typed in-memory cache of data.
-</summary>
-</member><member name="T:HospitalMS.DataSetCashReceiptTableAdapters.tblPatientReceiptTableAdapter">
-	<summary>
-Represents the connection and commands used to retrieve and save data.
-</summary>
-</member><member name="T:HospitalMS.DSPatientForm.TblPatientReferalDataTable">
+<member name="T:HospitalMS.DSPatientForm.TblPatientReferalDataTable">
 	<summary>
 Represents the strongly named DataTable class.
 </summary>
@@ -75,6 +55,26 @@ Represents the connection and commands used to retrieve and save data.
 Represents the connection and commands used to retrieve and save data.
 </summary>
 </member><member name="T:HospitalMS.DSPatientFormTableAdapters.TblPatientsTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:HospitalMS.DataSetCashReceipt.tblPatientReceiptDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:HospitalMS.DataSetCashReceipt.tblPatientReceiptRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:HospitalMS.DataSetCashReceipt.tblPatientReceiptRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:HospitalMS.DataSetCashReceipt">
+	<summary>
+Represents a strongly typed in-memory cache of data.
+</summary>
+</member><member name="T:HospitalMS.DataSetCashReceiptTableAdapters.tblPatientReceiptTableAdapter">
 	<summary>
 Represents the connection and commands used to retrieve and save data.
 </summary>

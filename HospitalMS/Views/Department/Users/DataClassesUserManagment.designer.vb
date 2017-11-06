@@ -64,7 +64,7 @@ Partial Public Class DataClassesUserManagmentDataContext
   #End Region
 	
 	Public Sub New()
-		MyBase.New(Global.HospitalMS.My.MySettings.Default.TakeoDBConnectionString, mappingSource)
+        MyBase.New(Global.HospitalMS.My.MySettings.Default.AppConnection, mappingSource)
 		OnCreated
 	End Sub
 	

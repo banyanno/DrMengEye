@@ -1304,125 +1304,125 @@ Namespace DSProvinceReportTableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Private Sub InitConnection()
             Me._connection = New Global.System.Data.SqlClient.SqlConnection
-            Me._connection.ConnectionString = Global.HospitalMS.My.MySettings.Default.TakeoDBConnectionString
+            Me._connection.ConnectionString = Global.HospitalMS.My.MySettings.Default.AppConnection
         End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
         Private Sub InitCommandCollection()
             Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(0) {}
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT     p1.Province, p1.District, p2.Diagnosis, COUNT(p1.Male) AS male, COUNT("& _ 
-                "p1.Female) AS female, '0-4' AS AgeRang"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM         TblPatients AS p1 INNER JOI"& _ 
-                "N"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      TblNew_Old_OutPatient AS p2 ON p1.PatientNo = p2.Patien"& _ 
-                "tNo"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE     (p1.Age BETWEEN 0 AND 4) AND (CAST(CONVERT(VARCHAR(10), p2.Create"& _ 
-                "Date, 1) AS DateTime) BETWEEN CAST(CONVERT(VARCHAR(10), "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      "& _ 
-                "CAST(@DateFrom AS DATETIME), 1) AS Datetime) AND CAST(CONVERT(VARCHAR(10), CAST("& _ 
-                "@DateTo AS DATETIME), 1) AS Datetime)) AND "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      (p2.DeleteOpt"& _ 
-                "ion = 'False') AND (p2.Diagnosis <> '')"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"GROUP BY p1.Province, p1.District, p2.D"& _ 
-                "iagnosis"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"UNION"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT     p1.Province, p1.District, p2.Diagnosis, COUNT(p1.Mal"& _ 
-                "e) AS male, COUNT(p1.Female) AS female, '5-14' AS AgeRang"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM         TblPatie"& _ 
-                "nts AS p1 INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      TblNew_Old_OutPatient AS p2 ON p1.Pa"& _ 
-                "tientNo = p2.PatientNo"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE     (p1.Age BETWEEN 5 AND 14) AND (CAST(CONVERT(VA"& _ 
-                "RCHAR(10), p2.CreateDate, 1) AS DateTime) BETWEEN CAST(CONVERT(VARCHAR(10), "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"  "& _ 
-                "                    CAST(@DateFrom AS DATETIME), 1) AS Datetime) AND CAST(CONVER"& _ 
-                "T(VARCHAR(10), CAST(@DateTo AS DATETIME), 1) AS Datetime)) AND "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"               "& _ 
-                "       (p2.DeleteOption = 'False') AND (p2.Diagnosis <> '')"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"GROUP BY p1.Provinc"& _ 
-                "e, p1.District, p2.Diagnosis"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"UNION"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT     p1.Province, p1.District, p2.Dia"& _ 
-                "gnosis, COUNT(p1.Male) AS male, COUNT(p1.Female) AS female, '15-49' AS AgeRang"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)& _ 
-                "FROM         TblPatients AS p1 INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      TblNew_Old_OutP"& _ 
-                "atient AS p2 ON p1.PatientNo = p2.PatientNo"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE     (p1.Age BETWEEN 15 AND 49"& _ 
-                ") AND (CAST(CONVERT(VARCHAR(10), p2.CreateDate, 1) AS DateTime) BETWEEN CAST(CON"& _ 
-                "VERT(VARCHAR(10), "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      CAST(@DateFrom AS DATETIME), 1) AS Dat"& _ 
-                "etime) AND CAST(CONVERT(VARCHAR(10), CAST(@DateTo AS DATETIME), 1) AS Datetime))"& _ 
-                " AND "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      (p2.DeleteOption = 'False') AND (p2.Diagnosis <> ''"& _ 
-                ")"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"GROUP BY p1.Province, p1.District, p2.Diagnosis"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"UNION"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT     p1.Provinc"& _ 
-                "e, p1.District, p2.Diagnosis, COUNT(p1.Male) AS male, COUNT(p1.Female) AS female"& _ 
-                ", '>=50' AS AgeRang"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM         TblPatients AS p1 INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                "& _ 
-                "      TblNew_Old_OutPatient AS p2 ON p1.PatientNo = p2.PatientNo"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE     (p1."& _ 
-                "Age >= 50) AND (CAST(CONVERT(VARCHAR(10), p2.CreateDate, 1) AS DateTime) BETWEEN"& _ 
-                " CAST(CONVERT(VARCHAR(10), "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      CAST(@DateFrom AS DATETIME), "& _ 
-                "1) AS Datetime) AND CAST(CONVERT(VARCHAR(10), CAST(@DateTo AS DATETIME), 1) AS D"& _ 
-                "atetime)) AND "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      (p2.DeleteOption = 'False') AND (p2.Diagno"& _ 
-                "sis <> '')"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"GROUP BY p1.Province, p1.District, p2.Diagnosis"
+            Me._commandCollection(0).CommandText = "SELECT     p1.Province, p1.District, p2.Diagnosis, COUNT(p1.Male) AS male, COUNT(" & _
+                "p1.Female) AS female, '0-4' AS AgeRang" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "FROM         TblPatients AS p1 INNER JOI" & _
+                "N" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                      TblNew_Old_OutPatient AS p2 ON p1.PatientNo = p2.Patien" & _
+                "tNo" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "WHERE     (p1.Age BETWEEN 0 AND 4) AND (CAST(CONVERT(VARCHAR(10), p2.Create" & _
+                "Date, 1) AS DateTime) BETWEEN CAST(CONVERT(VARCHAR(10), " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                      " & _
+                "CAST(@DateFrom AS DATETIME), 1) AS Datetime) AND CAST(CONVERT(VARCHAR(10), CAST(" & _
+                "@DateTo AS DATETIME), 1) AS Datetime)) AND " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                      (p2.DeleteOpt" & _
+                "ion = 'False') AND (p2.Diagnosis <> '')" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "GROUP BY p1.Province, p1.District, p2.D" & _
+                "iagnosis" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "UNION" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "SELECT     p1.Province, p1.District, p2.Diagnosis, COUNT(p1.Mal" & _
+                "e) AS male, COUNT(p1.Female) AS female, '5-14' AS AgeRang" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "FROM         TblPatie" & _
+                "nts AS p1 INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                      TblNew_Old_OutPatient AS p2 ON p1.Pa" & _
+                "tientNo = p2.PatientNo" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "WHERE     (p1.Age BETWEEN 5 AND 14) AND (CAST(CONVERT(VA" & _
+                "RCHAR(10), p2.CreateDate, 1) AS DateTime) BETWEEN CAST(CONVERT(VARCHAR(10), " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "  " & _
+                "                    CAST(@DateFrom AS DATETIME), 1) AS Datetime) AND CAST(CONVER" & _
+                "T(VARCHAR(10), CAST(@DateTo AS DATETIME), 1) AS Datetime)) AND " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "               " & _
+                "       (p2.DeleteOption = 'False') AND (p2.Diagnosis <> '')" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "GROUP BY p1.Provinc" & _
+                "e, p1.District, p2.Diagnosis" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "UNION" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "SELECT     p1.Province, p1.District, p2.Dia" & _
+                "gnosis, COUNT(p1.Male) AS male, COUNT(p1.Female) AS female, '15-49' AS AgeRang" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & _
+                "FROM         TblPatients AS p1 INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                      TblNew_Old_OutP" & _
+                "atient AS p2 ON p1.PatientNo = p2.PatientNo" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "WHERE     (p1.Age BETWEEN 15 AND 49" & _
+                ") AND (CAST(CONVERT(VARCHAR(10), p2.CreateDate, 1) AS DateTime) BETWEEN CAST(CON" & _
+                "VERT(VARCHAR(10), " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                      CAST(@DateFrom AS DATETIME), 1) AS Dat" & _
+                "etime) AND CAST(CONVERT(VARCHAR(10), CAST(@DateTo AS DATETIME), 1) AS Datetime))" & _
+                " AND " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                      (p2.DeleteOption = 'False') AND (p2.Diagnosis <> ''" & _
+                ")" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "GROUP BY p1.Province, p1.District, p2.Diagnosis" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "UNION" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "SELECT     p1.Provinc" & _
+                "e, p1.District, p2.Diagnosis, COUNT(p1.Male) AS male, COUNT(p1.Female) AS female" & _
+                ", '>=50' AS AgeRang" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "FROM         TblPatients AS p1 INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                " & _
+                "      TblNew_Old_OutPatient AS p2 ON p1.PatientNo = p2.PatientNo" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "WHERE     (p1." & _
+                "Age >= 50) AND (CAST(CONVERT(VARCHAR(10), p2.CreateDate, 1) AS DateTime) BETWEEN" & _
+                " CAST(CONVERT(VARCHAR(10), " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                      CAST(@DateFrom AS DATETIME), " & _
+                "1) AS Datetime) AND CAST(CONVERT(VARCHAR(10), CAST(@DateTo AS DATETIME), 1) AS D" & _
+                "atetime)) AND " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                      (p2.DeleteOption = 'False') AND (p2.Diagno" & _
+                "sis <> '')" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "GROUP BY p1.Province, p1.District, p2.Diagnosis"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateTo", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateFrom", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateTo", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateFrom", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
         End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, true)>  _
-        Public Overloads Overridable Function Fill(ByVal dataTable As DSProvinceReport.DTblProvinceReportDataTable, ByVal DateTo As Date, ByVal DateFrom As Date) As Integer
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, True)> _
+        Public Overridable Overloads Function Fill(ByVal dataTable As DSProvinceReport.DTblProvinceReportDataTable, ByVal DateTo As Date, ByVal DateFrom As Date) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
-            Me.Adapter.SelectCommand.Parameters(0).Value = CType(DateTo,Date)
-            Me.Adapter.SelectCommand.Parameters(1).Value = CType(DateFrom,Date)
-            If (Me.ClearBeforeFill = true) Then
-                dataTable.Clear
+            Me.Adapter.SelectCommand.Parameters(0).Value = CType(DateTo, Date)
+            Me.Adapter.SelectCommand.Parameters(1).Value = CType(DateFrom, Date)
+            If (Me.ClearBeforeFill = True) Then
+                dataTable.Clear()
             End If
             Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
             Return returnValue
         End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], true)>  _
-        Public Overloads Overridable Function GetDataByMonth(ByVal DateTo As Date, ByVal DateFrom As Date) As DSProvinceReport.DTblProvinceReportDataTable
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], True)> _
+        Public Overridable Overloads Function GetDataByMonth(ByVal DateTo As Date, ByVal DateFrom As Date) As DSProvinceReport.DTblProvinceReportDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
-            Me.Adapter.SelectCommand.Parameters(0).Value = CType(DateTo,Date)
-            Me.Adapter.SelectCommand.Parameters(1).Value = CType(DateFrom,Date)
+            Me.Adapter.SelectCommand.Parameters(0).Value = CType(DateTo, Date)
+            Me.Adapter.SelectCommand.Parameters(1).Value = CType(DateFrom, Date)
             Dim dataTable As DSProvinceReport.DTblProvinceReportDataTable = New DSProvinceReport.DTblProvinceReportDataTable
             Me.Adapter.Fill(dataTable)
             Return dataTable
         End Function
     End Class
-    
+
     '''<summary>
     '''Represents the connection and commands used to retrieve and save data.
     '''</summary>
-    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0"),  _
-     Global.System.ComponentModel.DesignerCategoryAttribute("code"),  _
-     Global.System.ComponentModel.ToolboxItem(true),  _
-     Global.System.ComponentModel.DataObjectAttribute(true),  _
-     Global.System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner"& _ 
-        ", Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"),  _
-     Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0"), _
+     Global.System.ComponentModel.DesignerCategoryAttribute("code"), _
+     Global.System.ComponentModel.ToolboxItem(True), _
+     Global.System.ComponentModel.DataObjectAttribute(True), _
+     Global.System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" & _
+        ", Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"), _
+     Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")> _
     Partial Public Class TblConsultationEachTableAdapter
         Inherits Global.System.ComponentModel.Component
-        
+
         Private WithEvents _adapter As Global.System.Data.SqlClient.SqlDataAdapter
-        
+
         Private _connection As Global.System.Data.SqlClient.SqlConnection
-        
+
         Private _commandCollection() As Global.System.Data.SqlClient.SqlCommand
-        
+
         Private _clearBeforeFill As Boolean
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
         Public Sub New()
-            MyBase.New
-            Me.ClearBeforeFill = true
+            MyBase.New()
+            Me.ClearBeforeFill = True
         End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
         Private ReadOnly Property Adapter() As Global.System.Data.SqlClient.SqlDataAdapter
             Get
                 If (Me._adapter Is Nothing) Then
-                    Me.InitAdapter
+                    Me.InitAdapter()
                 End If
                 Return Me._adapter
             End Get
         End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
         Friend Property Connection() As Global.System.Data.SqlClient.SqlConnection
             Get
                 If (Me._connection Is Nothing) Then
-                    Me.InitConnection
+                    Me.InitConnection()
                 End If
                 Return Me._connection
             End Get
-            Set
+            Set(ByVal value As Global.System.Data.SqlClient.SqlConnection)
                 Me._connection = value
                 If (Not (Me.Adapter.InsertCommand) Is Nothing) Then
                     Me.Adapter.InsertCommand.Connection = value
@@ -1436,34 +1436,34 @@ Namespace DSProvinceReportTableAdapters
                 Dim i As Integer = 0
                 Do While (i < Me.CommandCollection.Length)
                     If (Not (Me.CommandCollection(i)) Is Nothing) Then
-                        CType(Me.CommandCollection(i),Global.System.Data.SqlClient.SqlCommand).Connection = value
+                        CType(Me.CommandCollection(i), Global.System.Data.SqlClient.SqlCommand).Connection = value
                     End If
                     i = (i + 1)
                 Loop
             End Set
         End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
         Protected ReadOnly Property CommandCollection() As Global.System.Data.SqlClient.SqlCommand()
             Get
                 If (Me._commandCollection Is Nothing) Then
-                    Me.InitCommandCollection
+                    Me.InitCommandCollection()
                 End If
                 Return Me._commandCollection
             End Get
         End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
         Public Property ClearBeforeFill() As Boolean
             Get
                 Return Me._clearBeforeFill
             End Get
-            Set
+            Set(ByVal value As Boolean)
                 Me._clearBeforeFill = value
             End Set
         End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
         Private Sub InitAdapter()
             Me._adapter = New Global.System.Data.SqlClient.SqlDataAdapter
             Dim tableMapping As Global.System.Data.Common.DataTableMapping = New Global.System.Data.Common.DataTableMapping
@@ -1475,123 +1475,123 @@ Namespace DSProvinceReportTableAdapters
             tableMapping.ColumnMappings.Add("District", "District")
             Me._adapter.TableMappings.Add(tableMapping)
         End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
         Private Sub InitConnection()
             Me._connection = New Global.System.Data.SqlClient.SqlConnection
-            Me._connection.ConnectionString = Global.HospitalMS.My.MySettings.Default.TakeoDBConnectionString
+            Me._connection.ConnectionString = Global.HospitalMS.My.MySettings.Default.AppConnection
         End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
         Private Sub InitCommandCollection()
             Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(0) {}
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT     COUNT(TblPatients.PatientNo) AS NumberConsultaint, TblPatients.Distric"& _ 
-                "t, TblPatients.Province, '1' AS Months"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM         TblNew_Old_OutPatient INNER"& _ 
-                " JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      TblPatients ON TblNew_Old_OutPatient.PatientNo = Tb"& _ 
-                "lPatients.PatientNo"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE     (MONTH(TblNew_Old_OutPatient.CreateDate) = '1') A"& _ 
-                "ND (YEAR(TblNew_Old_OutPatient.CreateDate) = @Years) AND "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                     "& _ 
-                " (TblNew_Old_OutPatient.DeleteOption = 'False') AND (TblNew_Old_OutPatient.Diagn"& _ 
-                "osis <> '')"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"GROUP BY TblPatients.District, TblPatients.Province"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"UNION"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT "& _ 
-                "    COUNT(TblPatients.PatientNo) AS NumberConsultaint, TblPatients.District, Tbl"& _ 
-                "Patients.Province, '2' AS Months"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM         TblNew_Old_OutPatient INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      TblPatients ON TblNew_Old_OutPatient.PatientNo = TblPatie"& _ 
-                "nts.PatientNo"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE     (MONTH(TblNew_Old_OutPatient.CreateDate) = '2') AND (YE"& _ 
-                "AR(TblNew_Old_OutPatient.CreateDate) = @Years) AND "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      (TblN"& _ 
-                "ew_Old_OutPatient.DeleteOption = 'False') AND (TblNew_Old_OutPatient.Diagnosis <"& _ 
-                "> '')"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"GROUP BY TblPatients.District, TblPatients.Province"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"UNION"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT     CO"& _ 
-                "UNT(TblPatients.PatientNo) AS NumberConsultaint, TblPatients.District, TblPatien"& _ 
-                "ts.Province, '3' AS Months"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM         TblNew_Old_OutPatient INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"     "& _ 
-                "                 TblPatients ON TblNew_Old_OutPatient.PatientNo = TblPatients.Pa"& _ 
-                "tientNo"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE     (MONTH(TblNew_Old_OutPatient.CreateDate) = '3') AND (YEAR(Tbl"& _ 
-                "New_Old_OutPatient.CreateDate) = @Years) AND "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      (TblNew_Old"& _ 
-                "_OutPatient.DeleteOption = 'False') AND (TblNew_Old_OutPatient.Diagnosis <> '')"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"GROUP BY TblPatients.District, TblPatients.Province"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"UNION"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT     COUNT(Tb"& _ 
-                "lPatients.PatientNo) AS NumberConsultaint, TblPatients.District, TblPatients.Pro"& _ 
-                "vince, '4' AS Months"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM         TblNew_Old_OutPatient INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"           "& _ 
-                "           TblPatients ON TblNew_Old_OutPatient.PatientNo = TblPatients.PatientN"& _ 
-                "o"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE     (MONTH(TblNew_Old_OutPatient.CreateDate) = '4') AND (YEAR(TblNew_Ol"& _ 
-                "d_OutPatient.CreateDate) = @Years) AND "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      (TblNew_Old_OutPa"& _ 
-                "tient.DeleteOption = 'False') AND (TblNew_Old_OutPatient.Diagnosis <> '')"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"GROUP"& _ 
-                " BY TblPatients.District, TblPatients.Province"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"UNION"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT     COUNT(TblPatie"& _ 
-                "nts.PatientNo) AS NumberConsultaint, TblPatients.District, TblPatients.Province,"& _ 
-                " '5' AS Months"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM         TblNew_Old_OutPatient INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                 "& _ 
-                "     TblPatients ON TblNew_Old_OutPatient.PatientNo = TblPatients.PatientNo"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHE"& _ 
-                "RE     (MONTH(TblNew_Old_OutPatient.CreateDate) = '5') AND (YEAR(TblNew_Old_OutP"& _ 
-                "atient.CreateDate) = @Years) AND "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      (TblNew_Old_OutPatient."& _ 
-                "DeleteOption = 'False') AND (TblNew_Old_OutPatient.Diagnosis <> '')"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"GROUP BY Tb"& _ 
-                "lPatients.District, TblPatients.Province"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"UNION"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT     COUNT(TblPatients.Pa"& _ 
-                "tientNo) AS NumberConsultaint, TblPatients.District, TblPatients.Province, '6' A"& _ 
-                "S Months"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM         TblNew_Old_OutPatient INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      T"& _ 
-                "blPatients ON TblNew_Old_OutPatient.PatientNo = TblPatients.PatientNo"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE    "& _ 
-                " (MONTH(TblNew_Old_OutPatient.CreateDate) = '6') AND (YEAR(TblNew_Old_OutPatient"& _ 
-                ".CreateDate) = @Years) AND "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      (TblNew_Old_OutPatient.Delete"& _ 
-                "Option = 'False') AND (TblNew_Old_OutPatient.Diagnosis <> '')"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"GROUP BY TblPatie"& _ 
-                "nts.District, TblPatients.Province"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"UNION"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT     COUNT(TblPatients.PatientN"& _ 
-                "o) AS NumberConsultaint, TblPatients.District, TblPatients.Province, '7' AS Mont"& _ 
-                "hs"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM         TblNew_Old_OutPatient INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      TblPati"& _ 
-                "ents ON TblNew_Old_OutPatient.PatientNo = TblPatients.PatientNo"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE     (MONT"& _ 
-                "H(TblNew_Old_OutPatient.CreateDate) = '7') AND (YEAR(TblNew_Old_OutPatient.Creat"& _ 
-                "eDate) = @Years) AND "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      (TblNew_Old_OutPatient.DeleteOption"& _ 
-                " = 'False') AND (TblNew_Old_OutPatient.Diagnosis <> '')"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"GROUP BY TblPatients.Di"& _ 
-                "strict, TblPatients.Province"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"UNION"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT     COUNT(TblPatients.PatientNo) AS "& _ 
-                "NumberConsultaint, TblPatients.District, TblPatients.Province, '8' AS Months"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FR"& _ 
-                "OM         TblNew_Old_OutPatient INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      TblPatients O"& _ 
-                "N TblNew_Old_OutPatient.PatientNo = TblPatients.PatientNo"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE     (MONTH(TblN"& _ 
-                "ew_Old_OutPatient.CreateDate) = '8') AND (YEAR(TblNew_Old_OutPatient.CreateDate)"& _ 
-                " = @Years) AND "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      (TblNew_Old_OutPatient.DeleteOption = 'Fa"& _ 
-                "lse') AND (TblNew_Old_OutPatient.Diagnosis <> '')"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"GROUP BY TblPatients.District"& _ 
-                ", TblPatients.Province"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"UNION"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT     COUNT(TblPatients.PatientNo) AS Number"& _ 
-                "Consultaint, TblPatients.District, TblPatients.Province, '9' AS Months"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM    "& _ 
-                "     TblNew_Old_OutPatient INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      TblPatients ON TblN"& _ 
-                "ew_Old_OutPatient.PatientNo = TblPatients.PatientNo"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE     (MONTH(TblNew_Old"& _ 
-                "_OutPatient.CreateDate) = '9') AND (YEAR(TblNew_Old_OutPatient.CreateDate) = @Ye"& _ 
-                "ars) AND "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      (TblNew_Old_OutPatient.DeleteOption = 'False') "& _ 
-                "AND (TblNew_Old_OutPatient.Diagnosis <> '')"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"GROUP BY TblPatients.District, TblP"& _ 
-                "atients.Province"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"UNION"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT     COUNT(TblPatients.PatientNo) AS NumberConsul"& _ 
-                "taint, TblPatients.District, TblPatients.Province, '10' AS Months"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM         "& _ 
-                "TblNew_Old_OutPatient INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      TblPatients ON TblNew_Ol"& _ 
-                "d_OutPatient.PatientNo = TblPatients.PatientNo"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE     (MONTH(TblNew_Old_OutP"& _ 
-                "atient.CreateDate) = '10') AND (YEAR(TblNew_Old_OutPatient.CreateDate) = @Years)"& _ 
-                " AND "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      (TblNew_Old_OutPatient.DeleteOption = 'False') AND "& _ 
-                "(TblNew_Old_OutPatient.Diagnosis <> '')"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"GROUP BY TblPatients.District, TblPatie"& _ 
-                "nts.Province"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"UNION"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT     COUNT(TblPatients.PatientNo) AS NumberConsultain"& _ 
-                "t, TblPatients.District, TblPatients.Province, '11' AS Months"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM         TblN"& _ 
-                "ew_Old_OutPatient INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      TblPatients ON TblNew_Old_Ou"& _ 
-                "tPatient.PatientNo = TblPatients.PatientNo"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE     (MONTH(TblNew_Old_OutPatie"& _ 
-                "nt.CreateDate) = '11') AND (YEAR(TblNew_Old_OutPatient.CreateDate) = @Years) AND"& _ 
-                " "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      (TblNew_Old_OutPatient.DeleteOption = 'False') AND (Tbl"& _ 
-                "New_Old_OutPatient.Diagnosis <> '')"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"GROUP BY TblPatients.District, TblPatients."& _ 
-                "Province"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"UNION"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT     COUNT(TblPatients.PatientNo) AS NumberConsultaint, T"& _ 
-                "blPatients.District, TblPatients.Province, '12' AS Months"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM         TblNew_O"& _ 
-                "ld_OutPatient INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      TblPatients ON TblNew_Old_OutPat"& _ 
-                "ient.PatientNo = TblPatients.PatientNo"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE     (MONTH(TblNew_Old_OutPatient.C"& _ 
-                "reateDate) = '12') AND (YEAR(TblNew_Old_OutPatient.CreateDate) = @Years) AND "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&" "& _ 
-                "                     (TblNew_Old_OutPatient.DeleteOption = 'False') AND (TblNew_"& _ 
-                "Old_OutPatient.Diagnosis <> '')"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"GROUP BY TblPatients.District, TblPatients.Prov"& _ 
+            Me._commandCollection(0).CommandText = "SELECT     COUNT(TblPatients.PatientNo) AS NumberConsultaint, TblPatients.Distric" & _
+                "t, TblPatients.Province, '1' AS Months" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "FROM         TblNew_Old_OutPatient INNER" & _
+                " JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                      TblPatients ON TblNew_Old_OutPatient.PatientNo = Tb" & _
+                "lPatients.PatientNo" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "WHERE     (MONTH(TblNew_Old_OutPatient.CreateDate) = '1') A" & _
+                "ND (YEAR(TblNew_Old_OutPatient.CreateDate) = @Years) AND " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                     " & _
+                " (TblNew_Old_OutPatient.DeleteOption = 'False') AND (TblNew_Old_OutPatient.Diagn" & _
+                "osis <> '')" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "GROUP BY TblPatients.District, TblPatients.Province" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "UNION" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "SELECT " & _
+                "    COUNT(TblPatients.PatientNo) AS NumberConsultaint, TblPatients.District, Tbl" & _
+                "Patients.Province, '2' AS Months" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "FROM         TblNew_Old_OutPatient INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                      TblPatients ON TblNew_Old_OutPatient.PatientNo = TblPatie" & _
+                "nts.PatientNo" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "WHERE     (MONTH(TblNew_Old_OutPatient.CreateDate) = '2') AND (YE" & _
+                "AR(TblNew_Old_OutPatient.CreateDate) = @Years) AND " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                      (TblN" & _
+                "ew_Old_OutPatient.DeleteOption = 'False') AND (TblNew_Old_OutPatient.Diagnosis <" & _
+                "> '')" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "GROUP BY TblPatients.District, TblPatients.Province" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "UNION" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "SELECT     CO" & _
+                "UNT(TblPatients.PatientNo) AS NumberConsultaint, TblPatients.District, TblPatien" & _
+                "ts.Province, '3' AS Months" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "FROM         TblNew_Old_OutPatient INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "     " & _
+                "                 TblPatients ON TblNew_Old_OutPatient.PatientNo = TblPatients.Pa" & _
+                "tientNo" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "WHERE     (MONTH(TblNew_Old_OutPatient.CreateDate) = '3') AND (YEAR(Tbl" & _
+                "New_Old_OutPatient.CreateDate) = @Years) AND " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                      (TblNew_Old" & _
+                "_OutPatient.DeleteOption = 'False') AND (TblNew_Old_OutPatient.Diagnosis <> '')" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "GROUP BY TblPatients.District, TblPatients.Province" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "UNION" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "SELECT     COUNT(Tb" & _
+                "lPatients.PatientNo) AS NumberConsultaint, TblPatients.District, TblPatients.Pro" & _
+                "vince, '4' AS Months" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "FROM         TblNew_Old_OutPatient INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "           " & _
+                "           TblPatients ON TblNew_Old_OutPatient.PatientNo = TblPatients.PatientN" & _
+                "o" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "WHERE     (MONTH(TblNew_Old_OutPatient.CreateDate) = '4') AND (YEAR(TblNew_Ol" & _
+                "d_OutPatient.CreateDate) = @Years) AND " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                      (TblNew_Old_OutPa" & _
+                "tient.DeleteOption = 'False') AND (TblNew_Old_OutPatient.Diagnosis <> '')" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "GROUP" & _
+                " BY TblPatients.District, TblPatients.Province" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "UNION" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "SELECT     COUNT(TblPatie" & _
+                "nts.PatientNo) AS NumberConsultaint, TblPatients.District, TblPatients.Province," & _
+                " '5' AS Months" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "FROM         TblNew_Old_OutPatient INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                 " & _
+                "     TblPatients ON TblNew_Old_OutPatient.PatientNo = TblPatients.PatientNo" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "WHE" & _
+                "RE     (MONTH(TblNew_Old_OutPatient.CreateDate) = '5') AND (YEAR(TblNew_Old_OutP" & _
+                "atient.CreateDate) = @Years) AND " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                      (TblNew_Old_OutPatient." & _
+                "DeleteOption = 'False') AND (TblNew_Old_OutPatient.Diagnosis <> '')" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "GROUP BY Tb" & _
+                "lPatients.District, TblPatients.Province" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "UNION" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "SELECT     COUNT(TblPatients.Pa" & _
+                "tientNo) AS NumberConsultaint, TblPatients.District, TblPatients.Province, '6' A" & _
+                "S Months" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "FROM         TblNew_Old_OutPatient INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                      T" & _
+                "blPatients ON TblNew_Old_OutPatient.PatientNo = TblPatients.PatientNo" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "WHERE    " & _
+                " (MONTH(TblNew_Old_OutPatient.CreateDate) = '6') AND (YEAR(TblNew_Old_OutPatient" & _
+                ".CreateDate) = @Years) AND " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                      (TblNew_Old_OutPatient.Delete" & _
+                "Option = 'False') AND (TblNew_Old_OutPatient.Diagnosis <> '')" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "GROUP BY TblPatie" & _
+                "nts.District, TblPatients.Province" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "UNION" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "SELECT     COUNT(TblPatients.PatientN" & _
+                "o) AS NumberConsultaint, TblPatients.District, TblPatients.Province, '7' AS Mont" & _
+                "hs" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "FROM         TblNew_Old_OutPatient INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                      TblPati" & _
+                "ents ON TblNew_Old_OutPatient.PatientNo = TblPatients.PatientNo" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "WHERE     (MONT" & _
+                "H(TblNew_Old_OutPatient.CreateDate) = '7') AND (YEAR(TblNew_Old_OutPatient.Creat" & _
+                "eDate) = @Years) AND " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                      (TblNew_Old_OutPatient.DeleteOption" & _
+                " = 'False') AND (TblNew_Old_OutPatient.Diagnosis <> '')" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "GROUP BY TblPatients.Di" & _
+                "strict, TblPatients.Province" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "UNION" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "SELECT     COUNT(TblPatients.PatientNo) AS " & _
+                "NumberConsultaint, TblPatients.District, TblPatients.Province, '8' AS Months" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "FR" & _
+                "OM         TblNew_Old_OutPatient INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                      TblPatients O" & _
+                "N TblNew_Old_OutPatient.PatientNo = TblPatients.PatientNo" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "WHERE     (MONTH(TblN" & _
+                "ew_Old_OutPatient.CreateDate) = '8') AND (YEAR(TblNew_Old_OutPatient.CreateDate)" & _
+                " = @Years) AND " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                      (TblNew_Old_OutPatient.DeleteOption = 'Fa" & _
+                "lse') AND (TblNew_Old_OutPatient.Diagnosis <> '')" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "GROUP BY TblPatients.District" & _
+                ", TblPatients.Province" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "UNION" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "SELECT     COUNT(TblPatients.PatientNo) AS Number" & _
+                "Consultaint, TblPatients.District, TblPatients.Province, '9' AS Months" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "FROM    " & _
+                "     TblNew_Old_OutPatient INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                      TblPatients ON TblN" & _
+                "ew_Old_OutPatient.PatientNo = TblPatients.PatientNo" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "WHERE     (MONTH(TblNew_Old" & _
+                "_OutPatient.CreateDate) = '9') AND (YEAR(TblNew_Old_OutPatient.CreateDate) = @Ye" & _
+                "ars) AND " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                      (TblNew_Old_OutPatient.DeleteOption = 'False') " & _
+                "AND (TblNew_Old_OutPatient.Diagnosis <> '')" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "GROUP BY TblPatients.District, TblP" & _
+                "atients.Province" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "UNION" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "SELECT     COUNT(TblPatients.PatientNo) AS NumberConsul" & _
+                "taint, TblPatients.District, TblPatients.Province, '10' AS Months" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "FROM         " & _
+                "TblNew_Old_OutPatient INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                      TblPatients ON TblNew_Ol" & _
+                "d_OutPatient.PatientNo = TblPatients.PatientNo" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "WHERE     (MONTH(TblNew_Old_OutP" & _
+                "atient.CreateDate) = '10') AND (YEAR(TblNew_Old_OutPatient.CreateDate) = @Years)" & _
+                " AND " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                      (TblNew_Old_OutPatient.DeleteOption = 'False') AND " & _
+                "(TblNew_Old_OutPatient.Diagnosis <> '')" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "GROUP BY TblPatients.District, TblPatie" & _
+                "nts.Province" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "UNION" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "SELECT     COUNT(TblPatients.PatientNo) AS NumberConsultain" & _
+                "t, TblPatients.District, TblPatients.Province, '11' AS Months" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "FROM         TblN" & _
+                "ew_Old_OutPatient INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                      TblPatients ON TblNew_Old_Ou" & _
+                "tPatient.PatientNo = TblPatients.PatientNo" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "WHERE     (MONTH(TblNew_Old_OutPatie" & _
+                "nt.CreateDate) = '11') AND (YEAR(TblNew_Old_OutPatient.CreateDate) = @Years) AND" & _
+                " " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                      (TblNew_Old_OutPatient.DeleteOption = 'False') AND (Tbl" & _
+                "New_Old_OutPatient.Diagnosis <> '')" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "GROUP BY TblPatients.District, TblPatients." & _
+                "Province" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "UNION" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "SELECT     COUNT(TblPatients.PatientNo) AS NumberConsultaint, T" & _
+                "blPatients.District, TblPatients.Province, '12' AS Months" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "FROM         TblNew_O" & _
+                "ld_OutPatient INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                      TblPatients ON TblNew_Old_OutPat" & _
+                "ient.PatientNo = TblPatients.PatientNo" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "WHERE     (MONTH(TblNew_Old_OutPatient.C" & _
+                "reateDate) = '12') AND (YEAR(TblNew_Old_OutPatient.CreateDate) = @Years) AND " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & " " & _
+                "                     (TblNew_Old_OutPatient.DeleteOption = 'False') AND (TblNew_" & _
+                "Old_OutPatient.Diagnosis <> '')" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "GROUP BY TblPatients.District, TblPatients.Prov" & _
                 "ince"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Years", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Years", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
         End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, true)>  _
-        Public Overloads Overridable Function Fill(ByVal dataTable As DSProvinceReport.TblConsultationEachDataTable, ByVal Years As Decimal) As Integer
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, True)> _
+        Public Overridable Overloads Function Fill(ByVal dataTable As DSProvinceReport.TblConsultationEachDataTable, ByVal Years As Decimal) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
-            Me.Adapter.SelectCommand.Parameters(0).Value = CType(Years,Decimal)
-            If (Me.ClearBeforeFill = true) Then
-                dataTable.Clear
+            Me.Adapter.SelectCommand.Parameters(0).Value = CType(Years, Decimal)
+            If (Me.ClearBeforeFill = True) Then
+                dataTable.Clear()
             End If
             Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
             Return returnValue
         End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], true)>  _
-        Public Overloads Overridable Function GetData(ByVal Years As Decimal) As DSProvinceReport.TblConsultationEachDataTable
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], True)> _
+        Public Overridable Overloads Function GetData(ByVal Years As Decimal) As DSProvinceReport.TblConsultationEachDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
-            Me.Adapter.SelectCommand.Parameters(0).Value = CType(Years,Decimal)
+            Me.Adapter.SelectCommand.Parameters(0).Value = CType(Years, Decimal)
             Dim dataTable As DSProvinceReport.TblConsultationEachDataTable = New DSProvinceReport.TblConsultationEachDataTable
             Me.Adapter.Fill(dataTable)
             Return dataTable
