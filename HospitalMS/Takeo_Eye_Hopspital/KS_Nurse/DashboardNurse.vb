@@ -43,6 +43,8 @@
         'FVa.TxtNote.Text = GridPatientWaiting.GetRow.Cells("WAITING_DESC").Value
         If FVa.ShowDialog = DialogResult.OK Then
             LoadingPatientWaiting("2", "1")
+            FVa.Close()
+            FVa.Dispose()
         End If
         'If MessageBox.Show("Do you want to send to doctor consult?", "Waiting", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = DialogResult.Yes Then
         '    If DA_Waiting.UpdatePatientStatus(TxtNote.Text, "2", "2", GridPatientWaiting.GetRow.Cells("WAIT_ID").Value) = 1 Then

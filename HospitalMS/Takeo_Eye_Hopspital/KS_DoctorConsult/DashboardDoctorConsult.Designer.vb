@@ -294,13 +294,13 @@ Partial Class DashboardDoctorConsult
         'GroupBox7
         '
         Me.GroupBox7.Controls.Add(Me.GridFollowDetial)
-        Me.GroupBox7.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.GroupBox7.Location = New System.Drawing.Point(0, 0)
+        Me.GroupBox7.Location = New System.Drawing.Point(88, 229)
         Me.GroupBox7.Name = "GroupBox7"
-        Me.GroupBox7.Size = New System.Drawing.Size(257, 767)
+        Me.GroupBox7.Size = New System.Drawing.Size(169, 538)
         Me.GroupBox7.TabIndex = 2
         Me.GroupBox7.TabStop = False
         Me.GroupBox7.Text = "Follow up History"
+        Me.GroupBox7.Visible = False
         '
         'GridFollowDetial
         '
@@ -323,7 +323,7 @@ Partial Class DashboardDoctorConsult
         Me.GridFollowDetial.Name = "GridFollowDetial"
         Me.GridFollowDetial.RecordNavigator = True
         Me.GridFollowDetial.RowFormatStyle.FontSize = 12.0!
-        Me.GridFollowDetial.Size = New System.Drawing.Size(251, 742)
+        Me.GridFollowDetial.Size = New System.Drawing.Size(163, 513)
         Me.GridFollowDetial.TabIndex = 8
         '
         'ContextMenuStrip1
@@ -357,11 +357,12 @@ Partial Class DashboardDoctorConsult
         'GroupBox9
         '
         Me.GroupBox9.Controls.Add(Me.PictureBox1)
+        Me.GroupBox9.Dock = System.Windows.Forms.DockStyle.Fill
         Me.GroupBox9.Font = New System.Drawing.Font("Kh Battambang", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox9.ForeColor = System.Drawing.Color.Blue
-        Me.GroupBox9.Location = New System.Drawing.Point(64, 110)
+        Me.GroupBox9.Location = New System.Drawing.Point(0, 0)
         Me.GroupBox9.Name = "GroupBox9"
-        Me.GroupBox9.Size = New System.Drawing.Size(213, 411)
+        Me.GroupBox9.Size = New System.Drawing.Size(257, 767)
         Me.GroupBox9.TabIndex = 1
         Me.GroupBox9.TabStop = False
         Me.GroupBox9.Text = "រូបភាព"
@@ -372,7 +373,7 @@ Partial Class DashboardDoctorConsult
         Me.PictureBox1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.PictureBox1.Location = New System.Drawing.Point(3, 33)
         Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(207, 375)
+        Me.PictureBox1.Size = New System.Drawing.Size(251, 731)
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PictureBox1.TabIndex = 0
         Me.PictureBox1.TabStop = False

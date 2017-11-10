@@ -638,6 +638,11 @@
     <Compile Include="Takeo_Eye_Hopspital\KS_DoctorConsult\DSConsultHistory.vb">
       <DependentUpon>DSConsultHistory.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Takeo_Eye_Hopspital\KS_DoctorConsult\DSConsultHistory1.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DSConsultHistory.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Takeo_Eye_Hopspital\KS_DoctorConsult\EditPrescription.Designer.vb">
       <DependentUpon>EditPrescription.vb</DependentUpon>
     </Compile>
@@ -898,11 +903,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DoctorConsultlist.rpt</DependentUpon>
       <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Takeo_Eye_Hopspital\KS_DoctorConsult\DSConsultHistory.Designer.vb">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DSConsultHistory.xsd</DependentUpon>
     </Compile>
     <Compile Include="Takeo_Eye_Hopspital\KS_DoctorConsult\FindPatientFollowUp.Designer.vb">
       <DependentUpon>FindPatientFollowUp.vb</DependentUpon>
@@ -5374,7 +5374,7 @@
     <None Include="Takeo_Eye_Hopspital\KS_DoctorConsult\DSConsultHistory.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>DSConsultHistory.Designer.vb</LastGenOutput>
+      <LastGenOutput>DSConsultHistory1.Designer.vb</LastGenOutput>
     </None>
     <None Include="Takeo_Eye_Hopspital\KS_DoctorConsult\DSConsultHistory.xss">
       <DependentUpon>DSConsultHistory.xsd</DependentUpon>

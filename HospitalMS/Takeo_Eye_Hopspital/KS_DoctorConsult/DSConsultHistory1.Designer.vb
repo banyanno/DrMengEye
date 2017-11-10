@@ -13280,22 +13280,23 @@ Namespace DSConsultHistoryTableAdapters
             Me._commandCollection(0).Connection = Me.Connection
             Me._commandCollection(0).CommandText = "SELECT        PatientNo, NameEng, NameKhmer, Age, Sex, Address, Telephone, FOLLOW"& _ 
                 "_ID, WAITING_NO, DATE_FOLLOWUP, TIME_FOLLOWUP, FOLLOW_NOTE, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                  "& _ 
-                "       FOLLOW_WITH, FOLLO_STATUS, DOCTOR_ID, CalAge"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            S_FOLLOWUP"
+                "       FOLLOW_WITH, FOLLO_STATUS, DOCTOR_ID, CalAge"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            S_FOLLOWUP"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"ORDER BY DATE_FOLLOWUP ASc"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(1) = New Global.System.Data.SqlClient.SqlCommand
             Me._commandCollection(1).Connection = Me.Connection
-            Me._commandCollection(1).CommandText = "SELECT        Address, Age, DATE_FOLLOWUP, DOCTOR_ID, FOLLOW_ID, FOLLOW_NOTE, FOL"& _ 
-                "LOW_WITH, FOLLO_STATUS, NameEng, NameKhmer, PatientNo, Sex, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                  "& _ 
-                "       TIME_FOLLOWUP, Telephone, WAITING_NO, CalAge"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            S_FOLLOWUP"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (DATE_FOLLOWUP BETWEEN @DATE_FOLLOWUPFrom AND @DATE_FOLLOWUPTo)"
+            Me._commandCollection(1).CommandText = "SELECT Address, Age, CalAge, DATE_FOLLOWUP, DOCTOR_ID, FOLLOW_ID, FOLLOW_NOTE, FO"& _ 
+                "LLOW_WITH, FOLLO_STATUS, NameEng, NameKhmer, PatientNo, Sex, TIME_FOLLOWUP, Tele"& _ 
+                "phone, WAITING_NO FROM S_FOLLOWUP WHERE (DATE_FOLLOWUP BETWEEN @DATE_FOLLOWUPFro"& _ 
+                "m AND @DATE_FOLLOWUPTo)"
             Me._commandCollection(1).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DATE_FOLLOWUPFrom", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "DATE_FOLLOWUP", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DATE_FOLLOWUPTo", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "DATE_FOLLOWUP", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(2) = New Global.System.Data.SqlClient.SqlCommand
             Me._commandCollection(2).Connection = Me.Connection
-            Me._commandCollection(2).CommandText = "SELECT        Address, Age, DATE_FOLLOWUP, DOCTOR_ID, FOLLOW_ID, FOLLOW_NOTE, FOL"& _ 
-                "LOW_WITH, FOLLO_STATUS, NameEng, NameKhmer, PatientNo, Sex, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                  "& _ 
-                "       TIME_FOLLOWUP, Telephone, WAITING_NO, CalAge"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            S_FOLLOWUP"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (PatientNo = @PatientNo) AND (DATE_FOLLOWUP BETWEEN @DATE_FOLLOWUP"& _ 
-                " AND @DateFollowUpFrom)"
+            Me._commandCollection(2).CommandText = "SELECT Address, Age, CalAge, DATE_FOLLOWUP, DOCTOR_ID, FOLLOW_ID, FOLLOW_NOTE, FO"& _ 
+                "LLOW_WITH, FOLLO_STATUS, NameEng, NameKhmer, PatientNo, Sex, TIME_FOLLOWUP, Tele"& _ 
+                "phone, WAITING_NO FROM S_FOLLOWUP WHERE (PatientNo = @PatientNo) AND (DATE_FOLLO"& _ 
+                "WUP BETWEEN @DATE_FOLLOWUP AND @DateFollowUpFrom)"
             Me._commandCollection(2).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PatientNo", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "PatientNo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DATE_FOLLOWUP", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "DATE_FOLLOWUP", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -13352,9 +13353,10 @@ Namespace DSConsultHistoryTableAdapters
             Me._commandCollection(7).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DATE_FOLLOWUPTo", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "DATE_FOLLOWUP", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(8) = New Global.System.Data.SqlClient.SqlCommand
             Me._commandCollection(8).Connection = Me.Connection
-            Me._commandCollection(8).CommandText = "SELECT        Address, Age, DATE_FOLLOWUP, DOCTOR_ID, FOLLOW_ID, FOLLOW_NOTE, FOL"& _ 
-                "LOW_WITH, FOLLO_STATUS, NameEng, NameKhmer, PatientNo, Sex, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                  "& _ 
-                "       TIME_FOLLOWUP, Telephone, WAITING_NO, CalAge"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            S_FOLLOWUP"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (PatientNo = @PatientNo)"
+            Me._commandCollection(8).CommandText = "SELECT Address, Age, CalAge, DATE_FOLLOWUP, DOCTOR_ID, FOLLOW_ID, FOLLOW_NOTE, FO"& _ 
+                "LLOW_WITH, FOLLO_STATUS, NameEng, NameKhmer, PatientNo, Sex, TIME_FOLLOWUP, Tele"& _ 
+                "phone, WAITING_NO FROM S_FOLLOWUP WHERE (PatientNo = @PatientNo) ORDER BY DATE_F"& _ 
+                "OLLOWUP desc"
             Me._commandCollection(8).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(8).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PatientNo", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "PatientNo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
         End Sub

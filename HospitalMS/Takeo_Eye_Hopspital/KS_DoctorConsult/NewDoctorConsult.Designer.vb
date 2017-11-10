@@ -1906,7 +1906,7 @@ Partial Class NewDoctorConsult
         Me.UiTabPage5.StateStyles.FormatStyle.FontSize = 12.0!
         Me.UiTabPage5.StateStyles.FormatStyle.ForeColor = System.Drawing.Color.Red
         Me.UiTabPage5.TabStop = True
-        Me.UiTabPage5.Text = "    Another Service    "
+        Me.UiTabPage5.Text = "  Laser, Investigate, Laboratory  "
         '
         'MchLaborate
         '
@@ -2138,7 +2138,7 @@ Partial Class NewDoctorConsult
         Me.SplitContainer1.Panel2.Controls.Add(Me.AxAcroPDF1)
         Me.SplitContainer1.Panel2Collapsed = True
         Me.SplitContainer1.Size = New System.Drawing.Size(1440, 786)
-        Me.SplitContainer1.SplitterDistance = 1058
+        Me.SplitContainer1.SplitterDistance = 974
         Me.SplitContainer1.TabIndex = 2
         '
         'AxAcroPDF1

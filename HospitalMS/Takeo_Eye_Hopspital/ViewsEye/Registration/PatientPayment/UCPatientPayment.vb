@@ -1230,19 +1230,7 @@ Public Class UCPatientPayment
         FMoPoTsypo.Dispose()
     End Sub
 
-    Private Sub GridPatientInformation_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles GridPatientInformation.Click
-        'Try
-        '    If GridPatientInformation.SelectedItems(0).Table.Key = "PatientInfo" Then
-        '        'SplitContainer2.Panel2Collapsed = False
-        '        'CheckPanel = True
-        '        Dim PatientNo As Double = GridPatientInformation.GetRow.Cells(1).Text
-        '        LoadPatientBooks(PatientNo)
-        '    End If
-        'Catch ex As Exception
-
-        'End Try
-
-    End Sub
+  
 
     Private Sub BtnPrintRegisV2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnPrintRegisV2.Click
         Try
@@ -1328,6 +1316,11 @@ Public Class UCPatientPayment
         If GridPatientInformation.SelectedItems.Count = 0 Then Exit Sub
         Dim fNoteWaiting As New NoteWaiting
         fNoteWaiting.LblPatientNo.Text = GridPatientInformation.GetRow.Cells("PatientNo").Value
+        Try
+            fNoteWaiting.TxtNote.Text = GridFollowDetial.GetRow.Cells("FOLLOW_NOTE").Value
+        Catch ex As Exception
+            fNoteWaiting.TxtNote.Text = ""
+        End Try
         fNoteWaiting.ShowDialog()
 
 
@@ -1568,6 +1561,12 @@ Public Class UCPatientPayment
         If GridPatientInformation.SelectedItems.Count = 0 Then Exit Sub
         Dim fNoteWaiting As New NoteWaiting
         fNoteWaiting.LblPatientNo.Text = GridPatientInformation.GetRow.Cells("PatientNo").Value
+        Try
+
+            fNoteWaiting.TxtNote.Text = GridFollowDetial.GetRow.Cells("FOLLOW_NOTE").Value
+        Catch ex As Exception
+            fNoteWaiting.TxtNote.Text = ""
+        End Try
         fNoteWaiting.ShowDialog()
         'If GridPatientInformation.SelectedItems.Count = 0 Then Exit Sub
         'If MessageBox.Show("Do you want to send to patient waiting list?", "Waiting", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = DialogResult.Yes Then

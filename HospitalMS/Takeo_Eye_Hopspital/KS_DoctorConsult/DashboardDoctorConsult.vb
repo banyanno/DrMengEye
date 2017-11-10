@@ -1180,4 +1180,8 @@
         Dim pFollowupBydr As New PatientFollowupByDoctor
         pFollowupBydr.ShowDialog()
     End Sub
+
+    Private Sub GroupBox7_Enter(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles GroupBox7.Enter
+
+    End Sub
 End Class
