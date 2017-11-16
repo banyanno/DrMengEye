@@ -3970,6 +3970,10 @@ Represents the strongly named DataTable class.
 	<summary>
 Represents the strongly named DataTable class.
 </summary>
+</member><member name="T:HospitalMS.DS_KSPAYMENT.VIEW_TOTAL_SURGERYDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
 </member><member name="T:HospitalMS.DS_KSPAYMENT.S_VIEW_COUNT_MEDICINEDataTable">
 	<summary>
 Represents the strongly named DataTable class.
@@ -4018,6 +4022,10 @@ Represents strongly named DataRow class.
 	<summary>
 Represents strongly named DataRow class.
 </summary>
+</member><member name="T:HospitalMS.DS_KSPAYMENT.VIEW_TOTAL_SURGERYRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
 </member><member name="T:HospitalMS.DS_KSPAYMENT.S_VIEW_COUNT_MEDICINERow">
 	<summary>
 Represents strongly named DataRow class.
@@ -4063,6 +4071,10 @@ Row event argument class
 Row event argument class
 </summary>
 </member><member name="T:HospitalMS.DS_KSPAYMENT.V_EYE_PRESCRIPTIONRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:HospitalMS.DS_KSPAYMENT.VIEW_TOTAL_SURGERYRowChangeEvent">
 	<summary>
 Row event argument class
 </summary>
@@ -4115,6 +4127,10 @@ Represents the connection and commands used to retrieve and save data.
 Represents the connection and commands used to retrieve and save data.
 </summary>
 </member><member name="T:HospitalMS.DS_KSPAYMENTTableAdapters.V_EYE_PRESCRIPTIONTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:HospitalMS.DS_KSPAYMENTTableAdapters.VIEW_TOTAL_SURGERYTableAdapter">
 	<summary>
 Represents the connection and commands used to retrieve and save data.
 </summary>

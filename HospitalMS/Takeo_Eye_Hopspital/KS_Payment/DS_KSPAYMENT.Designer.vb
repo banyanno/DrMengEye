@@ -48,6 +48,8 @@ Partial Public Class DS_KSPAYMENT
     
     Private tableV_EYE_PRESCRIPTION As V_EYE_PRESCRIPTIONDataTable
     
+    Private tableVIEW_TOTAL_SURGERY As VIEW_TOTAL_SURGERYDataTable
+    
     Private tableS_VIEW_COUNT_MEDICINE As S_VIEW_COUNT_MEDICINEDataTable
     
     Private relationS_INVOICE_KS_S_INVOICE_DETAIL As Global.System.Data.DataRelation
@@ -113,6 +115,9 @@ Partial Public Class DS_KSPAYMENT
             End If
             If (Not (ds.Tables("V_EYE_PRESCRIPTION")) Is Nothing) Then
                 MyBase.Tables.Add(New V_EYE_PRESCRIPTIONDataTable(ds.Tables("V_EYE_PRESCRIPTION")))
+            End If
+            If (Not (ds.Tables("VIEW_TOTAL_SURGERY")) Is Nothing) Then
+                MyBase.Tables.Add(New VIEW_TOTAL_SURGERYDataTable(ds.Tables("VIEW_TOTAL_SURGERY")))
             End If
             If (Not (ds.Tables("S_VIEW_COUNT_MEDICINE")) Is Nothing) Then
                 MyBase.Tables.Add(New S_VIEW_COUNT_MEDICINEDataTable(ds.Tables("S_VIEW_COUNT_MEDICINE")))
@@ -236,6 +241,15 @@ Partial Public Class DS_KSPAYMENT
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
      Global.System.ComponentModel.Browsable(false),  _
      Global.System.ComponentModel.DesignerSerializationVisibility(Global.System.ComponentModel.DesignerSerializationVisibility.Content)>  _
+    Public ReadOnly Property VIEW_TOTAL_SURGERY() As VIEW_TOTAL_SURGERYDataTable
+        Get
+            Return Me.tableVIEW_TOTAL_SURGERY
+        End Get
+    End Property
+    
+    <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+     Global.System.ComponentModel.Browsable(false),  _
+     Global.System.ComponentModel.DesignerSerializationVisibility(Global.System.ComponentModel.DesignerSerializationVisibility.Content)>  _
     Public ReadOnly Property S_VIEW_COUNT_MEDICINE() As S_VIEW_COUNT_MEDICINEDataTable
         Get
             Return Me.tableS_VIEW_COUNT_MEDICINE
@@ -333,6 +347,9 @@ Partial Public Class DS_KSPAYMENT
             End If
             If (Not (ds.Tables("V_EYE_PRESCRIPTION")) Is Nothing) Then
                 MyBase.Tables.Add(New V_EYE_PRESCRIPTIONDataTable(ds.Tables("V_EYE_PRESCRIPTION")))
+            End If
+            If (Not (ds.Tables("VIEW_TOTAL_SURGERY")) Is Nothing) Then
+                MyBase.Tables.Add(New VIEW_TOTAL_SURGERYDataTable(ds.Tables("VIEW_TOTAL_SURGERY")))
             End If
             If (Not (ds.Tables("S_VIEW_COUNT_MEDICINE")) Is Nothing) Then
                 MyBase.Tables.Add(New S_VIEW_COUNT_MEDICINEDataTable(ds.Tables("S_VIEW_COUNT_MEDICINE")))
@@ -432,6 +449,12 @@ Partial Public Class DS_KSPAYMENT
                 Me.tableV_EYE_PRESCRIPTION.InitVars
             End If
         End If
+        Me.tableVIEW_TOTAL_SURGERY = CType(MyBase.Tables("VIEW_TOTAL_SURGERY"),VIEW_TOTAL_SURGERYDataTable)
+        If (initTable = true) Then
+            If (Not (Me.tableVIEW_TOTAL_SURGERY) Is Nothing) Then
+                Me.tableVIEW_TOTAL_SURGERY.InitVars
+            End If
+        End If
         Me.tableS_VIEW_COUNT_MEDICINE = CType(MyBase.Tables("S_VIEW_COUNT_MEDICINE"),S_VIEW_COUNT_MEDICINEDataTable)
         If (initTable = true) Then
             If (Not (Me.tableS_VIEW_COUNT_MEDICINE) Is Nothing) Then
@@ -471,6 +494,8 @@ Partial Public Class DS_KSPAYMENT
         MyBase.Tables.Add(Me.tableS_COUNT_GLASSESS)
         Me.tableV_EYE_PRESCRIPTION = New V_EYE_PRESCRIPTIONDataTable
         MyBase.Tables.Add(Me.tableV_EYE_PRESCRIPTION)
+        Me.tableVIEW_TOTAL_SURGERY = New VIEW_TOTAL_SURGERYDataTable
+        MyBase.Tables.Add(Me.tableVIEW_TOTAL_SURGERY)
         Me.tableS_VIEW_COUNT_MEDICINE = New S_VIEW_COUNT_MEDICINEDataTable
         MyBase.Tables.Add(Me.tableS_VIEW_COUNT_MEDICINE)
         Me.relationS_INVOICE_KS_S_INVOICE_DETAIL = New Global.System.Data.DataRelation("S_INVOICE_KS_S_INVOICE_DETAIL", New Global.System.Data.DataColumn() {Me.tableS_INVOICE_KS.INVOICE_IDColumn}, New Global.System.Data.DataColumn() {Me.tableS_INVOICE_DETAIL.INVOICE_NOColumn}, false)
@@ -531,6 +556,11 @@ Partial Public Class DS_KSPAYMENT
     
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
     Private Function ShouldSerializeV_EYE_PRESCRIPTION() As Boolean
+        Return false
+    End Function
+    
+    <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+    Private Function ShouldSerializeVIEW_TOTAL_SURGERY() As Boolean
         Return false
     End Function
     
@@ -616,6 +646,8 @@ Partial Public Class DS_KSPAYMENT
     Public Delegate Sub S_COUNT_GLASSESSRowChangeEventHandler(ByVal sender As Object, ByVal e As S_COUNT_GLASSESSRowChangeEvent)
     
     Public Delegate Sub V_EYE_PRESCRIPTIONRowChangeEventHandler(ByVal sender As Object, ByVal e As V_EYE_PRESCRIPTIONRowChangeEvent)
+    
+    Public Delegate Sub VIEW_TOTAL_SURGERYRowChangeEventHandler(ByVal sender As Object, ByVal e As VIEW_TOTAL_SURGERYRowChangeEvent)
     
     Public Delegate Sub S_VIEW_COUNT_MEDICINERowChangeEventHandler(ByVal sender As Object, ByVal e As S_VIEW_COUNT_MEDICINERowChangeEvent)
     
@@ -5029,6 +5061,392 @@ Partial Public Class DS_KSPAYMENT
     <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0"),  _
      Global.System.Serializable(),  _
      Global.System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")>  _
+    Partial Public Class VIEW_TOTAL_SURGERYDataTable
+        Inherits Global.System.Data.TypedTableBase(Of VIEW_TOTAL_SURGERYRow)
+        
+        Private columnWAITING_ID As Global.System.Data.DataColumn
+        
+        Private columnINVOICE_DATE As Global.System.Data.DataColumn
+        
+        Private columnPATIENT_NO As Global.System.Data.DataColumn
+        
+        Private columnPATIENT_NAME_ENG As Global.System.Data.DataColumn
+        
+        Private columnPATIENT_SEX As Global.System.Data.DataColumn
+        
+        Private columnPATIENT_AGE As Global.System.Data.DataColumn
+        
+        Private columnDR_NAME As Global.System.Data.DataColumn
+        
+        Private columnDR_CONSULT_DATE As Global.System.Data.DataColumn
+        
+        Private columnON_EYE As Global.System.Data.DataColumn
+        
+        Private columnDIAGNOSIS As Global.System.Data.DataColumn
+        
+        Private columnSURGERY As Global.System.Data.DataColumn
+        
+        Private columnPRICE_SURGERY As Global.System.Data.DataColumn
+        
+        Private columnINVOICE_ID As Global.System.Data.DataColumn
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub New()
+            MyBase.New
+            Me.TableName = "VIEW_TOTAL_SURGERY"
+            Me.BeginInit
+            Me.InitClass
+            Me.EndInit
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Friend Sub New(ByVal table As Global.System.Data.DataTable)
+            MyBase.New
+            Me.TableName = table.TableName
+            If (table.CaseSensitive <> table.DataSet.CaseSensitive) Then
+                Me.CaseSensitive = table.CaseSensitive
+            End If
+            If (table.Locale.ToString <> table.DataSet.Locale.ToString) Then
+                Me.Locale = table.Locale
+            End If
+            If (table.Namespace <> table.DataSet.Namespace) Then
+                Me.Namespace = table.Namespace
+            End If
+            Me.Prefix = table.Prefix
+            Me.MinimumCapacity = table.MinimumCapacity
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Protected Sub New(ByVal info As Global.System.Runtime.Serialization.SerializationInfo, ByVal context As Global.System.Runtime.Serialization.StreamingContext)
+            MyBase.New(info, context)
+            Me.InitVars
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property WAITING_IDColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnWAITING_ID
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property INVOICE_DATEColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnINVOICE_DATE
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property PATIENT_NOColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnPATIENT_NO
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property PATIENT_NAME_ENGColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnPATIENT_NAME_ENG
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property PATIENT_SEXColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnPATIENT_SEX
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property PATIENT_AGEColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnPATIENT_AGE
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property DR_NAMEColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnDR_NAME
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property DR_CONSULT_DATEColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnDR_CONSULT_DATE
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property ON_EYEColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnON_EYE
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property DIAGNOSISColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnDIAGNOSIS
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property SURGERYColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnSURGERY
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property PRICE_SURGERYColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnPRICE_SURGERY
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property INVOICE_IDColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnINVOICE_ID
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Browsable(false)>  _
+        Public ReadOnly Property Count() As Integer
+            Get
+                Return Me.Rows.Count
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Default ReadOnly Property Item(ByVal index As Integer) As VIEW_TOTAL_SURGERYRow
+            Get
+                Return CType(Me.Rows(index),VIEW_TOTAL_SURGERYRow)
+            End Get
+        End Property
+        
+        Public Event VIEW_TOTAL_SURGERYRowChanging As VIEW_TOTAL_SURGERYRowChangeEventHandler
+        
+        Public Event VIEW_TOTAL_SURGERYRowChanged As VIEW_TOTAL_SURGERYRowChangeEventHandler
+        
+        Public Event VIEW_TOTAL_SURGERYRowDeleting As VIEW_TOTAL_SURGERYRowChangeEventHandler
+        
+        Public Event VIEW_TOTAL_SURGERYRowDeleted As VIEW_TOTAL_SURGERYRowChangeEventHandler
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Overloads Sub AddVIEW_TOTAL_SURGERYRow(ByVal row As VIEW_TOTAL_SURGERYRow)
+            Me.Rows.Add(row)
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Overloads Function AddVIEW_TOTAL_SURGERYRow(ByVal WAITING_ID As Decimal, ByVal INVOICE_DATE As Date, ByVal PATIENT_NO As Decimal, ByVal PATIENT_NAME_ENG As String, ByVal PATIENT_SEX As String, ByVal PATIENT_AGE As Decimal, ByVal DR_NAME As String, ByVal DR_CONSULT_DATE As Date, ByVal ON_EYE As String, ByVal DIAGNOSIS As String, ByVal SURGERY As String, ByVal PRICE_SURGERY As Decimal, ByVal INVOICE_ID As Decimal) As VIEW_TOTAL_SURGERYRow
+            Dim rowVIEW_TOTAL_SURGERYRow As VIEW_TOTAL_SURGERYRow = CType(Me.NewRow,VIEW_TOTAL_SURGERYRow)
+            Dim columnValuesArray() As Object = New Object() {WAITING_ID, INVOICE_DATE, PATIENT_NO, PATIENT_NAME_ENG, PATIENT_SEX, PATIENT_AGE, DR_NAME, DR_CONSULT_DATE, ON_EYE, DIAGNOSIS, SURGERY, PRICE_SURGERY, INVOICE_ID}
+            rowVIEW_TOTAL_SURGERYRow.ItemArray = columnValuesArray
+            Me.Rows.Add(rowVIEW_TOTAL_SURGERYRow)
+            Return rowVIEW_TOTAL_SURGERYRow
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function FindByINVOICE_ID(ByVal INVOICE_ID As Decimal) As VIEW_TOTAL_SURGERYRow
+            Return CType(Me.Rows.Find(New Object() {INVOICE_ID}),VIEW_TOTAL_SURGERYRow)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Overrides Function Clone() As Global.System.Data.DataTable
+            Dim cln As VIEW_TOTAL_SURGERYDataTable = CType(MyBase.Clone,VIEW_TOTAL_SURGERYDataTable)
+            cln.InitVars
+            Return cln
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Protected Overrides Function CreateInstance() As Global.System.Data.DataTable
+            Return New VIEW_TOTAL_SURGERYDataTable
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Friend Sub InitVars()
+            Me.columnWAITING_ID = MyBase.Columns("WAITING_ID")
+            Me.columnINVOICE_DATE = MyBase.Columns("INVOICE_DATE")
+            Me.columnPATIENT_NO = MyBase.Columns("PATIENT_NO")
+            Me.columnPATIENT_NAME_ENG = MyBase.Columns("PATIENT_NAME_ENG")
+            Me.columnPATIENT_SEX = MyBase.Columns("PATIENT_SEX")
+            Me.columnPATIENT_AGE = MyBase.Columns("PATIENT_AGE")
+            Me.columnDR_NAME = MyBase.Columns("DR_NAME")
+            Me.columnDR_CONSULT_DATE = MyBase.Columns("DR_CONSULT_DATE")
+            Me.columnON_EYE = MyBase.Columns("ON_EYE")
+            Me.columnDIAGNOSIS = MyBase.Columns("DIAGNOSIS")
+            Me.columnSURGERY = MyBase.Columns("SURGERY")
+            Me.columnPRICE_SURGERY = MyBase.Columns("PRICE_SURGERY")
+            Me.columnINVOICE_ID = MyBase.Columns("INVOICE_ID")
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Private Sub InitClass()
+            Me.columnWAITING_ID = New Global.System.Data.DataColumn("WAITING_ID", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnWAITING_ID)
+            Me.columnINVOICE_DATE = New Global.System.Data.DataColumn("INVOICE_DATE", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnINVOICE_DATE)
+            Me.columnPATIENT_NO = New Global.System.Data.DataColumn("PATIENT_NO", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnPATIENT_NO)
+            Me.columnPATIENT_NAME_ENG = New Global.System.Data.DataColumn("PATIENT_NAME_ENG", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnPATIENT_NAME_ENG)
+            Me.columnPATIENT_SEX = New Global.System.Data.DataColumn("PATIENT_SEX", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnPATIENT_SEX)
+            Me.columnPATIENT_AGE = New Global.System.Data.DataColumn("PATIENT_AGE", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnPATIENT_AGE)
+            Me.columnDR_NAME = New Global.System.Data.DataColumn("DR_NAME", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnDR_NAME)
+            Me.columnDR_CONSULT_DATE = New Global.System.Data.DataColumn("DR_CONSULT_DATE", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnDR_CONSULT_DATE)
+            Me.columnON_EYE = New Global.System.Data.DataColumn("ON_EYE", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnON_EYE)
+            Me.columnDIAGNOSIS = New Global.System.Data.DataColumn("DIAGNOSIS", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnDIAGNOSIS)
+            Me.columnSURGERY = New Global.System.Data.DataColumn("SURGERY", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnSURGERY)
+            Me.columnPRICE_SURGERY = New Global.System.Data.DataColumn("PRICE_SURGERY", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnPRICE_SURGERY)
+            Me.columnINVOICE_ID = New Global.System.Data.DataColumn("INVOICE_ID", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnINVOICE_ID)
+            Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnINVOICE_ID}, true))
+            Me.columnPATIENT_NAME_ENG.MaxLength = 50
+            Me.columnPATIENT_SEX.MaxLength = 1
+            Me.columnDR_NAME.MaxLength = 50
+            Me.columnON_EYE.MaxLength = 50
+            Me.columnDIAGNOSIS.MaxLength = 50
+            Me.columnSURGERY.MaxLength = 50
+            Me.columnINVOICE_ID.AllowDBNull = false
+            Me.columnINVOICE_ID.Unique = true
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function NewVIEW_TOTAL_SURGERYRow() As VIEW_TOTAL_SURGERYRow
+            Return CType(Me.NewRow,VIEW_TOTAL_SURGERYRow)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Protected Overrides Function NewRowFromBuilder(ByVal builder As Global.System.Data.DataRowBuilder) As Global.System.Data.DataRow
+            Return New VIEW_TOTAL_SURGERYRow(builder)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Protected Overrides Function GetRowType() As Global.System.Type
+            Return GetType(VIEW_TOTAL_SURGERYRow)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Protected Overrides Sub OnRowChanged(ByVal e As Global.System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowChanged(e)
+            If (Not (Me.VIEW_TOTAL_SURGERYRowChangedEvent) Is Nothing) Then
+                RaiseEvent VIEW_TOTAL_SURGERYRowChanged(Me, New VIEW_TOTAL_SURGERYRowChangeEvent(CType(e.Row,VIEW_TOTAL_SURGERYRow), e.Action))
+            End If
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Protected Overrides Sub OnRowChanging(ByVal e As Global.System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowChanging(e)
+            If (Not (Me.VIEW_TOTAL_SURGERYRowChangingEvent) Is Nothing) Then
+                RaiseEvent VIEW_TOTAL_SURGERYRowChanging(Me, New VIEW_TOTAL_SURGERYRowChangeEvent(CType(e.Row,VIEW_TOTAL_SURGERYRow), e.Action))
+            End If
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Protected Overrides Sub OnRowDeleted(ByVal e As Global.System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowDeleted(e)
+            If (Not (Me.VIEW_TOTAL_SURGERYRowDeletedEvent) Is Nothing) Then
+                RaiseEvent VIEW_TOTAL_SURGERYRowDeleted(Me, New VIEW_TOTAL_SURGERYRowChangeEvent(CType(e.Row,VIEW_TOTAL_SURGERYRow), e.Action))
+            End If
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Protected Overrides Sub OnRowDeleting(ByVal e As Global.System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowDeleting(e)
+            If (Not (Me.VIEW_TOTAL_SURGERYRowDeletingEvent) Is Nothing) Then
+                RaiseEvent VIEW_TOTAL_SURGERYRowDeleting(Me, New VIEW_TOTAL_SURGERYRowChangeEvent(CType(e.Row,VIEW_TOTAL_SURGERYRow), e.Action))
+            End If
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub RemoveVIEW_TOTAL_SURGERYRow(ByVal row As VIEW_TOTAL_SURGERYRow)
+            Me.Rows.Remove(row)
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Shared Function GetTypedTableSchema(ByVal xs As Global.System.Xml.Schema.XmlSchemaSet) As Global.System.Xml.Schema.XmlSchemaComplexType
+            Dim type As Global.System.Xml.Schema.XmlSchemaComplexType = New Global.System.Xml.Schema.XmlSchemaComplexType
+            Dim sequence As Global.System.Xml.Schema.XmlSchemaSequence = New Global.System.Xml.Schema.XmlSchemaSequence
+            Dim ds As DS_KSPAYMENT = New DS_KSPAYMENT
+            Dim any1 As Global.System.Xml.Schema.XmlSchemaAny = New Global.System.Xml.Schema.XmlSchemaAny
+            any1.Namespace = "http://www.w3.org/2001/XMLSchema"
+            any1.MinOccurs = New Decimal(0)
+            any1.MaxOccurs = Decimal.MaxValue
+            any1.ProcessContents = Global.System.Xml.Schema.XmlSchemaContentProcessing.Lax
+            sequence.Items.Add(any1)
+            Dim any2 As Global.System.Xml.Schema.XmlSchemaAny = New Global.System.Xml.Schema.XmlSchemaAny
+            any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1"
+            any2.MinOccurs = New Decimal(1)
+            any2.ProcessContents = Global.System.Xml.Schema.XmlSchemaContentProcessing.Lax
+            sequence.Items.Add(any2)
+            Dim attribute1 As Global.System.Xml.Schema.XmlSchemaAttribute = New Global.System.Xml.Schema.XmlSchemaAttribute
+            attribute1.Name = "namespace"
+            attribute1.FixedValue = ds.Namespace
+            type.Attributes.Add(attribute1)
+            Dim attribute2 As Global.System.Xml.Schema.XmlSchemaAttribute = New Global.System.Xml.Schema.XmlSchemaAttribute
+            attribute2.Name = "tableTypeName"
+            attribute2.FixedValue = "VIEW_TOTAL_SURGERYDataTable"
+            type.Attributes.Add(attribute2)
+            type.Particle = sequence
+            Dim dsSchema As Global.System.Xml.Schema.XmlSchema = ds.GetSchemaSerializable
+            If xs.Contains(dsSchema.TargetNamespace) Then
+                Dim s1 As Global.System.IO.MemoryStream = New Global.System.IO.MemoryStream
+                Dim s2 As Global.System.IO.MemoryStream = New Global.System.IO.MemoryStream
+                Try 
+                    Dim schema As Global.System.Xml.Schema.XmlSchema = Nothing
+                    dsSchema.Write(s1)
+                    Dim schemas As Global.System.Collections.IEnumerator = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator
+                    Do While schemas.MoveNext
+                        schema = CType(schemas.Current,Global.System.Xml.Schema.XmlSchema)
+                        s2.SetLength(0)
+                        schema.Write(s2)
+                        If (s1.Length = s2.Length) Then
+                            s1.Position = 0
+                            s2.Position = 0
+                            
+                            Do While ((s1.Position <> s1.Length)  _
+                                        AndAlso (s1.ReadByte = s2.ReadByte))
+                                
+                                
+                            Loop
+                            If (s1.Position = s1.Length) Then
+                                Return type
+                            End If
+                        End If
+                        
+                    Loop
+                Finally
+                    If (Not (s1) Is Nothing) Then
+                        s1.Close
+                    End If
+                    If (Not (s2) Is Nothing) Then
+                        s2.Close
+                    End If
+                End Try
+            End If
+            xs.Add(dsSchema)
+            Return type
+        End Function
+    End Class
+    
+    '''<summary>
+    '''Represents the strongly named DataTable class.
+    '''</summary>
+    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0"),  _
+     Global.System.Serializable(),  _
+     Global.System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")>  _
     Partial Public Class S_VIEW_COUNT_MEDICINEDataTable
         Inherits Global.System.Data.TypedTableBase(Of S_VIEW_COUNT_MEDICINERow)
         
@@ -9043,6 +9461,320 @@ Partial Public Class DS_KSPAYMENT
     '''Represents strongly named DataRow class.
     '''</summary>
     <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")>  _
+    Partial Public Class VIEW_TOTAL_SURGERYRow
+        Inherits Global.System.Data.DataRow
+        
+        Private tableVIEW_TOTAL_SURGERY As VIEW_TOTAL_SURGERYDataTable
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Friend Sub New(ByVal rb As Global.System.Data.DataRowBuilder)
+            MyBase.New(rb)
+            Me.tableVIEW_TOTAL_SURGERY = CType(Me.Table,VIEW_TOTAL_SURGERYDataTable)
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property WAITING_ID() As Decimal
+            Get
+                Try 
+                    Return CType(Me(Me.tableVIEW_TOTAL_SURGERY.WAITING_IDColumn),Decimal)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'WAITING_ID' in table 'VIEW_TOTAL_SURGERY' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableVIEW_TOTAL_SURGERY.WAITING_IDColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property INVOICE_DATE() As Date
+            Get
+                Try 
+                    Return CType(Me(Me.tableVIEW_TOTAL_SURGERY.INVOICE_DATEColumn),Date)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'INVOICE_DATE' in table 'VIEW_TOTAL_SURGERY' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableVIEW_TOTAL_SURGERY.INVOICE_DATEColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property PATIENT_NO() As Decimal
+            Get
+                Try 
+                    Return CType(Me(Me.tableVIEW_TOTAL_SURGERY.PATIENT_NOColumn),Decimal)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'PATIENT_NO' in table 'VIEW_TOTAL_SURGERY' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableVIEW_TOTAL_SURGERY.PATIENT_NOColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property PATIENT_NAME_ENG() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableVIEW_TOTAL_SURGERY.PATIENT_NAME_ENGColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'PATIENT_NAME_ENG' in table 'VIEW_TOTAL_SURGERY' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableVIEW_TOTAL_SURGERY.PATIENT_NAME_ENGColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property PATIENT_SEX() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableVIEW_TOTAL_SURGERY.PATIENT_SEXColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'PATIENT_SEX' in table 'VIEW_TOTAL_SURGERY' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableVIEW_TOTAL_SURGERY.PATIENT_SEXColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property PATIENT_AGE() As Decimal
+            Get
+                Try 
+                    Return CType(Me(Me.tableVIEW_TOTAL_SURGERY.PATIENT_AGEColumn),Decimal)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'PATIENT_AGE' in table 'VIEW_TOTAL_SURGERY' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableVIEW_TOTAL_SURGERY.PATIENT_AGEColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property DR_NAME() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableVIEW_TOTAL_SURGERY.DR_NAMEColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'DR_NAME' in table 'VIEW_TOTAL_SURGERY' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableVIEW_TOTAL_SURGERY.DR_NAMEColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property DR_CONSULT_DATE() As Date
+            Get
+                Try 
+                    Return CType(Me(Me.tableVIEW_TOTAL_SURGERY.DR_CONSULT_DATEColumn),Date)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'DR_CONSULT_DATE' in table 'VIEW_TOTAL_SURGERY' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableVIEW_TOTAL_SURGERY.DR_CONSULT_DATEColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property ON_EYE() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableVIEW_TOTAL_SURGERY.ON_EYEColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'ON_EYE' in table 'VIEW_TOTAL_SURGERY' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableVIEW_TOTAL_SURGERY.ON_EYEColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property DIAGNOSIS() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableVIEW_TOTAL_SURGERY.DIAGNOSISColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'DIAGNOSIS' in table 'VIEW_TOTAL_SURGERY' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableVIEW_TOTAL_SURGERY.DIAGNOSISColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property SURGERY() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableVIEW_TOTAL_SURGERY.SURGERYColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'SURGERY' in table 'VIEW_TOTAL_SURGERY' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableVIEW_TOTAL_SURGERY.SURGERYColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property PRICE_SURGERY() As Decimal
+            Get
+                Try 
+                    Return CType(Me(Me.tableVIEW_TOTAL_SURGERY.PRICE_SURGERYColumn),Decimal)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'PRICE_SURGERY' in table 'VIEW_TOTAL_SURGERY' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableVIEW_TOTAL_SURGERY.PRICE_SURGERYColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property INVOICE_ID() As Decimal
+            Get
+                Return CType(Me(Me.tableVIEW_TOTAL_SURGERY.INVOICE_IDColumn),Decimal)
+            End Get
+            Set
+                Me(Me.tableVIEW_TOTAL_SURGERY.INVOICE_IDColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function IsWAITING_IDNull() As Boolean
+            Return Me.IsNull(Me.tableVIEW_TOTAL_SURGERY.WAITING_IDColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub SetWAITING_IDNull()
+            Me(Me.tableVIEW_TOTAL_SURGERY.WAITING_IDColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function IsINVOICE_DATENull() As Boolean
+            Return Me.IsNull(Me.tableVIEW_TOTAL_SURGERY.INVOICE_DATEColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub SetINVOICE_DATENull()
+            Me(Me.tableVIEW_TOTAL_SURGERY.INVOICE_DATEColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function IsPATIENT_NONull() As Boolean
+            Return Me.IsNull(Me.tableVIEW_TOTAL_SURGERY.PATIENT_NOColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub SetPATIENT_NONull()
+            Me(Me.tableVIEW_TOTAL_SURGERY.PATIENT_NOColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function IsPATIENT_NAME_ENGNull() As Boolean
+            Return Me.IsNull(Me.tableVIEW_TOTAL_SURGERY.PATIENT_NAME_ENGColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub SetPATIENT_NAME_ENGNull()
+            Me(Me.tableVIEW_TOTAL_SURGERY.PATIENT_NAME_ENGColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function IsPATIENT_SEXNull() As Boolean
+            Return Me.IsNull(Me.tableVIEW_TOTAL_SURGERY.PATIENT_SEXColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub SetPATIENT_SEXNull()
+            Me(Me.tableVIEW_TOTAL_SURGERY.PATIENT_SEXColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function IsPATIENT_AGENull() As Boolean
+            Return Me.IsNull(Me.tableVIEW_TOTAL_SURGERY.PATIENT_AGEColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub SetPATIENT_AGENull()
+            Me(Me.tableVIEW_TOTAL_SURGERY.PATIENT_AGEColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function IsDR_NAMENull() As Boolean
+            Return Me.IsNull(Me.tableVIEW_TOTAL_SURGERY.DR_NAMEColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub SetDR_NAMENull()
+            Me(Me.tableVIEW_TOTAL_SURGERY.DR_NAMEColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function IsDR_CONSULT_DATENull() As Boolean
+            Return Me.IsNull(Me.tableVIEW_TOTAL_SURGERY.DR_CONSULT_DATEColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub SetDR_CONSULT_DATENull()
+            Me(Me.tableVIEW_TOTAL_SURGERY.DR_CONSULT_DATEColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function IsON_EYENull() As Boolean
+            Return Me.IsNull(Me.tableVIEW_TOTAL_SURGERY.ON_EYEColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub SetON_EYENull()
+            Me(Me.tableVIEW_TOTAL_SURGERY.ON_EYEColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function IsDIAGNOSISNull() As Boolean
+            Return Me.IsNull(Me.tableVIEW_TOTAL_SURGERY.DIAGNOSISColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub SetDIAGNOSISNull()
+            Me(Me.tableVIEW_TOTAL_SURGERY.DIAGNOSISColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function IsSURGERYNull() As Boolean
+            Return Me.IsNull(Me.tableVIEW_TOTAL_SURGERY.SURGERYColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub SetSURGERYNull()
+            Me(Me.tableVIEW_TOTAL_SURGERY.SURGERYColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function IsPRICE_SURGERYNull() As Boolean
+            Return Me.IsNull(Me.tableVIEW_TOTAL_SURGERY.PRICE_SURGERYColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub SetPRICE_SURGERYNull()
+            Me(Me.tableVIEW_TOTAL_SURGERY.PRICE_SURGERYColumn) = Global.System.Convert.DBNull
+        End Sub
+    End Class
+    
+    '''<summary>
+    '''Represents strongly named DataRow class.
+    '''</summary>
+    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")>  _
     Partial Public Class S_VIEW_COUNT_MEDICINERow
         Inherits Global.System.Data.DataRow
         
@@ -9712,6 +10444,39 @@ Partial Public Class DS_KSPAYMENT
     '''Row event argument class
     '''</summary>
     <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")>  _
+    Public Class VIEW_TOTAL_SURGERYRowChangeEvent
+        Inherits Global.System.EventArgs
+        
+        Private eventRow As VIEW_TOTAL_SURGERYRow
+        
+        Private eventAction As Global.System.Data.DataRowAction
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub New(ByVal row As VIEW_TOTAL_SURGERYRow, ByVal action As Global.System.Data.DataRowAction)
+            MyBase.New
+            Me.eventRow = row
+            Me.eventAction = action
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property Row() As VIEW_TOTAL_SURGERYRow
+            Get
+                Return Me.eventRow
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property Action() As Global.System.Data.DataRowAction
+            Get
+                Return Me.eventAction
+            End Get
+        End Property
+    End Class
+    
+    '''<summary>
+    '''Row event argument class
+    '''</summary>
+    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")>  _
     Public Class S_VIEW_COUNT_MEDICINERowChangeEvent
         Inherits Global.System.EventArgs
         
@@ -9922,8 +10687,8 @@ Namespace DS_KSPAYMENTTableAdapters
             Me._connection = New Global.System.Data.SqlClient.SqlConnection
             Me._connection.ConnectionString = Global.HospitalMS.My.MySettings.Default.AppConnection
         End Sub
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Private Sub InitCommandCollection()
             Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(3) {}
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand
@@ -9932,72 +10697,72 @@ Namespace DS_KSPAYMENTTableAdapters
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(1) = New Global.System.Data.SqlClient.SqlCommand
             Me._commandCollection(1).Connection = Me.Connection
-            Me._commandCollection(1).CommandText = "DELETE FROM [dbo].[S_TEM_LISTPAYMENT] WHERE (([WAIT_PAY_NO] = @Original_WAIT_PAY_" & _
+            Me._commandCollection(1).CommandText = "DELETE FROM [dbo].[S_TEM_LISTPAYMENT] WHERE (([WAIT_PAY_NO] = @Original_WAIT_PAY_"& _ 
                 "NO))"
             Me._commandCollection(1).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_WAIT_PAY_NO", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "WAIT_PAY_NO", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
+            Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_WAIT_PAY_NO", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "WAIT_PAY_NO", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._commandCollection(2) = New Global.System.Data.SqlClient.SqlCommand
             Me._commandCollection(2).Connection = Me.Connection
-            Me._commandCollection(2).CommandText = "SELECT WAIT_PAY_NO, WAITING_NO, PAY_ON, PRICE_PAY FROM dbo.S_TEM_LISTPAYMENT" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "WHE" & _
+            Me._commandCollection(2).CommandText = "SELECT WAIT_PAY_NO, WAITING_NO, PAY_ON, PRICE_PAY FROM dbo.S_TEM_LISTPAYMENT"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHE"& _ 
                 "RE WAITING_NO=@WAITING_NO"
             Me._commandCollection(2).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@WAITING_NO", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "WAITING_NO", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@WAITING_NO", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "WAITING_NO", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(3) = New Global.System.Data.SqlClient.SqlCommand
             Me._commandCollection(3).Connection = Me.Connection
-            Me._commandCollection(3).CommandText = "INSERT INTO [dbo].[S_TEM_LISTPAYMENT] ([WAITING_NO], [PAY_ON], [PRICE_PAY]) VALUE" & _
-                "S (@WAITING_NO, @PAY_ON, @PRICE_PAY);" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
+            Me._commandCollection(3).CommandText = "INSERT INTO [dbo].[S_TEM_LISTPAYMENT] ([WAITING_NO], [PAY_ON], [PRICE_PAY]) VALUE"& _ 
+                "S (@WAITING_NO, @PAY_ON, @PRICE_PAY);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)
             Me._commandCollection(3).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@WAITING_NO", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "WAITING_NO", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PAY_ON", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "PAY_ON", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PRICE_PAY", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 2, "PRICE_PAY", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@WAITING_NO", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "WAITING_NO", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PAY_ON", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "PAY_ON", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PRICE_PAY", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 2, "PRICE_PAY", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
         End Sub
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, True)> _
-        Public Overridable Overloads Function Fill(ByVal dataTable As DS_KSPAYMENT.S_TEM_LISTPAYMENTDataTable) As Integer
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, true)>  _
+        Public Overloads Overridable Function Fill(ByVal dataTable As DS_KSPAYMENT.S_TEM_LISTPAYMENTDataTable) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
-            If (Me.ClearBeforeFill = True) Then
-                dataTable.Clear()
+            If (Me.ClearBeforeFill = true) Then
+                dataTable.Clear
             End If
             Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
             Return returnValue
         End Function
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], True)> _
-        Public Overridable Overloads Function GetData() As DS_KSPAYMENT.S_TEM_LISTPAYMENTDataTable
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], true)>  _
+        Public Overloads Overridable Function GetData() As DS_KSPAYMENT.S_TEM_LISTPAYMENTDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
             Dim dataTable As DS_KSPAYMENT.S_TEM_LISTPAYMENTDataTable = New DS_KSPAYMENT.S_TEM_LISTPAYMENTDataTable
             Me.Adapter.Fill(dataTable)
             Return dataTable
         End Function
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, False)> _
-        Public Overridable Overloads Function FillBy(ByVal dataTable As DS_KSPAYMENT.S_TEM_LISTPAYMENTDataTable, ByVal WAITING_NO As Global.System.Nullable(Of Decimal)) As Integer
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
+        Public Overloads Overridable Function FillBy(ByVal dataTable As DS_KSPAYMENT.S_TEM_LISTPAYMENTDataTable, ByVal WAITING_NO As Global.System.Nullable(Of Decimal)) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(2)
-            If (WAITING_NO.HasValue = True) Then
-                Me.Adapter.SelectCommand.Parameters(0).Value = CType(WAITING_NO.Value, Decimal)
+            If (WAITING_NO.HasValue = true) Then
+                Me.Adapter.SelectCommand.Parameters(0).Value = CType(WAITING_NO.Value,Decimal)
             Else
                 Me.Adapter.SelectCommand.Parameters(0).Value = Global.System.DBNull.Value
             End If
-            If (Me.ClearBeforeFill = True) Then
-                dataTable.Clear()
+            If (Me.ClearBeforeFill = true) Then
+                dataTable.Clear
             End If
             Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
             Return returnValue
         End Function
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], False)> _
-        Public Overridable Overloads Function SelectWaitingPayNo(ByVal WAITING_NO As Global.System.Nullable(Of Decimal)) As DS_KSPAYMENT.S_TEM_LISTPAYMENTDataTable
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
+        Public Overloads Overridable Function SelectWaitingPayNo(ByVal WAITING_NO As Global.System.Nullable(Of Decimal)) As DS_KSPAYMENT.S_TEM_LISTPAYMENTDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(2)
-            If (WAITING_NO.HasValue = True) Then
-                Me.Adapter.SelectCommand.Parameters(0).Value = CType(WAITING_NO.Value, Decimal)
+            If (WAITING_NO.HasValue = true) Then
+                Me.Adapter.SelectCommand.Parameters(0).Value = CType(WAITING_NO.Value,Decimal)
             Else
                 Me.Adapter.SelectCommand.Parameters(0).Value = Global.System.DBNull.Value
             End If
@@ -10005,277 +10770,277 @@ Namespace DS_KSPAYMENTTableAdapters
             Me.Adapter.Fill(dataTable)
             Return dataTable
         End Function
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")> _
-        Public Overridable Overloads Function Update(ByVal dataTable As DS_KSPAYMENT.S_TEM_LISTPAYMENTDataTable) As Integer
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+        Public Overloads Overridable Function Update(ByVal dataTable As DS_KSPAYMENT.S_TEM_LISTPAYMENTDataTable) As Integer
             Return Me.Adapter.Update(dataTable)
         End Function
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")> _
-        Public Overridable Overloads Function Update(ByVal dataSet As DS_KSPAYMENT) As Integer
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+        Public Overloads Overridable Function Update(ByVal dataSet As DS_KSPAYMENT) As Integer
             Return Me.Adapter.Update(dataSet, "S_TEM_LISTPAYMENT")
         End Function
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")> _
-        Public Overridable Overloads Function Update(ByVal dataRow As Global.System.Data.DataRow) As Integer
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+        Public Overloads Overridable Function Update(ByVal dataRow As Global.System.Data.DataRow) As Integer
             Return Me.Adapter.Update(New Global.System.Data.DataRow() {dataRow})
         End Function
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")> _
-        Public Overridable Overloads Function Update(ByVal dataRows() As Global.System.Data.DataRow) As Integer
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+        Public Overloads Overridable Function Update(ByVal dataRows() As Global.System.Data.DataRow) As Integer
             Return Me.Adapter.Update(dataRows)
         End Function
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Delete, True)> _
-        Public Overridable Overloads Function Delete(ByVal Original_WAIT_PAY_NO As Decimal, ByVal Original_WAITING_NO As Global.System.Nullable(Of Decimal), ByVal Original_PAY_ON As String, ByVal Original_PRICE_PAY As Global.System.Nullable(Of Decimal)) As Integer
-            Me.Adapter.DeleteCommand.Parameters(0).Value = CType(Original_WAIT_PAY_NO, Decimal)
-            If (Original_WAITING_NO.HasValue = True) Then
-                Me.Adapter.DeleteCommand.Parameters(1).Value = CType(0, Object)
-                Me.Adapter.DeleteCommand.Parameters(2).Value = CType(Original_WAITING_NO.Value, Decimal)
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Delete, true)>  _
+        Public Overloads Overridable Function Delete(ByVal Original_WAIT_PAY_NO As Decimal, ByVal Original_WAITING_NO As Global.System.Nullable(Of Decimal), ByVal Original_PAY_ON As String, ByVal Original_PRICE_PAY As Global.System.Nullable(Of Decimal)) As Integer
+            Me.Adapter.DeleteCommand.Parameters(0).Value = CType(Original_WAIT_PAY_NO,Decimal)
+            If (Original_WAITING_NO.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(1).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(2).Value = CType(Original_WAITING_NO.Value,Decimal)
             Else
-                Me.Adapter.DeleteCommand.Parameters(1).Value = CType(1, Object)
+                Me.Adapter.DeleteCommand.Parameters(1).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(2).Value = Global.System.DBNull.Value
             End If
             If (Original_PAY_ON Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(3).Value = CType(1, Object)
+                Me.Adapter.DeleteCommand.Parameters(3).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(4).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.DeleteCommand.Parameters(3).Value = CType(0, Object)
-                Me.Adapter.DeleteCommand.Parameters(4).Value = CType(Original_PAY_ON, String)
+                Me.Adapter.DeleteCommand.Parameters(3).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(4).Value = CType(Original_PAY_ON,String)
             End If
-            If (Original_PRICE_PAY.HasValue = True) Then
-                Me.Adapter.DeleteCommand.Parameters(5).Value = CType(0, Object)
-                Me.Adapter.DeleteCommand.Parameters(6).Value = CType(Original_PRICE_PAY.Value, Decimal)
+            If (Original_PRICE_PAY.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(5).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(6).Value = CType(Original_PRICE_PAY.Value,Decimal)
             Else
-                Me.Adapter.DeleteCommand.Parameters(5).Value = CType(1, Object)
+                Me.Adapter.DeleteCommand.Parameters(5).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(6).Value = Global.System.DBNull.Value
             End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.DeleteCommand.Connection.State
-            If ((Me.Adapter.DeleteCommand.Connection.State And Global.System.Data.ConnectionState.Open) _
+            If ((Me.Adapter.DeleteCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
-                Me.Adapter.DeleteCommand.Connection.Open()
+                Me.Adapter.DeleteCommand.Connection.Open
             End If
-            Try
+            Try 
                 Dim returnValue As Integer = Me.Adapter.DeleteCommand.ExecuteNonQuery
                 Return returnValue
             Finally
                 If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
-                    Me.Adapter.DeleteCommand.Connection.Close()
+                    Me.Adapter.DeleteCommand.Connection.Close
                 End If
             End Try
         End Function
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, True)> _
-        Public Overridable Overloads Function Insert(ByVal WAITING_NO As Global.System.Nullable(Of Decimal), ByVal PAY_ON As String, ByVal PRICE_PAY As Global.System.Nullable(Of Decimal)) As Integer
-            If (WAITING_NO.HasValue = True) Then
-                Me.Adapter.InsertCommand.Parameters(0).Value = CType(WAITING_NO.Value, Decimal)
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, true)>  _
+        Public Overloads Overridable Function Insert(ByVal WAITING_NO As Global.System.Nullable(Of Decimal), ByVal PAY_ON As String, ByVal PRICE_PAY As Global.System.Nullable(Of Decimal)) As Integer
+            If (WAITING_NO.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(0).Value = CType(WAITING_NO.Value,Decimal)
             Else
                 Me.Adapter.InsertCommand.Parameters(0).Value = Global.System.DBNull.Value
             End If
             If (PAY_ON Is Nothing) Then
                 Me.Adapter.InsertCommand.Parameters(1).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.InsertCommand.Parameters(1).Value = CType(PAY_ON, String)
+                Me.Adapter.InsertCommand.Parameters(1).Value = CType(PAY_ON,String)
             End If
-            If (PRICE_PAY.HasValue = True) Then
-                Me.Adapter.InsertCommand.Parameters(2).Value = CType(PRICE_PAY.Value, Decimal)
+            If (PRICE_PAY.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(2).Value = CType(PRICE_PAY.Value,Decimal)
             Else
                 Me.Adapter.InsertCommand.Parameters(2).Value = Global.System.DBNull.Value
             End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.InsertCommand.Connection.State
-            If ((Me.Adapter.InsertCommand.Connection.State And Global.System.Data.ConnectionState.Open) _
+            If ((Me.Adapter.InsertCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
-                Me.Adapter.InsertCommand.Connection.Open()
+                Me.Adapter.InsertCommand.Connection.Open
             End If
-            Try
+            Try 
                 Dim returnValue As Integer = Me.Adapter.InsertCommand.ExecuteNonQuery
                 Return returnValue
             Finally
                 If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
-                    Me.Adapter.InsertCommand.Connection.Close()
+                    Me.Adapter.InsertCommand.Connection.Close
                 End If
             End Try
         End Function
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, True)> _
-        Public Overridable Overloads Function Update(ByVal WAITING_NO As Global.System.Nullable(Of Decimal), ByVal PAY_ON As String, ByVal PRICE_PAY As Global.System.Nullable(Of Decimal), ByVal Original_WAIT_PAY_NO As Decimal, ByVal Original_WAITING_NO As Global.System.Nullable(Of Decimal), ByVal Original_PAY_ON As String, ByVal Original_PRICE_PAY As Global.System.Nullable(Of Decimal), ByVal WAIT_PAY_NO As Decimal) As Integer
-            If (WAITING_NO.HasValue = True) Then
-                Me.Adapter.UpdateCommand.Parameters(0).Value = CType(WAITING_NO.Value, Decimal)
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
+        Public Overloads Overridable Function Update(ByVal WAITING_NO As Global.System.Nullable(Of Decimal), ByVal PAY_ON As String, ByVal PRICE_PAY As Global.System.Nullable(Of Decimal), ByVal Original_WAIT_PAY_NO As Decimal, ByVal Original_WAITING_NO As Global.System.Nullable(Of Decimal), ByVal Original_PAY_ON As String, ByVal Original_PRICE_PAY As Global.System.Nullable(Of Decimal), ByVal WAIT_PAY_NO As Decimal) As Integer
+            If (WAITING_NO.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(0).Value = CType(WAITING_NO.Value,Decimal)
             Else
                 Me.Adapter.UpdateCommand.Parameters(0).Value = Global.System.DBNull.Value
             End If
             If (PAY_ON Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(1).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(1).Value = CType(PAY_ON, String)
+                Me.Adapter.UpdateCommand.Parameters(1).Value = CType(PAY_ON,String)
             End If
-            If (PRICE_PAY.HasValue = True) Then
-                Me.Adapter.UpdateCommand.Parameters(2).Value = CType(PRICE_PAY.Value, Decimal)
+            If (PRICE_PAY.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(2).Value = CType(PRICE_PAY.Value,Decimal)
             Else
                 Me.Adapter.UpdateCommand.Parameters(2).Value = Global.System.DBNull.Value
             End If
-            Me.Adapter.UpdateCommand.Parameters(3).Value = CType(Original_WAIT_PAY_NO, Decimal)
-            If (Original_WAITING_NO.HasValue = True) Then
-                Me.Adapter.UpdateCommand.Parameters(4).Value = CType(0, Object)
-                Me.Adapter.UpdateCommand.Parameters(5).Value = CType(Original_WAITING_NO.Value, Decimal)
+            Me.Adapter.UpdateCommand.Parameters(3).Value = CType(Original_WAIT_PAY_NO,Decimal)
+            If (Original_WAITING_NO.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(4).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(5).Value = CType(Original_WAITING_NO.Value,Decimal)
             Else
-                Me.Adapter.UpdateCommand.Parameters(4).Value = CType(1, Object)
+                Me.Adapter.UpdateCommand.Parameters(4).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(5).Value = Global.System.DBNull.Value
             End If
             If (Original_PAY_ON Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(6).Value = CType(1, Object)
+                Me.Adapter.UpdateCommand.Parameters(6).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(7).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(6).Value = CType(0, Object)
-                Me.Adapter.UpdateCommand.Parameters(7).Value = CType(Original_PAY_ON, String)
+                Me.Adapter.UpdateCommand.Parameters(6).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(7).Value = CType(Original_PAY_ON,String)
             End If
-            If (Original_PRICE_PAY.HasValue = True) Then
-                Me.Adapter.UpdateCommand.Parameters(8).Value = CType(0, Object)
-                Me.Adapter.UpdateCommand.Parameters(9).Value = CType(Original_PRICE_PAY.Value, Decimal)
+            If (Original_PRICE_PAY.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(8).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(9).Value = CType(Original_PRICE_PAY.Value,Decimal)
             Else
-                Me.Adapter.UpdateCommand.Parameters(8).Value = CType(1, Object)
+                Me.Adapter.UpdateCommand.Parameters(8).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(9).Value = Global.System.DBNull.Value
             End If
-            Me.Adapter.UpdateCommand.Parameters(10).Value = CType(WAIT_PAY_NO, Decimal)
+            Me.Adapter.UpdateCommand.Parameters(10).Value = CType(WAIT_PAY_NO,Decimal)
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.UpdateCommand.Connection.State
-            If ((Me.Adapter.UpdateCommand.Connection.State And Global.System.Data.ConnectionState.Open) _
+            If ((Me.Adapter.UpdateCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
-                Me.Adapter.UpdateCommand.Connection.Open()
+                Me.Adapter.UpdateCommand.Connection.Open
             End If
-            Try
+            Try 
                 Dim returnValue As Integer = Me.Adapter.UpdateCommand.ExecuteNonQuery
                 Return returnValue
             Finally
                 If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
-                    Me.Adapter.UpdateCommand.Connection.Close()
+                    Me.Adapter.UpdateCommand.Connection.Close
                 End If
             End Try
         End Function
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, True)> _
-        Public Overridable Overloads Function Update(ByVal WAITING_NO As Global.System.Nullable(Of Decimal), ByVal PAY_ON As String, ByVal PRICE_PAY As Global.System.Nullable(Of Decimal), ByVal Original_WAIT_PAY_NO As Decimal, ByVal Original_WAITING_NO As Global.System.Nullable(Of Decimal), ByVal Original_PAY_ON As String, ByVal Original_PRICE_PAY As Global.System.Nullable(Of Decimal)) As Integer
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
+        Public Overloads Overridable Function Update(ByVal WAITING_NO As Global.System.Nullable(Of Decimal), ByVal PAY_ON As String, ByVal PRICE_PAY As Global.System.Nullable(Of Decimal), ByVal Original_WAIT_PAY_NO As Decimal, ByVal Original_WAITING_NO As Global.System.Nullable(Of Decimal), ByVal Original_PAY_ON As String, ByVal Original_PRICE_PAY As Global.System.Nullable(Of Decimal)) As Integer
             Return Me.Update(WAITING_NO, PAY_ON, PRICE_PAY, Original_WAIT_PAY_NO, Original_WAITING_NO, Original_PAY_ON, Original_PRICE_PAY, Original_WAIT_PAY_NO)
         End Function
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Delete, False)> _
-        Public Overridable Overloads Function DeleteWaitingPay(ByVal Original_WAIT_PAY_NO As Decimal) As Integer
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Delete, false)>  _
+        Public Overloads Overridable Function DeleteWaitingPay(ByVal Original_WAIT_PAY_NO As Decimal) As Integer
             Dim command As Global.System.Data.SqlClient.SqlCommand = Me.CommandCollection(1)
-            command.Parameters(0).Value = CType(Original_WAIT_PAY_NO, Decimal)
+            command.Parameters(0).Value = CType(Original_WAIT_PAY_NO,Decimal)
             Dim previousConnectionState As Global.System.Data.ConnectionState = command.Connection.State
-            If ((command.Connection.State And Global.System.Data.ConnectionState.Open) _
+            If ((command.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
-                command.Connection.Open()
+                command.Connection.Open
             End If
             Dim returnValue As Integer
-            Try
+            Try 
                 returnValue = command.ExecuteNonQuery
             Finally
                 If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
-                    command.Connection.Close()
+                    command.Connection.Close
                 End If
             End Try
             Return returnValue
         End Function
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, False)> _
-        Public Overridable Overloads Function InsertNewWaitingPayment(ByVal WAITING_NO As Global.System.Nullable(Of Decimal), ByVal PAY_ON As String, ByVal PRICE_PAY As Global.System.Nullable(Of Decimal)) As Integer
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, false)>  _
+        Public Overloads Overridable Function InsertNewWaitingPayment(ByVal WAITING_NO As Global.System.Nullable(Of Decimal), ByVal PAY_ON As String, ByVal PRICE_PAY As Global.System.Nullable(Of Decimal)) As Integer
             Dim command As Global.System.Data.SqlClient.SqlCommand = Me.CommandCollection(3)
-            If (WAITING_NO.HasValue = True) Then
-                command.Parameters(0).Value = CType(WAITING_NO.Value, Decimal)
+            If (WAITING_NO.HasValue = true) Then
+                command.Parameters(0).Value = CType(WAITING_NO.Value,Decimal)
             Else
                 command.Parameters(0).Value = Global.System.DBNull.Value
             End If
             If (PAY_ON Is Nothing) Then
                 command.Parameters(1).Value = Global.System.DBNull.Value
             Else
-                command.Parameters(1).Value = CType(PAY_ON, String)
+                command.Parameters(1).Value = CType(PAY_ON,String)
             End If
-            If (PRICE_PAY.HasValue = True) Then
-                command.Parameters(2).Value = CType(PRICE_PAY.Value, Decimal)
+            If (PRICE_PAY.HasValue = true) Then
+                command.Parameters(2).Value = CType(PRICE_PAY.Value,Decimal)
             Else
                 command.Parameters(2).Value = Global.System.DBNull.Value
             End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = command.Connection.State
-            If ((command.Connection.State And Global.System.Data.ConnectionState.Open) _
+            If ((command.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
-                command.Connection.Open()
+                command.Connection.Open
             End If
             Dim returnValue As Integer
-            Try
+            Try 
                 returnValue = command.ExecuteNonQuery
             Finally
                 If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
-                    command.Connection.Close()
+                    command.Connection.Close
                 End If
             End Try
             Return returnValue
         End Function
     End Class
-
+    
     '''<summary>
     '''Represents the connection and commands used to retrieve and save data.
     '''</summary>
-    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0"), _
-     Global.System.ComponentModel.DesignerCategoryAttribute("code"), _
-     Global.System.ComponentModel.ToolboxItem(True), _
-     Global.System.ComponentModel.DataObjectAttribute(True), _
-     Global.System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" & _
-        ", Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"), _
-     Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")> _
+    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0"),  _
+     Global.System.ComponentModel.DesignerCategoryAttribute("code"),  _
+     Global.System.ComponentModel.ToolboxItem(true),  _
+     Global.System.ComponentModel.DataObjectAttribute(true),  _
+     Global.System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner"& _ 
+        ", Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"),  _
+     Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
     Partial Public Class S_EXCHANGE_RATETableAdapter
         Inherits Global.System.ComponentModel.Component
-
+        
         Private WithEvents _adapter As Global.System.Data.SqlClient.SqlDataAdapter
-
+        
         Private _connection As Global.System.Data.SqlClient.SqlConnection
-
+        
         Private _transaction As Global.System.Data.SqlClient.SqlTransaction
-
+        
         Private _commandCollection() As Global.System.Data.SqlClient.SqlCommand
-
+        
         Private _clearBeforeFill As Boolean
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Sub New()
-            MyBase.New()
-            Me.ClearBeforeFill = True
+            MyBase.New
+            Me.ClearBeforeFill = true
         End Sub
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Protected Friend ReadOnly Property Adapter() As Global.System.Data.SqlClient.SqlDataAdapter
             Get
                 If (Me._adapter Is Nothing) Then
-                    Me.InitAdapter()
+                    Me.InitAdapter
                 End If
                 Return Me._adapter
             End Get
         End Property
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Friend Property Connection() As Global.System.Data.SqlClient.SqlConnection
             Get
                 If (Me._connection Is Nothing) Then
-                    Me.InitConnection()
+                    Me.InitConnection
                 End If
                 Return Me._connection
             End Get
-            Set(ByVal value As Global.System.Data.SqlClient.SqlConnection)
+            Set
                 Me._connection = value
                 If (Not (Me.Adapter.InsertCommand) Is Nothing) Then
                     Me.Adapter.InsertCommand.Connection = value
@@ -10289,61 +11054,61 @@ Namespace DS_KSPAYMENTTableAdapters
                 Dim i As Integer = 0
                 Do While (i < Me.CommandCollection.Length)
                     If (Not (Me.CommandCollection(i)) Is Nothing) Then
-                        CType(Me.CommandCollection(i), Global.System.Data.SqlClient.SqlCommand).Connection = value
+                        CType(Me.CommandCollection(i),Global.System.Data.SqlClient.SqlCommand).Connection = value
                     End If
                     i = (i + 1)
                 Loop
             End Set
         End Property
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Friend Property Transaction() As Global.System.Data.SqlClient.SqlTransaction
             Get
                 Return Me._transaction
             End Get
-            Set(ByVal value As Global.System.Data.SqlClient.SqlTransaction)
+            Set
                 Me._transaction = value
                 Dim i As Integer = 0
                 Do While (i < Me.CommandCollection.Length)
                     Me.CommandCollection(i).Transaction = Me._transaction
                     i = (i + 1)
                 Loop
-                If ((Not (Me.Adapter) Is Nothing) _
+                If ((Not (Me.Adapter) Is Nothing)  _
                             AndAlso (Not (Me.Adapter.DeleteCommand) Is Nothing)) Then
                     Me.Adapter.DeleteCommand.Transaction = Me._transaction
                 End If
-                If ((Not (Me.Adapter) Is Nothing) _
+                If ((Not (Me.Adapter) Is Nothing)  _
                             AndAlso (Not (Me.Adapter.InsertCommand) Is Nothing)) Then
                     Me.Adapter.InsertCommand.Transaction = Me._transaction
                 End If
-                If ((Not (Me.Adapter) Is Nothing) _
+                If ((Not (Me.Adapter) Is Nothing)  _
                             AndAlso (Not (Me.Adapter.UpdateCommand) Is Nothing)) Then
                     Me.Adapter.UpdateCommand.Transaction = Me._transaction
                 End If
             End Set
         End Property
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Protected ReadOnly Property CommandCollection() As Global.System.Data.SqlClient.SqlCommand()
             Get
                 If (Me._commandCollection Is Nothing) Then
-                    Me.InitCommandCollection()
+                    Me.InitCommandCollection
                 End If
                 Return Me._commandCollection
             End Get
         End Property
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Property ClearBeforeFill() As Boolean
             Get
                 Return Me._clearBeforeFill
             End Get
-            Set(ByVal value As Boolean)
+            Set
                 Me._clearBeforeFill = value
             End Set
         End Property
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Private Sub InitAdapter()
             Me._adapter = New Global.System.Data.SqlClient.SqlDataAdapter
             Dim tableMapping As Global.System.Data.Common.DataTableMapping = New Global.System.Data.Common.DataTableMapping
@@ -10355,16 +11120,16 @@ Namespace DS_KSPAYMENTTableAdapters
             Me._adapter.InsertCommand.Connection = Me.Connection
             Me._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[S_EXCHANGE_RATE] ([ExchangeRate]) VALUES (@ExchangeRate)"
             Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ExchangeRate", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "ExchangeRate", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ExchangeRate", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "ExchangeRate", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
         End Sub
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Private Sub InitConnection()
             Me._connection = New Global.System.Data.SqlClient.SqlConnection
             Me._connection.ConnectionString = Global.HospitalMS.My.MySettings.Default.AppConnection
         End Sub
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Private Sub InitCommandCollection()
             Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(3) {}
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand
@@ -10379,204 +11144,204 @@ Namespace DS_KSPAYMENTTableAdapters
             Me._commandCollection(2).Connection = Me.Connection
             Me._commandCollection(2).CommandText = "INSERT INTO [dbo].[S_EXCHANGE_RATE] ([ExchangeRate]) VALUES (@ExchangeRate)"
             Me._commandCollection(2).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ExchangeRate", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "ExchangeRate", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ExchangeRate", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "ExchangeRate", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(3) = New Global.System.Data.SqlClient.SqlCommand
             Me._commandCollection(3).Connection = Me.Connection
             Me._commandCollection(3).CommandText = "SELECT ExchangeRate FROM S_EXCHANGE_RATE"
             Me._commandCollection(3).CommandType = Global.System.Data.CommandType.Text
         End Sub
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, True)> _
-        Public Overridable Overloads Function Fill(ByVal dataTable As DS_KSPAYMENT.S_EXCHANGE_RATEDataTable) As Integer
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, true)>  _
+        Public Overloads Overridable Function Fill(ByVal dataTable As DS_KSPAYMENT.S_EXCHANGE_RATEDataTable) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
-            If (Me.ClearBeforeFill = True) Then
-                dataTable.Clear()
+            If (Me.ClearBeforeFill = true) Then
+                dataTable.Clear
             End If
             Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
             Return returnValue
         End Function
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], True)> _
-        Public Overridable Overloads Function GetData() As DS_KSPAYMENT.S_EXCHANGE_RATEDataTable
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], true)>  _
+        Public Overloads Overridable Function GetData() As DS_KSPAYMENT.S_EXCHANGE_RATEDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
             Dim dataTable As DS_KSPAYMENT.S_EXCHANGE_RATEDataTable = New DS_KSPAYMENT.S_EXCHANGE_RATEDataTable
             Me.Adapter.Fill(dataTable)
             Return dataTable
         End Function
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")> _
-        Public Overridable Overloads Function Update(ByVal dataTable As DS_KSPAYMENT.S_EXCHANGE_RATEDataTable) As Integer
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+        Public Overloads Overridable Function Update(ByVal dataTable As DS_KSPAYMENT.S_EXCHANGE_RATEDataTable) As Integer
             Return Me.Adapter.Update(dataTable)
         End Function
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")> _
-        Public Overridable Overloads Function Update(ByVal dataSet As DS_KSPAYMENT) As Integer
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+        Public Overloads Overridable Function Update(ByVal dataSet As DS_KSPAYMENT) As Integer
             Return Me.Adapter.Update(dataSet, "S_EXCHANGE_RATE")
         End Function
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")> _
-        Public Overridable Overloads Function Update(ByVal dataRow As Global.System.Data.DataRow) As Integer
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+        Public Overloads Overridable Function Update(ByVal dataRow As Global.System.Data.DataRow) As Integer
             Return Me.Adapter.Update(New Global.System.Data.DataRow() {dataRow})
         End Function
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")> _
-        Public Overridable Overloads Function Update(ByVal dataRows() As Global.System.Data.DataRow) As Integer
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+        Public Overloads Overridable Function Update(ByVal dataRows() As Global.System.Data.DataRow) As Integer
             Return Me.Adapter.Update(dataRows)
         End Function
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, True)> _
-        Public Overridable Overloads Function Insert(ByVal ExchangeRate As Global.System.Nullable(Of Decimal)) As Integer
-            If (ExchangeRate.HasValue = True) Then
-                Me.Adapter.InsertCommand.Parameters(0).Value = CType(ExchangeRate.Value, Decimal)
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, true)>  _
+        Public Overloads Overridable Function Insert(ByVal ExchangeRate As Global.System.Nullable(Of Decimal)) As Integer
+            If (ExchangeRate.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(0).Value = CType(ExchangeRate.Value,Decimal)
             Else
                 Me.Adapter.InsertCommand.Parameters(0).Value = Global.System.DBNull.Value
             End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.InsertCommand.Connection.State
-            If ((Me.Adapter.InsertCommand.Connection.State And Global.System.Data.ConnectionState.Open) _
+            If ((Me.Adapter.InsertCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
-                Me.Adapter.InsertCommand.Connection.Open()
+                Me.Adapter.InsertCommand.Connection.Open
             End If
-            Try
+            Try 
                 Dim returnValue As Integer = Me.Adapter.InsertCommand.ExecuteNonQuery
                 Return returnValue
             Finally
                 If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
-                    Me.Adapter.InsertCommand.Connection.Close()
+                    Me.Adapter.InsertCommand.Connection.Close
                 End If
             End Try
         End Function
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Delete, False)> _
-        Public Overridable Overloads Function DeleteExchage() As Integer
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Delete, false)>  _
+        Public Overloads Overridable Function DeleteExchage() As Integer
             Dim command As Global.System.Data.SqlClient.SqlCommand = Me.CommandCollection(1)
             Dim previousConnectionState As Global.System.Data.ConnectionState = command.Connection.State
-            If ((command.Connection.State And Global.System.Data.ConnectionState.Open) _
+            If ((command.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
-                command.Connection.Open()
+                command.Connection.Open
             End If
             Dim returnValue As Integer
-            Try
+            Try 
                 returnValue = command.ExecuteNonQuery
             Finally
                 If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
-                    command.Connection.Close()
+                    command.Connection.Close
                 End If
             End Try
             Return returnValue
         End Function
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, False)> _
-        Public Overridable Overloads Function InsertNewexchageRate(ByVal ExchangeRate As Global.System.Nullable(Of Decimal)) As Integer
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, false)>  _
+        Public Overloads Overridable Function InsertNewexchageRate(ByVal ExchangeRate As Global.System.Nullable(Of Decimal)) As Integer
             Dim command As Global.System.Data.SqlClient.SqlCommand = Me.CommandCollection(2)
-            If (ExchangeRate.HasValue = True) Then
-                command.Parameters(0).Value = CType(ExchangeRate.Value, Decimal)
+            If (ExchangeRate.HasValue = true) Then
+                command.Parameters(0).Value = CType(ExchangeRate.Value,Decimal)
             Else
                 command.Parameters(0).Value = Global.System.DBNull.Value
             End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = command.Connection.State
-            If ((command.Connection.State And Global.System.Data.ConnectionState.Open) _
+            If ((command.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
-                command.Connection.Open()
+                command.Connection.Open
             End If
             Dim returnValue As Integer
-            Try
+            Try 
                 returnValue = command.ExecuteNonQuery
             Finally
                 If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
-                    command.Connection.Close()
+                    command.Connection.Close
                 End If
             End Try
             Return returnValue
         End Function
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")> _
-        Public Overridable Overloads Function SelectValueExchage() As Global.System.Nullable(Of Decimal)
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+        Public Overloads Overridable Function SelectValueExchage() As Object
             Dim command As Global.System.Data.SqlClient.SqlCommand = Me.CommandCollection(3)
             Dim previousConnectionState As Global.System.Data.ConnectionState = command.Connection.State
-            If ((command.Connection.State And Global.System.Data.ConnectionState.Open) _
+            If ((command.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
-                command.Connection.Open()
+                command.Connection.Open
             End If
             Dim returnValue As Object
-            Try
+            Try 
                 returnValue = command.ExecuteScalar
             Finally
                 If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
-                    command.Connection.Close()
+                    command.Connection.Close
                 End If
             End Try
-            If ((returnValue Is Nothing) _
+            If ((returnValue Is Nothing)  _
                         OrElse (returnValue.GetType Is GetType(Global.System.DBNull))) Then
-                Return New Global.System.Nullable(Of Decimal)
+                Return Nothing
             Else
-                Return New Global.System.Nullable(Of Decimal)(CType(returnValue, Decimal))
+                Return CType(returnValue,Object)
             End If
         End Function
     End Class
-
+    
     '''<summary>
     '''Represents the connection and commands used to retrieve and save data.
     '''</summary>
-    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0"), _
-     Global.System.ComponentModel.DesignerCategoryAttribute("code"), _
-     Global.System.ComponentModel.ToolboxItem(True), _
-     Global.System.ComponentModel.DataObjectAttribute(True), _
-     Global.System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" & _
-        ", Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"), _
-     Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")> _
+    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0"),  _
+     Global.System.ComponentModel.DesignerCategoryAttribute("code"),  _
+     Global.System.ComponentModel.ToolboxItem(true),  _
+     Global.System.ComponentModel.DataObjectAttribute(true),  _
+     Global.System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner"& _ 
+        ", Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"),  _
+     Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
     Partial Public Class S_INVOICE_KSTableAdapter
         Inherits Global.System.ComponentModel.Component
-
+        
         Private WithEvents _adapter As Global.System.Data.SqlClient.SqlDataAdapter
-
+        
         Private _connection As Global.System.Data.SqlClient.SqlConnection
-
+        
         Private _transaction As Global.System.Data.SqlClient.SqlTransaction
-
+        
         Private _commandCollection() As Global.System.Data.SqlClient.SqlCommand
-
+        
         Private _clearBeforeFill As Boolean
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Sub New()
-            MyBase.New()
-            Me.ClearBeforeFill = True
+            MyBase.New
+            Me.ClearBeforeFill = true
         End Sub
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Protected Friend ReadOnly Property Adapter() As Global.System.Data.SqlClient.SqlDataAdapter
             Get
                 If (Me._adapter Is Nothing) Then
-                    Me.InitAdapter()
+                    Me.InitAdapter
                 End If
                 Return Me._adapter
             End Get
         End Property
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Friend Property Connection() As Global.System.Data.SqlClient.SqlConnection
             Get
                 If (Me._connection Is Nothing) Then
-                    Me.InitConnection()
+                    Me.InitConnection
                 End If
                 Return Me._connection
             End Get
-            Set(ByVal value As Global.System.Data.SqlClient.SqlConnection)
+            Set
                 Me._connection = value
                 If (Not (Me.Adapter.InsertCommand) Is Nothing) Then
                     Me.Adapter.InsertCommand.Connection = value
@@ -10590,61 +11355,61 @@ Namespace DS_KSPAYMENTTableAdapters
                 Dim i As Integer = 0
                 Do While (i < Me.CommandCollection.Length)
                     If (Not (Me.CommandCollection(i)) Is Nothing) Then
-                        CType(Me.CommandCollection(i), Global.System.Data.SqlClient.SqlCommand).Connection = value
+                        CType(Me.CommandCollection(i),Global.System.Data.SqlClient.SqlCommand).Connection = value
                     End If
                     i = (i + 1)
                 Loop
             End Set
         End Property
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Friend Property Transaction() As Global.System.Data.SqlClient.SqlTransaction
             Get
                 Return Me._transaction
             End Get
-            Set(ByVal value As Global.System.Data.SqlClient.SqlTransaction)
+            Set
                 Me._transaction = value
                 Dim i As Integer = 0
                 Do While (i < Me.CommandCollection.Length)
                     Me.CommandCollection(i).Transaction = Me._transaction
                     i = (i + 1)
                 Loop
-                If ((Not (Me.Adapter) Is Nothing) _
+                If ((Not (Me.Adapter) Is Nothing)  _
                             AndAlso (Not (Me.Adapter.DeleteCommand) Is Nothing)) Then
                     Me.Adapter.DeleteCommand.Transaction = Me._transaction
                 End If
-                If ((Not (Me.Adapter) Is Nothing) _
+                If ((Not (Me.Adapter) Is Nothing)  _
                             AndAlso (Not (Me.Adapter.InsertCommand) Is Nothing)) Then
                     Me.Adapter.InsertCommand.Transaction = Me._transaction
                 End If
-                If ((Not (Me.Adapter) Is Nothing) _
+                If ((Not (Me.Adapter) Is Nothing)  _
                             AndAlso (Not (Me.Adapter.UpdateCommand) Is Nothing)) Then
                     Me.Adapter.UpdateCommand.Transaction = Me._transaction
                 End If
             End Set
         End Property
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Protected ReadOnly Property CommandCollection() As Global.System.Data.SqlClient.SqlCommand()
             Get
                 If (Me._commandCollection Is Nothing) Then
-                    Me.InitCommandCollection()
+                    Me.InitCommandCollection
                 End If
                 Return Me._commandCollection
             End Get
         End Property
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Property ClearBeforeFill() As Boolean
             Get
                 Return Me._clearBeforeFill
             End Get
-            Set(ByVal value As Boolean)
+            Set
                 Me._clearBeforeFill = value
             End Set
         End Property
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Private Sub InitAdapter()
             Me._adapter = New Global.System.Data.SqlClient.SqlDataAdapter
             Dim tableMapping As Global.System.Data.Common.DataTableMapping = New Global.System.Data.Common.DataTableMapping
@@ -10677,371 +11442,371 @@ Namespace DS_KSPAYMENTTableAdapters
             Me._adapter.TableMappings.Add(tableMapping)
             Me._adapter.DeleteCommand = New Global.System.Data.SqlClient.SqlCommand
             Me._adapter.DeleteCommand.Connection = Me.Connection
-            Me._adapter.DeleteCommand.CommandText = "DELETE FROM [S_INVOICE_KS] WHERE (([INVOICE_ID] = @Original_INVOICE_ID) AND ((@Is" & _
-                "Null_WAITING_ID = 1 AND [WAITING_ID] IS NULL) OR ([WAITING_ID] = @Original_WAITI" & _
-                "NG_ID)) AND ((@IsNull_INVOICE_DATE = 1 AND [INVOICE_DATE] IS NULL) OR ([INVOICE_" & _
-                "DATE] = @Original_INVOICE_DATE)) AND ((@IsNull_PATIENT_NO = 1 AND [PATIENT_NO] I" & _
-                "S NULL) OR ([PATIENT_NO] = @Original_PATIENT_NO)) AND ((@IsNull_TOTAL = 1 AND [T" & _
-                "OTAL] IS NULL) OR ([TOTAL] = @Original_TOTAL)) AND ((@IsNull_SUB_TOTAL = 1 AND [" & _
-                "SUB_TOTAL] IS NULL) OR ([SUB_TOTAL] = @Original_SUB_TOTAL)) AND ((@IsNull_EXCHAN" & _
-                "GE_RATE = 1 AND [EXCHANGE_RATE] IS NULL) OR ([EXCHANGE_RATE] = @Original_EXCHANG" & _
-                "E_RATE)) AND ((@IsNull_CASH_RECEIVED = 1 AND [CASH_RECEIVED] IS NULL) OR ([CASH_" & _
-                "RECEIVED] = @Original_CASH_RECEIVED)) AND ((@IsNull_CHANG = 1 AND [CHANG] IS NUL" & _
-                "L) OR ([CHANG] = @Original_CHANG)) AND ((@IsNull_RECEIVED_BY = 1 AND [RECEIVED_B" & _
-                "Y] IS NULL) OR ([RECEIVED_BY] = @Original_RECEIVED_BY)) AND ((@IsNull_TOTAL_DISC" & _
-                "OUNT = 1 AND [TOTAL_DISCOUNT] IS NULL) OR ([TOTAL_DISCOUNT] = @Original_TOTAL_DI" & _
-                "SCOUNT)) AND ((@IsNull_DIS_CONSULT = 1 AND [DIS_CONSULT] IS NULL) OR ([DIS_CONSU" & _
-                "LT] = @Original_DIS_CONSULT)) AND ((@IsNull_DIS_OPERATION = 1 AND [DIS_OPERATION" & _
-                "] IS NULL) OR ([DIS_OPERATION] = @Original_DIS_OPERATION)) AND ((@IsNull_DIS_MED" & _
-                "ICINE = 1 AND [DIS_MEDICINE] IS NULL) OR ([DIS_MEDICINE] = @Original_DIS_MEDICIN" & _
-                "E)) AND ((@IsNull_IS_DELETE = 1 AND [IS_DELETE] IS NULL) OR ([IS_DELETE] = @Orig" & _
-                "inal_IS_DELETE)) AND ((@IsNull_PATIENT_NAME_ENG = 1 AND [PATIENT_NAME_ENG] IS NU" & _
-                "LL) OR ([PATIENT_NAME_ENG] = @Original_PATIENT_NAME_ENG)) AND ((@IsNull_PATIENT_" & _
-                "NAME_KH = 1 AND [PATIENT_NAME_KH] IS NULL) OR ([PATIENT_NAME_KH] = @Original_PAT" & _
-                "IENT_NAME_KH)) AND ((@IsNull_PATIENT_SEX = 1 AND [PATIENT_SEX] IS NULL) OR ([PAT" & _
-                "IENT_SEX] = @Original_PATIENT_SEX)) AND ((@IsNull_PATIENT_AGE = 1 AND [PATIENT_A" & _
-                "GE] IS NULL) OR ([PATIENT_AGE] = @Original_PATIENT_AGE)) AND ((@IsNull_BY_DOCTOR" & _
-                " = 1 AND [BY_DOCTOR] IS NULL) OR ([BY_DOCTOR] = @Original_BY_DOCTOR)) AND ((@IsN" & _
-                "ull_DIAGNOSIS = 1 AND [DIAGNOSIS] IS NULL) OR ([DIAGNOSIS] = @Original_DIAGNOSIS" & _
-                ")) AND ((@IsNull_TOTAL_CONSULT = 1 AND [TOTAL_CONSULT] IS NULL) OR ([TOTAL_CONSU" & _
-                "LT] = @Original_TOTAL_CONSULT)) AND ((@IsNull_TOTAL_MEDICINCE = 1 AND [TOTAL_MED" & _
-                "ICINCE] IS NULL) OR ([TOTAL_MEDICINCE] = @Original_TOTAL_MEDICINCE)) AND ((@IsNu" & _
+            Me._adapter.DeleteCommand.CommandText = "DELETE FROM [S_INVOICE_KS] WHERE (([INVOICE_ID] = @Original_INVOICE_ID) AND ((@Is"& _ 
+                "Null_WAITING_ID = 1 AND [WAITING_ID] IS NULL) OR ([WAITING_ID] = @Original_WAITI"& _ 
+                "NG_ID)) AND ((@IsNull_INVOICE_DATE = 1 AND [INVOICE_DATE] IS NULL) OR ([INVOICE_"& _ 
+                "DATE] = @Original_INVOICE_DATE)) AND ((@IsNull_PATIENT_NO = 1 AND [PATIENT_NO] I"& _ 
+                "S NULL) OR ([PATIENT_NO] = @Original_PATIENT_NO)) AND ((@IsNull_TOTAL = 1 AND [T"& _ 
+                "OTAL] IS NULL) OR ([TOTAL] = @Original_TOTAL)) AND ((@IsNull_SUB_TOTAL = 1 AND ["& _ 
+                "SUB_TOTAL] IS NULL) OR ([SUB_TOTAL] = @Original_SUB_TOTAL)) AND ((@IsNull_EXCHAN"& _ 
+                "GE_RATE = 1 AND [EXCHANGE_RATE] IS NULL) OR ([EXCHANGE_RATE] = @Original_EXCHANG"& _ 
+                "E_RATE)) AND ((@IsNull_CASH_RECEIVED = 1 AND [CASH_RECEIVED] IS NULL) OR ([CASH_"& _ 
+                "RECEIVED] = @Original_CASH_RECEIVED)) AND ((@IsNull_CHANG = 1 AND [CHANG] IS NUL"& _ 
+                "L) OR ([CHANG] = @Original_CHANG)) AND ((@IsNull_RECEIVED_BY = 1 AND [RECEIVED_B"& _ 
+                "Y] IS NULL) OR ([RECEIVED_BY] = @Original_RECEIVED_BY)) AND ((@IsNull_TOTAL_DISC"& _ 
+                "OUNT = 1 AND [TOTAL_DISCOUNT] IS NULL) OR ([TOTAL_DISCOUNT] = @Original_TOTAL_DI"& _ 
+                "SCOUNT)) AND ((@IsNull_DIS_CONSULT = 1 AND [DIS_CONSULT] IS NULL) OR ([DIS_CONSU"& _ 
+                "LT] = @Original_DIS_CONSULT)) AND ((@IsNull_DIS_OPERATION = 1 AND [DIS_OPERATION"& _ 
+                "] IS NULL) OR ([DIS_OPERATION] = @Original_DIS_OPERATION)) AND ((@IsNull_DIS_MED"& _ 
+                "ICINE = 1 AND [DIS_MEDICINE] IS NULL) OR ([DIS_MEDICINE] = @Original_DIS_MEDICIN"& _ 
+                "E)) AND ((@IsNull_IS_DELETE = 1 AND [IS_DELETE] IS NULL) OR ([IS_DELETE] = @Orig"& _ 
+                "inal_IS_DELETE)) AND ((@IsNull_PATIENT_NAME_ENG = 1 AND [PATIENT_NAME_ENG] IS NU"& _ 
+                "LL) OR ([PATIENT_NAME_ENG] = @Original_PATIENT_NAME_ENG)) AND ((@IsNull_PATIENT_"& _ 
+                "NAME_KH = 1 AND [PATIENT_NAME_KH] IS NULL) OR ([PATIENT_NAME_KH] = @Original_PAT"& _ 
+                "IENT_NAME_KH)) AND ((@IsNull_PATIENT_SEX = 1 AND [PATIENT_SEX] IS NULL) OR ([PAT"& _ 
+                "IENT_SEX] = @Original_PATIENT_SEX)) AND ((@IsNull_PATIENT_AGE = 1 AND [PATIENT_A"& _ 
+                "GE] IS NULL) OR ([PATIENT_AGE] = @Original_PATIENT_AGE)) AND ((@IsNull_BY_DOCTOR"& _ 
+                " = 1 AND [BY_DOCTOR] IS NULL) OR ([BY_DOCTOR] = @Original_BY_DOCTOR)) AND ((@IsN"& _ 
+                "ull_DIAGNOSIS = 1 AND [DIAGNOSIS] IS NULL) OR ([DIAGNOSIS] = @Original_DIAGNOSIS"& _ 
+                ")) AND ((@IsNull_TOTAL_CONSULT = 1 AND [TOTAL_CONSULT] IS NULL) OR ([TOTAL_CONSU"& _ 
+                "LT] = @Original_TOTAL_CONSULT)) AND ((@IsNull_TOTAL_MEDICINCE = 1 AND [TOTAL_MED"& _ 
+                "ICINCE] IS NULL) OR ([TOTAL_MEDICINCE] = @Original_TOTAL_MEDICINCE)) AND ((@IsNu"& _ 
                 "ll_DEPOSIT = 1 AND [DEPOSIT] IS NULL) OR ([DEPOSIT] = @Original_DEPOSIT)))"
             Me._adapter.DeleteCommand.CommandType = Global.System.Data.CommandType.Text
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_INVOICE_ID", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "INVOICE_ID", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_WAITING_ID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "WAITING_ID", Global.System.Data.DataRowVersion.Original, True, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_WAITING_ID", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "WAITING_ID", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_INVOICE_DATE", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "INVOICE_DATE", Global.System.Data.DataRowVersion.Original, True, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_INVOICE_DATE", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "INVOICE_DATE", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_PATIENT_NO", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "PATIENT_NO", Global.System.Data.DataRowVersion.Original, True, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_PATIENT_NO", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "PATIENT_NO", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_TOTAL", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "TOTAL", Global.System.Data.DataRowVersion.Original, True, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_TOTAL", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 2, "TOTAL", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_SUB_TOTAL", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "SUB_TOTAL", Global.System.Data.DataRowVersion.Original, True, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_SUB_TOTAL", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 2, "SUB_TOTAL", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_EXCHANGE_RATE", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "EXCHANGE_RATE", Global.System.Data.DataRowVersion.Original, True, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_EXCHANGE_RATE", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 2, "EXCHANGE_RATE", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_CASH_RECEIVED", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CASH_RECEIVED", Global.System.Data.DataRowVersion.Original, True, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_CASH_RECEIVED", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 2, "CASH_RECEIVED", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_CHANG", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CHANG", Global.System.Data.DataRowVersion.Original, True, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_CHANG", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 2, "CHANG", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_RECEIVED_BY", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "RECEIVED_BY", Global.System.Data.DataRowVersion.Original, True, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_RECEIVED_BY", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "RECEIVED_BY", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_TOTAL_DISCOUNT", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "TOTAL_DISCOUNT", Global.System.Data.DataRowVersion.Original, True, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_TOTAL_DISCOUNT", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 2, "TOTAL_DISCOUNT", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_DIS_CONSULT", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DIS_CONSULT", Global.System.Data.DataRowVersion.Original, True, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_DIS_CONSULT", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 2, "DIS_CONSULT", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_DIS_OPERATION", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DIS_OPERATION", Global.System.Data.DataRowVersion.Original, True, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_DIS_OPERATION", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 2, "DIS_OPERATION", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_DIS_MEDICINE", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DIS_MEDICINE", Global.System.Data.DataRowVersion.Original, True, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_DIS_MEDICINE", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 2, "DIS_MEDICINE", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_IS_DELETE", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "IS_DELETE", Global.System.Data.DataRowVersion.Original, True, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_IS_DELETE", Global.System.Data.SqlDbType.[Char], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "IS_DELETE", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_PATIENT_NAME_ENG", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "PATIENT_NAME_ENG", Global.System.Data.DataRowVersion.Original, True, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_PATIENT_NAME_ENG", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "PATIENT_NAME_ENG", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_PATIENT_NAME_KH", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "PATIENT_NAME_KH", Global.System.Data.DataRowVersion.Original, True, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_PATIENT_NAME_KH", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "PATIENT_NAME_KH", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_PATIENT_SEX", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "PATIENT_SEX", Global.System.Data.DataRowVersion.Original, True, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_PATIENT_SEX", Global.System.Data.SqlDbType.[Char], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "PATIENT_SEX", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_PATIENT_AGE", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "PATIENT_AGE", Global.System.Data.DataRowVersion.Original, True, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_PATIENT_AGE", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "PATIENT_AGE", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_BY_DOCTOR", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "BY_DOCTOR", Global.System.Data.DataRowVersion.Original, True, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_BY_DOCTOR", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "BY_DOCTOR", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_DIAGNOSIS", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DIAGNOSIS", Global.System.Data.DataRowVersion.Original, True, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_DIAGNOSIS", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DIAGNOSIS", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_TOTAL_CONSULT", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "TOTAL_CONSULT", Global.System.Data.DataRowVersion.Original, True, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_TOTAL_CONSULT", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 2, "TOTAL_CONSULT", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_TOTAL_MEDICINCE", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "TOTAL_MEDICINCE", Global.System.Data.DataRowVersion.Original, True, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_TOTAL_MEDICINCE", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 2, "TOTAL_MEDICINCE", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_DEPOSIT", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DEPOSIT", Global.System.Data.DataRowVersion.Original, True, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_DEPOSIT", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 2, "DEPOSIT", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_INVOICE_ID", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "INVOICE_ID", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_WAITING_ID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "WAITING_ID", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_WAITING_ID", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "WAITING_ID", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_INVOICE_DATE", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "INVOICE_DATE", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_INVOICE_DATE", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "INVOICE_DATE", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_PATIENT_NO", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "PATIENT_NO", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_PATIENT_NO", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "PATIENT_NO", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_TOTAL", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "TOTAL", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_TOTAL", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 2, "TOTAL", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_SUB_TOTAL", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "SUB_TOTAL", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_SUB_TOTAL", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 2, "SUB_TOTAL", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_EXCHANGE_RATE", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "EXCHANGE_RATE", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_EXCHANGE_RATE", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 2, "EXCHANGE_RATE", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_CASH_RECEIVED", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CASH_RECEIVED", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_CASH_RECEIVED", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 2, "CASH_RECEIVED", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_CHANG", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CHANG", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_CHANG", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 2, "CHANG", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_RECEIVED_BY", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "RECEIVED_BY", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_RECEIVED_BY", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "RECEIVED_BY", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_TOTAL_DISCOUNT", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "TOTAL_DISCOUNT", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_TOTAL_DISCOUNT", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 2, "TOTAL_DISCOUNT", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_DIS_CONSULT", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DIS_CONSULT", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_DIS_CONSULT", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 2, "DIS_CONSULT", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_DIS_OPERATION", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DIS_OPERATION", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_DIS_OPERATION", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 2, "DIS_OPERATION", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_DIS_MEDICINE", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DIS_MEDICINE", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_DIS_MEDICINE", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 2, "DIS_MEDICINE", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_IS_DELETE", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "IS_DELETE", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_IS_DELETE", Global.System.Data.SqlDbType.[Char], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "IS_DELETE", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_PATIENT_NAME_ENG", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "PATIENT_NAME_ENG", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_PATIENT_NAME_ENG", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "PATIENT_NAME_ENG", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_PATIENT_NAME_KH", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "PATIENT_NAME_KH", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_PATIENT_NAME_KH", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "PATIENT_NAME_KH", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_PATIENT_SEX", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "PATIENT_SEX", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_PATIENT_SEX", Global.System.Data.SqlDbType.[Char], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "PATIENT_SEX", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_PATIENT_AGE", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "PATIENT_AGE", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_PATIENT_AGE", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "PATIENT_AGE", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_BY_DOCTOR", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "BY_DOCTOR", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_BY_DOCTOR", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "BY_DOCTOR", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_DIAGNOSIS", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DIAGNOSIS", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_DIAGNOSIS", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DIAGNOSIS", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_TOTAL_CONSULT", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "TOTAL_CONSULT", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_TOTAL_CONSULT", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 2, "TOTAL_CONSULT", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_TOTAL_MEDICINCE", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "TOTAL_MEDICINCE", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_TOTAL_MEDICINCE", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 2, "TOTAL_MEDICINCE", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_DEPOSIT", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DEPOSIT", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_DEPOSIT", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 2, "DEPOSIT", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand = New Global.System.Data.SqlClient.SqlCommand
             Me._adapter.InsertCommand.Connection = Me.Connection
-            Me._adapter.InsertCommand.CommandText = "INSERT INTO [S_INVOICE_KS] ([WAITING_ID], [INVOICE_DATE], [PATIENT_NO], [TOTAL], " & _
-                "[SUB_TOTAL], [EXCHANGE_RATE], [CASH_RECEIVED], [CHANG], [RECEIVED_BY], [TOTAL_DI" & _
-                "SCOUNT], [DIS_CONSULT], [DIS_OPERATION], [DIS_MEDICINE], [IS_DELETE], [PATIENT_N" & _
-                "AME_ENG], [PATIENT_NAME_KH], [PATIENT_SEX], [PATIENT_AGE], [BY_DOCTOR], [DIAGNOS" & _
-                "IS], [TOTAL_CONSULT], [TOTAL_MEDICINCE], [DEPOSIT]) VALUES (@WAITING_ID, @INVOIC" & _
-                "E_DATE, @PATIENT_NO, @TOTAL, @SUB_TOTAL, @EXCHANGE_RATE, @CASH_RECEIVED, @CHANG," & _
-                " @RECEIVED_BY, @TOTAL_DISCOUNT, @DIS_CONSULT, @DIS_OPERATION, @DIS_MEDICINE, @IS" & _
-                "_DELETE, @PATIENT_NAME_ENG, @PATIENT_NAME_KH, @PATIENT_SEX, @PATIENT_AGE, @BY_DO" & _
-                "CTOR, @DIAGNOSIS, @TOTAL_CONSULT, @TOTAL_MEDICINCE, @DEPOSIT);" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "SELECT INVOICE_I" & _
-                "D, WAITING_ID, INVOICE_DATE, PATIENT_NO, TOTAL, SUB_TOTAL, EXCHANGE_RATE, CASH_R" & _
-                "ECEIVED, CHANG, RECEIVED_BY, TOTAL_DISCOUNT, DIS_CONSULT, DIS_OPERATION, DIS_MED" & _
-                "ICINE, IS_DELETE, PATIENT_NAME_ENG, PATIENT_NAME_KH, PATIENT_SEX, PATIENT_AGE, B" & _
-                "Y_DOCTOR, DIAGNOSIS, TOTAL_CONSULT, TOTAL_MEDICINCE, DEPOSIT FROM S_INVOICE_KS W" & _
+            Me._adapter.InsertCommand.CommandText = "INSERT INTO [S_INVOICE_KS] ([WAITING_ID], [INVOICE_DATE], [PATIENT_NO], [TOTAL], "& _ 
+                "[SUB_TOTAL], [EXCHANGE_RATE], [CASH_RECEIVED], [CHANG], [RECEIVED_BY], [TOTAL_DI"& _ 
+                "SCOUNT], [DIS_CONSULT], [DIS_OPERATION], [DIS_MEDICINE], [IS_DELETE], [PATIENT_N"& _ 
+                "AME_ENG], [PATIENT_NAME_KH], [PATIENT_SEX], [PATIENT_AGE], [BY_DOCTOR], [DIAGNOS"& _ 
+                "IS], [TOTAL_CONSULT], [TOTAL_MEDICINCE], [DEPOSIT]) VALUES (@WAITING_ID, @INVOIC"& _ 
+                "E_DATE, @PATIENT_NO, @TOTAL, @SUB_TOTAL, @EXCHANGE_RATE, @CASH_RECEIVED, @CHANG,"& _ 
+                " @RECEIVED_BY, @TOTAL_DISCOUNT, @DIS_CONSULT, @DIS_OPERATION, @DIS_MEDICINE, @IS"& _ 
+                "_DELETE, @PATIENT_NAME_ENG, @PATIENT_NAME_KH, @PATIENT_SEX, @PATIENT_AGE, @BY_DO"& _ 
+                "CTOR, @DIAGNOSIS, @TOTAL_CONSULT, @TOTAL_MEDICINCE, @DEPOSIT);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT INVOICE_I"& _ 
+                "D, WAITING_ID, INVOICE_DATE, PATIENT_NO, TOTAL, SUB_TOTAL, EXCHANGE_RATE, CASH_R"& _ 
+                "ECEIVED, CHANG, RECEIVED_BY, TOTAL_DISCOUNT, DIS_CONSULT, DIS_OPERATION, DIS_MED"& _ 
+                "ICINE, IS_DELETE, PATIENT_NAME_ENG, PATIENT_NAME_KH, PATIENT_SEX, PATIENT_AGE, B"& _ 
+                "Y_DOCTOR, DIAGNOSIS, TOTAL_CONSULT, TOTAL_MEDICINCE, DEPOSIT FROM S_INVOICE_KS W"& _ 
                 "HERE (INVOICE_ID = SCOPE_IDENTITY())"
             Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@WAITING_ID", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "WAITING_ID", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@INVOICE_DATE", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "INVOICE_DATE", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PATIENT_NO", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "PATIENT_NO", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@TOTAL", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 2, "TOTAL", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@SUB_TOTAL", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 2, "SUB_TOTAL", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@EXCHANGE_RATE", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 2, "EXCHANGE_RATE", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CASH_RECEIVED", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 2, "CASH_RECEIVED", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CHANG", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 2, "CHANG", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@RECEIVED_BY", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "RECEIVED_BY", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@TOTAL_DISCOUNT", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 2, "TOTAL_DISCOUNT", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DIS_CONSULT", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 2, "DIS_CONSULT", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DIS_OPERATION", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 2, "DIS_OPERATION", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DIS_MEDICINE", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 2, "DIS_MEDICINE", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IS_DELETE", Global.System.Data.SqlDbType.[Char], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "IS_DELETE", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PATIENT_NAME_ENG", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "PATIENT_NAME_ENG", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PATIENT_NAME_KH", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "PATIENT_NAME_KH", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PATIENT_SEX", Global.System.Data.SqlDbType.[Char], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "PATIENT_SEX", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PATIENT_AGE", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "PATIENT_AGE", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@BY_DOCTOR", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "BY_DOCTOR", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DIAGNOSIS", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DIAGNOSIS", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@TOTAL_CONSULT", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 2, "TOTAL_CONSULT", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@TOTAL_MEDICINCE", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 2, "TOTAL_MEDICINCE", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DEPOSIT", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 2, "DEPOSIT", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@WAITING_ID", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "WAITING_ID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@INVOICE_DATE", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "INVOICE_DATE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PATIENT_NO", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "PATIENT_NO", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@TOTAL", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 2, "TOTAL", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@SUB_TOTAL", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 2, "SUB_TOTAL", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@EXCHANGE_RATE", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 2, "EXCHANGE_RATE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CASH_RECEIVED", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 2, "CASH_RECEIVED", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CHANG", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 2, "CHANG", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@RECEIVED_BY", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "RECEIVED_BY", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@TOTAL_DISCOUNT", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 2, "TOTAL_DISCOUNT", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DIS_CONSULT", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 2, "DIS_CONSULT", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DIS_OPERATION", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 2, "DIS_OPERATION", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DIS_MEDICINE", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 2, "DIS_MEDICINE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IS_DELETE", Global.System.Data.SqlDbType.[Char], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "IS_DELETE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PATIENT_NAME_ENG", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "PATIENT_NAME_ENG", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PATIENT_NAME_KH", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "PATIENT_NAME_KH", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PATIENT_SEX", Global.System.Data.SqlDbType.[Char], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "PATIENT_SEX", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PATIENT_AGE", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "PATIENT_AGE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@BY_DOCTOR", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "BY_DOCTOR", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DIAGNOSIS", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DIAGNOSIS", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@TOTAL_CONSULT", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 2, "TOTAL_CONSULT", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@TOTAL_MEDICINCE", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 2, "TOTAL_MEDICINCE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DEPOSIT", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 2, "DEPOSIT", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand = New Global.System.Data.SqlClient.SqlCommand
             Me._adapter.UpdateCommand.Connection = Me.Connection
-            Me._adapter.UpdateCommand.CommandText = "UPDATE [S_INVOICE_KS] SET [WAITING_ID] = @WAITING_ID, [INVOICE_DATE] = @INVOICE_D" & _
-                "ATE, [PATIENT_NO] = @PATIENT_NO, [TOTAL] = @TOTAL, [SUB_TOTAL] = @SUB_TOTAL, [EX" & _
-                "CHANGE_RATE] = @EXCHANGE_RATE, [CASH_RECEIVED] = @CASH_RECEIVED, [CHANG] = @CHAN" & _
-                "G, [RECEIVED_BY] = @RECEIVED_BY, [TOTAL_DISCOUNT] = @TOTAL_DISCOUNT, [DIS_CONSUL" & _
-                "T] = @DIS_CONSULT, [DIS_OPERATION] = @DIS_OPERATION, [DIS_MEDICINE] = @DIS_MEDIC" & _
-                "INE, [IS_DELETE] = @IS_DELETE, [PATIENT_NAME_ENG] = @PATIENT_NAME_ENG, [PATIENT_" & _
-                "NAME_KH] = @PATIENT_NAME_KH, [PATIENT_SEX] = @PATIENT_SEX, [PATIENT_AGE] = @PATI" & _
-                "ENT_AGE, [BY_DOCTOR] = @BY_DOCTOR, [DIAGNOSIS] = @DIAGNOSIS, [TOTAL_CONSULT] = @" & _
-                "TOTAL_CONSULT, [TOTAL_MEDICINCE] = @TOTAL_MEDICINCE, [DEPOSIT] = @DEPOSIT WHERE " & _
-                "(([INVOICE_ID] = @Original_INVOICE_ID) AND ((@IsNull_WAITING_ID = 1 AND [WAITING" & _
-                "_ID] IS NULL) OR ([WAITING_ID] = @Original_WAITING_ID)) AND ((@IsNull_INVOICE_DA" & _
-                "TE = 1 AND [INVOICE_DATE] IS NULL) OR ([INVOICE_DATE] = @Original_INVOICE_DATE))" & _
-                " AND ((@IsNull_PATIENT_NO = 1 AND [PATIENT_NO] IS NULL) OR ([PATIENT_NO] = @Orig" & _
-                "inal_PATIENT_NO)) AND ((@IsNull_TOTAL = 1 AND [TOTAL] IS NULL) OR ([TOTAL] = @Or" & _
-                "iginal_TOTAL)) AND ((@IsNull_SUB_TOTAL = 1 AND [SUB_TOTAL] IS NULL) OR ([SUB_TOT" & _
-                "AL] = @Original_SUB_TOTAL)) AND ((@IsNull_EXCHANGE_RATE = 1 AND [EXCHANGE_RATE] " & _
-                "IS NULL) OR ([EXCHANGE_RATE] = @Original_EXCHANGE_RATE)) AND ((@IsNull_CASH_RECE" & _
-                "IVED = 1 AND [CASH_RECEIVED] IS NULL) OR ([CASH_RECEIVED] = @Original_CASH_RECEI" & _
-                "VED)) AND ((@IsNull_CHANG = 1 AND [CHANG] IS NULL) OR ([CHANG] = @Original_CHANG" & _
-                ")) AND ((@IsNull_RECEIVED_BY = 1 AND [RECEIVED_BY] IS NULL) OR ([RECEIVED_BY] = " & _
-                "@Original_RECEIVED_BY)) AND ((@IsNull_TOTAL_DISCOUNT = 1 AND [TOTAL_DISCOUNT] IS" & _
-                " NULL) OR ([TOTAL_DISCOUNT] = @Original_TOTAL_DISCOUNT)) AND ((@IsNull_DIS_CONSU" & _
-                "LT = 1 AND [DIS_CONSULT] IS NULL) OR ([DIS_CONSULT] = @Original_DIS_CONSULT)) AN" & _
-                "D ((@IsNull_DIS_OPERATION = 1 AND [DIS_OPERATION] IS NULL) OR ([DIS_OPERATION] =" & _
-                " @Original_DIS_OPERATION)) AND ((@IsNull_DIS_MEDICINE = 1 AND [DIS_MEDICINE] IS " & _
-                "NULL) OR ([DIS_MEDICINE] = @Original_DIS_MEDICINE)) AND ((@IsNull_IS_DELETE = 1 " & _
-                "AND [IS_DELETE] IS NULL) OR ([IS_DELETE] = @Original_IS_DELETE)) AND ((@IsNull_P" & _
-                "ATIENT_NAME_ENG = 1 AND [PATIENT_NAME_ENG] IS NULL) OR ([PATIENT_NAME_ENG] = @Or" & _
-                "iginal_PATIENT_NAME_ENG)) AND ((@IsNull_PATIENT_NAME_KH = 1 AND [PATIENT_NAME_KH" & _
-                "] IS NULL) OR ([PATIENT_NAME_KH] = @Original_PATIENT_NAME_KH)) AND ((@IsNull_PAT" & _
-                "IENT_SEX = 1 AND [PATIENT_SEX] IS NULL) OR ([PATIENT_SEX] = @Original_PATIENT_SE" & _
-                "X)) AND ((@IsNull_PATIENT_AGE = 1 AND [PATIENT_AGE] IS NULL) OR ([PATIENT_AGE] =" & _
-                " @Original_PATIENT_AGE)) AND ((@IsNull_BY_DOCTOR = 1 AND [BY_DOCTOR] IS NULL) OR" & _
-                " ([BY_DOCTOR] = @Original_BY_DOCTOR)) AND ((@IsNull_DIAGNOSIS = 1 AND [DIAGNOSIS" & _
-                "] IS NULL) OR ([DIAGNOSIS] = @Original_DIAGNOSIS)) AND ((@IsNull_TOTAL_CONSULT =" & _
-                " 1 AND [TOTAL_CONSULT] IS NULL) OR ([TOTAL_CONSULT] = @Original_TOTAL_CONSULT)) " & _
-                "AND ((@IsNull_TOTAL_MEDICINCE = 1 AND [TOTAL_MEDICINCE] IS NULL) OR ([TOTAL_MEDI" & _
-                "CINCE] = @Original_TOTAL_MEDICINCE)) AND ((@IsNull_DEPOSIT = 1 AND [DEPOSIT] IS " & _
-                "NULL) OR ([DEPOSIT] = @Original_DEPOSIT)));" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "SELECT INVOICE_ID, WAITING_ID, INVO" & _
-                "ICE_DATE, PATIENT_NO, TOTAL, SUB_TOTAL, EXCHANGE_RATE, CASH_RECEIVED, CHANG, REC" & _
-                "EIVED_BY, TOTAL_DISCOUNT, DIS_CONSULT, DIS_OPERATION, DIS_MEDICINE, IS_DELETE, P" & _
-                "ATIENT_NAME_ENG, PATIENT_NAME_KH, PATIENT_SEX, PATIENT_AGE, BY_DOCTOR, DIAGNOSIS" & _
-                ", TOTAL_CONSULT, TOTAL_MEDICINCE, DEPOSIT FROM S_INVOICE_KS WHERE (INVOICE_ID = " & _
+            Me._adapter.UpdateCommand.CommandText = "UPDATE [S_INVOICE_KS] SET [WAITING_ID] = @WAITING_ID, [INVOICE_DATE] = @INVOICE_D"& _ 
+                "ATE, [PATIENT_NO] = @PATIENT_NO, [TOTAL] = @TOTAL, [SUB_TOTAL] = @SUB_TOTAL, [EX"& _ 
+                "CHANGE_RATE] = @EXCHANGE_RATE, [CASH_RECEIVED] = @CASH_RECEIVED, [CHANG] = @CHAN"& _ 
+                "G, [RECEIVED_BY] = @RECEIVED_BY, [TOTAL_DISCOUNT] = @TOTAL_DISCOUNT, [DIS_CONSUL"& _ 
+                "T] = @DIS_CONSULT, [DIS_OPERATION] = @DIS_OPERATION, [DIS_MEDICINE] = @DIS_MEDIC"& _ 
+                "INE, [IS_DELETE] = @IS_DELETE, [PATIENT_NAME_ENG] = @PATIENT_NAME_ENG, [PATIENT_"& _ 
+                "NAME_KH] = @PATIENT_NAME_KH, [PATIENT_SEX] = @PATIENT_SEX, [PATIENT_AGE] = @PATI"& _ 
+                "ENT_AGE, [BY_DOCTOR] = @BY_DOCTOR, [DIAGNOSIS] = @DIAGNOSIS, [TOTAL_CONSULT] = @"& _ 
+                "TOTAL_CONSULT, [TOTAL_MEDICINCE] = @TOTAL_MEDICINCE, [DEPOSIT] = @DEPOSIT WHERE "& _ 
+                "(([INVOICE_ID] = @Original_INVOICE_ID) AND ((@IsNull_WAITING_ID = 1 AND [WAITING"& _ 
+                "_ID] IS NULL) OR ([WAITING_ID] = @Original_WAITING_ID)) AND ((@IsNull_INVOICE_DA"& _ 
+                "TE = 1 AND [INVOICE_DATE] IS NULL) OR ([INVOICE_DATE] = @Original_INVOICE_DATE))"& _ 
+                " AND ((@IsNull_PATIENT_NO = 1 AND [PATIENT_NO] IS NULL) OR ([PATIENT_NO] = @Orig"& _ 
+                "inal_PATIENT_NO)) AND ((@IsNull_TOTAL = 1 AND [TOTAL] IS NULL) OR ([TOTAL] = @Or"& _ 
+                "iginal_TOTAL)) AND ((@IsNull_SUB_TOTAL = 1 AND [SUB_TOTAL] IS NULL) OR ([SUB_TOT"& _ 
+                "AL] = @Original_SUB_TOTAL)) AND ((@IsNull_EXCHANGE_RATE = 1 AND [EXCHANGE_RATE] "& _ 
+                "IS NULL) OR ([EXCHANGE_RATE] = @Original_EXCHANGE_RATE)) AND ((@IsNull_CASH_RECE"& _ 
+                "IVED = 1 AND [CASH_RECEIVED] IS NULL) OR ([CASH_RECEIVED] = @Original_CASH_RECEI"& _ 
+                "VED)) AND ((@IsNull_CHANG = 1 AND [CHANG] IS NULL) OR ([CHANG] = @Original_CHANG"& _ 
+                ")) AND ((@IsNull_RECEIVED_BY = 1 AND [RECEIVED_BY] IS NULL) OR ([RECEIVED_BY] = "& _ 
+                "@Original_RECEIVED_BY)) AND ((@IsNull_TOTAL_DISCOUNT = 1 AND [TOTAL_DISCOUNT] IS"& _ 
+                " NULL) OR ([TOTAL_DISCOUNT] = @Original_TOTAL_DISCOUNT)) AND ((@IsNull_DIS_CONSU"& _ 
+                "LT = 1 AND [DIS_CONSULT] IS NULL) OR ([DIS_CONSULT] = @Original_DIS_CONSULT)) AN"& _ 
+                "D ((@IsNull_DIS_OPERATION = 1 AND [DIS_OPERATION] IS NULL) OR ([DIS_OPERATION] ="& _ 
+                " @Original_DIS_OPERATION)) AND ((@IsNull_DIS_MEDICINE = 1 AND [DIS_MEDICINE] IS "& _ 
+                "NULL) OR ([DIS_MEDICINE] = @Original_DIS_MEDICINE)) AND ((@IsNull_IS_DELETE = 1 "& _ 
+                "AND [IS_DELETE] IS NULL) OR ([IS_DELETE] = @Original_IS_DELETE)) AND ((@IsNull_P"& _ 
+                "ATIENT_NAME_ENG = 1 AND [PATIENT_NAME_ENG] IS NULL) OR ([PATIENT_NAME_ENG] = @Or"& _ 
+                "iginal_PATIENT_NAME_ENG)) AND ((@IsNull_PATIENT_NAME_KH = 1 AND [PATIENT_NAME_KH"& _ 
+                "] IS NULL) OR ([PATIENT_NAME_KH] = @Original_PATIENT_NAME_KH)) AND ((@IsNull_PAT"& _ 
+                "IENT_SEX = 1 AND [PATIENT_SEX] IS NULL) OR ([PATIENT_SEX] = @Original_PATIENT_SE"& _ 
+                "X)) AND ((@IsNull_PATIENT_AGE = 1 AND [PATIENT_AGE] IS NULL) OR ([PATIENT_AGE] ="& _ 
+                " @Original_PATIENT_AGE)) AND ((@IsNull_BY_DOCTOR = 1 AND [BY_DOCTOR] IS NULL) OR"& _ 
+                " ([BY_DOCTOR] = @Original_BY_DOCTOR)) AND ((@IsNull_DIAGNOSIS = 1 AND [DIAGNOSIS"& _ 
+                "] IS NULL) OR ([DIAGNOSIS] = @Original_DIAGNOSIS)) AND ((@IsNull_TOTAL_CONSULT ="& _ 
+                " 1 AND [TOTAL_CONSULT] IS NULL) OR ([TOTAL_CONSULT] = @Original_TOTAL_CONSULT)) "& _ 
+                "AND ((@IsNull_TOTAL_MEDICINCE = 1 AND [TOTAL_MEDICINCE] IS NULL) OR ([TOTAL_MEDI"& _ 
+                "CINCE] = @Original_TOTAL_MEDICINCE)) AND ((@IsNull_DEPOSIT = 1 AND [DEPOSIT] IS "& _ 
+                "NULL) OR ([DEPOSIT] = @Original_DEPOSIT)));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT INVOICE_ID, WAITING_ID, INVO"& _ 
+                "ICE_DATE, PATIENT_NO, TOTAL, SUB_TOTAL, EXCHANGE_RATE, CASH_RECEIVED, CHANG, REC"& _ 
+                "EIVED_BY, TOTAL_DISCOUNT, DIS_CONSULT, DIS_OPERATION, DIS_MEDICINE, IS_DELETE, P"& _ 
+                "ATIENT_NAME_ENG, PATIENT_NAME_KH, PATIENT_SEX, PATIENT_AGE, BY_DOCTOR, DIAGNOSIS"& _ 
+                ", TOTAL_CONSULT, TOTAL_MEDICINCE, DEPOSIT FROM S_INVOICE_KS WHERE (INVOICE_ID = "& _ 
                 "@INVOICE_ID)"
             Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@WAITING_ID", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "WAITING_ID", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@INVOICE_DATE", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "INVOICE_DATE", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PATIENT_NO", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "PATIENT_NO", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@TOTAL", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 2, "TOTAL", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@SUB_TOTAL", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 2, "SUB_TOTAL", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@EXCHANGE_RATE", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 2, "EXCHANGE_RATE", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CASH_RECEIVED", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 2, "CASH_RECEIVED", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CHANG", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 2, "CHANG", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@RECEIVED_BY", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "RECEIVED_BY", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@TOTAL_DISCOUNT", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 2, "TOTAL_DISCOUNT", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DIS_CONSULT", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 2, "DIS_CONSULT", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DIS_OPERATION", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 2, "DIS_OPERATION", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DIS_MEDICINE", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 2, "DIS_MEDICINE", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IS_DELETE", Global.System.Data.SqlDbType.[Char], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "IS_DELETE", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PATIENT_NAME_ENG", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "PATIENT_NAME_ENG", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PATIENT_NAME_KH", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "PATIENT_NAME_KH", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PATIENT_SEX", Global.System.Data.SqlDbType.[Char], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "PATIENT_SEX", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PATIENT_AGE", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "PATIENT_AGE", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@BY_DOCTOR", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "BY_DOCTOR", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DIAGNOSIS", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DIAGNOSIS", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@TOTAL_CONSULT", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 2, "TOTAL_CONSULT", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@TOTAL_MEDICINCE", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 2, "TOTAL_MEDICINCE", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DEPOSIT", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 2, "DEPOSIT", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_INVOICE_ID", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "INVOICE_ID", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_WAITING_ID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "WAITING_ID", Global.System.Data.DataRowVersion.Original, True, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_WAITING_ID", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "WAITING_ID", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_INVOICE_DATE", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "INVOICE_DATE", Global.System.Data.DataRowVersion.Original, True, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_INVOICE_DATE", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "INVOICE_DATE", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_PATIENT_NO", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "PATIENT_NO", Global.System.Data.DataRowVersion.Original, True, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_PATIENT_NO", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "PATIENT_NO", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_TOTAL", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "TOTAL", Global.System.Data.DataRowVersion.Original, True, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_TOTAL", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 2, "TOTAL", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_SUB_TOTAL", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "SUB_TOTAL", Global.System.Data.DataRowVersion.Original, True, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_SUB_TOTAL", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 2, "SUB_TOTAL", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_EXCHANGE_RATE", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "EXCHANGE_RATE", Global.System.Data.DataRowVersion.Original, True, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_EXCHANGE_RATE", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 2, "EXCHANGE_RATE", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_CASH_RECEIVED", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CASH_RECEIVED", Global.System.Data.DataRowVersion.Original, True, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_CASH_RECEIVED", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 2, "CASH_RECEIVED", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_CHANG", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CHANG", Global.System.Data.DataRowVersion.Original, True, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_CHANG", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 2, "CHANG", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_RECEIVED_BY", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "RECEIVED_BY", Global.System.Data.DataRowVersion.Original, True, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_RECEIVED_BY", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "RECEIVED_BY", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_TOTAL_DISCOUNT", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "TOTAL_DISCOUNT", Global.System.Data.DataRowVersion.Original, True, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_TOTAL_DISCOUNT", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 2, "TOTAL_DISCOUNT", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_DIS_CONSULT", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DIS_CONSULT", Global.System.Data.DataRowVersion.Original, True, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_DIS_CONSULT", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 2, "DIS_CONSULT", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_DIS_OPERATION", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DIS_OPERATION", Global.System.Data.DataRowVersion.Original, True, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_DIS_OPERATION", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 2, "DIS_OPERATION", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_DIS_MEDICINE", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DIS_MEDICINE", Global.System.Data.DataRowVersion.Original, True, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_DIS_MEDICINE", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 2, "DIS_MEDICINE", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_IS_DELETE", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "IS_DELETE", Global.System.Data.DataRowVersion.Original, True, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_IS_DELETE", Global.System.Data.SqlDbType.[Char], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "IS_DELETE", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_PATIENT_NAME_ENG", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "PATIENT_NAME_ENG", Global.System.Data.DataRowVersion.Original, True, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_PATIENT_NAME_ENG", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "PATIENT_NAME_ENG", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_PATIENT_NAME_KH", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "PATIENT_NAME_KH", Global.System.Data.DataRowVersion.Original, True, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_PATIENT_NAME_KH", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "PATIENT_NAME_KH", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_PATIENT_SEX", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "PATIENT_SEX", Global.System.Data.DataRowVersion.Original, True, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_PATIENT_SEX", Global.System.Data.SqlDbType.[Char], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "PATIENT_SEX", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_PATIENT_AGE", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "PATIENT_AGE", Global.System.Data.DataRowVersion.Original, True, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_PATIENT_AGE", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "PATIENT_AGE", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_BY_DOCTOR", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "BY_DOCTOR", Global.System.Data.DataRowVersion.Original, True, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_BY_DOCTOR", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "BY_DOCTOR", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_DIAGNOSIS", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DIAGNOSIS", Global.System.Data.DataRowVersion.Original, True, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_DIAGNOSIS", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DIAGNOSIS", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_TOTAL_CONSULT", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "TOTAL_CONSULT", Global.System.Data.DataRowVersion.Original, True, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_TOTAL_CONSULT", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 2, "TOTAL_CONSULT", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_TOTAL_MEDICINCE", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "TOTAL_MEDICINCE", Global.System.Data.DataRowVersion.Original, True, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_TOTAL_MEDICINCE", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 2, "TOTAL_MEDICINCE", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_DEPOSIT", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DEPOSIT", Global.System.Data.DataRowVersion.Original, True, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_DEPOSIT", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 2, "DEPOSIT", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@INVOICE_ID", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "INVOICE_ID", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@WAITING_ID", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "WAITING_ID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@INVOICE_DATE", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "INVOICE_DATE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PATIENT_NO", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "PATIENT_NO", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@TOTAL", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 2, "TOTAL", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@SUB_TOTAL", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 2, "SUB_TOTAL", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@EXCHANGE_RATE", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 2, "EXCHANGE_RATE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CASH_RECEIVED", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 2, "CASH_RECEIVED", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CHANG", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 2, "CHANG", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@RECEIVED_BY", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "RECEIVED_BY", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@TOTAL_DISCOUNT", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 2, "TOTAL_DISCOUNT", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DIS_CONSULT", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 2, "DIS_CONSULT", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DIS_OPERATION", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 2, "DIS_OPERATION", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DIS_MEDICINE", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 2, "DIS_MEDICINE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IS_DELETE", Global.System.Data.SqlDbType.[Char], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "IS_DELETE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PATIENT_NAME_ENG", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "PATIENT_NAME_ENG", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PATIENT_NAME_KH", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "PATIENT_NAME_KH", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PATIENT_SEX", Global.System.Data.SqlDbType.[Char], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "PATIENT_SEX", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PATIENT_AGE", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "PATIENT_AGE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@BY_DOCTOR", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "BY_DOCTOR", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DIAGNOSIS", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DIAGNOSIS", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@TOTAL_CONSULT", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 2, "TOTAL_CONSULT", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@TOTAL_MEDICINCE", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 2, "TOTAL_MEDICINCE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DEPOSIT", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 2, "DEPOSIT", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_INVOICE_ID", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "INVOICE_ID", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_WAITING_ID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "WAITING_ID", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_WAITING_ID", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "WAITING_ID", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_INVOICE_DATE", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "INVOICE_DATE", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_INVOICE_DATE", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "INVOICE_DATE", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_PATIENT_NO", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "PATIENT_NO", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_PATIENT_NO", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "PATIENT_NO", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_TOTAL", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "TOTAL", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_TOTAL", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 2, "TOTAL", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_SUB_TOTAL", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "SUB_TOTAL", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_SUB_TOTAL", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 2, "SUB_TOTAL", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_EXCHANGE_RATE", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "EXCHANGE_RATE", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_EXCHANGE_RATE", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 2, "EXCHANGE_RATE", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_CASH_RECEIVED", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CASH_RECEIVED", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_CASH_RECEIVED", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 2, "CASH_RECEIVED", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_CHANG", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CHANG", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_CHANG", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 2, "CHANG", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_RECEIVED_BY", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "RECEIVED_BY", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_RECEIVED_BY", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "RECEIVED_BY", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_TOTAL_DISCOUNT", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "TOTAL_DISCOUNT", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_TOTAL_DISCOUNT", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 2, "TOTAL_DISCOUNT", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_DIS_CONSULT", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DIS_CONSULT", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_DIS_CONSULT", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 2, "DIS_CONSULT", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_DIS_OPERATION", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DIS_OPERATION", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_DIS_OPERATION", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 2, "DIS_OPERATION", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_DIS_MEDICINE", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DIS_MEDICINE", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_DIS_MEDICINE", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 2, "DIS_MEDICINE", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_IS_DELETE", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "IS_DELETE", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_IS_DELETE", Global.System.Data.SqlDbType.[Char], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "IS_DELETE", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_PATIENT_NAME_ENG", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "PATIENT_NAME_ENG", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_PATIENT_NAME_ENG", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "PATIENT_NAME_ENG", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_PATIENT_NAME_KH", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "PATIENT_NAME_KH", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_PATIENT_NAME_KH", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "PATIENT_NAME_KH", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_PATIENT_SEX", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "PATIENT_SEX", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_PATIENT_SEX", Global.System.Data.SqlDbType.[Char], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "PATIENT_SEX", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_PATIENT_AGE", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "PATIENT_AGE", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_PATIENT_AGE", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "PATIENT_AGE", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_BY_DOCTOR", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "BY_DOCTOR", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_BY_DOCTOR", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "BY_DOCTOR", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_DIAGNOSIS", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DIAGNOSIS", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_DIAGNOSIS", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DIAGNOSIS", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_TOTAL_CONSULT", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "TOTAL_CONSULT", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_TOTAL_CONSULT", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 2, "TOTAL_CONSULT", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_TOTAL_MEDICINCE", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "TOTAL_MEDICINCE", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_TOTAL_MEDICINCE", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 2, "TOTAL_MEDICINCE", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_DEPOSIT", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DEPOSIT", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_DEPOSIT", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 2, "DEPOSIT", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@INVOICE_ID", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "INVOICE_ID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
         End Sub
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Private Sub InitConnection()
             Me._connection = New Global.System.Data.SqlClient.SqlConnection
             Me._connection.ConnectionString = Global.HospitalMS.My.MySettings.Default.AppConnection
         End Sub
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Private Sub InitCommandCollection()
             Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(3) {}
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT        INVOICE_ID, WAITING_ID, INVOICE_DATE, PATIENT_NO, TOTAL, SUB_TOTAL," & _
-                " EXCHANGE_RATE, CASH_RECEIVED, CHANG, RECEIVED_BY, TOTAL_DISCOUNT, " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "           " & _
-                "              DIS_CONSULT, DIS_OPERATION, DIS_MEDICINE, IS_DELETE, PATIENT_NAME_" & _
-                "ENG, PATIENT_NAME_KH, PATIENT_SEX, PATIENT_AGE, BY_DOCTOR, DIAGNOSIS, " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "        " & _
-                "                 TOTAL_CONSULT, TOTAL_MEDICINCE, DEPOSIT" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "FROM            S_INVO" & _
+            Me._commandCollection(0).CommandText = "SELECT        INVOICE_ID, WAITING_ID, INVOICE_DATE, PATIENT_NO, TOTAL, SUB_TOTAL,"& _ 
+                " EXCHANGE_RATE, CASH_RECEIVED, CHANG, RECEIVED_BY, TOTAL_DISCOUNT, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"           "& _ 
+                "              DIS_CONSULT, DIS_OPERATION, DIS_MEDICINE, IS_DELETE, PATIENT_NAME_"& _ 
+                "ENG, PATIENT_NAME_KH, PATIENT_SEX, PATIENT_AGE, BY_DOCTOR, DIAGNOSIS, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"        "& _ 
+                "                 TOTAL_CONSULT, TOTAL_MEDICINCE, DEPOSIT"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            S_INVO"& _ 
                 "ICE_KS"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(1) = New Global.System.Data.SqlClient.SqlCommand
             Me._commandCollection(1).Connection = Me.Connection
-            Me._commandCollection(1).CommandText = "SELECT        BY_DOCTOR, CASH_RECEIVED, CHANG, DIAGNOSIS, DIS_CONSULT, DIS_MEDICI" & _
-                "NE, DIS_OPERATION, EXCHANGE_RATE, INVOICE_DATE, INVOICE_ID, IS_DELETE, " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "       " & _
-                "                  PATIENT_AGE, PATIENT_NAME_ENG, PATIENT_NAME_KH, PATIENT_NO, PA" & _
-                "TIENT_SEX, RECEIVED_BY, SUB_TOTAL, TOTAL, TOTAL_CONSULT, TOTAL_DISCOUNT, " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "     " & _
-                "                    TOTAL_MEDICINCE, WAITING_ID, DEPOSIT" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "FROM            S_INVO" & _
-                "ICE_KS" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "WHERE        (INVOICE_DATE BETWEEN @DFrom AND @DTo)"
+            Me._commandCollection(1).CommandText = "SELECT        BY_DOCTOR, CASH_RECEIVED, CHANG, DIAGNOSIS, DIS_CONSULT, DIS_MEDICI"& _ 
+                "NE, DIS_OPERATION, EXCHANGE_RATE, INVOICE_DATE, INVOICE_ID, IS_DELETE, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"       "& _ 
+                "                  PATIENT_AGE, PATIENT_NAME_ENG, PATIENT_NAME_KH, PATIENT_NO, PA"& _ 
+                "TIENT_SEX, RECEIVED_BY, SUB_TOTAL, TOTAL, TOTAL_CONSULT, TOTAL_DISCOUNT, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"     "& _ 
+                "                    TOTAL_MEDICINCE, WAITING_ID, DEPOSIT"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            S_INVO"& _ 
+                "ICE_KS"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (INVOICE_DATE BETWEEN @DFrom AND @DTo)"
             Me._commandCollection(1).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DFrom", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "INVOICE_DATE", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DTo", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "INVOICE_DATE", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DFrom", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "INVOICE_DATE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DTo", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "INVOICE_DATE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(2) = New Global.System.Data.SqlClient.SqlCommand
             Me._commandCollection(2).Connection = Me.Connection
-            Me._commandCollection(2).CommandText = "INSERT INTO S_INVOICE_KS" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         (WAITING_ID, INVOICE_DATE, PAT" & _
-                "IENT_NO, TOTAL, SUB_TOTAL, EXCHANGE_RATE, CASH_RECEIVED, CHANG, RECEIVED_BY, TOT" & _
-                "AL_DISCOUNT, DIS_CONSULT, " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         DIS_OPERATION, DIS_MEDICINE" & _
-                ", IS_DELETE, PATIENT_NAME_ENG, PATIENT_NAME_KH, PATIENT_SEX, PATIENT_AGE, BY_DOC" & _
-                "TOR, DIAGNOSIS, " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         TOTAL_CONSULT, TOTAL_MEDICINCE, DEPOS" & _
-                "IT)" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "VALUES        (@WAITING_ID,@INVOICE_DATE,@PATIENT_NO,@TOTAL,@SUB_TOTAL,@EXC" & _
-                "HANGE_RATE,@CASH_RECEIVED,@CHANG,@RECEIVED_BY,@TOTAL_DISCOUNT,@DIS_CONSULT,@DIS_" & _
-                "OPERATION,@DIS_MEDICINE,@IS_DELETE,@PATIENT_NAME_ENG,@PATIENT_NAME_KH,@PATIENT_S" & _
-                "EX,@PATIENT_AGE,@BY_DOCTOR,@DIAGNOSIS,@TOTAL_CONSULT,@TOTAL_MEDICINCE,@DEPOSIT);" & _
-                "     " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
+            Me._commandCollection(2).CommandText = "INSERT INTO S_INVOICE_KS"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         (WAITING_ID, INVOICE_DATE, PAT"& _ 
+                "IENT_NO, TOTAL, SUB_TOTAL, EXCHANGE_RATE, CASH_RECEIVED, CHANG, RECEIVED_BY, TOT"& _ 
+                "AL_DISCOUNT, DIS_CONSULT, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         DIS_OPERATION, DIS_MEDICINE"& _ 
+                ", IS_DELETE, PATIENT_NAME_ENG, PATIENT_NAME_KH, PATIENT_SEX, PATIENT_AGE, BY_DOC"& _ 
+                "TOR, DIAGNOSIS, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         TOTAL_CONSULT, TOTAL_MEDICINCE, DEPOS"& _ 
+                "IT)"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"VALUES        (@WAITING_ID,@INVOICE_DATE,@PATIENT_NO,@TOTAL,@SUB_TOTAL,@EXC"& _ 
+                "HANGE_RATE,@CASH_RECEIVED,@CHANG,@RECEIVED_BY,@TOTAL_DISCOUNT,@DIS_CONSULT,@DIS_"& _ 
+                "OPERATION,@DIS_MEDICINE,@IS_DELETE,@PATIENT_NAME_ENG,@PATIENT_NAME_KH,@PATIENT_S"& _ 
+                "EX,@PATIENT_AGE,@BY_DOCTOR,@DIAGNOSIS,@TOTAL_CONSULT,@TOTAL_MEDICINCE,@DEPOSIT);"& _ 
+                "     "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)
             Me._commandCollection(2).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@WAITING_ID", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "WAITING_ID", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@INVOICE_DATE", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "INVOICE_DATE", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PATIENT_NO", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "PATIENT_NO", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@TOTAL", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 2, "TOTAL", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@SUB_TOTAL", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 2, "SUB_TOTAL", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@EXCHANGE_RATE", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 2, "EXCHANGE_RATE", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CASH_RECEIVED", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 2, "CASH_RECEIVED", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CHANG", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 2, "CHANG", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@RECEIVED_BY", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "RECEIVED_BY", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@TOTAL_DISCOUNT", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 2, "TOTAL_DISCOUNT", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DIS_CONSULT", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 2, "DIS_CONSULT", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DIS_OPERATION", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 2, "DIS_OPERATION", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DIS_MEDICINE", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 2, "DIS_MEDICINE", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IS_DELETE", Global.System.Data.SqlDbType.[Char], 1, Global.System.Data.ParameterDirection.Input, 0, 0, "IS_DELETE", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PATIENT_NAME_ENG", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "PATIENT_NAME_ENG", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PATIENT_NAME_KH", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "PATIENT_NAME_KH", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PATIENT_SEX", Global.System.Data.SqlDbType.[Char], 1, Global.System.Data.ParameterDirection.Input, 0, 0, "PATIENT_SEX", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PATIENT_AGE", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "PATIENT_AGE", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@BY_DOCTOR", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "BY_DOCTOR", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DIAGNOSIS", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "DIAGNOSIS", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@TOTAL_CONSULT", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 2, "TOTAL_CONSULT", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@TOTAL_MEDICINCE", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 2, "TOTAL_MEDICINCE", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DEPOSIT", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 2, "DEPOSIT", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@WAITING_ID", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "WAITING_ID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@INVOICE_DATE", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "INVOICE_DATE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PATIENT_NO", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "PATIENT_NO", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@TOTAL", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 2, "TOTAL", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@SUB_TOTAL", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 2, "SUB_TOTAL", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@EXCHANGE_RATE", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 2, "EXCHANGE_RATE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CASH_RECEIVED", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 2, "CASH_RECEIVED", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CHANG", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 2, "CHANG", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@RECEIVED_BY", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "RECEIVED_BY", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@TOTAL_DISCOUNT", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 2, "TOTAL_DISCOUNT", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DIS_CONSULT", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 2, "DIS_CONSULT", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DIS_OPERATION", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 2, "DIS_OPERATION", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DIS_MEDICINE", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 2, "DIS_MEDICINE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IS_DELETE", Global.System.Data.SqlDbType.[Char], 1, Global.System.Data.ParameterDirection.Input, 0, 0, "IS_DELETE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PATIENT_NAME_ENG", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "PATIENT_NAME_ENG", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PATIENT_NAME_KH", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "PATIENT_NAME_KH", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PATIENT_SEX", Global.System.Data.SqlDbType.[Char], 1, Global.System.Data.ParameterDirection.Input, 0, 0, "PATIENT_SEX", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PATIENT_AGE", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "PATIENT_AGE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@BY_DOCTOR", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "BY_DOCTOR", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DIAGNOSIS", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "DIAGNOSIS", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@TOTAL_CONSULT", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 2, "TOTAL_CONSULT", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@TOTAL_MEDICINCE", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 2, "TOTAL_MEDICINCE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DEPOSIT", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 2, "DEPOSIT", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(3) = New Global.System.Data.SqlClient.SqlCommand
             Me._commandCollection(3).Connection = Me.Connection
             Me._commandCollection(3).CommandText = "SELECT MAX(INVOICE_ID) FROM S_INVOICE_KS"
             Me._commandCollection(3).CommandType = Global.System.Data.CommandType.Text
         End Sub
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, True)> _
-        Public Overridable Overloads Function Fill(ByVal dataTable As DS_KSPAYMENT.S_INVOICE_KSDataTable) As Integer
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, true)>  _
+        Public Overloads Overridable Function Fill(ByVal dataTable As DS_KSPAYMENT.S_INVOICE_KSDataTable) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
-            If (Me.ClearBeforeFill = True) Then
-                dataTable.Clear()
+            If (Me.ClearBeforeFill = true) Then
+                dataTable.Clear
             End If
             Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
             Return returnValue
         End Function
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], True)> _
-        Public Overridable Overloads Function GetData() As DS_KSPAYMENT.S_INVOICE_KSDataTable
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], true)>  _
+        Public Overloads Overridable Function GetData() As DS_KSPAYMENT.S_INVOICE_KSDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
             Dim dataTable As DS_KSPAYMENT.S_INVOICE_KSDataTable = New DS_KSPAYMENT.S_INVOICE_KSDataTable
             Me.Adapter.Fill(dataTable)
             Return dataTable
         End Function
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, False)> _
-        Public Overridable Overloads Function FillByInvoiceDateToDate(ByVal dataTable As DS_KSPAYMENT.S_INVOICE_KSDataTable, ByVal DFrom As Global.System.Nullable(Of Date), ByVal DTo As Global.System.Nullable(Of Date)) As Integer
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
+        Public Overloads Overridable Function FillByInvoiceDateToDate(ByVal dataTable As DS_KSPAYMENT.S_INVOICE_KSDataTable, ByVal DFrom As Global.System.Nullable(Of Date), ByVal DTo As Global.System.Nullable(Of Date)) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(1)
-            If (DFrom.HasValue = True) Then
-                Me.Adapter.SelectCommand.Parameters(0).Value = CType(DFrom.Value, Date)
+            If (DFrom.HasValue = true) Then
+                Me.Adapter.SelectCommand.Parameters(0).Value = CType(DFrom.Value,Date)
             Else
                 Me.Adapter.SelectCommand.Parameters(0).Value = Global.System.DBNull.Value
             End If
-            If (DTo.HasValue = True) Then
-                Me.Adapter.SelectCommand.Parameters(1).Value = CType(DTo.Value, Date)
+            If (DTo.HasValue = true) Then
+                Me.Adapter.SelectCommand.Parameters(1).Value = CType(DTo.Value,Date)
             Else
                 Me.Adapter.SelectCommand.Parameters(1).Value = Global.System.DBNull.Value
             End If
-            If (Me.ClearBeforeFill = True) Then
-                dataTable.Clear()
+            If (Me.ClearBeforeFill = true) Then
+                dataTable.Clear
             End If
             Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
             Return returnValue
         End Function
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], False)> _
-        Public Overridable Overloads Function SelectInvoiceDateToDate(ByVal DFrom As Global.System.Nullable(Of Date), ByVal DTo As Global.System.Nullable(Of Date)) As DS_KSPAYMENT.S_INVOICE_KSDataTable
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
+        Public Overloads Overridable Function SelectInvoiceDateToDate(ByVal DFrom As Global.System.Nullable(Of Date), ByVal DTo As Global.System.Nullable(Of Date)) As DS_KSPAYMENT.S_INVOICE_KSDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(1)
-            If (DFrom.HasValue = True) Then
-                Me.Adapter.SelectCommand.Parameters(0).Value = CType(DFrom.Value, Date)
+            If (DFrom.HasValue = true) Then
+                Me.Adapter.SelectCommand.Parameters(0).Value = CType(DFrom.Value,Date)
             Else
                 Me.Adapter.SelectCommand.Parameters(0).Value = Global.System.DBNull.Value
             End If
-            If (DTo.HasValue = True) Then
-                Me.Adapter.SelectCommand.Parameters(1).Value = CType(DTo.Value, Date)
+            If (DTo.HasValue = true) Then
+                Me.Adapter.SelectCommand.Parameters(1).Value = CType(DTo.Value,Date)
             Else
                 Me.Adapter.SelectCommand.Parameters(1).Value = Global.System.DBNull.Value
             End If
@@ -11049,1025 +11814,1025 @@ Namespace DS_KSPAYMENTTableAdapters
             Me.Adapter.Fill(dataTable)
             Return dataTable
         End Function
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")> _
-        Public Overridable Overloads Function Update(ByVal dataTable As DS_KSPAYMENT.S_INVOICE_KSDataTable) As Integer
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+        Public Overloads Overridable Function Update(ByVal dataTable As DS_KSPAYMENT.S_INVOICE_KSDataTable) As Integer
             Return Me.Adapter.Update(dataTable)
         End Function
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")> _
-        Public Overridable Overloads Function Update(ByVal dataSet As DS_KSPAYMENT) As Integer
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+        Public Overloads Overridable Function Update(ByVal dataSet As DS_KSPAYMENT) As Integer
             Return Me.Adapter.Update(dataSet, "S_INVOICE_KS")
         End Function
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")> _
-        Public Overridable Overloads Function Update(ByVal dataRow As Global.System.Data.DataRow) As Integer
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+        Public Overloads Overridable Function Update(ByVal dataRow As Global.System.Data.DataRow) As Integer
             Return Me.Adapter.Update(New Global.System.Data.DataRow() {dataRow})
         End Function
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")> _
-        Public Overridable Overloads Function Update(ByVal dataRows() As Global.System.Data.DataRow) As Integer
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+        Public Overloads Overridable Function Update(ByVal dataRows() As Global.System.Data.DataRow) As Integer
             Return Me.Adapter.Update(dataRows)
         End Function
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Delete, True)> _
-        Public Overridable Overloads Function Delete( _
-                    ByVal Original_INVOICE_ID As Decimal, _
-                    ByVal Original_WAITING_ID As Global.System.Nullable(Of Decimal), _
-                    ByVal Original_INVOICE_DATE As Global.System.Nullable(Of Date), _
-                    ByVal Original_PATIENT_NO As Global.System.Nullable(Of Decimal), _
-                    ByVal Original_TOTAL As Global.System.Nullable(Of Decimal), _
-                    ByVal Original_SUB_TOTAL As Global.System.Nullable(Of Decimal), _
-                    ByVal Original_EXCHANGE_RATE As Global.System.Nullable(Of Decimal), _
-                    ByVal Original_CASH_RECEIVED As Global.System.Nullable(Of Decimal), _
-                    ByVal Original_CHANG As Global.System.Nullable(Of Decimal), _
-                    ByVal Original_RECEIVED_BY As String, _
-                    ByVal Original_TOTAL_DISCOUNT As Global.System.Nullable(Of Decimal), _
-                    ByVal Original_DIS_CONSULT As Global.System.Nullable(Of Decimal), _
-                    ByVal Original_DIS_OPERATION As Global.System.Nullable(Of Decimal), _
-                    ByVal Original_DIS_MEDICINE As Global.System.Nullable(Of Decimal), _
-                    ByVal Original_IS_DELETE As String, _
-                    ByVal Original_PATIENT_NAME_ENG As String, _
-                    ByVal Original_PATIENT_NAME_KH As String, _
-                    ByVal Original_PATIENT_SEX As String, _
-                    ByVal Original_PATIENT_AGE As Global.System.Nullable(Of Decimal), _
-                    ByVal Original_BY_DOCTOR As String, _
-                    ByVal Original_DIAGNOSIS As String, _
-                    ByVal Original_TOTAL_CONSULT As Global.System.Nullable(Of Decimal), _
-                    ByVal Original_TOTAL_MEDICINCE As Global.System.Nullable(Of Decimal), _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Delete, true)>  _
+        Public Overloads Overridable Function Delete( _
+                    ByVal Original_INVOICE_ID As Decimal,  _
+                    ByVal Original_WAITING_ID As Global.System.Nullable(Of Decimal),  _
+                    ByVal Original_INVOICE_DATE As Global.System.Nullable(Of Date),  _
+                    ByVal Original_PATIENT_NO As Global.System.Nullable(Of Decimal),  _
+                    ByVal Original_TOTAL As Global.System.Nullable(Of Decimal),  _
+                    ByVal Original_SUB_TOTAL As Global.System.Nullable(Of Decimal),  _
+                    ByVal Original_EXCHANGE_RATE As Global.System.Nullable(Of Decimal),  _
+                    ByVal Original_CASH_RECEIVED As Global.System.Nullable(Of Decimal),  _
+                    ByVal Original_CHANG As Global.System.Nullable(Of Decimal),  _
+                    ByVal Original_RECEIVED_BY As String,  _
+                    ByVal Original_TOTAL_DISCOUNT As Global.System.Nullable(Of Decimal),  _
+                    ByVal Original_DIS_CONSULT As Global.System.Nullable(Of Decimal),  _
+                    ByVal Original_DIS_OPERATION As Global.System.Nullable(Of Decimal),  _
+                    ByVal Original_DIS_MEDICINE As Global.System.Nullable(Of Decimal),  _
+                    ByVal Original_IS_DELETE As String,  _
+                    ByVal Original_PATIENT_NAME_ENG As String,  _
+                    ByVal Original_PATIENT_NAME_KH As String,  _
+                    ByVal Original_PATIENT_SEX As String,  _
+                    ByVal Original_PATIENT_AGE As Global.System.Nullable(Of Decimal),  _
+                    ByVal Original_BY_DOCTOR As String,  _
+                    ByVal Original_DIAGNOSIS As String,  _
+                    ByVal Original_TOTAL_CONSULT As Global.System.Nullable(Of Decimal),  _
+                    ByVal Original_TOTAL_MEDICINCE As Global.System.Nullable(Of Decimal),  _
                     ByVal Original_DEPOSIT As Global.System.Nullable(Of Decimal)) As Integer
-            Me.Adapter.DeleteCommand.Parameters(0).Value = CType(Original_INVOICE_ID, Decimal)
-            If (Original_WAITING_ID.HasValue = True) Then
-                Me.Adapter.DeleteCommand.Parameters(1).Value = CType(0, Object)
-                Me.Adapter.DeleteCommand.Parameters(2).Value = CType(Original_WAITING_ID.Value, Decimal)
+            Me.Adapter.DeleteCommand.Parameters(0).Value = CType(Original_INVOICE_ID,Decimal)
+            If (Original_WAITING_ID.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(1).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(2).Value = CType(Original_WAITING_ID.Value,Decimal)
             Else
-                Me.Adapter.DeleteCommand.Parameters(1).Value = CType(1, Object)
+                Me.Adapter.DeleteCommand.Parameters(1).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(2).Value = Global.System.DBNull.Value
             End If
-            If (Original_INVOICE_DATE.HasValue = True) Then
-                Me.Adapter.DeleteCommand.Parameters(3).Value = CType(0, Object)
-                Me.Adapter.DeleteCommand.Parameters(4).Value = CType(Original_INVOICE_DATE.Value, Date)
+            If (Original_INVOICE_DATE.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(3).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(4).Value = CType(Original_INVOICE_DATE.Value,Date)
             Else
-                Me.Adapter.DeleteCommand.Parameters(3).Value = CType(1, Object)
+                Me.Adapter.DeleteCommand.Parameters(3).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(4).Value = Global.System.DBNull.Value
             End If
-            If (Original_PATIENT_NO.HasValue = True) Then
-                Me.Adapter.DeleteCommand.Parameters(5).Value = CType(0, Object)
-                Me.Adapter.DeleteCommand.Parameters(6).Value = CType(Original_PATIENT_NO.Value, Decimal)
+            If (Original_PATIENT_NO.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(5).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(6).Value = CType(Original_PATIENT_NO.Value,Decimal)
             Else
-                Me.Adapter.DeleteCommand.Parameters(5).Value = CType(1, Object)
+                Me.Adapter.DeleteCommand.Parameters(5).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(6).Value = Global.System.DBNull.Value
             End If
-            If (Original_TOTAL.HasValue = True) Then
-                Me.Adapter.DeleteCommand.Parameters(7).Value = CType(0, Object)
-                Me.Adapter.DeleteCommand.Parameters(8).Value = CType(Original_TOTAL.Value, Decimal)
+            If (Original_TOTAL.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(7).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(8).Value = CType(Original_TOTAL.Value,Decimal)
             Else
-                Me.Adapter.DeleteCommand.Parameters(7).Value = CType(1, Object)
+                Me.Adapter.DeleteCommand.Parameters(7).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(8).Value = Global.System.DBNull.Value
             End If
-            If (Original_SUB_TOTAL.HasValue = True) Then
-                Me.Adapter.DeleteCommand.Parameters(9).Value = CType(0, Object)
-                Me.Adapter.DeleteCommand.Parameters(10).Value = CType(Original_SUB_TOTAL.Value, Decimal)
+            If (Original_SUB_TOTAL.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(9).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(10).Value = CType(Original_SUB_TOTAL.Value,Decimal)
             Else
-                Me.Adapter.DeleteCommand.Parameters(9).Value = CType(1, Object)
+                Me.Adapter.DeleteCommand.Parameters(9).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(10).Value = Global.System.DBNull.Value
             End If
-            If (Original_EXCHANGE_RATE.HasValue = True) Then
-                Me.Adapter.DeleteCommand.Parameters(11).Value = CType(0, Object)
-                Me.Adapter.DeleteCommand.Parameters(12).Value = CType(Original_EXCHANGE_RATE.Value, Decimal)
+            If (Original_EXCHANGE_RATE.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(11).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(12).Value = CType(Original_EXCHANGE_RATE.Value,Decimal)
             Else
-                Me.Adapter.DeleteCommand.Parameters(11).Value = CType(1, Object)
+                Me.Adapter.DeleteCommand.Parameters(11).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(12).Value = Global.System.DBNull.Value
             End If
-            If (Original_CASH_RECEIVED.HasValue = True) Then
-                Me.Adapter.DeleteCommand.Parameters(13).Value = CType(0, Object)
-                Me.Adapter.DeleteCommand.Parameters(14).Value = CType(Original_CASH_RECEIVED.Value, Decimal)
+            If (Original_CASH_RECEIVED.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(13).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(14).Value = CType(Original_CASH_RECEIVED.Value,Decimal)
             Else
-                Me.Adapter.DeleteCommand.Parameters(13).Value = CType(1, Object)
+                Me.Adapter.DeleteCommand.Parameters(13).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(14).Value = Global.System.DBNull.Value
             End If
-            If (Original_CHANG.HasValue = True) Then
-                Me.Adapter.DeleteCommand.Parameters(15).Value = CType(0, Object)
-                Me.Adapter.DeleteCommand.Parameters(16).Value = CType(Original_CHANG.Value, Decimal)
+            If (Original_CHANG.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(15).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(16).Value = CType(Original_CHANG.Value,Decimal)
             Else
-                Me.Adapter.DeleteCommand.Parameters(15).Value = CType(1, Object)
+                Me.Adapter.DeleteCommand.Parameters(15).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(16).Value = Global.System.DBNull.Value
             End If
             If (Original_RECEIVED_BY Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(17).Value = CType(1, Object)
+                Me.Adapter.DeleteCommand.Parameters(17).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(18).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.DeleteCommand.Parameters(17).Value = CType(0, Object)
-                Me.Adapter.DeleteCommand.Parameters(18).Value = CType(Original_RECEIVED_BY, String)
+                Me.Adapter.DeleteCommand.Parameters(17).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(18).Value = CType(Original_RECEIVED_BY,String)
             End If
-            If (Original_TOTAL_DISCOUNT.HasValue = True) Then
-                Me.Adapter.DeleteCommand.Parameters(19).Value = CType(0, Object)
-                Me.Adapter.DeleteCommand.Parameters(20).Value = CType(Original_TOTAL_DISCOUNT.Value, Decimal)
+            If (Original_TOTAL_DISCOUNT.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(19).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(20).Value = CType(Original_TOTAL_DISCOUNT.Value,Decimal)
             Else
-                Me.Adapter.DeleteCommand.Parameters(19).Value = CType(1, Object)
+                Me.Adapter.DeleteCommand.Parameters(19).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(20).Value = Global.System.DBNull.Value
             End If
-            If (Original_DIS_CONSULT.HasValue = True) Then
-                Me.Adapter.DeleteCommand.Parameters(21).Value = CType(0, Object)
-                Me.Adapter.DeleteCommand.Parameters(22).Value = CType(Original_DIS_CONSULT.Value, Decimal)
+            If (Original_DIS_CONSULT.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(21).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(22).Value = CType(Original_DIS_CONSULT.Value,Decimal)
             Else
-                Me.Adapter.DeleteCommand.Parameters(21).Value = CType(1, Object)
+                Me.Adapter.DeleteCommand.Parameters(21).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(22).Value = Global.System.DBNull.Value
             End If
-            If (Original_DIS_OPERATION.HasValue = True) Then
-                Me.Adapter.DeleteCommand.Parameters(23).Value = CType(0, Object)
-                Me.Adapter.DeleteCommand.Parameters(24).Value = CType(Original_DIS_OPERATION.Value, Decimal)
+            If (Original_DIS_OPERATION.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(23).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(24).Value = CType(Original_DIS_OPERATION.Value,Decimal)
             Else
-                Me.Adapter.DeleteCommand.Parameters(23).Value = CType(1, Object)
+                Me.Adapter.DeleteCommand.Parameters(23).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(24).Value = Global.System.DBNull.Value
             End If
-            If (Original_DIS_MEDICINE.HasValue = True) Then
-                Me.Adapter.DeleteCommand.Parameters(25).Value = CType(0, Object)
-                Me.Adapter.DeleteCommand.Parameters(26).Value = CType(Original_DIS_MEDICINE.Value, Decimal)
+            If (Original_DIS_MEDICINE.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(25).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(26).Value = CType(Original_DIS_MEDICINE.Value,Decimal)
             Else
-                Me.Adapter.DeleteCommand.Parameters(25).Value = CType(1, Object)
+                Me.Adapter.DeleteCommand.Parameters(25).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(26).Value = Global.System.DBNull.Value
             End If
             If (Original_IS_DELETE Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(27).Value = CType(1, Object)
+                Me.Adapter.DeleteCommand.Parameters(27).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(28).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.DeleteCommand.Parameters(27).Value = CType(0, Object)
-                Me.Adapter.DeleteCommand.Parameters(28).Value = CType(Original_IS_DELETE, String)
+                Me.Adapter.DeleteCommand.Parameters(27).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(28).Value = CType(Original_IS_DELETE,String)
             End If
             If (Original_PATIENT_NAME_ENG Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(29).Value = CType(1, Object)
+                Me.Adapter.DeleteCommand.Parameters(29).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(30).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.DeleteCommand.Parameters(29).Value = CType(0, Object)
-                Me.Adapter.DeleteCommand.Parameters(30).Value = CType(Original_PATIENT_NAME_ENG, String)
+                Me.Adapter.DeleteCommand.Parameters(29).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(30).Value = CType(Original_PATIENT_NAME_ENG,String)
             End If
             If (Original_PATIENT_NAME_KH Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(31).Value = CType(1, Object)
+                Me.Adapter.DeleteCommand.Parameters(31).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(32).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.DeleteCommand.Parameters(31).Value = CType(0, Object)
-                Me.Adapter.DeleteCommand.Parameters(32).Value = CType(Original_PATIENT_NAME_KH, String)
+                Me.Adapter.DeleteCommand.Parameters(31).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(32).Value = CType(Original_PATIENT_NAME_KH,String)
             End If
             If (Original_PATIENT_SEX Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(33).Value = CType(1, Object)
+                Me.Adapter.DeleteCommand.Parameters(33).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(34).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.DeleteCommand.Parameters(33).Value = CType(0, Object)
-                Me.Adapter.DeleteCommand.Parameters(34).Value = CType(Original_PATIENT_SEX, String)
+                Me.Adapter.DeleteCommand.Parameters(33).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(34).Value = CType(Original_PATIENT_SEX,String)
             End If
-            If (Original_PATIENT_AGE.HasValue = True) Then
-                Me.Adapter.DeleteCommand.Parameters(35).Value = CType(0, Object)
-                Me.Adapter.DeleteCommand.Parameters(36).Value = CType(Original_PATIENT_AGE.Value, Decimal)
+            If (Original_PATIENT_AGE.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(35).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(36).Value = CType(Original_PATIENT_AGE.Value,Decimal)
             Else
-                Me.Adapter.DeleteCommand.Parameters(35).Value = CType(1, Object)
+                Me.Adapter.DeleteCommand.Parameters(35).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(36).Value = Global.System.DBNull.Value
             End If
             If (Original_BY_DOCTOR Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(37).Value = CType(1, Object)
+                Me.Adapter.DeleteCommand.Parameters(37).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(38).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.DeleteCommand.Parameters(37).Value = CType(0, Object)
-                Me.Adapter.DeleteCommand.Parameters(38).Value = CType(Original_BY_DOCTOR, String)
+                Me.Adapter.DeleteCommand.Parameters(37).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(38).Value = CType(Original_BY_DOCTOR,String)
             End If
             If (Original_DIAGNOSIS Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(39).Value = CType(1, Object)
+                Me.Adapter.DeleteCommand.Parameters(39).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(40).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.DeleteCommand.Parameters(39).Value = CType(0, Object)
-                Me.Adapter.DeleteCommand.Parameters(40).Value = CType(Original_DIAGNOSIS, String)
+                Me.Adapter.DeleteCommand.Parameters(39).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(40).Value = CType(Original_DIAGNOSIS,String)
             End If
-            If (Original_TOTAL_CONSULT.HasValue = True) Then
-                Me.Adapter.DeleteCommand.Parameters(41).Value = CType(0, Object)
-                Me.Adapter.DeleteCommand.Parameters(42).Value = CType(Original_TOTAL_CONSULT.Value, Decimal)
+            If (Original_TOTAL_CONSULT.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(41).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(42).Value = CType(Original_TOTAL_CONSULT.Value,Decimal)
             Else
-                Me.Adapter.DeleteCommand.Parameters(41).Value = CType(1, Object)
+                Me.Adapter.DeleteCommand.Parameters(41).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(42).Value = Global.System.DBNull.Value
             End If
-            If (Original_TOTAL_MEDICINCE.HasValue = True) Then
-                Me.Adapter.DeleteCommand.Parameters(43).Value = CType(0, Object)
-                Me.Adapter.DeleteCommand.Parameters(44).Value = CType(Original_TOTAL_MEDICINCE.Value, Decimal)
+            If (Original_TOTAL_MEDICINCE.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(43).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(44).Value = CType(Original_TOTAL_MEDICINCE.Value,Decimal)
             Else
-                Me.Adapter.DeleteCommand.Parameters(43).Value = CType(1, Object)
+                Me.Adapter.DeleteCommand.Parameters(43).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(44).Value = Global.System.DBNull.Value
             End If
-            If (Original_DEPOSIT.HasValue = True) Then
-                Me.Adapter.DeleteCommand.Parameters(45).Value = CType(0, Object)
-                Me.Adapter.DeleteCommand.Parameters(46).Value = CType(Original_DEPOSIT.Value, Decimal)
+            If (Original_DEPOSIT.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(45).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(46).Value = CType(Original_DEPOSIT.Value,Decimal)
             Else
-                Me.Adapter.DeleteCommand.Parameters(45).Value = CType(1, Object)
+                Me.Adapter.DeleteCommand.Parameters(45).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(46).Value = Global.System.DBNull.Value
             End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.DeleteCommand.Connection.State
-            If ((Me.Adapter.DeleteCommand.Connection.State And Global.System.Data.ConnectionState.Open) _
+            If ((Me.Adapter.DeleteCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
-                Me.Adapter.DeleteCommand.Connection.Open()
+                Me.Adapter.DeleteCommand.Connection.Open
             End If
-            Try
+            Try 
                 Dim returnValue As Integer = Me.Adapter.DeleteCommand.ExecuteNonQuery
                 Return returnValue
             Finally
                 If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
-                    Me.Adapter.DeleteCommand.Connection.Close()
+                    Me.Adapter.DeleteCommand.Connection.Close
                 End If
             End Try
         End Function
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, True)> _
-        Public Overridable Overloads Function Insert( _
-                    ByVal WAITING_ID As Global.System.Nullable(Of Decimal), _
-                    ByVal INVOICE_DATE As Global.System.Nullable(Of Date), _
-                    ByVal PATIENT_NO As Global.System.Nullable(Of Decimal), _
-                    ByVal TOTAL As Global.System.Nullable(Of Decimal), _
-                    ByVal SUB_TOTAL As Global.System.Nullable(Of Decimal), _
-                    ByVal EXCHANGE_RATE As Global.System.Nullable(Of Decimal), _
-                    ByVal CASH_RECEIVED As Global.System.Nullable(Of Decimal), _
-                    ByVal CHANG As Global.System.Nullable(Of Decimal), _
-                    ByVal RECEIVED_BY As String, _
-                    ByVal TOTAL_DISCOUNT As Global.System.Nullable(Of Decimal), _
-                    ByVal DIS_CONSULT As Global.System.Nullable(Of Decimal), _
-                    ByVal DIS_OPERATION As Global.System.Nullable(Of Decimal), _
-                    ByVal DIS_MEDICINE As Global.System.Nullable(Of Decimal), _
-                    ByVal IS_DELETE As String, _
-                    ByVal PATIENT_NAME_ENG As String, _
-                    ByVal PATIENT_NAME_KH As String, _
-                    ByVal PATIENT_SEX As String, _
-                    ByVal PATIENT_AGE As Global.System.Nullable(Of Decimal), _
-                    ByVal BY_DOCTOR As String, _
-                    ByVal DIAGNOSIS As String, _
-                    ByVal TOTAL_CONSULT As Global.System.Nullable(Of Decimal), _
-                    ByVal TOTAL_MEDICINCE As Global.System.Nullable(Of Decimal), _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, true)>  _
+        Public Overloads Overridable Function Insert( _
+                    ByVal WAITING_ID As Global.System.Nullable(Of Decimal),  _
+                    ByVal INVOICE_DATE As Global.System.Nullable(Of Date),  _
+                    ByVal PATIENT_NO As Global.System.Nullable(Of Decimal),  _
+                    ByVal TOTAL As Global.System.Nullable(Of Decimal),  _
+                    ByVal SUB_TOTAL As Global.System.Nullable(Of Decimal),  _
+                    ByVal EXCHANGE_RATE As Global.System.Nullable(Of Decimal),  _
+                    ByVal CASH_RECEIVED As Global.System.Nullable(Of Decimal),  _
+                    ByVal CHANG As Global.System.Nullable(Of Decimal),  _
+                    ByVal RECEIVED_BY As String,  _
+                    ByVal TOTAL_DISCOUNT As Global.System.Nullable(Of Decimal),  _
+                    ByVal DIS_CONSULT As Global.System.Nullable(Of Decimal),  _
+                    ByVal DIS_OPERATION As Global.System.Nullable(Of Decimal),  _
+                    ByVal DIS_MEDICINE As Global.System.Nullable(Of Decimal),  _
+                    ByVal IS_DELETE As String,  _
+                    ByVal PATIENT_NAME_ENG As String,  _
+                    ByVal PATIENT_NAME_KH As String,  _
+                    ByVal PATIENT_SEX As String,  _
+                    ByVal PATIENT_AGE As Global.System.Nullable(Of Decimal),  _
+                    ByVal BY_DOCTOR As String,  _
+                    ByVal DIAGNOSIS As String,  _
+                    ByVal TOTAL_CONSULT As Global.System.Nullable(Of Decimal),  _
+                    ByVal TOTAL_MEDICINCE As Global.System.Nullable(Of Decimal),  _
                     ByVal DEPOSIT As Global.System.Nullable(Of Decimal)) As Integer
-            If (WAITING_ID.HasValue = True) Then
-                Me.Adapter.InsertCommand.Parameters(0).Value = CType(WAITING_ID.Value, Decimal)
+            If (WAITING_ID.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(0).Value = CType(WAITING_ID.Value,Decimal)
             Else
                 Me.Adapter.InsertCommand.Parameters(0).Value = Global.System.DBNull.Value
             End If
-            If (INVOICE_DATE.HasValue = True) Then
-                Me.Adapter.InsertCommand.Parameters(1).Value = CType(INVOICE_DATE.Value, Date)
+            If (INVOICE_DATE.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(1).Value = CType(INVOICE_DATE.Value,Date)
             Else
                 Me.Adapter.InsertCommand.Parameters(1).Value = Global.System.DBNull.Value
             End If
-            If (PATIENT_NO.HasValue = True) Then
-                Me.Adapter.InsertCommand.Parameters(2).Value = CType(PATIENT_NO.Value, Decimal)
+            If (PATIENT_NO.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(2).Value = CType(PATIENT_NO.Value,Decimal)
             Else
                 Me.Adapter.InsertCommand.Parameters(2).Value = Global.System.DBNull.Value
             End If
-            If (TOTAL.HasValue = True) Then
-                Me.Adapter.InsertCommand.Parameters(3).Value = CType(TOTAL.Value, Decimal)
+            If (TOTAL.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(3).Value = CType(TOTAL.Value,Decimal)
             Else
                 Me.Adapter.InsertCommand.Parameters(3).Value = Global.System.DBNull.Value
             End If
-            If (SUB_TOTAL.HasValue = True) Then
-                Me.Adapter.InsertCommand.Parameters(4).Value = CType(SUB_TOTAL.Value, Decimal)
+            If (SUB_TOTAL.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(4).Value = CType(SUB_TOTAL.Value,Decimal)
             Else
                 Me.Adapter.InsertCommand.Parameters(4).Value = Global.System.DBNull.Value
             End If
-            If (EXCHANGE_RATE.HasValue = True) Then
-                Me.Adapter.InsertCommand.Parameters(5).Value = CType(EXCHANGE_RATE.Value, Decimal)
+            If (EXCHANGE_RATE.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(5).Value = CType(EXCHANGE_RATE.Value,Decimal)
             Else
                 Me.Adapter.InsertCommand.Parameters(5).Value = Global.System.DBNull.Value
             End If
-            If (CASH_RECEIVED.HasValue = True) Then
-                Me.Adapter.InsertCommand.Parameters(6).Value = CType(CASH_RECEIVED.Value, Decimal)
+            If (CASH_RECEIVED.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(6).Value = CType(CASH_RECEIVED.Value,Decimal)
             Else
                 Me.Adapter.InsertCommand.Parameters(6).Value = Global.System.DBNull.Value
             End If
-            If (CHANG.HasValue = True) Then
-                Me.Adapter.InsertCommand.Parameters(7).Value = CType(CHANG.Value, Decimal)
+            If (CHANG.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(7).Value = CType(CHANG.Value,Decimal)
             Else
                 Me.Adapter.InsertCommand.Parameters(7).Value = Global.System.DBNull.Value
             End If
             If (RECEIVED_BY Is Nothing) Then
                 Me.Adapter.InsertCommand.Parameters(8).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.InsertCommand.Parameters(8).Value = CType(RECEIVED_BY, String)
+                Me.Adapter.InsertCommand.Parameters(8).Value = CType(RECEIVED_BY,String)
             End If
-            If (TOTAL_DISCOUNT.HasValue = True) Then
-                Me.Adapter.InsertCommand.Parameters(9).Value = CType(TOTAL_DISCOUNT.Value, Decimal)
+            If (TOTAL_DISCOUNT.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(9).Value = CType(TOTAL_DISCOUNT.Value,Decimal)
             Else
                 Me.Adapter.InsertCommand.Parameters(9).Value = Global.System.DBNull.Value
             End If
-            If (DIS_CONSULT.HasValue = True) Then
-                Me.Adapter.InsertCommand.Parameters(10).Value = CType(DIS_CONSULT.Value, Decimal)
+            If (DIS_CONSULT.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(10).Value = CType(DIS_CONSULT.Value,Decimal)
             Else
                 Me.Adapter.InsertCommand.Parameters(10).Value = Global.System.DBNull.Value
             End If
-            If (DIS_OPERATION.HasValue = True) Then
-                Me.Adapter.InsertCommand.Parameters(11).Value = CType(DIS_OPERATION.Value, Decimal)
+            If (DIS_OPERATION.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(11).Value = CType(DIS_OPERATION.Value,Decimal)
             Else
                 Me.Adapter.InsertCommand.Parameters(11).Value = Global.System.DBNull.Value
             End If
-            If (DIS_MEDICINE.HasValue = True) Then
-                Me.Adapter.InsertCommand.Parameters(12).Value = CType(DIS_MEDICINE.Value, Decimal)
+            If (DIS_MEDICINE.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(12).Value = CType(DIS_MEDICINE.Value,Decimal)
             Else
                 Me.Adapter.InsertCommand.Parameters(12).Value = Global.System.DBNull.Value
             End If
             If (IS_DELETE Is Nothing) Then
                 Me.Adapter.InsertCommand.Parameters(13).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.InsertCommand.Parameters(13).Value = CType(IS_DELETE, String)
+                Me.Adapter.InsertCommand.Parameters(13).Value = CType(IS_DELETE,String)
             End If
             If (PATIENT_NAME_ENG Is Nothing) Then
                 Me.Adapter.InsertCommand.Parameters(14).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.InsertCommand.Parameters(14).Value = CType(PATIENT_NAME_ENG, String)
+                Me.Adapter.InsertCommand.Parameters(14).Value = CType(PATIENT_NAME_ENG,String)
             End If
             If (PATIENT_NAME_KH Is Nothing) Then
                 Me.Adapter.InsertCommand.Parameters(15).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.InsertCommand.Parameters(15).Value = CType(PATIENT_NAME_KH, String)
+                Me.Adapter.InsertCommand.Parameters(15).Value = CType(PATIENT_NAME_KH,String)
             End If
             If (PATIENT_SEX Is Nothing) Then
                 Me.Adapter.InsertCommand.Parameters(16).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.InsertCommand.Parameters(16).Value = CType(PATIENT_SEX, String)
+                Me.Adapter.InsertCommand.Parameters(16).Value = CType(PATIENT_SEX,String)
             End If
-            If (PATIENT_AGE.HasValue = True) Then
-                Me.Adapter.InsertCommand.Parameters(17).Value = CType(PATIENT_AGE.Value, Decimal)
+            If (PATIENT_AGE.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(17).Value = CType(PATIENT_AGE.Value,Decimal)
             Else
                 Me.Adapter.InsertCommand.Parameters(17).Value = Global.System.DBNull.Value
             End If
             If (BY_DOCTOR Is Nothing) Then
                 Me.Adapter.InsertCommand.Parameters(18).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.InsertCommand.Parameters(18).Value = CType(BY_DOCTOR, String)
+                Me.Adapter.InsertCommand.Parameters(18).Value = CType(BY_DOCTOR,String)
             End If
             If (DIAGNOSIS Is Nothing) Then
                 Me.Adapter.InsertCommand.Parameters(19).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.InsertCommand.Parameters(19).Value = CType(DIAGNOSIS, String)
+                Me.Adapter.InsertCommand.Parameters(19).Value = CType(DIAGNOSIS,String)
             End If
-            If (TOTAL_CONSULT.HasValue = True) Then
-                Me.Adapter.InsertCommand.Parameters(20).Value = CType(TOTAL_CONSULT.Value, Decimal)
+            If (TOTAL_CONSULT.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(20).Value = CType(TOTAL_CONSULT.Value,Decimal)
             Else
                 Me.Adapter.InsertCommand.Parameters(20).Value = Global.System.DBNull.Value
             End If
-            If (TOTAL_MEDICINCE.HasValue = True) Then
-                Me.Adapter.InsertCommand.Parameters(21).Value = CType(TOTAL_MEDICINCE.Value, Decimal)
+            If (TOTAL_MEDICINCE.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(21).Value = CType(TOTAL_MEDICINCE.Value,Decimal)
             Else
                 Me.Adapter.InsertCommand.Parameters(21).Value = Global.System.DBNull.Value
             End If
-            If (DEPOSIT.HasValue = True) Then
-                Me.Adapter.InsertCommand.Parameters(22).Value = CType(DEPOSIT.Value, Decimal)
+            If (DEPOSIT.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(22).Value = CType(DEPOSIT.Value,Decimal)
             Else
                 Me.Adapter.InsertCommand.Parameters(22).Value = Global.System.DBNull.Value
             End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.InsertCommand.Connection.State
-            If ((Me.Adapter.InsertCommand.Connection.State And Global.System.Data.ConnectionState.Open) _
+            If ((Me.Adapter.InsertCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
-                Me.Adapter.InsertCommand.Connection.Open()
+                Me.Adapter.InsertCommand.Connection.Open
             End If
-            Try
+            Try 
                 Dim returnValue As Integer = Me.Adapter.InsertCommand.ExecuteNonQuery
                 Return returnValue
             Finally
                 If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
-                    Me.Adapter.InsertCommand.Connection.Close()
+                    Me.Adapter.InsertCommand.Connection.Close
                 End If
             End Try
         End Function
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, True)> _
-        Public Overridable Overloads Function Update( _
-                    ByVal WAITING_ID As Global.System.Nullable(Of Decimal), _
-                    ByVal INVOICE_DATE As Global.System.Nullable(Of Date), _
-                    ByVal PATIENT_NO As Global.System.Nullable(Of Decimal), _
-                    ByVal TOTAL As Global.System.Nullable(Of Decimal), _
-                    ByVal SUB_TOTAL As Global.System.Nullable(Of Decimal), _
-                    ByVal EXCHANGE_RATE As Global.System.Nullable(Of Decimal), _
-                    ByVal CASH_RECEIVED As Global.System.Nullable(Of Decimal), _
-                    ByVal CHANG As Global.System.Nullable(Of Decimal), _
-                    ByVal RECEIVED_BY As String, _
-                    ByVal TOTAL_DISCOUNT As Global.System.Nullable(Of Decimal), _
-                    ByVal DIS_CONSULT As Global.System.Nullable(Of Decimal), _
-                    ByVal DIS_OPERATION As Global.System.Nullable(Of Decimal), _
-                    ByVal DIS_MEDICINE As Global.System.Nullable(Of Decimal), _
-                    ByVal IS_DELETE As String, _
-                    ByVal PATIENT_NAME_ENG As String, _
-                    ByVal PATIENT_NAME_KH As String, _
-                    ByVal PATIENT_SEX As String, _
-                    ByVal PATIENT_AGE As Global.System.Nullable(Of Decimal), _
-                    ByVal BY_DOCTOR As String, _
-                    ByVal DIAGNOSIS As String, _
-                    ByVal TOTAL_CONSULT As Global.System.Nullable(Of Decimal), _
-                    ByVal TOTAL_MEDICINCE As Global.System.Nullable(Of Decimal), _
-                    ByVal DEPOSIT As Global.System.Nullable(Of Decimal), _
-                    ByVal Original_INVOICE_ID As Decimal, _
-                    ByVal Original_WAITING_ID As Global.System.Nullable(Of Decimal), _
-                    ByVal Original_INVOICE_DATE As Global.System.Nullable(Of Date), _
-                    ByVal Original_PATIENT_NO As Global.System.Nullable(Of Decimal), _
-                    ByVal Original_TOTAL As Global.System.Nullable(Of Decimal), _
-                    ByVal Original_SUB_TOTAL As Global.System.Nullable(Of Decimal), _
-                    ByVal Original_EXCHANGE_RATE As Global.System.Nullable(Of Decimal), _
-                    ByVal Original_CASH_RECEIVED As Global.System.Nullable(Of Decimal), _
-                    ByVal Original_CHANG As Global.System.Nullable(Of Decimal), _
-                    ByVal Original_RECEIVED_BY As String, _
-                    ByVal Original_TOTAL_DISCOUNT As Global.System.Nullable(Of Decimal), _
-                    ByVal Original_DIS_CONSULT As Global.System.Nullable(Of Decimal), _
-                    ByVal Original_DIS_OPERATION As Global.System.Nullable(Of Decimal), _
-                    ByVal Original_DIS_MEDICINE As Global.System.Nullable(Of Decimal), _
-                    ByVal Original_IS_DELETE As String, _
-                    ByVal Original_PATIENT_NAME_ENG As String, _
-                    ByVal Original_PATIENT_NAME_KH As String, _
-                    ByVal Original_PATIENT_SEX As String, _
-                    ByVal Original_PATIENT_AGE As Global.System.Nullable(Of Decimal), _
-                    ByVal Original_BY_DOCTOR As String, _
-                    ByVal Original_DIAGNOSIS As String, _
-                    ByVal Original_TOTAL_CONSULT As Global.System.Nullable(Of Decimal), _
-                    ByVal Original_TOTAL_MEDICINCE As Global.System.Nullable(Of Decimal), _
-                    ByVal Original_DEPOSIT As Global.System.Nullable(Of Decimal), _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
+        Public Overloads Overridable Function Update( _
+                    ByVal WAITING_ID As Global.System.Nullable(Of Decimal),  _
+                    ByVal INVOICE_DATE As Global.System.Nullable(Of Date),  _
+                    ByVal PATIENT_NO As Global.System.Nullable(Of Decimal),  _
+                    ByVal TOTAL As Global.System.Nullable(Of Decimal),  _
+                    ByVal SUB_TOTAL As Global.System.Nullable(Of Decimal),  _
+                    ByVal EXCHANGE_RATE As Global.System.Nullable(Of Decimal),  _
+                    ByVal CASH_RECEIVED As Global.System.Nullable(Of Decimal),  _
+                    ByVal CHANG As Global.System.Nullable(Of Decimal),  _
+                    ByVal RECEIVED_BY As String,  _
+                    ByVal TOTAL_DISCOUNT As Global.System.Nullable(Of Decimal),  _
+                    ByVal DIS_CONSULT As Global.System.Nullable(Of Decimal),  _
+                    ByVal DIS_OPERATION As Global.System.Nullable(Of Decimal),  _
+                    ByVal DIS_MEDICINE As Global.System.Nullable(Of Decimal),  _
+                    ByVal IS_DELETE As String,  _
+                    ByVal PATIENT_NAME_ENG As String,  _
+                    ByVal PATIENT_NAME_KH As String,  _
+                    ByVal PATIENT_SEX As String,  _
+                    ByVal PATIENT_AGE As Global.System.Nullable(Of Decimal),  _
+                    ByVal BY_DOCTOR As String,  _
+                    ByVal DIAGNOSIS As String,  _
+                    ByVal TOTAL_CONSULT As Global.System.Nullable(Of Decimal),  _
+                    ByVal TOTAL_MEDICINCE As Global.System.Nullable(Of Decimal),  _
+                    ByVal DEPOSIT As Global.System.Nullable(Of Decimal),  _
+                    ByVal Original_INVOICE_ID As Decimal,  _
+                    ByVal Original_WAITING_ID As Global.System.Nullable(Of Decimal),  _
+                    ByVal Original_INVOICE_DATE As Global.System.Nullable(Of Date),  _
+                    ByVal Original_PATIENT_NO As Global.System.Nullable(Of Decimal),  _
+                    ByVal Original_TOTAL As Global.System.Nullable(Of Decimal),  _
+                    ByVal Original_SUB_TOTAL As Global.System.Nullable(Of Decimal),  _
+                    ByVal Original_EXCHANGE_RATE As Global.System.Nullable(Of Decimal),  _
+                    ByVal Original_CASH_RECEIVED As Global.System.Nullable(Of Decimal),  _
+                    ByVal Original_CHANG As Global.System.Nullable(Of Decimal),  _
+                    ByVal Original_RECEIVED_BY As String,  _
+                    ByVal Original_TOTAL_DISCOUNT As Global.System.Nullable(Of Decimal),  _
+                    ByVal Original_DIS_CONSULT As Global.System.Nullable(Of Decimal),  _
+                    ByVal Original_DIS_OPERATION As Global.System.Nullable(Of Decimal),  _
+                    ByVal Original_DIS_MEDICINE As Global.System.Nullable(Of Decimal),  _
+                    ByVal Original_IS_DELETE As String,  _
+                    ByVal Original_PATIENT_NAME_ENG As String,  _
+                    ByVal Original_PATIENT_NAME_KH As String,  _
+                    ByVal Original_PATIENT_SEX As String,  _
+                    ByVal Original_PATIENT_AGE As Global.System.Nullable(Of Decimal),  _
+                    ByVal Original_BY_DOCTOR As String,  _
+                    ByVal Original_DIAGNOSIS As String,  _
+                    ByVal Original_TOTAL_CONSULT As Global.System.Nullable(Of Decimal),  _
+                    ByVal Original_TOTAL_MEDICINCE As Global.System.Nullable(Of Decimal),  _
+                    ByVal Original_DEPOSIT As Global.System.Nullable(Of Decimal),  _
                     ByVal INVOICE_ID As Decimal) As Integer
-            If (WAITING_ID.HasValue = True) Then
-                Me.Adapter.UpdateCommand.Parameters(0).Value = CType(WAITING_ID.Value, Decimal)
+            If (WAITING_ID.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(0).Value = CType(WAITING_ID.Value,Decimal)
             Else
                 Me.Adapter.UpdateCommand.Parameters(0).Value = Global.System.DBNull.Value
             End If
-            If (INVOICE_DATE.HasValue = True) Then
-                Me.Adapter.UpdateCommand.Parameters(1).Value = CType(INVOICE_DATE.Value, Date)
+            If (INVOICE_DATE.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(1).Value = CType(INVOICE_DATE.Value,Date)
             Else
                 Me.Adapter.UpdateCommand.Parameters(1).Value = Global.System.DBNull.Value
             End If
-            If (PATIENT_NO.HasValue = True) Then
-                Me.Adapter.UpdateCommand.Parameters(2).Value = CType(PATIENT_NO.Value, Decimal)
+            If (PATIENT_NO.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(2).Value = CType(PATIENT_NO.Value,Decimal)
             Else
                 Me.Adapter.UpdateCommand.Parameters(2).Value = Global.System.DBNull.Value
             End If
-            If (TOTAL.HasValue = True) Then
-                Me.Adapter.UpdateCommand.Parameters(3).Value = CType(TOTAL.Value, Decimal)
+            If (TOTAL.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(3).Value = CType(TOTAL.Value,Decimal)
             Else
                 Me.Adapter.UpdateCommand.Parameters(3).Value = Global.System.DBNull.Value
             End If
-            If (SUB_TOTAL.HasValue = True) Then
-                Me.Adapter.UpdateCommand.Parameters(4).Value = CType(SUB_TOTAL.Value, Decimal)
+            If (SUB_TOTAL.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(4).Value = CType(SUB_TOTAL.Value,Decimal)
             Else
                 Me.Adapter.UpdateCommand.Parameters(4).Value = Global.System.DBNull.Value
             End If
-            If (EXCHANGE_RATE.HasValue = True) Then
-                Me.Adapter.UpdateCommand.Parameters(5).Value = CType(EXCHANGE_RATE.Value, Decimal)
+            If (EXCHANGE_RATE.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(5).Value = CType(EXCHANGE_RATE.Value,Decimal)
             Else
                 Me.Adapter.UpdateCommand.Parameters(5).Value = Global.System.DBNull.Value
             End If
-            If (CASH_RECEIVED.HasValue = True) Then
-                Me.Adapter.UpdateCommand.Parameters(6).Value = CType(CASH_RECEIVED.Value, Decimal)
+            If (CASH_RECEIVED.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(6).Value = CType(CASH_RECEIVED.Value,Decimal)
             Else
                 Me.Adapter.UpdateCommand.Parameters(6).Value = Global.System.DBNull.Value
             End If
-            If (CHANG.HasValue = True) Then
-                Me.Adapter.UpdateCommand.Parameters(7).Value = CType(CHANG.Value, Decimal)
+            If (CHANG.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(7).Value = CType(CHANG.Value,Decimal)
             Else
                 Me.Adapter.UpdateCommand.Parameters(7).Value = Global.System.DBNull.Value
             End If
             If (RECEIVED_BY Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(8).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(8).Value = CType(RECEIVED_BY, String)
+                Me.Adapter.UpdateCommand.Parameters(8).Value = CType(RECEIVED_BY,String)
             End If
-            If (TOTAL_DISCOUNT.HasValue = True) Then
-                Me.Adapter.UpdateCommand.Parameters(9).Value = CType(TOTAL_DISCOUNT.Value, Decimal)
+            If (TOTAL_DISCOUNT.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(9).Value = CType(TOTAL_DISCOUNT.Value,Decimal)
             Else
                 Me.Adapter.UpdateCommand.Parameters(9).Value = Global.System.DBNull.Value
             End If
-            If (DIS_CONSULT.HasValue = True) Then
-                Me.Adapter.UpdateCommand.Parameters(10).Value = CType(DIS_CONSULT.Value, Decimal)
+            If (DIS_CONSULT.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(10).Value = CType(DIS_CONSULT.Value,Decimal)
             Else
                 Me.Adapter.UpdateCommand.Parameters(10).Value = Global.System.DBNull.Value
             End If
-            If (DIS_OPERATION.HasValue = True) Then
-                Me.Adapter.UpdateCommand.Parameters(11).Value = CType(DIS_OPERATION.Value, Decimal)
+            If (DIS_OPERATION.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(11).Value = CType(DIS_OPERATION.Value,Decimal)
             Else
                 Me.Adapter.UpdateCommand.Parameters(11).Value = Global.System.DBNull.Value
             End If
-            If (DIS_MEDICINE.HasValue = True) Then
-                Me.Adapter.UpdateCommand.Parameters(12).Value = CType(DIS_MEDICINE.Value, Decimal)
+            If (DIS_MEDICINE.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(12).Value = CType(DIS_MEDICINE.Value,Decimal)
             Else
                 Me.Adapter.UpdateCommand.Parameters(12).Value = Global.System.DBNull.Value
             End If
             If (IS_DELETE Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(13).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(13).Value = CType(IS_DELETE, String)
+                Me.Adapter.UpdateCommand.Parameters(13).Value = CType(IS_DELETE,String)
             End If
             If (PATIENT_NAME_ENG Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(14).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(14).Value = CType(PATIENT_NAME_ENG, String)
+                Me.Adapter.UpdateCommand.Parameters(14).Value = CType(PATIENT_NAME_ENG,String)
             End If
             If (PATIENT_NAME_KH Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(15).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(15).Value = CType(PATIENT_NAME_KH, String)
+                Me.Adapter.UpdateCommand.Parameters(15).Value = CType(PATIENT_NAME_KH,String)
             End If
             If (PATIENT_SEX Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(16).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(16).Value = CType(PATIENT_SEX, String)
+                Me.Adapter.UpdateCommand.Parameters(16).Value = CType(PATIENT_SEX,String)
             End If
-            If (PATIENT_AGE.HasValue = True) Then
-                Me.Adapter.UpdateCommand.Parameters(17).Value = CType(PATIENT_AGE.Value, Decimal)
+            If (PATIENT_AGE.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(17).Value = CType(PATIENT_AGE.Value,Decimal)
             Else
                 Me.Adapter.UpdateCommand.Parameters(17).Value = Global.System.DBNull.Value
             End If
             If (BY_DOCTOR Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(18).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(18).Value = CType(BY_DOCTOR, String)
+                Me.Adapter.UpdateCommand.Parameters(18).Value = CType(BY_DOCTOR,String)
             End If
             If (DIAGNOSIS Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(19).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(19).Value = CType(DIAGNOSIS, String)
+                Me.Adapter.UpdateCommand.Parameters(19).Value = CType(DIAGNOSIS,String)
             End If
-            If (TOTAL_CONSULT.HasValue = True) Then
-                Me.Adapter.UpdateCommand.Parameters(20).Value = CType(TOTAL_CONSULT.Value, Decimal)
+            If (TOTAL_CONSULT.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(20).Value = CType(TOTAL_CONSULT.Value,Decimal)
             Else
                 Me.Adapter.UpdateCommand.Parameters(20).Value = Global.System.DBNull.Value
             End If
-            If (TOTAL_MEDICINCE.HasValue = True) Then
-                Me.Adapter.UpdateCommand.Parameters(21).Value = CType(TOTAL_MEDICINCE.Value, Decimal)
+            If (TOTAL_MEDICINCE.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(21).Value = CType(TOTAL_MEDICINCE.Value,Decimal)
             Else
                 Me.Adapter.UpdateCommand.Parameters(21).Value = Global.System.DBNull.Value
             End If
-            If (DEPOSIT.HasValue = True) Then
-                Me.Adapter.UpdateCommand.Parameters(22).Value = CType(DEPOSIT.Value, Decimal)
+            If (DEPOSIT.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(22).Value = CType(DEPOSIT.Value,Decimal)
             Else
                 Me.Adapter.UpdateCommand.Parameters(22).Value = Global.System.DBNull.Value
             End If
-            Me.Adapter.UpdateCommand.Parameters(23).Value = CType(Original_INVOICE_ID, Decimal)
-            If (Original_WAITING_ID.HasValue = True) Then
-                Me.Adapter.UpdateCommand.Parameters(24).Value = CType(0, Object)
-                Me.Adapter.UpdateCommand.Parameters(25).Value = CType(Original_WAITING_ID.Value, Decimal)
+            Me.Adapter.UpdateCommand.Parameters(23).Value = CType(Original_INVOICE_ID,Decimal)
+            If (Original_WAITING_ID.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(24).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(25).Value = CType(Original_WAITING_ID.Value,Decimal)
             Else
-                Me.Adapter.UpdateCommand.Parameters(24).Value = CType(1, Object)
+                Me.Adapter.UpdateCommand.Parameters(24).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(25).Value = Global.System.DBNull.Value
             End If
-            If (Original_INVOICE_DATE.HasValue = True) Then
-                Me.Adapter.UpdateCommand.Parameters(26).Value = CType(0, Object)
-                Me.Adapter.UpdateCommand.Parameters(27).Value = CType(Original_INVOICE_DATE.Value, Date)
+            If (Original_INVOICE_DATE.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(26).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(27).Value = CType(Original_INVOICE_DATE.Value,Date)
             Else
-                Me.Adapter.UpdateCommand.Parameters(26).Value = CType(1, Object)
+                Me.Adapter.UpdateCommand.Parameters(26).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(27).Value = Global.System.DBNull.Value
             End If
-            If (Original_PATIENT_NO.HasValue = True) Then
-                Me.Adapter.UpdateCommand.Parameters(28).Value = CType(0, Object)
-                Me.Adapter.UpdateCommand.Parameters(29).Value = CType(Original_PATIENT_NO.Value, Decimal)
+            If (Original_PATIENT_NO.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(28).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(29).Value = CType(Original_PATIENT_NO.Value,Decimal)
             Else
-                Me.Adapter.UpdateCommand.Parameters(28).Value = CType(1, Object)
+                Me.Adapter.UpdateCommand.Parameters(28).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(29).Value = Global.System.DBNull.Value
             End If
-            If (Original_TOTAL.HasValue = True) Then
-                Me.Adapter.UpdateCommand.Parameters(30).Value = CType(0, Object)
-                Me.Adapter.UpdateCommand.Parameters(31).Value = CType(Original_TOTAL.Value, Decimal)
+            If (Original_TOTAL.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(30).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(31).Value = CType(Original_TOTAL.Value,Decimal)
             Else
-                Me.Adapter.UpdateCommand.Parameters(30).Value = CType(1, Object)
+                Me.Adapter.UpdateCommand.Parameters(30).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(31).Value = Global.System.DBNull.Value
             End If
-            If (Original_SUB_TOTAL.HasValue = True) Then
-                Me.Adapter.UpdateCommand.Parameters(32).Value = CType(0, Object)
-                Me.Adapter.UpdateCommand.Parameters(33).Value = CType(Original_SUB_TOTAL.Value, Decimal)
+            If (Original_SUB_TOTAL.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(32).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(33).Value = CType(Original_SUB_TOTAL.Value,Decimal)
             Else
-                Me.Adapter.UpdateCommand.Parameters(32).Value = CType(1, Object)
+                Me.Adapter.UpdateCommand.Parameters(32).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(33).Value = Global.System.DBNull.Value
             End If
-            If (Original_EXCHANGE_RATE.HasValue = True) Then
-                Me.Adapter.UpdateCommand.Parameters(34).Value = CType(0, Object)
-                Me.Adapter.UpdateCommand.Parameters(35).Value = CType(Original_EXCHANGE_RATE.Value, Decimal)
+            If (Original_EXCHANGE_RATE.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(34).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(35).Value = CType(Original_EXCHANGE_RATE.Value,Decimal)
             Else
-                Me.Adapter.UpdateCommand.Parameters(34).Value = CType(1, Object)
+                Me.Adapter.UpdateCommand.Parameters(34).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(35).Value = Global.System.DBNull.Value
             End If
-            If (Original_CASH_RECEIVED.HasValue = True) Then
-                Me.Adapter.UpdateCommand.Parameters(36).Value = CType(0, Object)
-                Me.Adapter.UpdateCommand.Parameters(37).Value = CType(Original_CASH_RECEIVED.Value, Decimal)
+            If (Original_CASH_RECEIVED.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(36).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(37).Value = CType(Original_CASH_RECEIVED.Value,Decimal)
             Else
-                Me.Adapter.UpdateCommand.Parameters(36).Value = CType(1, Object)
+                Me.Adapter.UpdateCommand.Parameters(36).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(37).Value = Global.System.DBNull.Value
             End If
-            If (Original_CHANG.HasValue = True) Then
-                Me.Adapter.UpdateCommand.Parameters(38).Value = CType(0, Object)
-                Me.Adapter.UpdateCommand.Parameters(39).Value = CType(Original_CHANG.Value, Decimal)
+            If (Original_CHANG.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(38).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(39).Value = CType(Original_CHANG.Value,Decimal)
             Else
-                Me.Adapter.UpdateCommand.Parameters(38).Value = CType(1, Object)
+                Me.Adapter.UpdateCommand.Parameters(38).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(39).Value = Global.System.DBNull.Value
             End If
             If (Original_RECEIVED_BY Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(40).Value = CType(1, Object)
+                Me.Adapter.UpdateCommand.Parameters(40).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(41).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(40).Value = CType(0, Object)
-                Me.Adapter.UpdateCommand.Parameters(41).Value = CType(Original_RECEIVED_BY, String)
+                Me.Adapter.UpdateCommand.Parameters(40).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(41).Value = CType(Original_RECEIVED_BY,String)
             End If
-            If (Original_TOTAL_DISCOUNT.HasValue = True) Then
-                Me.Adapter.UpdateCommand.Parameters(42).Value = CType(0, Object)
-                Me.Adapter.UpdateCommand.Parameters(43).Value = CType(Original_TOTAL_DISCOUNT.Value, Decimal)
+            If (Original_TOTAL_DISCOUNT.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(42).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(43).Value = CType(Original_TOTAL_DISCOUNT.Value,Decimal)
             Else
-                Me.Adapter.UpdateCommand.Parameters(42).Value = CType(1, Object)
+                Me.Adapter.UpdateCommand.Parameters(42).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(43).Value = Global.System.DBNull.Value
             End If
-            If (Original_DIS_CONSULT.HasValue = True) Then
-                Me.Adapter.UpdateCommand.Parameters(44).Value = CType(0, Object)
-                Me.Adapter.UpdateCommand.Parameters(45).Value = CType(Original_DIS_CONSULT.Value, Decimal)
+            If (Original_DIS_CONSULT.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(44).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(45).Value = CType(Original_DIS_CONSULT.Value,Decimal)
             Else
-                Me.Adapter.UpdateCommand.Parameters(44).Value = CType(1, Object)
+                Me.Adapter.UpdateCommand.Parameters(44).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(45).Value = Global.System.DBNull.Value
             End If
-            If (Original_DIS_OPERATION.HasValue = True) Then
-                Me.Adapter.UpdateCommand.Parameters(46).Value = CType(0, Object)
-                Me.Adapter.UpdateCommand.Parameters(47).Value = CType(Original_DIS_OPERATION.Value, Decimal)
+            If (Original_DIS_OPERATION.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(46).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(47).Value = CType(Original_DIS_OPERATION.Value,Decimal)
             Else
-                Me.Adapter.UpdateCommand.Parameters(46).Value = CType(1, Object)
+                Me.Adapter.UpdateCommand.Parameters(46).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(47).Value = Global.System.DBNull.Value
             End If
-            If (Original_DIS_MEDICINE.HasValue = True) Then
-                Me.Adapter.UpdateCommand.Parameters(48).Value = CType(0, Object)
-                Me.Adapter.UpdateCommand.Parameters(49).Value = CType(Original_DIS_MEDICINE.Value, Decimal)
+            If (Original_DIS_MEDICINE.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(48).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(49).Value = CType(Original_DIS_MEDICINE.Value,Decimal)
             Else
-                Me.Adapter.UpdateCommand.Parameters(48).Value = CType(1, Object)
+                Me.Adapter.UpdateCommand.Parameters(48).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(49).Value = Global.System.DBNull.Value
             End If
             If (Original_IS_DELETE Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(50).Value = CType(1, Object)
+                Me.Adapter.UpdateCommand.Parameters(50).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(51).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(50).Value = CType(0, Object)
-                Me.Adapter.UpdateCommand.Parameters(51).Value = CType(Original_IS_DELETE, String)
+                Me.Adapter.UpdateCommand.Parameters(50).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(51).Value = CType(Original_IS_DELETE,String)
             End If
             If (Original_PATIENT_NAME_ENG Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(52).Value = CType(1, Object)
+                Me.Adapter.UpdateCommand.Parameters(52).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(53).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(52).Value = CType(0, Object)
-                Me.Adapter.UpdateCommand.Parameters(53).Value = CType(Original_PATIENT_NAME_ENG, String)
+                Me.Adapter.UpdateCommand.Parameters(52).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(53).Value = CType(Original_PATIENT_NAME_ENG,String)
             End If
             If (Original_PATIENT_NAME_KH Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(54).Value = CType(1, Object)
+                Me.Adapter.UpdateCommand.Parameters(54).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(55).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(54).Value = CType(0, Object)
-                Me.Adapter.UpdateCommand.Parameters(55).Value = CType(Original_PATIENT_NAME_KH, String)
+                Me.Adapter.UpdateCommand.Parameters(54).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(55).Value = CType(Original_PATIENT_NAME_KH,String)
             End If
             If (Original_PATIENT_SEX Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(56).Value = CType(1, Object)
+                Me.Adapter.UpdateCommand.Parameters(56).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(57).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(56).Value = CType(0, Object)
-                Me.Adapter.UpdateCommand.Parameters(57).Value = CType(Original_PATIENT_SEX, String)
+                Me.Adapter.UpdateCommand.Parameters(56).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(57).Value = CType(Original_PATIENT_SEX,String)
             End If
-            If (Original_PATIENT_AGE.HasValue = True) Then
-                Me.Adapter.UpdateCommand.Parameters(58).Value = CType(0, Object)
-                Me.Adapter.UpdateCommand.Parameters(59).Value = CType(Original_PATIENT_AGE.Value, Decimal)
+            If (Original_PATIENT_AGE.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(58).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(59).Value = CType(Original_PATIENT_AGE.Value,Decimal)
             Else
-                Me.Adapter.UpdateCommand.Parameters(58).Value = CType(1, Object)
+                Me.Adapter.UpdateCommand.Parameters(58).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(59).Value = Global.System.DBNull.Value
             End If
             If (Original_BY_DOCTOR Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(60).Value = CType(1, Object)
+                Me.Adapter.UpdateCommand.Parameters(60).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(61).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(60).Value = CType(0, Object)
-                Me.Adapter.UpdateCommand.Parameters(61).Value = CType(Original_BY_DOCTOR, String)
+                Me.Adapter.UpdateCommand.Parameters(60).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(61).Value = CType(Original_BY_DOCTOR,String)
             End If
             If (Original_DIAGNOSIS Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(62).Value = CType(1, Object)
+                Me.Adapter.UpdateCommand.Parameters(62).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(63).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(62).Value = CType(0, Object)
-                Me.Adapter.UpdateCommand.Parameters(63).Value = CType(Original_DIAGNOSIS, String)
+                Me.Adapter.UpdateCommand.Parameters(62).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(63).Value = CType(Original_DIAGNOSIS,String)
             End If
-            If (Original_TOTAL_CONSULT.HasValue = True) Then
-                Me.Adapter.UpdateCommand.Parameters(64).Value = CType(0, Object)
-                Me.Adapter.UpdateCommand.Parameters(65).Value = CType(Original_TOTAL_CONSULT.Value, Decimal)
+            If (Original_TOTAL_CONSULT.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(64).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(65).Value = CType(Original_TOTAL_CONSULT.Value,Decimal)
             Else
-                Me.Adapter.UpdateCommand.Parameters(64).Value = CType(1, Object)
+                Me.Adapter.UpdateCommand.Parameters(64).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(65).Value = Global.System.DBNull.Value
             End If
-            If (Original_TOTAL_MEDICINCE.HasValue = True) Then
-                Me.Adapter.UpdateCommand.Parameters(66).Value = CType(0, Object)
-                Me.Adapter.UpdateCommand.Parameters(67).Value = CType(Original_TOTAL_MEDICINCE.Value, Decimal)
+            If (Original_TOTAL_MEDICINCE.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(66).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(67).Value = CType(Original_TOTAL_MEDICINCE.Value,Decimal)
             Else
-                Me.Adapter.UpdateCommand.Parameters(66).Value = CType(1, Object)
+                Me.Adapter.UpdateCommand.Parameters(66).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(67).Value = Global.System.DBNull.Value
             End If
-            If (Original_DEPOSIT.HasValue = True) Then
-                Me.Adapter.UpdateCommand.Parameters(68).Value = CType(0, Object)
-                Me.Adapter.UpdateCommand.Parameters(69).Value = CType(Original_DEPOSIT.Value, Decimal)
+            If (Original_DEPOSIT.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(68).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(69).Value = CType(Original_DEPOSIT.Value,Decimal)
             Else
-                Me.Adapter.UpdateCommand.Parameters(68).Value = CType(1, Object)
+                Me.Adapter.UpdateCommand.Parameters(68).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(69).Value = Global.System.DBNull.Value
             End If
-            Me.Adapter.UpdateCommand.Parameters(70).Value = CType(INVOICE_ID, Decimal)
+            Me.Adapter.UpdateCommand.Parameters(70).Value = CType(INVOICE_ID,Decimal)
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.UpdateCommand.Connection.State
-            If ((Me.Adapter.UpdateCommand.Connection.State And Global.System.Data.ConnectionState.Open) _
+            If ((Me.Adapter.UpdateCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
-                Me.Adapter.UpdateCommand.Connection.Open()
+                Me.Adapter.UpdateCommand.Connection.Open
             End If
-            Try
+            Try 
                 Dim returnValue As Integer = Me.Adapter.UpdateCommand.ExecuteNonQuery
                 Return returnValue
             Finally
                 If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
-                    Me.Adapter.UpdateCommand.Connection.Close()
+                    Me.Adapter.UpdateCommand.Connection.Close
                 End If
             End Try
         End Function
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, True)> _
-        Public Overridable Overloads Function Update( _
-                    ByVal WAITING_ID As Global.System.Nullable(Of Decimal), _
-                    ByVal INVOICE_DATE As Global.System.Nullable(Of Date), _
-                    ByVal PATIENT_NO As Global.System.Nullable(Of Decimal), _
-                    ByVal TOTAL As Global.System.Nullable(Of Decimal), _
-                    ByVal SUB_TOTAL As Global.System.Nullable(Of Decimal), _
-                    ByVal EXCHANGE_RATE As Global.System.Nullable(Of Decimal), _
-                    ByVal CASH_RECEIVED As Global.System.Nullable(Of Decimal), _
-                    ByVal CHANG As Global.System.Nullable(Of Decimal), _
-                    ByVal RECEIVED_BY As String, _
-                    ByVal TOTAL_DISCOUNT As Global.System.Nullable(Of Decimal), _
-                    ByVal DIS_CONSULT As Global.System.Nullable(Of Decimal), _
-                    ByVal DIS_OPERATION As Global.System.Nullable(Of Decimal), _
-                    ByVal DIS_MEDICINE As Global.System.Nullable(Of Decimal), _
-                    ByVal IS_DELETE As String, _
-                    ByVal PATIENT_NAME_ENG As String, _
-                    ByVal PATIENT_NAME_KH As String, _
-                    ByVal PATIENT_SEX As String, _
-                    ByVal PATIENT_AGE As Global.System.Nullable(Of Decimal), _
-                    ByVal BY_DOCTOR As String, _
-                    ByVal DIAGNOSIS As String, _
-                    ByVal TOTAL_CONSULT As Global.System.Nullable(Of Decimal), _
-                    ByVal TOTAL_MEDICINCE As Global.System.Nullable(Of Decimal), _
-                    ByVal DEPOSIT As Global.System.Nullable(Of Decimal), _
-                    ByVal Original_INVOICE_ID As Decimal, _
-                    ByVal Original_WAITING_ID As Global.System.Nullable(Of Decimal), _
-                    ByVal Original_INVOICE_DATE As Global.System.Nullable(Of Date), _
-                    ByVal Original_PATIENT_NO As Global.System.Nullable(Of Decimal), _
-                    ByVal Original_TOTAL As Global.System.Nullable(Of Decimal), _
-                    ByVal Original_SUB_TOTAL As Global.System.Nullable(Of Decimal), _
-                    ByVal Original_EXCHANGE_RATE As Global.System.Nullable(Of Decimal), _
-                    ByVal Original_CASH_RECEIVED As Global.System.Nullable(Of Decimal), _
-                    ByVal Original_CHANG As Global.System.Nullable(Of Decimal), _
-                    ByVal Original_RECEIVED_BY As String, _
-                    ByVal Original_TOTAL_DISCOUNT As Global.System.Nullable(Of Decimal), _
-                    ByVal Original_DIS_CONSULT As Global.System.Nullable(Of Decimal), _
-                    ByVal Original_DIS_OPERATION As Global.System.Nullable(Of Decimal), _
-                    ByVal Original_DIS_MEDICINE As Global.System.Nullable(Of Decimal), _
-                    ByVal Original_IS_DELETE As String, _
-                    ByVal Original_PATIENT_NAME_ENG As String, _
-                    ByVal Original_PATIENT_NAME_KH As String, _
-                    ByVal Original_PATIENT_SEX As String, _
-                    ByVal Original_PATIENT_AGE As Global.System.Nullable(Of Decimal), _
-                    ByVal Original_BY_DOCTOR As String, _
-                    ByVal Original_DIAGNOSIS As String, _
-                    ByVal Original_TOTAL_CONSULT As Global.System.Nullable(Of Decimal), _
-                    ByVal Original_TOTAL_MEDICINCE As Global.System.Nullable(Of Decimal), _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
+        Public Overloads Overridable Function Update( _
+                    ByVal WAITING_ID As Global.System.Nullable(Of Decimal),  _
+                    ByVal INVOICE_DATE As Global.System.Nullable(Of Date),  _
+                    ByVal PATIENT_NO As Global.System.Nullable(Of Decimal),  _
+                    ByVal TOTAL As Global.System.Nullable(Of Decimal),  _
+                    ByVal SUB_TOTAL As Global.System.Nullable(Of Decimal),  _
+                    ByVal EXCHANGE_RATE As Global.System.Nullable(Of Decimal),  _
+                    ByVal CASH_RECEIVED As Global.System.Nullable(Of Decimal),  _
+                    ByVal CHANG As Global.System.Nullable(Of Decimal),  _
+                    ByVal RECEIVED_BY As String,  _
+                    ByVal TOTAL_DISCOUNT As Global.System.Nullable(Of Decimal),  _
+                    ByVal DIS_CONSULT As Global.System.Nullable(Of Decimal),  _
+                    ByVal DIS_OPERATION As Global.System.Nullable(Of Decimal),  _
+                    ByVal DIS_MEDICINE As Global.System.Nullable(Of Decimal),  _
+                    ByVal IS_DELETE As String,  _
+                    ByVal PATIENT_NAME_ENG As String,  _
+                    ByVal PATIENT_NAME_KH As String,  _
+                    ByVal PATIENT_SEX As String,  _
+                    ByVal PATIENT_AGE As Global.System.Nullable(Of Decimal),  _
+                    ByVal BY_DOCTOR As String,  _
+                    ByVal DIAGNOSIS As String,  _
+                    ByVal TOTAL_CONSULT As Global.System.Nullable(Of Decimal),  _
+                    ByVal TOTAL_MEDICINCE As Global.System.Nullable(Of Decimal),  _
+                    ByVal DEPOSIT As Global.System.Nullable(Of Decimal),  _
+                    ByVal Original_INVOICE_ID As Decimal,  _
+                    ByVal Original_WAITING_ID As Global.System.Nullable(Of Decimal),  _
+                    ByVal Original_INVOICE_DATE As Global.System.Nullable(Of Date),  _
+                    ByVal Original_PATIENT_NO As Global.System.Nullable(Of Decimal),  _
+                    ByVal Original_TOTAL As Global.System.Nullable(Of Decimal),  _
+                    ByVal Original_SUB_TOTAL As Global.System.Nullable(Of Decimal),  _
+                    ByVal Original_EXCHANGE_RATE As Global.System.Nullable(Of Decimal),  _
+                    ByVal Original_CASH_RECEIVED As Global.System.Nullable(Of Decimal),  _
+                    ByVal Original_CHANG As Global.System.Nullable(Of Decimal),  _
+                    ByVal Original_RECEIVED_BY As String,  _
+                    ByVal Original_TOTAL_DISCOUNT As Global.System.Nullable(Of Decimal),  _
+                    ByVal Original_DIS_CONSULT As Global.System.Nullable(Of Decimal),  _
+                    ByVal Original_DIS_OPERATION As Global.System.Nullable(Of Decimal),  _
+                    ByVal Original_DIS_MEDICINE As Global.System.Nullable(Of Decimal),  _
+                    ByVal Original_IS_DELETE As String,  _
+                    ByVal Original_PATIENT_NAME_ENG As String,  _
+                    ByVal Original_PATIENT_NAME_KH As String,  _
+                    ByVal Original_PATIENT_SEX As String,  _
+                    ByVal Original_PATIENT_AGE As Global.System.Nullable(Of Decimal),  _
+                    ByVal Original_BY_DOCTOR As String,  _
+                    ByVal Original_DIAGNOSIS As String,  _
+                    ByVal Original_TOTAL_CONSULT As Global.System.Nullable(Of Decimal),  _
+                    ByVal Original_TOTAL_MEDICINCE As Global.System.Nullable(Of Decimal),  _
                     ByVal Original_DEPOSIT As Global.System.Nullable(Of Decimal)) As Integer
             Return Me.Update(WAITING_ID, INVOICE_DATE, PATIENT_NO, TOTAL, SUB_TOTAL, EXCHANGE_RATE, CASH_RECEIVED, CHANG, RECEIVED_BY, TOTAL_DISCOUNT, DIS_CONSULT, DIS_OPERATION, DIS_MEDICINE, IS_DELETE, PATIENT_NAME_ENG, PATIENT_NAME_KH, PATIENT_SEX, PATIENT_AGE, BY_DOCTOR, DIAGNOSIS, TOTAL_CONSULT, TOTAL_MEDICINCE, DEPOSIT, Original_INVOICE_ID, Original_WAITING_ID, Original_INVOICE_DATE, Original_PATIENT_NO, Original_TOTAL, Original_SUB_TOTAL, Original_EXCHANGE_RATE, Original_CASH_RECEIVED, Original_CHANG, Original_RECEIVED_BY, Original_TOTAL_DISCOUNT, Original_DIS_CONSULT, Original_DIS_OPERATION, Original_DIS_MEDICINE, Original_IS_DELETE, Original_PATIENT_NAME_ENG, Original_PATIENT_NAME_KH, Original_PATIENT_SEX, Original_PATIENT_AGE, Original_BY_DOCTOR, Original_DIAGNOSIS, Original_TOTAL_CONSULT, Original_TOTAL_MEDICINCE, Original_DEPOSIT, Original_INVOICE_ID)
         End Function
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, False)> _
-        Public Overridable Overloads Function InsertNewInvoice( _
-                    ByVal WAITING_ID As Global.System.Nullable(Of Decimal), _
-                    ByVal INVOICE_DATE As Global.System.Nullable(Of Date), _
-                    ByVal PATIENT_NO As Global.System.Nullable(Of Decimal), _
-                    ByVal TOTAL As Global.System.Nullable(Of Decimal), _
-                    ByVal SUB_TOTAL As Global.System.Nullable(Of Decimal), _
-                    ByVal EXCHANGE_RATE As Global.System.Nullable(Of Decimal), _
-                    ByVal CASH_RECEIVED As Global.System.Nullable(Of Decimal), _
-                    ByVal CHANG As Global.System.Nullable(Of Decimal), _
-                    ByVal RECEIVED_BY As String, _
-                    ByVal TOTAL_DISCOUNT As Global.System.Nullable(Of Decimal), _
-                    ByVal DIS_CONSULT As Global.System.Nullable(Of Decimal), _
-                    ByVal DIS_OPERATION As Global.System.Nullable(Of Decimal), _
-                    ByVal DIS_MEDICINE As Global.System.Nullable(Of Decimal), _
-                    ByVal IS_DELETE As String, _
-                    ByVal PATIENT_NAME_ENG As String, _
-                    ByVal PATIENT_NAME_KH As String, _
-                    ByVal PATIENT_SEX As String, _
-                    ByVal PATIENT_AGE As Global.System.Nullable(Of Decimal), _
-                    ByVal BY_DOCTOR As String, _
-                    ByVal DIAGNOSIS As String, _
-                    ByVal TOTAL_CONSULT As Global.System.Nullable(Of Decimal), _
-                    ByVal TOTAL_MEDICINCE As Global.System.Nullable(Of Decimal), _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, false)>  _
+        Public Overloads Overridable Function InsertNewInvoice( _
+                    ByVal WAITING_ID As Global.System.Nullable(Of Decimal),  _
+                    ByVal INVOICE_DATE As Global.System.Nullable(Of Date),  _
+                    ByVal PATIENT_NO As Global.System.Nullable(Of Decimal),  _
+                    ByVal TOTAL As Global.System.Nullable(Of Decimal),  _
+                    ByVal SUB_TOTAL As Global.System.Nullable(Of Decimal),  _
+                    ByVal EXCHANGE_RATE As Global.System.Nullable(Of Decimal),  _
+                    ByVal CASH_RECEIVED As Global.System.Nullable(Of Decimal),  _
+                    ByVal CHANG As Global.System.Nullable(Of Decimal),  _
+                    ByVal RECEIVED_BY As String,  _
+                    ByVal TOTAL_DISCOUNT As Global.System.Nullable(Of Decimal),  _
+                    ByVal DIS_CONSULT As Global.System.Nullable(Of Decimal),  _
+                    ByVal DIS_OPERATION As Global.System.Nullable(Of Decimal),  _
+                    ByVal DIS_MEDICINE As Global.System.Nullable(Of Decimal),  _
+                    ByVal IS_DELETE As String,  _
+                    ByVal PATIENT_NAME_ENG As String,  _
+                    ByVal PATIENT_NAME_KH As String,  _
+                    ByVal PATIENT_SEX As String,  _
+                    ByVal PATIENT_AGE As Global.System.Nullable(Of Decimal),  _
+                    ByVal BY_DOCTOR As String,  _
+                    ByVal DIAGNOSIS As String,  _
+                    ByVal TOTAL_CONSULT As Global.System.Nullable(Of Decimal),  _
+                    ByVal TOTAL_MEDICINCE As Global.System.Nullable(Of Decimal),  _
                     ByVal DEPOSIT As Global.System.Nullable(Of Decimal)) As Integer
             Dim command As Global.System.Data.SqlClient.SqlCommand = Me.CommandCollection(2)
-            If (WAITING_ID.HasValue = True) Then
-                command.Parameters(0).Value = CType(WAITING_ID.Value, Decimal)
+            If (WAITING_ID.HasValue = true) Then
+                command.Parameters(0).Value = CType(WAITING_ID.Value,Decimal)
             Else
                 command.Parameters(0).Value = Global.System.DBNull.Value
             End If
-            If (INVOICE_DATE.HasValue = True) Then
-                command.Parameters(1).Value = CType(INVOICE_DATE.Value, Date)
+            If (INVOICE_DATE.HasValue = true) Then
+                command.Parameters(1).Value = CType(INVOICE_DATE.Value,Date)
             Else
                 command.Parameters(1).Value = Global.System.DBNull.Value
             End If
-            If (PATIENT_NO.HasValue = True) Then
-                command.Parameters(2).Value = CType(PATIENT_NO.Value, Decimal)
+            If (PATIENT_NO.HasValue = true) Then
+                command.Parameters(2).Value = CType(PATIENT_NO.Value,Decimal)
             Else
                 command.Parameters(2).Value = Global.System.DBNull.Value
             End If
-            If (TOTAL.HasValue = True) Then
-                command.Parameters(3).Value = CType(TOTAL.Value, Decimal)
+            If (TOTAL.HasValue = true) Then
+                command.Parameters(3).Value = CType(TOTAL.Value,Decimal)
             Else
                 command.Parameters(3).Value = Global.System.DBNull.Value
             End If
-            If (SUB_TOTAL.HasValue = True) Then
-                command.Parameters(4).Value = CType(SUB_TOTAL.Value, Decimal)
+            If (SUB_TOTAL.HasValue = true) Then
+                command.Parameters(4).Value = CType(SUB_TOTAL.Value,Decimal)
             Else
                 command.Parameters(4).Value = Global.System.DBNull.Value
             End If
-            If (EXCHANGE_RATE.HasValue = True) Then
-                command.Parameters(5).Value = CType(EXCHANGE_RATE.Value, Decimal)
+            If (EXCHANGE_RATE.HasValue = true) Then
+                command.Parameters(5).Value = CType(EXCHANGE_RATE.Value,Decimal)
             Else
                 command.Parameters(5).Value = Global.System.DBNull.Value
             End If
-            If (CASH_RECEIVED.HasValue = True) Then
-                command.Parameters(6).Value = CType(CASH_RECEIVED.Value, Decimal)
+            If (CASH_RECEIVED.HasValue = true) Then
+                command.Parameters(6).Value = CType(CASH_RECEIVED.Value,Decimal)
             Else
                 command.Parameters(6).Value = Global.System.DBNull.Value
             End If
-            If (CHANG.HasValue = True) Then
-                command.Parameters(7).Value = CType(CHANG.Value, Decimal)
+            If (CHANG.HasValue = true) Then
+                command.Parameters(7).Value = CType(CHANG.Value,Decimal)
             Else
                 command.Parameters(7).Value = Global.System.DBNull.Value
             End If
             If (RECEIVED_BY Is Nothing) Then
                 command.Parameters(8).Value = Global.System.DBNull.Value
             Else
-                command.Parameters(8).Value = CType(RECEIVED_BY, String)
+                command.Parameters(8).Value = CType(RECEIVED_BY,String)
             End If
-            If (TOTAL_DISCOUNT.HasValue = True) Then
-                command.Parameters(9).Value = CType(TOTAL_DISCOUNT.Value, Decimal)
+            If (TOTAL_DISCOUNT.HasValue = true) Then
+                command.Parameters(9).Value = CType(TOTAL_DISCOUNT.Value,Decimal)
             Else
                 command.Parameters(9).Value = Global.System.DBNull.Value
             End If
-            If (DIS_CONSULT.HasValue = True) Then
-                command.Parameters(10).Value = CType(DIS_CONSULT.Value, Decimal)
+            If (DIS_CONSULT.HasValue = true) Then
+                command.Parameters(10).Value = CType(DIS_CONSULT.Value,Decimal)
             Else
                 command.Parameters(10).Value = Global.System.DBNull.Value
             End If
-            If (DIS_OPERATION.HasValue = True) Then
-                command.Parameters(11).Value = CType(DIS_OPERATION.Value, Decimal)
+            If (DIS_OPERATION.HasValue = true) Then
+                command.Parameters(11).Value = CType(DIS_OPERATION.Value,Decimal)
             Else
                 command.Parameters(11).Value = Global.System.DBNull.Value
             End If
-            If (DIS_MEDICINE.HasValue = True) Then
-                command.Parameters(12).Value = CType(DIS_MEDICINE.Value, Decimal)
+            If (DIS_MEDICINE.HasValue = true) Then
+                command.Parameters(12).Value = CType(DIS_MEDICINE.Value,Decimal)
             Else
                 command.Parameters(12).Value = Global.System.DBNull.Value
             End If
             If (IS_DELETE Is Nothing) Then
                 command.Parameters(13).Value = Global.System.DBNull.Value
             Else
-                command.Parameters(13).Value = CType(IS_DELETE, String)
+                command.Parameters(13).Value = CType(IS_DELETE,String)
             End If
             If (PATIENT_NAME_ENG Is Nothing) Then
                 command.Parameters(14).Value = Global.System.DBNull.Value
             Else
-                command.Parameters(14).Value = CType(PATIENT_NAME_ENG, String)
+                command.Parameters(14).Value = CType(PATIENT_NAME_ENG,String)
             End If
             If (PATIENT_NAME_KH Is Nothing) Then
                 command.Parameters(15).Value = Global.System.DBNull.Value
             Else
-                command.Parameters(15).Value = CType(PATIENT_NAME_KH, String)
+                command.Parameters(15).Value = CType(PATIENT_NAME_KH,String)
             End If
             If (PATIENT_SEX Is Nothing) Then
                 command.Parameters(16).Value = Global.System.DBNull.Value
             Else
-                command.Parameters(16).Value = CType(PATIENT_SEX, String)
+                command.Parameters(16).Value = CType(PATIENT_SEX,String)
             End If
-            If (PATIENT_AGE.HasValue = True) Then
-                command.Parameters(17).Value = CType(PATIENT_AGE.Value, Decimal)
+            If (PATIENT_AGE.HasValue = true) Then
+                command.Parameters(17).Value = CType(PATIENT_AGE.Value,Decimal)
             Else
                 command.Parameters(17).Value = Global.System.DBNull.Value
             End If
             If (BY_DOCTOR Is Nothing) Then
                 command.Parameters(18).Value = Global.System.DBNull.Value
             Else
-                command.Parameters(18).Value = CType(BY_DOCTOR, String)
+                command.Parameters(18).Value = CType(BY_DOCTOR,String)
             End If
             If (DIAGNOSIS Is Nothing) Then
                 command.Parameters(19).Value = Global.System.DBNull.Value
             Else
-                command.Parameters(19).Value = CType(DIAGNOSIS, String)
+                command.Parameters(19).Value = CType(DIAGNOSIS,String)
             End If
-            If (TOTAL_CONSULT.HasValue = True) Then
-                command.Parameters(20).Value = CType(TOTAL_CONSULT.Value, Decimal)
+            If (TOTAL_CONSULT.HasValue = true) Then
+                command.Parameters(20).Value = CType(TOTAL_CONSULT.Value,Decimal)
             Else
                 command.Parameters(20).Value = Global.System.DBNull.Value
             End If
-            If (TOTAL_MEDICINCE.HasValue = True) Then
-                command.Parameters(21).Value = CType(TOTAL_MEDICINCE.Value, Decimal)
+            If (TOTAL_MEDICINCE.HasValue = true) Then
+                command.Parameters(21).Value = CType(TOTAL_MEDICINCE.Value,Decimal)
             Else
                 command.Parameters(21).Value = Global.System.DBNull.Value
             End If
-            If (DEPOSIT.HasValue = True) Then
-                command.Parameters(22).Value = CType(DEPOSIT.Value, Decimal)
+            If (DEPOSIT.HasValue = true) Then
+                command.Parameters(22).Value = CType(DEPOSIT.Value,Decimal)
             Else
                 command.Parameters(22).Value = Global.System.DBNull.Value
             End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = command.Connection.State
-            If ((command.Connection.State And Global.System.Data.ConnectionState.Open) _
+            If ((command.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
-                command.Connection.Open()
+                command.Connection.Open
             End If
             Dim returnValue As Integer
-            Try
+            Try 
                 returnValue = command.ExecuteNonQuery
             Finally
                 If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
-                    command.Connection.Close()
+                    command.Connection.Close
                 End If
             End Try
             Return returnValue
         End Function
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")> _
-        Public Overridable Overloads Function SelectMaxInvoiceID() As Global.System.Nullable(Of Decimal)
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+        Public Overloads Overridable Function SelectMaxInvoiceID() As Object
             Dim command As Global.System.Data.SqlClient.SqlCommand = Me.CommandCollection(3)
             Dim previousConnectionState As Global.System.Data.ConnectionState = command.Connection.State
-            If ((command.Connection.State And Global.System.Data.ConnectionState.Open) _
+            If ((command.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
-                command.Connection.Open()
+                command.Connection.Open
             End If
             Dim returnValue As Object
-            Try
+            Try 
                 returnValue = command.ExecuteScalar
             Finally
                 If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
-                    command.Connection.Close()
+                    command.Connection.Close
                 End If
             End Try
-            If ((returnValue Is Nothing) _
+            If ((returnValue Is Nothing)  _
                         OrElse (returnValue.GetType Is GetType(Global.System.DBNull))) Then
-                Return New Global.System.Nullable(Of Decimal)
+                Return Nothing
             Else
-                Return New Global.System.Nullable(Of Decimal)(CType(returnValue, Decimal))
+                Return CType(returnValue,Object)
             End If
         End Function
     End Class
-
+    
     '''<summary>
     '''Represents the connection and commands used to retrieve and save data.
     '''</summary>
-    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0"), _
-     Global.System.ComponentModel.DesignerCategoryAttribute("code"), _
-     Global.System.ComponentModel.ToolboxItem(True), _
-     Global.System.ComponentModel.DataObjectAttribute(True), _
-     Global.System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" & _
-        ", Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"), _
-     Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")> _
+    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0"),  _
+     Global.System.ComponentModel.DesignerCategoryAttribute("code"),  _
+     Global.System.ComponentModel.ToolboxItem(true),  _
+     Global.System.ComponentModel.DataObjectAttribute(true),  _
+     Global.System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner"& _ 
+        ", Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"),  _
+     Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
     Partial Public Class S_INVOICE_DETAILTableAdapter
         Inherits Global.System.ComponentModel.Component
-
+        
         Private WithEvents _adapter As Global.System.Data.SqlClient.SqlDataAdapter
-
+        
         Private _connection As Global.System.Data.SqlClient.SqlConnection
-
+        
         Private _transaction As Global.System.Data.SqlClient.SqlTransaction
-
+        
         Private _commandCollection() As Global.System.Data.SqlClient.SqlCommand
-
+        
         Private _clearBeforeFill As Boolean
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Sub New()
-            MyBase.New()
-            Me.ClearBeforeFill = True
+            MyBase.New
+            Me.ClearBeforeFill = true
         End Sub
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Protected Friend ReadOnly Property Adapter() As Global.System.Data.SqlClient.SqlDataAdapter
             Get
                 If (Me._adapter Is Nothing) Then
-                    Me.InitAdapter()
+                    Me.InitAdapter
                 End If
                 Return Me._adapter
             End Get
         End Property
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Friend Property Connection() As Global.System.Data.SqlClient.SqlConnection
             Get
                 If (Me._connection Is Nothing) Then
-                    Me.InitConnection()
+                    Me.InitConnection
                 End If
                 Return Me._connection
             End Get
-            Set(ByVal value As Global.System.Data.SqlClient.SqlConnection)
+            Set
                 Me._connection = value
                 If (Not (Me.Adapter.InsertCommand) Is Nothing) Then
                     Me.Adapter.InsertCommand.Connection = value
@@ -12081,61 +12846,61 @@ Namespace DS_KSPAYMENTTableAdapters
                 Dim i As Integer = 0
                 Do While (i < Me.CommandCollection.Length)
                     If (Not (Me.CommandCollection(i)) Is Nothing) Then
-                        CType(Me.CommandCollection(i), Global.System.Data.SqlClient.SqlCommand).Connection = value
+                        CType(Me.CommandCollection(i),Global.System.Data.SqlClient.SqlCommand).Connection = value
                     End If
                     i = (i + 1)
                 Loop
             End Set
         End Property
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Friend Property Transaction() As Global.System.Data.SqlClient.SqlTransaction
             Get
                 Return Me._transaction
             End Get
-            Set(ByVal value As Global.System.Data.SqlClient.SqlTransaction)
+            Set
                 Me._transaction = value
                 Dim i As Integer = 0
                 Do While (i < Me.CommandCollection.Length)
                     Me.CommandCollection(i).Transaction = Me._transaction
                     i = (i + 1)
                 Loop
-                If ((Not (Me.Adapter) Is Nothing) _
+                If ((Not (Me.Adapter) Is Nothing)  _
                             AndAlso (Not (Me.Adapter.DeleteCommand) Is Nothing)) Then
                     Me.Adapter.DeleteCommand.Transaction = Me._transaction
                 End If
-                If ((Not (Me.Adapter) Is Nothing) _
+                If ((Not (Me.Adapter) Is Nothing)  _
                             AndAlso (Not (Me.Adapter.InsertCommand) Is Nothing)) Then
                     Me.Adapter.InsertCommand.Transaction = Me._transaction
                 End If
-                If ((Not (Me.Adapter) Is Nothing) _
+                If ((Not (Me.Adapter) Is Nothing)  _
                             AndAlso (Not (Me.Adapter.UpdateCommand) Is Nothing)) Then
                     Me.Adapter.UpdateCommand.Transaction = Me._transaction
                 End If
             End Set
         End Property
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Protected ReadOnly Property CommandCollection() As Global.System.Data.SqlClient.SqlCommand()
             Get
                 If (Me._commandCollection Is Nothing) Then
-                    Me.InitCommandCollection()
+                    Me.InitCommandCollection
                 End If
                 Return Me._commandCollection
             End Get
         End Property
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Property ClearBeforeFill() As Boolean
             Get
                 Return Me._clearBeforeFill
             End Get
-            Set(ByVal value As Boolean)
+            Set
                 Me._clearBeforeFill = value
             End Set
         End Property
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Private Sub InitAdapter()
             Me._adapter = New Global.System.Data.SqlClient.SqlDataAdapter
             Dim tableMapping As Global.System.Data.Common.DataTableMapping = New Global.System.Data.Common.DataTableMapping
@@ -12151,157 +12916,157 @@ Namespace DS_KSPAYMENTTableAdapters
             Me._adapter.TableMappings.Add(tableMapping)
             Me._adapter.DeleteCommand = New Global.System.Data.SqlClient.SqlCommand
             Me._adapter.DeleteCommand.Connection = Me.Connection
-            Me._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[S_INVOICE_DETAIL] WHERE (([IN_DETAIL_ID] = @Original_IN_DETAIL" & _
-                "_ID) AND ((@IsNull_INVOICE_NO = 1 AND [INVOICE_NO] IS NULL) OR ([INVOICE_NO] = @" & _
-                "Original_INVOICE_NO)) AND ((@IsNull_DESCRIPTION = 1 AND [DESCRIPTION] IS NULL) O" & _
-                "R ([DESCRIPTION] = @Original_DESCRIPTION)) AND ((@IsNull_QTY = 1 AND [QTY] IS NU" & _
-                "LL) OR ([QTY] = @Original_QTY)) AND ((@IsNull_UNIT = 1 AND [UNIT] IS NULL) OR ([" & _
-                "UNIT] = @Original_UNIT)) AND ((@IsNull_PRICE = 1 AND [PRICE] IS NULL) OR ([PRICE" & _
-                "] = @Original_PRICE)) AND ((@IsNull_SUB_TOTAL = 1 AND [SUB_TOTAL] IS NULL) OR ([" & _
+            Me._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[S_INVOICE_DETAIL] WHERE (([IN_DETAIL_ID] = @Original_IN_DETAIL"& _ 
+                "_ID) AND ((@IsNull_INVOICE_NO = 1 AND [INVOICE_NO] IS NULL) OR ([INVOICE_NO] = @"& _ 
+                "Original_INVOICE_NO)) AND ((@IsNull_DESCRIPTION = 1 AND [DESCRIPTION] IS NULL) O"& _ 
+                "R ([DESCRIPTION] = @Original_DESCRIPTION)) AND ((@IsNull_QTY = 1 AND [QTY] IS NU"& _ 
+                "LL) OR ([QTY] = @Original_QTY)) AND ((@IsNull_UNIT = 1 AND [UNIT] IS NULL) OR (["& _ 
+                "UNIT] = @Original_UNIT)) AND ((@IsNull_PRICE = 1 AND [PRICE] IS NULL) OR ([PRICE"& _ 
+                "] = @Original_PRICE)) AND ((@IsNull_SUB_TOTAL = 1 AND [SUB_TOTAL] IS NULL) OR (["& _ 
                 "SUB_TOTAL] = @Original_SUB_TOTAL)))"
             Me._adapter.DeleteCommand.CommandType = Global.System.Data.CommandType.Text
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_IN_DETAIL_ID", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "IN_DETAIL_ID", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_INVOICE_NO", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "INVOICE_NO", Global.System.Data.DataRowVersion.Original, True, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_INVOICE_NO", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "INVOICE_NO", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_DESCRIPTION", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DESCRIPTION", Global.System.Data.DataRowVersion.Original, True, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_DESCRIPTION", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DESCRIPTION", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_QTY", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "QTY", Global.System.Data.DataRowVersion.Original, True, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_QTY", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "QTY", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_UNIT", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "UNIT", Global.System.Data.DataRowVersion.Original, True, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_UNIT", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "UNIT", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_PRICE", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "PRICE", Global.System.Data.DataRowVersion.Original, True, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_PRICE", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 2, "PRICE", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_SUB_TOTAL", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "SUB_TOTAL", Global.System.Data.DataRowVersion.Original, True, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_SUB_TOTAL", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 2, "SUB_TOTAL", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_IN_DETAIL_ID", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "IN_DETAIL_ID", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_INVOICE_NO", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "INVOICE_NO", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_INVOICE_NO", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "INVOICE_NO", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_DESCRIPTION", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DESCRIPTION", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_DESCRIPTION", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DESCRIPTION", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_QTY", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "QTY", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_QTY", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "QTY", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_UNIT", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "UNIT", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_UNIT", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "UNIT", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_PRICE", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "PRICE", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_PRICE", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 2, "PRICE", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_SUB_TOTAL", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "SUB_TOTAL", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_SUB_TOTAL", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 2, "SUB_TOTAL", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand = New Global.System.Data.SqlClient.SqlCommand
             Me._adapter.InsertCommand.Connection = Me.Connection
-            Me._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[S_INVOICE_DETAIL] ([INVOICE_NO], [DESCRIPTION], [QTY], [UNIT]," & _
-                " [PRICE], [SUB_TOTAL]) VALUES (@INVOICE_NO, @DESCRIPTION, @QTY, @UNIT, @PRICE, @" & _
-                "SUB_TOTAL);" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "SELECT IN_DETAIL_ID, INVOICE_NO, DESCRIPTION, QTY, UNIT, PRICE, SUB" & _
+            Me._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[S_INVOICE_DETAIL] ([INVOICE_NO], [DESCRIPTION], [QTY], [UNIT],"& _ 
+                " [PRICE], [SUB_TOTAL]) VALUES (@INVOICE_NO, @DESCRIPTION, @QTY, @UNIT, @PRICE, @"& _ 
+                "SUB_TOTAL);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT IN_DETAIL_ID, INVOICE_NO, DESCRIPTION, QTY, UNIT, PRICE, SUB"& _ 
                 "_TOTAL FROM S_INVOICE_DETAIL WHERE (IN_DETAIL_ID = SCOPE_IDENTITY())"
             Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@INVOICE_NO", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "INVOICE_NO", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DESCRIPTION", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DESCRIPTION", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@QTY", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "QTY", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@UNIT", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "UNIT", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PRICE", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 2, "PRICE", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@SUB_TOTAL", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 2, "SUB_TOTAL", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@INVOICE_NO", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "INVOICE_NO", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DESCRIPTION", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DESCRIPTION", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@QTY", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "QTY", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@UNIT", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "UNIT", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PRICE", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 2, "PRICE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@SUB_TOTAL", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 2, "SUB_TOTAL", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand = New Global.System.Data.SqlClient.SqlCommand
             Me._adapter.UpdateCommand.Connection = Me.Connection
-            Me._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[S_INVOICE_DETAIL] SET [INVOICE_NO] = @INVOICE_NO, [DESCRIPTION] = @" & _
-                "DESCRIPTION, [QTY] = @QTY, [UNIT] = @UNIT, [PRICE] = @PRICE, [SUB_TOTAL] = @SUB_" & _
-                "TOTAL WHERE (([IN_DETAIL_ID] = @Original_IN_DETAIL_ID) AND ((@IsNull_INVOICE_NO " & _
-                "= 1 AND [INVOICE_NO] IS NULL) OR ([INVOICE_NO] = @Original_INVOICE_NO)) AND ((@I" & _
-                "sNull_DESCRIPTION = 1 AND [DESCRIPTION] IS NULL) OR ([DESCRIPTION] = @Original_D" & _
-                "ESCRIPTION)) AND ((@IsNull_QTY = 1 AND [QTY] IS NULL) OR ([QTY] = @Original_QTY)" & _
-                ") AND ((@IsNull_UNIT = 1 AND [UNIT] IS NULL) OR ([UNIT] = @Original_UNIT)) AND (" & _
-                "(@IsNull_PRICE = 1 AND [PRICE] IS NULL) OR ([PRICE] = @Original_PRICE)) AND ((@I" & _
-                "sNull_SUB_TOTAL = 1 AND [SUB_TOTAL] IS NULL) OR ([SUB_TOTAL] = @Original_SUB_TOT" & _
-                "AL)));" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "SELECT IN_DETAIL_ID, INVOICE_NO, DESCRIPTION, QTY, UNIT, PRICE, SUB_TOTA" & _
+            Me._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[S_INVOICE_DETAIL] SET [INVOICE_NO] = @INVOICE_NO, [DESCRIPTION] = @"& _ 
+                "DESCRIPTION, [QTY] = @QTY, [UNIT] = @UNIT, [PRICE] = @PRICE, [SUB_TOTAL] = @SUB_"& _ 
+                "TOTAL WHERE (([IN_DETAIL_ID] = @Original_IN_DETAIL_ID) AND ((@IsNull_INVOICE_NO "& _ 
+                "= 1 AND [INVOICE_NO] IS NULL) OR ([INVOICE_NO] = @Original_INVOICE_NO)) AND ((@I"& _ 
+                "sNull_DESCRIPTION = 1 AND [DESCRIPTION] IS NULL) OR ([DESCRIPTION] = @Original_D"& _ 
+                "ESCRIPTION)) AND ((@IsNull_QTY = 1 AND [QTY] IS NULL) OR ([QTY] = @Original_QTY)"& _ 
+                ") AND ((@IsNull_UNIT = 1 AND [UNIT] IS NULL) OR ([UNIT] = @Original_UNIT)) AND ("& _ 
+                "(@IsNull_PRICE = 1 AND [PRICE] IS NULL) OR ([PRICE] = @Original_PRICE)) AND ((@I"& _ 
+                "sNull_SUB_TOTAL = 1 AND [SUB_TOTAL] IS NULL) OR ([SUB_TOTAL] = @Original_SUB_TOT"& _ 
+                "AL)));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT IN_DETAIL_ID, INVOICE_NO, DESCRIPTION, QTY, UNIT, PRICE, SUB_TOTA"& _ 
                 "L FROM S_INVOICE_DETAIL WHERE (IN_DETAIL_ID = @IN_DETAIL_ID)"
             Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@INVOICE_NO", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "INVOICE_NO", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DESCRIPTION", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DESCRIPTION", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@QTY", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "QTY", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@UNIT", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "UNIT", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PRICE", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 2, "PRICE", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@SUB_TOTAL", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 2, "SUB_TOTAL", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_IN_DETAIL_ID", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "IN_DETAIL_ID", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_INVOICE_NO", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "INVOICE_NO", Global.System.Data.DataRowVersion.Original, True, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_INVOICE_NO", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "INVOICE_NO", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_DESCRIPTION", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DESCRIPTION", Global.System.Data.DataRowVersion.Original, True, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_DESCRIPTION", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DESCRIPTION", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_QTY", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "QTY", Global.System.Data.DataRowVersion.Original, True, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_QTY", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "QTY", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_UNIT", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "UNIT", Global.System.Data.DataRowVersion.Original, True, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_UNIT", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "UNIT", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_PRICE", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "PRICE", Global.System.Data.DataRowVersion.Original, True, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_PRICE", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 2, "PRICE", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_SUB_TOTAL", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "SUB_TOTAL", Global.System.Data.DataRowVersion.Original, True, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_SUB_TOTAL", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 2, "SUB_TOTAL", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IN_DETAIL_ID", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "IN_DETAIL_ID", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@INVOICE_NO", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "INVOICE_NO", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DESCRIPTION", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DESCRIPTION", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@QTY", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "QTY", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@UNIT", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "UNIT", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PRICE", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 2, "PRICE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@SUB_TOTAL", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 2, "SUB_TOTAL", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_IN_DETAIL_ID", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "IN_DETAIL_ID", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_INVOICE_NO", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "INVOICE_NO", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_INVOICE_NO", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "INVOICE_NO", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_DESCRIPTION", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DESCRIPTION", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_DESCRIPTION", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DESCRIPTION", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_QTY", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "QTY", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_QTY", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "QTY", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_UNIT", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "UNIT", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_UNIT", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "UNIT", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_PRICE", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "PRICE", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_PRICE", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 2, "PRICE", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_SUB_TOTAL", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "SUB_TOTAL", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_SUB_TOTAL", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 2, "SUB_TOTAL", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IN_DETAIL_ID", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "IN_DETAIL_ID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
         End Sub
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Private Sub InitConnection()
             Me._connection = New Global.System.Data.SqlClient.SqlConnection
             Me._connection.ConnectionString = Global.HospitalMS.My.MySettings.Default.AppConnection
         End Sub
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Private Sub InitCommandCollection()
             Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(2) {}
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT IN_DETAIL_ID, INVOICE_NO, DESCRIPTION, QTY, UNIT, PRICE, SUB_TOTAL FROM db" & _
+            Me._commandCollection(0).CommandText = "SELECT IN_DETAIL_ID, INVOICE_NO, DESCRIPTION, QTY, UNIT, PRICE, SUB_TOTAL FROM db"& _ 
                 "o.S_INVOICE_DETAIL"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(1) = New Global.System.Data.SqlClient.SqlCommand
             Me._commandCollection(1).Connection = Me.Connection
-            Me._commandCollection(1).CommandText = "SELECT IN_DETAIL_ID, INVOICE_NO, DESCRIPTION, QTY, UNIT, PRICE, SUB_TOTAL FROM db" & _
-                "o.S_INVOICE_DETAIL" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "WHERE" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "INVOICE_NO=@INVOICE_NO"
+            Me._commandCollection(1).CommandText = "SELECT IN_DETAIL_ID, INVOICE_NO, DESCRIPTION, QTY, UNIT, PRICE, SUB_TOTAL FROM db"& _ 
+                "o.S_INVOICE_DETAIL"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"INVOICE_NO=@INVOICE_NO"
             Me._commandCollection(1).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@INVOICE_NO", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "INVOICE_NO", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@INVOICE_NO", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "INVOICE_NO", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(2) = New Global.System.Data.SqlClient.SqlCommand
             Me._commandCollection(2).Connection = Me.Connection
-            Me._commandCollection(2).CommandText = "INSERT INTO [dbo].[S_INVOICE_DETAIL] ([INVOICE_NO], [DESCRIPTION], [QTY], [UNIT]," & _
-                " [PRICE], [SUB_TOTAL]) VALUES (@INVOICE_NO, @DESCRIPTION, @QTY, @UNIT, @PRICE, @" & _
-                "SUB_TOTAL);" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
+            Me._commandCollection(2).CommandText = "INSERT INTO [dbo].[S_INVOICE_DETAIL] ([INVOICE_NO], [DESCRIPTION], [QTY], [UNIT],"& _ 
+                " [PRICE], [SUB_TOTAL]) VALUES (@INVOICE_NO, @DESCRIPTION, @QTY, @UNIT, @PRICE, @"& _ 
+                "SUB_TOTAL);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)
             Me._commandCollection(2).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@INVOICE_NO", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "INVOICE_NO", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DESCRIPTION", Global.System.Data.SqlDbType.NVarChar, 150, Global.System.Data.ParameterDirection.Input, 0, 0, "DESCRIPTION", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@QTY", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "QTY", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@UNIT", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "UNIT", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PRICE", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 2, "PRICE", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@SUB_TOTAL", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 2, "SUB_TOTAL", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@INVOICE_NO", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "INVOICE_NO", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DESCRIPTION", Global.System.Data.SqlDbType.NVarChar, 150, Global.System.Data.ParameterDirection.Input, 0, 0, "DESCRIPTION", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@QTY", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "QTY", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@UNIT", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "UNIT", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PRICE", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 2, "PRICE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@SUB_TOTAL", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 2, "SUB_TOTAL", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
         End Sub
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, True)> _
-        Public Overridable Overloads Function Fill(ByVal dataTable As DS_KSPAYMENT.S_INVOICE_DETAILDataTable) As Integer
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, true)>  _
+        Public Overloads Overridable Function Fill(ByVal dataTable As DS_KSPAYMENT.S_INVOICE_DETAILDataTable) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
-            If (Me.ClearBeforeFill = True) Then
-                dataTable.Clear()
+            If (Me.ClearBeforeFill = true) Then
+                dataTable.Clear
             End If
             Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
             Return returnValue
         End Function
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], True)> _
-        Public Overridable Overloads Function GetData() As DS_KSPAYMENT.S_INVOICE_DETAILDataTable
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], true)>  _
+        Public Overloads Overridable Function GetData() As DS_KSPAYMENT.S_INVOICE_DETAILDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
             Dim dataTable As DS_KSPAYMENT.S_INVOICE_DETAILDataTable = New DS_KSPAYMENT.S_INVOICE_DETAILDataTable
             Me.Adapter.Fill(dataTable)
             Return dataTable
         End Function
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, False)> _
-        Public Overridable Overloads Function FillBy(ByVal dataTable As DS_KSPAYMENT.S_INVOICE_DETAILDataTable, ByVal INVOICE_NO As Global.System.Nullable(Of Decimal)) As Integer
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
+        Public Overloads Overridable Function FillBy(ByVal dataTable As DS_KSPAYMENT.S_INVOICE_DETAILDataTable, ByVal INVOICE_NO As Global.System.Nullable(Of Decimal)) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(1)
-            If (INVOICE_NO.HasValue = True) Then
-                Me.Adapter.SelectCommand.Parameters(0).Value = CType(INVOICE_NO.Value, Decimal)
+            If (INVOICE_NO.HasValue = true) Then
+                Me.Adapter.SelectCommand.Parameters(0).Value = CType(INVOICE_NO.Value,Decimal)
             Else
                 Me.Adapter.SelectCommand.Parameters(0).Value = Global.System.DBNull.Value
             End If
-            If (Me.ClearBeforeFill = True) Then
-                dataTable.Clear()
+            If (Me.ClearBeforeFill = true) Then
+                dataTable.Clear
             End If
             Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
             Return returnValue
         End Function
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], False)> _
-        Public Overridable Overloads Function SelectByInvoiceNo(ByVal INVOICE_NO As Global.System.Nullable(Of Decimal)) As DS_KSPAYMENT.S_INVOICE_DETAILDataTable
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
+        Public Overloads Overridable Function SelectByInvoiceNo(ByVal INVOICE_NO As Global.System.Nullable(Of Decimal)) As DS_KSPAYMENT.S_INVOICE_DETAILDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(1)
-            If (INVOICE_NO.HasValue = True) Then
-                Me.Adapter.SelectCommand.Parameters(0).Value = CType(INVOICE_NO.Value, Decimal)
+            If (INVOICE_NO.HasValue = true) Then
+                Me.Adapter.SelectCommand.Parameters(0).Value = CType(INVOICE_NO.Value,Decimal)
             Else
                 Me.Adapter.SelectCommand.Parameters(0).Value = Global.System.DBNull.Value
             End If
@@ -12309,342 +13074,342 @@ Namespace DS_KSPAYMENTTableAdapters
             Me.Adapter.Fill(dataTable)
             Return dataTable
         End Function
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")> _
-        Public Overridable Overloads Function Update(ByVal dataTable As DS_KSPAYMENT.S_INVOICE_DETAILDataTable) As Integer
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+        Public Overloads Overridable Function Update(ByVal dataTable As DS_KSPAYMENT.S_INVOICE_DETAILDataTable) As Integer
             Return Me.Adapter.Update(dataTable)
         End Function
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")> _
-        Public Overridable Overloads Function Update(ByVal dataSet As DS_KSPAYMENT) As Integer
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+        Public Overloads Overridable Function Update(ByVal dataSet As DS_KSPAYMENT) As Integer
             Return Me.Adapter.Update(dataSet, "S_INVOICE_DETAIL")
         End Function
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")> _
-        Public Overridable Overloads Function Update(ByVal dataRow As Global.System.Data.DataRow) As Integer
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+        Public Overloads Overridable Function Update(ByVal dataRow As Global.System.Data.DataRow) As Integer
             Return Me.Adapter.Update(New Global.System.Data.DataRow() {dataRow})
         End Function
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")> _
-        Public Overridable Overloads Function Update(ByVal dataRows() As Global.System.Data.DataRow) As Integer
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+        Public Overloads Overridable Function Update(ByVal dataRows() As Global.System.Data.DataRow) As Integer
             Return Me.Adapter.Update(dataRows)
         End Function
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Delete, True)> _
-        Public Overridable Overloads Function Delete(ByVal Original_IN_DETAIL_ID As Decimal, ByVal Original_INVOICE_NO As Global.System.Nullable(Of Decimal), ByVal Original_DESCRIPTION As String, ByVal Original_QTY As String, ByVal Original_UNIT As String, ByVal Original_PRICE As Global.System.Nullable(Of Decimal), ByVal Original_SUB_TOTAL As Global.System.Nullable(Of Decimal)) As Integer
-            Me.Adapter.DeleteCommand.Parameters(0).Value = CType(Original_IN_DETAIL_ID, Decimal)
-            If (Original_INVOICE_NO.HasValue = True) Then
-                Me.Adapter.DeleteCommand.Parameters(1).Value = CType(0, Object)
-                Me.Adapter.DeleteCommand.Parameters(2).Value = CType(Original_INVOICE_NO.Value, Decimal)
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Delete, true)>  _
+        Public Overloads Overridable Function Delete(ByVal Original_IN_DETAIL_ID As Decimal, ByVal Original_INVOICE_NO As Global.System.Nullable(Of Decimal), ByVal Original_DESCRIPTION As String, ByVal Original_QTY As String, ByVal Original_UNIT As String, ByVal Original_PRICE As Global.System.Nullable(Of Decimal), ByVal Original_SUB_TOTAL As Global.System.Nullable(Of Decimal)) As Integer
+            Me.Adapter.DeleteCommand.Parameters(0).Value = CType(Original_IN_DETAIL_ID,Decimal)
+            If (Original_INVOICE_NO.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(1).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(2).Value = CType(Original_INVOICE_NO.Value,Decimal)
             Else
-                Me.Adapter.DeleteCommand.Parameters(1).Value = CType(1, Object)
+                Me.Adapter.DeleteCommand.Parameters(1).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(2).Value = Global.System.DBNull.Value
             End If
             If (Original_DESCRIPTION Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(3).Value = CType(1, Object)
+                Me.Adapter.DeleteCommand.Parameters(3).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(4).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.DeleteCommand.Parameters(3).Value = CType(0, Object)
-                Me.Adapter.DeleteCommand.Parameters(4).Value = CType(Original_DESCRIPTION, String)
+                Me.Adapter.DeleteCommand.Parameters(3).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(4).Value = CType(Original_DESCRIPTION,String)
             End If
             If (Original_QTY Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(5).Value = CType(1, Object)
+                Me.Adapter.DeleteCommand.Parameters(5).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(6).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.DeleteCommand.Parameters(5).Value = CType(0, Object)
-                Me.Adapter.DeleteCommand.Parameters(6).Value = CType(Original_QTY, String)
+                Me.Adapter.DeleteCommand.Parameters(5).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(6).Value = CType(Original_QTY,String)
             End If
             If (Original_UNIT Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(7).Value = CType(1, Object)
+                Me.Adapter.DeleteCommand.Parameters(7).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(8).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.DeleteCommand.Parameters(7).Value = CType(0, Object)
-                Me.Adapter.DeleteCommand.Parameters(8).Value = CType(Original_UNIT, String)
+                Me.Adapter.DeleteCommand.Parameters(7).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(8).Value = CType(Original_UNIT,String)
             End If
-            If (Original_PRICE.HasValue = True) Then
-                Me.Adapter.DeleteCommand.Parameters(9).Value = CType(0, Object)
-                Me.Adapter.DeleteCommand.Parameters(10).Value = CType(Original_PRICE.Value, Decimal)
+            If (Original_PRICE.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(9).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(10).Value = CType(Original_PRICE.Value,Decimal)
             Else
-                Me.Adapter.DeleteCommand.Parameters(9).Value = CType(1, Object)
+                Me.Adapter.DeleteCommand.Parameters(9).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(10).Value = Global.System.DBNull.Value
             End If
-            If (Original_SUB_TOTAL.HasValue = True) Then
-                Me.Adapter.DeleteCommand.Parameters(11).Value = CType(0, Object)
-                Me.Adapter.DeleteCommand.Parameters(12).Value = CType(Original_SUB_TOTAL.Value, Decimal)
+            If (Original_SUB_TOTAL.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(11).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(12).Value = CType(Original_SUB_TOTAL.Value,Decimal)
             Else
-                Me.Adapter.DeleteCommand.Parameters(11).Value = CType(1, Object)
+                Me.Adapter.DeleteCommand.Parameters(11).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(12).Value = Global.System.DBNull.Value
             End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.DeleteCommand.Connection.State
-            If ((Me.Adapter.DeleteCommand.Connection.State And Global.System.Data.ConnectionState.Open) _
+            If ((Me.Adapter.DeleteCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
-                Me.Adapter.DeleteCommand.Connection.Open()
+                Me.Adapter.DeleteCommand.Connection.Open
             End If
-            Try
+            Try 
                 Dim returnValue As Integer = Me.Adapter.DeleteCommand.ExecuteNonQuery
                 Return returnValue
             Finally
                 If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
-                    Me.Adapter.DeleteCommand.Connection.Close()
+                    Me.Adapter.DeleteCommand.Connection.Close
                 End If
             End Try
         End Function
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, True)> _
-        Public Overridable Overloads Function Insert(ByVal INVOICE_NO As Global.System.Nullable(Of Decimal), ByVal DESCRIPTION As String, ByVal QTY As String, ByVal UNIT As String, ByVal PRICE As Global.System.Nullable(Of Decimal), ByVal SUB_TOTAL As Global.System.Nullable(Of Decimal)) As Integer
-            If (INVOICE_NO.HasValue = True) Then
-                Me.Adapter.InsertCommand.Parameters(0).Value = CType(INVOICE_NO.Value, Decimal)
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, true)>  _
+        Public Overloads Overridable Function Insert(ByVal INVOICE_NO As Global.System.Nullable(Of Decimal), ByVal DESCRIPTION As String, ByVal QTY As String, ByVal UNIT As String, ByVal PRICE As Global.System.Nullable(Of Decimal), ByVal SUB_TOTAL As Global.System.Nullable(Of Decimal)) As Integer
+            If (INVOICE_NO.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(0).Value = CType(INVOICE_NO.Value,Decimal)
             Else
                 Me.Adapter.InsertCommand.Parameters(0).Value = Global.System.DBNull.Value
             End If
             If (DESCRIPTION Is Nothing) Then
                 Me.Adapter.InsertCommand.Parameters(1).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.InsertCommand.Parameters(1).Value = CType(DESCRIPTION, String)
+                Me.Adapter.InsertCommand.Parameters(1).Value = CType(DESCRIPTION,String)
             End If
             If (QTY Is Nothing) Then
                 Me.Adapter.InsertCommand.Parameters(2).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.InsertCommand.Parameters(2).Value = CType(QTY, String)
+                Me.Adapter.InsertCommand.Parameters(2).Value = CType(QTY,String)
             End If
             If (UNIT Is Nothing) Then
                 Me.Adapter.InsertCommand.Parameters(3).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.InsertCommand.Parameters(3).Value = CType(UNIT, String)
+                Me.Adapter.InsertCommand.Parameters(3).Value = CType(UNIT,String)
             End If
-            If (PRICE.HasValue = True) Then
-                Me.Adapter.InsertCommand.Parameters(4).Value = CType(PRICE.Value, Decimal)
+            If (PRICE.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(4).Value = CType(PRICE.Value,Decimal)
             Else
                 Me.Adapter.InsertCommand.Parameters(4).Value = Global.System.DBNull.Value
             End If
-            If (SUB_TOTAL.HasValue = True) Then
-                Me.Adapter.InsertCommand.Parameters(5).Value = CType(SUB_TOTAL.Value, Decimal)
+            If (SUB_TOTAL.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(5).Value = CType(SUB_TOTAL.Value,Decimal)
             Else
                 Me.Adapter.InsertCommand.Parameters(5).Value = Global.System.DBNull.Value
             End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.InsertCommand.Connection.State
-            If ((Me.Adapter.InsertCommand.Connection.State And Global.System.Data.ConnectionState.Open) _
+            If ((Me.Adapter.InsertCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
-                Me.Adapter.InsertCommand.Connection.Open()
+                Me.Adapter.InsertCommand.Connection.Open
             End If
-            Try
+            Try 
                 Dim returnValue As Integer = Me.Adapter.InsertCommand.ExecuteNonQuery
                 Return returnValue
             Finally
                 If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
-                    Me.Adapter.InsertCommand.Connection.Close()
+                    Me.Adapter.InsertCommand.Connection.Close
                 End If
             End Try
         End Function
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, True)> _
-        Public Overridable Overloads Function Update(ByVal INVOICE_NO As Global.System.Nullable(Of Decimal), ByVal DESCRIPTION As String, ByVal QTY As String, ByVal UNIT As String, ByVal PRICE As Global.System.Nullable(Of Decimal), ByVal SUB_TOTAL As Global.System.Nullable(Of Decimal), ByVal Original_IN_DETAIL_ID As Decimal, ByVal Original_INVOICE_NO As Global.System.Nullable(Of Decimal), ByVal Original_DESCRIPTION As String, ByVal Original_QTY As String, ByVal Original_UNIT As String, ByVal Original_PRICE As Global.System.Nullable(Of Decimal), ByVal Original_SUB_TOTAL As Global.System.Nullable(Of Decimal), ByVal IN_DETAIL_ID As Decimal) As Integer
-            If (INVOICE_NO.HasValue = True) Then
-                Me.Adapter.UpdateCommand.Parameters(0).Value = CType(INVOICE_NO.Value, Decimal)
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
+        Public Overloads Overridable Function Update(ByVal INVOICE_NO As Global.System.Nullable(Of Decimal), ByVal DESCRIPTION As String, ByVal QTY As String, ByVal UNIT As String, ByVal PRICE As Global.System.Nullable(Of Decimal), ByVal SUB_TOTAL As Global.System.Nullable(Of Decimal), ByVal Original_IN_DETAIL_ID As Decimal, ByVal Original_INVOICE_NO As Global.System.Nullable(Of Decimal), ByVal Original_DESCRIPTION As String, ByVal Original_QTY As String, ByVal Original_UNIT As String, ByVal Original_PRICE As Global.System.Nullable(Of Decimal), ByVal Original_SUB_TOTAL As Global.System.Nullable(Of Decimal), ByVal IN_DETAIL_ID As Decimal) As Integer
+            If (INVOICE_NO.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(0).Value = CType(INVOICE_NO.Value,Decimal)
             Else
                 Me.Adapter.UpdateCommand.Parameters(0).Value = Global.System.DBNull.Value
             End If
             If (DESCRIPTION Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(1).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(1).Value = CType(DESCRIPTION, String)
+                Me.Adapter.UpdateCommand.Parameters(1).Value = CType(DESCRIPTION,String)
             End If
             If (QTY Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(2).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(2).Value = CType(QTY, String)
+                Me.Adapter.UpdateCommand.Parameters(2).Value = CType(QTY,String)
             End If
             If (UNIT Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(3).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(3).Value = CType(UNIT, String)
+                Me.Adapter.UpdateCommand.Parameters(3).Value = CType(UNIT,String)
             End If
-            If (PRICE.HasValue = True) Then
-                Me.Adapter.UpdateCommand.Parameters(4).Value = CType(PRICE.Value, Decimal)
+            If (PRICE.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(4).Value = CType(PRICE.Value,Decimal)
             Else
                 Me.Adapter.UpdateCommand.Parameters(4).Value = Global.System.DBNull.Value
             End If
-            If (SUB_TOTAL.HasValue = True) Then
-                Me.Adapter.UpdateCommand.Parameters(5).Value = CType(SUB_TOTAL.Value, Decimal)
+            If (SUB_TOTAL.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(5).Value = CType(SUB_TOTAL.Value,Decimal)
             Else
                 Me.Adapter.UpdateCommand.Parameters(5).Value = Global.System.DBNull.Value
             End If
-            Me.Adapter.UpdateCommand.Parameters(6).Value = CType(Original_IN_DETAIL_ID, Decimal)
-            If (Original_INVOICE_NO.HasValue = True) Then
-                Me.Adapter.UpdateCommand.Parameters(7).Value = CType(0, Object)
-                Me.Adapter.UpdateCommand.Parameters(8).Value = CType(Original_INVOICE_NO.Value, Decimal)
+            Me.Adapter.UpdateCommand.Parameters(6).Value = CType(Original_IN_DETAIL_ID,Decimal)
+            If (Original_INVOICE_NO.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(7).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(8).Value = CType(Original_INVOICE_NO.Value,Decimal)
             Else
-                Me.Adapter.UpdateCommand.Parameters(7).Value = CType(1, Object)
+                Me.Adapter.UpdateCommand.Parameters(7).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(8).Value = Global.System.DBNull.Value
             End If
             If (Original_DESCRIPTION Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(9).Value = CType(1, Object)
+                Me.Adapter.UpdateCommand.Parameters(9).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(10).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(9).Value = CType(0, Object)
-                Me.Adapter.UpdateCommand.Parameters(10).Value = CType(Original_DESCRIPTION, String)
+                Me.Adapter.UpdateCommand.Parameters(9).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(10).Value = CType(Original_DESCRIPTION,String)
             End If
             If (Original_QTY Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(11).Value = CType(1, Object)
+                Me.Adapter.UpdateCommand.Parameters(11).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(12).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(11).Value = CType(0, Object)
-                Me.Adapter.UpdateCommand.Parameters(12).Value = CType(Original_QTY, String)
+                Me.Adapter.UpdateCommand.Parameters(11).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(12).Value = CType(Original_QTY,String)
             End If
             If (Original_UNIT Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(13).Value = CType(1, Object)
+                Me.Adapter.UpdateCommand.Parameters(13).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(14).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(13).Value = CType(0, Object)
-                Me.Adapter.UpdateCommand.Parameters(14).Value = CType(Original_UNIT, String)
+                Me.Adapter.UpdateCommand.Parameters(13).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(14).Value = CType(Original_UNIT,String)
             End If
-            If (Original_PRICE.HasValue = True) Then
-                Me.Adapter.UpdateCommand.Parameters(15).Value = CType(0, Object)
-                Me.Adapter.UpdateCommand.Parameters(16).Value = CType(Original_PRICE.Value, Decimal)
+            If (Original_PRICE.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(15).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(16).Value = CType(Original_PRICE.Value,Decimal)
             Else
-                Me.Adapter.UpdateCommand.Parameters(15).Value = CType(1, Object)
+                Me.Adapter.UpdateCommand.Parameters(15).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(16).Value = Global.System.DBNull.Value
             End If
-            If (Original_SUB_TOTAL.HasValue = True) Then
-                Me.Adapter.UpdateCommand.Parameters(17).Value = CType(0, Object)
-                Me.Adapter.UpdateCommand.Parameters(18).Value = CType(Original_SUB_TOTAL.Value, Decimal)
+            If (Original_SUB_TOTAL.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(17).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(18).Value = CType(Original_SUB_TOTAL.Value,Decimal)
             Else
-                Me.Adapter.UpdateCommand.Parameters(17).Value = CType(1, Object)
+                Me.Adapter.UpdateCommand.Parameters(17).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(18).Value = Global.System.DBNull.Value
             End If
-            Me.Adapter.UpdateCommand.Parameters(19).Value = CType(IN_DETAIL_ID, Decimal)
+            Me.Adapter.UpdateCommand.Parameters(19).Value = CType(IN_DETAIL_ID,Decimal)
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.UpdateCommand.Connection.State
-            If ((Me.Adapter.UpdateCommand.Connection.State And Global.System.Data.ConnectionState.Open) _
+            If ((Me.Adapter.UpdateCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
-                Me.Adapter.UpdateCommand.Connection.Open()
+                Me.Adapter.UpdateCommand.Connection.Open
             End If
-            Try
+            Try 
                 Dim returnValue As Integer = Me.Adapter.UpdateCommand.ExecuteNonQuery
                 Return returnValue
             Finally
                 If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
-                    Me.Adapter.UpdateCommand.Connection.Close()
+                    Me.Adapter.UpdateCommand.Connection.Close
                 End If
             End Try
         End Function
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, True)> _
-        Public Overridable Overloads Function Update(ByVal INVOICE_NO As Global.System.Nullable(Of Decimal), ByVal DESCRIPTION As String, ByVal QTY As String, ByVal UNIT As String, ByVal PRICE As Global.System.Nullable(Of Decimal), ByVal SUB_TOTAL As Global.System.Nullable(Of Decimal), ByVal Original_IN_DETAIL_ID As Decimal, ByVal Original_INVOICE_NO As Global.System.Nullable(Of Decimal), ByVal Original_DESCRIPTION As String, ByVal Original_QTY As String, ByVal Original_UNIT As String, ByVal Original_PRICE As Global.System.Nullable(Of Decimal), ByVal Original_SUB_TOTAL As Global.System.Nullable(Of Decimal)) As Integer
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
+        Public Overloads Overridable Function Update(ByVal INVOICE_NO As Global.System.Nullable(Of Decimal), ByVal DESCRIPTION As String, ByVal QTY As String, ByVal UNIT As String, ByVal PRICE As Global.System.Nullable(Of Decimal), ByVal SUB_TOTAL As Global.System.Nullable(Of Decimal), ByVal Original_IN_DETAIL_ID As Decimal, ByVal Original_INVOICE_NO As Global.System.Nullable(Of Decimal), ByVal Original_DESCRIPTION As String, ByVal Original_QTY As String, ByVal Original_UNIT As String, ByVal Original_PRICE As Global.System.Nullable(Of Decimal), ByVal Original_SUB_TOTAL As Global.System.Nullable(Of Decimal)) As Integer
             Return Me.Update(INVOICE_NO, DESCRIPTION, QTY, UNIT, PRICE, SUB_TOTAL, Original_IN_DETAIL_ID, Original_INVOICE_NO, Original_DESCRIPTION, Original_QTY, Original_UNIT, Original_PRICE, Original_SUB_TOTAL, Original_IN_DETAIL_ID)
         End Function
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, False)> _
-        Public Overridable Overloads Function InsertInvoiceDetail(ByVal INVOICE_NO As Global.System.Nullable(Of Decimal), ByVal DESCRIPTION As String, ByVal QTY As String, ByVal UNIT As String, ByVal PRICE As Global.System.Nullable(Of Decimal), ByVal SUB_TOTAL As Global.System.Nullable(Of Decimal)) As Integer
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, false)>  _
+        Public Overloads Overridable Function InsertInvoiceDetail(ByVal INVOICE_NO As Global.System.Nullable(Of Decimal), ByVal DESCRIPTION As String, ByVal QTY As String, ByVal UNIT As String, ByVal PRICE As Global.System.Nullable(Of Decimal), ByVal SUB_TOTAL As Global.System.Nullable(Of Decimal)) As Integer
             Dim command As Global.System.Data.SqlClient.SqlCommand = Me.CommandCollection(2)
-            If (INVOICE_NO.HasValue = True) Then
-                command.Parameters(0).Value = CType(INVOICE_NO.Value, Decimal)
+            If (INVOICE_NO.HasValue = true) Then
+                command.Parameters(0).Value = CType(INVOICE_NO.Value,Decimal)
             Else
                 command.Parameters(0).Value = Global.System.DBNull.Value
             End If
             If (DESCRIPTION Is Nothing) Then
                 command.Parameters(1).Value = Global.System.DBNull.Value
             Else
-                command.Parameters(1).Value = CType(DESCRIPTION, String)
+                command.Parameters(1).Value = CType(DESCRIPTION,String)
             End If
             If (QTY Is Nothing) Then
                 command.Parameters(2).Value = Global.System.DBNull.Value
             Else
-                command.Parameters(2).Value = CType(QTY, String)
+                command.Parameters(2).Value = CType(QTY,String)
             End If
             If (UNIT Is Nothing) Then
                 command.Parameters(3).Value = Global.System.DBNull.Value
             Else
-                command.Parameters(3).Value = CType(UNIT, String)
+                command.Parameters(3).Value = CType(UNIT,String)
             End If
-            If (PRICE.HasValue = True) Then
-                command.Parameters(4).Value = CType(PRICE.Value, Decimal)
+            If (PRICE.HasValue = true) Then
+                command.Parameters(4).Value = CType(PRICE.Value,Decimal)
             Else
                 command.Parameters(4).Value = Global.System.DBNull.Value
             End If
-            If (SUB_TOTAL.HasValue = True) Then
-                command.Parameters(5).Value = CType(SUB_TOTAL.Value, Decimal)
+            If (SUB_TOTAL.HasValue = true) Then
+                command.Parameters(5).Value = CType(SUB_TOTAL.Value,Decimal)
             Else
                 command.Parameters(5).Value = Global.System.DBNull.Value
             End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = command.Connection.State
-            If ((command.Connection.State And Global.System.Data.ConnectionState.Open) _
+            If ((command.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
-                command.Connection.Open()
+                command.Connection.Open
             End If
             Dim returnValue As Integer
-            Try
+            Try 
                 returnValue = command.ExecuteNonQuery
             Finally
                 If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
-                    command.Connection.Close()
+                    command.Connection.Close
                 End If
             End Try
             Return returnValue
         End Function
     End Class
-
+    
     '''<summary>
     '''Represents the connection and commands used to retrieve and save data.
     '''</summary>
-    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0"), _
-     Global.System.ComponentModel.DesignerCategoryAttribute("code"), _
-     Global.System.ComponentModel.ToolboxItem(True), _
-     Global.System.ComponentModel.DataObjectAttribute(True), _
-     Global.System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" & _
-        ", Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"), _
-     Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")> _
+    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0"),  _
+     Global.System.ComponentModel.DesignerCategoryAttribute("code"),  _
+     Global.System.ComponentModel.ToolboxItem(true),  _
+     Global.System.ComponentModel.DataObjectAttribute(true),  _
+     Global.System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner"& _ 
+        ", Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"),  _
+     Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
     Partial Public Class S_INVOICE_KSR_VIEWTableAdapter
         Inherits Global.System.ComponentModel.Component
-
+        
         Private WithEvents _adapter As Global.System.Data.SqlClient.SqlDataAdapter
-
+        
         Private _connection As Global.System.Data.SqlClient.SqlConnection
-
+        
         Private _transaction As Global.System.Data.SqlClient.SqlTransaction
-
+        
         Private _commandCollection() As Global.System.Data.SqlClient.SqlCommand
-
+        
         Private _clearBeforeFill As Boolean
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Sub New()
-            MyBase.New()
-            Me.ClearBeforeFill = True
+            MyBase.New
+            Me.ClearBeforeFill = true
         End Sub
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Protected Friend ReadOnly Property Adapter() As Global.System.Data.SqlClient.SqlDataAdapter
             Get
                 If (Me._adapter Is Nothing) Then
-                    Me.InitAdapter()
+                    Me.InitAdapter
                 End If
                 Return Me._adapter
             End Get
         End Property
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Friend Property Connection() As Global.System.Data.SqlClient.SqlConnection
             Get
                 If (Me._connection Is Nothing) Then
-                    Me.InitConnection()
+                    Me.InitConnection
                 End If
                 Return Me._connection
             End Get
-            Set(ByVal value As Global.System.Data.SqlClient.SqlConnection)
+            Set
                 Me._connection = value
                 If (Not (Me.Adapter.InsertCommand) Is Nothing) Then
                     Me.Adapter.InsertCommand.Connection = value
@@ -12658,61 +13423,61 @@ Namespace DS_KSPAYMENTTableAdapters
                 Dim i As Integer = 0
                 Do While (i < Me.CommandCollection.Length)
                     If (Not (Me.CommandCollection(i)) Is Nothing) Then
-                        CType(Me.CommandCollection(i), Global.System.Data.SqlClient.SqlCommand).Connection = value
+                        CType(Me.CommandCollection(i),Global.System.Data.SqlClient.SqlCommand).Connection = value
                     End If
                     i = (i + 1)
                 Loop
             End Set
         End Property
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Friend Property Transaction() As Global.System.Data.SqlClient.SqlTransaction
             Get
                 Return Me._transaction
             End Get
-            Set(ByVal value As Global.System.Data.SqlClient.SqlTransaction)
+            Set
                 Me._transaction = value
                 Dim i As Integer = 0
                 Do While (i < Me.CommandCollection.Length)
                     Me.CommandCollection(i).Transaction = Me._transaction
                     i = (i + 1)
                 Loop
-                If ((Not (Me.Adapter) Is Nothing) _
+                If ((Not (Me.Adapter) Is Nothing)  _
                             AndAlso (Not (Me.Adapter.DeleteCommand) Is Nothing)) Then
                     Me.Adapter.DeleteCommand.Transaction = Me._transaction
                 End If
-                If ((Not (Me.Adapter) Is Nothing) _
+                If ((Not (Me.Adapter) Is Nothing)  _
                             AndAlso (Not (Me.Adapter.InsertCommand) Is Nothing)) Then
                     Me.Adapter.InsertCommand.Transaction = Me._transaction
                 End If
-                If ((Not (Me.Adapter) Is Nothing) _
+                If ((Not (Me.Adapter) Is Nothing)  _
                             AndAlso (Not (Me.Adapter.UpdateCommand) Is Nothing)) Then
                     Me.Adapter.UpdateCommand.Transaction = Me._transaction
                 End If
             End Set
         End Property
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Protected ReadOnly Property CommandCollection() As Global.System.Data.SqlClient.SqlCommand()
             Get
                 If (Me._commandCollection Is Nothing) Then
-                    Me.InitCommandCollection()
+                    Me.InitCommandCollection
                 End If
                 Return Me._commandCollection
             End Get
         End Property
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Property ClearBeforeFill() As Boolean
             Get
                 Return Me._clearBeforeFill
             End Get
-            Set(ByVal value As Boolean)
+            Set
                 Me._clearBeforeFill = value
             End Set
         End Property
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Private Sub InitAdapter()
             Me._adapter = New Global.System.Data.SqlClient.SqlDataAdapter
             Dim tableMapping As Global.System.Data.Common.DataTableMapping = New Global.System.Data.Common.DataTableMapping
@@ -12749,133 +13514,133 @@ Namespace DS_KSPAYMENTTableAdapters
             tableMapping.ColumnMappings.Add("DEPOSIT", "DEPOSIT")
             Me._adapter.TableMappings.Add(tableMapping)
         End Sub
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Private Sub InitConnection()
             Me._connection = New Global.System.Data.SqlClient.SqlConnection
             Me._connection.ConnectionString = Global.HospitalMS.My.MySettings.Default.AppConnection
         End Sub
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Private Sub InitCommandCollection()
             Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(1) {}
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT        INVOICE_ID, WAITING_ID, INVOICE_DATE, PATIENT_NO, PATIENT_NAME_ENG," & _
-                " PATIENT_NAME_KH, PATIENT_SEX, PATIENT_AGE, TOTAL, SUB_TOTAL, " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                " & _
-                "         EXCHANGE_RATE, CASH_RECEIVED, CHANG, RECEIVED_BY, TOTAL_DISCOUNT, DIS_C" & _
-                "ONSULT, DIS_OPERATION, DIS_MEDICINE, IS_DELETE, IN_DETAIL_ID, " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                " & _
-                "         DESCRIPTION, QTY, UNIT, PRICE, Expr1, IS_GLASSES, TOTAL_CONSULT, TOTAL_" & _
-                "MEDICINCE, DEPOSIT" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "FROM            S_INVOICE_KSR_VIEW"
+            Me._commandCollection(0).CommandText = "SELECT        INVOICE_ID, WAITING_ID, INVOICE_DATE, PATIENT_NO, PATIENT_NAME_ENG,"& _ 
+                " PATIENT_NAME_KH, PATIENT_SEX, PATIENT_AGE, TOTAL, SUB_TOTAL, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                "& _ 
+                "         EXCHANGE_RATE, CASH_RECEIVED, CHANG, RECEIVED_BY, TOTAL_DISCOUNT, DIS_C"& _ 
+                "ONSULT, DIS_OPERATION, DIS_MEDICINE, IS_DELETE, IN_DETAIL_ID, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                "& _ 
+                "         DESCRIPTION, QTY, UNIT, PRICE, Expr1, IS_GLASSES, TOTAL_CONSULT, TOTAL_"& _ 
+                "MEDICINCE, DEPOSIT"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            S_INVOICE_KSR_VIEW"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(1) = New Global.System.Data.SqlClient.SqlCommand
             Me._commandCollection(1).Connection = Me.Connection
-            Me._commandCollection(1).CommandText = "SELECT        CASH_RECEIVED, CHANG, DESCRIPTION, DIS_CONSULT, DIS_MEDICINE, DIS_O" & _
-                "PERATION, EXCHANGE_RATE, Expr1, INVOICE_DATE, INVOICE_ID, IN_DETAIL_ID, " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "      " & _
-                "                   IS_DELETE, IS_GLASSES, PATIENT_AGE, PATIENT_NAME_ENG, PATIENT" & _
-                "_NAME_KH, PATIENT_NO, PATIENT_SEX, PRICE, QTY, RECEIVED_BY, SUB_TOTAL, TOTAL, " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & _
-                "                         TOTAL_DISCOUNT, UNIT, WAITING_ID, TOTAL_CONSULT, TOTAL_" & _
-                "MEDICINCE, DEPOSIT" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "FROM            S_INVOICE_KSR_VIEW" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "WHERE        (INVOICE_ID" & _
+            Me._commandCollection(1).CommandText = "SELECT        CASH_RECEIVED, CHANG, DESCRIPTION, DIS_CONSULT, DIS_MEDICINE, DIS_O"& _ 
+                "PERATION, EXCHANGE_RATE, Expr1, INVOICE_DATE, INVOICE_ID, IN_DETAIL_ID, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"      "& _ 
+                "                   IS_DELETE, IS_GLASSES, PATIENT_AGE, PATIENT_NAME_ENG, PATIENT"& _ 
+                "_NAME_KH, PATIENT_NO, PATIENT_SEX, PRICE, QTY, RECEIVED_BY, SUB_TOTAL, TOTAL, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)& _ 
+                "                         TOTAL_DISCOUNT, UNIT, WAITING_ID, TOTAL_CONSULT, TOTAL_"& _ 
+                "MEDICINCE, DEPOSIT"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            S_INVOICE_KSR_VIEW"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (INVOICE_ID"& _ 
                 " = @INVOICE_ID)"
             Me._commandCollection(1).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@INVOICE_ID", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "INVOICE_ID", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@INVOICE_ID", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "INVOICE_ID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
         End Sub
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, True)> _
-        Public Overridable Overloads Function Fill(ByVal dataTable As DS_KSPAYMENT.S_INVOICE_KSR_VIEWDataTable) As Integer
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, true)>  _
+        Public Overloads Overridable Function Fill(ByVal dataTable As DS_KSPAYMENT.S_INVOICE_KSR_VIEWDataTable) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
-            If (Me.ClearBeforeFill = True) Then
-                dataTable.Clear()
+            If (Me.ClearBeforeFill = true) Then
+                dataTable.Clear
             End If
             Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
             Return returnValue
         End Function
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], True)> _
-        Public Overridable Overloads Function GetData() As DS_KSPAYMENT.S_INVOICE_KSR_VIEWDataTable
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], true)>  _
+        Public Overloads Overridable Function GetData() As DS_KSPAYMENT.S_INVOICE_KSR_VIEWDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
             Dim dataTable As DS_KSPAYMENT.S_INVOICE_KSR_VIEWDataTable = New DS_KSPAYMENT.S_INVOICE_KSR_VIEWDataTable
             Me.Adapter.Fill(dataTable)
             Return dataTable
         End Function
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, False)> _
-        Public Overridable Overloads Function FillBy(ByVal dataTable As DS_KSPAYMENT.S_INVOICE_KSR_VIEWDataTable, ByVal INVOICE_ID As Decimal) As Integer
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
+        Public Overloads Overridable Function FillBy(ByVal dataTable As DS_KSPAYMENT.S_INVOICE_KSR_VIEWDataTable, ByVal INVOICE_ID As Decimal) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(1)
-            Me.Adapter.SelectCommand.Parameters(0).Value = CType(INVOICE_ID, Decimal)
-            If (Me.ClearBeforeFill = True) Then
-                dataTable.Clear()
+            Me.Adapter.SelectCommand.Parameters(0).Value = CType(INVOICE_ID,Decimal)
+            If (Me.ClearBeforeFill = true) Then
+                dataTable.Clear
             End If
             Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
             Return returnValue
         End Function
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], False)> _
-        Public Overridable Overloads Function SelectByInvoiceID(ByVal INVOICE_ID As Decimal) As DS_KSPAYMENT.S_INVOICE_KSR_VIEWDataTable
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
+        Public Overloads Overridable Function SelectByInvoiceID(ByVal INVOICE_ID As Decimal) As DS_KSPAYMENT.S_INVOICE_KSR_VIEWDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(1)
-            Me.Adapter.SelectCommand.Parameters(0).Value = CType(INVOICE_ID, Decimal)
+            Me.Adapter.SelectCommand.Parameters(0).Value = CType(INVOICE_ID,Decimal)
             Dim dataTable As DS_KSPAYMENT.S_INVOICE_KSR_VIEWDataTable = New DS_KSPAYMENT.S_INVOICE_KSR_VIEWDataTable
             Me.Adapter.Fill(dataTable)
             Return dataTable
         End Function
     End Class
-
+    
     '''<summary>
     '''Represents the connection and commands used to retrieve and save data.
     '''</summary>
-    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0"), _
-     Global.System.ComponentModel.DesignerCategoryAttribute("code"), _
-     Global.System.ComponentModel.ToolboxItem(True), _
-     Global.System.ComponentModel.DataObjectAttribute(True), _
-     Global.System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" & _
-        ", Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"), _
-     Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")> _
+    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0"),  _
+     Global.System.ComponentModel.DesignerCategoryAttribute("code"),  _
+     Global.System.ComponentModel.ToolboxItem(true),  _
+     Global.System.ComponentModel.DataObjectAttribute(true),  _
+     Global.System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner"& _ 
+        ", Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"),  _
+     Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
     Partial Public Class S_TEM_LISTMEDICINE_PAYMENTTableAdapter
         Inherits Global.System.ComponentModel.Component
-
+        
         Private WithEvents _adapter As Global.System.Data.SqlClient.SqlDataAdapter
-
+        
         Private _connection As Global.System.Data.SqlClient.SqlConnection
-
+        
         Private _transaction As Global.System.Data.SqlClient.SqlTransaction
-
+        
         Private _commandCollection() As Global.System.Data.SqlClient.SqlCommand
-
+        
         Private _clearBeforeFill As Boolean
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Sub New()
-            MyBase.New()
-            Me.ClearBeforeFill = True
+            MyBase.New
+            Me.ClearBeforeFill = true
         End Sub
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Protected Friend ReadOnly Property Adapter() As Global.System.Data.SqlClient.SqlDataAdapter
             Get
                 If (Me._adapter Is Nothing) Then
-                    Me.InitAdapter()
+                    Me.InitAdapter
                 End If
                 Return Me._adapter
             End Get
         End Property
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Friend Property Connection() As Global.System.Data.SqlClient.SqlConnection
             Get
                 If (Me._connection Is Nothing) Then
-                    Me.InitConnection()
+                    Me.InitConnection
                 End If
                 Return Me._connection
             End Get
-            Set(ByVal value As Global.System.Data.SqlClient.SqlConnection)
+            Set
                 Me._connection = value
                 If (Not (Me.Adapter.InsertCommand) Is Nothing) Then
                     Me.Adapter.InsertCommand.Connection = value
@@ -12889,61 +13654,61 @@ Namespace DS_KSPAYMENTTableAdapters
                 Dim i As Integer = 0
                 Do While (i < Me.CommandCollection.Length)
                     If (Not (Me.CommandCollection(i)) Is Nothing) Then
-                        CType(Me.CommandCollection(i), Global.System.Data.SqlClient.SqlCommand).Connection = value
+                        CType(Me.CommandCollection(i),Global.System.Data.SqlClient.SqlCommand).Connection = value
                     End If
                     i = (i + 1)
                 Loop
             End Set
         End Property
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Friend Property Transaction() As Global.System.Data.SqlClient.SqlTransaction
             Get
                 Return Me._transaction
             End Get
-            Set(ByVal value As Global.System.Data.SqlClient.SqlTransaction)
+            Set
                 Me._transaction = value
                 Dim i As Integer = 0
                 Do While (i < Me.CommandCollection.Length)
                     Me.CommandCollection(i).Transaction = Me._transaction
                     i = (i + 1)
                 Loop
-                If ((Not (Me.Adapter) Is Nothing) _
+                If ((Not (Me.Adapter) Is Nothing)  _
                             AndAlso (Not (Me.Adapter.DeleteCommand) Is Nothing)) Then
                     Me.Adapter.DeleteCommand.Transaction = Me._transaction
                 End If
-                If ((Not (Me.Adapter) Is Nothing) _
+                If ((Not (Me.Adapter) Is Nothing)  _
                             AndAlso (Not (Me.Adapter.InsertCommand) Is Nothing)) Then
                     Me.Adapter.InsertCommand.Transaction = Me._transaction
                 End If
-                If ((Not (Me.Adapter) Is Nothing) _
+                If ((Not (Me.Adapter) Is Nothing)  _
                             AndAlso (Not (Me.Adapter.UpdateCommand) Is Nothing)) Then
                     Me.Adapter.UpdateCommand.Transaction = Me._transaction
                 End If
             End Set
         End Property
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Protected ReadOnly Property CommandCollection() As Global.System.Data.SqlClient.SqlCommand()
             Get
                 If (Me._commandCollection Is Nothing) Then
-                    Me.InitCommandCollection()
+                    Me.InitCommandCollection
                 End If
                 Return Me._commandCollection
             End Get
         End Property
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Property ClearBeforeFill() As Boolean
             Get
                 Return Me._clearBeforeFill
             End Get
-            Set(ByVal value As Boolean)
+            Set
                 Me._clearBeforeFill = value
             End Set
         End Property
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Private Sub InitAdapter()
             Me._adapter = New Global.System.Data.SqlClient.SqlDataAdapter
             Dim tableMapping As Global.System.Data.Common.DataTableMapping = New Global.System.Data.Common.DataTableMapping
@@ -12959,182 +13724,182 @@ Namespace DS_KSPAYMENTTableAdapters
             Me._adapter.TableMappings.Add(tableMapping)
             Me._adapter.DeleteCommand = New Global.System.Data.SqlClient.SqlCommand
             Me._adapter.DeleteCommand.Connection = Me.Connection
-            Me._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[S_TEM_LISTMEDICINE_PAYMENT] WHERE (([WAITING_NO_MEDICINE] = @O" & _
-                "riginal_WAITING_NO_MEDICINE) AND ((@IsNull_WAITING_NO = 1 AND [WAITING_NO] IS NU" & _
-                "LL) OR ([WAITING_NO] = @Original_WAITING_NO)) AND ((@IsNull_MEDICINE_ID = 1 AND " & _
-                "[MEDICINE_ID] IS NULL) OR ([MEDICINE_ID] = @Original_MEDICINE_ID)) AND ((@IsNull" & _
-                "_MEDICINE_NAME = 1 AND [MEDICINE_NAME] IS NULL) OR ([MEDICINE_NAME] = @Original_" & _
-                "MEDICINE_NAME)) AND ((@IsNull_MEDICINE_PRICE = 1 AND [MEDICINE_PRICE] IS NULL) O" & _
-                "R ([MEDICINE_PRICE] = @Original_MEDICINE_PRICE)) AND ((@IsNull_MEDICINE_QTY = 1 " & _
-                "AND [MEDICINE_QTY] IS NULL) OR ([MEDICINE_QTY] = @Original_MEDICINE_QTY)) AND ((" & _
-                "@IsNull_MEDICINE_TOTAL_PRICE = 1 AND [MEDICINE_TOTAL_PRICE] IS NULL) OR ([MEDICI" & _
+            Me._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[S_TEM_LISTMEDICINE_PAYMENT] WHERE (([WAITING_NO_MEDICINE] = @O"& _ 
+                "riginal_WAITING_NO_MEDICINE) AND ((@IsNull_WAITING_NO = 1 AND [WAITING_NO] IS NU"& _ 
+                "LL) OR ([WAITING_NO] = @Original_WAITING_NO)) AND ((@IsNull_MEDICINE_ID = 1 AND "& _ 
+                "[MEDICINE_ID] IS NULL) OR ([MEDICINE_ID] = @Original_MEDICINE_ID)) AND ((@IsNull"& _ 
+                "_MEDICINE_NAME = 1 AND [MEDICINE_NAME] IS NULL) OR ([MEDICINE_NAME] = @Original_"& _ 
+                "MEDICINE_NAME)) AND ((@IsNull_MEDICINE_PRICE = 1 AND [MEDICINE_PRICE] IS NULL) O"& _ 
+                "R ([MEDICINE_PRICE] = @Original_MEDICINE_PRICE)) AND ((@IsNull_MEDICINE_QTY = 1 "& _ 
+                "AND [MEDICINE_QTY] IS NULL) OR ([MEDICINE_QTY] = @Original_MEDICINE_QTY)) AND (("& _ 
+                "@IsNull_MEDICINE_TOTAL_PRICE = 1 AND [MEDICINE_TOTAL_PRICE] IS NULL) OR ([MEDICI"& _ 
                 "NE_TOTAL_PRICE] = @Original_MEDICINE_TOTAL_PRICE)))"
             Me._adapter.DeleteCommand.CommandType = Global.System.Data.CommandType.Text
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_WAITING_NO_MEDICINE", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "WAITING_NO_MEDICINE", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_WAITING_NO", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "WAITING_NO", Global.System.Data.DataRowVersion.Original, True, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_WAITING_NO", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "WAITING_NO", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_MEDICINE_ID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "MEDICINE_ID", Global.System.Data.DataRowVersion.Original, True, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_MEDICINE_ID", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "MEDICINE_ID", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_MEDICINE_NAME", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "MEDICINE_NAME", Global.System.Data.DataRowVersion.Original, True, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_MEDICINE_NAME", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "MEDICINE_NAME", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_MEDICINE_PRICE", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "MEDICINE_PRICE", Global.System.Data.DataRowVersion.Original, True, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_MEDICINE_PRICE", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 2, "MEDICINE_PRICE", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_MEDICINE_QTY", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "MEDICINE_QTY", Global.System.Data.DataRowVersion.Original, True, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_MEDICINE_QTY", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "MEDICINE_QTY", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_MEDICINE_TOTAL_PRICE", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "MEDICINE_TOTAL_PRICE", Global.System.Data.DataRowVersion.Original, True, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_MEDICINE_TOTAL_PRICE", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 2, "MEDICINE_TOTAL_PRICE", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_WAITING_NO_MEDICINE", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "WAITING_NO_MEDICINE", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_WAITING_NO", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "WAITING_NO", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_WAITING_NO", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "WAITING_NO", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_MEDICINE_ID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "MEDICINE_ID", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_MEDICINE_ID", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "MEDICINE_ID", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_MEDICINE_NAME", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "MEDICINE_NAME", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_MEDICINE_NAME", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "MEDICINE_NAME", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_MEDICINE_PRICE", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "MEDICINE_PRICE", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_MEDICINE_PRICE", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 2, "MEDICINE_PRICE", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_MEDICINE_QTY", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "MEDICINE_QTY", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_MEDICINE_QTY", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "MEDICINE_QTY", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_MEDICINE_TOTAL_PRICE", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "MEDICINE_TOTAL_PRICE", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_MEDICINE_TOTAL_PRICE", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 2, "MEDICINE_TOTAL_PRICE", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand = New Global.System.Data.SqlClient.SqlCommand
             Me._adapter.InsertCommand.Connection = Me.Connection
-            Me._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[S_TEM_LISTMEDICINE_PAYMENT] ([WAITING_NO], [MEDICINE_ID], [MED" & _
-                "ICINE_NAME], [MEDICINE_PRICE], [MEDICINE_QTY], [MEDICINE_TOTAL_PRICE]) VALUES (@" & _
-                "WAITING_NO, @MEDICINE_ID, @MEDICINE_NAME, @MEDICINE_PRICE, @MEDICINE_QTY, @MEDIC" & _
-                "INE_TOTAL_PRICE);" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "SELECT WAITING_NO_MEDICINE, WAITING_NO, MEDICINE_ID, MEDICINE" & _
-                "_NAME, MEDICINE_PRICE, MEDICINE_QTY, MEDICINE_TOTAL_PRICE FROM S_TEM_LISTMEDICIN" & _
+            Me._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[S_TEM_LISTMEDICINE_PAYMENT] ([WAITING_NO], [MEDICINE_ID], [MED"& _ 
+                "ICINE_NAME], [MEDICINE_PRICE], [MEDICINE_QTY], [MEDICINE_TOTAL_PRICE]) VALUES (@"& _ 
+                "WAITING_NO, @MEDICINE_ID, @MEDICINE_NAME, @MEDICINE_PRICE, @MEDICINE_QTY, @MEDIC"& _ 
+                "INE_TOTAL_PRICE);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT WAITING_NO_MEDICINE, WAITING_NO, MEDICINE_ID, MEDICINE"& _ 
+                "_NAME, MEDICINE_PRICE, MEDICINE_QTY, MEDICINE_TOTAL_PRICE FROM S_TEM_LISTMEDICIN"& _ 
                 "E_PAYMENT WHERE (WAITING_NO_MEDICINE = SCOPE_IDENTITY())"
             Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@WAITING_NO", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "WAITING_NO", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@MEDICINE_ID", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "MEDICINE_ID", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@MEDICINE_NAME", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "MEDICINE_NAME", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@MEDICINE_PRICE", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 2, "MEDICINE_PRICE", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@MEDICINE_QTY", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "MEDICINE_QTY", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@MEDICINE_TOTAL_PRICE", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 2, "MEDICINE_TOTAL_PRICE", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@WAITING_NO", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "WAITING_NO", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@MEDICINE_ID", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "MEDICINE_ID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@MEDICINE_NAME", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "MEDICINE_NAME", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@MEDICINE_PRICE", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 2, "MEDICINE_PRICE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@MEDICINE_QTY", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "MEDICINE_QTY", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@MEDICINE_TOTAL_PRICE", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 2, "MEDICINE_TOTAL_PRICE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand = New Global.System.Data.SqlClient.SqlCommand
             Me._adapter.UpdateCommand.Connection = Me.Connection
-            Me._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[S_TEM_LISTMEDICINE_PAYMENT] SET [WAITING_NO] = @WAITING_NO, [MEDICI" & _
-                "NE_ID] = @MEDICINE_ID, [MEDICINE_NAME] = @MEDICINE_NAME, [MEDICINE_PRICE] = @MED" & _
-                "ICINE_PRICE, [MEDICINE_QTY] = @MEDICINE_QTY, [MEDICINE_TOTAL_PRICE] = @MEDICINE_" & _
-                "TOTAL_PRICE WHERE (([WAITING_NO_MEDICINE] = @Original_WAITING_NO_MEDICINE) AND (" & _
-                "(@IsNull_WAITING_NO = 1 AND [WAITING_NO] IS NULL) OR ([WAITING_NO] = @Original_W" & _
-                "AITING_NO)) AND ((@IsNull_MEDICINE_ID = 1 AND [MEDICINE_ID] IS NULL) OR ([MEDICI" & _
-                "NE_ID] = @Original_MEDICINE_ID)) AND ((@IsNull_MEDICINE_NAME = 1 AND [MEDICINE_N" & _
-                "AME] IS NULL) OR ([MEDICINE_NAME] = @Original_MEDICINE_NAME)) AND ((@IsNull_MEDI" & _
-                "CINE_PRICE = 1 AND [MEDICINE_PRICE] IS NULL) OR ([MEDICINE_PRICE] = @Original_ME" & _
-                "DICINE_PRICE)) AND ((@IsNull_MEDICINE_QTY = 1 AND [MEDICINE_QTY] IS NULL) OR ([M" & _
-                "EDICINE_QTY] = @Original_MEDICINE_QTY)) AND ((@IsNull_MEDICINE_TOTAL_PRICE = 1 A" & _
-                "ND [MEDICINE_TOTAL_PRICE] IS NULL) OR ([MEDICINE_TOTAL_PRICE] = @Original_MEDICI" & _
-                "NE_TOTAL_PRICE)));" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "SELECT WAITING_NO_MEDICINE, WAITING_NO, MEDICINE_ID, MEDICIN" & _
-                "E_NAME, MEDICINE_PRICE, MEDICINE_QTY, MEDICINE_TOTAL_PRICE FROM S_TEM_LISTMEDICI" & _
+            Me._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[S_TEM_LISTMEDICINE_PAYMENT] SET [WAITING_NO] = @WAITING_NO, [MEDICI"& _ 
+                "NE_ID] = @MEDICINE_ID, [MEDICINE_NAME] = @MEDICINE_NAME, [MEDICINE_PRICE] = @MED"& _ 
+                "ICINE_PRICE, [MEDICINE_QTY] = @MEDICINE_QTY, [MEDICINE_TOTAL_PRICE] = @MEDICINE_"& _ 
+                "TOTAL_PRICE WHERE (([WAITING_NO_MEDICINE] = @Original_WAITING_NO_MEDICINE) AND ("& _ 
+                "(@IsNull_WAITING_NO = 1 AND [WAITING_NO] IS NULL) OR ([WAITING_NO] = @Original_W"& _ 
+                "AITING_NO)) AND ((@IsNull_MEDICINE_ID = 1 AND [MEDICINE_ID] IS NULL) OR ([MEDICI"& _ 
+                "NE_ID] = @Original_MEDICINE_ID)) AND ((@IsNull_MEDICINE_NAME = 1 AND [MEDICINE_N"& _ 
+                "AME] IS NULL) OR ([MEDICINE_NAME] = @Original_MEDICINE_NAME)) AND ((@IsNull_MEDI"& _ 
+                "CINE_PRICE = 1 AND [MEDICINE_PRICE] IS NULL) OR ([MEDICINE_PRICE] = @Original_ME"& _ 
+                "DICINE_PRICE)) AND ((@IsNull_MEDICINE_QTY = 1 AND [MEDICINE_QTY] IS NULL) OR ([M"& _ 
+                "EDICINE_QTY] = @Original_MEDICINE_QTY)) AND ((@IsNull_MEDICINE_TOTAL_PRICE = 1 A"& _ 
+                "ND [MEDICINE_TOTAL_PRICE] IS NULL) OR ([MEDICINE_TOTAL_PRICE] = @Original_MEDICI"& _ 
+                "NE_TOTAL_PRICE)));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT WAITING_NO_MEDICINE, WAITING_NO, MEDICINE_ID, MEDICIN"& _ 
+                "E_NAME, MEDICINE_PRICE, MEDICINE_QTY, MEDICINE_TOTAL_PRICE FROM S_TEM_LISTMEDICI"& _ 
                 "NE_PAYMENT WHERE (WAITING_NO_MEDICINE = @WAITING_NO_MEDICINE)"
             Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@WAITING_NO", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "WAITING_NO", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@MEDICINE_ID", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "MEDICINE_ID", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@MEDICINE_NAME", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "MEDICINE_NAME", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@MEDICINE_PRICE", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 2, "MEDICINE_PRICE", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@MEDICINE_QTY", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "MEDICINE_QTY", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@MEDICINE_TOTAL_PRICE", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 2, "MEDICINE_TOTAL_PRICE", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_WAITING_NO_MEDICINE", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "WAITING_NO_MEDICINE", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_WAITING_NO", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "WAITING_NO", Global.System.Data.DataRowVersion.Original, True, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_WAITING_NO", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "WAITING_NO", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_MEDICINE_ID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "MEDICINE_ID", Global.System.Data.DataRowVersion.Original, True, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_MEDICINE_ID", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "MEDICINE_ID", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_MEDICINE_NAME", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "MEDICINE_NAME", Global.System.Data.DataRowVersion.Original, True, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_MEDICINE_NAME", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "MEDICINE_NAME", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_MEDICINE_PRICE", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "MEDICINE_PRICE", Global.System.Data.DataRowVersion.Original, True, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_MEDICINE_PRICE", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 2, "MEDICINE_PRICE", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_MEDICINE_QTY", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "MEDICINE_QTY", Global.System.Data.DataRowVersion.Original, True, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_MEDICINE_QTY", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "MEDICINE_QTY", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_MEDICINE_TOTAL_PRICE", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "MEDICINE_TOTAL_PRICE", Global.System.Data.DataRowVersion.Original, True, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_MEDICINE_TOTAL_PRICE", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 2, "MEDICINE_TOTAL_PRICE", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@WAITING_NO_MEDICINE", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "WAITING_NO_MEDICINE", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@WAITING_NO", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "WAITING_NO", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@MEDICINE_ID", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "MEDICINE_ID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@MEDICINE_NAME", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "MEDICINE_NAME", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@MEDICINE_PRICE", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 2, "MEDICINE_PRICE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@MEDICINE_QTY", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "MEDICINE_QTY", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@MEDICINE_TOTAL_PRICE", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 2, "MEDICINE_TOTAL_PRICE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_WAITING_NO_MEDICINE", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "WAITING_NO_MEDICINE", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_WAITING_NO", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "WAITING_NO", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_WAITING_NO", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "WAITING_NO", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_MEDICINE_ID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "MEDICINE_ID", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_MEDICINE_ID", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "MEDICINE_ID", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_MEDICINE_NAME", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "MEDICINE_NAME", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_MEDICINE_NAME", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "MEDICINE_NAME", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_MEDICINE_PRICE", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "MEDICINE_PRICE", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_MEDICINE_PRICE", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 2, "MEDICINE_PRICE", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_MEDICINE_QTY", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "MEDICINE_QTY", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_MEDICINE_QTY", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "MEDICINE_QTY", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_MEDICINE_TOTAL_PRICE", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "MEDICINE_TOTAL_PRICE", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_MEDICINE_TOTAL_PRICE", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 2, "MEDICINE_TOTAL_PRICE", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@WAITING_NO_MEDICINE", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "WAITING_NO_MEDICINE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
         End Sub
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Private Sub InitConnection()
             Me._connection = New Global.System.Data.SqlClient.SqlConnection
             Me._connection.ConnectionString = Global.HospitalMS.My.MySettings.Default.AppConnection
         End Sub
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Private Sub InitCommandCollection()
             Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(4) {}
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT WAITING_NO_MEDICINE, WAITING_NO, MEDICINE_ID, MEDICINE_NAME, MEDICINE_PRIC" & _
+            Me._commandCollection(0).CommandText = "SELECT WAITING_NO_MEDICINE, WAITING_NO, MEDICINE_ID, MEDICINE_NAME, MEDICINE_PRIC"& _ 
                 "E, MEDICINE_QTY, MEDICINE_TOTAL_PRICE FROM dbo.S_TEM_LISTMEDICINE_PAYMENT"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(1) = New Global.System.Data.SqlClient.SqlCommand
             Me._commandCollection(1).Connection = Me.Connection
-            Me._commandCollection(1).CommandText = "SELECT COUNT(*) FROM S_TEM_LISTMEDICINE_PAYMENT WHERE MEDICINE_ID=@MEDICINE_ID AN" & _
+            Me._commandCollection(1).CommandText = "SELECT COUNT(*) FROM S_TEM_LISTMEDICINE_PAYMENT WHERE MEDICINE_ID=@MEDICINE_ID AN"& _ 
                 "D WAITING_NO=@WAITING_NO"
             Me._commandCollection(1).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@MEDICINE_ID", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "MEDICINE_ID", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@WAITING_NO", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "WAITING_NO", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@MEDICINE_ID", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "MEDICINE_ID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@WAITING_NO", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "WAITING_NO", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(2) = New Global.System.Data.SqlClient.SqlCommand
             Me._commandCollection(2).Connection = Me.Connection
-            Me._commandCollection(2).CommandText = "DELETE FROM [dbo].[S_TEM_LISTMEDICINE_PAYMENT] WHERE ([WAITING_NO_MEDICINE] = @Or" & _
+            Me._commandCollection(2).CommandText = "DELETE FROM [dbo].[S_TEM_LISTMEDICINE_PAYMENT] WHERE ([WAITING_NO_MEDICINE] = @Or"& _ 
                 "iginal_WAITING_NO_MEDICINE)"
             Me._commandCollection(2).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_WAITING_NO_MEDICINE", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "WAITING_NO_MEDICINE", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_WAITING_NO_MEDICINE", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "WAITING_NO_MEDICINE", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._commandCollection(3) = New Global.System.Data.SqlClient.SqlCommand
             Me._commandCollection(3).Connection = Me.Connection
-            Me._commandCollection(3).CommandText = "SELECT WAITING_NO_MEDICINE, WAITING_NO, MEDICINE_ID, MEDICINE_NAME, MEDICINE_PRIC" & _
-                "E, MEDICINE_QTY, MEDICINE_TOTAL_PRICE FROM dbo.S_TEM_LISTMEDICINE_PAYMENT" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "WHERE" & _
+            Me._commandCollection(3).CommandText = "SELECT WAITING_NO_MEDICINE, WAITING_NO, MEDICINE_ID, MEDICINE_NAME, MEDICINE_PRIC"& _ 
+                "E, MEDICINE_QTY, MEDICINE_TOTAL_PRICE FROM dbo.S_TEM_LISTMEDICINE_PAYMENT"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE"& _ 
                 " WAITING_NO=@WAITING_NO"
             Me._commandCollection(3).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@WAITING_NO", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "WAITING_NO", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@WAITING_NO", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "WAITING_NO", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(4) = New Global.System.Data.SqlClient.SqlCommand
             Me._commandCollection(4).Connection = Me.Connection
-            Me._commandCollection(4).CommandText = "INSERT INTO [dbo].[S_TEM_LISTMEDICINE_PAYMENT] ([WAITING_NO], [MEDICINE_ID], [MED" & _
-                "ICINE_NAME], [MEDICINE_PRICE], [MEDICINE_QTY], [MEDICINE_TOTAL_PRICE]) VALUES (@" & _
-                "WAITING_NO, @MEDICINE_ID, @MEDICINE_NAME, @MEDICINE_PRICE, @MEDICINE_QTY, @MEDIC" & _
-                "INE_TOTAL_PRICE);" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "SELECT WAITING_NO_MEDICINE, WAITING_NO, MEDICINE_ID, MEDICINE" & _
-                "_NAME, MEDICINE_PRICE, MEDICINE_QTY, MEDICINE_TOTAL_PRICE FROM S_TEM_LISTMEDICIN" & _
+            Me._commandCollection(4).CommandText = "INSERT INTO [dbo].[S_TEM_LISTMEDICINE_PAYMENT] ([WAITING_NO], [MEDICINE_ID], [MED"& _ 
+                "ICINE_NAME], [MEDICINE_PRICE], [MEDICINE_QTY], [MEDICINE_TOTAL_PRICE]) VALUES (@"& _ 
+                "WAITING_NO, @MEDICINE_ID, @MEDICINE_NAME, @MEDICINE_PRICE, @MEDICINE_QTY, @MEDIC"& _ 
+                "INE_TOTAL_PRICE);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT WAITING_NO_MEDICINE, WAITING_NO, MEDICINE_ID, MEDICINE"& _ 
+                "_NAME, MEDICINE_PRICE, MEDICINE_QTY, MEDICINE_TOTAL_PRICE FROM S_TEM_LISTMEDICIN"& _ 
                 "E_PAYMENT WHERE (WAITING_NO_MEDICINE = SCOPE_IDENTITY())"
             Me._commandCollection(4).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(4).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@WAITING_NO", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "WAITING_NO", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._commandCollection(4).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@MEDICINE_ID", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "MEDICINE_ID", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._commandCollection(4).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@MEDICINE_NAME", Global.System.Data.SqlDbType.NVarChar, 100, Global.System.Data.ParameterDirection.Input, 0, 0, "MEDICINE_NAME", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._commandCollection(4).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@MEDICINE_PRICE", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 2, "MEDICINE_PRICE", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._commandCollection(4).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@MEDICINE_QTY", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "MEDICINE_QTY", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._commandCollection(4).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@MEDICINE_TOTAL_PRICE", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 2, "MEDICINE_TOTAL_PRICE", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._commandCollection(4).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@WAITING_NO", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "WAITING_NO", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(4).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@MEDICINE_ID", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "MEDICINE_ID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(4).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@MEDICINE_NAME", Global.System.Data.SqlDbType.NVarChar, 100, Global.System.Data.ParameterDirection.Input, 0, 0, "MEDICINE_NAME", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(4).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@MEDICINE_PRICE", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 2, "MEDICINE_PRICE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(4).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@MEDICINE_QTY", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "MEDICINE_QTY", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(4).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@MEDICINE_TOTAL_PRICE", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 2, "MEDICINE_TOTAL_PRICE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
         End Sub
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, True)> _
-        Public Overridable Overloads Function Fill(ByVal dataTable As DS_KSPAYMENT.S_TEM_LISTMEDICINE_PAYMENTDataTable) As Integer
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, true)>  _
+        Public Overloads Overridable Function Fill(ByVal dataTable As DS_KSPAYMENT.S_TEM_LISTMEDICINE_PAYMENTDataTable) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
-            If (Me.ClearBeforeFill = True) Then
-                dataTable.Clear()
+            If (Me.ClearBeforeFill = true) Then
+                dataTable.Clear
             End If
             Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
             Return returnValue
         End Function
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], True)> _
-        Public Overridable Overloads Function GetData() As DS_KSPAYMENT.S_TEM_LISTMEDICINE_PAYMENTDataTable
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], true)>  _
+        Public Overloads Overridable Function GetData() As DS_KSPAYMENT.S_TEM_LISTMEDICINE_PAYMENTDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
             Dim dataTable As DS_KSPAYMENT.S_TEM_LISTMEDICINE_PAYMENTDataTable = New DS_KSPAYMENT.S_TEM_LISTMEDICINE_PAYMENTDataTable
             Me.Adapter.Fill(dataTable)
             Return dataTable
         End Function
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, False)> _
-        Public Overridable Overloads Function FillBy(ByVal dataTable As DS_KSPAYMENT.S_TEM_LISTMEDICINE_PAYMENTDataTable, ByVal WAITING_NO As Global.System.Nullable(Of Decimal)) As Integer
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
+        Public Overloads Overridable Function FillBy(ByVal dataTable As DS_KSPAYMENT.S_TEM_LISTMEDICINE_PAYMENTDataTable, ByVal WAITING_NO As Global.System.Nullable(Of Decimal)) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(3)
-            If (WAITING_NO.HasValue = True) Then
-                Me.Adapter.SelectCommand.Parameters(0).Value = CType(WAITING_NO.Value, Decimal)
+            If (WAITING_NO.HasValue = true) Then
+                Me.Adapter.SelectCommand.Parameters(0).Value = CType(WAITING_NO.Value,Decimal)
             Else
                 Me.Adapter.SelectCommand.Parameters(0).Value = Global.System.DBNull.Value
             End If
-            If (Me.ClearBeforeFill = True) Then
-                dataTable.Clear()
+            If (Me.ClearBeforeFill = true) Then
+                dataTable.Clear
             End If
             Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
             Return returnValue
         End Function
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], False)> _
-        Public Overridable Overloads Function SelectMedicineByWaitingNo(ByVal WAITING_NO As Global.System.Nullable(Of Decimal)) As DS_KSPAYMENT.S_TEM_LISTMEDICINE_PAYMENTDataTable
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
+        Public Overloads Overridable Function SelectMedicineByWaitingNo(ByVal WAITING_NO As Global.System.Nullable(Of Decimal)) As DS_KSPAYMENT.S_TEM_LISTMEDICINE_PAYMENTDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(3)
-            If (WAITING_NO.HasValue = True) Then
-                Me.Adapter.SelectCommand.Parameters(0).Value = CType(WAITING_NO.Value, Decimal)
+            If (WAITING_NO.HasValue = true) Then
+                Me.Adapter.SelectCommand.Parameters(0).Value = CType(WAITING_NO.Value,Decimal)
             Else
                 Me.Adapter.SelectCommand.Parameters(0).Value = Global.System.DBNull.Value
             End If
@@ -13142,399 +13907,399 @@ Namespace DS_KSPAYMENTTableAdapters
             Me.Adapter.Fill(dataTable)
             Return dataTable
         End Function
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")> _
-        Public Overridable Overloads Function Update(ByVal dataTable As DS_KSPAYMENT.S_TEM_LISTMEDICINE_PAYMENTDataTable) As Integer
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+        Public Overloads Overridable Function Update(ByVal dataTable As DS_KSPAYMENT.S_TEM_LISTMEDICINE_PAYMENTDataTable) As Integer
             Return Me.Adapter.Update(dataTable)
         End Function
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")> _
-        Public Overridable Overloads Function Update(ByVal dataSet As DS_KSPAYMENT) As Integer
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+        Public Overloads Overridable Function Update(ByVal dataSet As DS_KSPAYMENT) As Integer
             Return Me.Adapter.Update(dataSet, "S_TEM_LISTMEDICINE_PAYMENT")
         End Function
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")> _
-        Public Overridable Overloads Function Update(ByVal dataRow As Global.System.Data.DataRow) As Integer
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+        Public Overloads Overridable Function Update(ByVal dataRow As Global.System.Data.DataRow) As Integer
             Return Me.Adapter.Update(New Global.System.Data.DataRow() {dataRow})
         End Function
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")> _
-        Public Overridable Overloads Function Update(ByVal dataRows() As Global.System.Data.DataRow) As Integer
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+        Public Overloads Overridable Function Update(ByVal dataRows() As Global.System.Data.DataRow) As Integer
             Return Me.Adapter.Update(dataRows)
         End Function
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Delete, True)> _
-        Public Overridable Overloads Function Delete(ByVal Original_WAITING_NO_MEDICINE As Decimal, ByVal Original_WAITING_NO As Global.System.Nullable(Of Decimal), ByVal Original_MEDICINE_ID As Global.System.Nullable(Of Decimal), ByVal Original_MEDICINE_NAME As String, ByVal Original_MEDICINE_PRICE As Global.System.Nullable(Of Decimal), ByVal Original_MEDICINE_QTY As Global.System.Nullable(Of Decimal), ByVal Original_MEDICINE_TOTAL_PRICE As Global.System.Nullable(Of Decimal)) As Integer
-            Me.Adapter.DeleteCommand.Parameters(0).Value = CType(Original_WAITING_NO_MEDICINE, Decimal)
-            If (Original_WAITING_NO.HasValue = True) Then
-                Me.Adapter.DeleteCommand.Parameters(1).Value = CType(0, Object)
-                Me.Adapter.DeleteCommand.Parameters(2).Value = CType(Original_WAITING_NO.Value, Decimal)
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Delete, true)>  _
+        Public Overloads Overridable Function Delete(ByVal Original_WAITING_NO_MEDICINE As Decimal, ByVal Original_WAITING_NO As Global.System.Nullable(Of Decimal), ByVal Original_MEDICINE_ID As Global.System.Nullable(Of Decimal), ByVal Original_MEDICINE_NAME As String, ByVal Original_MEDICINE_PRICE As Global.System.Nullable(Of Decimal), ByVal Original_MEDICINE_QTY As Global.System.Nullable(Of Decimal), ByVal Original_MEDICINE_TOTAL_PRICE As Global.System.Nullable(Of Decimal)) As Integer
+            Me.Adapter.DeleteCommand.Parameters(0).Value = CType(Original_WAITING_NO_MEDICINE,Decimal)
+            If (Original_WAITING_NO.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(1).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(2).Value = CType(Original_WAITING_NO.Value,Decimal)
             Else
-                Me.Adapter.DeleteCommand.Parameters(1).Value = CType(1, Object)
+                Me.Adapter.DeleteCommand.Parameters(1).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(2).Value = Global.System.DBNull.Value
             End If
-            If (Original_MEDICINE_ID.HasValue = True) Then
-                Me.Adapter.DeleteCommand.Parameters(3).Value = CType(0, Object)
-                Me.Adapter.DeleteCommand.Parameters(4).Value = CType(Original_MEDICINE_ID.Value, Decimal)
+            If (Original_MEDICINE_ID.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(3).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(4).Value = CType(Original_MEDICINE_ID.Value,Decimal)
             Else
-                Me.Adapter.DeleteCommand.Parameters(3).Value = CType(1, Object)
+                Me.Adapter.DeleteCommand.Parameters(3).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(4).Value = Global.System.DBNull.Value
             End If
             If (Original_MEDICINE_NAME Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(5).Value = CType(1, Object)
+                Me.Adapter.DeleteCommand.Parameters(5).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(6).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.DeleteCommand.Parameters(5).Value = CType(0, Object)
-                Me.Adapter.DeleteCommand.Parameters(6).Value = CType(Original_MEDICINE_NAME, String)
+                Me.Adapter.DeleteCommand.Parameters(5).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(6).Value = CType(Original_MEDICINE_NAME,String)
             End If
-            If (Original_MEDICINE_PRICE.HasValue = True) Then
-                Me.Adapter.DeleteCommand.Parameters(7).Value = CType(0, Object)
-                Me.Adapter.DeleteCommand.Parameters(8).Value = CType(Original_MEDICINE_PRICE.Value, Decimal)
+            If (Original_MEDICINE_PRICE.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(7).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(8).Value = CType(Original_MEDICINE_PRICE.Value,Decimal)
             Else
-                Me.Adapter.DeleteCommand.Parameters(7).Value = CType(1, Object)
+                Me.Adapter.DeleteCommand.Parameters(7).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(8).Value = Global.System.DBNull.Value
             End If
-            If (Original_MEDICINE_QTY.HasValue = True) Then
-                Me.Adapter.DeleteCommand.Parameters(9).Value = CType(0, Object)
-                Me.Adapter.DeleteCommand.Parameters(10).Value = CType(Original_MEDICINE_QTY.Value, Decimal)
+            If (Original_MEDICINE_QTY.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(9).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(10).Value = CType(Original_MEDICINE_QTY.Value,Decimal)
             Else
-                Me.Adapter.DeleteCommand.Parameters(9).Value = CType(1, Object)
+                Me.Adapter.DeleteCommand.Parameters(9).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(10).Value = Global.System.DBNull.Value
             End If
-            If (Original_MEDICINE_TOTAL_PRICE.HasValue = True) Then
-                Me.Adapter.DeleteCommand.Parameters(11).Value = CType(0, Object)
-                Me.Adapter.DeleteCommand.Parameters(12).Value = CType(Original_MEDICINE_TOTAL_PRICE.Value, Decimal)
+            If (Original_MEDICINE_TOTAL_PRICE.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(11).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(12).Value = CType(Original_MEDICINE_TOTAL_PRICE.Value,Decimal)
             Else
-                Me.Adapter.DeleteCommand.Parameters(11).Value = CType(1, Object)
+                Me.Adapter.DeleteCommand.Parameters(11).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(12).Value = Global.System.DBNull.Value
             End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.DeleteCommand.Connection.State
-            If ((Me.Adapter.DeleteCommand.Connection.State And Global.System.Data.ConnectionState.Open) _
+            If ((Me.Adapter.DeleteCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
-                Me.Adapter.DeleteCommand.Connection.Open()
+                Me.Adapter.DeleteCommand.Connection.Open
             End If
-            Try
+            Try 
                 Dim returnValue As Integer = Me.Adapter.DeleteCommand.ExecuteNonQuery
                 Return returnValue
             Finally
                 If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
-                    Me.Adapter.DeleteCommand.Connection.Close()
+                    Me.Adapter.DeleteCommand.Connection.Close
                 End If
             End Try
         End Function
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, True)> _
-        Public Overridable Overloads Function Insert(ByVal WAITING_NO As Global.System.Nullable(Of Decimal), ByVal MEDICINE_ID As Global.System.Nullable(Of Decimal), ByVal MEDICINE_NAME As String, ByVal MEDICINE_PRICE As Global.System.Nullable(Of Decimal), ByVal MEDICINE_QTY As Global.System.Nullable(Of Decimal), ByVal MEDICINE_TOTAL_PRICE As Global.System.Nullable(Of Decimal)) As Integer
-            If (WAITING_NO.HasValue = True) Then
-                Me.Adapter.InsertCommand.Parameters(0).Value = CType(WAITING_NO.Value, Decimal)
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, true)>  _
+        Public Overloads Overridable Function Insert(ByVal WAITING_NO As Global.System.Nullable(Of Decimal), ByVal MEDICINE_ID As Global.System.Nullable(Of Decimal), ByVal MEDICINE_NAME As String, ByVal MEDICINE_PRICE As Global.System.Nullable(Of Decimal), ByVal MEDICINE_QTY As Global.System.Nullable(Of Decimal), ByVal MEDICINE_TOTAL_PRICE As Global.System.Nullable(Of Decimal)) As Integer
+            If (WAITING_NO.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(0).Value = CType(WAITING_NO.Value,Decimal)
             Else
                 Me.Adapter.InsertCommand.Parameters(0).Value = Global.System.DBNull.Value
             End If
-            If (MEDICINE_ID.HasValue = True) Then
-                Me.Adapter.InsertCommand.Parameters(1).Value = CType(MEDICINE_ID.Value, Decimal)
+            If (MEDICINE_ID.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(1).Value = CType(MEDICINE_ID.Value,Decimal)
             Else
                 Me.Adapter.InsertCommand.Parameters(1).Value = Global.System.DBNull.Value
             End If
             If (MEDICINE_NAME Is Nothing) Then
                 Me.Adapter.InsertCommand.Parameters(2).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.InsertCommand.Parameters(2).Value = CType(MEDICINE_NAME, String)
+                Me.Adapter.InsertCommand.Parameters(2).Value = CType(MEDICINE_NAME,String)
             End If
-            If (MEDICINE_PRICE.HasValue = True) Then
-                Me.Adapter.InsertCommand.Parameters(3).Value = CType(MEDICINE_PRICE.Value, Decimal)
+            If (MEDICINE_PRICE.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(3).Value = CType(MEDICINE_PRICE.Value,Decimal)
             Else
                 Me.Adapter.InsertCommand.Parameters(3).Value = Global.System.DBNull.Value
             End If
-            If (MEDICINE_QTY.HasValue = True) Then
-                Me.Adapter.InsertCommand.Parameters(4).Value = CType(MEDICINE_QTY.Value, Decimal)
+            If (MEDICINE_QTY.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(4).Value = CType(MEDICINE_QTY.Value,Decimal)
             Else
                 Me.Adapter.InsertCommand.Parameters(4).Value = Global.System.DBNull.Value
             End If
-            If (MEDICINE_TOTAL_PRICE.HasValue = True) Then
-                Me.Adapter.InsertCommand.Parameters(5).Value = CType(MEDICINE_TOTAL_PRICE.Value, Decimal)
+            If (MEDICINE_TOTAL_PRICE.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(5).Value = CType(MEDICINE_TOTAL_PRICE.Value,Decimal)
             Else
                 Me.Adapter.InsertCommand.Parameters(5).Value = Global.System.DBNull.Value
             End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.InsertCommand.Connection.State
-            If ((Me.Adapter.InsertCommand.Connection.State And Global.System.Data.ConnectionState.Open) _
+            If ((Me.Adapter.InsertCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
-                Me.Adapter.InsertCommand.Connection.Open()
+                Me.Adapter.InsertCommand.Connection.Open
             End If
-            Try
+            Try 
                 Dim returnValue As Integer = Me.Adapter.InsertCommand.ExecuteNonQuery
                 Return returnValue
             Finally
                 If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
-                    Me.Adapter.InsertCommand.Connection.Close()
+                    Me.Adapter.InsertCommand.Connection.Close
                 End If
             End Try
         End Function
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, True)> _
-        Public Overridable Overloads Function Update(ByVal WAITING_NO As Global.System.Nullable(Of Decimal), ByVal MEDICINE_ID As Global.System.Nullable(Of Decimal), ByVal MEDICINE_NAME As String, ByVal MEDICINE_PRICE As Global.System.Nullable(Of Decimal), ByVal MEDICINE_QTY As Global.System.Nullable(Of Decimal), ByVal MEDICINE_TOTAL_PRICE As Global.System.Nullable(Of Decimal), ByVal Original_WAITING_NO_MEDICINE As Decimal, ByVal Original_WAITING_NO As Global.System.Nullable(Of Decimal), ByVal Original_MEDICINE_ID As Global.System.Nullable(Of Decimal), ByVal Original_MEDICINE_NAME As String, ByVal Original_MEDICINE_PRICE As Global.System.Nullable(Of Decimal), ByVal Original_MEDICINE_QTY As Global.System.Nullable(Of Decimal), ByVal Original_MEDICINE_TOTAL_PRICE As Global.System.Nullable(Of Decimal), ByVal WAITING_NO_MEDICINE As Decimal) As Integer
-            If (WAITING_NO.HasValue = True) Then
-                Me.Adapter.UpdateCommand.Parameters(0).Value = CType(WAITING_NO.Value, Decimal)
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
+        Public Overloads Overridable Function Update(ByVal WAITING_NO As Global.System.Nullable(Of Decimal), ByVal MEDICINE_ID As Global.System.Nullable(Of Decimal), ByVal MEDICINE_NAME As String, ByVal MEDICINE_PRICE As Global.System.Nullable(Of Decimal), ByVal MEDICINE_QTY As Global.System.Nullable(Of Decimal), ByVal MEDICINE_TOTAL_PRICE As Global.System.Nullable(Of Decimal), ByVal Original_WAITING_NO_MEDICINE As Decimal, ByVal Original_WAITING_NO As Global.System.Nullable(Of Decimal), ByVal Original_MEDICINE_ID As Global.System.Nullable(Of Decimal), ByVal Original_MEDICINE_NAME As String, ByVal Original_MEDICINE_PRICE As Global.System.Nullable(Of Decimal), ByVal Original_MEDICINE_QTY As Global.System.Nullable(Of Decimal), ByVal Original_MEDICINE_TOTAL_PRICE As Global.System.Nullable(Of Decimal), ByVal WAITING_NO_MEDICINE As Decimal) As Integer
+            If (WAITING_NO.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(0).Value = CType(WAITING_NO.Value,Decimal)
             Else
                 Me.Adapter.UpdateCommand.Parameters(0).Value = Global.System.DBNull.Value
             End If
-            If (MEDICINE_ID.HasValue = True) Then
-                Me.Adapter.UpdateCommand.Parameters(1).Value = CType(MEDICINE_ID.Value, Decimal)
+            If (MEDICINE_ID.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(1).Value = CType(MEDICINE_ID.Value,Decimal)
             Else
                 Me.Adapter.UpdateCommand.Parameters(1).Value = Global.System.DBNull.Value
             End If
             If (MEDICINE_NAME Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(2).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(2).Value = CType(MEDICINE_NAME, String)
+                Me.Adapter.UpdateCommand.Parameters(2).Value = CType(MEDICINE_NAME,String)
             End If
-            If (MEDICINE_PRICE.HasValue = True) Then
-                Me.Adapter.UpdateCommand.Parameters(3).Value = CType(MEDICINE_PRICE.Value, Decimal)
+            If (MEDICINE_PRICE.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(3).Value = CType(MEDICINE_PRICE.Value,Decimal)
             Else
                 Me.Adapter.UpdateCommand.Parameters(3).Value = Global.System.DBNull.Value
             End If
-            If (MEDICINE_QTY.HasValue = True) Then
-                Me.Adapter.UpdateCommand.Parameters(4).Value = CType(MEDICINE_QTY.Value, Decimal)
+            If (MEDICINE_QTY.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(4).Value = CType(MEDICINE_QTY.Value,Decimal)
             Else
                 Me.Adapter.UpdateCommand.Parameters(4).Value = Global.System.DBNull.Value
             End If
-            If (MEDICINE_TOTAL_PRICE.HasValue = True) Then
-                Me.Adapter.UpdateCommand.Parameters(5).Value = CType(MEDICINE_TOTAL_PRICE.Value, Decimal)
+            If (MEDICINE_TOTAL_PRICE.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(5).Value = CType(MEDICINE_TOTAL_PRICE.Value,Decimal)
             Else
                 Me.Adapter.UpdateCommand.Parameters(5).Value = Global.System.DBNull.Value
             End If
-            Me.Adapter.UpdateCommand.Parameters(6).Value = CType(Original_WAITING_NO_MEDICINE, Decimal)
-            If (Original_WAITING_NO.HasValue = True) Then
-                Me.Adapter.UpdateCommand.Parameters(7).Value = CType(0, Object)
-                Me.Adapter.UpdateCommand.Parameters(8).Value = CType(Original_WAITING_NO.Value, Decimal)
+            Me.Adapter.UpdateCommand.Parameters(6).Value = CType(Original_WAITING_NO_MEDICINE,Decimal)
+            If (Original_WAITING_NO.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(7).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(8).Value = CType(Original_WAITING_NO.Value,Decimal)
             Else
-                Me.Adapter.UpdateCommand.Parameters(7).Value = CType(1, Object)
+                Me.Adapter.UpdateCommand.Parameters(7).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(8).Value = Global.System.DBNull.Value
             End If
-            If (Original_MEDICINE_ID.HasValue = True) Then
-                Me.Adapter.UpdateCommand.Parameters(9).Value = CType(0, Object)
-                Me.Adapter.UpdateCommand.Parameters(10).Value = CType(Original_MEDICINE_ID.Value, Decimal)
+            If (Original_MEDICINE_ID.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(9).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(10).Value = CType(Original_MEDICINE_ID.Value,Decimal)
             Else
-                Me.Adapter.UpdateCommand.Parameters(9).Value = CType(1, Object)
+                Me.Adapter.UpdateCommand.Parameters(9).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(10).Value = Global.System.DBNull.Value
             End If
             If (Original_MEDICINE_NAME Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(11).Value = CType(1, Object)
+                Me.Adapter.UpdateCommand.Parameters(11).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(12).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(11).Value = CType(0, Object)
-                Me.Adapter.UpdateCommand.Parameters(12).Value = CType(Original_MEDICINE_NAME, String)
+                Me.Adapter.UpdateCommand.Parameters(11).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(12).Value = CType(Original_MEDICINE_NAME,String)
             End If
-            If (Original_MEDICINE_PRICE.HasValue = True) Then
-                Me.Adapter.UpdateCommand.Parameters(13).Value = CType(0, Object)
-                Me.Adapter.UpdateCommand.Parameters(14).Value = CType(Original_MEDICINE_PRICE.Value, Decimal)
+            If (Original_MEDICINE_PRICE.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(13).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(14).Value = CType(Original_MEDICINE_PRICE.Value,Decimal)
             Else
-                Me.Adapter.UpdateCommand.Parameters(13).Value = CType(1, Object)
+                Me.Adapter.UpdateCommand.Parameters(13).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(14).Value = Global.System.DBNull.Value
             End If
-            If (Original_MEDICINE_QTY.HasValue = True) Then
-                Me.Adapter.UpdateCommand.Parameters(15).Value = CType(0, Object)
-                Me.Adapter.UpdateCommand.Parameters(16).Value = CType(Original_MEDICINE_QTY.Value, Decimal)
+            If (Original_MEDICINE_QTY.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(15).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(16).Value = CType(Original_MEDICINE_QTY.Value,Decimal)
             Else
-                Me.Adapter.UpdateCommand.Parameters(15).Value = CType(1, Object)
+                Me.Adapter.UpdateCommand.Parameters(15).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(16).Value = Global.System.DBNull.Value
             End If
-            If (Original_MEDICINE_TOTAL_PRICE.HasValue = True) Then
-                Me.Adapter.UpdateCommand.Parameters(17).Value = CType(0, Object)
-                Me.Adapter.UpdateCommand.Parameters(18).Value = CType(Original_MEDICINE_TOTAL_PRICE.Value, Decimal)
+            If (Original_MEDICINE_TOTAL_PRICE.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(17).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(18).Value = CType(Original_MEDICINE_TOTAL_PRICE.Value,Decimal)
             Else
-                Me.Adapter.UpdateCommand.Parameters(17).Value = CType(1, Object)
+                Me.Adapter.UpdateCommand.Parameters(17).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(18).Value = Global.System.DBNull.Value
             End If
-            Me.Adapter.UpdateCommand.Parameters(19).Value = CType(WAITING_NO_MEDICINE, Decimal)
+            Me.Adapter.UpdateCommand.Parameters(19).Value = CType(WAITING_NO_MEDICINE,Decimal)
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.UpdateCommand.Connection.State
-            If ((Me.Adapter.UpdateCommand.Connection.State And Global.System.Data.ConnectionState.Open) _
+            If ((Me.Adapter.UpdateCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
-                Me.Adapter.UpdateCommand.Connection.Open()
+                Me.Adapter.UpdateCommand.Connection.Open
             End If
-            Try
+            Try 
                 Dim returnValue As Integer = Me.Adapter.UpdateCommand.ExecuteNonQuery
                 Return returnValue
             Finally
                 If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
-                    Me.Adapter.UpdateCommand.Connection.Close()
+                    Me.Adapter.UpdateCommand.Connection.Close
                 End If
             End Try
         End Function
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, True)> _
-        Public Overridable Overloads Function Update(ByVal WAITING_NO As Global.System.Nullable(Of Decimal), ByVal MEDICINE_ID As Global.System.Nullable(Of Decimal), ByVal MEDICINE_NAME As String, ByVal MEDICINE_PRICE As Global.System.Nullable(Of Decimal), ByVal MEDICINE_QTY As Global.System.Nullable(Of Decimal), ByVal MEDICINE_TOTAL_PRICE As Global.System.Nullable(Of Decimal), ByVal Original_WAITING_NO_MEDICINE As Decimal, ByVal Original_WAITING_NO As Global.System.Nullable(Of Decimal), ByVal Original_MEDICINE_ID As Global.System.Nullable(Of Decimal), ByVal Original_MEDICINE_NAME As String, ByVal Original_MEDICINE_PRICE As Global.System.Nullable(Of Decimal), ByVal Original_MEDICINE_QTY As Global.System.Nullable(Of Decimal), ByVal Original_MEDICINE_TOTAL_PRICE As Global.System.Nullable(Of Decimal)) As Integer
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
+        Public Overloads Overridable Function Update(ByVal WAITING_NO As Global.System.Nullable(Of Decimal), ByVal MEDICINE_ID As Global.System.Nullable(Of Decimal), ByVal MEDICINE_NAME As String, ByVal MEDICINE_PRICE As Global.System.Nullable(Of Decimal), ByVal MEDICINE_QTY As Global.System.Nullable(Of Decimal), ByVal MEDICINE_TOTAL_PRICE As Global.System.Nullable(Of Decimal), ByVal Original_WAITING_NO_MEDICINE As Decimal, ByVal Original_WAITING_NO As Global.System.Nullable(Of Decimal), ByVal Original_MEDICINE_ID As Global.System.Nullable(Of Decimal), ByVal Original_MEDICINE_NAME As String, ByVal Original_MEDICINE_PRICE As Global.System.Nullable(Of Decimal), ByVal Original_MEDICINE_QTY As Global.System.Nullable(Of Decimal), ByVal Original_MEDICINE_TOTAL_PRICE As Global.System.Nullable(Of Decimal)) As Integer
             Return Me.Update(WAITING_NO, MEDICINE_ID, MEDICINE_NAME, MEDICINE_PRICE, MEDICINE_QTY, MEDICINE_TOTAL_PRICE, Original_WAITING_NO_MEDICINE, Original_WAITING_NO, Original_MEDICINE_ID, Original_MEDICINE_NAME, Original_MEDICINE_PRICE, Original_MEDICINE_QTY, Original_MEDICINE_TOTAL_PRICE, Original_WAITING_NO_MEDICINE)
         End Function
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")> _
-        Public Overridable Overloads Function CheckExistingItem(ByVal MEDICINE_ID As Global.System.Nullable(Of Decimal), ByVal WAITING_NO As Global.System.Nullable(Of Decimal)) As Object
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+        Public Overloads Overridable Function CheckExistingItem(ByVal MEDICINE_ID As Global.System.Nullable(Of Decimal), ByVal WAITING_NO As Global.System.Nullable(Of Decimal)) As Object
             Dim command As Global.System.Data.SqlClient.SqlCommand = Me.CommandCollection(1)
-            If (MEDICINE_ID.HasValue = True) Then
-                command.Parameters(0).Value = CType(MEDICINE_ID.Value, Decimal)
+            If (MEDICINE_ID.HasValue = true) Then
+                command.Parameters(0).Value = CType(MEDICINE_ID.Value,Decimal)
             Else
                 command.Parameters(0).Value = Global.System.DBNull.Value
             End If
-            If (WAITING_NO.HasValue = True) Then
-                command.Parameters(1).Value = CType(WAITING_NO.Value, Decimal)
+            If (WAITING_NO.HasValue = true) Then
+                command.Parameters(1).Value = CType(WAITING_NO.Value,Decimal)
             Else
                 command.Parameters(1).Value = Global.System.DBNull.Value
             End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = command.Connection.State
-            If ((command.Connection.State And Global.System.Data.ConnectionState.Open) _
+            If ((command.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
-                command.Connection.Open()
+                command.Connection.Open
             End If
             Dim returnValue As Object
-            Try
+            Try 
                 returnValue = command.ExecuteScalar
             Finally
                 If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
-                    command.Connection.Close()
+                    command.Connection.Close
                 End If
             End Try
-            If ((returnValue Is Nothing) _
+            If ((returnValue Is Nothing)  _
                         OrElse (returnValue.GetType Is GetType(Global.System.DBNull))) Then
                 Return Nothing
             Else
-                Return CType(returnValue, Object)
+                Return CType(returnValue,Object)
             End If
         End Function
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Delete, False)> _
-        Public Overridable Overloads Function DeleteMedicinePay(ByVal Original_WAITING_NO_MEDICINE As Decimal) As Integer
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Delete, false)>  _
+        Public Overloads Overridable Function DeleteMedicinePay(ByVal Original_WAITING_NO_MEDICINE As Decimal) As Integer
             Dim command As Global.System.Data.SqlClient.SqlCommand = Me.CommandCollection(2)
-            command.Parameters(0).Value = CType(Original_WAITING_NO_MEDICINE, Decimal)
+            command.Parameters(0).Value = CType(Original_WAITING_NO_MEDICINE,Decimal)
             Dim previousConnectionState As Global.System.Data.ConnectionState = command.Connection.State
-            If ((command.Connection.State And Global.System.Data.ConnectionState.Open) _
+            If ((command.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
-                command.Connection.Open()
+                command.Connection.Open
             End If
             Dim returnValue As Integer
-            Try
+            Try 
                 returnValue = command.ExecuteNonQuery
             Finally
                 If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
-                    command.Connection.Close()
+                    command.Connection.Close
                 End If
             End Try
             Return returnValue
         End Function
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, False)> _
-        Public Overridable Overloads Function InsertNewMedicinePay(ByVal WAITING_NO As Global.System.Nullable(Of Decimal), ByVal MEDICINE_ID As Global.System.Nullable(Of Decimal), ByVal MEDICINE_NAME As String, ByVal MEDICINE_PRICE As Global.System.Nullable(Of Decimal), ByVal MEDICINE_QTY As Global.System.Nullable(Of Decimal), ByVal MEDICINE_TOTAL_PRICE As Global.System.Nullable(Of Decimal)) As Integer
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, false)>  _
+        Public Overloads Overridable Function InsertNewMedicinePay(ByVal WAITING_NO As Global.System.Nullable(Of Decimal), ByVal MEDICINE_ID As Global.System.Nullable(Of Decimal), ByVal MEDICINE_NAME As String, ByVal MEDICINE_PRICE As Global.System.Nullable(Of Decimal), ByVal MEDICINE_QTY As Global.System.Nullable(Of Decimal), ByVal MEDICINE_TOTAL_PRICE As Global.System.Nullable(Of Decimal)) As Integer
             Dim command As Global.System.Data.SqlClient.SqlCommand = Me.CommandCollection(4)
-            If (WAITING_NO.HasValue = True) Then
-                command.Parameters(0).Value = CType(WAITING_NO.Value, Decimal)
+            If (WAITING_NO.HasValue = true) Then
+                command.Parameters(0).Value = CType(WAITING_NO.Value,Decimal)
             Else
                 command.Parameters(0).Value = Global.System.DBNull.Value
             End If
-            If (MEDICINE_ID.HasValue = True) Then
-                command.Parameters(1).Value = CType(MEDICINE_ID.Value, Decimal)
+            If (MEDICINE_ID.HasValue = true) Then
+                command.Parameters(1).Value = CType(MEDICINE_ID.Value,Decimal)
             Else
                 command.Parameters(1).Value = Global.System.DBNull.Value
             End If
             If (MEDICINE_NAME Is Nothing) Then
                 command.Parameters(2).Value = Global.System.DBNull.Value
             Else
-                command.Parameters(2).Value = CType(MEDICINE_NAME, String)
+                command.Parameters(2).Value = CType(MEDICINE_NAME,String)
             End If
-            If (MEDICINE_PRICE.HasValue = True) Then
-                command.Parameters(3).Value = CType(MEDICINE_PRICE.Value, Decimal)
+            If (MEDICINE_PRICE.HasValue = true) Then
+                command.Parameters(3).Value = CType(MEDICINE_PRICE.Value,Decimal)
             Else
                 command.Parameters(3).Value = Global.System.DBNull.Value
             End If
-            If (MEDICINE_QTY.HasValue = True) Then
-                command.Parameters(4).Value = CType(MEDICINE_QTY.Value, Decimal)
+            If (MEDICINE_QTY.HasValue = true) Then
+                command.Parameters(4).Value = CType(MEDICINE_QTY.Value,Decimal)
             Else
                 command.Parameters(4).Value = Global.System.DBNull.Value
             End If
-            If (MEDICINE_TOTAL_PRICE.HasValue = True) Then
-                command.Parameters(5).Value = CType(MEDICINE_TOTAL_PRICE.Value, Decimal)
+            If (MEDICINE_TOTAL_PRICE.HasValue = true) Then
+                command.Parameters(5).Value = CType(MEDICINE_TOTAL_PRICE.Value,Decimal)
             Else
                 command.Parameters(5).Value = Global.System.DBNull.Value
             End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = command.Connection.State
-            If ((command.Connection.State And Global.System.Data.ConnectionState.Open) _
+            If ((command.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
-                command.Connection.Open()
+                command.Connection.Open
             End If
             Dim returnValue As Integer
-            Try
+            Try 
                 returnValue = command.ExecuteNonQuery
             Finally
                 If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
-                    command.Connection.Close()
+                    command.Connection.Close
                 End If
             End Try
             Return returnValue
         End Function
     End Class
-
+    
     '''<summary>
     '''Represents the connection and commands used to retrieve and save data.
     '''</summary>
-    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0"), _
-     Global.System.ComponentModel.DesignerCategoryAttribute("code"), _
-     Global.System.ComponentModel.ToolboxItem(True), _
-     Global.System.ComponentModel.DataObjectAttribute(True), _
-     Global.System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" & _
-        ", Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"), _
-     Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")> _
+    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0"),  _
+     Global.System.ComponentModel.DesignerCategoryAttribute("code"),  _
+     Global.System.ComponentModel.ToolboxItem(true),  _
+     Global.System.ComponentModel.DataObjectAttribute(true),  _
+     Global.System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner"& _ 
+        ", Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"),  _
+     Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
     Partial Public Class tblItemTableAdapter
         Inherits Global.System.ComponentModel.Component
-
+        
         Private WithEvents _adapter As Global.System.Data.SqlClient.SqlDataAdapter
-
+        
         Private _connection As Global.System.Data.SqlClient.SqlConnection
-
+        
         Private _transaction As Global.System.Data.SqlClient.SqlTransaction
-
+        
         Private _commandCollection() As Global.System.Data.SqlClient.SqlCommand
-
+        
         Private _clearBeforeFill As Boolean
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Sub New()
-            MyBase.New()
-            Me.ClearBeforeFill = True
+            MyBase.New
+            Me.ClearBeforeFill = true
         End Sub
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Protected Friend ReadOnly Property Adapter() As Global.System.Data.SqlClient.SqlDataAdapter
             Get
                 If (Me._adapter Is Nothing) Then
-                    Me.InitAdapter()
+                    Me.InitAdapter
                 End If
                 Return Me._adapter
             End Get
         End Property
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Friend Property Connection() As Global.System.Data.SqlClient.SqlConnection
             Get
                 If (Me._connection Is Nothing) Then
-                    Me.InitConnection()
+                    Me.InitConnection
                 End If
                 Return Me._connection
             End Get
-            Set(ByVal value As Global.System.Data.SqlClient.SqlConnection)
+            Set
                 Me._connection = value
                 If (Not (Me.Adapter.InsertCommand) Is Nothing) Then
                     Me.Adapter.InsertCommand.Connection = value
@@ -13548,61 +14313,61 @@ Namespace DS_KSPAYMENTTableAdapters
                 Dim i As Integer = 0
                 Do While (i < Me.CommandCollection.Length)
                     If (Not (Me.CommandCollection(i)) Is Nothing) Then
-                        CType(Me.CommandCollection(i), Global.System.Data.SqlClient.SqlCommand).Connection = value
+                        CType(Me.CommandCollection(i),Global.System.Data.SqlClient.SqlCommand).Connection = value
                     End If
                     i = (i + 1)
                 Loop
             End Set
         End Property
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Friend Property Transaction() As Global.System.Data.SqlClient.SqlTransaction
             Get
                 Return Me._transaction
             End Get
-            Set(ByVal value As Global.System.Data.SqlClient.SqlTransaction)
+            Set
                 Me._transaction = value
                 Dim i As Integer = 0
                 Do While (i < Me.CommandCollection.Length)
                     Me.CommandCollection(i).Transaction = Me._transaction
                     i = (i + 1)
                 Loop
-                If ((Not (Me.Adapter) Is Nothing) _
+                If ((Not (Me.Adapter) Is Nothing)  _
                             AndAlso (Not (Me.Adapter.DeleteCommand) Is Nothing)) Then
                     Me.Adapter.DeleteCommand.Transaction = Me._transaction
                 End If
-                If ((Not (Me.Adapter) Is Nothing) _
+                If ((Not (Me.Adapter) Is Nothing)  _
                             AndAlso (Not (Me.Adapter.InsertCommand) Is Nothing)) Then
                     Me.Adapter.InsertCommand.Transaction = Me._transaction
                 End If
-                If ((Not (Me.Adapter) Is Nothing) _
+                If ((Not (Me.Adapter) Is Nothing)  _
                             AndAlso (Not (Me.Adapter.UpdateCommand) Is Nothing)) Then
                     Me.Adapter.UpdateCommand.Transaction = Me._transaction
                 End If
             End Set
         End Property
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Protected ReadOnly Property CommandCollection() As Global.System.Data.SqlClient.SqlCommand()
             Get
                 If (Me._commandCollection Is Nothing) Then
-                    Me.InitCommandCollection()
+                    Me.InitCommandCollection
                 End If
                 Return Me._commandCollection
             End Get
         End Property
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Property ClearBeforeFill() As Boolean
             Get
                 Return Me._clearBeforeFill
             End Get
-            Set(ByVal value As Boolean)
+            Set
                 Me._clearBeforeFill = value
             End Set
         End Property
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Private Sub InitAdapter()
             Me._adapter = New Global.System.Data.SqlClient.SqlDataAdapter
             Dim tableMapping As Global.System.Data.Common.DataTableMapping = New Global.System.Data.Common.DataTableMapping
@@ -13629,891 +14394,891 @@ Namespace DS_KSPAYMENTTableAdapters
             Me._adapter.TableMappings.Add(tableMapping)
             Me._adapter.DeleteCommand = New Global.System.Data.SqlClient.SqlCommand
             Me._adapter.DeleteCommand.Connection = Me.Connection
-            Me._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[tblItem] WHERE (([ItemID] = @Original_ItemID) AND ((@IsNull_It" & _
-                "emCode = 1 AND [ItemCode] IS NULL) OR ([ItemCode] = @Original_ItemCode)) AND ((@" & _
-                "IsNull_CateID = 1 AND [CateID] IS NULL) OR ([CateID] = @Original_CateID)) AND ((" & _
-                "@IsNull_ItemUnitID = 1 AND [ItemUnitID] IS NULL) OR ([ItemUnitID] = @Original_It" & _
-                "emUnitID)) AND ((@IsNull_LabourFacID = 1 AND [LabourFacID] IS NULL) OR ([LabourF" & _
-                "acID] = @Original_LabourFacID)) AND ((@IsNull_ItemName = 1 AND [ItemName] IS NUL" & _
-                "L) OR ([ItemName] = @Original_ItemName)) AND ((@IsNull_ItemDescription = 1 AND [" & _
-                "ItemDescription] IS NULL) OR ([ItemDescription] = @Original_ItemDescription)) AN" & _
-                "D ((@IsNull_ItemRegisterDate = 1 AND [ItemRegisterDate] IS NULL) OR ([ItemRegist" & _
-                "erDate] = @Original_ItemRegisterDate)) AND ((@IsNull_Barcode = 1 AND [Barcode] I" & _
-                "S NULL) OR ([Barcode] = @Original_Barcode)) AND ((@IsNull_VendorID = 1 AND [Vend" & _
-                "orID] IS NULL) OR ([VendorID] = @Original_VendorID)) AND ((@IsNull_ContainerID =" & _
-                " 1 AND [ContainerID] IS NULL) OR ([ContainerID] = @Original_ContainerID)) AND ((" & _
-                "@IsNull_UnitPrice = 1 AND [UnitPrice] IS NULL) OR ([UnitPrice] = @Original_UnitP" & _
-                "rice)) AND ((@IsNull_DonatorID = 1 AND [DonatorID] IS NULL) OR ([DonatorID] = @O" & _
-                "riginal_DonatorID)) AND ((@IsNull_IsMedicine = 1 AND [IsMedicine] IS NULL) OR ([" & _
-                "IsMedicine] = @Original_IsMedicine)) AND ((@IsNull_CurrencyID = 1 AND [CurrencyI" & _
-                "D] IS NULL) OR ([CurrencyID] = @Original_CurrencyID)) AND ((@IsNull_DateExpired " & _
-                "= 1 AND [DateExpired] IS NULL) OR ([DateExpired] = @Original_DateExpired)) AND (" & _
-                "(@IsNull_CountryID = 1 AND [CountryID] IS NULL) OR ([CountryID] = @Original_Coun" & _
+            Me._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[tblItem] WHERE (([ItemID] = @Original_ItemID) AND ((@IsNull_It"& _ 
+                "emCode = 1 AND [ItemCode] IS NULL) OR ([ItemCode] = @Original_ItemCode)) AND ((@"& _ 
+                "IsNull_CateID = 1 AND [CateID] IS NULL) OR ([CateID] = @Original_CateID)) AND (("& _ 
+                "@IsNull_ItemUnitID = 1 AND [ItemUnitID] IS NULL) OR ([ItemUnitID] = @Original_It"& _ 
+                "emUnitID)) AND ((@IsNull_LabourFacID = 1 AND [LabourFacID] IS NULL) OR ([LabourF"& _ 
+                "acID] = @Original_LabourFacID)) AND ((@IsNull_ItemName = 1 AND [ItemName] IS NUL"& _ 
+                "L) OR ([ItemName] = @Original_ItemName)) AND ((@IsNull_ItemDescription = 1 AND ["& _ 
+                "ItemDescription] IS NULL) OR ([ItemDescription] = @Original_ItemDescription)) AN"& _ 
+                "D ((@IsNull_ItemRegisterDate = 1 AND [ItemRegisterDate] IS NULL) OR ([ItemRegist"& _ 
+                "erDate] = @Original_ItemRegisterDate)) AND ((@IsNull_Barcode = 1 AND [Barcode] I"& _ 
+                "S NULL) OR ([Barcode] = @Original_Barcode)) AND ((@IsNull_VendorID = 1 AND [Vend"& _ 
+                "orID] IS NULL) OR ([VendorID] = @Original_VendorID)) AND ((@IsNull_ContainerID ="& _ 
+                " 1 AND [ContainerID] IS NULL) OR ([ContainerID] = @Original_ContainerID)) AND (("& _ 
+                "@IsNull_UnitPrice = 1 AND [UnitPrice] IS NULL) OR ([UnitPrice] = @Original_UnitP"& _ 
+                "rice)) AND ((@IsNull_DonatorID = 1 AND [DonatorID] IS NULL) OR ([DonatorID] = @O"& _ 
+                "riginal_DonatorID)) AND ((@IsNull_IsMedicine = 1 AND [IsMedicine] IS NULL) OR (["& _ 
+                "IsMedicine] = @Original_IsMedicine)) AND ((@IsNull_CurrencyID = 1 AND [CurrencyI"& _ 
+                "D] IS NULL) OR ([CurrencyID] = @Original_CurrencyID)) AND ((@IsNull_DateExpired "& _ 
+                "= 1 AND [DateExpired] IS NULL) OR ([DateExpired] = @Original_DateExpired)) AND ("& _ 
+                "(@IsNull_CountryID = 1 AND [CountryID] IS NULL) OR ([CountryID] = @Original_Coun"& _ 
                 "tryID)))"
             Me._adapter.DeleteCommand.CommandType = Global.System.Data.CommandType.Text
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_ItemID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ItemID", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_ItemCode", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ItemCode", Global.System.Data.DataRowVersion.Original, True, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_ItemCode", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ItemCode", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_CateID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CateID", Global.System.Data.DataRowVersion.Original, True, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_CateID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CateID", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_ItemUnitID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ItemUnitID", Global.System.Data.DataRowVersion.Original, True, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_ItemUnitID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ItemUnitID", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_LabourFacID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "LabourFacID", Global.System.Data.DataRowVersion.Original, True, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_LabourFacID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "LabourFacID", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_ItemName", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ItemName", Global.System.Data.DataRowVersion.Original, True, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_ItemName", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ItemName", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_ItemDescription", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ItemDescription", Global.System.Data.DataRowVersion.Original, True, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_ItemDescription", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ItemDescription", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_ItemRegisterDate", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ItemRegisterDate", Global.System.Data.DataRowVersion.Original, True, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_ItemRegisterDate", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ItemRegisterDate", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Barcode", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Barcode", Global.System.Data.DataRowVersion.Original, True, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Barcode", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Barcode", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_VendorID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "VendorID", Global.System.Data.DataRowVersion.Original, True, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_VendorID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "VendorID", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_ContainerID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ContainerID", Global.System.Data.DataRowVersion.Original, True, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_ContainerID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ContainerID", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_UnitPrice", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "UnitPrice", Global.System.Data.DataRowVersion.Original, True, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_UnitPrice", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 2, "UnitPrice", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_DonatorID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DonatorID", Global.System.Data.DataRowVersion.Original, True, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_DonatorID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DonatorID", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_IsMedicine", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "IsMedicine", Global.System.Data.DataRowVersion.Original, True, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_IsMedicine", Global.System.Data.SqlDbType.Bit, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "IsMedicine", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_CurrencyID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CurrencyID", Global.System.Data.DataRowVersion.Original, True, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_CurrencyID", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "CurrencyID", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_DateExpired", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DateExpired", Global.System.Data.DataRowVersion.Original, True, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_DateExpired", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DateExpired", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_CountryID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CountryID", Global.System.Data.DataRowVersion.Original, True, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_CountryID", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "CountryID", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_ItemID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ItemID", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_ItemCode", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ItemCode", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_ItemCode", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ItemCode", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_CateID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CateID", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_CateID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CateID", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_ItemUnitID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ItemUnitID", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_ItemUnitID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ItemUnitID", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_LabourFacID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "LabourFacID", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_LabourFacID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "LabourFacID", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_ItemName", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ItemName", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_ItemName", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ItemName", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_ItemDescription", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ItemDescription", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_ItemDescription", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ItemDescription", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_ItemRegisterDate", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ItemRegisterDate", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_ItemRegisterDate", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ItemRegisterDate", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Barcode", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Barcode", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Barcode", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Barcode", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_VendorID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "VendorID", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_VendorID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "VendorID", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_ContainerID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ContainerID", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_ContainerID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ContainerID", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_UnitPrice", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "UnitPrice", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_UnitPrice", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 2, "UnitPrice", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_DonatorID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DonatorID", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_DonatorID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DonatorID", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_IsMedicine", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "IsMedicine", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_IsMedicine", Global.System.Data.SqlDbType.Bit, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "IsMedicine", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_CurrencyID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CurrencyID", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_CurrencyID", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "CurrencyID", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_DateExpired", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DateExpired", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_DateExpired", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DateExpired", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_CountryID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CountryID", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_CountryID", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "CountryID", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand = New Global.System.Data.SqlClient.SqlCommand
             Me._adapter.InsertCommand.Connection = Me.Connection
-            Me._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[tblItem] ([ItemCode], [CateID], [ItemUnitID], [LabourFacID], [" & _
-                "ItemName], [ItemDescription], [ItemRegisterDate], [Barcode], [VendorID], [Contai" & _
-                "nerID], [UnitPrice], [Picture], [DonatorID], [IsMedicine], [CurrencyID], [DateEx" & _
-                "pired], [CountryID]) VALUES (@ItemCode, @CateID, @ItemUnitID, @LabourFacID, @Ite" & _
-                "mName, @ItemDescription, @ItemRegisterDate, @Barcode, @VendorID, @ContainerID, @" & _
-                "UnitPrice, @Picture, @DonatorID, @IsMedicine, @CurrencyID, @DateExpired, @Countr" & _
-                "yID);" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "SELECT ItemID, ItemCode, CateID, ItemUnitID, LabourFacID, ItemName, ItemD" & _
-                "escription, ItemRegisterDate, Barcode, VendorID, ContainerID, UnitPrice, Picture" & _
-                ", DonatorID, IsMedicine, CurrencyID, DateExpired, CountryID FROM tblItem WHERE (" & _
+            Me._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[tblItem] ([ItemCode], [CateID], [ItemUnitID], [LabourFacID], ["& _ 
+                "ItemName], [ItemDescription], [ItemRegisterDate], [Barcode], [VendorID], [Contai"& _ 
+                "nerID], [UnitPrice], [Picture], [DonatorID], [IsMedicine], [CurrencyID], [DateEx"& _ 
+                "pired], [CountryID]) VALUES (@ItemCode, @CateID, @ItemUnitID, @LabourFacID, @Ite"& _ 
+                "mName, @ItemDescription, @ItemRegisterDate, @Barcode, @VendorID, @ContainerID, @"& _ 
+                "UnitPrice, @Picture, @DonatorID, @IsMedicine, @CurrencyID, @DateExpired, @Countr"& _ 
+                "yID);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT ItemID, ItemCode, CateID, ItemUnitID, LabourFacID, ItemName, ItemD"& _ 
+                "escription, ItemRegisterDate, Barcode, VendorID, ContainerID, UnitPrice, Picture"& _ 
+                ", DonatorID, IsMedicine, CurrencyID, DateExpired, CountryID FROM tblItem WHERE ("& _ 
                 "ItemID = SCOPE_IDENTITY()) ORDER BY ItemName"
             Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ItemCode", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ItemCode", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CateID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CateID", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ItemUnitID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ItemUnitID", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@LabourFacID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "LabourFacID", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ItemName", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ItemName", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ItemDescription", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ItemDescription", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ItemRegisterDate", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ItemRegisterDate", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Barcode", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Barcode", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@VendorID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "VendorID", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ContainerID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ContainerID", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@UnitPrice", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 2, "UnitPrice", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Picture", Global.System.Data.SqlDbType.Image, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Picture", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DonatorID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DonatorID", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsMedicine", Global.System.Data.SqlDbType.Bit, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "IsMedicine", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CurrencyID", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "CurrencyID", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateExpired", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DateExpired", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CountryID", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "CountryID", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ItemCode", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ItemCode", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CateID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CateID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ItemUnitID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ItemUnitID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@LabourFacID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "LabourFacID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ItemName", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ItemName", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ItemDescription", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ItemDescription", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ItemRegisterDate", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ItemRegisterDate", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Barcode", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Barcode", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@VendorID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "VendorID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ContainerID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ContainerID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@UnitPrice", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 2, "UnitPrice", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Picture", Global.System.Data.SqlDbType.Image, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Picture", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DonatorID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DonatorID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsMedicine", Global.System.Data.SqlDbType.Bit, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "IsMedicine", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CurrencyID", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "CurrencyID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateExpired", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DateExpired", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CountryID", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "CountryID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand = New Global.System.Data.SqlClient.SqlCommand
             Me._adapter.UpdateCommand.Connection = Me.Connection
-            Me._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[tblItem] SET [ItemCode] = @ItemCode, [CateID] = @CateID, [ItemUnitI" & _
-                "D] = @ItemUnitID, [LabourFacID] = @LabourFacID, [ItemName] = @ItemName, [ItemDes" & _
-                "cription] = @ItemDescription, [ItemRegisterDate] = @ItemRegisterDate, [Barcode] " & _
-                "= @Barcode, [VendorID] = @VendorID, [ContainerID] = @ContainerID, [UnitPrice] = " & _
-                "@UnitPrice, [Picture] = @Picture, [DonatorID] = @DonatorID, [IsMedicine] = @IsMe" & _
-                "dicine, [CurrencyID] = @CurrencyID, [DateExpired] = @DateExpired, [CountryID] = " & _
-                "@CountryID WHERE (([ItemID] = @Original_ItemID) AND ((@IsNull_ItemCode = 1 AND [" & _
-                "ItemCode] IS NULL) OR ([ItemCode] = @Original_ItemCode)) AND ((@IsNull_CateID = " & _
-                "1 AND [CateID] IS NULL) OR ([CateID] = @Original_CateID)) AND ((@IsNull_ItemUnit" & _
-                "ID = 1 AND [ItemUnitID] IS NULL) OR ([ItemUnitID] = @Original_ItemUnitID)) AND (" & _
-                "(@IsNull_LabourFacID = 1 AND [LabourFacID] IS NULL) OR ([LabourFacID] = @Origina" & _
-                "l_LabourFacID)) AND ((@IsNull_ItemName = 1 AND [ItemName] IS NULL) OR ([ItemName" & _
-                "] = @Original_ItemName)) AND ((@IsNull_ItemDescription = 1 AND [ItemDescription]" & _
-                " IS NULL) OR ([ItemDescription] = @Original_ItemDescription)) AND ((@IsNull_Item" & _
-                "RegisterDate = 1 AND [ItemRegisterDate] IS NULL) OR ([ItemRegisterDate] = @Origi" & _
-                "nal_ItemRegisterDate)) AND ((@IsNull_Barcode = 1 AND [Barcode] IS NULL) OR ([Bar" & _
-                "code] = @Original_Barcode)) AND ((@IsNull_VendorID = 1 AND [VendorID] IS NULL) O" & _
-                "R ([VendorID] = @Original_VendorID)) AND ((@IsNull_ContainerID = 1 AND [Containe" & _
-                "rID] IS NULL) OR ([ContainerID] = @Original_ContainerID)) AND ((@IsNull_UnitPric" & _
-                "e = 1 AND [UnitPrice] IS NULL) OR ([UnitPrice] = @Original_UnitPrice)) AND ((@Is" & _
-                "Null_DonatorID = 1 AND [DonatorID] IS NULL) OR ([DonatorID] = @Original_DonatorI" & _
-                "D)) AND ((@IsNull_IsMedicine = 1 AND [IsMedicine] IS NULL) OR ([IsMedicine] = @O" & _
-                "riginal_IsMedicine)) AND ((@IsNull_CurrencyID = 1 AND [CurrencyID] IS NULL) OR (" & _
-                "[CurrencyID] = @Original_CurrencyID)) AND ((@IsNull_DateExpired = 1 AND [DateExp" & _
-                "ired] IS NULL) OR ([DateExpired] = @Original_DateExpired)) AND ((@IsNull_Country" & _
-                "ID = 1 AND [CountryID] IS NULL) OR ([CountryID] = @Original_CountryID)));" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "SELEC" & _
-                "T ItemID, ItemCode, CateID, ItemUnitID, LabourFacID, ItemName, ItemDescription, " & _
-                "ItemRegisterDate, Barcode, VendorID, ContainerID, UnitPrice, Picture, DonatorID," & _
-                " IsMedicine, CurrencyID, DateExpired, CountryID FROM tblItem WHERE (ItemID = @It" & _
+            Me._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[tblItem] SET [ItemCode] = @ItemCode, [CateID] = @CateID, [ItemUnitI"& _ 
+                "D] = @ItemUnitID, [LabourFacID] = @LabourFacID, [ItemName] = @ItemName, [ItemDes"& _ 
+                "cription] = @ItemDescription, [ItemRegisterDate] = @ItemRegisterDate, [Barcode] "& _ 
+                "= @Barcode, [VendorID] = @VendorID, [ContainerID] = @ContainerID, [UnitPrice] = "& _ 
+                "@UnitPrice, [Picture] = @Picture, [DonatorID] = @DonatorID, [IsMedicine] = @IsMe"& _ 
+                "dicine, [CurrencyID] = @CurrencyID, [DateExpired] = @DateExpired, [CountryID] = "& _ 
+                "@CountryID WHERE (([ItemID] = @Original_ItemID) AND ((@IsNull_ItemCode = 1 AND ["& _ 
+                "ItemCode] IS NULL) OR ([ItemCode] = @Original_ItemCode)) AND ((@IsNull_CateID = "& _ 
+                "1 AND [CateID] IS NULL) OR ([CateID] = @Original_CateID)) AND ((@IsNull_ItemUnit"& _ 
+                "ID = 1 AND [ItemUnitID] IS NULL) OR ([ItemUnitID] = @Original_ItemUnitID)) AND ("& _ 
+                "(@IsNull_LabourFacID = 1 AND [LabourFacID] IS NULL) OR ([LabourFacID] = @Origina"& _ 
+                "l_LabourFacID)) AND ((@IsNull_ItemName = 1 AND [ItemName] IS NULL) OR ([ItemName"& _ 
+                "] = @Original_ItemName)) AND ((@IsNull_ItemDescription = 1 AND [ItemDescription]"& _ 
+                " IS NULL) OR ([ItemDescription] = @Original_ItemDescription)) AND ((@IsNull_Item"& _ 
+                "RegisterDate = 1 AND [ItemRegisterDate] IS NULL) OR ([ItemRegisterDate] = @Origi"& _ 
+                "nal_ItemRegisterDate)) AND ((@IsNull_Barcode = 1 AND [Barcode] IS NULL) OR ([Bar"& _ 
+                "code] = @Original_Barcode)) AND ((@IsNull_VendorID = 1 AND [VendorID] IS NULL) O"& _ 
+                "R ([VendorID] = @Original_VendorID)) AND ((@IsNull_ContainerID = 1 AND [Containe"& _ 
+                "rID] IS NULL) OR ([ContainerID] = @Original_ContainerID)) AND ((@IsNull_UnitPric"& _ 
+                "e = 1 AND [UnitPrice] IS NULL) OR ([UnitPrice] = @Original_UnitPrice)) AND ((@Is"& _ 
+                "Null_DonatorID = 1 AND [DonatorID] IS NULL) OR ([DonatorID] = @Original_DonatorI"& _ 
+                "D)) AND ((@IsNull_IsMedicine = 1 AND [IsMedicine] IS NULL) OR ([IsMedicine] = @O"& _ 
+                "riginal_IsMedicine)) AND ((@IsNull_CurrencyID = 1 AND [CurrencyID] IS NULL) OR ("& _ 
+                "[CurrencyID] = @Original_CurrencyID)) AND ((@IsNull_DateExpired = 1 AND [DateExp"& _ 
+                "ired] IS NULL) OR ([DateExpired] = @Original_DateExpired)) AND ((@IsNull_Country"& _ 
+                "ID = 1 AND [CountryID] IS NULL) OR ([CountryID] = @Original_CountryID)));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELEC"& _ 
+                "T ItemID, ItemCode, CateID, ItemUnitID, LabourFacID, ItemName, ItemDescription, "& _ 
+                "ItemRegisterDate, Barcode, VendorID, ContainerID, UnitPrice, Picture, DonatorID,"& _ 
+                " IsMedicine, CurrencyID, DateExpired, CountryID FROM tblItem WHERE (ItemID = @It"& _ 
                 "emID) ORDER BY ItemName"
             Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ItemCode", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ItemCode", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CateID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CateID", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ItemUnitID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ItemUnitID", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@LabourFacID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "LabourFacID", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ItemName", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ItemName", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ItemDescription", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ItemDescription", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ItemRegisterDate", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ItemRegisterDate", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Barcode", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Barcode", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@VendorID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "VendorID", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ContainerID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ContainerID", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@UnitPrice", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 2, "UnitPrice", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Picture", Global.System.Data.SqlDbType.Image, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Picture", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DonatorID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DonatorID", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsMedicine", Global.System.Data.SqlDbType.Bit, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "IsMedicine", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CurrencyID", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "CurrencyID", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateExpired", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DateExpired", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CountryID", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "CountryID", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_ItemID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ItemID", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_ItemCode", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ItemCode", Global.System.Data.DataRowVersion.Original, True, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_ItemCode", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ItemCode", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_CateID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CateID", Global.System.Data.DataRowVersion.Original, True, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_CateID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CateID", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_ItemUnitID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ItemUnitID", Global.System.Data.DataRowVersion.Original, True, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_ItemUnitID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ItemUnitID", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_LabourFacID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "LabourFacID", Global.System.Data.DataRowVersion.Original, True, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_LabourFacID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "LabourFacID", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_ItemName", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ItemName", Global.System.Data.DataRowVersion.Original, True, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_ItemName", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ItemName", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_ItemDescription", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ItemDescription", Global.System.Data.DataRowVersion.Original, True, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_ItemDescription", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ItemDescription", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_ItemRegisterDate", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ItemRegisterDate", Global.System.Data.DataRowVersion.Original, True, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_ItemRegisterDate", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ItemRegisterDate", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Barcode", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Barcode", Global.System.Data.DataRowVersion.Original, True, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Barcode", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Barcode", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_VendorID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "VendorID", Global.System.Data.DataRowVersion.Original, True, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_VendorID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "VendorID", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_ContainerID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ContainerID", Global.System.Data.DataRowVersion.Original, True, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_ContainerID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ContainerID", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_UnitPrice", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "UnitPrice", Global.System.Data.DataRowVersion.Original, True, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_UnitPrice", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 2, "UnitPrice", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_DonatorID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DonatorID", Global.System.Data.DataRowVersion.Original, True, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_DonatorID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DonatorID", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_IsMedicine", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "IsMedicine", Global.System.Data.DataRowVersion.Original, True, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_IsMedicine", Global.System.Data.SqlDbType.Bit, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "IsMedicine", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_CurrencyID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CurrencyID", Global.System.Data.DataRowVersion.Original, True, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_CurrencyID", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "CurrencyID", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_DateExpired", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DateExpired", Global.System.Data.DataRowVersion.Original, True, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_DateExpired", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DateExpired", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_CountryID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CountryID", Global.System.Data.DataRowVersion.Original, True, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_CountryID", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "CountryID", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ItemID", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "ItemID", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ItemCode", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ItemCode", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CateID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CateID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ItemUnitID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ItemUnitID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@LabourFacID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "LabourFacID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ItemName", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ItemName", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ItemDescription", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ItemDescription", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ItemRegisterDate", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ItemRegisterDate", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Barcode", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Barcode", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@VendorID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "VendorID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ContainerID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ContainerID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@UnitPrice", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 2, "UnitPrice", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Picture", Global.System.Data.SqlDbType.Image, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Picture", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DonatorID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DonatorID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsMedicine", Global.System.Data.SqlDbType.Bit, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "IsMedicine", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CurrencyID", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "CurrencyID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateExpired", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DateExpired", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CountryID", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "CountryID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_ItemID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ItemID", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_ItemCode", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ItemCode", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_ItemCode", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ItemCode", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_CateID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CateID", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_CateID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CateID", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_ItemUnitID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ItemUnitID", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_ItemUnitID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ItemUnitID", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_LabourFacID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "LabourFacID", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_LabourFacID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "LabourFacID", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_ItemName", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ItemName", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_ItemName", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ItemName", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_ItemDescription", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ItemDescription", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_ItemDescription", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ItemDescription", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_ItemRegisterDate", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ItemRegisterDate", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_ItemRegisterDate", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ItemRegisterDate", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Barcode", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Barcode", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Barcode", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Barcode", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_VendorID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "VendorID", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_VendorID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "VendorID", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_ContainerID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ContainerID", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_ContainerID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ContainerID", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_UnitPrice", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "UnitPrice", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_UnitPrice", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 2, "UnitPrice", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_DonatorID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DonatorID", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_DonatorID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DonatorID", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_IsMedicine", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "IsMedicine", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_IsMedicine", Global.System.Data.SqlDbType.Bit, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "IsMedicine", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_CurrencyID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CurrencyID", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_CurrencyID", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "CurrencyID", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_DateExpired", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DateExpired", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_DateExpired", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DateExpired", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_CountryID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CountryID", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_CountryID", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "CountryID", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ItemID", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "ItemID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
         End Sub
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Private Sub InitConnection()
             Me._connection = New Global.System.Data.SqlClient.SqlConnection
             Me._connection.ConnectionString = Global.HospitalMS.My.MySettings.Default.AppConnection
         End Sub
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Private Sub InitCommandCollection()
             Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(1) {}
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT ItemID, ItemCode, CateID, ItemUnitID, LabourFacID, ItemName, ItemDescripti" & _
-                "on, ItemRegisterDate, Barcode, VendorID, ContainerID, UnitPrice, Picture, Donato" & _
-                "rID, IsMedicine, CurrencyID, DateExpired, CountryID FROM dbo.tblItem ORDER BY It" & _
+            Me._commandCollection(0).CommandText = "SELECT ItemID, ItemCode, CateID, ItemUnitID, LabourFacID, ItemName, ItemDescripti"& _ 
+                "on, ItemRegisterDate, Barcode, VendorID, ContainerID, UnitPrice, Picture, Donato"& _ 
+                "rID, IsMedicine, CurrencyID, DateExpired, CountryID FROM dbo.tblItem ORDER BY It"& _ 
                 "emName"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(1) = New Global.System.Data.SqlClient.SqlCommand
             Me._commandCollection(1).Connection = Me.Connection
-            Me._commandCollection(1).CommandText = "SELECT COUNT(*) FROM tblItem" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "WHERE ItemID=@ItemID and ItemName=@ItemName"
+            Me._commandCollection(1).CommandText = "SELECT COUNT(*) FROM tblItem"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE ItemID=@ItemID and ItemName=@ItemName"
             Me._commandCollection(1).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ItemID", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "ItemID", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ItemName", Global.System.Data.SqlDbType.NVarChar, 150, Global.System.Data.ParameterDirection.Input, 0, 0, "ItemName", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ItemID", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "ItemID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ItemName", Global.System.Data.SqlDbType.NVarChar, 150, Global.System.Data.ParameterDirection.Input, 0, 0, "ItemName", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
         End Sub
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, True)> _
-        Public Overridable Overloads Function Fill(ByVal dataTable As DS_KSPAYMENT.tblItemDataTable) As Integer
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, true)>  _
+        Public Overloads Overridable Function Fill(ByVal dataTable As DS_KSPAYMENT.tblItemDataTable) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
-            If (Me.ClearBeforeFill = True) Then
-                dataTable.Clear()
+            If (Me.ClearBeforeFill = true) Then
+                dataTable.Clear
             End If
             Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
             Return returnValue
         End Function
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], True)> _
-        Public Overridable Overloads Function GetData() As DS_KSPAYMENT.tblItemDataTable
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], true)>  _
+        Public Overloads Overridable Function GetData() As DS_KSPAYMENT.tblItemDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
             Dim dataTable As DS_KSPAYMENT.tblItemDataTable = New DS_KSPAYMENT.tblItemDataTable
             Me.Adapter.Fill(dataTable)
             Return dataTable
         End Function
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")> _
-        Public Overridable Overloads Function Update(ByVal dataTable As DS_KSPAYMENT.tblItemDataTable) As Integer
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+        Public Overloads Overridable Function Update(ByVal dataTable As DS_KSPAYMENT.tblItemDataTable) As Integer
             Return Me.Adapter.Update(dataTable)
         End Function
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")> _
-        Public Overridable Overloads Function Update(ByVal dataSet As DS_KSPAYMENT) As Integer
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+        Public Overloads Overridable Function Update(ByVal dataSet As DS_KSPAYMENT) As Integer
             Return Me.Adapter.Update(dataSet, "tblItem")
         End Function
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")> _
-        Public Overridable Overloads Function Update(ByVal dataRow As Global.System.Data.DataRow) As Integer
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+        Public Overloads Overridable Function Update(ByVal dataRow As Global.System.Data.DataRow) As Integer
             Return Me.Adapter.Update(New Global.System.Data.DataRow() {dataRow})
         End Function
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")> _
-        Public Overridable Overloads Function Update(ByVal dataRows() As Global.System.Data.DataRow) As Integer
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+        Public Overloads Overridable Function Update(ByVal dataRows() As Global.System.Data.DataRow) As Integer
             Return Me.Adapter.Update(dataRows)
         End Function
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Delete, True)> _
-        Public Overridable Overloads Function Delete( _
-                    ByVal Original_ItemID As Integer, _
-                    ByVal Original_ItemCode As String, _
-                    ByVal Original_CateID As Global.System.Nullable(Of Integer), _
-                    ByVal Original_ItemUnitID As Global.System.Nullable(Of Integer), _
-                    ByVal Original_LabourFacID As Global.System.Nullable(Of Integer), _
-                    ByVal Original_ItemName As String, _
-                    ByVal Original_ItemDescription As String, _
-                    ByVal Original_ItemRegisterDate As Global.System.Nullable(Of Date), _
-                    ByVal Original_Barcode As String, _
-                    ByVal Original_VendorID As Global.System.Nullable(Of Integer), _
-                    ByVal Original_ContainerID As Global.System.Nullable(Of Integer), _
-                    ByVal Original_UnitPrice As Global.System.Nullable(Of Decimal), _
-                    ByVal Original_DonatorID As Global.System.Nullable(Of Integer), _
-                    ByVal Original_IsMedicine As Global.System.Nullable(Of Boolean), _
-                    ByVal Original_CurrencyID As Global.System.Nullable(Of Decimal), _
-                    ByVal Original_DateExpired As Global.System.Nullable(Of Date), _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Delete, true)>  _
+        Public Overloads Overridable Function Delete( _
+                    ByVal Original_ItemID As Integer,  _
+                    ByVal Original_ItemCode As String,  _
+                    ByVal Original_CateID As Global.System.Nullable(Of Integer),  _
+                    ByVal Original_ItemUnitID As Global.System.Nullable(Of Integer),  _
+                    ByVal Original_LabourFacID As Global.System.Nullable(Of Integer),  _
+                    ByVal Original_ItemName As String,  _
+                    ByVal Original_ItemDescription As String,  _
+                    ByVal Original_ItemRegisterDate As Global.System.Nullable(Of Date),  _
+                    ByVal Original_Barcode As String,  _
+                    ByVal Original_VendorID As Global.System.Nullable(Of Integer),  _
+                    ByVal Original_ContainerID As Global.System.Nullable(Of Integer),  _
+                    ByVal Original_UnitPrice As Global.System.Nullable(Of Decimal),  _
+                    ByVal Original_DonatorID As Global.System.Nullable(Of Integer),  _
+                    ByVal Original_IsMedicine As Global.System.Nullable(Of Boolean),  _
+                    ByVal Original_CurrencyID As Global.System.Nullable(Of Decimal),  _
+                    ByVal Original_DateExpired As Global.System.Nullable(Of Date),  _
                     ByVal Original_CountryID As Global.System.Nullable(Of Decimal)) As Integer
-            Me.Adapter.DeleteCommand.Parameters(0).Value = CType(Original_ItemID, Integer)
+            Me.Adapter.DeleteCommand.Parameters(0).Value = CType(Original_ItemID,Integer)
             If (Original_ItemCode Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(1).Value = CType(1, Object)
+                Me.Adapter.DeleteCommand.Parameters(1).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(2).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.DeleteCommand.Parameters(1).Value = CType(0, Object)
-                Me.Adapter.DeleteCommand.Parameters(2).Value = CType(Original_ItemCode, String)
+                Me.Adapter.DeleteCommand.Parameters(1).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(2).Value = CType(Original_ItemCode,String)
             End If
-            If (Original_CateID.HasValue = True) Then
-                Me.Adapter.DeleteCommand.Parameters(3).Value = CType(0, Object)
-                Me.Adapter.DeleteCommand.Parameters(4).Value = CType(Original_CateID.Value, Integer)
+            If (Original_CateID.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(3).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(4).Value = CType(Original_CateID.Value,Integer)
             Else
-                Me.Adapter.DeleteCommand.Parameters(3).Value = CType(1, Object)
+                Me.Adapter.DeleteCommand.Parameters(3).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(4).Value = Global.System.DBNull.Value
             End If
-            If (Original_ItemUnitID.HasValue = True) Then
-                Me.Adapter.DeleteCommand.Parameters(5).Value = CType(0, Object)
-                Me.Adapter.DeleteCommand.Parameters(6).Value = CType(Original_ItemUnitID.Value, Integer)
+            If (Original_ItemUnitID.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(5).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(6).Value = CType(Original_ItemUnitID.Value,Integer)
             Else
-                Me.Adapter.DeleteCommand.Parameters(5).Value = CType(1, Object)
+                Me.Adapter.DeleteCommand.Parameters(5).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(6).Value = Global.System.DBNull.Value
             End If
-            If (Original_LabourFacID.HasValue = True) Then
-                Me.Adapter.DeleteCommand.Parameters(7).Value = CType(0, Object)
-                Me.Adapter.DeleteCommand.Parameters(8).Value = CType(Original_LabourFacID.Value, Integer)
+            If (Original_LabourFacID.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(7).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(8).Value = CType(Original_LabourFacID.Value,Integer)
             Else
-                Me.Adapter.DeleteCommand.Parameters(7).Value = CType(1, Object)
+                Me.Adapter.DeleteCommand.Parameters(7).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(8).Value = Global.System.DBNull.Value
             End If
             If (Original_ItemName Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(9).Value = CType(1, Object)
+                Me.Adapter.DeleteCommand.Parameters(9).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(10).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.DeleteCommand.Parameters(9).Value = CType(0, Object)
-                Me.Adapter.DeleteCommand.Parameters(10).Value = CType(Original_ItemName, String)
+                Me.Adapter.DeleteCommand.Parameters(9).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(10).Value = CType(Original_ItemName,String)
             End If
             If (Original_ItemDescription Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(11).Value = CType(1, Object)
+                Me.Adapter.DeleteCommand.Parameters(11).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(12).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.DeleteCommand.Parameters(11).Value = CType(0, Object)
-                Me.Adapter.DeleteCommand.Parameters(12).Value = CType(Original_ItemDescription, String)
+                Me.Adapter.DeleteCommand.Parameters(11).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(12).Value = CType(Original_ItemDescription,String)
             End If
-            If (Original_ItemRegisterDate.HasValue = True) Then
-                Me.Adapter.DeleteCommand.Parameters(13).Value = CType(0, Object)
-                Me.Adapter.DeleteCommand.Parameters(14).Value = CType(Original_ItemRegisterDate.Value, Date)
+            If (Original_ItemRegisterDate.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(13).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(14).Value = CType(Original_ItemRegisterDate.Value,Date)
             Else
-                Me.Adapter.DeleteCommand.Parameters(13).Value = CType(1, Object)
+                Me.Adapter.DeleteCommand.Parameters(13).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(14).Value = Global.System.DBNull.Value
             End If
             If (Original_Barcode Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(15).Value = CType(1, Object)
+                Me.Adapter.DeleteCommand.Parameters(15).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(16).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.DeleteCommand.Parameters(15).Value = CType(0, Object)
-                Me.Adapter.DeleteCommand.Parameters(16).Value = CType(Original_Barcode, String)
+                Me.Adapter.DeleteCommand.Parameters(15).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(16).Value = CType(Original_Barcode,String)
             End If
-            If (Original_VendorID.HasValue = True) Then
-                Me.Adapter.DeleteCommand.Parameters(17).Value = CType(0, Object)
-                Me.Adapter.DeleteCommand.Parameters(18).Value = CType(Original_VendorID.Value, Integer)
+            If (Original_VendorID.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(17).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(18).Value = CType(Original_VendorID.Value,Integer)
             Else
-                Me.Adapter.DeleteCommand.Parameters(17).Value = CType(1, Object)
+                Me.Adapter.DeleteCommand.Parameters(17).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(18).Value = Global.System.DBNull.Value
             End If
-            If (Original_ContainerID.HasValue = True) Then
-                Me.Adapter.DeleteCommand.Parameters(19).Value = CType(0, Object)
-                Me.Adapter.DeleteCommand.Parameters(20).Value = CType(Original_ContainerID.Value, Integer)
+            If (Original_ContainerID.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(19).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(20).Value = CType(Original_ContainerID.Value,Integer)
             Else
-                Me.Adapter.DeleteCommand.Parameters(19).Value = CType(1, Object)
+                Me.Adapter.DeleteCommand.Parameters(19).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(20).Value = Global.System.DBNull.Value
             End If
-            If (Original_UnitPrice.HasValue = True) Then
-                Me.Adapter.DeleteCommand.Parameters(21).Value = CType(0, Object)
-                Me.Adapter.DeleteCommand.Parameters(22).Value = CType(Original_UnitPrice.Value, Decimal)
+            If (Original_UnitPrice.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(21).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(22).Value = CType(Original_UnitPrice.Value,Decimal)
             Else
-                Me.Adapter.DeleteCommand.Parameters(21).Value = CType(1, Object)
+                Me.Adapter.DeleteCommand.Parameters(21).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(22).Value = Global.System.DBNull.Value
             End If
-            If (Original_DonatorID.HasValue = True) Then
-                Me.Adapter.DeleteCommand.Parameters(23).Value = CType(0, Object)
-                Me.Adapter.DeleteCommand.Parameters(24).Value = CType(Original_DonatorID.Value, Integer)
+            If (Original_DonatorID.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(23).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(24).Value = CType(Original_DonatorID.Value,Integer)
             Else
-                Me.Adapter.DeleteCommand.Parameters(23).Value = CType(1, Object)
+                Me.Adapter.DeleteCommand.Parameters(23).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(24).Value = Global.System.DBNull.Value
             End If
-            If (Original_IsMedicine.HasValue = True) Then
-                Me.Adapter.DeleteCommand.Parameters(25).Value = CType(0, Object)
-                Me.Adapter.DeleteCommand.Parameters(26).Value = CType(Original_IsMedicine.Value, Boolean)
+            If (Original_IsMedicine.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(25).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(26).Value = CType(Original_IsMedicine.Value,Boolean)
             Else
-                Me.Adapter.DeleteCommand.Parameters(25).Value = CType(1, Object)
+                Me.Adapter.DeleteCommand.Parameters(25).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(26).Value = Global.System.DBNull.Value
             End If
-            If (Original_CurrencyID.HasValue = True) Then
-                Me.Adapter.DeleteCommand.Parameters(27).Value = CType(0, Object)
-                Me.Adapter.DeleteCommand.Parameters(28).Value = CType(Original_CurrencyID.Value, Decimal)
+            If (Original_CurrencyID.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(27).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(28).Value = CType(Original_CurrencyID.Value,Decimal)
             Else
-                Me.Adapter.DeleteCommand.Parameters(27).Value = CType(1, Object)
+                Me.Adapter.DeleteCommand.Parameters(27).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(28).Value = Global.System.DBNull.Value
             End If
-            If (Original_DateExpired.HasValue = True) Then
-                Me.Adapter.DeleteCommand.Parameters(29).Value = CType(0, Object)
-                Me.Adapter.DeleteCommand.Parameters(30).Value = CType(Original_DateExpired.Value, Date)
+            If (Original_DateExpired.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(29).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(30).Value = CType(Original_DateExpired.Value,Date)
             Else
-                Me.Adapter.DeleteCommand.Parameters(29).Value = CType(1, Object)
+                Me.Adapter.DeleteCommand.Parameters(29).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(30).Value = Global.System.DBNull.Value
             End If
-            If (Original_CountryID.HasValue = True) Then
-                Me.Adapter.DeleteCommand.Parameters(31).Value = CType(0, Object)
-                Me.Adapter.DeleteCommand.Parameters(32).Value = CType(Original_CountryID.Value, Decimal)
+            If (Original_CountryID.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(31).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(32).Value = CType(Original_CountryID.Value,Decimal)
             Else
-                Me.Adapter.DeleteCommand.Parameters(31).Value = CType(1, Object)
+                Me.Adapter.DeleteCommand.Parameters(31).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(32).Value = Global.System.DBNull.Value
             End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.DeleteCommand.Connection.State
-            If ((Me.Adapter.DeleteCommand.Connection.State And Global.System.Data.ConnectionState.Open) _
+            If ((Me.Adapter.DeleteCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
-                Me.Adapter.DeleteCommand.Connection.Open()
+                Me.Adapter.DeleteCommand.Connection.Open
             End If
-            Try
+            Try 
                 Dim returnValue As Integer = Me.Adapter.DeleteCommand.ExecuteNonQuery
                 Return returnValue
             Finally
                 If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
-                    Me.Adapter.DeleteCommand.Connection.Close()
+                    Me.Adapter.DeleteCommand.Connection.Close
                 End If
             End Try
         End Function
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, True)> _
-        Public Overridable Overloads Function Insert( _
-                    ByVal ItemCode As String, _
-                    ByVal CateID As Global.System.Nullable(Of Integer), _
-                    ByVal ItemUnitID As Global.System.Nullable(Of Integer), _
-                    ByVal LabourFacID As Global.System.Nullable(Of Integer), _
-                    ByVal ItemName As String, _
-                    ByVal ItemDescription As String, _
-                    ByVal ItemRegisterDate As Global.System.Nullable(Of Date), _
-                    ByVal Barcode As String, _
-                    ByVal VendorID As Global.System.Nullable(Of Integer), _
-                    ByVal ContainerID As Global.System.Nullable(Of Integer), _
-                    ByVal UnitPrice As Global.System.Nullable(Of Decimal), _
-                    ByVal Picture() As Byte, _
-                    ByVal DonatorID As Global.System.Nullable(Of Integer), _
-                    ByVal IsMedicine As Global.System.Nullable(Of Boolean), _
-                    ByVal CurrencyID As Global.System.Nullable(Of Decimal), _
-                    ByVal DateExpired As Global.System.Nullable(Of Date), _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, true)>  _
+        Public Overloads Overridable Function Insert( _
+                    ByVal ItemCode As String,  _
+                    ByVal CateID As Global.System.Nullable(Of Integer),  _
+                    ByVal ItemUnitID As Global.System.Nullable(Of Integer),  _
+                    ByVal LabourFacID As Global.System.Nullable(Of Integer),  _
+                    ByVal ItemName As String,  _
+                    ByVal ItemDescription As String,  _
+                    ByVal ItemRegisterDate As Global.System.Nullable(Of Date),  _
+                    ByVal Barcode As String,  _
+                    ByVal VendorID As Global.System.Nullable(Of Integer),  _
+                    ByVal ContainerID As Global.System.Nullable(Of Integer),  _
+                    ByVal UnitPrice As Global.System.Nullable(Of Decimal),  _
+                    ByVal Picture() As Byte,  _
+                    ByVal DonatorID As Global.System.Nullable(Of Integer),  _
+                    ByVal IsMedicine As Global.System.Nullable(Of Boolean),  _
+                    ByVal CurrencyID As Global.System.Nullable(Of Decimal),  _
+                    ByVal DateExpired As Global.System.Nullable(Of Date),  _
                     ByVal CountryID As Global.System.Nullable(Of Decimal)) As Integer
             If (ItemCode Is Nothing) Then
                 Me.Adapter.InsertCommand.Parameters(0).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.InsertCommand.Parameters(0).Value = CType(ItemCode, String)
+                Me.Adapter.InsertCommand.Parameters(0).Value = CType(ItemCode,String)
             End If
-            If (CateID.HasValue = True) Then
-                Me.Adapter.InsertCommand.Parameters(1).Value = CType(CateID.Value, Integer)
+            If (CateID.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(1).Value = CType(CateID.Value,Integer)
             Else
                 Me.Adapter.InsertCommand.Parameters(1).Value = Global.System.DBNull.Value
             End If
-            If (ItemUnitID.HasValue = True) Then
-                Me.Adapter.InsertCommand.Parameters(2).Value = CType(ItemUnitID.Value, Integer)
+            If (ItemUnitID.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(2).Value = CType(ItemUnitID.Value,Integer)
             Else
                 Me.Adapter.InsertCommand.Parameters(2).Value = Global.System.DBNull.Value
             End If
-            If (LabourFacID.HasValue = True) Then
-                Me.Adapter.InsertCommand.Parameters(3).Value = CType(LabourFacID.Value, Integer)
+            If (LabourFacID.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(3).Value = CType(LabourFacID.Value,Integer)
             Else
                 Me.Adapter.InsertCommand.Parameters(3).Value = Global.System.DBNull.Value
             End If
             If (ItemName Is Nothing) Then
                 Me.Adapter.InsertCommand.Parameters(4).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.InsertCommand.Parameters(4).Value = CType(ItemName, String)
+                Me.Adapter.InsertCommand.Parameters(4).Value = CType(ItemName,String)
             End If
             If (ItemDescription Is Nothing) Then
                 Me.Adapter.InsertCommand.Parameters(5).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.InsertCommand.Parameters(5).Value = CType(ItemDescription, String)
+                Me.Adapter.InsertCommand.Parameters(5).Value = CType(ItemDescription,String)
             End If
-            If (ItemRegisterDate.HasValue = True) Then
-                Me.Adapter.InsertCommand.Parameters(6).Value = CType(ItemRegisterDate.Value, Date)
+            If (ItemRegisterDate.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(6).Value = CType(ItemRegisterDate.Value,Date)
             Else
                 Me.Adapter.InsertCommand.Parameters(6).Value = Global.System.DBNull.Value
             End If
             If (Barcode Is Nothing) Then
                 Me.Adapter.InsertCommand.Parameters(7).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.InsertCommand.Parameters(7).Value = CType(Barcode, String)
+                Me.Adapter.InsertCommand.Parameters(7).Value = CType(Barcode,String)
             End If
-            If (VendorID.HasValue = True) Then
-                Me.Adapter.InsertCommand.Parameters(8).Value = CType(VendorID.Value, Integer)
+            If (VendorID.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(8).Value = CType(VendorID.Value,Integer)
             Else
                 Me.Adapter.InsertCommand.Parameters(8).Value = Global.System.DBNull.Value
             End If
-            If (ContainerID.HasValue = True) Then
-                Me.Adapter.InsertCommand.Parameters(9).Value = CType(ContainerID.Value, Integer)
+            If (ContainerID.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(9).Value = CType(ContainerID.Value,Integer)
             Else
                 Me.Adapter.InsertCommand.Parameters(9).Value = Global.System.DBNull.Value
             End If
-            If (UnitPrice.HasValue = True) Then
-                Me.Adapter.InsertCommand.Parameters(10).Value = CType(UnitPrice.Value, Decimal)
+            If (UnitPrice.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(10).Value = CType(UnitPrice.Value,Decimal)
             Else
                 Me.Adapter.InsertCommand.Parameters(10).Value = Global.System.DBNull.Value
             End If
             If (Picture Is Nothing) Then
                 Me.Adapter.InsertCommand.Parameters(11).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.InsertCommand.Parameters(11).Value = CType(Picture, Byte())
+                Me.Adapter.InsertCommand.Parameters(11).Value = CType(Picture,Byte())
             End If
-            If (DonatorID.HasValue = True) Then
-                Me.Adapter.InsertCommand.Parameters(12).Value = CType(DonatorID.Value, Integer)
+            If (DonatorID.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(12).Value = CType(DonatorID.Value,Integer)
             Else
                 Me.Adapter.InsertCommand.Parameters(12).Value = Global.System.DBNull.Value
             End If
-            If (IsMedicine.HasValue = True) Then
-                Me.Adapter.InsertCommand.Parameters(13).Value = CType(IsMedicine.Value, Boolean)
+            If (IsMedicine.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(13).Value = CType(IsMedicine.Value,Boolean)
             Else
                 Me.Adapter.InsertCommand.Parameters(13).Value = Global.System.DBNull.Value
             End If
-            If (CurrencyID.HasValue = True) Then
-                Me.Adapter.InsertCommand.Parameters(14).Value = CType(CurrencyID.Value, Decimal)
+            If (CurrencyID.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(14).Value = CType(CurrencyID.Value,Decimal)
             Else
                 Me.Adapter.InsertCommand.Parameters(14).Value = Global.System.DBNull.Value
             End If
-            If (DateExpired.HasValue = True) Then
-                Me.Adapter.InsertCommand.Parameters(15).Value = CType(DateExpired.Value, Date)
+            If (DateExpired.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(15).Value = CType(DateExpired.Value,Date)
             Else
                 Me.Adapter.InsertCommand.Parameters(15).Value = Global.System.DBNull.Value
             End If
-            If (CountryID.HasValue = True) Then
-                Me.Adapter.InsertCommand.Parameters(16).Value = CType(CountryID.Value, Decimal)
+            If (CountryID.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(16).Value = CType(CountryID.Value,Decimal)
             Else
                 Me.Adapter.InsertCommand.Parameters(16).Value = Global.System.DBNull.Value
             End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.InsertCommand.Connection.State
-            If ((Me.Adapter.InsertCommand.Connection.State And Global.System.Data.ConnectionState.Open) _
+            If ((Me.Adapter.InsertCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
-                Me.Adapter.InsertCommand.Connection.Open()
+                Me.Adapter.InsertCommand.Connection.Open
             End If
-            Try
+            Try 
                 Dim returnValue As Integer = Me.Adapter.InsertCommand.ExecuteNonQuery
                 Return returnValue
             Finally
                 If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
-                    Me.Adapter.InsertCommand.Connection.Close()
+                    Me.Adapter.InsertCommand.Connection.Close
                 End If
             End Try
         End Function
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, True)> _
-        Public Overridable Overloads Function Update( _
-                    ByVal ItemCode As String, _
-                    ByVal CateID As Global.System.Nullable(Of Integer), _
-                    ByVal ItemUnitID As Global.System.Nullable(Of Integer), _
-                    ByVal LabourFacID As Global.System.Nullable(Of Integer), _
-                    ByVal ItemName As String, _
-                    ByVal ItemDescription As String, _
-                    ByVal ItemRegisterDate As Global.System.Nullable(Of Date), _
-                    ByVal Barcode As String, _
-                    ByVal VendorID As Global.System.Nullable(Of Integer), _
-                    ByVal ContainerID As Global.System.Nullable(Of Integer), _
-                    ByVal UnitPrice As Global.System.Nullable(Of Decimal), _
-                    ByVal Picture() As Byte, _
-                    ByVal DonatorID As Global.System.Nullable(Of Integer), _
-                    ByVal IsMedicine As Global.System.Nullable(Of Boolean), _
-                    ByVal CurrencyID As Global.System.Nullable(Of Decimal), _
-                    ByVal DateExpired As Global.System.Nullable(Of Date), _
-                    ByVal CountryID As Global.System.Nullable(Of Decimal), _
-                    ByVal Original_ItemID As Integer, _
-                    ByVal Original_ItemCode As String, _
-                    ByVal Original_CateID As Global.System.Nullable(Of Integer), _
-                    ByVal Original_ItemUnitID As Global.System.Nullable(Of Integer), _
-                    ByVal Original_LabourFacID As Global.System.Nullable(Of Integer), _
-                    ByVal Original_ItemName As String, _
-                    ByVal Original_ItemDescription As String, _
-                    ByVal Original_ItemRegisterDate As Global.System.Nullable(Of Date), _
-                    ByVal Original_Barcode As String, _
-                    ByVal Original_VendorID As Global.System.Nullable(Of Integer), _
-                    ByVal Original_ContainerID As Global.System.Nullable(Of Integer), _
-                    ByVal Original_UnitPrice As Global.System.Nullable(Of Decimal), _
-                    ByVal Original_DonatorID As Global.System.Nullable(Of Integer), _
-                    ByVal Original_IsMedicine As Global.System.Nullable(Of Boolean), _
-                    ByVal Original_CurrencyID As Global.System.Nullable(Of Decimal), _
-                    ByVal Original_DateExpired As Global.System.Nullable(Of Date), _
-                    ByVal Original_CountryID As Global.System.Nullable(Of Decimal), _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
+        Public Overloads Overridable Function Update( _
+                    ByVal ItemCode As String,  _
+                    ByVal CateID As Global.System.Nullable(Of Integer),  _
+                    ByVal ItemUnitID As Global.System.Nullable(Of Integer),  _
+                    ByVal LabourFacID As Global.System.Nullable(Of Integer),  _
+                    ByVal ItemName As String,  _
+                    ByVal ItemDescription As String,  _
+                    ByVal ItemRegisterDate As Global.System.Nullable(Of Date),  _
+                    ByVal Barcode As String,  _
+                    ByVal VendorID As Global.System.Nullable(Of Integer),  _
+                    ByVal ContainerID As Global.System.Nullable(Of Integer),  _
+                    ByVal UnitPrice As Global.System.Nullable(Of Decimal),  _
+                    ByVal Picture() As Byte,  _
+                    ByVal DonatorID As Global.System.Nullable(Of Integer),  _
+                    ByVal IsMedicine As Global.System.Nullable(Of Boolean),  _
+                    ByVal CurrencyID As Global.System.Nullable(Of Decimal),  _
+                    ByVal DateExpired As Global.System.Nullable(Of Date),  _
+                    ByVal CountryID As Global.System.Nullable(Of Decimal),  _
+                    ByVal Original_ItemID As Integer,  _
+                    ByVal Original_ItemCode As String,  _
+                    ByVal Original_CateID As Global.System.Nullable(Of Integer),  _
+                    ByVal Original_ItemUnitID As Global.System.Nullable(Of Integer),  _
+                    ByVal Original_LabourFacID As Global.System.Nullable(Of Integer),  _
+                    ByVal Original_ItemName As String,  _
+                    ByVal Original_ItemDescription As String,  _
+                    ByVal Original_ItemRegisterDate As Global.System.Nullable(Of Date),  _
+                    ByVal Original_Barcode As String,  _
+                    ByVal Original_VendorID As Global.System.Nullable(Of Integer),  _
+                    ByVal Original_ContainerID As Global.System.Nullable(Of Integer),  _
+                    ByVal Original_UnitPrice As Global.System.Nullable(Of Decimal),  _
+                    ByVal Original_DonatorID As Global.System.Nullable(Of Integer),  _
+                    ByVal Original_IsMedicine As Global.System.Nullable(Of Boolean),  _
+                    ByVal Original_CurrencyID As Global.System.Nullable(Of Decimal),  _
+                    ByVal Original_DateExpired As Global.System.Nullable(Of Date),  _
+                    ByVal Original_CountryID As Global.System.Nullable(Of Decimal),  _
                     ByVal ItemID As Integer) As Integer
             If (ItemCode Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(0).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(0).Value = CType(ItemCode, String)
+                Me.Adapter.UpdateCommand.Parameters(0).Value = CType(ItemCode,String)
             End If
-            If (CateID.HasValue = True) Then
-                Me.Adapter.UpdateCommand.Parameters(1).Value = CType(CateID.Value, Integer)
+            If (CateID.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(1).Value = CType(CateID.Value,Integer)
             Else
                 Me.Adapter.UpdateCommand.Parameters(1).Value = Global.System.DBNull.Value
             End If
-            If (ItemUnitID.HasValue = True) Then
-                Me.Adapter.UpdateCommand.Parameters(2).Value = CType(ItemUnitID.Value, Integer)
+            If (ItemUnitID.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(2).Value = CType(ItemUnitID.Value,Integer)
             Else
                 Me.Adapter.UpdateCommand.Parameters(2).Value = Global.System.DBNull.Value
             End If
-            If (LabourFacID.HasValue = True) Then
-                Me.Adapter.UpdateCommand.Parameters(3).Value = CType(LabourFacID.Value, Integer)
+            If (LabourFacID.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(3).Value = CType(LabourFacID.Value,Integer)
             Else
                 Me.Adapter.UpdateCommand.Parameters(3).Value = Global.System.DBNull.Value
             End If
             If (ItemName Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(4).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(4).Value = CType(ItemName, String)
+                Me.Adapter.UpdateCommand.Parameters(4).Value = CType(ItemName,String)
             End If
             If (ItemDescription Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(5).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(5).Value = CType(ItemDescription, String)
+                Me.Adapter.UpdateCommand.Parameters(5).Value = CType(ItemDescription,String)
             End If
-            If (ItemRegisterDate.HasValue = True) Then
-                Me.Adapter.UpdateCommand.Parameters(6).Value = CType(ItemRegisterDate.Value, Date)
+            If (ItemRegisterDate.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(6).Value = CType(ItemRegisterDate.Value,Date)
             Else
                 Me.Adapter.UpdateCommand.Parameters(6).Value = Global.System.DBNull.Value
             End If
             If (Barcode Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(7).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(7).Value = CType(Barcode, String)
+                Me.Adapter.UpdateCommand.Parameters(7).Value = CType(Barcode,String)
             End If
-            If (VendorID.HasValue = True) Then
-                Me.Adapter.UpdateCommand.Parameters(8).Value = CType(VendorID.Value, Integer)
+            If (VendorID.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(8).Value = CType(VendorID.Value,Integer)
             Else
                 Me.Adapter.UpdateCommand.Parameters(8).Value = Global.System.DBNull.Value
             End If
-            If (ContainerID.HasValue = True) Then
-                Me.Adapter.UpdateCommand.Parameters(9).Value = CType(ContainerID.Value, Integer)
+            If (ContainerID.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(9).Value = CType(ContainerID.Value,Integer)
             Else
                 Me.Adapter.UpdateCommand.Parameters(9).Value = Global.System.DBNull.Value
             End If
-            If (UnitPrice.HasValue = True) Then
-                Me.Adapter.UpdateCommand.Parameters(10).Value = CType(UnitPrice.Value, Decimal)
+            If (UnitPrice.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(10).Value = CType(UnitPrice.Value,Decimal)
             Else
                 Me.Adapter.UpdateCommand.Parameters(10).Value = Global.System.DBNull.Value
             End If
             If (Picture Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(11).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(11).Value = CType(Picture, Byte())
+                Me.Adapter.UpdateCommand.Parameters(11).Value = CType(Picture,Byte())
             End If
-            If (DonatorID.HasValue = True) Then
-                Me.Adapter.UpdateCommand.Parameters(12).Value = CType(DonatorID.Value, Integer)
+            If (DonatorID.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(12).Value = CType(DonatorID.Value,Integer)
             Else
                 Me.Adapter.UpdateCommand.Parameters(12).Value = Global.System.DBNull.Value
             End If
-            If (IsMedicine.HasValue = True) Then
-                Me.Adapter.UpdateCommand.Parameters(13).Value = CType(IsMedicine.Value, Boolean)
+            If (IsMedicine.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(13).Value = CType(IsMedicine.Value,Boolean)
             Else
                 Me.Adapter.UpdateCommand.Parameters(13).Value = Global.System.DBNull.Value
             End If
-            If (CurrencyID.HasValue = True) Then
-                Me.Adapter.UpdateCommand.Parameters(14).Value = CType(CurrencyID.Value, Decimal)
+            If (CurrencyID.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(14).Value = CType(CurrencyID.Value,Decimal)
             Else
                 Me.Adapter.UpdateCommand.Parameters(14).Value = Global.System.DBNull.Value
             End If
-            If (DateExpired.HasValue = True) Then
-                Me.Adapter.UpdateCommand.Parameters(15).Value = CType(DateExpired.Value, Date)
+            If (DateExpired.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(15).Value = CType(DateExpired.Value,Date)
             Else
                 Me.Adapter.UpdateCommand.Parameters(15).Value = Global.System.DBNull.Value
             End If
-            If (CountryID.HasValue = True) Then
-                Me.Adapter.UpdateCommand.Parameters(16).Value = CType(CountryID.Value, Decimal)
+            If (CountryID.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(16).Value = CType(CountryID.Value,Decimal)
             Else
                 Me.Adapter.UpdateCommand.Parameters(16).Value = Global.System.DBNull.Value
             End If
-            Me.Adapter.UpdateCommand.Parameters(17).Value = CType(Original_ItemID, Integer)
+            Me.Adapter.UpdateCommand.Parameters(17).Value = CType(Original_ItemID,Integer)
             If (Original_ItemCode Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(18).Value = CType(1, Object)
+                Me.Adapter.UpdateCommand.Parameters(18).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(19).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(18).Value = CType(0, Object)
-                Me.Adapter.UpdateCommand.Parameters(19).Value = CType(Original_ItemCode, String)
+                Me.Adapter.UpdateCommand.Parameters(18).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(19).Value = CType(Original_ItemCode,String)
             End If
-            If (Original_CateID.HasValue = True) Then
-                Me.Adapter.UpdateCommand.Parameters(20).Value = CType(0, Object)
-                Me.Adapter.UpdateCommand.Parameters(21).Value = CType(Original_CateID.Value, Integer)
+            If (Original_CateID.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(20).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(21).Value = CType(Original_CateID.Value,Integer)
             Else
-                Me.Adapter.UpdateCommand.Parameters(20).Value = CType(1, Object)
+                Me.Adapter.UpdateCommand.Parameters(20).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(21).Value = Global.System.DBNull.Value
             End If
-            If (Original_ItemUnitID.HasValue = True) Then
-                Me.Adapter.UpdateCommand.Parameters(22).Value = CType(0, Object)
-                Me.Adapter.UpdateCommand.Parameters(23).Value = CType(Original_ItemUnitID.Value, Integer)
+            If (Original_ItemUnitID.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(22).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(23).Value = CType(Original_ItemUnitID.Value,Integer)
             Else
-                Me.Adapter.UpdateCommand.Parameters(22).Value = CType(1, Object)
+                Me.Adapter.UpdateCommand.Parameters(22).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(23).Value = Global.System.DBNull.Value
             End If
-            If (Original_LabourFacID.HasValue = True) Then
-                Me.Adapter.UpdateCommand.Parameters(24).Value = CType(0, Object)
-                Me.Adapter.UpdateCommand.Parameters(25).Value = CType(Original_LabourFacID.Value, Integer)
+            If (Original_LabourFacID.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(24).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(25).Value = CType(Original_LabourFacID.Value,Integer)
             Else
-                Me.Adapter.UpdateCommand.Parameters(24).Value = CType(1, Object)
+                Me.Adapter.UpdateCommand.Parameters(24).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(25).Value = Global.System.DBNull.Value
             End If
             If (Original_ItemName Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(26).Value = CType(1, Object)
+                Me.Adapter.UpdateCommand.Parameters(26).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(27).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(26).Value = CType(0, Object)
-                Me.Adapter.UpdateCommand.Parameters(27).Value = CType(Original_ItemName, String)
+                Me.Adapter.UpdateCommand.Parameters(26).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(27).Value = CType(Original_ItemName,String)
             End If
             If (Original_ItemDescription Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(28).Value = CType(1, Object)
+                Me.Adapter.UpdateCommand.Parameters(28).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(29).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(28).Value = CType(0, Object)
-                Me.Adapter.UpdateCommand.Parameters(29).Value = CType(Original_ItemDescription, String)
+                Me.Adapter.UpdateCommand.Parameters(28).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(29).Value = CType(Original_ItemDescription,String)
             End If
-            If (Original_ItemRegisterDate.HasValue = True) Then
-                Me.Adapter.UpdateCommand.Parameters(30).Value = CType(0, Object)
-                Me.Adapter.UpdateCommand.Parameters(31).Value = CType(Original_ItemRegisterDate.Value, Date)
+            If (Original_ItemRegisterDate.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(30).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(31).Value = CType(Original_ItemRegisterDate.Value,Date)
             Else
-                Me.Adapter.UpdateCommand.Parameters(30).Value = CType(1, Object)
+                Me.Adapter.UpdateCommand.Parameters(30).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(31).Value = Global.System.DBNull.Value
             End If
             If (Original_Barcode Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(32).Value = CType(1, Object)
+                Me.Adapter.UpdateCommand.Parameters(32).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(33).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(32).Value = CType(0, Object)
-                Me.Adapter.UpdateCommand.Parameters(33).Value = CType(Original_Barcode, String)
+                Me.Adapter.UpdateCommand.Parameters(32).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(33).Value = CType(Original_Barcode,String)
             End If
-            If (Original_VendorID.HasValue = True) Then
-                Me.Adapter.UpdateCommand.Parameters(34).Value = CType(0, Object)
-                Me.Adapter.UpdateCommand.Parameters(35).Value = CType(Original_VendorID.Value, Integer)
+            If (Original_VendorID.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(34).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(35).Value = CType(Original_VendorID.Value,Integer)
             Else
-                Me.Adapter.UpdateCommand.Parameters(34).Value = CType(1, Object)
+                Me.Adapter.UpdateCommand.Parameters(34).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(35).Value = Global.System.DBNull.Value
             End If
-            If (Original_ContainerID.HasValue = True) Then
-                Me.Adapter.UpdateCommand.Parameters(36).Value = CType(0, Object)
-                Me.Adapter.UpdateCommand.Parameters(37).Value = CType(Original_ContainerID.Value, Integer)
+            If (Original_ContainerID.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(36).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(37).Value = CType(Original_ContainerID.Value,Integer)
             Else
-                Me.Adapter.UpdateCommand.Parameters(36).Value = CType(1, Object)
+                Me.Adapter.UpdateCommand.Parameters(36).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(37).Value = Global.System.DBNull.Value
             End If
-            If (Original_UnitPrice.HasValue = True) Then
-                Me.Adapter.UpdateCommand.Parameters(38).Value = CType(0, Object)
-                Me.Adapter.UpdateCommand.Parameters(39).Value = CType(Original_UnitPrice.Value, Decimal)
+            If (Original_UnitPrice.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(38).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(39).Value = CType(Original_UnitPrice.Value,Decimal)
             Else
-                Me.Adapter.UpdateCommand.Parameters(38).Value = CType(1, Object)
+                Me.Adapter.UpdateCommand.Parameters(38).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(39).Value = Global.System.DBNull.Value
             End If
-            If (Original_DonatorID.HasValue = True) Then
-                Me.Adapter.UpdateCommand.Parameters(40).Value = CType(0, Object)
-                Me.Adapter.UpdateCommand.Parameters(41).Value = CType(Original_DonatorID.Value, Integer)
+            If (Original_DonatorID.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(40).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(41).Value = CType(Original_DonatorID.Value,Integer)
             Else
-                Me.Adapter.UpdateCommand.Parameters(40).Value = CType(1, Object)
+                Me.Adapter.UpdateCommand.Parameters(40).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(41).Value = Global.System.DBNull.Value
             End If
-            If (Original_IsMedicine.HasValue = True) Then
-                Me.Adapter.UpdateCommand.Parameters(42).Value = CType(0, Object)
-                Me.Adapter.UpdateCommand.Parameters(43).Value = CType(Original_IsMedicine.Value, Boolean)
+            If (Original_IsMedicine.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(42).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(43).Value = CType(Original_IsMedicine.Value,Boolean)
             Else
-                Me.Adapter.UpdateCommand.Parameters(42).Value = CType(1, Object)
+                Me.Adapter.UpdateCommand.Parameters(42).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(43).Value = Global.System.DBNull.Value
             End If
-            If (Original_CurrencyID.HasValue = True) Then
-                Me.Adapter.UpdateCommand.Parameters(44).Value = CType(0, Object)
-                Me.Adapter.UpdateCommand.Parameters(45).Value = CType(Original_CurrencyID.Value, Decimal)
+            If (Original_CurrencyID.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(44).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(45).Value = CType(Original_CurrencyID.Value,Decimal)
             Else
-                Me.Adapter.UpdateCommand.Parameters(44).Value = CType(1, Object)
+                Me.Adapter.UpdateCommand.Parameters(44).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(45).Value = Global.System.DBNull.Value
             End If
-            If (Original_DateExpired.HasValue = True) Then
-                Me.Adapter.UpdateCommand.Parameters(46).Value = CType(0, Object)
-                Me.Adapter.UpdateCommand.Parameters(47).Value = CType(Original_DateExpired.Value, Date)
+            If (Original_DateExpired.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(46).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(47).Value = CType(Original_DateExpired.Value,Date)
             Else
-                Me.Adapter.UpdateCommand.Parameters(46).Value = CType(1, Object)
+                Me.Adapter.UpdateCommand.Parameters(46).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(47).Value = Global.System.DBNull.Value
             End If
-            If (Original_CountryID.HasValue = True) Then
-                Me.Adapter.UpdateCommand.Parameters(48).Value = CType(0, Object)
-                Me.Adapter.UpdateCommand.Parameters(49).Value = CType(Original_CountryID.Value, Decimal)
+            If (Original_CountryID.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(48).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(49).Value = CType(Original_CountryID.Value,Decimal)
             Else
-                Me.Adapter.UpdateCommand.Parameters(48).Value = CType(1, Object)
+                Me.Adapter.UpdateCommand.Parameters(48).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(49).Value = Global.System.DBNull.Value
             End If
-            Me.Adapter.UpdateCommand.Parameters(50).Value = CType(ItemID, Integer)
+            Me.Adapter.UpdateCommand.Parameters(50).Value = CType(ItemID,Integer)
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.UpdateCommand.Connection.State
-            If ((Me.Adapter.UpdateCommand.Connection.State And Global.System.Data.ConnectionState.Open) _
+            If ((Me.Adapter.UpdateCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
-                Me.Adapter.UpdateCommand.Connection.Open()
+                Me.Adapter.UpdateCommand.Connection.Open
             End If
-            Try
+            Try 
                 Dim returnValue As Integer = Me.Adapter.UpdateCommand.ExecuteNonQuery
                 Return returnValue
             Finally
                 If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
-                    Me.Adapter.UpdateCommand.Connection.Close()
+                    Me.Adapter.UpdateCommand.Connection.Close
                 End If
             End Try
         End Function
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, True)> _
-        Public Overridable Overloads Function Update( _
-                    ByVal ItemCode As String, _
-                    ByVal CateID As Global.System.Nullable(Of Integer), _
-                    ByVal ItemUnitID As Global.System.Nullable(Of Integer), _
-                    ByVal LabourFacID As Global.System.Nullable(Of Integer), _
-                    ByVal ItemName As String, _
-                    ByVal ItemDescription As String, _
-                    ByVal ItemRegisterDate As Global.System.Nullable(Of Date), _
-                    ByVal Barcode As String, _
-                    ByVal VendorID As Global.System.Nullable(Of Integer), _
-                    ByVal ContainerID As Global.System.Nullable(Of Integer), _
-                    ByVal UnitPrice As Global.System.Nullable(Of Decimal), _
-                    ByVal Picture() As Byte, _
-                    ByVal DonatorID As Global.System.Nullable(Of Integer), _
-                    ByVal IsMedicine As Global.System.Nullable(Of Boolean), _
-                    ByVal CurrencyID As Global.System.Nullable(Of Decimal), _
-                    ByVal DateExpired As Global.System.Nullable(Of Date), _
-                    ByVal CountryID As Global.System.Nullable(Of Decimal), _
-                    ByVal Original_ItemID As Integer, _
-                    ByVal Original_ItemCode As String, _
-                    ByVal Original_CateID As Global.System.Nullable(Of Integer), _
-                    ByVal Original_ItemUnitID As Global.System.Nullable(Of Integer), _
-                    ByVal Original_LabourFacID As Global.System.Nullable(Of Integer), _
-                    ByVal Original_ItemName As String, _
-                    ByVal Original_ItemDescription As String, _
-                    ByVal Original_ItemRegisterDate As Global.System.Nullable(Of Date), _
-                    ByVal Original_Barcode As String, _
-                    ByVal Original_VendorID As Global.System.Nullable(Of Integer), _
-                    ByVal Original_ContainerID As Global.System.Nullable(Of Integer), _
-                    ByVal Original_UnitPrice As Global.System.Nullable(Of Decimal), _
-                    ByVal Original_DonatorID As Global.System.Nullable(Of Integer), _
-                    ByVal Original_IsMedicine As Global.System.Nullable(Of Boolean), _
-                    ByVal Original_CurrencyID As Global.System.Nullable(Of Decimal), _
-                    ByVal Original_DateExpired As Global.System.Nullable(Of Date), _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
+        Public Overloads Overridable Function Update( _
+                    ByVal ItemCode As String,  _
+                    ByVal CateID As Global.System.Nullable(Of Integer),  _
+                    ByVal ItemUnitID As Global.System.Nullable(Of Integer),  _
+                    ByVal LabourFacID As Global.System.Nullable(Of Integer),  _
+                    ByVal ItemName As String,  _
+                    ByVal ItemDescription As String,  _
+                    ByVal ItemRegisterDate As Global.System.Nullable(Of Date),  _
+                    ByVal Barcode As String,  _
+                    ByVal VendorID As Global.System.Nullable(Of Integer),  _
+                    ByVal ContainerID As Global.System.Nullable(Of Integer),  _
+                    ByVal UnitPrice As Global.System.Nullable(Of Decimal),  _
+                    ByVal Picture() As Byte,  _
+                    ByVal DonatorID As Global.System.Nullable(Of Integer),  _
+                    ByVal IsMedicine As Global.System.Nullable(Of Boolean),  _
+                    ByVal CurrencyID As Global.System.Nullable(Of Decimal),  _
+                    ByVal DateExpired As Global.System.Nullable(Of Date),  _
+                    ByVal CountryID As Global.System.Nullable(Of Decimal),  _
+                    ByVal Original_ItemID As Integer,  _
+                    ByVal Original_ItemCode As String,  _
+                    ByVal Original_CateID As Global.System.Nullable(Of Integer),  _
+                    ByVal Original_ItemUnitID As Global.System.Nullable(Of Integer),  _
+                    ByVal Original_LabourFacID As Global.System.Nullable(Of Integer),  _
+                    ByVal Original_ItemName As String,  _
+                    ByVal Original_ItemDescription As String,  _
+                    ByVal Original_ItemRegisterDate As Global.System.Nullable(Of Date),  _
+                    ByVal Original_Barcode As String,  _
+                    ByVal Original_VendorID As Global.System.Nullable(Of Integer),  _
+                    ByVal Original_ContainerID As Global.System.Nullable(Of Integer),  _
+                    ByVal Original_UnitPrice As Global.System.Nullable(Of Decimal),  _
+                    ByVal Original_DonatorID As Global.System.Nullable(Of Integer),  _
+                    ByVal Original_IsMedicine As Global.System.Nullable(Of Boolean),  _
+                    ByVal Original_CurrencyID As Global.System.Nullable(Of Decimal),  _
+                    ByVal Original_DateExpired As Global.System.Nullable(Of Date),  _
                     ByVal Original_CountryID As Global.System.Nullable(Of Decimal)) As Integer
             Return Me.Update(ItemCode, CateID, ItemUnitID, LabourFacID, ItemName, ItemDescription, ItemRegisterDate, Barcode, VendorID, ContainerID, UnitPrice, Picture, DonatorID, IsMedicine, CurrencyID, DateExpired, CountryID, Original_ItemID, Original_ItemCode, Original_CateID, Original_ItemUnitID, Original_LabourFacID, Original_ItemName, Original_ItemDescription, Original_ItemRegisterDate, Original_Barcode, Original_VendorID, Original_ContainerID, Original_UnitPrice, Original_DonatorID, Original_IsMedicine, Original_CurrencyID, Original_DateExpired, Original_CountryID, Original_ItemID)
         End Function
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")> _
-        Public Overridable Overloads Function CheckNameMedicince(ByVal ItemID As Integer, ByVal ItemName As String) As Global.System.Nullable(Of Integer)
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+        Public Overloads Overridable Function CheckNameMedicince(ByVal ItemID As Integer, ByVal ItemName As String) As Object
             Dim command As Global.System.Data.SqlClient.SqlCommand = Me.CommandCollection(1)
-            command.Parameters(0).Value = CType(ItemID, Integer)
+            command.Parameters(0).Value = CType(ItemID,Integer)
             If (ItemName Is Nothing) Then
                 command.Parameters(1).Value = Global.System.DBNull.Value
             Else
-                command.Parameters(1).Value = CType(ItemName, String)
+                command.Parameters(1).Value = CType(ItemName,String)
             End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = command.Connection.State
-            If ((command.Connection.State And Global.System.Data.ConnectionState.Open) _
+            If ((command.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
-                command.Connection.Open()
+                command.Connection.Open
             End If
             Dim returnValue As Object
-            Try
+            Try 
                 returnValue = command.ExecuteScalar
             Finally
                 If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
-                    command.Connection.Close()
+                    command.Connection.Close
                 End If
             End Try
-            If ((returnValue Is Nothing) _
+            If ((returnValue Is Nothing)  _
                         OrElse (returnValue.GetType Is GetType(Global.System.DBNull))) Then
-                Return New Global.System.Nullable(Of Integer)
+                Return Nothing
             Else
-                Return New Global.System.Nullable(Of Integer)(CType(returnValue, Integer))
+                Return CType(returnValue,Object)
             End If
         End Function
     End Class
-
+    
     '''<summary>
     '''Represents the connection and commands used to retrieve and save data.
     '''</summary>
-    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0"), _
-     Global.System.ComponentModel.DesignerCategoryAttribute("code"), _
-     Global.System.ComponentModel.ToolboxItem(True), _
-     Global.System.ComponentModel.DataObjectAttribute(True), _
-     Global.System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" & _
-        ", Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"), _
-     Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")> _
+    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0"),  _
+     Global.System.ComponentModel.DesignerCategoryAttribute("code"),  _
+     Global.System.ComponentModel.ToolboxItem(true),  _
+     Global.System.ComponentModel.DataObjectAttribute(true),  _
+     Global.System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner"& _ 
+        ", Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"),  _
+     Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
     Partial Public Class S_PRESCRIPTIONTableAdapter
         Inherits Global.System.ComponentModel.Component
-
+        
         Private WithEvents _adapter As Global.System.Data.SqlClient.SqlDataAdapter
-
+        
         Private _connection As Global.System.Data.SqlClient.SqlConnection
-
+        
         Private _transaction As Global.System.Data.SqlClient.SqlTransaction
-
+        
         Private _commandCollection() As Global.System.Data.SqlClient.SqlCommand
-
+        
         Private _clearBeforeFill As Boolean
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Sub New()
-            MyBase.New()
-            Me.ClearBeforeFill = True
+            MyBase.New
+            Me.ClearBeforeFill = true
         End Sub
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Protected Friend ReadOnly Property Adapter() As Global.System.Data.SqlClient.SqlDataAdapter
             Get
                 If (Me._adapter Is Nothing) Then
-                    Me.InitAdapter()
+                    Me.InitAdapter
                 End If
                 Return Me._adapter
             End Get
         End Property
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Friend Property Connection() As Global.System.Data.SqlClient.SqlConnection
             Get
                 If (Me._connection Is Nothing) Then
-                    Me.InitConnection()
+                    Me.InitConnection
                 End If
                 Return Me._connection
             End Get
-            Set(ByVal value As Global.System.Data.SqlClient.SqlConnection)
+            Set
                 Me._connection = value
                 If (Not (Me.Adapter.InsertCommand) Is Nothing) Then
                     Me.Adapter.InsertCommand.Connection = value
@@ -14527,61 +15292,61 @@ Namespace DS_KSPAYMENTTableAdapters
                 Dim i As Integer = 0
                 Do While (i < Me.CommandCollection.Length)
                     If (Not (Me.CommandCollection(i)) Is Nothing) Then
-                        CType(Me.CommandCollection(i), Global.System.Data.SqlClient.SqlCommand).Connection = value
+                        CType(Me.CommandCollection(i),Global.System.Data.SqlClient.SqlCommand).Connection = value
                     End If
                     i = (i + 1)
                 Loop
             End Set
         End Property
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Friend Property Transaction() As Global.System.Data.SqlClient.SqlTransaction
             Get
                 Return Me._transaction
             End Get
-            Set(ByVal value As Global.System.Data.SqlClient.SqlTransaction)
+            Set
                 Me._transaction = value
                 Dim i As Integer = 0
                 Do While (i < Me.CommandCollection.Length)
                     Me.CommandCollection(i).Transaction = Me._transaction
                     i = (i + 1)
                 Loop
-                If ((Not (Me.Adapter) Is Nothing) _
+                If ((Not (Me.Adapter) Is Nothing)  _
                             AndAlso (Not (Me.Adapter.DeleteCommand) Is Nothing)) Then
                     Me.Adapter.DeleteCommand.Transaction = Me._transaction
                 End If
-                If ((Not (Me.Adapter) Is Nothing) _
+                If ((Not (Me.Adapter) Is Nothing)  _
                             AndAlso (Not (Me.Adapter.InsertCommand) Is Nothing)) Then
                     Me.Adapter.InsertCommand.Transaction = Me._transaction
                 End If
-                If ((Not (Me.Adapter) Is Nothing) _
+                If ((Not (Me.Adapter) Is Nothing)  _
                             AndAlso (Not (Me.Adapter.UpdateCommand) Is Nothing)) Then
                     Me.Adapter.UpdateCommand.Transaction = Me._transaction
                 End If
             End Set
         End Property
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Protected ReadOnly Property CommandCollection() As Global.System.Data.SqlClient.SqlCommand()
             Get
                 If (Me._commandCollection Is Nothing) Then
-                    Me.InitCommandCollection()
+                    Me.InitCommandCollection
                 End If
                 Return Me._commandCollection
             End Get
         End Property
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Property ClearBeforeFill() As Boolean
             Get
                 Return Me._clearBeforeFill
             End Get
-            Set(ByVal value As Boolean)
+            Set
                 Me._clearBeforeFill = value
             End Set
         End Property
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Private Sub InitAdapter()
             Me._adapter = New Global.System.Data.SqlClient.SqlDataAdapter
             Dim tableMapping As Global.System.Data.Common.DataTableMapping = New Global.System.Data.Common.DataTableMapping
@@ -14601,189 +15366,189 @@ Namespace DS_KSPAYMENTTableAdapters
             Me._adapter.TableMappings.Add(tableMapping)
             Me._adapter.DeleteCommand = New Global.System.Data.SqlClient.SqlCommand
             Me._adapter.DeleteCommand.Connection = Me.Connection
-            Me._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[S_PRESCRIPTION] WHERE (([PRES_ID] = @Original_PRES_ID) AND ((@" & _
-                "IsNull_WAITING_ID = 1 AND [WAITING_ID] IS NULL) OR ([WAITING_ID] = @Original_WAI" & _
-                "TING_ID)) AND ((@IsNull_PATIENT_NO = 1 AND [PATIENT_NO] IS NULL) OR ([PATIENT_NO" & _
-                "] = @Original_PATIENT_NO)) AND ((@IsNull_MEDICINCE_ID = 1 AND [MEDICINCE_ID] IS " & _
-                "NULL) OR ([MEDICINCE_ID] = @Original_MEDICINCE_ID)) AND ((@IsNull_MEDICINCE_NAME" & _
-                " = 1 AND [MEDICINCE_NAME] IS NULL) OR ([MEDICINCE_NAME] = @Original_MEDICINCE_NA" & _
-                "ME)) AND ((@IsNull_ORDINANCE = 1 AND [ORDINANCE] IS NULL) OR ([ORDINANCE] = @Ori" & _
-                "ginal_ORDINANCE)) AND ((@IsNull_MEDICINCE_QTY = 1 AND [MEDICINCE_QTY] IS NULL) O" & _
-                "R ([MEDICINCE_QTY] = @Original_MEDICINCE_QTY)) AND ((@IsNull_MEDICINCE_PRICE = 1" & _
-                " AND [MEDICINCE_PRICE] IS NULL) OR ([MEDICINCE_PRICE] = @Original_MEDICINCE_PRIC" & _
-                "E)) AND ((@IsNull_TOTAL_PRICE = 1 AND [TOTAL_PRICE] IS NULL) OR ([TOTAL_PRICE] =" & _
-                " @Original_TOTAL_PRICE)) AND ((@IsNull_USAGE = 1 AND [USAGE] IS NULL) OR ([USAGE" & _
-                "] = @Original_USAGE)) AND ((@IsNull_PRESCRIP_DATE = 1 AND [PRESCRIP_DATE] IS NUL" & _
+            Me._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[S_PRESCRIPTION] WHERE (([PRES_ID] = @Original_PRES_ID) AND ((@"& _ 
+                "IsNull_WAITING_ID = 1 AND [WAITING_ID] IS NULL) OR ([WAITING_ID] = @Original_WAI"& _ 
+                "TING_ID)) AND ((@IsNull_PATIENT_NO = 1 AND [PATIENT_NO] IS NULL) OR ([PATIENT_NO"& _ 
+                "] = @Original_PATIENT_NO)) AND ((@IsNull_MEDICINCE_ID = 1 AND [MEDICINCE_ID] IS "& _ 
+                "NULL) OR ([MEDICINCE_ID] = @Original_MEDICINCE_ID)) AND ((@IsNull_MEDICINCE_NAME"& _ 
+                " = 1 AND [MEDICINCE_NAME] IS NULL) OR ([MEDICINCE_NAME] = @Original_MEDICINCE_NA"& _ 
+                "ME)) AND ((@IsNull_ORDINANCE = 1 AND [ORDINANCE] IS NULL) OR ([ORDINANCE] = @Ori"& _ 
+                "ginal_ORDINANCE)) AND ((@IsNull_MEDICINCE_QTY = 1 AND [MEDICINCE_QTY] IS NULL) O"& _ 
+                "R ([MEDICINCE_QTY] = @Original_MEDICINCE_QTY)) AND ((@IsNull_MEDICINCE_PRICE = 1"& _ 
+                " AND [MEDICINCE_PRICE] IS NULL) OR ([MEDICINCE_PRICE] = @Original_MEDICINCE_PRIC"& _ 
+                "E)) AND ((@IsNull_TOTAL_PRICE = 1 AND [TOTAL_PRICE] IS NULL) OR ([TOTAL_PRICE] ="& _ 
+                " @Original_TOTAL_PRICE)) AND ((@IsNull_USAGE = 1 AND [USAGE] IS NULL) OR ([USAGE"& _ 
+                "] = @Original_USAGE)) AND ((@IsNull_PRESCRIP_DATE = 1 AND [PRESCRIP_DATE] IS NUL"& _ 
                 "L) OR ([PRESCRIP_DATE] = @Original_PRESCRIP_DATE)))"
             Me._adapter.DeleteCommand.CommandType = Global.System.Data.CommandType.Text
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_PRES_ID", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "PRES_ID", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_WAITING_ID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "WAITING_ID", Global.System.Data.DataRowVersion.Original, True, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_WAITING_ID", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "WAITING_ID", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_PATIENT_NO", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "PATIENT_NO", Global.System.Data.DataRowVersion.Original, True, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_PATIENT_NO", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "PATIENT_NO", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_MEDICINCE_ID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "MEDICINCE_ID", Global.System.Data.DataRowVersion.Original, True, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_MEDICINCE_ID", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "MEDICINCE_ID", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_MEDICINCE_NAME", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "MEDICINCE_NAME", Global.System.Data.DataRowVersion.Original, True, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_MEDICINCE_NAME", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "MEDICINCE_NAME", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_ORDINANCE", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ORDINANCE", Global.System.Data.DataRowVersion.Original, True, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_ORDINANCE", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ORDINANCE", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_MEDICINCE_QTY", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "MEDICINCE_QTY", Global.System.Data.DataRowVersion.Original, True, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_MEDICINCE_QTY", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "MEDICINCE_QTY", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_MEDICINCE_PRICE", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "MEDICINCE_PRICE", Global.System.Data.DataRowVersion.Original, True, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_MEDICINCE_PRICE", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 2, "MEDICINCE_PRICE", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_TOTAL_PRICE", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "TOTAL_PRICE", Global.System.Data.DataRowVersion.Original, True, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_TOTAL_PRICE", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 2, "TOTAL_PRICE", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_USAGE", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "USAGE", Global.System.Data.DataRowVersion.Original, True, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_USAGE", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "USAGE", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_PRESCRIP_DATE", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "PRESCRIP_DATE", Global.System.Data.DataRowVersion.Original, True, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_PRESCRIP_DATE", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "PRESCRIP_DATE", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_PRES_ID", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "PRES_ID", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_WAITING_ID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "WAITING_ID", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_WAITING_ID", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "WAITING_ID", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_PATIENT_NO", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "PATIENT_NO", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_PATIENT_NO", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "PATIENT_NO", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_MEDICINCE_ID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "MEDICINCE_ID", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_MEDICINCE_ID", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "MEDICINCE_ID", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_MEDICINCE_NAME", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "MEDICINCE_NAME", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_MEDICINCE_NAME", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "MEDICINCE_NAME", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_ORDINANCE", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ORDINANCE", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_ORDINANCE", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ORDINANCE", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_MEDICINCE_QTY", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "MEDICINCE_QTY", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_MEDICINCE_QTY", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "MEDICINCE_QTY", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_MEDICINCE_PRICE", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "MEDICINCE_PRICE", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_MEDICINCE_PRICE", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 2, "MEDICINCE_PRICE", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_TOTAL_PRICE", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "TOTAL_PRICE", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_TOTAL_PRICE", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 2, "TOTAL_PRICE", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_USAGE", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "USAGE", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_USAGE", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "USAGE", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_PRESCRIP_DATE", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "PRESCRIP_DATE", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_PRESCRIP_DATE", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "PRESCRIP_DATE", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand = New Global.System.Data.SqlClient.SqlCommand
             Me._adapter.InsertCommand.Connection = Me.Connection
-            Me._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[S_PRESCRIPTION] ([WAITING_ID], [PATIENT_NO], [MEDICINCE_ID], [" & _
-                "MEDICINCE_NAME], [ORDINANCE], [MEDICINCE_QTY], [MEDICINCE_PRICE], [TOTAL_PRICE]," & _
-                " [USAGE], [PRESCRIP_DATE]) VALUES (@WAITING_ID, @PATIENT_NO, @MEDICINCE_ID, @MED" & _
-                "ICINCE_NAME, @ORDINANCE, @MEDICINCE_QTY, @MEDICINCE_PRICE, @TOTAL_PRICE, @USAGE," & _
-                " @PRESCRIP_DATE);" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "SELECT PRES_ID, WAITING_ID, PATIENT_NO, MEDICINCE_ID, MEDICIN" & _
-                "CE_NAME, ORDINANCE, MEDICINCE_QTY, MEDICINCE_PRICE, TOTAL_PRICE, USAGE, PRESCRIP" & _
+            Me._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[S_PRESCRIPTION] ([WAITING_ID], [PATIENT_NO], [MEDICINCE_ID], ["& _ 
+                "MEDICINCE_NAME], [ORDINANCE], [MEDICINCE_QTY], [MEDICINCE_PRICE], [TOTAL_PRICE],"& _ 
+                " [USAGE], [PRESCRIP_DATE]) VALUES (@WAITING_ID, @PATIENT_NO, @MEDICINCE_ID, @MED"& _ 
+                "ICINCE_NAME, @ORDINANCE, @MEDICINCE_QTY, @MEDICINCE_PRICE, @TOTAL_PRICE, @USAGE,"& _ 
+                " @PRESCRIP_DATE);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT PRES_ID, WAITING_ID, PATIENT_NO, MEDICINCE_ID, MEDICIN"& _ 
+                "CE_NAME, ORDINANCE, MEDICINCE_QTY, MEDICINCE_PRICE, TOTAL_PRICE, USAGE, PRESCRIP"& _ 
                 "_DATE FROM S_PRESCRIPTION WHERE (PRES_ID = SCOPE_IDENTITY())"
             Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@WAITING_ID", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "WAITING_ID", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PATIENT_NO", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "PATIENT_NO", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@MEDICINCE_ID", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "MEDICINCE_ID", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@MEDICINCE_NAME", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "MEDICINCE_NAME", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ORDINANCE", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ORDINANCE", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@MEDICINCE_QTY", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "MEDICINCE_QTY", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@MEDICINCE_PRICE", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 2, "MEDICINCE_PRICE", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@TOTAL_PRICE", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 2, "TOTAL_PRICE", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@USAGE", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "USAGE", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PRESCRIP_DATE", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "PRESCRIP_DATE", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@WAITING_ID", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "WAITING_ID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PATIENT_NO", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "PATIENT_NO", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@MEDICINCE_ID", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "MEDICINCE_ID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@MEDICINCE_NAME", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "MEDICINCE_NAME", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ORDINANCE", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ORDINANCE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@MEDICINCE_QTY", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "MEDICINCE_QTY", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@MEDICINCE_PRICE", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 2, "MEDICINCE_PRICE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@TOTAL_PRICE", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 2, "TOTAL_PRICE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@USAGE", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "USAGE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PRESCRIP_DATE", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "PRESCRIP_DATE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand = New Global.System.Data.SqlClient.SqlCommand
             Me._adapter.UpdateCommand.Connection = Me.Connection
-            Me._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[S_PRESCRIPTION] SET [WAITING_ID] = @WAITING_ID, [PATIENT_NO] = @PAT" & _
-                "IENT_NO, [MEDICINCE_ID] = @MEDICINCE_ID, [MEDICINCE_NAME] = @MEDICINCE_NAME, [OR" & _
-                "DINANCE] = @ORDINANCE, [MEDICINCE_QTY] = @MEDICINCE_QTY, [MEDICINCE_PRICE] = @ME" & _
-                "DICINCE_PRICE, [TOTAL_PRICE] = @TOTAL_PRICE, [USAGE] = @USAGE, [PRESCRIP_DATE] =" & _
-                " @PRESCRIP_DATE WHERE (([PRES_ID] = @Original_PRES_ID) AND ((@IsNull_WAITING_ID " & _
-                "= 1 AND [WAITING_ID] IS NULL) OR ([WAITING_ID] = @Original_WAITING_ID)) AND ((@I" & _
-                "sNull_PATIENT_NO = 1 AND [PATIENT_NO] IS NULL) OR ([PATIENT_NO] = @Original_PATI" & _
-                "ENT_NO)) AND ((@IsNull_MEDICINCE_ID = 1 AND [MEDICINCE_ID] IS NULL) OR ([MEDICIN" & _
-                "CE_ID] = @Original_MEDICINCE_ID)) AND ((@IsNull_MEDICINCE_NAME = 1 AND [MEDICINC" & _
-                "E_NAME] IS NULL) OR ([MEDICINCE_NAME] = @Original_MEDICINCE_NAME)) AND ((@IsNull" & _
-                "_ORDINANCE = 1 AND [ORDINANCE] IS NULL) OR ([ORDINANCE] = @Original_ORDINANCE)) " & _
-                "AND ((@IsNull_MEDICINCE_QTY = 1 AND [MEDICINCE_QTY] IS NULL) OR ([MEDICINCE_QTY]" & _
-                " = @Original_MEDICINCE_QTY)) AND ((@IsNull_MEDICINCE_PRICE = 1 AND [MEDICINCE_PR" & _
-                "ICE] IS NULL) OR ([MEDICINCE_PRICE] = @Original_MEDICINCE_PRICE)) AND ((@IsNull_" & _
-                "TOTAL_PRICE = 1 AND [TOTAL_PRICE] IS NULL) OR ([TOTAL_PRICE] = @Original_TOTAL_P" & _
-                "RICE)) AND ((@IsNull_USAGE = 1 AND [USAGE] IS NULL) OR ([USAGE] = @Original_USAG" & _
-                "E)) AND ((@IsNull_PRESCRIP_DATE = 1 AND [PRESCRIP_DATE] IS NULL) OR ([PRESCRIP_D" & _
-                "ATE] = @Original_PRESCRIP_DATE)));" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "SELECT PRES_ID, WAITING_ID, PATIENT_NO, MEDI" & _
-                "CINCE_ID, MEDICINCE_NAME, ORDINANCE, MEDICINCE_QTY, MEDICINCE_PRICE, TOTAL_PRICE" & _
+            Me._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[S_PRESCRIPTION] SET [WAITING_ID] = @WAITING_ID, [PATIENT_NO] = @PAT"& _ 
+                "IENT_NO, [MEDICINCE_ID] = @MEDICINCE_ID, [MEDICINCE_NAME] = @MEDICINCE_NAME, [OR"& _ 
+                "DINANCE] = @ORDINANCE, [MEDICINCE_QTY] = @MEDICINCE_QTY, [MEDICINCE_PRICE] = @ME"& _ 
+                "DICINCE_PRICE, [TOTAL_PRICE] = @TOTAL_PRICE, [USAGE] = @USAGE, [PRESCRIP_DATE] ="& _ 
+                " @PRESCRIP_DATE WHERE (([PRES_ID] = @Original_PRES_ID) AND ((@IsNull_WAITING_ID "& _ 
+                "= 1 AND [WAITING_ID] IS NULL) OR ([WAITING_ID] = @Original_WAITING_ID)) AND ((@I"& _ 
+                "sNull_PATIENT_NO = 1 AND [PATIENT_NO] IS NULL) OR ([PATIENT_NO] = @Original_PATI"& _ 
+                "ENT_NO)) AND ((@IsNull_MEDICINCE_ID = 1 AND [MEDICINCE_ID] IS NULL) OR ([MEDICIN"& _ 
+                "CE_ID] = @Original_MEDICINCE_ID)) AND ((@IsNull_MEDICINCE_NAME = 1 AND [MEDICINC"& _ 
+                "E_NAME] IS NULL) OR ([MEDICINCE_NAME] = @Original_MEDICINCE_NAME)) AND ((@IsNull"& _ 
+                "_ORDINANCE = 1 AND [ORDINANCE] IS NULL) OR ([ORDINANCE] = @Original_ORDINANCE)) "& _ 
+                "AND ((@IsNull_MEDICINCE_QTY = 1 AND [MEDICINCE_QTY] IS NULL) OR ([MEDICINCE_QTY]"& _ 
+                " = @Original_MEDICINCE_QTY)) AND ((@IsNull_MEDICINCE_PRICE = 1 AND [MEDICINCE_PR"& _ 
+                "ICE] IS NULL) OR ([MEDICINCE_PRICE] = @Original_MEDICINCE_PRICE)) AND ((@IsNull_"& _ 
+                "TOTAL_PRICE = 1 AND [TOTAL_PRICE] IS NULL) OR ([TOTAL_PRICE] = @Original_TOTAL_P"& _ 
+                "RICE)) AND ((@IsNull_USAGE = 1 AND [USAGE] IS NULL) OR ([USAGE] = @Original_USAG"& _ 
+                "E)) AND ((@IsNull_PRESCRIP_DATE = 1 AND [PRESCRIP_DATE] IS NULL) OR ([PRESCRIP_D"& _ 
+                "ATE] = @Original_PRESCRIP_DATE)));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT PRES_ID, WAITING_ID, PATIENT_NO, MEDI"& _ 
+                "CINCE_ID, MEDICINCE_NAME, ORDINANCE, MEDICINCE_QTY, MEDICINCE_PRICE, TOTAL_PRICE"& _ 
                 ", USAGE, PRESCRIP_DATE FROM S_PRESCRIPTION WHERE (PRES_ID = @PRES_ID)"
             Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@WAITING_ID", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "WAITING_ID", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PATIENT_NO", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "PATIENT_NO", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@MEDICINCE_ID", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "MEDICINCE_ID", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@MEDICINCE_NAME", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "MEDICINCE_NAME", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ORDINANCE", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ORDINANCE", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@MEDICINCE_QTY", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "MEDICINCE_QTY", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@MEDICINCE_PRICE", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 2, "MEDICINCE_PRICE", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@TOTAL_PRICE", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 2, "TOTAL_PRICE", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@USAGE", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "USAGE", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PRESCRIP_DATE", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "PRESCRIP_DATE", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_PRES_ID", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "PRES_ID", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_WAITING_ID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "WAITING_ID", Global.System.Data.DataRowVersion.Original, True, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_WAITING_ID", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "WAITING_ID", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_PATIENT_NO", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "PATIENT_NO", Global.System.Data.DataRowVersion.Original, True, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_PATIENT_NO", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "PATIENT_NO", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_MEDICINCE_ID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "MEDICINCE_ID", Global.System.Data.DataRowVersion.Original, True, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_MEDICINCE_ID", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "MEDICINCE_ID", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_MEDICINCE_NAME", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "MEDICINCE_NAME", Global.System.Data.DataRowVersion.Original, True, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_MEDICINCE_NAME", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "MEDICINCE_NAME", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_ORDINANCE", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ORDINANCE", Global.System.Data.DataRowVersion.Original, True, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_ORDINANCE", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ORDINANCE", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_MEDICINCE_QTY", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "MEDICINCE_QTY", Global.System.Data.DataRowVersion.Original, True, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_MEDICINCE_QTY", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "MEDICINCE_QTY", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_MEDICINCE_PRICE", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "MEDICINCE_PRICE", Global.System.Data.DataRowVersion.Original, True, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_MEDICINCE_PRICE", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 2, "MEDICINCE_PRICE", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_TOTAL_PRICE", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "TOTAL_PRICE", Global.System.Data.DataRowVersion.Original, True, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_TOTAL_PRICE", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 2, "TOTAL_PRICE", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_USAGE", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "USAGE", Global.System.Data.DataRowVersion.Original, True, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_USAGE", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "USAGE", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_PRESCRIP_DATE", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "PRESCRIP_DATE", Global.System.Data.DataRowVersion.Original, True, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_PRESCRIP_DATE", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "PRESCRIP_DATE", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PRES_ID", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "PRES_ID", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@WAITING_ID", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "WAITING_ID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PATIENT_NO", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "PATIENT_NO", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@MEDICINCE_ID", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "MEDICINCE_ID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@MEDICINCE_NAME", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "MEDICINCE_NAME", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ORDINANCE", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ORDINANCE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@MEDICINCE_QTY", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "MEDICINCE_QTY", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@MEDICINCE_PRICE", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 2, "MEDICINCE_PRICE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@TOTAL_PRICE", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 2, "TOTAL_PRICE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@USAGE", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "USAGE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PRESCRIP_DATE", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "PRESCRIP_DATE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_PRES_ID", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "PRES_ID", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_WAITING_ID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "WAITING_ID", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_WAITING_ID", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "WAITING_ID", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_PATIENT_NO", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "PATIENT_NO", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_PATIENT_NO", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "PATIENT_NO", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_MEDICINCE_ID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "MEDICINCE_ID", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_MEDICINCE_ID", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "MEDICINCE_ID", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_MEDICINCE_NAME", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "MEDICINCE_NAME", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_MEDICINCE_NAME", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "MEDICINCE_NAME", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_ORDINANCE", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ORDINANCE", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_ORDINANCE", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ORDINANCE", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_MEDICINCE_QTY", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "MEDICINCE_QTY", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_MEDICINCE_QTY", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "MEDICINCE_QTY", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_MEDICINCE_PRICE", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "MEDICINCE_PRICE", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_MEDICINCE_PRICE", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 2, "MEDICINCE_PRICE", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_TOTAL_PRICE", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "TOTAL_PRICE", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_TOTAL_PRICE", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 2, "TOTAL_PRICE", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_USAGE", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "USAGE", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_USAGE", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "USAGE", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_PRESCRIP_DATE", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "PRESCRIP_DATE", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_PRESCRIP_DATE", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "PRESCRIP_DATE", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PRES_ID", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "PRES_ID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
         End Sub
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Private Sub InitConnection()
             Me._connection = New Global.System.Data.SqlClient.SqlConnection
             Me._connection.ConnectionString = Global.HospitalMS.My.MySettings.Default.AppConnection
         End Sub
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Private Sub InitCommandCollection()
             Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(1) {}
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT PRES_ID, WAITING_ID, PATIENT_NO, MEDICINCE_ID, MEDICINCE_NAME, ORDINANCE, " & _
-                "MEDICINCE_QTY, MEDICINCE_PRICE, TOTAL_PRICE, USAGE, PRESCRIP_DATE FROM dbo.S_PRE" & _
+            Me._commandCollection(0).CommandText = "SELECT PRES_ID, WAITING_ID, PATIENT_NO, MEDICINCE_ID, MEDICINCE_NAME, ORDINANCE, "& _ 
+                "MEDICINCE_QTY, MEDICINCE_PRICE, TOTAL_PRICE, USAGE, PRESCRIP_DATE FROM dbo.S_PRE"& _ 
                 "SCRIPTION"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(1) = New Global.System.Data.SqlClient.SqlCommand
             Me._commandCollection(1).Connection = Me.Connection
-            Me._commandCollection(1).CommandText = "SELECT PRES_ID, WAITING_ID, PATIENT_NO, MEDICINCE_ID, MEDICINCE_NAME, ORDINANCE, " & _
-                "MEDICINCE_QTY, MEDICINCE_PRICE, TOTAL_PRICE, USAGE, PRESCRIP_DATE FROM dbo.S_PRE" & _
-                "SCRIPTION" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "where" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "WAITING_ID=@WAITING_ID"
+            Me._commandCollection(1).CommandText = "SELECT PRES_ID, WAITING_ID, PATIENT_NO, MEDICINCE_ID, MEDICINCE_NAME, ORDINANCE, "& _ 
+                "MEDICINCE_QTY, MEDICINCE_PRICE, TOTAL_PRICE, USAGE, PRESCRIP_DATE FROM dbo.S_PRE"& _ 
+                "SCRIPTION"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"where"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WAITING_ID=@WAITING_ID"
             Me._commandCollection(1).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@WAITING_ID", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "WAITING_ID", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@WAITING_ID", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "WAITING_ID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
         End Sub
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, True)> _
-        Public Overridable Overloads Function Fill(ByVal dataTable As DS_KSPAYMENT.S_PRESCRIPTIONDataTable) As Integer
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, true)>  _
+        Public Overloads Overridable Function Fill(ByVal dataTable As DS_KSPAYMENT.S_PRESCRIPTIONDataTable) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
-            If (Me.ClearBeforeFill = True) Then
-                dataTable.Clear()
+            If (Me.ClearBeforeFill = true) Then
+                dataTable.Clear
             End If
             Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
             Return returnValue
         End Function
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], True)> _
-        Public Overridable Overloads Function GetData() As DS_KSPAYMENT.S_PRESCRIPTIONDataTable
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], true)>  _
+        Public Overloads Overridable Function GetData() As DS_KSPAYMENT.S_PRESCRIPTIONDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
             Dim dataTable As DS_KSPAYMENT.S_PRESCRIPTIONDataTable = New DS_KSPAYMENT.S_PRESCRIPTIONDataTable
             Me.Adapter.Fill(dataTable)
             Return dataTable
         End Function
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, False)> _
-        Public Overridable Overloads Function FillBy(ByVal dataTable As DS_KSPAYMENT.S_PRESCRIPTIONDataTable, ByVal WAITING_ID As Global.System.Nullable(Of Decimal)) As Integer
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
+        Public Overloads Overridable Function FillBy(ByVal dataTable As DS_KSPAYMENT.S_PRESCRIPTIONDataTable, ByVal WAITING_ID As Global.System.Nullable(Of Decimal)) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(1)
-            If (WAITING_ID.HasValue = True) Then
-                Me.Adapter.SelectCommand.Parameters(0).Value = CType(WAITING_ID.Value, Decimal)
+            If (WAITING_ID.HasValue = true) Then
+                Me.Adapter.SelectCommand.Parameters(0).Value = CType(WAITING_ID.Value,Decimal)
             Else
                 Me.Adapter.SelectCommand.Parameters(0).Value = Global.System.DBNull.Value
             End If
-            If (Me.ClearBeforeFill = True) Then
-                dataTable.Clear()
+            If (Me.ClearBeforeFill = true) Then
+                dataTable.Clear
             End If
             Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
             Return returnValue
         End Function
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], False)> _
-        Public Overridable Overloads Function SelectByWaitingID(ByVal WAITING_ID As Global.System.Nullable(Of Decimal)) As DS_KSPAYMENT.S_PRESCRIPTIONDataTable
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
+        Public Overloads Overridable Function SelectByWaitingID(ByVal WAITING_ID As Global.System.Nullable(Of Decimal)) As DS_KSPAYMENT.S_PRESCRIPTIONDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(1)
-            If (WAITING_ID.HasValue = True) Then
-                Me.Adapter.SelectCommand.Parameters(0).Value = CType(WAITING_ID.Value, Decimal)
+            If (WAITING_ID.HasValue = true) Then
+                Me.Adapter.SelectCommand.Parameters(0).Value = CType(WAITING_ID.Value,Decimal)
             Else
                 Me.Adapter.SelectCommand.Parameters(0).Value = Global.System.DBNull.Value
             End If
@@ -14791,430 +15556,430 @@ Namespace DS_KSPAYMENTTableAdapters
             Me.Adapter.Fill(dataTable)
             Return dataTable
         End Function
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")> _
-        Public Overridable Overloads Function Update(ByVal dataTable As DS_KSPAYMENT.S_PRESCRIPTIONDataTable) As Integer
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+        Public Overloads Overridable Function Update(ByVal dataTable As DS_KSPAYMENT.S_PRESCRIPTIONDataTable) As Integer
             Return Me.Adapter.Update(dataTable)
         End Function
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")> _
-        Public Overridable Overloads Function Update(ByVal dataSet As DS_KSPAYMENT) As Integer
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+        Public Overloads Overridable Function Update(ByVal dataSet As DS_KSPAYMENT) As Integer
             Return Me.Adapter.Update(dataSet, "S_PRESCRIPTION")
         End Function
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")> _
-        Public Overridable Overloads Function Update(ByVal dataRow As Global.System.Data.DataRow) As Integer
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+        Public Overloads Overridable Function Update(ByVal dataRow As Global.System.Data.DataRow) As Integer
             Return Me.Adapter.Update(New Global.System.Data.DataRow() {dataRow})
         End Function
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")> _
-        Public Overridable Overloads Function Update(ByVal dataRows() As Global.System.Data.DataRow) As Integer
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+        Public Overloads Overridable Function Update(ByVal dataRows() As Global.System.Data.DataRow) As Integer
             Return Me.Adapter.Update(dataRows)
         End Function
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Delete, True)> _
-        Public Overridable Overloads Function Delete(ByVal Original_PRES_ID As Decimal, ByVal Original_WAITING_ID As Global.System.Nullable(Of Decimal), ByVal Original_PATIENT_NO As Global.System.Nullable(Of Decimal), ByVal Original_MEDICINCE_ID As Global.System.Nullable(Of Decimal), ByVal Original_MEDICINCE_NAME As String, ByVal Original_ORDINANCE As String, ByVal Original_MEDICINCE_QTY As Global.System.Nullable(Of Decimal), ByVal Original_MEDICINCE_PRICE As Global.System.Nullable(Of Decimal), ByVal Original_TOTAL_PRICE As Global.System.Nullable(Of Decimal), ByVal Original_USAGE As String, ByVal Original_PRESCRIP_DATE As Global.System.Nullable(Of Date)) As Integer
-            Me.Adapter.DeleteCommand.Parameters(0).Value = CType(Original_PRES_ID, Decimal)
-            If (Original_WAITING_ID.HasValue = True) Then
-                Me.Adapter.DeleteCommand.Parameters(1).Value = CType(0, Object)
-                Me.Adapter.DeleteCommand.Parameters(2).Value = CType(Original_WAITING_ID.Value, Decimal)
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Delete, true)>  _
+        Public Overloads Overridable Function Delete(ByVal Original_PRES_ID As Decimal, ByVal Original_WAITING_ID As Global.System.Nullable(Of Decimal), ByVal Original_PATIENT_NO As Global.System.Nullable(Of Decimal), ByVal Original_MEDICINCE_ID As Global.System.Nullable(Of Decimal), ByVal Original_MEDICINCE_NAME As String, ByVal Original_ORDINANCE As String, ByVal Original_MEDICINCE_QTY As Global.System.Nullable(Of Decimal), ByVal Original_MEDICINCE_PRICE As Global.System.Nullable(Of Decimal), ByVal Original_TOTAL_PRICE As Global.System.Nullable(Of Decimal), ByVal Original_USAGE As String, ByVal Original_PRESCRIP_DATE As Global.System.Nullable(Of Date)) As Integer
+            Me.Adapter.DeleteCommand.Parameters(0).Value = CType(Original_PRES_ID,Decimal)
+            If (Original_WAITING_ID.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(1).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(2).Value = CType(Original_WAITING_ID.Value,Decimal)
             Else
-                Me.Adapter.DeleteCommand.Parameters(1).Value = CType(1, Object)
+                Me.Adapter.DeleteCommand.Parameters(1).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(2).Value = Global.System.DBNull.Value
             End If
-            If (Original_PATIENT_NO.HasValue = True) Then
-                Me.Adapter.DeleteCommand.Parameters(3).Value = CType(0, Object)
-                Me.Adapter.DeleteCommand.Parameters(4).Value = CType(Original_PATIENT_NO.Value, Decimal)
+            If (Original_PATIENT_NO.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(3).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(4).Value = CType(Original_PATIENT_NO.Value,Decimal)
             Else
-                Me.Adapter.DeleteCommand.Parameters(3).Value = CType(1, Object)
+                Me.Adapter.DeleteCommand.Parameters(3).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(4).Value = Global.System.DBNull.Value
             End If
-            If (Original_MEDICINCE_ID.HasValue = True) Then
-                Me.Adapter.DeleteCommand.Parameters(5).Value = CType(0, Object)
-                Me.Adapter.DeleteCommand.Parameters(6).Value = CType(Original_MEDICINCE_ID.Value, Decimal)
+            If (Original_MEDICINCE_ID.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(5).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(6).Value = CType(Original_MEDICINCE_ID.Value,Decimal)
             Else
-                Me.Adapter.DeleteCommand.Parameters(5).Value = CType(1, Object)
+                Me.Adapter.DeleteCommand.Parameters(5).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(6).Value = Global.System.DBNull.Value
             End If
             If (Original_MEDICINCE_NAME Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(7).Value = CType(1, Object)
+                Me.Adapter.DeleteCommand.Parameters(7).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(8).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.DeleteCommand.Parameters(7).Value = CType(0, Object)
-                Me.Adapter.DeleteCommand.Parameters(8).Value = CType(Original_MEDICINCE_NAME, String)
+                Me.Adapter.DeleteCommand.Parameters(7).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(8).Value = CType(Original_MEDICINCE_NAME,String)
             End If
             If (Original_ORDINANCE Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(9).Value = CType(1, Object)
+                Me.Adapter.DeleteCommand.Parameters(9).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(10).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.DeleteCommand.Parameters(9).Value = CType(0, Object)
-                Me.Adapter.DeleteCommand.Parameters(10).Value = CType(Original_ORDINANCE, String)
+                Me.Adapter.DeleteCommand.Parameters(9).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(10).Value = CType(Original_ORDINANCE,String)
             End If
-            If (Original_MEDICINCE_QTY.HasValue = True) Then
-                Me.Adapter.DeleteCommand.Parameters(11).Value = CType(0, Object)
-                Me.Adapter.DeleteCommand.Parameters(12).Value = CType(Original_MEDICINCE_QTY.Value, Decimal)
+            If (Original_MEDICINCE_QTY.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(11).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(12).Value = CType(Original_MEDICINCE_QTY.Value,Decimal)
             Else
-                Me.Adapter.DeleteCommand.Parameters(11).Value = CType(1, Object)
+                Me.Adapter.DeleteCommand.Parameters(11).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(12).Value = Global.System.DBNull.Value
             End If
-            If (Original_MEDICINCE_PRICE.HasValue = True) Then
-                Me.Adapter.DeleteCommand.Parameters(13).Value = CType(0, Object)
-                Me.Adapter.DeleteCommand.Parameters(14).Value = CType(Original_MEDICINCE_PRICE.Value, Decimal)
+            If (Original_MEDICINCE_PRICE.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(13).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(14).Value = CType(Original_MEDICINCE_PRICE.Value,Decimal)
             Else
-                Me.Adapter.DeleteCommand.Parameters(13).Value = CType(1, Object)
+                Me.Adapter.DeleteCommand.Parameters(13).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(14).Value = Global.System.DBNull.Value
             End If
-            If (Original_TOTAL_PRICE.HasValue = True) Then
-                Me.Adapter.DeleteCommand.Parameters(15).Value = CType(0, Object)
-                Me.Adapter.DeleteCommand.Parameters(16).Value = CType(Original_TOTAL_PRICE.Value, Decimal)
+            If (Original_TOTAL_PRICE.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(15).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(16).Value = CType(Original_TOTAL_PRICE.Value,Decimal)
             Else
-                Me.Adapter.DeleteCommand.Parameters(15).Value = CType(1, Object)
+                Me.Adapter.DeleteCommand.Parameters(15).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(16).Value = Global.System.DBNull.Value
             End If
             If (Original_USAGE Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(17).Value = CType(1, Object)
+                Me.Adapter.DeleteCommand.Parameters(17).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(18).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.DeleteCommand.Parameters(17).Value = CType(0, Object)
-                Me.Adapter.DeleteCommand.Parameters(18).Value = CType(Original_USAGE, String)
+                Me.Adapter.DeleteCommand.Parameters(17).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(18).Value = CType(Original_USAGE,String)
             End If
-            If (Original_PRESCRIP_DATE.HasValue = True) Then
-                Me.Adapter.DeleteCommand.Parameters(19).Value = CType(0, Object)
-                Me.Adapter.DeleteCommand.Parameters(20).Value = CType(Original_PRESCRIP_DATE.Value, Date)
+            If (Original_PRESCRIP_DATE.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(19).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(20).Value = CType(Original_PRESCRIP_DATE.Value,Date)
             Else
-                Me.Adapter.DeleteCommand.Parameters(19).Value = CType(1, Object)
+                Me.Adapter.DeleteCommand.Parameters(19).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(20).Value = Global.System.DBNull.Value
             End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.DeleteCommand.Connection.State
-            If ((Me.Adapter.DeleteCommand.Connection.State And Global.System.Data.ConnectionState.Open) _
+            If ((Me.Adapter.DeleteCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
-                Me.Adapter.DeleteCommand.Connection.Open()
+                Me.Adapter.DeleteCommand.Connection.Open
             End If
-            Try
+            Try 
                 Dim returnValue As Integer = Me.Adapter.DeleteCommand.ExecuteNonQuery
                 Return returnValue
             Finally
                 If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
-                    Me.Adapter.DeleteCommand.Connection.Close()
+                    Me.Adapter.DeleteCommand.Connection.Close
                 End If
             End Try
         End Function
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, True)> _
-        Public Overridable Overloads Function Insert(ByVal WAITING_ID As Global.System.Nullable(Of Decimal), ByVal PATIENT_NO As Global.System.Nullable(Of Decimal), ByVal MEDICINCE_ID As Global.System.Nullable(Of Decimal), ByVal MEDICINCE_NAME As String, ByVal ORDINANCE As String, ByVal MEDICINCE_QTY As Global.System.Nullable(Of Decimal), ByVal MEDICINCE_PRICE As Global.System.Nullable(Of Decimal), ByVal TOTAL_PRICE As Global.System.Nullable(Of Decimal), ByVal USAGE As String, ByVal PRESCRIP_DATE As Global.System.Nullable(Of Date)) As Integer
-            If (WAITING_ID.HasValue = True) Then
-                Me.Adapter.InsertCommand.Parameters(0).Value = CType(WAITING_ID.Value, Decimal)
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, true)>  _
+        Public Overloads Overridable Function Insert(ByVal WAITING_ID As Global.System.Nullable(Of Decimal), ByVal PATIENT_NO As Global.System.Nullable(Of Decimal), ByVal MEDICINCE_ID As Global.System.Nullable(Of Decimal), ByVal MEDICINCE_NAME As String, ByVal ORDINANCE As String, ByVal MEDICINCE_QTY As Global.System.Nullable(Of Decimal), ByVal MEDICINCE_PRICE As Global.System.Nullable(Of Decimal), ByVal TOTAL_PRICE As Global.System.Nullable(Of Decimal), ByVal USAGE As String, ByVal PRESCRIP_DATE As Global.System.Nullable(Of Date)) As Integer
+            If (WAITING_ID.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(0).Value = CType(WAITING_ID.Value,Decimal)
             Else
                 Me.Adapter.InsertCommand.Parameters(0).Value = Global.System.DBNull.Value
             End If
-            If (PATIENT_NO.HasValue = True) Then
-                Me.Adapter.InsertCommand.Parameters(1).Value = CType(PATIENT_NO.Value, Decimal)
+            If (PATIENT_NO.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(1).Value = CType(PATIENT_NO.Value,Decimal)
             Else
                 Me.Adapter.InsertCommand.Parameters(1).Value = Global.System.DBNull.Value
             End If
-            If (MEDICINCE_ID.HasValue = True) Then
-                Me.Adapter.InsertCommand.Parameters(2).Value = CType(MEDICINCE_ID.Value, Decimal)
+            If (MEDICINCE_ID.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(2).Value = CType(MEDICINCE_ID.Value,Decimal)
             Else
                 Me.Adapter.InsertCommand.Parameters(2).Value = Global.System.DBNull.Value
             End If
             If (MEDICINCE_NAME Is Nothing) Then
                 Me.Adapter.InsertCommand.Parameters(3).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.InsertCommand.Parameters(3).Value = CType(MEDICINCE_NAME, String)
+                Me.Adapter.InsertCommand.Parameters(3).Value = CType(MEDICINCE_NAME,String)
             End If
             If (ORDINANCE Is Nothing) Then
                 Me.Adapter.InsertCommand.Parameters(4).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.InsertCommand.Parameters(4).Value = CType(ORDINANCE, String)
+                Me.Adapter.InsertCommand.Parameters(4).Value = CType(ORDINANCE,String)
             End If
-            If (MEDICINCE_QTY.HasValue = True) Then
-                Me.Adapter.InsertCommand.Parameters(5).Value = CType(MEDICINCE_QTY.Value, Decimal)
+            If (MEDICINCE_QTY.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(5).Value = CType(MEDICINCE_QTY.Value,Decimal)
             Else
                 Me.Adapter.InsertCommand.Parameters(5).Value = Global.System.DBNull.Value
             End If
-            If (MEDICINCE_PRICE.HasValue = True) Then
-                Me.Adapter.InsertCommand.Parameters(6).Value = CType(MEDICINCE_PRICE.Value, Decimal)
+            If (MEDICINCE_PRICE.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(6).Value = CType(MEDICINCE_PRICE.Value,Decimal)
             Else
                 Me.Adapter.InsertCommand.Parameters(6).Value = Global.System.DBNull.Value
             End If
-            If (TOTAL_PRICE.HasValue = True) Then
-                Me.Adapter.InsertCommand.Parameters(7).Value = CType(TOTAL_PRICE.Value, Decimal)
+            If (TOTAL_PRICE.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(7).Value = CType(TOTAL_PRICE.Value,Decimal)
             Else
                 Me.Adapter.InsertCommand.Parameters(7).Value = Global.System.DBNull.Value
             End If
             If (USAGE Is Nothing) Then
                 Me.Adapter.InsertCommand.Parameters(8).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.InsertCommand.Parameters(8).Value = CType(USAGE, String)
+                Me.Adapter.InsertCommand.Parameters(8).Value = CType(USAGE,String)
             End If
-            If (PRESCRIP_DATE.HasValue = True) Then
-                Me.Adapter.InsertCommand.Parameters(9).Value = CType(PRESCRIP_DATE.Value, Date)
+            If (PRESCRIP_DATE.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(9).Value = CType(PRESCRIP_DATE.Value,Date)
             Else
                 Me.Adapter.InsertCommand.Parameters(9).Value = Global.System.DBNull.Value
             End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.InsertCommand.Connection.State
-            If ((Me.Adapter.InsertCommand.Connection.State And Global.System.Data.ConnectionState.Open) _
+            If ((Me.Adapter.InsertCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
-                Me.Adapter.InsertCommand.Connection.Open()
+                Me.Adapter.InsertCommand.Connection.Open
             End If
-            Try
+            Try 
                 Dim returnValue As Integer = Me.Adapter.InsertCommand.ExecuteNonQuery
                 Return returnValue
             Finally
                 If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
-                    Me.Adapter.InsertCommand.Connection.Close()
+                    Me.Adapter.InsertCommand.Connection.Close
                 End If
             End Try
         End Function
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, True)> _
-        Public Overridable Overloads Function Update( _
-                    ByVal WAITING_ID As Global.System.Nullable(Of Decimal), _
-                    ByVal PATIENT_NO As Global.System.Nullable(Of Decimal), _
-                    ByVal MEDICINCE_ID As Global.System.Nullable(Of Decimal), _
-                    ByVal MEDICINCE_NAME As String, _
-                    ByVal ORDINANCE As String, _
-                    ByVal MEDICINCE_QTY As Global.System.Nullable(Of Decimal), _
-                    ByVal MEDICINCE_PRICE As Global.System.Nullable(Of Decimal), _
-                    ByVal TOTAL_PRICE As Global.System.Nullable(Of Decimal), _
-                    ByVal USAGE As String, _
-                    ByVal PRESCRIP_DATE As Global.System.Nullable(Of Date), _
-                    ByVal Original_PRES_ID As Decimal, _
-                    ByVal Original_WAITING_ID As Global.System.Nullable(Of Decimal), _
-                    ByVal Original_PATIENT_NO As Global.System.Nullable(Of Decimal), _
-                    ByVal Original_MEDICINCE_ID As Global.System.Nullable(Of Decimal), _
-                    ByVal Original_MEDICINCE_NAME As String, _
-                    ByVal Original_ORDINANCE As String, _
-                    ByVal Original_MEDICINCE_QTY As Global.System.Nullable(Of Decimal), _
-                    ByVal Original_MEDICINCE_PRICE As Global.System.Nullable(Of Decimal), _
-                    ByVal Original_TOTAL_PRICE As Global.System.Nullable(Of Decimal), _
-                    ByVal Original_USAGE As String, _
-                    ByVal Original_PRESCRIP_DATE As Global.System.Nullable(Of Date), _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
+        Public Overloads Overridable Function Update( _
+                    ByVal WAITING_ID As Global.System.Nullable(Of Decimal),  _
+                    ByVal PATIENT_NO As Global.System.Nullable(Of Decimal),  _
+                    ByVal MEDICINCE_ID As Global.System.Nullable(Of Decimal),  _
+                    ByVal MEDICINCE_NAME As String,  _
+                    ByVal ORDINANCE As String,  _
+                    ByVal MEDICINCE_QTY As Global.System.Nullable(Of Decimal),  _
+                    ByVal MEDICINCE_PRICE As Global.System.Nullable(Of Decimal),  _
+                    ByVal TOTAL_PRICE As Global.System.Nullable(Of Decimal),  _
+                    ByVal USAGE As String,  _
+                    ByVal PRESCRIP_DATE As Global.System.Nullable(Of Date),  _
+                    ByVal Original_PRES_ID As Decimal,  _
+                    ByVal Original_WAITING_ID As Global.System.Nullable(Of Decimal),  _
+                    ByVal Original_PATIENT_NO As Global.System.Nullable(Of Decimal),  _
+                    ByVal Original_MEDICINCE_ID As Global.System.Nullable(Of Decimal),  _
+                    ByVal Original_MEDICINCE_NAME As String,  _
+                    ByVal Original_ORDINANCE As String,  _
+                    ByVal Original_MEDICINCE_QTY As Global.System.Nullable(Of Decimal),  _
+                    ByVal Original_MEDICINCE_PRICE As Global.System.Nullable(Of Decimal),  _
+                    ByVal Original_TOTAL_PRICE As Global.System.Nullable(Of Decimal),  _
+                    ByVal Original_USAGE As String,  _
+                    ByVal Original_PRESCRIP_DATE As Global.System.Nullable(Of Date),  _
                     ByVal PRES_ID As Decimal) As Integer
-            If (WAITING_ID.HasValue = True) Then
-                Me.Adapter.UpdateCommand.Parameters(0).Value = CType(WAITING_ID.Value, Decimal)
+            If (WAITING_ID.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(0).Value = CType(WAITING_ID.Value,Decimal)
             Else
                 Me.Adapter.UpdateCommand.Parameters(0).Value = Global.System.DBNull.Value
             End If
-            If (PATIENT_NO.HasValue = True) Then
-                Me.Adapter.UpdateCommand.Parameters(1).Value = CType(PATIENT_NO.Value, Decimal)
+            If (PATIENT_NO.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(1).Value = CType(PATIENT_NO.Value,Decimal)
             Else
                 Me.Adapter.UpdateCommand.Parameters(1).Value = Global.System.DBNull.Value
             End If
-            If (MEDICINCE_ID.HasValue = True) Then
-                Me.Adapter.UpdateCommand.Parameters(2).Value = CType(MEDICINCE_ID.Value, Decimal)
+            If (MEDICINCE_ID.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(2).Value = CType(MEDICINCE_ID.Value,Decimal)
             Else
                 Me.Adapter.UpdateCommand.Parameters(2).Value = Global.System.DBNull.Value
             End If
             If (MEDICINCE_NAME Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(3).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(3).Value = CType(MEDICINCE_NAME, String)
+                Me.Adapter.UpdateCommand.Parameters(3).Value = CType(MEDICINCE_NAME,String)
             End If
             If (ORDINANCE Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(4).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(4).Value = CType(ORDINANCE, String)
+                Me.Adapter.UpdateCommand.Parameters(4).Value = CType(ORDINANCE,String)
             End If
-            If (MEDICINCE_QTY.HasValue = True) Then
-                Me.Adapter.UpdateCommand.Parameters(5).Value = CType(MEDICINCE_QTY.Value, Decimal)
+            If (MEDICINCE_QTY.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(5).Value = CType(MEDICINCE_QTY.Value,Decimal)
             Else
                 Me.Adapter.UpdateCommand.Parameters(5).Value = Global.System.DBNull.Value
             End If
-            If (MEDICINCE_PRICE.HasValue = True) Then
-                Me.Adapter.UpdateCommand.Parameters(6).Value = CType(MEDICINCE_PRICE.Value, Decimal)
+            If (MEDICINCE_PRICE.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(6).Value = CType(MEDICINCE_PRICE.Value,Decimal)
             Else
                 Me.Adapter.UpdateCommand.Parameters(6).Value = Global.System.DBNull.Value
             End If
-            If (TOTAL_PRICE.HasValue = True) Then
-                Me.Adapter.UpdateCommand.Parameters(7).Value = CType(TOTAL_PRICE.Value, Decimal)
+            If (TOTAL_PRICE.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(7).Value = CType(TOTAL_PRICE.Value,Decimal)
             Else
                 Me.Adapter.UpdateCommand.Parameters(7).Value = Global.System.DBNull.Value
             End If
             If (USAGE Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(8).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(8).Value = CType(USAGE, String)
+                Me.Adapter.UpdateCommand.Parameters(8).Value = CType(USAGE,String)
             End If
-            If (PRESCRIP_DATE.HasValue = True) Then
-                Me.Adapter.UpdateCommand.Parameters(9).Value = CType(PRESCRIP_DATE.Value, Date)
+            If (PRESCRIP_DATE.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(9).Value = CType(PRESCRIP_DATE.Value,Date)
             Else
                 Me.Adapter.UpdateCommand.Parameters(9).Value = Global.System.DBNull.Value
             End If
-            Me.Adapter.UpdateCommand.Parameters(10).Value = CType(Original_PRES_ID, Decimal)
-            If (Original_WAITING_ID.HasValue = True) Then
-                Me.Adapter.UpdateCommand.Parameters(11).Value = CType(0, Object)
-                Me.Adapter.UpdateCommand.Parameters(12).Value = CType(Original_WAITING_ID.Value, Decimal)
+            Me.Adapter.UpdateCommand.Parameters(10).Value = CType(Original_PRES_ID,Decimal)
+            If (Original_WAITING_ID.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(11).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(12).Value = CType(Original_WAITING_ID.Value,Decimal)
             Else
-                Me.Adapter.UpdateCommand.Parameters(11).Value = CType(1, Object)
+                Me.Adapter.UpdateCommand.Parameters(11).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(12).Value = Global.System.DBNull.Value
             End If
-            If (Original_PATIENT_NO.HasValue = True) Then
-                Me.Adapter.UpdateCommand.Parameters(13).Value = CType(0, Object)
-                Me.Adapter.UpdateCommand.Parameters(14).Value = CType(Original_PATIENT_NO.Value, Decimal)
+            If (Original_PATIENT_NO.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(13).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(14).Value = CType(Original_PATIENT_NO.Value,Decimal)
             Else
-                Me.Adapter.UpdateCommand.Parameters(13).Value = CType(1, Object)
+                Me.Adapter.UpdateCommand.Parameters(13).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(14).Value = Global.System.DBNull.Value
             End If
-            If (Original_MEDICINCE_ID.HasValue = True) Then
-                Me.Adapter.UpdateCommand.Parameters(15).Value = CType(0, Object)
-                Me.Adapter.UpdateCommand.Parameters(16).Value = CType(Original_MEDICINCE_ID.Value, Decimal)
+            If (Original_MEDICINCE_ID.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(15).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(16).Value = CType(Original_MEDICINCE_ID.Value,Decimal)
             Else
-                Me.Adapter.UpdateCommand.Parameters(15).Value = CType(1, Object)
+                Me.Adapter.UpdateCommand.Parameters(15).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(16).Value = Global.System.DBNull.Value
             End If
             If (Original_MEDICINCE_NAME Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(17).Value = CType(1, Object)
+                Me.Adapter.UpdateCommand.Parameters(17).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(18).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(17).Value = CType(0, Object)
-                Me.Adapter.UpdateCommand.Parameters(18).Value = CType(Original_MEDICINCE_NAME, String)
+                Me.Adapter.UpdateCommand.Parameters(17).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(18).Value = CType(Original_MEDICINCE_NAME,String)
             End If
             If (Original_ORDINANCE Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(19).Value = CType(1, Object)
+                Me.Adapter.UpdateCommand.Parameters(19).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(20).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(19).Value = CType(0, Object)
-                Me.Adapter.UpdateCommand.Parameters(20).Value = CType(Original_ORDINANCE, String)
+                Me.Adapter.UpdateCommand.Parameters(19).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(20).Value = CType(Original_ORDINANCE,String)
             End If
-            If (Original_MEDICINCE_QTY.HasValue = True) Then
-                Me.Adapter.UpdateCommand.Parameters(21).Value = CType(0, Object)
-                Me.Adapter.UpdateCommand.Parameters(22).Value = CType(Original_MEDICINCE_QTY.Value, Decimal)
+            If (Original_MEDICINCE_QTY.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(21).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(22).Value = CType(Original_MEDICINCE_QTY.Value,Decimal)
             Else
-                Me.Adapter.UpdateCommand.Parameters(21).Value = CType(1, Object)
+                Me.Adapter.UpdateCommand.Parameters(21).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(22).Value = Global.System.DBNull.Value
             End If
-            If (Original_MEDICINCE_PRICE.HasValue = True) Then
-                Me.Adapter.UpdateCommand.Parameters(23).Value = CType(0, Object)
-                Me.Adapter.UpdateCommand.Parameters(24).Value = CType(Original_MEDICINCE_PRICE.Value, Decimal)
+            If (Original_MEDICINCE_PRICE.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(23).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(24).Value = CType(Original_MEDICINCE_PRICE.Value,Decimal)
             Else
-                Me.Adapter.UpdateCommand.Parameters(23).Value = CType(1, Object)
+                Me.Adapter.UpdateCommand.Parameters(23).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(24).Value = Global.System.DBNull.Value
             End If
-            If (Original_TOTAL_PRICE.HasValue = True) Then
-                Me.Adapter.UpdateCommand.Parameters(25).Value = CType(0, Object)
-                Me.Adapter.UpdateCommand.Parameters(26).Value = CType(Original_TOTAL_PRICE.Value, Decimal)
+            If (Original_TOTAL_PRICE.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(25).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(26).Value = CType(Original_TOTAL_PRICE.Value,Decimal)
             Else
-                Me.Adapter.UpdateCommand.Parameters(25).Value = CType(1, Object)
+                Me.Adapter.UpdateCommand.Parameters(25).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(26).Value = Global.System.DBNull.Value
             End If
             If (Original_USAGE Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(27).Value = CType(1, Object)
+                Me.Adapter.UpdateCommand.Parameters(27).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(28).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(27).Value = CType(0, Object)
-                Me.Adapter.UpdateCommand.Parameters(28).Value = CType(Original_USAGE, String)
+                Me.Adapter.UpdateCommand.Parameters(27).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(28).Value = CType(Original_USAGE,String)
             End If
-            If (Original_PRESCRIP_DATE.HasValue = True) Then
-                Me.Adapter.UpdateCommand.Parameters(29).Value = CType(0, Object)
-                Me.Adapter.UpdateCommand.Parameters(30).Value = CType(Original_PRESCRIP_DATE.Value, Date)
+            If (Original_PRESCRIP_DATE.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(29).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(30).Value = CType(Original_PRESCRIP_DATE.Value,Date)
             Else
-                Me.Adapter.UpdateCommand.Parameters(29).Value = CType(1, Object)
+                Me.Adapter.UpdateCommand.Parameters(29).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(30).Value = Global.System.DBNull.Value
             End If
-            Me.Adapter.UpdateCommand.Parameters(31).Value = CType(PRES_ID, Decimal)
+            Me.Adapter.UpdateCommand.Parameters(31).Value = CType(PRES_ID,Decimal)
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.UpdateCommand.Connection.State
-            If ((Me.Adapter.UpdateCommand.Connection.State And Global.System.Data.ConnectionState.Open) _
+            If ((Me.Adapter.UpdateCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
-                Me.Adapter.UpdateCommand.Connection.Open()
+                Me.Adapter.UpdateCommand.Connection.Open
             End If
-            Try
+            Try 
                 Dim returnValue As Integer = Me.Adapter.UpdateCommand.ExecuteNonQuery
                 Return returnValue
             Finally
                 If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
-                    Me.Adapter.UpdateCommand.Connection.Close()
+                    Me.Adapter.UpdateCommand.Connection.Close
                 End If
             End Try
         End Function
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, True)> _
-        Public Overridable Overloads Function Update( _
-                    ByVal WAITING_ID As Global.System.Nullable(Of Decimal), _
-                    ByVal PATIENT_NO As Global.System.Nullable(Of Decimal), _
-                    ByVal MEDICINCE_ID As Global.System.Nullable(Of Decimal), _
-                    ByVal MEDICINCE_NAME As String, _
-                    ByVal ORDINANCE As String, _
-                    ByVal MEDICINCE_QTY As Global.System.Nullable(Of Decimal), _
-                    ByVal MEDICINCE_PRICE As Global.System.Nullable(Of Decimal), _
-                    ByVal TOTAL_PRICE As Global.System.Nullable(Of Decimal), _
-                    ByVal USAGE As String, _
-                    ByVal PRESCRIP_DATE As Global.System.Nullable(Of Date), _
-                    ByVal Original_PRES_ID As Decimal, _
-                    ByVal Original_WAITING_ID As Global.System.Nullable(Of Decimal), _
-                    ByVal Original_PATIENT_NO As Global.System.Nullable(Of Decimal), _
-                    ByVal Original_MEDICINCE_ID As Global.System.Nullable(Of Decimal), _
-                    ByVal Original_MEDICINCE_NAME As String, _
-                    ByVal Original_ORDINANCE As String, _
-                    ByVal Original_MEDICINCE_QTY As Global.System.Nullable(Of Decimal), _
-                    ByVal Original_MEDICINCE_PRICE As Global.System.Nullable(Of Decimal), _
-                    ByVal Original_TOTAL_PRICE As Global.System.Nullable(Of Decimal), _
-                    ByVal Original_USAGE As String, _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
+        Public Overloads Overridable Function Update( _
+                    ByVal WAITING_ID As Global.System.Nullable(Of Decimal),  _
+                    ByVal PATIENT_NO As Global.System.Nullable(Of Decimal),  _
+                    ByVal MEDICINCE_ID As Global.System.Nullable(Of Decimal),  _
+                    ByVal MEDICINCE_NAME As String,  _
+                    ByVal ORDINANCE As String,  _
+                    ByVal MEDICINCE_QTY As Global.System.Nullable(Of Decimal),  _
+                    ByVal MEDICINCE_PRICE As Global.System.Nullable(Of Decimal),  _
+                    ByVal TOTAL_PRICE As Global.System.Nullable(Of Decimal),  _
+                    ByVal USAGE As String,  _
+                    ByVal PRESCRIP_DATE As Global.System.Nullable(Of Date),  _
+                    ByVal Original_PRES_ID As Decimal,  _
+                    ByVal Original_WAITING_ID As Global.System.Nullable(Of Decimal),  _
+                    ByVal Original_PATIENT_NO As Global.System.Nullable(Of Decimal),  _
+                    ByVal Original_MEDICINCE_ID As Global.System.Nullable(Of Decimal),  _
+                    ByVal Original_MEDICINCE_NAME As String,  _
+                    ByVal Original_ORDINANCE As String,  _
+                    ByVal Original_MEDICINCE_QTY As Global.System.Nullable(Of Decimal),  _
+                    ByVal Original_MEDICINCE_PRICE As Global.System.Nullable(Of Decimal),  _
+                    ByVal Original_TOTAL_PRICE As Global.System.Nullable(Of Decimal),  _
+                    ByVal Original_USAGE As String,  _
                     ByVal Original_PRESCRIP_DATE As Global.System.Nullable(Of Date)) As Integer
             Return Me.Update(WAITING_ID, PATIENT_NO, MEDICINCE_ID, MEDICINCE_NAME, ORDINANCE, MEDICINCE_QTY, MEDICINCE_PRICE, TOTAL_PRICE, USAGE, PRESCRIP_DATE, Original_PRES_ID, Original_WAITING_ID, Original_PATIENT_NO, Original_MEDICINCE_ID, Original_MEDICINCE_NAME, Original_ORDINANCE, Original_MEDICINCE_QTY, Original_MEDICINCE_PRICE, Original_TOTAL_PRICE, Original_USAGE, Original_PRESCRIP_DATE, Original_PRES_ID)
         End Function
     End Class
-
+    
     '''<summary>
     '''Represents the connection and commands used to retrieve and save data.
     '''</summary>
-    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0"), _
-     Global.System.ComponentModel.DesignerCategoryAttribute("code"), _
-     Global.System.ComponentModel.ToolboxItem(True), _
-     Global.System.ComponentModel.DataObjectAttribute(True), _
-     Global.System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" & _
-        ", Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"), _
-     Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")> _
+    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0"),  _
+     Global.System.ComponentModel.DesignerCategoryAttribute("code"),  _
+     Global.System.ComponentModel.ToolboxItem(true),  _
+     Global.System.ComponentModel.DataObjectAttribute(true),  _
+     Global.System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner"& _ 
+        ", Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"),  _
+     Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
     Partial Public Class S_COUNT_MEDICINE_AND_GLASSESTableAdapter
         Inherits Global.System.ComponentModel.Component
-
+        
         Private WithEvents _adapter As Global.System.Data.SqlClient.SqlDataAdapter
-
+        
         Private _connection As Global.System.Data.SqlClient.SqlConnection
-
+        
         Private _transaction As Global.System.Data.SqlClient.SqlTransaction
-
+        
         Private _commandCollection() As Global.System.Data.SqlClient.SqlCommand
-
+        
         Private _clearBeforeFill As Boolean
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Sub New()
-            MyBase.New()
-            Me.ClearBeforeFill = True
+            MyBase.New
+            Me.ClearBeforeFill = true
         End Sub
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Protected Friend ReadOnly Property Adapter() As Global.System.Data.SqlClient.SqlDataAdapter
             Get
                 If (Me._adapter Is Nothing) Then
-                    Me.InitAdapter()
+                    Me.InitAdapter
                 End If
                 Return Me._adapter
             End Get
         End Property
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Friend Property Connection() As Global.System.Data.SqlClient.SqlConnection
             Get
                 If (Me._connection Is Nothing) Then
-                    Me.InitConnection()
+                    Me.InitConnection
                 End If
                 Return Me._connection
             End Get
-            Set(ByVal value As Global.System.Data.SqlClient.SqlConnection)
+            Set
                 Me._connection = value
                 If (Not (Me.Adapter.InsertCommand) Is Nothing) Then
                     Me.Adapter.InsertCommand.Connection = value
@@ -15228,61 +15993,61 @@ Namespace DS_KSPAYMENTTableAdapters
                 Dim i As Integer = 0
                 Do While (i < Me.CommandCollection.Length)
                     If (Not (Me.CommandCollection(i)) Is Nothing) Then
-                        CType(Me.CommandCollection(i), Global.System.Data.SqlClient.SqlCommand).Connection = value
+                        CType(Me.CommandCollection(i),Global.System.Data.SqlClient.SqlCommand).Connection = value
                     End If
                     i = (i + 1)
                 Loop
             End Set
         End Property
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Friend Property Transaction() As Global.System.Data.SqlClient.SqlTransaction
             Get
                 Return Me._transaction
             End Get
-            Set(ByVal value As Global.System.Data.SqlClient.SqlTransaction)
+            Set
                 Me._transaction = value
                 Dim i As Integer = 0
                 Do While (i < Me.CommandCollection.Length)
                     Me.CommandCollection(i).Transaction = Me._transaction
                     i = (i + 1)
                 Loop
-                If ((Not (Me.Adapter) Is Nothing) _
+                If ((Not (Me.Adapter) Is Nothing)  _
                             AndAlso (Not (Me.Adapter.DeleteCommand) Is Nothing)) Then
                     Me.Adapter.DeleteCommand.Transaction = Me._transaction
                 End If
-                If ((Not (Me.Adapter) Is Nothing) _
+                If ((Not (Me.Adapter) Is Nothing)  _
                             AndAlso (Not (Me.Adapter.InsertCommand) Is Nothing)) Then
                     Me.Adapter.InsertCommand.Transaction = Me._transaction
                 End If
-                If ((Not (Me.Adapter) Is Nothing) _
+                If ((Not (Me.Adapter) Is Nothing)  _
                             AndAlso (Not (Me.Adapter.UpdateCommand) Is Nothing)) Then
                     Me.Adapter.UpdateCommand.Transaction = Me._transaction
                 End If
             End Set
         End Property
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Protected ReadOnly Property CommandCollection() As Global.System.Data.SqlClient.SqlCommand()
             Get
                 If (Me._commandCollection Is Nothing) Then
-                    Me.InitCommandCollection()
+                    Me.InitCommandCollection
                 End If
                 Return Me._commandCollection
             End Get
         End Property
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Property ClearBeforeFill() As Boolean
             Get
                 Return Me._clearBeforeFill
             End Get
-            Set(ByVal value As Boolean)
+            Set
                 Me._clearBeforeFill = value
             End Set
         End Property
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Private Sub InitAdapter()
             Me._adapter = New Global.System.Data.SqlClient.SqlDataAdapter
             Dim tableMapping As Global.System.Data.Common.DataTableMapping = New Global.System.Data.Common.DataTableMapping
@@ -15300,88 +16065,88 @@ Namespace DS_KSPAYMENTTableAdapters
             tableMapping.ColumnMappings.Add("MEDICINCE_QTY", "MEDICINCE_QTY")
             Me._adapter.TableMappings.Add(tableMapping)
         End Sub
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Private Sub InitConnection()
             Me._connection = New Global.System.Data.SqlClient.SqlConnection
             Me._connection.ConnectionString = Global.HospitalMS.My.MySettings.Default.AppConnection
         End Sub
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Private Sub InitCommandCollection()
             Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(1) {}
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT INVOICE_ID, INVOICE_DATE, PATIENT_NO, PATIENT_NAME_ENG, PATIENT_NAME_KH, P" & _
-                "ATIENT_SEX, PATIENT_AGE, IS_GLASSES, MEDICINCE_NAME, MEDICINCE_QTY FROM dbo.S_CO" & _
+            Me._commandCollection(0).CommandText = "SELECT INVOICE_ID, INVOICE_DATE, PATIENT_NO, PATIENT_NAME_ENG, PATIENT_NAME_KH, P"& _ 
+                "ATIENT_SEX, PATIENT_AGE, IS_GLASSES, MEDICINCE_NAME, MEDICINCE_QTY FROM dbo.S_CO"& _ 
                 "UNT_MEDICINE_AND_GLASSES"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(1) = New Global.System.Data.SqlClient.SqlCommand
             Me._commandCollection(1).Connection = Me.Connection
-            Me._commandCollection(1).CommandText = "SELECT INVOICE_ID, INVOICE_DATE, PATIENT_NO, PATIENT_NAME_ENG, PATIENT_NAME_KH, P" & _
-                "ATIENT_SEX, PATIENT_AGE, IS_GLASSES, MEDICINCE_NAME, MEDICINCE_QTY FROM dbo.S_CO" & _
-                "UNT_MEDICINE_AND_GLASSES" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "WHERE " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "INVOICE_DATE BETWEEN @DFrom AND @DTo"
+            Me._commandCollection(1).CommandText = "SELECT INVOICE_ID, INVOICE_DATE, PATIENT_NO, PATIENT_NAME_ENG, PATIENT_NAME_KH, P"& _ 
+                "ATIENT_SEX, PATIENT_AGE, IS_GLASSES, MEDICINCE_NAME, MEDICINCE_QTY FROM dbo.S_CO"& _ 
+                "UNT_MEDICINE_AND_GLASSES"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"INVOICE_DATE BETWEEN @DFrom AND @DTo"
             Me._commandCollection(1).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DFrom", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "INVOICE_DATE", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DTo", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "INVOICE_DATE", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DFrom", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "INVOICE_DATE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DTo", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "INVOICE_DATE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
         End Sub
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, True)> _
-        Public Overridable Overloads Function Fill(ByVal dataTable As DS_KSPAYMENT.S_COUNT_MEDICINE_AND_GLASSESDataTable) As Integer
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, true)>  _
+        Public Overloads Overridable Function Fill(ByVal dataTable As DS_KSPAYMENT.S_COUNT_MEDICINE_AND_GLASSESDataTable) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
-            If (Me.ClearBeforeFill = True) Then
-                dataTable.Clear()
+            If (Me.ClearBeforeFill = true) Then
+                dataTable.Clear
             End If
             Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
             Return returnValue
         End Function
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], True)> _
-        Public Overridable Overloads Function GetData() As DS_KSPAYMENT.S_COUNT_MEDICINE_AND_GLASSESDataTable
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], true)>  _
+        Public Overloads Overridable Function GetData() As DS_KSPAYMENT.S_COUNT_MEDICINE_AND_GLASSESDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
             Dim dataTable As DS_KSPAYMENT.S_COUNT_MEDICINE_AND_GLASSESDataTable = New DS_KSPAYMENT.S_COUNT_MEDICINE_AND_GLASSESDataTable
             Me.Adapter.Fill(dataTable)
             Return dataTable
         End Function
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, False)> _
-        Public Overridable Overloads Function FillBy(ByVal dataTable As DS_KSPAYMENT.S_COUNT_MEDICINE_AND_GLASSESDataTable, ByVal DFrom As Global.System.Nullable(Of Date), ByVal DTo As Global.System.Nullable(Of Date)) As Integer
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
+        Public Overloads Overridable Function FillBy(ByVal dataTable As DS_KSPAYMENT.S_COUNT_MEDICINE_AND_GLASSESDataTable, ByVal DFrom As Global.System.Nullable(Of Date), ByVal DTo As Global.System.Nullable(Of Date)) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(1)
-            If (DFrom.HasValue = True) Then
-                Me.Adapter.SelectCommand.Parameters(0).Value = CType(DFrom.Value, Date)
+            If (DFrom.HasValue = true) Then
+                Me.Adapter.SelectCommand.Parameters(0).Value = CType(DFrom.Value,Date)
             Else
                 Me.Adapter.SelectCommand.Parameters(0).Value = Global.System.DBNull.Value
             End If
-            If (DTo.HasValue = True) Then
-                Me.Adapter.SelectCommand.Parameters(1).Value = CType(DTo.Value, Date)
+            If (DTo.HasValue = true) Then
+                Me.Adapter.SelectCommand.Parameters(1).Value = CType(DTo.Value,Date)
             Else
                 Me.Adapter.SelectCommand.Parameters(1).Value = Global.System.DBNull.Value
             End If
-            If (Me.ClearBeforeFill = True) Then
-                dataTable.Clear()
+            If (Me.ClearBeforeFill = true) Then
+                dataTable.Clear
             End If
             Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
             Return returnValue
         End Function
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], False)> _
-        Public Overridable Overloads Function SelectCountMedicince(ByVal DFrom As Global.System.Nullable(Of Date), ByVal DTo As Global.System.Nullable(Of Date)) As DS_KSPAYMENT.S_COUNT_MEDICINE_AND_GLASSESDataTable
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
+        Public Overloads Overridable Function SelectCountMedicince(ByVal DFrom As Global.System.Nullable(Of Date), ByVal DTo As Global.System.Nullable(Of Date)) As DS_KSPAYMENT.S_COUNT_MEDICINE_AND_GLASSESDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(1)
-            If (DFrom.HasValue = True) Then
-                Me.Adapter.SelectCommand.Parameters(0).Value = CType(DFrom.Value, Date)
+            If (DFrom.HasValue = true) Then
+                Me.Adapter.SelectCommand.Parameters(0).Value = CType(DFrom.Value,Date)
             Else
                 Me.Adapter.SelectCommand.Parameters(0).Value = Global.System.DBNull.Value
             End If
-            If (DTo.HasValue = True) Then
-                Me.Adapter.SelectCommand.Parameters(1).Value = CType(DTo.Value, Date)
+            If (DTo.HasValue = true) Then
+                Me.Adapter.SelectCommand.Parameters(1).Value = CType(DTo.Value,Date)
             Else
                 Me.Adapter.SelectCommand.Parameters(1).Value = Global.System.DBNull.Value
             End If
@@ -15390,55 +16155,55 @@ Namespace DS_KSPAYMENTTableAdapters
             Return dataTable
         End Function
     End Class
-
+    
     '''<summary>
     '''Represents the connection and commands used to retrieve and save data.
     '''</summary>
-    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0"), _
-     Global.System.ComponentModel.DesignerCategoryAttribute("code"), _
-     Global.System.ComponentModel.ToolboxItem(True), _
-     Global.System.ComponentModel.DataObjectAttribute(True), _
-     Global.System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" & _
-        ", Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"), _
-     Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")> _
+    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0"),  _
+     Global.System.ComponentModel.DesignerCategoryAttribute("code"),  _
+     Global.System.ComponentModel.ToolboxItem(true),  _
+     Global.System.ComponentModel.DataObjectAttribute(true),  _
+     Global.System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner"& _ 
+        ", Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"),  _
+     Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
     Partial Public Class S_COUNT_GLASSESSTableAdapter
         Inherits Global.System.ComponentModel.Component
-
+        
         Private WithEvents _adapter As Global.System.Data.SqlClient.SqlDataAdapter
-
+        
         Private _connection As Global.System.Data.SqlClient.SqlConnection
-
+        
         Private _transaction As Global.System.Data.SqlClient.SqlTransaction
-
+        
         Private _commandCollection() As Global.System.Data.SqlClient.SqlCommand
-
+        
         Private _clearBeforeFill As Boolean
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Sub New()
-            MyBase.New()
-            Me.ClearBeforeFill = True
+            MyBase.New
+            Me.ClearBeforeFill = true
         End Sub
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Protected Friend ReadOnly Property Adapter() As Global.System.Data.SqlClient.SqlDataAdapter
             Get
                 If (Me._adapter Is Nothing) Then
-                    Me.InitAdapter()
+                    Me.InitAdapter
                 End If
                 Return Me._adapter
             End Get
         End Property
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Friend Property Connection() As Global.System.Data.SqlClient.SqlConnection
             Get
                 If (Me._connection Is Nothing) Then
-                    Me.InitConnection()
+                    Me.InitConnection
                 End If
                 Return Me._connection
             End Get
-            Set(ByVal value As Global.System.Data.SqlClient.SqlConnection)
+            Set
                 Me._connection = value
                 If (Not (Me.Adapter.InsertCommand) Is Nothing) Then
                     Me.Adapter.InsertCommand.Connection = value
@@ -15452,61 +16217,61 @@ Namespace DS_KSPAYMENTTableAdapters
                 Dim i As Integer = 0
                 Do While (i < Me.CommandCollection.Length)
                     If (Not (Me.CommandCollection(i)) Is Nothing) Then
-                        CType(Me.CommandCollection(i), Global.System.Data.SqlClient.SqlCommand).Connection = value
+                        CType(Me.CommandCollection(i),Global.System.Data.SqlClient.SqlCommand).Connection = value
                     End If
                     i = (i + 1)
                 Loop
             End Set
         End Property
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Friend Property Transaction() As Global.System.Data.SqlClient.SqlTransaction
             Get
                 Return Me._transaction
             End Get
-            Set(ByVal value As Global.System.Data.SqlClient.SqlTransaction)
+            Set
                 Me._transaction = value
                 Dim i As Integer = 0
                 Do While (i < Me.CommandCollection.Length)
                     Me.CommandCollection(i).Transaction = Me._transaction
                     i = (i + 1)
                 Loop
-                If ((Not (Me.Adapter) Is Nothing) _
+                If ((Not (Me.Adapter) Is Nothing)  _
                             AndAlso (Not (Me.Adapter.DeleteCommand) Is Nothing)) Then
                     Me.Adapter.DeleteCommand.Transaction = Me._transaction
                 End If
-                If ((Not (Me.Adapter) Is Nothing) _
+                If ((Not (Me.Adapter) Is Nothing)  _
                             AndAlso (Not (Me.Adapter.InsertCommand) Is Nothing)) Then
                     Me.Adapter.InsertCommand.Transaction = Me._transaction
                 End If
-                If ((Not (Me.Adapter) Is Nothing) _
+                If ((Not (Me.Adapter) Is Nothing)  _
                             AndAlso (Not (Me.Adapter.UpdateCommand) Is Nothing)) Then
                     Me.Adapter.UpdateCommand.Transaction = Me._transaction
                 End If
             End Set
         End Property
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Protected ReadOnly Property CommandCollection() As Global.System.Data.SqlClient.SqlCommand()
             Get
                 If (Me._commandCollection Is Nothing) Then
-                    Me.InitCommandCollection()
+                    Me.InitCommandCollection
                 End If
                 Return Me._commandCollection
             End Get
         End Property
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Property ClearBeforeFill() As Boolean
             Get
                 Return Me._clearBeforeFill
             End Get
-            Set(ByVal value As Boolean)
+            Set
                 Me._clearBeforeFill = value
             End Set
         End Property
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Private Sub InitAdapter()
             Me._adapter = New Global.System.Data.SqlClient.SqlDataAdapter
             Dim tableMapping As Global.System.Data.Common.DataTableMapping = New Global.System.Data.Common.DataTableMapping
@@ -15525,95 +16290,95 @@ Namespace DS_KSPAYMENTTableAdapters
             tableMapping.ColumnMappings.Add("IS_GLASSES", "IS_GLASSES")
             Me._adapter.TableMappings.Add(tableMapping)
         End Sub
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Private Sub InitConnection()
             Me._connection = New Global.System.Data.SqlClient.SqlConnection
             Me._connection.ConnectionString = Global.HospitalMS.My.MySettings.Default.AppConnection
         End Sub
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Private Sub InitCommandCollection()
             Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(0) {}
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT INVOICE_ID, WAITING_ID, INVOICE_DATE, PATIENT_NO, PATIENT_NAME_ENG, PATIEN" & _
-                "T_NAME_KH, PATIENT_SEX, PATIENT_AGE, DIAGNOSIS, IS_ON_EYE, IS_GLASSES FROM dbo.S" & _
+            Me._commandCollection(0).CommandText = "SELECT INVOICE_ID, WAITING_ID, INVOICE_DATE, PATIENT_NO, PATIENT_NAME_ENG, PATIEN"& _ 
+                "T_NAME_KH, PATIENT_SEX, PATIENT_AGE, DIAGNOSIS, IS_ON_EYE, IS_GLASSES FROM dbo.S"& _ 
                 "_COUNT_GLASSESS"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
         End Sub
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, True)> _
-        Public Overridable Overloads Function Fill(ByVal dataTable As DS_KSPAYMENT.S_COUNT_GLASSESSDataTable) As Integer
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, true)>  _
+        Public Overloads Overridable Function Fill(ByVal dataTable As DS_KSPAYMENT.S_COUNT_GLASSESSDataTable) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
-            If (Me.ClearBeforeFill = True) Then
-                dataTable.Clear()
+            If (Me.ClearBeforeFill = true) Then
+                dataTable.Clear
             End If
             Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
             Return returnValue
         End Function
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], True)> _
-        Public Overridable Overloads Function GetData() As DS_KSPAYMENT.S_COUNT_GLASSESSDataTable
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], true)>  _
+        Public Overloads Overridable Function GetData() As DS_KSPAYMENT.S_COUNT_GLASSESSDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
             Dim dataTable As DS_KSPAYMENT.S_COUNT_GLASSESSDataTable = New DS_KSPAYMENT.S_COUNT_GLASSESSDataTable
             Me.Adapter.Fill(dataTable)
             Return dataTable
         End Function
     End Class
-
+    
     '''<summary>
     '''Represents the connection and commands used to retrieve and save data.
     '''</summary>
-    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0"), _
-     Global.System.ComponentModel.DesignerCategoryAttribute("code"), _
-     Global.System.ComponentModel.ToolboxItem(True), _
-     Global.System.ComponentModel.DataObjectAttribute(True), _
-     Global.System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" & _
-        ", Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"), _
-     Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")> _
+    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0"),  _
+     Global.System.ComponentModel.DesignerCategoryAttribute("code"),  _
+     Global.System.ComponentModel.ToolboxItem(true),  _
+     Global.System.ComponentModel.DataObjectAttribute(true),  _
+     Global.System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner"& _ 
+        ", Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"),  _
+     Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
     Partial Public Class V_EYE_PRESCRIPTIONTableAdapter
         Inherits Global.System.ComponentModel.Component
-
+        
         Private WithEvents _adapter As Global.System.Data.SqlClient.SqlDataAdapter
-
+        
         Private _connection As Global.System.Data.SqlClient.SqlConnection
-
+        
         Private _transaction As Global.System.Data.SqlClient.SqlTransaction
-
+        
         Private _commandCollection() As Global.System.Data.SqlClient.SqlCommand
-
+        
         Private _clearBeforeFill As Boolean
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Sub New()
-            MyBase.New()
-            Me.ClearBeforeFill = True
+            MyBase.New
+            Me.ClearBeforeFill = true
         End Sub
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Protected Friend ReadOnly Property Adapter() As Global.System.Data.SqlClient.SqlDataAdapter
             Get
                 If (Me._adapter Is Nothing) Then
-                    Me.InitAdapter()
+                    Me.InitAdapter
                 End If
                 Return Me._adapter
             End Get
         End Property
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Friend Property Connection() As Global.System.Data.SqlClient.SqlConnection
             Get
                 If (Me._connection Is Nothing) Then
-                    Me.InitConnection()
+                    Me.InitConnection
                 End If
                 Return Me._connection
             End Get
-            Set(ByVal value As Global.System.Data.SqlClient.SqlConnection)
+            Set
                 Me._connection = value
                 If (Not (Me.Adapter.InsertCommand) Is Nothing) Then
                     Me.Adapter.InsertCommand.Connection = value
@@ -15627,61 +16392,61 @@ Namespace DS_KSPAYMENTTableAdapters
                 Dim i As Integer = 0
                 Do While (i < Me.CommandCollection.Length)
                     If (Not (Me.CommandCollection(i)) Is Nothing) Then
-                        CType(Me.CommandCollection(i), Global.System.Data.SqlClient.SqlCommand).Connection = value
+                        CType(Me.CommandCollection(i),Global.System.Data.SqlClient.SqlCommand).Connection = value
                     End If
                     i = (i + 1)
                 Loop
             End Set
         End Property
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Friend Property Transaction() As Global.System.Data.SqlClient.SqlTransaction
             Get
                 Return Me._transaction
             End Get
-            Set(ByVal value As Global.System.Data.SqlClient.SqlTransaction)
+            Set
                 Me._transaction = value
                 Dim i As Integer = 0
                 Do While (i < Me.CommandCollection.Length)
                     Me.CommandCollection(i).Transaction = Me._transaction
                     i = (i + 1)
                 Loop
-                If ((Not (Me.Adapter) Is Nothing) _
+                If ((Not (Me.Adapter) Is Nothing)  _
                             AndAlso (Not (Me.Adapter.DeleteCommand) Is Nothing)) Then
                     Me.Adapter.DeleteCommand.Transaction = Me._transaction
                 End If
-                If ((Not (Me.Adapter) Is Nothing) _
+                If ((Not (Me.Adapter) Is Nothing)  _
                             AndAlso (Not (Me.Adapter.InsertCommand) Is Nothing)) Then
                     Me.Adapter.InsertCommand.Transaction = Me._transaction
                 End If
-                If ((Not (Me.Adapter) Is Nothing) _
+                If ((Not (Me.Adapter) Is Nothing)  _
                             AndAlso (Not (Me.Adapter.UpdateCommand) Is Nothing)) Then
                     Me.Adapter.UpdateCommand.Transaction = Me._transaction
                 End If
             End Set
         End Property
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Protected ReadOnly Property CommandCollection() As Global.System.Data.SqlClient.SqlCommand()
             Get
                 If (Me._commandCollection Is Nothing) Then
-                    Me.InitCommandCollection()
+                    Me.InitCommandCollection
                 End If
                 Return Me._commandCollection
             End Get
         End Property
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Property ClearBeforeFill() As Boolean
             Get
                 Return Me._clearBeforeFill
             End Get
-            Set(ByVal value As Boolean)
+            Set
                 Me._clearBeforeFill = value
             End Set
         End Property
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Private Sub InitAdapter()
             Me._adapter = New Global.System.Data.SqlClient.SqlDataAdapter
             Dim tableMapping As Global.System.Data.Common.DataTableMapping = New Global.System.Data.Common.DataTableMapping
@@ -15716,78 +16481,255 @@ Namespace DS_KSPAYMENTTableAdapters
             tableMapping.ColumnMappings.Add("CalAge", "CalAge")
             Me._adapter.TableMappings.Add(tableMapping)
         End Sub
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Private Sub InitConnection()
             Me._connection = New Global.System.Data.SqlClient.SqlConnection
             Me._connection.ConnectionString = Global.HospitalMS.My.MySettings.Default.AppConnection
         End Sub
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Private Sub InitCommandCollection()
             Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(1) {}
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT        WAIT_ID, DATE_WAITING, PATIENT_NO, NameEng, NameKhmer, Age, Sex, DI" & _
-                "AGNOSIS, RE, LE, RRE, RREF, MEDICINCE_ID, MEDICINCE_NAME, ORDINANCE, " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "         " & _
-                "                MEDICINCE_QTY, MEDICINCE_PRICE, TOTAL_PRICE, USAGE, PRESCRIP_DAT" & _
-                "E, OPHTHAMOLOGIST, LLE, IS_ON_EYE, IOPRE, IOPLE, DIAGNOSIS_LEFT_EYE, " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "         " & _
-                "                CalAge" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "FROM            V_EYE_PRESCRIPTION"
+            Me._commandCollection(0).CommandText = "SELECT        WAIT_ID, DATE_WAITING, PATIENT_NO, NameEng, NameKhmer, Age, Sex, DI"& _ 
+                "AGNOSIS, RE, LE, RRE, RREF, MEDICINCE_ID, MEDICINCE_NAME, ORDINANCE, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"         "& _ 
+                "                MEDICINCE_QTY, MEDICINCE_PRICE, TOTAL_PRICE, USAGE, PRESCRIP_DAT"& _ 
+                "E, OPHTHAMOLOGIST, LLE, IS_ON_EYE, IOPRE, IOPLE, DIAGNOSIS_LEFT_EYE, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"         "& _ 
+                "                CalAge"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            V_EYE_PRESCRIPTION"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(1) = New Global.System.Data.SqlClient.SqlCommand
             Me._commandCollection(1).Connection = Me.Connection
-            Me._commandCollection(1).CommandText = "SELECT        Age, CalAge, DATE_WAITING, DIAGNOSIS, DIAGNOSIS_LEFT_EYE, IOPLE, IO" & _
-                "PRE, IS_ON_EYE, LE, LLE, MEDICINCE_ID, MEDICINCE_NAME, MEDICINCE_PRICE, " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "      " & _
-                "                   MEDICINCE_QTY, NameEng, NameKhmer, OPHTHAMOLOGIST, ORDINANCE," & _
-                " PATIENT_NO, PRESCRIP_DATE, RE, RRE, RREF, Sex, TOTAL_PRICE, USAGE, " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "          " & _
-                "               WAIT_ID" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "FROM            V_EYE_PRESCRIPTION" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "WHERE        (WAIT_I" & _
+            Me._commandCollection(1).CommandText = "SELECT        Age, CalAge, DATE_WAITING, DIAGNOSIS, DIAGNOSIS_LEFT_EYE, IOPLE, IO"& _ 
+                "PRE, IS_ON_EYE, LE, LLE, MEDICINCE_ID, MEDICINCE_NAME, MEDICINCE_PRICE, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"      "& _ 
+                "                   MEDICINCE_QTY, NameEng, NameKhmer, OPHTHAMOLOGIST, ORDINANCE,"& _ 
+                " PATIENT_NO, PRESCRIP_DATE, RE, RRE, RREF, Sex, TOTAL_PRICE, USAGE, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"          "& _ 
+                "               WAIT_ID"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            V_EYE_PRESCRIPTION"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (WAIT_I"& _ 
                 "D = @WAIT_ID)"
             Me._commandCollection(1).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@WAIT_ID", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "WAIT_ID", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@WAIT_ID", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "WAIT_ID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
         End Sub
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, True)> _
-        Public Overridable Overloads Function Fill(ByVal dataTable As DS_KSPAYMENT.V_EYE_PRESCRIPTIONDataTable) As Integer
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, true)>  _
+        Public Overloads Overridable Function Fill(ByVal dataTable As DS_KSPAYMENT.V_EYE_PRESCRIPTIONDataTable) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
-            If (Me.ClearBeforeFill = True) Then
-                dataTable.Clear()
+            If (Me.ClearBeforeFill = true) Then
+                dataTable.Clear
             End If
             Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
             Return returnValue
         End Function
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], True)> _
-        Public Overridable Overloads Function GetData() As DS_KSPAYMENT.V_EYE_PRESCRIPTIONDataTable
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], true)>  _
+        Public Overloads Overridable Function GetData() As DS_KSPAYMENT.V_EYE_PRESCRIPTIONDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
             Dim dataTable As DS_KSPAYMENT.V_EYE_PRESCRIPTIONDataTable = New DS_KSPAYMENT.V_EYE_PRESCRIPTIONDataTable
             Me.Adapter.Fill(dataTable)
             Return dataTable
         End Function
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, False)> _
-        Public Overridable Overloads Function FillBy(ByVal dataTable As DS_KSPAYMENT.V_EYE_PRESCRIPTIONDataTable, ByVal WAIT_ID As Decimal) As Integer
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
+        Public Overloads Overridable Function FillBy(ByVal dataTable As DS_KSPAYMENT.V_EYE_PRESCRIPTIONDataTable, ByVal WAIT_ID As Decimal) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(1)
-            Me.Adapter.SelectCommand.Parameters(0).Value = CType(WAIT_ID, Decimal)
-            If (Me.ClearBeforeFill = True) Then
-                dataTable.Clear()
+            Me.Adapter.SelectCommand.Parameters(0).Value = CType(WAIT_ID,Decimal)
+            If (Me.ClearBeforeFill = true) Then
+                dataTable.Clear
             End If
             Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
             Return returnValue
         End Function
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], False)> _
-        Public Overridable Overloads Function SelectPrescriptionWaitingID(ByVal WAIT_ID As Decimal) As DS_KSPAYMENT.V_EYE_PRESCRIPTIONDataTable
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
+        Public Overloads Overridable Function SelectPrescriptionWaitingID(ByVal WAIT_ID As Decimal) As DS_KSPAYMENT.V_EYE_PRESCRIPTIONDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(1)
-            Me.Adapter.SelectCommand.Parameters(0).Value = CType(WAIT_ID, Decimal)
+            Me.Adapter.SelectCommand.Parameters(0).Value = CType(WAIT_ID,Decimal)
             Dim dataTable As DS_KSPAYMENT.V_EYE_PRESCRIPTIONDataTable = New DS_KSPAYMENT.V_EYE_PRESCRIPTIONDataTable
+            Me.Adapter.Fill(dataTable)
+            Return dataTable
+        End Function
+    End Class
+    
+    '''<summary>
+    '''Represents the connection and commands used to retrieve and save data.
+    '''</summary>
+    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0"),  _
+     Global.System.ComponentModel.DesignerCategoryAttribute("code"),  _
+     Global.System.ComponentModel.ToolboxItem(true),  _
+     Global.System.ComponentModel.DataObjectAttribute(true),  _
+     Global.System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner"& _ 
+        ", Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"),  _
+     Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+    Partial Public Class VIEW_TOTAL_SURGERYTableAdapter
+        Inherits Global.System.ComponentModel.Component
+        
+        Private WithEvents _adapter As Global.System.Data.SqlClient.SqlDataAdapter
+        
+        Private _connection As Global.System.Data.SqlClient.SqlConnection
+        
+        Private _transaction As Global.System.Data.SqlClient.SqlTransaction
+        
+        Private _commandCollection() As Global.System.Data.SqlClient.SqlCommand
+        
+        Private _clearBeforeFill As Boolean
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub New()
+            MyBase.New
+            Me.ClearBeforeFill = true
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Protected Friend ReadOnly Property Adapter() As Global.System.Data.SqlClient.SqlDataAdapter
+            Get
+                If (Me._adapter Is Nothing) Then
+                    Me.InitAdapter
+                End If
+                Return Me._adapter
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Friend Property Connection() As Global.System.Data.SqlClient.SqlConnection
+            Get
+                If (Me._connection Is Nothing) Then
+                    Me.InitConnection
+                End If
+                Return Me._connection
+            End Get
+            Set
+                Me._connection = value
+                If (Not (Me.Adapter.InsertCommand) Is Nothing) Then
+                    Me.Adapter.InsertCommand.Connection = value
+                End If
+                If (Not (Me.Adapter.DeleteCommand) Is Nothing) Then
+                    Me.Adapter.DeleteCommand.Connection = value
+                End If
+                If (Not (Me.Adapter.UpdateCommand) Is Nothing) Then
+                    Me.Adapter.UpdateCommand.Connection = value
+                End If
+                Dim i As Integer = 0
+                Do While (i < Me.CommandCollection.Length)
+                    If (Not (Me.CommandCollection(i)) Is Nothing) Then
+                        CType(Me.CommandCollection(i),Global.System.Data.SqlClient.SqlCommand).Connection = value
+                    End If
+                    i = (i + 1)
+                Loop
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Friend Property Transaction() As Global.System.Data.SqlClient.SqlTransaction
+            Get
+                Return Me._transaction
+            End Get
+            Set
+                Me._transaction = value
+                Dim i As Integer = 0
+                Do While (i < Me.CommandCollection.Length)
+                    Me.CommandCollection(i).Transaction = Me._transaction
+                    i = (i + 1)
+                Loop
+                If ((Not (Me.Adapter) Is Nothing)  _
+                            AndAlso (Not (Me.Adapter.DeleteCommand) Is Nothing)) Then
+                    Me.Adapter.DeleteCommand.Transaction = Me._transaction
+                End If
+                If ((Not (Me.Adapter) Is Nothing)  _
+                            AndAlso (Not (Me.Adapter.InsertCommand) Is Nothing)) Then
+                    Me.Adapter.InsertCommand.Transaction = Me._transaction
+                End If
+                If ((Not (Me.Adapter) Is Nothing)  _
+                            AndAlso (Not (Me.Adapter.UpdateCommand) Is Nothing)) Then
+                    Me.Adapter.UpdateCommand.Transaction = Me._transaction
+                End If
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Protected ReadOnly Property CommandCollection() As Global.System.Data.SqlClient.SqlCommand()
+            Get
+                If (Me._commandCollection Is Nothing) Then
+                    Me.InitCommandCollection
+                End If
+                Return Me._commandCollection
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property ClearBeforeFill() As Boolean
+            Get
+                Return Me._clearBeforeFill
+            End Get
+            Set
+                Me._clearBeforeFill = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Private Sub InitAdapter()
+            Me._adapter = New Global.System.Data.SqlClient.SqlDataAdapter
+            Dim tableMapping As Global.System.Data.Common.DataTableMapping = New Global.System.Data.Common.DataTableMapping
+            tableMapping.SourceTable = "Table"
+            tableMapping.DataSetTable = "VIEW_TOTAL_SURGERY"
+            tableMapping.ColumnMappings.Add("WAITING_ID", "WAITING_ID")
+            tableMapping.ColumnMappings.Add("INVOICE_DATE", "INVOICE_DATE")
+            tableMapping.ColumnMappings.Add("PATIENT_NO", "PATIENT_NO")
+            tableMapping.ColumnMappings.Add("PATIENT_NAME_ENG", "PATIENT_NAME_ENG")
+            tableMapping.ColumnMappings.Add("PATIENT_SEX", "PATIENT_SEX")
+            tableMapping.ColumnMappings.Add("PATIENT_AGE", "PATIENT_AGE")
+            tableMapping.ColumnMappings.Add("DR_NAME", "DR_NAME")
+            tableMapping.ColumnMappings.Add("DR_CONSULT_DATE", "DR_CONSULT_DATE")
+            tableMapping.ColumnMappings.Add("ON_EYE", "ON_EYE")
+            tableMapping.ColumnMappings.Add("DIAGNOSIS", "DIAGNOSIS")
+            tableMapping.ColumnMappings.Add("SURGERY", "SURGERY")
+            tableMapping.ColumnMappings.Add("PRICE_SURGERY", "PRICE_SURGERY")
+            tableMapping.ColumnMappings.Add("INVOICE_ID", "INVOICE_ID")
+            Me._adapter.TableMappings.Add(tableMapping)
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Private Sub InitConnection()
+            Me._connection = New Global.System.Data.SqlClient.SqlConnection
+            Me._connection.ConnectionString = Global.HospitalMS.My.MySettings.Default.AppConnection
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Private Sub InitCommandCollection()
+            Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(0) {}
+            Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand
+            Me._commandCollection(0).Connection = Me.Connection
+            Me._commandCollection(0).CommandText = "SELECT        WAITING_ID, INVOICE_DATE, PATIENT_NO, PATIENT_NAME_ENG, PATIENT_SEX"& _ 
+                ", PATIENT_AGE, DR_NAME, DR_CONSULT_DATE, ON_EYE, DIAGNOSIS, SURGERY, PRICE_SURGE"& _ 
+                "RY, INVOICE_ID"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            VIEW_TOTAL_SURGERY"
+            Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, true)>  _
+        Public Overloads Overridable Function Fill(ByVal dataTable As DS_KSPAYMENT.VIEW_TOTAL_SURGERYDataTable) As Integer
+            Me.Adapter.SelectCommand = Me.CommandCollection(0)
+            If (Me.ClearBeforeFill = true) Then
+                dataTable.Clear
+            End If
+            Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
+            Return returnValue
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], true)>  _
+        Public Overloads Overridable Function GetData() As DS_KSPAYMENT.VIEW_TOTAL_SURGERYDataTable
+            Me.Adapter.SelectCommand = Me.CommandCollection(0)
+            Dim dataTable As DS_KSPAYMENT.VIEW_TOTAL_SURGERYDataTable = New DS_KSPAYMENT.VIEW_TOTAL_SURGERYDataTable
             Me.Adapter.Fill(dataTable)
             Return dataTable
         End Function
@@ -16032,12 +16974,12 @@ Namespace DS_KSPAYMENTTableAdapters
                     allChangedRows.AddRange(updatedRows)
                 End If
             End If
-            If (Not (Me._tblItemTableAdapter) Is Nothing) Then
-                Dim updatedRows() As Global.System.Data.DataRow = dataSet.tblItem.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.ModifiedCurrent)
+            If (Not (Me._s_INVOICE_DETAILTableAdapter) Is Nothing) Then
+                Dim updatedRows() As Global.System.Data.DataRow = dataSet.S_INVOICE_DETAIL.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.ModifiedCurrent)
                 updatedRows = Me.GetRealUpdatedRows(updatedRows, allAddedRows)
                 If ((Not (updatedRows) Is Nothing)  _
                             AndAlso (0 < updatedRows.Length)) Then
-                    result = (result + Me._tblItemTableAdapter.Update(updatedRows))
+                    result = (result + Me._s_INVOICE_DETAILTableAdapter.Update(updatedRows))
                     allChangedRows.AddRange(updatedRows)
                 End If
             End If
@@ -16059,12 +17001,12 @@ Namespace DS_KSPAYMENTTableAdapters
                     allChangedRows.AddRange(updatedRows)
                 End If
             End If
-            If (Not (Me._s_INVOICE_DETAILTableAdapter) Is Nothing) Then
-                Dim updatedRows() As Global.System.Data.DataRow = dataSet.S_INVOICE_DETAIL.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.ModifiedCurrent)
+            If (Not (Me._tblItemTableAdapter) Is Nothing) Then
+                Dim updatedRows() As Global.System.Data.DataRow = dataSet.tblItem.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.ModifiedCurrent)
                 updatedRows = Me.GetRealUpdatedRows(updatedRows, allAddedRows)
                 If ((Not (updatedRows) Is Nothing)  _
                             AndAlso (0 < updatedRows.Length)) Then
-                    result = (result + Me._s_INVOICE_DETAILTableAdapter.Update(updatedRows))
+                    result = (result + Me._tblItemTableAdapter.Update(updatedRows))
                     allChangedRows.AddRange(updatedRows)
                 End If
             End If
@@ -16102,11 +17044,11 @@ Namespace DS_KSPAYMENTTableAdapters
                     allAddedRows.AddRange(addedRows)
                 End If
             End If
-            If (Not (Me._tblItemTableAdapter) Is Nothing) Then
-                Dim addedRows() As Global.System.Data.DataRow = dataSet.tblItem.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Added)
+            If (Not (Me._s_INVOICE_DETAILTableAdapter) Is Nothing) Then
+                Dim addedRows() As Global.System.Data.DataRow = dataSet.S_INVOICE_DETAIL.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Added)
                 If ((Not (addedRows) Is Nothing)  _
                             AndAlso (0 < addedRows.Length)) Then
-                    result = (result + Me._tblItemTableAdapter.Update(addedRows))
+                    result = (result + Me._s_INVOICE_DETAILTableAdapter.Update(addedRows))
                     allAddedRows.AddRange(addedRows)
                 End If
             End If
@@ -16126,11 +17068,11 @@ Namespace DS_KSPAYMENTTableAdapters
                     allAddedRows.AddRange(addedRows)
                 End If
             End If
-            If (Not (Me._s_INVOICE_DETAILTableAdapter) Is Nothing) Then
-                Dim addedRows() As Global.System.Data.DataRow = dataSet.S_INVOICE_DETAIL.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Added)
+            If (Not (Me._tblItemTableAdapter) Is Nothing) Then
+                Dim addedRows() As Global.System.Data.DataRow = dataSet.tblItem.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Added)
                 If ((Not (addedRows) Is Nothing)  _
                             AndAlso (0 < addedRows.Length)) Then
-                    result = (result + Me._s_INVOICE_DETAILTableAdapter.Update(addedRows))
+                    result = (result + Me._tblItemTableAdapter.Update(addedRows))
                     allAddedRows.AddRange(addedRows)
                 End If
             End If
@@ -16159,11 +17101,11 @@ Namespace DS_KSPAYMENTTableAdapters
                     allChangedRows.AddRange(deletedRows)
                 End If
             End If
-            If (Not (Me._s_INVOICE_DETAILTableAdapter) Is Nothing) Then
-                Dim deletedRows() As Global.System.Data.DataRow = dataSet.S_INVOICE_DETAIL.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Deleted)
+            If (Not (Me._tblItemTableAdapter) Is Nothing) Then
+                Dim deletedRows() As Global.System.Data.DataRow = dataSet.tblItem.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Deleted)
                 If ((Not (deletedRows) Is Nothing)  _
                             AndAlso (0 < deletedRows.Length)) Then
-                    result = (result + Me._s_INVOICE_DETAILTableAdapter.Update(deletedRows))
+                    result = (result + Me._tblItemTableAdapter.Update(deletedRows))
                     allChangedRows.AddRange(deletedRows)
                 End If
             End If
@@ -16183,11 +17125,11 @@ Namespace DS_KSPAYMENTTableAdapters
                     allChangedRows.AddRange(deletedRows)
                 End If
             End If
-            If (Not (Me._tblItemTableAdapter) Is Nothing) Then
-                Dim deletedRows() As Global.System.Data.DataRow = dataSet.tblItem.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Deleted)
+            If (Not (Me._s_INVOICE_DETAILTableAdapter) Is Nothing) Then
+                Dim deletedRows() As Global.System.Data.DataRow = dataSet.S_INVOICE_DETAIL.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Deleted)
                 If ((Not (deletedRows) Is Nothing)  _
                             AndAlso (0 < deletedRows.Length)) Then
-                    result = (result + Me._tblItemTableAdapter.Update(deletedRows))
+                    result = (result + Me._s_INVOICE_DETAILTableAdapter.Update(deletedRows))
                     allChangedRows.AddRange(deletedRows)
                 End If
             End If

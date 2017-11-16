@@ -1317,7 +1317,9 @@ Public Class UCPatientPayment
         Dim fNoteWaiting As New NoteWaiting
         fNoteWaiting.LblPatientNo.Text = GridPatientInformation.GetRow.Cells("PatientNo").Value
         Try
-            fNoteWaiting.TxtNote.Text = GridFollowDetial.GetRow.Cells("FOLLOW_NOTE").Value
+            fNoteWaiting.TxtNote.Text = "  " & GridFollowDetial.GetRow.Cells("FOLLOW_NOTE").Value
+            fNoteWaiting.TxtNote.Select()
+            fNoteWaiting.TxtNote.SelectionStart = 0
         Catch ex As Exception
             fNoteWaiting.TxtNote.Text = ""
         End Try
@@ -1563,7 +1565,9 @@ Public Class UCPatientPayment
         fNoteWaiting.LblPatientNo.Text = GridPatientInformation.GetRow.Cells("PatientNo").Value
         Try
 
-            fNoteWaiting.TxtNote.Text = GridFollowDetial.GetRow.Cells("FOLLOW_NOTE").Value
+            fNoteWaiting.TxtNote.Text = "  " & GridFollowDetial.GetRow.Cells("FOLLOW_NOTE").Value
+            fNoteWaiting.TxtNote.Select()
+            fNoteWaiting.TxtNote.SelectionStart = 0
         Catch ex As Exception
             fNoteWaiting.TxtNote.Text = ""
         End Try
