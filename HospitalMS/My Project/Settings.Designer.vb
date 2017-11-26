@@ -90,18 +90,15 @@ Namespace My
             End Get
         End Property
         
-        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.Configuration.DefaultSettingValueAttribute("Data Source=NBC120\sql2012;Initial Catalog=IMAGEnet;Persist Security Info=True;Us"& _ 
             "er ID=sa;Password=P@ssw0rd;Max Pool Size=4000;Asynchronous Processing=True;Conne"& _ 
             "ct Timeout=1000;Packet Size=2768")>  _
-        Public Property IMAGEConnection() As String
+        Public ReadOnly Property IMAGEConnection() As String
             Get
                 Return CType(Me("IMAGEConnection"),String)
             End Get
-            Set
-                Me("IMAGEConnection") = value
-            End Set
         End Property
     End Class
 End Namespace

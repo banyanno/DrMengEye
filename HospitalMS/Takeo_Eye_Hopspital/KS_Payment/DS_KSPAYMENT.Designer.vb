@@ -5251,11 +5251,6 @@ Partial Public Class DS_KSPAYMENT
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Function FindByINVOICE_ID(ByVal INVOICE_ID As Decimal) As VIEW_TOTAL_SURGERYRow
-            Return CType(Me.Rows.Find(New Object() {INVOICE_ID}),VIEW_TOTAL_SURGERYRow)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Overrides Function Clone() As Global.System.Data.DataTable
             Dim cln As VIEW_TOTAL_SURGERYDataTable = CType(MyBase.Clone,VIEW_TOTAL_SURGERYDataTable)
             cln.InitVars
@@ -5312,7 +5307,6 @@ Partial Public Class DS_KSPAYMENT
             MyBase.Columns.Add(Me.columnPRICE_SURGERY)
             Me.columnINVOICE_ID = New Global.System.Data.DataColumn("INVOICE_ID", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnINVOICE_ID)
-            Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnINVOICE_ID}, true))
             Me.columnPATIENT_NAME_ENG.MaxLength = 50
             Me.columnPATIENT_SEX.MaxLength = 1
             Me.columnDR_NAME.MaxLength = 50
@@ -5320,7 +5314,6 @@ Partial Public Class DS_KSPAYMENT
             Me.columnDIAGNOSIS.MaxLength = 50
             Me.columnSURGERY.MaxLength = 50
             Me.columnINVOICE_ID.AllowDBNull = false
-            Me.columnINVOICE_ID.Unique = true
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
@@ -16703,13 +16696,23 @@ Namespace DS_KSPAYMENTTableAdapters
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Private Sub InitCommandCollection()
-            Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(0) {}
+            Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(1) {}
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand
             Me._commandCollection(0).Connection = Me.Connection
             Me._commandCollection(0).CommandText = "SELECT        WAITING_ID, INVOICE_DATE, PATIENT_NO, PATIENT_NAME_ENG, PATIENT_SEX"& _ 
                 ", PATIENT_AGE, DR_NAME, DR_CONSULT_DATE, ON_EYE, DIAGNOSIS, SURGERY, PRICE_SURGE"& _ 
                 "RY, INVOICE_ID"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            VIEW_TOTAL_SURGERY"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
+            Me._commandCollection(1) = New Global.System.Data.SqlClient.SqlCommand
+            Me._commandCollection(1).Connection = Me.Connection
+            Me._commandCollection(1).CommandText = "SELECT        WAITING_ID, INVOICE_DATE, PATIENT_NO, PATIENT_NAME_ENG, PATIENT_SEX"& _ 
+                ", PATIENT_AGE, DR_NAME, DR_CONSULT_DATE, ON_EYE, DIAGNOSIS, SURGERY, PRICE_SURGE"& _ 
+                "RY, INVOICE_ID"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            VIEW_TOTAL_SURGERY"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"INVOICE_DATE BETWEEN "& _ 
+                "@DFrom and @DTo and (DR_NAME=@DR_NAME)"
+            Me._commandCollection(1).CommandType = Global.System.Data.CommandType.Text
+            Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DFrom", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "INVOICE_DATE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DTo", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "INVOICE_DATE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DR_NAME", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "DR_NAME", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -16729,6 +16732,58 @@ Namespace DS_KSPAYMENTTableAdapters
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], true)>  _
         Public Overloads Overridable Function GetData() As DS_KSPAYMENT.VIEW_TOTAL_SURGERYDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
+            Dim dataTable As DS_KSPAYMENT.VIEW_TOTAL_SURGERYDataTable = New DS_KSPAYMENT.VIEW_TOTAL_SURGERYDataTable
+            Me.Adapter.Fill(dataTable)
+            Return dataTable
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
+        Public Overloads Overridable Function FillBy(ByVal dataTable As DS_KSPAYMENT.VIEW_TOTAL_SURGERYDataTable, ByVal DFrom As Global.System.Nullable(Of Date), ByVal DTo As Global.System.Nullable(Of Date), ByVal DR_NAME As String) As Integer
+            Me.Adapter.SelectCommand = Me.CommandCollection(1)
+            If (DFrom.HasValue = true) Then
+                Me.Adapter.SelectCommand.Parameters(0).Value = CType(DFrom.Value,Date)
+            Else
+                Me.Adapter.SelectCommand.Parameters(0).Value = Global.System.DBNull.Value
+            End If
+            If (DTo.HasValue = true) Then
+                Me.Adapter.SelectCommand.Parameters(1).Value = CType(DTo.Value,Date)
+            Else
+                Me.Adapter.SelectCommand.Parameters(1).Value = Global.System.DBNull.Value
+            End If
+            If (DR_NAME Is Nothing) Then
+                Me.Adapter.SelectCommand.Parameters(2).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.SelectCommand.Parameters(2).Value = CType(DR_NAME,String)
+            End If
+            If (Me.ClearBeforeFill = true) Then
+                dataTable.Clear
+            End If
+            Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
+            Return returnValue
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
+        Public Overloads Overridable Function SelectDrSurgery(ByVal DFrom As Global.System.Nullable(Of Date), ByVal DTo As Global.System.Nullable(Of Date), ByVal DR_NAME As String) As DS_KSPAYMENT.VIEW_TOTAL_SURGERYDataTable
+            Me.Adapter.SelectCommand = Me.CommandCollection(1)
+            If (DFrom.HasValue = true) Then
+                Me.Adapter.SelectCommand.Parameters(0).Value = CType(DFrom.Value,Date)
+            Else
+                Me.Adapter.SelectCommand.Parameters(0).Value = Global.System.DBNull.Value
+            End If
+            If (DTo.HasValue = true) Then
+                Me.Adapter.SelectCommand.Parameters(1).Value = CType(DTo.Value,Date)
+            Else
+                Me.Adapter.SelectCommand.Parameters(1).Value = Global.System.DBNull.Value
+            End If
+            If (DR_NAME Is Nothing) Then
+                Me.Adapter.SelectCommand.Parameters(2).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.SelectCommand.Parameters(2).Value = CType(DR_NAME,String)
+            End If
             Dim dataTable As DS_KSPAYMENT.VIEW_TOTAL_SURGERYDataTable = New DS_KSPAYMENT.VIEW_TOTAL_SURGERYDataTable
             Me.Adapter.Fill(dataTable)
             Return dataTable

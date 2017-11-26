@@ -139,7 +139,6 @@ Partial Class DashboardNurse
         GridPatientWaiting_DesignTimeLayout.LayoutString = resources.GetString("GridPatientWaiting_DesignTimeLayout.LayoutString")
         Me.GridPatientWaiting.DesignTimeLayout = GridPatientWaiting_DesignTimeLayout
         Me.GridPatientWaiting.Dock = System.Windows.Forms.DockStyle.Top
-        Me.GridPatientWaiting.FilterMode = Janus.Windows.GridEX.FilterMode.Automatic
         Me.GridPatientWaiting.FilterRowFormatStyle.BackColor = System.Drawing.SystemColors.Info
         Me.GridPatientWaiting.FilterRowUpdateMode = Janus.Windows.GridEX.FilterRowUpdateMode.WhenValueChanges
         Me.GridPatientWaiting.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
@@ -296,7 +295,7 @@ Partial Class DashboardNurse
         Me.TxtNote.Multiline = True
         Me.TxtNote.Name = "TxtNote"
         Me.TxtNote.ScrollBars = System.Windows.Forms.ScrollBars.Both
-        Me.TxtNote.Size = New System.Drawing.Size(473, 123)
+        Me.TxtNote.Size = New System.Drawing.Size(441, 123)
         Me.TxtNote.TabIndex = 1
         '
         'GroupBox1
@@ -324,7 +323,7 @@ Partial Class DashboardNurse
         Me.GroupBox1.ForeColor = System.Drawing.Color.Blue
         Me.GroupBox1.Location = New System.Drawing.Point(7, 165)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(474, 137)
+        Me.GroupBox1.Size = New System.Drawing.Size(442, 137)
         Me.GroupBox1.TabIndex = 2
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Visual Acuity"

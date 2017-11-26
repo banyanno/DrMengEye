@@ -22,8 +22,8 @@ Partial Class DashboardIncome
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(DashboardIncome))
         Dim GridIncome_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(DashboardIncome))
         Dim GridService_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout
         Dim GridPrescription_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout
         Me.ToolStrip1 = New System.Windows.Forms.ToolStrip
@@ -47,6 +47,10 @@ Partial Class DashboardIncome
         Me.DateFrom = New System.Windows.Forms.DateTimePicker
         Me.Label2 = New System.Windows.Forms.Label
         Me.Label1 = New System.Windows.Forms.Label
+        Me.ToolStripSeparator3 = New System.Windows.Forms.ToolStripSeparator
+        Me.BtnSurgery = New System.Windows.Forms.ToolStripButton
+        Me.CboDoctor1 = New System.Windows.Forms.ComboBox
+        Me.CheckBox1 = New System.Windows.Forms.CheckBox
         Me.ToolStrip1.SuspendLayout()
         Me.SplitContainer1.Panel1.SuspendLayout()
         Me.SplitContainer1.Panel2.SuspendLayout()
@@ -71,7 +75,7 @@ Partial Class DashboardIncome
         Me.ToolStrip1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
         Me.ToolStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden
         Me.ToolStrip1.ImageScalingSize = New System.Drawing.Size(35, 35)
-        Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.BtnPrintPreview, Me.ToolStripSeparator1, Me.BtnPrintlabel, Me.ToolStripSeparator2, Me.ToolStripButton1})
+        Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.BtnPrintPreview, Me.ToolStripSeparator1, Me.BtnPrintlabel, Me.ToolStripSeparator2, Me.ToolStripButton1, Me.ToolStripSeparator3, Me.BtnSurgery})
         Me.ToolStrip1.Location = New System.Drawing.Point(0, 0)
         Me.ToolStrip1.Name = "ToolStrip1"
         Me.ToolStrip1.Size = New System.Drawing.Size(1253, 62)
@@ -137,6 +141,8 @@ Partial Class DashboardIncome
         '
         'SplitContainer1.Panel2
         '
+        Me.SplitContainer1.Panel2.Controls.Add(Me.CheckBox1)
+        Me.SplitContainer1.Panel2.Controls.Add(Me.CboDoctor1)
         Me.SplitContainer1.Panel2.Controls.Add(Me.ChReport)
         Me.SplitContainer1.Panel2.Controls.Add(Me.btnView)
         Me.SplitContainer1.Panel2.Controls.Add(Me.DateTo)
@@ -291,7 +297,7 @@ Partial Class DashboardIncome
         '
         Me.ChReport.AutoSize = True
         Me.ChReport.ForeColor = System.Drawing.Color.Blue
-        Me.ChReport.Location = New System.Drawing.Point(10, 102)
+        Me.ChReport.Location = New System.Drawing.Point(10, 95)
         Me.ChReport.Name = "ChReport"
         Me.ChReport.Size = New System.Drawing.Size(98, 17)
         Me.ChReport.TabIndex = 5
@@ -308,7 +314,7 @@ Partial Class DashboardIncome
         Me.btnView.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnView.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnView.ForeColor = System.Drawing.Color.White
-        Me.btnView.Location = New System.Drawing.Point(110, 87)
+        Me.btnView.Location = New System.Drawing.Point(10, 193)
         Me.btnView.Name = "btnView"
         Me.btnView.Size = New System.Drawing.Size(102, 32)
         Me.btnView.TabIndex = 4
@@ -354,6 +360,42 @@ Partial Class DashboardIncome
         Me.Label1.Size = New System.Drawing.Size(59, 13)
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "Date From:"
+        '
+        'ToolStripSeparator3
+        '
+        Me.ToolStripSeparator3.Name = "ToolStripSeparator3"
+        Me.ToolStripSeparator3.Size = New System.Drawing.Size(6, 62)
+        '
+        'BtnSurgery
+        '
+        Me.BtnSurgery.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
+        Me.BtnSurgery.Font = New System.Drawing.Font("Segoe UI", 12.0!)
+        Me.BtnSurgery.ForeColor = System.Drawing.Color.Blue
+        Me.BtnSurgery.Image = CType(resources.GetObject("BtnSurgery.Image"), System.Drawing.Image)
+        Me.BtnSurgery.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.BtnSurgery.Name = "BtnSurgery"
+        Me.BtnSurgery.Size = New System.Drawing.Size(129, 59)
+        Me.BtnSurgery.Text = "    Dr. Surgery     "
+        '
+        'CboDoctor1
+        '
+        Me.CboDoctor1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CboDoctor1.FormattingEnabled = True
+        Me.CboDoctor1.Location = New System.Drawing.Point(10, 149)
+        Me.CboDoctor1.Name = "CboDoctor1"
+        Me.CboDoctor1.Size = New System.Drawing.Size(208, 28)
+        Me.CboDoctor1.TabIndex = 15
+        '
+        'CheckBox1
+        '
+        Me.CheckBox1.AutoSize = True
+        Me.CheckBox1.ForeColor = System.Drawing.Color.Blue
+        Me.CheckBox1.Location = New System.Drawing.Point(10, 126)
+        Me.CheckBox1.Name = "CheckBox1"
+        Me.CheckBox1.Size = New System.Drawing.Size(109, 17)
+        Me.CheckBox1.TabIndex = 17
+        Me.CheckBox1.Text = "Dr. Surgury report"
+        Me.CheckBox1.UseVisualStyleBackColor = True
         '
         'DashboardIncome
         '
@@ -408,5 +450,9 @@ Partial Class DashboardIncome
     Friend WithEvents GridService As Janus.Windows.GridEX.GridEX
     Friend WithEvents GridPrescription As Janus.Windows.GridEX.GridEX
     Friend WithEvents AxAcroPDF1 As AxAcroPDFLib.AxAcroPDF
+    Friend WithEvents ToolStripSeparator3 As System.Windows.Forms.ToolStripSeparator
+    Friend WithEvents BtnSurgery As System.Windows.Forms.ToolStripButton
+    Friend WithEvents CboDoctor1 As System.Windows.Forms.ComboBox
+    Friend WithEvents CheckBox1 As System.Windows.Forms.CheckBox
 
 End Class

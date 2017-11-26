@@ -446,282 +446,6 @@ Used to sort self-referenced table's rows
 	<summary>
 TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
 </summary>
-</member><member name="T:HospitalMS.DSConsultHistory.S_FOLLOWUPDataTable">
-	<summary>
-Represents the strongly named DataTable class.
-</summary>
-</member><member name="T:HospitalMS.DSConsultHistory.TblPatientsDataTable">
-	<summary>
-Represents the strongly named DataTable class.
-</summary>
-</member><member name="T:HospitalMS.DSConsultHistory.TblNew_Old_OutPatientDataTable">
-	<summary>
-Represents the strongly named DataTable class.
-</summary>
-</member><member name="T:HospitalMS.DSConsultHistory.TblNewInPatientDataTable">
-	<summary>
-Represents the strongly named DataTable class.
-</summary>
-</member><member name="T:HospitalMS.DSConsultHistory.S_DOCTOR_CONSULTDataTable">
-	<summary>
-Represents the strongly named DataTable class.
-</summary>
-</member><member name="T:HospitalMS.DSConsultHistory.tblItemDataTable">
-	<summary>
-Represents the strongly named DataTable class.
-</summary>
-</member><member name="T:HospitalMS.DSConsultHistory.S_PATIENT_IMAGE_VIEWDataTable">
-	<summary>
-Represents the strongly named DataTable class.
-</summary>
-</member><member name="T:HospitalMS.DSConsultHistory.S_PRESCRIPTION_PREDataTable">
-	<summary>
-Represents the strongly named DataTable class.
-</summary>
-</member><member name="T:HospitalMS.DSConsultHistory.S_PRESCRIPTIONA1DataTable">
-	<summary>
-Represents the strongly named DataTable class.
-</summary>
-</member><member name="T:HospitalMS.DSConsultHistory.S_REPORT_HISTORYDataTable">
-	<summary>
-Represents the strongly named DataTable class.
-</summary>
-</member><member name="T:HospitalMS.DSConsultHistory.S_CONSULTATION_FEEDataTable">
-	<summary>
-Represents the strongly named DataTable class.
-</summary>
-</member><member name="T:HospitalMS.DSConsultHistory.S_REFERRALDataTable">
-	<summary>
-Represents the strongly named DataTable class.
-</summary>
-</member><member name="T:HospitalMS.DSConsultHistory.VIEW_S_LASER_CONSULTDataTable">
-	<summary>
-Represents the strongly named DataTable class.
-</summary>
-</member><member name="T:HospitalMS.DSConsultHistory.VIEW_S_LABORATE_CONSULTDataTable">
-	<summary>
-Represents the strongly named DataTable class.
-</summary>
-</member><member name="T:HospitalMS.DSConsultHistory.VIEW_S_INVESTIGATE_CONSULTDataTable">
-	<summary>
-Represents the strongly named DataTable class.
-</summary>
-</member><member name="T:HospitalMS.DSConsultHistory.S_FOLLOWUPRow">
-	<summary>
-Represents strongly named DataRow class.
-</summary>
-</member><member name="T:HospitalMS.DSConsultHistory.TblPatientsRow">
-	<summary>
-Represents strongly named DataRow class.
-</summary>
-</member><member name="T:HospitalMS.DSConsultHistory.TblNew_Old_OutPatientRow">
-	<summary>
-Represents strongly named DataRow class.
-</summary>
-</member><member name="T:HospitalMS.DSConsultHistory.TblNewInPatientRow">
-	<summary>
-Represents strongly named DataRow class.
-</summary>
-</member><member name="T:HospitalMS.DSConsultHistory.S_DOCTOR_CONSULTRow">
-	<summary>
-Represents strongly named DataRow class.
-</summary>
-</member><member name="T:HospitalMS.DSConsultHistory.tblItemRow">
-	<summary>
-Represents strongly named DataRow class.
-</summary>
-</member><member name="T:HospitalMS.DSConsultHistory.S_PATIENT_IMAGE_VIEWRow">
-	<summary>
-Represents strongly named DataRow class.
-</summary>
-</member><member name="T:HospitalMS.DSConsultHistory.S_PRESCRIPTION_PRERow">
-	<summary>
-Represents strongly named DataRow class.
-</summary>
-</member><member name="T:HospitalMS.DSConsultHistory.S_PRESCRIPTIONA1Row">
-	<summary>
-Represents strongly named DataRow class.
-</summary>
-</member><member name="T:HospitalMS.DSConsultHistory.S_REPORT_HISTORYRow">
-	<summary>
-Represents strongly named DataRow class.
-</summary>
-</member><member name="T:HospitalMS.DSConsultHistory.S_CONSULTATION_FEERow">
-	<summary>
-Represents strongly named DataRow class.
-</summary>
-</member><member name="T:HospitalMS.DSConsultHistory.S_REFERRALRow">
-	<summary>
-Represents strongly named DataRow class.
-</summary>
-</member><member name="T:HospitalMS.DSConsultHistory.VIEW_S_LASER_CONSULTRow">
-	<summary>
-Represents strongly named DataRow class.
-</summary>
-</member><member name="T:HospitalMS.DSConsultHistory.VIEW_S_LABORATE_CONSULTRow">
-	<summary>
-Represents strongly named DataRow class.
-</summary>
-</member><member name="T:HospitalMS.DSConsultHistory.VIEW_S_INVESTIGATE_CONSULTRow">
-	<summary>
-Represents strongly named DataRow class.
-</summary>
-</member><member name="T:HospitalMS.DSConsultHistory.S_FOLLOWUPRowChangeEvent">
-	<summary>
-Row event argument class
-</summary>
-</member><member name="T:HospitalMS.DSConsultHistory.TblPatientsRowChangeEvent">
-	<summary>
-Row event argument class
-</summary>
-</member><member name="T:HospitalMS.DSConsultHistory.TblNew_Old_OutPatientRowChangeEvent">
-	<summary>
-Row event argument class
-</summary>
-</member><member name="T:HospitalMS.DSConsultHistory.TblNewInPatientRowChangeEvent">
-	<summary>
-Row event argument class
-</summary>
-</member><member name="T:HospitalMS.DSConsultHistory.S_DOCTOR_CONSULTRowChangeEvent">
-	<summary>
-Row event argument class
-</summary>
-</member><member name="T:HospitalMS.DSConsultHistory.tblItemRowChangeEvent">
-	<summary>
-Row event argument class
-</summary>
-</member><member name="T:HospitalMS.DSConsultHistory.S_PATIENT_IMAGE_VIEWRowChangeEvent">
-	<summary>
-Row event argument class
-</summary>
-</member><member name="T:HospitalMS.DSConsultHistory.S_PRESCRIPTION_PRERowChangeEvent">
-	<summary>
-Row event argument class
-</summary>
-</member><member name="T:HospitalMS.DSConsultHistory.S_PRESCRIPTIONA1RowChangeEvent">
-	<summary>
-Row event argument class
-</summary>
-</member><member name="T:HospitalMS.DSConsultHistory.S_REPORT_HISTORYRowChangeEvent">
-	<summary>
-Row event argument class
-</summary>
-</member><member name="T:HospitalMS.DSConsultHistory.S_CONSULTATION_FEERowChangeEvent">
-	<summary>
-Row event argument class
-</summary>
-</member><member name="T:HospitalMS.DSConsultHistory.S_REFERRALRowChangeEvent">
-	<summary>
-Row event argument class
-</summary>
-</member><member name="T:HospitalMS.DSConsultHistory.VIEW_S_LASER_CONSULTRowChangeEvent">
-	<summary>
-Row event argument class
-</summary>
-</member><member name="T:HospitalMS.DSConsultHistory.VIEW_S_LABORATE_CONSULTRowChangeEvent">
-	<summary>
-Row event argument class
-</summary>
-</member><member name="T:HospitalMS.DSConsultHistory.VIEW_S_INVESTIGATE_CONSULTRowChangeEvent">
-	<summary>
-Row event argument class
-</summary>
-</member><member name="T:HospitalMS.DSConsultHistory">
-	<summary>
-Represents a strongly typed in-memory cache of data.
-</summary>
-</member><member name="T:HospitalMS.DSConsultHistoryTableAdapters.S_FOLLOWUPTableAdapter">
-	<summary>
-Represents the connection and commands used to retrieve and save data.
-</summary>
-</member><member name="T:HospitalMS.DSConsultHistoryTableAdapters.TblPatientsTableAdapter">
-	<summary>
-Represents the connection and commands used to retrieve and save data.
-</summary>
-</member><member name="T:HospitalMS.DSConsultHistoryTableAdapters.TblNew_Old_OutPatientTableAdapter">
-	<summary>
-Represents the connection and commands used to retrieve and save data.
-</summary>
-</member><member name="T:HospitalMS.DSConsultHistoryTableAdapters.TblNewInPatientTableAdapter">
-	<summary>
-Represents the connection and commands used to retrieve and save data.
-</summary>
-</member><member name="T:HospitalMS.DSConsultHistoryTableAdapters.S_DOCTOR_CONSULTTableAdapter">
-	<summary>
-Represents the connection and commands used to retrieve and save data.
-</summary>
-</member><member name="T:HospitalMS.DSConsultHistoryTableAdapters.tblItemTableAdapter">
-	<summary>
-Represents the connection and commands used to retrieve and save data.
-</summary>
-</member><member name="T:HospitalMS.DSConsultHistoryTableAdapters.S_PATIENT_IMAGE_VIEWTableAdapter">
-	<summary>
-Represents the connection and commands used to retrieve and save data.
-</summary>
-</member><member name="T:HospitalMS.DSConsultHistoryTableAdapters.S_PRESCRIPTION_PRETableAdapter">
-	<summary>
-Represents the connection and commands used to retrieve and save data.
-</summary>
-</member><member name="T:HospitalMS.DSConsultHistoryTableAdapters.S_PRESCRIPTIONA1TableAdapter">
-	<summary>
-Represents the connection and commands used to retrieve and save data.
-</summary>
-</member><member name="T:HospitalMS.DSConsultHistoryTableAdapters.S_REPORT_HISTORYTableAdapter">
-	<summary>
-Represents the connection and commands used to retrieve and save data.
-</summary>
-</member><member name="T:HospitalMS.DSConsultHistoryTableAdapters.S_CONSULTATION_FEETableAdapter">
-	<summary>
-Represents the connection and commands used to retrieve and save data.
-</summary>
-</member><member name="T:HospitalMS.DSConsultHistoryTableAdapters.S_REFERRALTableAdapter">
-	<summary>
-Represents the connection and commands used to retrieve and save data.
-</summary>
-</member><member name="T:HospitalMS.DSConsultHistoryTableAdapters.VIEW_S_LASER_CONSULTTableAdapter">
-	<summary>
-Represents the connection and commands used to retrieve and save data.
-</summary>
-</member><member name="T:HospitalMS.DSConsultHistoryTableAdapters.VIEW_S_LABORATE_CONSULTTableAdapter">
-	<summary>
-Represents the connection and commands used to retrieve and save data.
-</summary>
-</member><member name="T:HospitalMS.DSConsultHistoryTableAdapters.VIEW_S_INVESTIGATE_CONSULTTableAdapter">
-	<summary>
-Represents the connection and commands used to retrieve and save data.
-</summary>
-</member><member name="M:HospitalMS.DSConsultHistoryTableAdapters.TableAdapterManager.UpdateUpdatedRows(HospitalMS.DSConsultHistory,System.Collections.Generic.List{System.Data.DataRow},System.Collections.Generic.List{System.Data.DataRow})">
-	<summary>
-Update rows in top-down order.
-</summary>
-</member><member name="M:HospitalMS.DSConsultHistoryTableAdapters.TableAdapterManager.UpdateInsertedRows(HospitalMS.DSConsultHistory,System.Collections.Generic.List{System.Data.DataRow})">
-	<summary>
-Insert rows in top-down order.
-</summary>
-</member><member name="M:HospitalMS.DSConsultHistoryTableAdapters.TableAdapterManager.UpdateDeletedRows(HospitalMS.DSConsultHistory,System.Collections.Generic.List{System.Data.DataRow})">
-	<summary>
-Delete rows in bottom-up order.
-</summary>
-</member><member name="M:HospitalMS.DSConsultHistoryTableAdapters.TableAdapterManager.GetRealUpdatedRows(System.Data.DataRow[],System.Collections.Generic.List{System.Data.DataRow})">
-	<summary>
-Remove inserted rows that become updated rows after calling TableAdapter.Update(inserted rows) first
-</summary>
-</member><member name="M:HospitalMS.DSConsultHistoryTableAdapters.TableAdapterManager.UpdateAll(HospitalMS.DSConsultHistory)">
-	<summary>
-Update all changes to the dataset.
-</summary>
-</member><member name="T:HospitalMS.DSConsultHistoryTableAdapters.TableAdapterManager.UpdateOrderOption">
-	<summary>
-Update Order Option
-</summary>
-</member><member name="T:HospitalMS.DSConsultHistoryTableAdapters.TableAdapterManager.SelfReferenceComparer">
-	<summary>
-Used to sort self-referenced table's rows
-</summary>
-</member><member name="T:HospitalMS.DSConsultHistoryTableAdapters.TableAdapterManager">
-	<summary>
-TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
-</summary>
 </member><member name="T:HospitalMS.DSInpatientReport.TblInpatientReportDataTable">
 	<summary>
 Represents the strongly named DataTable class.
@@ -1527,6 +1251,282 @@ Update Order Option
 Used to sort self-referenced table's rows
 </summary>
 </member><member name="T:HospitalMS.DSCertificateTableAdapters.TableAdapterManager">
+	<summary>
+TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
+</summary>
+</member><member name="T:HospitalMS.DSConsultHistory.S_FOLLOWUPDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:HospitalMS.DSConsultHistory.TblPatientsDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:HospitalMS.DSConsultHistory.TblNew_Old_OutPatientDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:HospitalMS.DSConsultHistory.TblNewInPatientDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:HospitalMS.DSConsultHistory.S_DOCTOR_CONSULTDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:HospitalMS.DSConsultHistory.tblItemDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:HospitalMS.DSConsultHistory.S_PATIENT_IMAGE_VIEWDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:HospitalMS.DSConsultHistory.S_PRESCRIPTION_PREDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:HospitalMS.DSConsultHistory.S_PRESCRIPTIONA1DataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:HospitalMS.DSConsultHistory.S_REPORT_HISTORYDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:HospitalMS.DSConsultHistory.S_CONSULTATION_FEEDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:HospitalMS.DSConsultHistory.S_REFERRALDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:HospitalMS.DSConsultHistory.VIEW_S_LASER_CONSULTDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:HospitalMS.DSConsultHistory.VIEW_S_LABORATE_CONSULTDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:HospitalMS.DSConsultHistory.VIEW_S_INVESTIGATE_CONSULTDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:HospitalMS.DSConsultHistory.S_FOLLOWUPRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:HospitalMS.DSConsultHistory.TblPatientsRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:HospitalMS.DSConsultHistory.TblNew_Old_OutPatientRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:HospitalMS.DSConsultHistory.TblNewInPatientRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:HospitalMS.DSConsultHistory.S_DOCTOR_CONSULTRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:HospitalMS.DSConsultHistory.tblItemRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:HospitalMS.DSConsultHistory.S_PATIENT_IMAGE_VIEWRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:HospitalMS.DSConsultHistory.S_PRESCRIPTION_PRERow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:HospitalMS.DSConsultHistory.S_PRESCRIPTIONA1Row">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:HospitalMS.DSConsultHistory.S_REPORT_HISTORYRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:HospitalMS.DSConsultHistory.S_CONSULTATION_FEERow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:HospitalMS.DSConsultHistory.S_REFERRALRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:HospitalMS.DSConsultHistory.VIEW_S_LASER_CONSULTRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:HospitalMS.DSConsultHistory.VIEW_S_LABORATE_CONSULTRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:HospitalMS.DSConsultHistory.VIEW_S_INVESTIGATE_CONSULTRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:HospitalMS.DSConsultHistory.S_FOLLOWUPRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:HospitalMS.DSConsultHistory.TblPatientsRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:HospitalMS.DSConsultHistory.TblNew_Old_OutPatientRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:HospitalMS.DSConsultHistory.TblNewInPatientRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:HospitalMS.DSConsultHistory.S_DOCTOR_CONSULTRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:HospitalMS.DSConsultHistory.tblItemRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:HospitalMS.DSConsultHistory.S_PATIENT_IMAGE_VIEWRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:HospitalMS.DSConsultHistory.S_PRESCRIPTION_PRERowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:HospitalMS.DSConsultHistory.S_PRESCRIPTIONA1RowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:HospitalMS.DSConsultHistory.S_REPORT_HISTORYRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:HospitalMS.DSConsultHistory.S_CONSULTATION_FEERowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:HospitalMS.DSConsultHistory.S_REFERRALRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:HospitalMS.DSConsultHistory.VIEW_S_LASER_CONSULTRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:HospitalMS.DSConsultHistory.VIEW_S_LABORATE_CONSULTRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:HospitalMS.DSConsultHistory.VIEW_S_INVESTIGATE_CONSULTRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:HospitalMS.DSConsultHistory">
+	<summary>
+Represents a strongly typed in-memory cache of data.
+</summary>
+</member><member name="T:HospitalMS.DSConsultHistoryTableAdapters.S_FOLLOWUPTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:HospitalMS.DSConsultHistoryTableAdapters.TblPatientsTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:HospitalMS.DSConsultHistoryTableAdapters.TblNew_Old_OutPatientTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:HospitalMS.DSConsultHistoryTableAdapters.TblNewInPatientTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:HospitalMS.DSConsultHistoryTableAdapters.S_DOCTOR_CONSULTTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:HospitalMS.DSConsultHistoryTableAdapters.tblItemTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:HospitalMS.DSConsultHistoryTableAdapters.S_PATIENT_IMAGE_VIEWTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:HospitalMS.DSConsultHistoryTableAdapters.S_PRESCRIPTION_PRETableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:HospitalMS.DSConsultHistoryTableAdapters.S_PRESCRIPTIONA1TableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:HospitalMS.DSConsultHistoryTableAdapters.S_REPORT_HISTORYTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:HospitalMS.DSConsultHistoryTableAdapters.S_CONSULTATION_FEETableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:HospitalMS.DSConsultHistoryTableAdapters.S_REFERRALTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:HospitalMS.DSConsultHistoryTableAdapters.VIEW_S_LASER_CONSULTTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:HospitalMS.DSConsultHistoryTableAdapters.VIEW_S_LABORATE_CONSULTTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:HospitalMS.DSConsultHistoryTableAdapters.VIEW_S_INVESTIGATE_CONSULTTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="M:HospitalMS.DSConsultHistoryTableAdapters.TableAdapterManager.UpdateUpdatedRows(HospitalMS.DSConsultHistory,System.Collections.Generic.List{System.Data.DataRow},System.Collections.Generic.List{System.Data.DataRow})">
+	<summary>
+Update rows in top-down order.
+</summary>
+</member><member name="M:HospitalMS.DSConsultHistoryTableAdapters.TableAdapterManager.UpdateInsertedRows(HospitalMS.DSConsultHistory,System.Collections.Generic.List{System.Data.DataRow})">
+	<summary>
+Insert rows in top-down order.
+</summary>
+</member><member name="M:HospitalMS.DSConsultHistoryTableAdapters.TableAdapterManager.UpdateDeletedRows(HospitalMS.DSConsultHistory,System.Collections.Generic.List{System.Data.DataRow})">
+	<summary>
+Delete rows in bottom-up order.
+</summary>
+</member><member name="M:HospitalMS.DSConsultHistoryTableAdapters.TableAdapterManager.GetRealUpdatedRows(System.Data.DataRow[],System.Collections.Generic.List{System.Data.DataRow})">
+	<summary>
+Remove inserted rows that become updated rows after calling TableAdapter.Update(inserted rows) first
+</summary>
+</member><member name="M:HospitalMS.DSConsultHistoryTableAdapters.TableAdapterManager.UpdateAll(HospitalMS.DSConsultHistory)">
+	<summary>
+Update all changes to the dataset.
+</summary>
+</member><member name="T:HospitalMS.DSConsultHistoryTableAdapters.TableAdapterManager.UpdateOrderOption">
+	<summary>
+Update Order Option
+</summary>
+</member><member name="T:HospitalMS.DSConsultHistoryTableAdapters.TableAdapterManager.SelfReferenceComparer">
+	<summary>
+Used to sort self-referenced table's rows
+</summary>
+</member><member name="T:HospitalMS.DSConsultHistoryTableAdapters.TableAdapterManager">
 	<summary>
 TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
 </summary>
@@ -3970,6 +3970,10 @@ Represents the strongly named DataTable class.
 	<summary>
 Represents the strongly named DataTable class.
 </summary>
+</member><member name="T:HospitalMS.DS_KSPAYMENT.VIEW_TOTAL_SURGERYDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
 </member><member name="T:HospitalMS.DS_KSPAYMENT.S_VIEW_COUNT_MEDICINEDataTable">
 	<summary>
 Represents the strongly named DataTable class.
@@ -4018,6 +4022,10 @@ Represents strongly named DataRow class.
 	<summary>
 Represents strongly named DataRow class.
 </summary>
+</member><member name="T:HospitalMS.DS_KSPAYMENT.VIEW_TOTAL_SURGERYRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
 </member><member name="T:HospitalMS.DS_KSPAYMENT.S_VIEW_COUNT_MEDICINERow">
 	<summary>
 Represents strongly named DataRow class.
@@ -4063,6 +4071,10 @@ Row event argument class
 Row event argument class
 </summary>
 </member><member name="T:HospitalMS.DS_KSPAYMENT.V_EYE_PRESCRIPTIONRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:HospitalMS.DS_KSPAYMENT.VIEW_TOTAL_SURGERYRowChangeEvent">
 	<summary>
 Row event argument class
 </summary>
@@ -4115,6 +4127,10 @@ Represents the connection and commands used to retrieve and save data.
 Represents the connection and commands used to retrieve and save data.
 </summary>
 </member><member name="T:HospitalMS.DS_KSPAYMENTTableAdapters.V_EYE_PRESCRIPTIONTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:HospitalMS.DS_KSPAYMENTTableAdapters.VIEW_TOTAL_SURGERYTableAdapter">
 	<summary>
 Represents the connection and commands used to retrieve and save data.
 </summary>

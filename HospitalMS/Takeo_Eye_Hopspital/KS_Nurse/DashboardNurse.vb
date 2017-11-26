@@ -30,10 +30,10 @@
 
     Sub CreateNewVA()
         If GridPatientWaiting.SelectedItems.Count = 0 Then Exit Sub
-        If GridPatientWaiting.FilterRow.Selected = True Then
-            MessageBox.Show("Please select patient before send to doctor examination", "Examination", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            Exit Sub
-        End If
+        'If GridPatientWaiting.FilterRow.Selected = True Then
+        '    MessageBox.Show("Please select patient before send to doctor examination", "Examination", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        '    Exit Sub
+        'End If
         If DA_Waiting.CheckDoctorConsulting(GridPatientWaiting.GetRow.Cells("WAIT_ID").Value).Rows.Count > 0 Then
             MessageBox.Show("Doctor is consulting this patient. you can not start enter VA", "Consultation", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Exit Sub

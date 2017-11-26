@@ -9,8 +9,16 @@ Public Class DashboardIncome
     Dim MainIncome As New DS_KSPAYMENT
     Dim DA_PrintInvoice As New DS_KSPAYMENTTableAdapters.S_INVOICE_KSR_VIEWTableAdapter
     Dim DA_MedicinePay As New DSConsultHistoryTableAdapters.S_PRESCRIPTIONA1TableAdapter
+    Dim DA_USER As New DSUserManagementTableAdapters.VUsersInGroupTableAdapter
+    Dim DR_TOTAL_SURGERY As New DS_KSPAYMENTTableAdapters.VIEW_TOTAL_SURGERYTableAdapter
     Private Sub DashboardIncome_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         ViewIncome(DateFrom.Value.Date, DateTo.Value.Date)
+        With CboDoctor1
+            .DataSource = DA_USER.GetDataUserByGroup(36)
+            .ValueMember = "UserID"
+            .DisplayMember = "UserName"
+            .SelectedIndex = -1
+        End With
     End Sub
     Sub ViewIncome(ByVal DFrom As Date, ByVal DTo As Date)
         DA_Income.FillByInvoiceDateToDate(MainIncome.S_INVOICE_KS, DFrom, DTo)
@@ -159,5 +167,32 @@ Public Class DashboardIncome
             GridService.DataSource = Nothing
             GridPrescription.DataSource = Nothing
         End Try
+    End Sub
+
+    Private Sub BtnSurgery_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnSurgery.Click
+        AxAcroPDF1.Visible = True
+        Dim HospitalIncome As New CRVTotalSurgery
+        Dim TblTotalSurgeryDR As DataTable = DR_TOTAL_SURGERY.SelectDrSurgery(DateFrom.Value.Date, DateTo.Value.Date, CboDoctor1.Text) 'SelectInvoiceDateToDate(DateFrom.Value.Date, DateTo.Value.Date)
+        HospitalIncome.SetDataSource(TblTotalSurgeryDR)
+        HospitalIncome.SetParameterValue("Title", "Total Dr Surgery From: " & DateFrom.Text & " To: " & DateTo.Text)
+        ' Declare for export Big app form
+        Dim CrExportOptionsBig As ExportOptions
+        Dim CrDiskFileDestinationOptionsBig As New DiskFileDestinationOptions()
+        Dim CrFormatTypeOptionsBig As New PdfRtfWordFormatOptions()
+        CrDiskFileDestinationOptionsBig.DiskFileName = My.Application.Info.DirectoryPath & "\TotalDrSurgery.pdf"
+        CrExportOptionsBig = HospitalIncome.ExportOptions
+        With CrExportOptionsBig
+            .ExportDestinationType = ExportDestinationType.DiskFile
+            .ExportFormatType = ExportFormatType.PortableDocFormat
+            .DestinationOptions = CrDiskFileDestinationOptionsBig
+            .FormatOptions = CrFormatTypeOptionsBig
+        End With
+        HospitalIncome.Export()
+        Application.DoEvents()
+        Application.DoEvents()
+        AxAcroPDF1.src = My.Application.Info.DirectoryPath & "\TotalDrSurgery.pdf"
+        AxAcroPDF1.setZoom(100)
+        AxAcroPDF1.Dock = DockStyle.Fill
+        GridIncome.Visible = False
     End Sub
 End Class
