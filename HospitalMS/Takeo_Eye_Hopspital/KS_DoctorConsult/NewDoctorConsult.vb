@@ -1131,7 +1131,7 @@ Public Class NewDoctorConsult
         FCertificate.TxtAge.Text = TxtAgePatient.Text
 
         If FCertificate.ShowDialog = Windows.Forms.DialogResult.OK Then
-            PrintCertifcate(FCertificate.TxtPatientNo.Text)
+            PrintCertifcate(DA_Certifcate.SelectLastCertID) ' FCertificate.TxtPatientNo.Text)
             'LoadPatientCertificate()
         End If
     End Sub

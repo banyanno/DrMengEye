@@ -239,7 +239,6 @@ Partial Class MainTakeoInventory
         Me.RibboStatusBar.Location = New System.Drawing.Point(0, 568)
         Me.RibboStatusBar.Margin = New System.Windows.Forms.Padding(2)
         Me.RibboStatusBar.Name = "RibboStatusBar"
-        Me.RibboStatusBar.Office2007ColorScheme = Janus.Windows.Ribbon.Office2007ColorScheme.Custom
         Me.RibboStatusBar.Office2007CustomColor = System.Drawing.SystemColors.Control
         Me.RibboStatusBar.RightPanelCommands.AddRange(New Janus.Windows.Ribbon.CommandBase() {Me.DropDownCommand2, Me.LblDepartmentLogin, Me.ContainerPicloading})
         Me.RibboStatusBar.ShowToolTips = False
@@ -395,7 +394,6 @@ Partial Class MainTakeoInventory
         Me.UiPanelManager1.Office2007ColorScheme = Janus.Windows.UI.Office2007ColorScheme.Silver
         Me.UiPanelManager1.TabbedMdi = True
         Me.UiPanelManager1.UseCompatibleTextRendering = True
-        Me.UiPanelManager1.VisualStyle = Janus.Windows.UI.Dock.PanelVisualStyle.Standard
         Me.MenuBarLeft.Id = New System.Guid("65cb48f6-3b85-4e71-bdbc-e2a196562407")
         Me.MenuBarLeft.StaticGroup = True
         Me.TakeoEyeHospital.Id = New System.Guid("d3857c71-39f3-4397-824a-a8d0396cc6ac")
@@ -469,6 +467,7 @@ Partial Class MainTakeoInventory
         '
         'MenuBarLeft
         '
+        Me.MenuBarLeft.BackColor = System.Drawing.SystemColors.ActiveCaption
         Me.MenuBarLeft.CaptionDisplayMode = Janus.Windows.UI.Dock.PanelCaptionDisplayMode.Text
         Me.MenuBarLeft.CloseButtonVisible = Janus.Windows.UI.InheritableBoolean.[False]
         Me.MenuBarLeft.GroupStyle = Janus.Windows.UI.Dock.PanelGroupStyle.OutlookNavigator
@@ -488,6 +487,7 @@ Partial Class MainTakeoInventory
         '
         'TakeoEyeHospital
         '
+        Me.TakeoEyeHospital.BackColor = System.Drawing.SystemColors.ActiveCaption
         Me.TakeoEyeHospital.InnerContainer = Me.uiPanel4Container
         Me.TakeoEyeHospital.LargeImageIndex = 7
         Me.TakeoEyeHospital.Location = New System.Drawing.Point(0, 0)
@@ -507,8 +507,9 @@ Partial Class MainTakeoInventory
         '
         'BottonBarMain
         '
+        Me.BottonBarMain.BackColor = System.Drawing.SystemColors.Control
         Me.BottonBarMain.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.BottonBarMain.DropLineColor = System.Drawing.SystemColors.Control
+        Me.BottonBarMain.DropLineColor = System.Drawing.SystemColors.ControlLight
         Me.BottonBarMain.FlatBorderColor = System.Drawing.Color.Cornsilk
         Me.BottonBarMain.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.0!)
         Me.BottonBarMain.ForeColor = System.Drawing.Color.Navy
@@ -580,7 +581,6 @@ Partial Class MainTakeoInventory
         BottonBarMain_Group_0.Key = "Accounting"
         BottonBarMain_Group_0.Text = "Register and Cashier"
         BottonBarMain_Group_0.TextAlignment = Janus.Windows.ButtonBar.Alignment.Near
-        BottonBarMain_Group_1.BackgroundFormatStyle.BackColor = System.Drawing.SystemColors.Control
         BottonBarMain_Group_1.Cursor = System.Windows.Forms.Cursors.Hand
         BottonBarMain_Group_1.Icon = CType(resources.GetObject("BottonBarMain_Group_1.Icon"), System.Drawing.Icon)
         BottonBarMain_Item_1_0.Cursor = System.Windows.Forms.Cursors.Hand
@@ -682,7 +682,6 @@ Partial Class MainTakeoInventory
         BottonBarMain_Group_1.Key = "Registration"
         BottonBarMain_Group_1.Text = "Dr. Examination"
         BottonBarMain_Group_1.TextAlignment = Janus.Windows.ButtonBar.Alignment.Near
-        BottonBarMain_Group_2.BackgroundFormatStyle.BackColor = System.Drawing.SystemColors.Control
         BottonBarMain_Group_2.Cursor = System.Windows.Forms.Cursors.Hand
         BottonBarMain_Group_2.Icon = CType(resources.GetObject("BottonBarMain_Group_2.Icon"), System.Drawing.Icon)
         BottonBarMain_Item_2_0.Cursor = System.Windows.Forms.Cursors.Hand
@@ -727,7 +726,6 @@ Partial Class MainTakeoInventory
         BottonBarMain_Group_2.Key = "Hospital Report"
         BottonBarMain_Group_2.Text = "Hospital Report"
         BottonBarMain_Group_2.TextAlignment = Janus.Windows.ButtonBar.Alignment.Near
-        BottonBarMain_Group_3.BackgroundFormatStyle.BackColor = System.Drawing.SystemColors.Control
         BottonBarMain_Group_3.Cursor = System.Windows.Forms.Cursors.Hand
         BottonBarMain_Group_3.Icon = CType(resources.GetObject("BottonBarMain_Group_3.Icon"), System.Drawing.Icon)
         BottonBarMain_Item_3_0.Cursor = System.Windows.Forms.Cursors.Hand
@@ -797,6 +795,8 @@ Partial Class MainTakeoInventory
         Me.BottonBarMain.LargeImageList = Me.ImgMenu
         Me.BottonBarMain.Location = New System.Drawing.Point(0, 0)
         Me.BottonBarMain.Name = "BottonBarMain"
+        Me.BottonBarMain.Office2007ColorScheme = Janus.Windows.ButtonBar.Office2007ColorScheme.Blue
+        Me.BottonBarMain.Office2007CustomColor = System.Drawing.Color.BurlyWood
         Me.BottonBarMain.ShadowOnHover = True
         Me.BottonBarMain.Size = New System.Drawing.Size(165, 370)
         Me.BottonBarMain.SmallImageList = Me.ImageList1
@@ -804,6 +804,7 @@ Partial Class MainTakeoInventory
         Me.BottonBarMain.Text = "ButtonBar1"
         Me.BottonBarMain.ThemedAreas = CType(((Janus.Windows.ButtonBar.ThemedArea.Border Or Janus.Windows.ButtonBar.ThemedArea.Items) _
                     Or Janus.Windows.ButtonBar.ThemedArea.ScrollButton), Janus.Windows.ButtonBar.ThemedArea)
+        Me.BottonBarMain.VisualStyle = Janus.Windows.ButtonBar.VisualStyle.Office2007
         '
         'ImgMenu
         '
@@ -856,6 +857,7 @@ Partial Class MainTakeoInventory
         '
         'ButtonMainInventory
         '
+        Me.ButtonMainInventory.BackColor = System.Drawing.SystemColors.Control
         Me.ButtonMainInventory.Dock = System.Windows.Forms.DockStyle.Fill
         Me.ButtonMainInventory.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ButtonMainInventory.ForeColor = System.Drawing.Color.DimGray
@@ -950,6 +952,7 @@ Partial Class MainTakeoInventory
         Me.ButtonMainInventory.TabIndex = 0
         Me.ButtonMainInventory.Text = "ButtonBar1"
         Me.ButtonMainInventory.ThemedAreas = Janus.Windows.ButtonBar.ThemedArea.ScrollButton
+        Me.ButtonMainInventory.VisualStyle = Janus.Windows.ButtonBar.VisualStyle.Office2007
         '
         'ImageList2
         '
@@ -995,6 +998,7 @@ Partial Class MainTakeoInventory
         '
         'MainuDepartmentInventory
         '
+        Me.MainuDepartmentInventory.BackColor = System.Drawing.SystemColors.Control
         Me.MainuDepartmentInventory.Dock = System.Windows.Forms.DockStyle.Fill
         Me.MainuDepartmentInventory.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.MainuDepartmentInventory.ForeColor = System.Drawing.SystemColors.Desktop
@@ -1047,6 +1051,7 @@ Partial Class MainTakeoInventory
         Me.MainuDepartmentInventory.TabIndex = 0
         Me.MainuDepartmentInventory.Text = "ButtonBar1"
         Me.MainuDepartmentInventory.ThemedAreas = Janus.Windows.ButtonBar.ThemedArea.ScrollButton
+        Me.MainuDepartmentInventory.VisualStyle = Janus.Windows.ButtonBar.VisualStyle.Office2007
         '
         'uiPreferences
         '
@@ -1084,9 +1089,11 @@ Partial Class MainTakeoInventory
         '
         'ButtonBarPreferences
         '
+        Me.ButtonBarPreferences.AllowDragGroups = False
+        Me.ButtonBarPreferences.BackColor = System.Drawing.SystemColors.ControlLight
         Me.ButtonBarPreferences.Dock = System.Windows.Forms.DockStyle.Fill
         Me.ButtonBarPreferences.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ButtonBarPreferences.ForeColor = System.Drawing.SystemColors.Desktop
+        Me.ButtonBarPreferences.ForeColor = System.Drawing.Color.DimGray
         ButtonBarPreferences_Group_0.Cursor = System.Windows.Forms.Cursors.Hand
         ButtonBarPreferences_Group_0.Icon = CType(resources.GetObject("ButtonBarPreferences_Group_0.Icon"), System.Drawing.Icon)
         ButtonBarPreferences_Item_0_0.Cursor = System.Windows.Forms.Cursors.Hand
@@ -1216,6 +1223,7 @@ Partial Class MainTakeoInventory
         Me.ButtonBarPreferences.TabIndex = 0
         Me.ButtonBarPreferences.Text = "ButtonBar1"
         Me.ButtonBarPreferences.ThemedAreas = Janus.Windows.ButtonBar.ThemedArea.ScrollButton
+        Me.ButtonBarPreferences.VisualStyle = Janus.Windows.ButtonBar.VisualStyle.Office2007
         '
         'uiPanel2
         '

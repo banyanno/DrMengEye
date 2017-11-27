@@ -2,15 +2,16 @@
 <xs:schema id="DSCertificate" targetNamespace="http://tempuri.org/DSCertificate.xsd" xmlns:mstns="http://tempuri.org/DSCertificate.xsd" xmlns="http://tempuri.org/DSCertificate.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
   <xs:annotation>
     <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
-      <DataSource DefaultConnectionIndex="1" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="2" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
         <Connections>
           <Connection AppSettingsObjectName="MySettings" AppSettingsPropertyName="NgyMengDBConnectionString" IsAppSettingsProperty="true" Modifier="Assembly" Name="NgyMengDBConnectionString (MySettings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.HospitalMS.My.MySettings.GlobalReference.Default.NgyMengDBConnectionString" Provider="System.Data.SqlClient" />
-          <Connection AppSettingsObjectName="MySettings" AppSettingsPropertyName="TakeoDBConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="TakeoDBConnectionString (MySettings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.HospitalMS.My.MySettings.GlobalReference.Default.TakeoDBConnectionString" Provider="System.Data.SqlClient" />
+          <Connection AppSettingsObjectName="MySettings" AppSettingsPropertyName="TakeoDBConnectionString" IsAppSettingsProperty="true" Modifier="Assembly" Name="TakeoDBConnectionString (MySettings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.HospitalMS.My.MySettings.GlobalReference.Default.TakeoDBConnectionString" Provider="System.Data.SqlClient" />
+          <Connection AppSettingsObjectName="MySettings" AppSettingsPropertyName="AppConnection" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="AppConnection (MySettings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.HospitalMS.My.MySettings.GlobalReference.Default.AppConnection" Provider="System.Data.SqlClient" />
         </Connections>
         <Tables>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="S_PATIENT_CERTIFICATETableAdapter" GeneratorDataComponentClassName="S_PATIENT_CERTIFICATETableAdapter" Name="S_PATIENT_CERTIFICATE" UserDataComponentName="S_PATIENT_CERTIFICATETableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="TakeoDBConnectionString (MySettings)" DbObjectName="NgyMengDB.dbo.S_PATIENT_CERTIFICATE" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="AppConnection (MySettings)" DbObjectName="NgyMengDB.dbo.S_PATIENT_CERTIFICATE" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
                     <CommandText>DELETE FROM [dbo].[S_PATIENT_CERTIFICATE] WHERE (([CERT_ID] = @Original_CERT_ID) AND ((@IsNull_CREATE_DATE = 1 AND [CREATE_DATE] IS NULL) OR ([CREATE_DATE] = @Original_CREATE_DATE)) AND ((@IsNull_PATIENT_NO = 1 AND [PATIENT_NO] IS NULL) OR ([PATIENT_NO] = @Original_PATIENT_NO)) AND ((@IsNull_PATIENT_NAME = 1 AND [PATIENT_NAME] IS NULL) OR ([PATIENT_NAME] = @Original_PATIENT_NAME)) AND ((@IsNull_SEX = 1 AND [SEX] IS NULL) OR ([SEX] = @Original_SEX)) AND ((@IsNull_AGE = 1 AND [AGE] IS NULL) OR ([AGE] = @Original_AGE)) AND ((@IsNull_DATE_EXAM = 1 AND [DATE_EXAM] IS NULL) OR ([DATE_EXAM] = @Original_DATE_EXAM)) AND ((@IsNull_MEDICAL_FINDING = 1 AND [MEDICAL_FINDING] IS NULL) OR ([MEDICAL_FINDING] = @Original_MEDICAL_FINDING)) AND ((@IsNull_UNDERWENT = 1 AND [UNDERWENT] IS NULL) OR ([UNDERWENT] = @Original_UNDERWENT)) AND ((@IsNull_PERIOD = 1 AND [PERIOD] IS NULL) OR ([PERIOD] = @Original_PERIOD)) AND ((@IsNull_START_FROM = 1 AND [START_FROM] IS NULL) OR ([START_FROM] = @Original_START_FROM)) AND ((@IsNull_END_TO = 1 AND [END_TO] IS NULL) OR ([END_TO] = @Original_END_TO)) AND ((@IsNull_STAFF_OPT = 1 AND [STAFF_OPT] IS NULL) OR ([STAFF_OPT] = @Original_STAFF_OPT)))</CommandText>
@@ -134,7 +135,7 @@ SELECT CERT_ID, CREATE_DATE, PATIENT_NO, PATIENT_NAME, SEX, AGE, DATE_EXAM, MEDI
               <Mapping SourceColumn="STAFF_OPT" DataSetColumn="STAFF_OPT" />
             </Mappings>
             <Sources>
-              <DbSource ConnectionRef="TakeoDBConnectionString (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="DeleteCertificate" Modifier="Public" Name="DeleteCertificate" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="DeleteCertificate">
+              <DbSource ConnectionRef="AppConnection (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="DeleteCertificate" Modifier="Public" Name="DeleteCertificate" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="DeleteCertificate">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>DELETE FROM [dbo].[S_PATIENT_CERTIFICATE] WHERE (([CERT_ID] = @Original_CERT_ID))</CommandText>
@@ -144,7 +145,7 @@ SELECT CERT_ID, CREATE_DATE, PATIENT_NO, PATIENT_NAME, SEX, AGE, DATE_EXAM, MEDI
                   </DbCommand>
                 </DeleteCommand>
               </DbSource>
-              <DbSource ConnectionRef="TakeoDBConnectionString (MySettings)" DbObjectName="NgyMengDB.dbo.S_PATIENT_CERTIFICATE" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillBy" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="SelectByPatientNo" GeneratorSourceName="FillBy" GetMethodModifier="Public" GetMethodName="SelectByPatientNo" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="SelectByPatientNo" UserSourceName="FillBy">
+              <DbSource ConnectionRef="AppConnection (MySettings)" DbObjectName="NgyMengDB.dbo.S_PATIENT_CERTIFICATE" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillBy" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="SelectByPatientNo" GeneratorSourceName="FillBy" GetMethodModifier="Public" GetMethodName="SelectByPatientNo" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="SelectByPatientNo" UserSourceName="FillBy">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT CERT_ID, CREATE_DATE, PATIENT_NO, PATIENT_NAME, SEX, AGE, DATE_EXAM, MEDICAL_FINDING, UNDERWENT, PERIOD, START_FROM, END_TO, STAFF_OPT FROM dbo.S_PATIENT_CERTIFICATE
@@ -157,7 +158,7 @@ ORDER BY PATIENT_NAME</CommandText>
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="TakeoDBConnectionString (MySettings)" DbObjectName="NgyMengDB.dbo.S_PATIENT_CERTIFICATE" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillBy1" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="SelectCertificateByPNO" GeneratorSourceName="FillBy1" GetMethodModifier="Public" GetMethodName="SelectCertificateByPNO" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="SelectCertificateByPNO" UserSourceName="FillBy1">
+              <DbSource ConnectionRef="AppConnection (MySettings)" DbObjectName="NgyMengDB.dbo.S_PATIENT_CERTIFICATE" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillBy1" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="SelectCertificateByPNO" GeneratorSourceName="FillBy1" GetMethodModifier="Public" GetMethodName="SelectCertificateByPNO" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="SelectCertificateByPNO" UserSourceName="FillBy1">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT CERT_ID, CREATE_DATE, PATIENT_NO, PATIENT_NAME, SEX, AGE, DATE_EXAM, MEDICAL_FINDING, UNDERWENT, PERIOD, START_FROM, END_TO, STAFF_OPT FROM dbo.S_PATIENT_CERTIFICATE
@@ -169,7 +170,7 @@ ORDER BY PATIENT_NAME</CommandText>
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="TakeoDBConnectionString (MySettings)" DbObjectName="NgyMengDB.dbo.S_PATIENT_CERTIFICATE" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillBy2" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="SelectDateToDate" GeneratorSourceName="FillBy2" GetMethodModifier="Public" GetMethodName="SelectDateToDate" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="SelectDateToDate" UserSourceName="FillBy2">
+              <DbSource ConnectionRef="AppConnection (MySettings)" DbObjectName="NgyMengDB.dbo.S_PATIENT_CERTIFICATE" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillBy2" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="SelectDateToDate" GeneratorSourceName="FillBy2" GetMethodModifier="Public" GetMethodName="SelectDateToDate" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="SelectDateToDate" UserSourceName="FillBy2">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT CERT_ID, CREATE_DATE, PATIENT_NO, PATIENT_NAME, SEX, AGE, DATE_EXAM, MEDICAL_FINDING, UNDERWENT, PERIOD, START_FROM, END_TO, STAFF_OPT FROM dbo.S_PATIENT_CERTIFICATE
@@ -182,7 +183,20 @@ ORDER BY PATIENT_NO</CommandText>
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="TakeoDBConnectionString (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="InsertNewCertificate" Modifier="Public" Name="InsertNewCertificate" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="InsertNewCertificate">
+              <DbSource ConnectionRef="AppConnection (MySettings)" DbObjectName="NgyMengDB.dbo.S_PATIENT_CERTIFICATE" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillBy3" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="SelectCertByCertID" GeneratorSourceName="FillBy3" GetMethodModifier="Public" GetMethodName="SelectCertByCertID" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="SelectCertByCertID" UserSourceName="FillBy3">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT CERT_ID, CREATE_DATE, PATIENT_NO, PATIENT_NAME, SEX, AGE, DATE_EXAM, MEDICAL_FINDING, UNDERWENT, PERIOD, START_FROM, END_TO, STAFF_OPT FROM dbo.S_PATIENT_CERTIFICATE
+where CERT_ID=@CERT_ID
+ORDER BY PATIENT_NAME
+</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="CERT_ID" ColumnName="CERT_ID" DataSourceName="NgyMengDB.dbo.S_PATIENT_CERTIFICATE" DataTypeServer="numeric" DbType="Decimal" Direction="Input" ParameterName="@CERT_ID" Precision="18" ProviderType="Decimal" Scale="0" Size="9" SourceColumn="CERT_ID" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="AppConnection (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="InsertNewCertificate" Modifier="Public" Name="InsertNewCertificate" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="InsertNewCertificate">
                 <InsertCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>INSERT INTO [dbo].[S_PATIENT_CERTIFICATE] ([CREATE_DATE], [PATIENT_NO], [PATIENT_NAME], [SEX], [AGE], [DATE_EXAM], [MEDICAL_FINDING], [UNDERWENT], [PERIOD], [START_FROM], [END_TO], [STAFF_OPT]) VALUES (@CREATE_DATE, @PATIENT_NO, @PATIENT_NAME, @SEX, @AGE, @DATE_EXAM, @MEDICAL_FINDING, @UNDERWENT, @PERIOD, @START_FROM, @END_TO, @STAFF_OPT);</CommandText>
@@ -203,7 +217,15 @@ ORDER BY PATIENT_NO</CommandText>
                   </DbCommand>
                 </InsertCommand>
               </DbSource>
-              <DbSource ConnectionRef="TakeoDBConnectionString (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="UpdateCertificate" Modifier="Public" Name="UpdateCertificate" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="UpdateCertificate">
+              <DbSource ConnectionRef="AppConnection (MySettings)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="SelectLastCertID" Modifier="Public" Name="SelectLastCertID" QueryType="Scalar" ScalarCallRetval="System.Decimal, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy3" UserSourceName="SelectLastCertID">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT max(CERT_ID) FROM S_PATIENT_CERTIFICATE</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="AppConnection (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="UpdateCertificate" Modifier="Public" Name="UpdateCertificate" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="UpdateCertificate">
                 <UpdateCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>UPDATE [dbo].[S_PATIENT_CERTIFICATE] SET [CREATE_DATE] = @CREATE_DATE, [PATIENT_NO] = @PATIENT_NO, [PATIENT_NAME] = @PATIENT_NAME, [SEX] = @SEX, [AGE] = @AGE, [DATE_EXAM] = @DATE_EXAM, [MEDICAL_FINDING] = @MEDICAL_FINDING, [UNDERWENT] = @UNDERWENT, [PERIOD] = @PERIOD, [START_FROM] = @START_FROM, [END_TO] = @END_TO, [STAFF_OPT] = @STAFF_OPT WHERE (([CERT_ID] = @Original_CERT_ID))</CommandText>
@@ -238,55 +260,55 @@ ORDER BY PATIENT_NO</CommandText>
         <xs:element name="S_PATIENT_CERTIFICATE" msprop:Generator_UserTableName="S_PATIENT_CERTIFICATE" msprop:Generator_RowDeletedName="S_PATIENT_CERTIFICATERowDeleted" msprop:Generator_RowChangedName="S_PATIENT_CERTIFICATERowChanged" msprop:Generator_RowClassName="S_PATIENT_CERTIFICATERow" msprop:Generator_RowChangingName="S_PATIENT_CERTIFICATERowChanging" msprop:Generator_RowEvArgName="S_PATIENT_CERTIFICATERowChangeEvent" msprop:Generator_RowEvHandlerName="S_PATIENT_CERTIFICATERowChangeEventHandler" msprop:Generator_TableClassName="S_PATIENT_CERTIFICATEDataTable" msprop:Generator_TableVarName="tableS_PATIENT_CERTIFICATE" msprop:Generator_RowDeletingName="S_PATIENT_CERTIFICATERowDeleting" msprop:Generator_TablePropName="S_PATIENT_CERTIFICATE">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="CERT_ID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_UserColumnName="CERT_ID" msprop:Generator_ColumnPropNameInRow="CERT_ID" msprop:Generator_ColumnVarNameInTable="columnCERT_ID" msprop:Generator_ColumnPropNameInTable="CERT_IDColumn" type="xs:decimal" />
-              <xs:element name="CREATE_DATE" msprop:Generator_UserColumnName="CREATE_DATE" msprop:Generator_ColumnPropNameInRow="CREATE_DATE" msprop:Generator_ColumnVarNameInTable="columnCREATE_DATE" msprop:Generator_ColumnPropNameInTable="CREATE_DATEColumn" type="xs:dateTime" minOccurs="0" />
-              <xs:element name="PATIENT_NO" msprop:Generator_UserColumnName="PATIENT_NO" msprop:Generator_ColumnPropNameInRow="PATIENT_NO" msprop:Generator_ColumnVarNameInTable="columnPATIENT_NO" msprop:Generator_ColumnPropNameInTable="PATIENT_NOColumn" type="xs:decimal" minOccurs="0" />
-              <xs:element name="PATIENT_NAME" msprop:Generator_UserColumnName="PATIENT_NAME" msprop:Generator_ColumnPropNameInRow="PATIENT_NAME" msprop:Generator_ColumnVarNameInTable="columnPATIENT_NAME" msprop:Generator_ColumnPropNameInTable="PATIENT_NAMEColumn" minOccurs="0">
+              <xs:element name="CERT_ID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_UserColumnName="CERT_ID" msprop:Generator_ColumnVarNameInTable="columnCERT_ID" msprop:Generator_ColumnPropNameInRow="CERT_ID" msprop:Generator_ColumnPropNameInTable="CERT_IDColumn" type="xs:decimal" />
+              <xs:element name="CREATE_DATE" msprop:Generator_UserColumnName="CREATE_DATE" msprop:Generator_ColumnVarNameInTable="columnCREATE_DATE" msprop:Generator_ColumnPropNameInRow="CREATE_DATE" msprop:Generator_ColumnPropNameInTable="CREATE_DATEColumn" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="PATIENT_NO" msprop:Generator_UserColumnName="PATIENT_NO" msprop:Generator_ColumnVarNameInTable="columnPATIENT_NO" msprop:Generator_ColumnPropNameInRow="PATIENT_NO" msprop:Generator_ColumnPropNameInTable="PATIENT_NOColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="PATIENT_NAME" msprop:Generator_UserColumnName="PATIENT_NAME" msprop:Generator_ColumnVarNameInTable="columnPATIENT_NAME" msprop:Generator_ColumnPropNameInRow="PATIENT_NAME" msprop:Generator_ColumnPropNameInTable="PATIENT_NAMEColumn" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="50" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="SEX" msprop:Generator_UserColumnName="SEX" msprop:Generator_ColumnPropNameInRow="SEX" msprop:Generator_ColumnVarNameInTable="columnSEX" msprop:Generator_ColumnPropNameInTable="SEXColumn" minOccurs="0">
+              <xs:element name="SEX" msprop:Generator_UserColumnName="SEX" msprop:Generator_ColumnVarNameInTable="columnSEX" msprop:Generator_ColumnPropNameInRow="SEX" msprop:Generator_ColumnPropNameInTable="SEXColumn" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="1" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="AGE" msprop:Generator_UserColumnName="AGE" msprop:Generator_ColumnPropNameInRow="AGE" msprop:Generator_ColumnVarNameInTable="columnAGE" msprop:Generator_ColumnPropNameInTable="AGEColumn" minOccurs="0">
+              <xs:element name="AGE" msprop:Generator_UserColumnName="AGE" msprop:Generator_ColumnVarNameInTable="columnAGE" msprop:Generator_ColumnPropNameInRow="AGE" msprop:Generator_ColumnPropNameInTable="AGEColumn" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="10" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="DATE_EXAM" msprop:Generator_UserColumnName="DATE_EXAM" msprop:Generator_ColumnPropNameInRow="DATE_EXAM" msprop:Generator_ColumnVarNameInTable="columnDATE_EXAM" msprop:Generator_ColumnPropNameInTable="DATE_EXAMColumn" type="xs:dateTime" minOccurs="0" />
-              <xs:element name="MEDICAL_FINDING" msprop:Generator_UserColumnName="MEDICAL_FINDING" msprop:Generator_ColumnPropNameInRow="MEDICAL_FINDING" msprop:Generator_ColumnVarNameInTable="columnMEDICAL_FINDING" msprop:Generator_ColumnPropNameInTable="MEDICAL_FINDINGColumn" minOccurs="0">
+              <xs:element name="DATE_EXAM" msprop:Generator_UserColumnName="DATE_EXAM" msprop:Generator_ColumnVarNameInTable="columnDATE_EXAM" msprop:Generator_ColumnPropNameInRow="DATE_EXAM" msprop:Generator_ColumnPropNameInTable="DATE_EXAMColumn" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="MEDICAL_FINDING" msprop:Generator_UserColumnName="MEDICAL_FINDING" msprop:Generator_ColumnVarNameInTable="columnMEDICAL_FINDING" msprop:Generator_ColumnPropNameInRow="MEDICAL_FINDING" msprop:Generator_ColumnPropNameInTable="MEDICAL_FINDINGColumn" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="250" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="UNDERWENT" msprop:Generator_UserColumnName="UNDERWENT" msprop:Generator_ColumnPropNameInRow="UNDERWENT" msprop:Generator_ColumnVarNameInTable="columnUNDERWENT" msprop:Generator_ColumnPropNameInTable="UNDERWENTColumn" minOccurs="0">
+              <xs:element name="UNDERWENT" msprop:Generator_UserColumnName="UNDERWENT" msprop:Generator_ColumnVarNameInTable="columnUNDERWENT" msprop:Generator_ColumnPropNameInRow="UNDERWENT" msprop:Generator_ColumnPropNameInTable="UNDERWENTColumn" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="250" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="PERIOD" msprop:Generator_UserColumnName="PERIOD" msprop:Generator_ColumnPropNameInRow="PERIOD" msprop:Generator_ColumnVarNameInTable="columnPERIOD" msprop:Generator_ColumnPropNameInTable="PERIODColumn" minOccurs="0">
+              <xs:element name="PERIOD" msprop:Generator_UserColumnName="PERIOD" msprop:Generator_ColumnVarNameInTable="columnPERIOD" msprop:Generator_ColumnPropNameInRow="PERIOD" msprop:Generator_ColumnPropNameInTable="PERIODColumn" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="50" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="START_FROM" msprop:Generator_UserColumnName="START_FROM" msprop:Generator_ColumnPropNameInRow="START_FROM" msprop:Generator_ColumnVarNameInTable="columnSTART_FROM" msprop:Generator_ColumnPropNameInTable="START_FROMColumn" type="xs:dateTime" minOccurs="0" />
-              <xs:element name="END_TO" msprop:Generator_UserColumnName="END_TO" msprop:Generator_ColumnPropNameInRow="END_TO" msprop:Generator_ColumnVarNameInTable="columnEND_TO" msprop:Generator_ColumnPropNameInTable="END_TOColumn" type="xs:dateTime" minOccurs="0" />
-              <xs:element name="STAFF_OPT" msprop:Generator_UserColumnName="STAFF_OPT" msprop:Generator_ColumnPropNameInRow="STAFF_OPT" msprop:Generator_ColumnVarNameInTable="columnSTAFF_OPT" msprop:Generator_ColumnPropNameInTable="STAFF_OPTColumn" minOccurs="0">
+              <xs:element name="START_FROM" msprop:Generator_UserColumnName="START_FROM" msprop:Generator_ColumnVarNameInTable="columnSTART_FROM" msprop:Generator_ColumnPropNameInRow="START_FROM" msprop:Generator_ColumnPropNameInTable="START_FROMColumn" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="END_TO" msprop:Generator_UserColumnName="END_TO" msprop:Generator_ColumnVarNameInTable="columnEND_TO" msprop:Generator_ColumnPropNameInRow="END_TO" msprop:Generator_ColumnPropNameInTable="END_TOColumn" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="STAFF_OPT" msprop:Generator_UserColumnName="STAFF_OPT" msprop:Generator_ColumnVarNameInTable="columnSTAFF_OPT" msprop:Generator_ColumnPropNameInRow="STAFF_OPT" msprop:Generator_ColumnPropNameInTable="STAFF_OPTColumn" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="50" />

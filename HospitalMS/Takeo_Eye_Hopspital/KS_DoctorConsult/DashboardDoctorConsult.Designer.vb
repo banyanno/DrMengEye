@@ -224,15 +224,15 @@ Partial Class DashboardDoctorConsult
         'SplitContainer1.Panel2
         '
         Me.SplitContainer1.Panel2.Controls.Add(Me.UiTab4)
-        Me.SplitContainer1.Size = New System.Drawing.Size(1259, 1045)
-        Me.SplitContainer1.SplitterDistance = 769
+        Me.SplitContainer1.Size = New System.Drawing.Size(1261, 1047)
+        Me.SplitContainer1.SplitterDistance = 812
         Me.SplitContainer1.TabIndex = 0
         '
         'SplitContainer3
         '
         Me.SplitContainer3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.SplitContainer3.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.SplitContainer3.FixedPanel = System.Windows.Forms.FixedPanel.Panel1
+        Me.SplitContainer3.FixedPanel = System.Windows.Forms.FixedPanel.Panel2
         Me.SplitContainer3.Location = New System.Drawing.Point(0, 0)
         Me.SplitContainer3.Name = "SplitContainer3"
         '
@@ -244,8 +244,8 @@ Partial Class DashboardDoctorConsult
         '
         Me.SplitContainer3.Panel2.Controls.Add(Me.GroupBox7)
         Me.SplitContainer3.Panel2.Controls.Add(Me.GroupBox9)
-        Me.SplitContainer3.Size = New System.Drawing.Size(1259, 769)
-        Me.SplitContainer3.SplitterDistance = 996
+        Me.SplitContainer3.Size = New System.Drawing.Size(1261, 812)
+        Me.SplitContainer3.SplitterDistance = 1075
         Me.SplitContainer3.TabIndex = 8
         '
         'GroupBox3
@@ -256,7 +256,7 @@ Partial Class DashboardDoctorConsult
         Me.GroupBox3.ForeColor = System.Drawing.Color.Blue
         Me.GroupBox3.Location = New System.Drawing.Point(0, 0)
         Me.GroupBox3.Name = "GroupBox3"
-        Me.GroupBox3.Size = New System.Drawing.Size(994, 767)
+        Me.GroupBox3.Size = New System.Drawing.Size(1073, 810)
         Me.GroupBox3.TabIndex = 7
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "ចំនួនអ្នកជំងឺរងចាំ"
@@ -288,8 +288,9 @@ Partial Class DashboardDoctorConsult
         Me.GridPatientWaiting.SelectedInactiveFormatStyle.FontBold = Janus.Windows.GridEX.TriState.[True]
         Me.GridPatientWaiting.SelectedInactiveFormatStyle.FontSize = 12.0!
         Me.GridPatientWaiting.SelectedInactiveFormatStyle.ForeColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.GridPatientWaiting.Size = New System.Drawing.Size(988, 731)
+        Me.GridPatientWaiting.Size = New System.Drawing.Size(1067, 774)
         Me.GridPatientWaiting.TabIndex = 6
+        Me.GridPatientWaiting.VisualStyle = Janus.Windows.GridEX.VisualStyle.Office2003
         '
         'GroupBox7
         '
@@ -362,7 +363,7 @@ Partial Class DashboardDoctorConsult
         Me.GroupBox9.ForeColor = System.Drawing.Color.Blue
         Me.GroupBox9.Location = New System.Drawing.Point(0, 0)
         Me.GroupBox9.Name = "GroupBox9"
-        Me.GroupBox9.Size = New System.Drawing.Size(257, 767)
+        Me.GroupBox9.Size = New System.Drawing.Size(180, 810)
         Me.GroupBox9.TabIndex = 1
         Me.GroupBox9.TabStop = False
         Me.GroupBox9.Text = "រូបភាព"
@@ -370,10 +371,9 @@ Partial Class DashboardDoctorConsult
         'PictureBox1
         '
         Me.PictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.PictureBox1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.PictureBox1.Location = New System.Drawing.Point(3, 33)
+        Me.PictureBox1.Location = New System.Drawing.Point(6, 33)
         Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(251, 731)
+        Me.PictureBox1.Size = New System.Drawing.Size(167, 177)
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PictureBox1.TabIndex = 0
         Me.PictureBox1.TabStop = False
@@ -383,20 +383,21 @@ Partial Class DashboardDoctorConsult
         Me.UiTab4.Dock = System.Windows.Forms.DockStyle.Fill
         Me.UiTab4.Location = New System.Drawing.Point(0, 0)
         Me.UiTab4.Name = "UiTab4"
-        Me.UiTab4.Size = New System.Drawing.Size(1257, 270)
+        Me.UiTab4.Size = New System.Drawing.Size(1259, 229)
         Me.UiTab4.TabIndex = 1
         Me.UiTab4.TabPages.AddRange(New Janus.Windows.UI.Tab.UITabPage() {Me.UiTabPage6, Me.UiTabPage9})
         Me.UiTab4.TabsStateStyles.FormatStyle.ForeColor = System.Drawing.Color.Red
         Me.UiTab4.TabsStateStyles.HotFormatStyle.FontItalic = Janus.Windows.UI.TriState.[True]
         Me.UiTab4.TabsStateStyles.HotFormatStyle.ForeColor = System.Drawing.Color.Blue
         Me.UiTab4.TabStripFormatStyle.ForeColor = System.Drawing.Color.Red
+        Me.UiTab4.VisualStyle = Janus.Windows.UI.Tab.TabVisualStyle.Office2007
         '
         'UiTabPage6
         '
         Me.UiTabPage6.Controls.Add(Me.GroupBox1)
         Me.UiTabPage6.Location = New System.Drawing.Point(1, 28)
         Me.UiTabPage6.Name = "UiTabPage6"
-        Me.UiTabPage6.Size = New System.Drawing.Size(1253, 239)
+        Me.UiTabPage6.Size = New System.Drawing.Size(1257, 200)
         Me.UiTabPage6.TabStop = True
         Me.UiTabPage6.Text = "    New Visual Acuity    "
         '
@@ -410,7 +411,7 @@ Partial Class DashboardDoctorConsult
         Me.GroupBox1.ForeColor = System.Drawing.Color.Blue
         Me.GroupBox1.Location = New System.Drawing.Point(0, 0)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(1253, 239)
+        Me.GroupBox1.Size = New System.Drawing.Size(1257, 200)
         Me.GroupBox1.TabIndex = 0
         Me.GroupBox1.TabStop = False
         '
@@ -425,7 +426,7 @@ Partial Class DashboardDoctorConsult
         Me.TxtNote.Name = "TxtNote"
         Me.TxtNote.ReadOnly = True
         Me.TxtNote.ScrollBars = System.Windows.Forms.ScrollBars.Both
-        Me.TxtNote.Size = New System.Drawing.Size(1241, 85)
+        Me.TxtNote.Size = New System.Drawing.Size(1245, 72)
         Me.TxtNote.TabIndex = 17
         '
         'Label28
@@ -465,9 +466,9 @@ Partial Class DashboardDoctorConsult
         Me.GroupBox2.Controls.Add(Me.Label2)
         Me.GroupBox2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox2.ForeColor = System.Drawing.Color.Blue
-        Me.GroupBox2.Location = New System.Drawing.Point(4, 133)
+        Me.GroupBox2.Location = New System.Drawing.Point(4, 110)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(1247, 102)
+        Me.GroupBox2.Size = New System.Drawing.Size(1251, 86)
         Me.GroupBox2.TabIndex = 1
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "New Visual Acuity"
@@ -668,7 +669,7 @@ Partial Class DashboardDoctorConsult
         Me.UiTabPage9.Controls.Add(Me.GridOT)
         Me.UiTabPage9.Location = New System.Drawing.Point(1, 28)
         Me.UiTabPage9.Name = "UiTabPage9"
-        Me.UiTabPage9.Size = New System.Drawing.Size(1257, 491)
+        Me.UiTabPage9.Size = New System.Drawing.Size(1257, 200)
         Me.UiTabPage9.TabStop = True
         Me.UiTabPage9.Text = "     Operation Note History    "
         '
@@ -692,7 +693,7 @@ Partial Class DashboardDoctorConsult
         Me.GridOT.Name = "GridOT"
         Me.GridOT.RecordNavigator = True
         Me.GridOT.RowFormatStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Center
-        Me.GridOT.Size = New System.Drawing.Size(1257, 491)
+        Me.GridOT.Size = New System.Drawing.Size(1257, 200)
         Me.GridOT.TabIndex = 4
         Me.GridOT.VisualStyle = Janus.Windows.GridEX.VisualStyle.Office2003
         '
@@ -737,7 +738,7 @@ Partial Class DashboardDoctorConsult
         '
         Me.SplitContainer2.Panel2.AutoScroll = True
         Me.SplitContainer2.Panel2.Controls.Add(Me.GroupBox5)
-        Me.SplitContainer2.Size = New System.Drawing.Size(1259, 1045)
+        Me.SplitContainer2.Size = New System.Drawing.Size(1261, 1047)
         Me.SplitContainer2.SplitterDistance = 253
         Me.SplitContainer2.TabIndex = 0
         '
@@ -748,7 +749,7 @@ Partial Class DashboardDoctorConsult
         Me.GroupBox4.ForeColor = System.Drawing.Color.Blue
         Me.GroupBox4.Location = New System.Drawing.Point(0, 0)
         Me.GroupBox4.Name = "GroupBox4"
-        Me.GroupBox4.Size = New System.Drawing.Size(1257, 251)
+        Me.GroupBox4.Size = New System.Drawing.Size(1259, 251)
         Me.GroupBox4.TabIndex = 8
         Me.GroupBox4.TabStop = False
         Me.GroupBox4.Text = "History"
@@ -769,8 +770,9 @@ Partial Class DashboardDoctorConsult
         Me.GridHistoy.Name = "GridHistoy"
         Me.GridHistoy.RecordNavigator = True
         Me.GridHistoy.RowFormatStyle.FontSize = 12.0!
-        Me.GridHistoy.Size = New System.Drawing.Size(1251, 226)
+        Me.GridHistoy.Size = New System.Drawing.Size(1253, 226)
         Me.GridHistoy.TabIndex = 7
+        Me.GridHistoy.VisualStyle = Janus.Windows.GridEX.VisualStyle.Office2003
         '
         'GroupBox5
         '
@@ -779,7 +781,7 @@ Partial Class DashboardDoctorConsult
         Me.GroupBox5.ForeColor = System.Drawing.Color.Blue
         Me.GroupBox5.Location = New System.Drawing.Point(0, 0)
         Me.GroupBox5.Name = "GroupBox5"
-        Me.GroupBox5.Size = New System.Drawing.Size(1257, 786)
+        Me.GroupBox5.Size = New System.Drawing.Size(1259, 788)
         Me.GroupBox5.TabIndex = 0
         Me.GroupBox5.TabStop = False
         Me.GroupBox5.Text = "History Detail"
@@ -801,7 +803,7 @@ Partial Class DashboardDoctorConsult
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel1.Location = New System.Drawing.Point(3, 22)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(1251, 761)
+        Me.Panel1.Size = New System.Drawing.Size(1253, 763)
         Me.Panel1.TabIndex = 0
         '
         'TxtLaboratory
@@ -882,11 +884,12 @@ Partial Class DashboardDoctorConsult
         'UiTab2
         '
         Me.UiTab2.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.UiTab2.Location = New System.Drawing.Point(0, 105)
+        Me.UiTab2.Location = New System.Drawing.Point(0, 107)
         Me.UiTab2.Name = "UiTab2"
         Me.UiTab2.Size = New System.Drawing.Size(1535, 639)
         Me.UiTab2.TabIndex = 52
         Me.UiTab2.TabPages.AddRange(New Janus.Windows.UI.Tab.UITabPage() {Me.UiTabPage4})
+        Me.UiTab2.VisualStyle = Janus.Windows.UI.Tab.TabVisualStyle.Office2007
         '
         'UiTabPage4
         '
@@ -909,7 +912,7 @@ Partial Class DashboardDoctorConsult
         Me.UiTabPage4.Controls.Add(Me.GroupMangement)
         Me.UiTabPage4.Location = New System.Drawing.Point(1, 28)
         Me.UiTabPage4.Name = "UiTabPage4"
-        Me.UiTabPage4.Size = New System.Drawing.Size(1531, 608)
+        Me.UiTabPage4.Size = New System.Drawing.Size(1533, 610)
         Me.UiTabPage4.TabStop = True
         Me.UiTabPage4.Text = "      Diagnosis(ICD-10)      "
         '
@@ -954,13 +957,14 @@ Partial Class DashboardDoctorConsult
         Me.UiTab3.Size = New System.Drawing.Size(2041, 399)
         Me.UiTab3.TabIndex = 52
         Me.UiTab3.TabPages.AddRange(New Janus.Windows.UI.Tab.UITabPage() {Me.UiTabPage7, Me.UiTabPage8})
+        Me.UiTab3.VisualStyle = Janus.Windows.UI.Tab.TabVisualStyle.Office2007
         '
         'UiTabPage7
         '
         Me.UiTabPage7.Controls.Add(Me.GridPrescription)
         Me.UiTabPage7.Location = New System.Drawing.Point(1, 28)
         Me.UiTabPage7.Name = "UiTabPage7"
-        Me.UiTabPage7.Size = New System.Drawing.Size(2037, 368)
+        Me.UiTabPage7.Size = New System.Drawing.Size(2039, 370)
         Me.UiTabPage7.TabStop = True
         Me.UiTabPage7.Text = "      Prescription     "
         '
@@ -981,7 +985,7 @@ Partial Class DashboardDoctorConsult
         Me.GridPrescription.Location = New System.Drawing.Point(0, 0)
         Me.GridPrescription.Name = "GridPrescription"
         Me.GridPrescription.RecordNavigator = True
-        Me.GridPrescription.Size = New System.Drawing.Size(2014, 438)
+        Me.GridPrescription.Size = New System.Drawing.Size(2016, 440)
         Me.GridPrescription.TabIndex = 1
         Me.GridPrescription.VisualStyle = Janus.Windows.GridEX.VisualStyle.Office2003
         '
@@ -1664,6 +1668,7 @@ Partial Class DashboardDoctorConsult
         Me.UiTab1.TabsStateStyles.HotFormatStyle.ForeColor = System.Drawing.Color.Blue
         Me.UiTab1.TabStripFormatStyle.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.UiTab1.TabStripFormatStyle.ForeColor = System.Drawing.Color.Red
+        Me.UiTab1.VisualStyle = Janus.Windows.UI.Tab.TabVisualStyle.Office2007
         '
         'UiTabPage1
         '
@@ -1671,7 +1676,7 @@ Partial Class DashboardDoctorConsult
         Me.UiTabPage1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.UiTabPage1.Location = New System.Drawing.Point(1, 28)
         Me.UiTabPage1.Name = "UiTabPage1"
-        Me.UiTabPage1.Size = New System.Drawing.Size(1259, 1045)
+        Me.UiTabPage1.Size = New System.Drawing.Size(1261, 1047)
         Me.UiTabPage1.TabStop = True
         Me.UiTabPage1.Text = "   &Patient Waiting Exam   "
         '
@@ -1681,7 +1686,7 @@ Partial Class DashboardDoctorConsult
         Me.UiTabPage3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.UiTabPage3.Location = New System.Drawing.Point(1, 28)
         Me.UiTabPage3.Name = "UiTabPage3"
-        Me.UiTabPage3.Size = New System.Drawing.Size(1259, 1045)
+        Me.UiTabPage3.Size = New System.Drawing.Size(1261, 1047)
         Me.UiTabPage3.TabStop = True
         Me.UiTabPage3.Text = "   Patient Exam History   "
         '
@@ -1690,7 +1695,7 @@ Partial Class DashboardDoctorConsult
         Me.UiTabPage2.Controls.Add(Me.GridFollowUp)
         Me.UiTabPage2.Location = New System.Drawing.Point(1, 28)
         Me.UiTabPage2.Name = "UiTabPage2"
-        Me.UiTabPage2.Size = New System.Drawing.Size(1259, 1045)
+        Me.UiTabPage2.Size = New System.Drawing.Size(1261, 1047)
         Me.UiTabPage2.TabStop = True
         Me.UiTabPage2.Text = "Patient Follow Up Today"
         '
@@ -1715,14 +1720,15 @@ Partial Class DashboardDoctorConsult
         Me.GridFollowUp.Name = "GridFollowUp"
         Me.GridFollowUp.RecordNavigator = True
         Me.GridFollowUp.RowFormatStyle.FontSize = 12.0!
-        Me.GridFollowUp.Size = New System.Drawing.Size(1259, 1045)
+        Me.GridFollowUp.Size = New System.Drawing.Size(1261, 1047)
         Me.GridFollowUp.TabIndex = 7
+        Me.GridFollowUp.VisualStyle = Janus.Windows.GridEX.VisualStyle.Office2007
         '
         'DashboardDoctorConsult
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.BackColor = System.Drawing.SystemColors.Control
+        Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(196, Byte), Integer), CType(CType(218, Byte), Integer), CType(CType(250, Byte), Integer))
         Me.Controls.Add(Me.UiTab1)
         Me.Controls.Add(Me.ToolStrip1)
         Me.Name = "DashboardDoctorConsult"

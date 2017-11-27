@@ -34,9 +34,9 @@ Partial Class DashMedicalCertificate
         Me.BtnPrintCertifcate = New System.Windows.Forms.ToolStripButton
         Me.ToolStripSeparator4 = New System.Windows.Forms.ToolStripSeparator
         Me.BtnRefresh = New System.Windows.Forms.ToolStripButton
-        Me.GridCertificate = New Janus.Windows.GridEX.GridEX
         Me.ToolStripSeparator5 = New System.Windows.Forms.ToolStripSeparator
         Me.ToolStripButton1 = New System.Windows.Forms.ToolStripButton
+        Me.GridCertificate = New Janus.Windows.GridEX.GridEX
         Me.ToolStrip1.SuspendLayout()
         CType(Me.GridCertificate, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -138,6 +138,24 @@ Partial Class DashMedicalCertificate
         Me.BtnRefresh.Text = "   Refresh   "
         Me.BtnRefresh.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
         '
+        'ToolStripSeparator5
+        '
+        Me.ToolStripSeparator5.Name = "ToolStripSeparator5"
+        Me.ToolStripSeparator5.Size = New System.Drawing.Size(6, 52)
+        '
+        'ToolStripButton1
+        '
+        Me.ToolStripButton1.BackgroundImage = CType(resources.GetObject("ToolStripButton1.BackgroundImage"), System.Drawing.Image)
+        Me.ToolStripButton1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.ToolStripButton1.Font = New System.Drawing.Font("Segoe UI", 11.0!)
+        Me.ToolStripButton1.ForeColor = System.Drawing.Color.White
+        Me.ToolStripButton1.Image = Global.HospitalMS.My.Resources.Resources.refresh
+        Me.ToolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.ToolStripButton1.Name = "ToolStripButton1"
+        Me.ToolStripButton1.Size = New System.Drawing.Size(91, 49)
+        Me.ToolStripButton1.Text = "   View All   "
+        Me.ToolStripButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
+        '
         'GridCertificate
         '
         Me.GridCertificate.AllowEdit = Janus.Windows.GridEX.InheritableBoolean.[False]
@@ -162,24 +180,6 @@ Partial Class DashMedicalCertificate
         Me.GridCertificate.Size = New System.Drawing.Size(936, 603)
         Me.GridCertificate.TabIndex = 1
         Me.GridCertificate.VisualStyle = Janus.Windows.GridEX.VisualStyle.Office2003
-        '
-        'ToolStripSeparator5
-        '
-        Me.ToolStripSeparator5.Name = "ToolStripSeparator5"
-        Me.ToolStripSeparator5.Size = New System.Drawing.Size(6, 52)
-        '
-        'ToolStripButton1
-        '
-        Me.ToolStripButton1.BackgroundImage = CType(resources.GetObject("ToolStripButton1.BackgroundImage"), System.Drawing.Image)
-        Me.ToolStripButton1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.ToolStripButton1.Font = New System.Drawing.Font("Segoe UI", 11.0!)
-        Me.ToolStripButton1.ForeColor = System.Drawing.Color.White
-        Me.ToolStripButton1.Image = Global.HospitalMS.My.Resources.Resources.refresh
-        Me.ToolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.ToolStripButton1.Name = "ToolStripButton1"
-        Me.ToolStripButton1.Size = New System.Drawing.Size(91, 49)
-        Me.ToolStripButton1.Text = "   View All   "
-        Me.ToolStripButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
         '
         'DashMedicalCertificate
         '

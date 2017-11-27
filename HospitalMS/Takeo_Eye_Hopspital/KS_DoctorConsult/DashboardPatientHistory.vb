@@ -260,21 +260,21 @@
     End Sub
 
     Private Sub TxtPatientNo_KeyDown(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles TxtPatientNo.KeyDown
-        If e.KeyCode = Keys.Enter Then
-            BtnFind_Click(sender, e)
-        End If
+        'If e.KeyCode = Keys.Enter Then
+        '    BtnFind_Click(sender, e)
+        'End If
     End Sub
 
     Private Sub TxtPatientName_KeyDown(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles TxtPatientName.KeyDown
-        If e.KeyCode = Keys.Enter Then
-            BtnFind_Click(sender, e)
-        End If
+        'If e.KeyCode = Keys.Enter Then
+        '    BtnFind_Click(sender, e)
+        'End If
     End Sub
 
     Private Sub TxtTelephone_KeyDown(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles TxtTelephone.KeyDown
-        If e.KeyCode = Keys.Enter Then
-            BtnFind_Click(sender, e)
-        End If
+        'If e.KeyCode = Keys.Enter Then
+        '    BtnFind_Click(sender, e)
+        'End If
     End Sub
 
  

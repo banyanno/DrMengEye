@@ -281,7 +281,7 @@ Partial Class DashboardPatientHistory
         Me.TxtTelephone.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TxtTelephone.Location = New System.Drawing.Point(10, 166)
         Me.TxtTelephone.Name = "TxtTelephone"
-        Me.TxtTelephone.Size = New System.Drawing.Size(186, 26)
+        Me.TxtTelephone.Size = New System.Drawing.Size(263, 26)
         Me.TxtTelephone.TabIndex = 6
         '
         'TxtPatientName
@@ -290,22 +290,22 @@ Partial Class DashboardPatientHistory
         Me.TxtPatientName.Font = New System.Drawing.Font("Kh Battambang", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TxtPatientName.Location = New System.Drawing.Point(10, 103)
         Me.TxtPatientName.Name = "TxtPatientName"
-        Me.TxtPatientName.Size = New System.Drawing.Size(186, 37)
+        Me.TxtPatientName.Size = New System.Drawing.Size(263, 37)
         Me.TxtPatientName.TabIndex = 5
         '
         'TxtPatientNo
         '
         Me.TxtPatientNo.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TxtPatientNo.Location = New System.Drawing.Point(10, 44)
+        Me.TxtPatientNo.Location = New System.Drawing.Point(10, 40)
         Me.TxtPatientNo.Name = "TxtPatientNo"
-        Me.TxtPatientNo.Size = New System.Drawing.Size(186, 26)
+        Me.TxtPatientNo.Size = New System.Drawing.Size(263, 26)
         Me.TxtPatientNo.TabIndex = 4
         '
         'RadTelephone
         '
         Me.RadTelephone.AutoSize = True
         Me.RadTelephone.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.RadTelephone.Location = New System.Drawing.Point(10, 135)
+        Me.RadTelephone.Location = New System.Drawing.Point(10, 144)
         Me.RadTelephone.Name = "RadTelephone"
         Me.RadTelephone.Size = New System.Drawing.Size(98, 21)
         Me.RadTelephone.TabIndex = 2
