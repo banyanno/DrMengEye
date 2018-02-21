@@ -53,7 +53,7 @@
 
     Sub ShowOperationHistory(ByVal PatientNo As Double)
 
-        DA_OP.FillBy1(DS_OPERATION.View_OTRegistration, PatientNo)
+        DA_OP.FillBy1(DS_OPERATION.View_OTRegistration, PatientNo, Now.Date, Now.Date)
         GridOT.DataSource = DS_OPERATION.View_OTRegistration
         DA_ScleralBuckling.Fill(DS_OPERATION.S_OPER_SCLERAL_BUCKLING)
         DA_Intravitreal_Injection.Fill(DS_OPERATION.S_OPER_INJECTION)

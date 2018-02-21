@@ -5370,8 +5370,7 @@
       <DependentUpon>DSOPERATIONNOTE.xsd</DependentUpon>
     </None>
     <None Include="Takeo_Eye_Hopspital\ViewsEye\ward\Operation\OT Registration\OperationNote\DSOPERATIONNOTE.xsd">
-      <SubType>
-      </SubType>
+      <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
       <LastGenOutput>DSOPERATIONNOTE.Designer.vb</LastGenOutput>
     </None>

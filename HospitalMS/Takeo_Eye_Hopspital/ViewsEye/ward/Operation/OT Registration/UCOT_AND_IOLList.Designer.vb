@@ -22,7 +22,7 @@ Partial Class UCOT_AND_IOLList
         Me.components = New System.ComponentModel.Container
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(UCOT_AND_IOLList))
         Dim GridOT_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle
+        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle
         Me.GroupBox1 = New System.Windows.Forms.GroupBox
         Me.PictureBox1 = New System.Windows.Forms.PictureBox
         Me.cmdUndoDeleteOT = New System.Windows.Forms.Button
@@ -63,7 +63,6 @@ Partial Class UCOT_AND_IOLList
         Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator
         Me.MenuOperationReady = New System.Windows.Forms.ToolStripMenuItem
         Me.ReadyToolStripMenuItem = New System.Windows.Forms.ToolStripSeparator
-        Me.DeleteOTRegistrationToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
         Me.ScleralBucklingToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
         Me.ToolStripMenuItem9 = New System.Windows.Forms.ToolStripSeparator
         Me.IntravitrealInjectionToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
@@ -79,6 +78,8 @@ Partial Class UCOT_AND_IOLList
         Me.TrapbeculectomyToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
         Me.ToolStripMenuItem15 = New System.Windows.Forms.ToolStripSeparator
         Me.PterygiumExcisionAndGraftToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
+        Me.ToolStripMenuItem16 = New System.Windows.Forms.ToolStripSeparator
+        Me.DeleteOTRegistrationToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
         Me.GroupBox3 = New System.Windows.Forms.GroupBox
         Me.GridIOL = New System.Windows.Forms.DataGridView
         Me.IOLNo = New System.Windows.Forms.DataGridViewTextBoxColumn
@@ -95,7 +96,10 @@ Partial Class UCOT_AND_IOLList
         Me.ContextMenuIOL = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.DeleteIOLToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
         Me.bgCutstock = New System.ComponentModel.BackgroundWorker
-        Me.ToolStripMenuItem16 = New System.Windows.Forms.ToolStripSeparator
+        Me.DtFrom = New System.Windows.Forms.DateTimePicker
+        Me.DtTo = New System.Windows.Forms.DateTimePicker
+        Me.Label5 = New System.Windows.Forms.Label
+        Me.Label6 = New System.Windows.Forms.Label
         Me.GroupBox1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox5.SuspendLayout()
@@ -236,14 +240,18 @@ Partial Class UCOT_AND_IOLList
         '
         'GroupBox4
         '
+        Me.GroupBox4.Controls.Add(Me.DtTo)
+        Me.GroupBox4.Controls.Add(Me.Label6)
         Me.GroupBox4.Controls.Add(Me.BtnStatistic)
+        Me.GroupBox4.Controls.Add(Me.Label5)
+        Me.GroupBox4.Controls.Add(Me.DtFrom)
         Me.GroupBox4.Controls.Add(Me.BtnShow)
         Me.GroupBox4.Controls.Add(Me.TxtPatientNo)
         Me.GroupBox4.Controls.Add(Me.Label1)
         Me.GroupBox4.ForeColor = System.Drawing.Color.Blue
-        Me.GroupBox4.Location = New System.Drawing.Point(7, 11)
+        Me.GroupBox4.Location = New System.Drawing.Point(7, 9)
         Me.GroupBox4.Name = "GroupBox4"
-        Me.GroupBox4.Size = New System.Drawing.Size(453, 85)
+        Me.GroupBox4.Size = New System.Drawing.Size(453, 90)
         Me.GroupBox4.TabIndex = 0
         Me.GroupBox4.TabStop = False
         Me.GroupBox4.Text = "Find Patient Waiting Operate"
@@ -256,9 +264,9 @@ Partial Class UCOT_AND_IOLList
         Me.BtnStatistic.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.BtnStatistic.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnStatistic.ForeColor = System.Drawing.Color.White
-        Me.BtnStatistic.Location = New System.Drawing.Point(326, 28)
+        Me.BtnStatistic.Location = New System.Drawing.Point(326, 56)
         Me.BtnStatistic.Name = "BtnStatistic"
-        Me.BtnStatistic.Size = New System.Drawing.Size(107, 35)
+        Me.BtnStatistic.Size = New System.Drawing.Size(107, 28)
         Me.BtnStatistic.TabIndex = 3
         Me.BtnStatistic.Text = "Statistic"
         Me.BtnStatistic.UseVisualStyleBackColor = True
@@ -271,9 +279,9 @@ Partial Class UCOT_AND_IOLList
         Me.BtnShow.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.BtnShow.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnShow.ForeColor = System.Drawing.Color.White
-        Me.BtnShow.Location = New System.Drawing.Point(231, 30)
+        Me.BtnShow.Location = New System.Drawing.Point(328, 25)
         Me.BtnShow.Name = "BtnShow"
-        Me.BtnShow.Size = New System.Drawing.Size(89, 32)
+        Me.BtnShow.Size = New System.Drawing.Size(105, 27)
         Me.BtnShow.TabIndex = 2
         Me.BtnShow.Text = "&Find"
         Me.BtnShow.UseVisualStyleBackColor = True
@@ -281,15 +289,15 @@ Partial Class UCOT_AND_IOLList
         'TxtPatientNo
         '
         Me.TxtPatientNo.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TxtPatientNo.Location = New System.Drawing.Point(6, 34)
+        Me.TxtPatientNo.Location = New System.Drawing.Point(71, 55)
         Me.TxtPatientNo.Name = "TxtPatientNo"
-        Me.TxtPatientNo.Size = New System.Drawing.Size(220, 29)
+        Me.TxtPatientNo.Size = New System.Drawing.Size(249, 29)
         Me.TxtPatientNo.TabIndex = 1
         '
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(3, 18)
+        Me.Label1.Location = New System.Drawing.Point(7, 65)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(60, 13)
         Me.Label1.TabIndex = 0
@@ -339,7 +347,7 @@ Partial Class UCOT_AND_IOLList
         Me.ContextMenuNewInPatient.Font = New System.Drawing.Font("Segoe UI", 12.0!)
         Me.ContextMenuNewInPatient.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.OperationNote, Me.ToolStripSeparator4, Me.ToolStripMenuItem1, Me.ToolStripSeparator1, Me.MenuOperationReady, Me.ReadyToolStripMenuItem, Me.ScleralBucklingToolStripMenuItem, Me.ToolStripMenuItem9, Me.IntravitrealInjectionToolStripMenuItem, Me.ToolStripMenuItem10, Me.GeneralOperativeToolStripMenuItem, Me.ToolStripMenuItem11, Me.PhacoemulsificationToolStripMenuItem, Me.ToolStripMenuItem12, Me.ExtracapsularCataractExtractionECCEToolStripMenuItem, Me.ToolStripMenuItem13, Me.ParPlanaVitrectomyToolStripMenuItem, Me.ToolStripMenuItem14, Me.TrapbeculectomyToolStripMenuItem, Me.ToolStripMenuItem15, Me.PterygiumExcisionAndGraftToolStripMenuItem, Me.ToolStripMenuItem16, Me.DeleteOTRegistrationToolStripMenuItem})
         Me.ContextMenuNewInPatient.Name = "ContextMenuNewInPatient"
-        Me.ContextMenuNewInPatient.Size = New System.Drawing.Size(372, 404)
+        Me.ContextMenuNewInPatient.Size = New System.Drawing.Size(372, 382)
         '
         'OperationNote
         '
@@ -464,13 +472,6 @@ Partial Class UCOT_AND_IOLList
         Me.ReadyToolStripMenuItem.Size = New System.Drawing.Size(368, 6)
         Me.ReadyToolStripMenuItem.Visible = False
         '
-        'DeleteOTRegistrationToolStripMenuItem
-        '
-        Me.DeleteOTRegistrationToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.DeleteOTRegistrationToolStripMenuItem.Name = "DeleteOTRegistrationToolStripMenuItem"
-        Me.DeleteOTRegistrationToolStripMenuItem.Size = New System.Drawing.Size(371, 26)
-        Me.DeleteOTRegistrationToolStripMenuItem.Text = "Delete OT Registration"
-        '
         'ScleralBucklingToolStripMenuItem
         '
         Me.ScleralBucklingToolStripMenuItem.Name = "ScleralBucklingToolStripMenuItem"
@@ -554,6 +555,18 @@ Partial Class UCOT_AND_IOLList
         Me.PterygiumExcisionAndGraftToolStripMenuItem.Size = New System.Drawing.Size(371, 26)
         Me.PterygiumExcisionAndGraftToolStripMenuItem.Text = "8. Pterygium Excision and Graft"
         '
+        'ToolStripMenuItem16
+        '
+        Me.ToolStripMenuItem16.Name = "ToolStripMenuItem16"
+        Me.ToolStripMenuItem16.Size = New System.Drawing.Size(368, 6)
+        '
+        'DeleteOTRegistrationToolStripMenuItem
+        '
+        Me.DeleteOTRegistrationToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.DeleteOTRegistrationToolStripMenuItem.Name = "DeleteOTRegistrationToolStripMenuItem"
+        Me.DeleteOTRegistrationToolStripMenuItem.Size = New System.Drawing.Size(371, 26)
+        Me.DeleteOTRegistrationToolStripMenuItem.Text = "Delete OT Registration"
+        '
         'GroupBox3
         '
         Me.GroupBox3.Controls.Add(Me.GridIOL)
@@ -611,8 +624,8 @@ Partial Class UCOT_AND_IOLList
         'NameKhmer
         '
         Me.NameKhmer.DataPropertyName = "NameKhmer"
-        DataGridViewCellStyle1.Font = New System.Drawing.Font("Wat Phnom T3", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.NameKhmer.DefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle4.Font = New System.Drawing.Font("Wat Phnom T3", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.NameKhmer.DefaultCellStyle = DataGridViewCellStyle4
         Me.NameKhmer.HeaderText = "Khmer Name"
         Me.NameKhmer.Name = "NameKhmer"
         Me.NameKhmer.ReadOnly = True
@@ -685,10 +698,41 @@ Partial Class UCOT_AND_IOLList
         Me.DeleteIOLToolStripMenuItem.Size = New System.Drawing.Size(128, 22)
         Me.DeleteIOLToolStripMenuItem.Text = "Delete IOL"
         '
-        'ToolStripMenuItem16
+        'DtFrom
         '
-        Me.ToolStripMenuItem16.Name = "ToolStripMenuItem16"
-        Me.ToolStripMenuItem16.Size = New System.Drawing.Size(368, 6)
+        Me.DtFrom.CustomFormat = "dd/MM/yyyy"
+        Me.DtFrom.Format = System.Windows.Forms.DateTimePickerFormat.Custom
+        Me.DtFrom.Location = New System.Drawing.Point(71, 28)
+        Me.DtFrom.Name = "DtFrom"
+        Me.DtFrom.Size = New System.Drawing.Size(94, 20)
+        Me.DtFrom.TabIndex = 13
+        '
+        'DtTo
+        '
+        Me.DtTo.CustomFormat = "dd/MM/yyyy"
+        Me.DtTo.Format = System.Windows.Forms.DateTimePickerFormat.Custom
+        Me.DtTo.Location = New System.Drawing.Point(200, 28)
+        Me.DtTo.Name = "DtTo"
+        Me.DtTo.Size = New System.Drawing.Size(117, 20)
+        Me.DtTo.TabIndex = 14
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Location = New System.Drawing.Point(7, 35)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(33, 13)
+        Me.Label5.TabIndex = 15
+        Me.Label5.Text = "From:"
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Location = New System.Drawing.Point(171, 35)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(23, 13)
+        Me.Label6.TabIndex = 16
+        Me.Label6.Text = "To:"
         '
         'UCOT_AND_IOLList
         '
@@ -787,5 +831,9 @@ Partial Class UCOT_AND_IOLList
     Friend WithEvents ToolStripMenuItem15 As System.Windows.Forms.ToolStripSeparator
     Friend WithEvents PterygiumExcisionAndGraftToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ToolStripMenuItem16 As System.Windows.Forms.ToolStripSeparator
+    Friend WithEvents Label6 As System.Windows.Forms.Label
+    Friend WithEvents Label5 As System.Windows.Forms.Label
+    Friend WithEvents DtTo As System.Windows.Forms.DateTimePicker
+    Friend WithEvents DtFrom As System.Windows.Forms.DateTimePicker
 
 End Class

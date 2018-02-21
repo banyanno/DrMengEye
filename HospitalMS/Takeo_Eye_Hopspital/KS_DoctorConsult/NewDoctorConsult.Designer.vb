@@ -35,8 +35,10 @@ Partial Class NewDoctorConsult
         Me.TxtIOPRE = New System.Windows.Forms.TextBox
         Me.TxtLLE = New System.Windows.Forms.TextBox
         Me.TxtRRE = New System.Windows.Forms.TextBox
+        Me.TxtHistory = New System.Windows.Forms.TextBox
         Me.cboInvestigate = New System.Windows.Forms.ComboBox
         Me.CboLaser = New System.Windows.Forms.ComboBox
+        Me.ChAddmitted = New System.Windows.Forms.CheckBox
         Me.TxtLREF = New System.Windows.Forms.TextBox
         Me.TxtRREF = New System.Windows.Forms.TextBox
         Me.TxtLPh = New System.Windows.Forms.TextBox
@@ -68,14 +70,18 @@ Partial Class NewDoctorConsult
         Me.DateFollowUp = New System.Windows.Forms.DateTimePicker
         Me.Label5 = New System.Windows.Forms.Label
         Me.GroupBox1 = New System.Windows.Forms.GroupBox
+        Me.MchLaborate = New System.Windows.Forms.CheckedListBox
         Me.TxtDiagnosisNote = New System.Windows.Forms.TextBox
+        Me.ChLaborat = New System.Windows.Forms.CheckBox
+        Me.ChInvestigate = New System.Windows.Forms.CheckBox
+        Me.MChInvestigate = New System.Windows.Forms.CheckedListBox
+        Me.ChLaser = New System.Windows.Forms.CheckBox
         Me.PictureBox1 = New System.Windows.Forms.PictureBox
         Me.LblConsult = New System.Windows.Forms.Label
-        Me.TxtHistory = New System.Windows.Forms.TextBox
+        Me.MchLaser = New System.Windows.Forms.CheckedListBox
         Me.TxtAgePatient = New System.Windows.Forms.TextBox
         Me.TxtTel = New System.Windows.Forms.TextBox
         Me.CboSexPatien = New System.Windows.Forms.ComboBox
-        Me.ChAddmitted = New System.Windows.Forms.CheckBox
         Me.LblInvestPrice = New System.Windows.Forms.Label
         Me.CboExamFee = New System.Windows.Forms.ComboBox
         Me.ChRefraction = New System.Windows.Forms.CheckBox
@@ -160,12 +166,6 @@ Partial Class NewDoctorConsult
         Me.Label48 = New System.Windows.Forms.Label
         Me.Label49 = New System.Windows.Forms.Label
         Me.CboDiagLeftEye = New System.Windows.Forms.TextBox
-        Me.MchLaborate = New System.Windows.Forms.CheckedListBox
-        Me.ChLaser = New System.Windows.Forms.CheckBox
-        Me.ChInvestigate = New System.Windows.Forms.CheckBox
-        Me.ChLaborat = New System.Windows.Forms.CheckBox
-        Me.MChInvestigate = New System.Windows.Forms.CheckedListBox
-        Me.MchLaser = New System.Windows.Forms.CheckedListBox
         Me.UiTabPage3 = New Janus.Windows.UI.Tab.UITabPage
         Me.GroupBox6 = New System.Windows.Forms.GroupBox
         Me.Button1 = New System.Windows.Forms.Button
@@ -338,6 +338,18 @@ Partial Class NewDoctorConsult
         Me.TxtRRE.TabIndex = 6
         Me.TxtRRE.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
+        'TxtHistory
+        '
+        Me.AutoDiagnosis.SetAutocompleteMenu(Me.TxtHistory, Nothing)
+        Me.TxtHistory.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.TxtHistory.Font = New System.Drawing.Font("Khmer OS Battambang", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TxtHistory.Location = New System.Drawing.Point(8, 19)
+        Me.TxtHistory.Multiline = True
+        Me.TxtHistory.Name = "TxtHistory"
+        Me.TxtHistory.ScrollBars = System.Windows.Forms.ScrollBars.Both
+        Me.TxtHistory.Size = New System.Drawing.Size(614, 67)
+        Me.TxtHistory.TabIndex = 1
+        '
         'cboInvestigate
         '
         Me.cboInvestigate.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
@@ -361,6 +373,20 @@ Partial Class NewDoctorConsult
         Me.CboLaser.Size = New System.Drawing.Size(164, 28)
         Me.CboLaser.TabIndex = 35
         Me.CboLaser.Visible = False
+        '
+        'ChAddmitted
+        '
+        Me.ChAddmitted.AutoSize = True
+        Me.ChAddmitted.BackColor = System.Drawing.Color.Transparent
+        Me.ChAddmitted.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
+        Me.ChAddmitted.ForeColor = System.Drawing.Color.Blue
+        Me.ChAddmitted.Location = New System.Drawing.Point(798, 45)
+        Me.ChAddmitted.Name = "ChAddmitted"
+        Me.ChAddmitted.Size = New System.Drawing.Size(192, 24)
+        Me.ChAddmitted.TabIndex = 17
+        Me.ChAddmitted.Text = "Addmittid: room charge"
+        Me.ChAddmitted.UseVisualStyleBackColor = False
+        Me.ChAddmitted.Visible = False
         '
         'TxtLREF
         '
@@ -732,10 +758,25 @@ Partial Class NewDoctorConsult
         Me.GroupBox1.ForeColor = System.Drawing.Color.Blue
         Me.GroupBox1.Location = New System.Drawing.Point(0, 0)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(1438, 252)
+        Me.GroupBox1.Size = New System.Drawing.Size(1436, 252)
         Me.GroupBox1.TabIndex = 0
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Patient Info"
+        '
+        'MchLaborate
+        '
+        Me.MchLaborate.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+                    Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.MchLaborate.CheckOnClick = True
+        Me.MchLaborate.Enabled = False
+        Me.MchLaborate.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.MchLaborate.FormattingEnabled = True
+        Me.MchLaborate.Items.AddRange(New Object() {"Check 1", "Check 2", "Check 3", "Check 4"})
+        Me.MchLaborate.Location = New System.Drawing.Point(527, 30)
+        Me.MchLaborate.Name = "MchLaborate"
+        Me.MchLaborate.Size = New System.Drawing.Size(147, 118)
+        Me.MchLaborate.Sorted = True
+        Me.MchLaborate.TabIndex = 2
         '
         'TxtDiagnosisNote
         '
@@ -745,6 +786,60 @@ Partial Class NewDoctorConsult
         Me.TxtDiagnosisNote.Size = New System.Drawing.Size(100, 26)
         Me.TxtDiagnosisNote.TabIndex = 79
         Me.TxtDiagnosisNote.Visible = False
+        '
+        'ChLaborat
+        '
+        Me.ChLaborat.AutoSize = True
+        Me.ChLaborat.BackColor = System.Drawing.Color.Transparent
+        Me.ChLaborat.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
+        Me.ChLaborat.ForeColor = System.Drawing.Color.Blue
+        Me.ChLaborat.Location = New System.Drawing.Point(528, 8)
+        Me.ChLaborat.Name = "ChLaborat"
+        Me.ChLaborat.Size = New System.Drawing.Size(104, 24)
+        Me.ChLaborat.TabIndex = 1
+        Me.ChLaborat.Text = "Laboratory"
+        Me.ChLaborat.UseVisualStyleBackColor = False
+        '
+        'ChInvestigate
+        '
+        Me.ChInvestigate.AutoSize = True
+        Me.ChInvestigate.BackColor = System.Drawing.Color.Transparent
+        Me.ChInvestigate.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
+        Me.ChInvestigate.ForeColor = System.Drawing.Color.Blue
+        Me.ChInvestigate.Location = New System.Drawing.Point(375, 8)
+        Me.ChInvestigate.Name = "ChInvestigate"
+        Me.ChInvestigate.Size = New System.Drawing.Size(110, 24)
+        Me.ChInvestigate.TabIndex = 5
+        Me.ChInvestigate.Text = "Investigate:"
+        Me.ChInvestigate.UseVisualStyleBackColor = False
+        '
+        'MChInvestigate
+        '
+        Me.MChInvestigate.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+                    Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.MChInvestigate.CheckOnClick = True
+        Me.MChInvestigate.Enabled = False
+        Me.MChInvestigate.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.MChInvestigate.FormattingEnabled = True
+        Me.MChInvestigate.Items.AddRange(New Object() {"Check 1", "Check 2", "Check 3", "Check 4"})
+        Me.MChInvestigate.Location = New System.Drawing.Point(373, 32)
+        Me.MChInvestigate.Name = "MChInvestigate"
+        Me.MChInvestigate.Size = New System.Drawing.Size(147, 118)
+        Me.MChInvestigate.Sorted = True
+        Me.MChInvestigate.TabIndex = 0
+        '
+        'ChLaser
+        '
+        Me.ChLaser.AutoSize = True
+        Me.ChLaser.BackColor = System.Drawing.Color.Transparent
+        Me.ChLaser.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
+        Me.ChLaser.ForeColor = System.Drawing.Color.Blue
+        Me.ChLaser.Location = New System.Drawing.Point(221, 8)
+        Me.ChLaser.Name = "ChLaser"
+        Me.ChLaser.Size = New System.Drawing.Size(68, 24)
+        Me.ChLaser.TabIndex = 3
+        Me.ChLaser.Text = "Laser"
+        Me.ChLaser.UseVisualStyleBackColor = False
         '
         'PictureBox1
         '
@@ -766,17 +861,20 @@ Partial Class NewDoctorConsult
         Me.LblConsult.Text = "0"
         Me.LblConsult.Visible = False
         '
-        'TxtHistory
+        'MchLaser
         '
-        Me.AutoDiagnosis.SetAutocompleteMenu(Me.TxtHistory, Nothing)
-        Me.TxtHistory.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.TxtHistory.Font = New System.Drawing.Font("Khmer OS Battambang", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TxtHistory.Location = New System.Drawing.Point(8, 19)
-        Me.TxtHistory.Multiline = True
-        Me.TxtHistory.Name = "TxtHistory"
-        Me.TxtHistory.ScrollBars = System.Windows.Forms.ScrollBars.Both
-        Me.TxtHistory.Size = New System.Drawing.Size(614, 67)
-        Me.TxtHistory.TabIndex = 1
+        Me.MchLaser.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+                    Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.MchLaser.CheckOnClick = True
+        Me.MchLaser.Enabled = False
+        Me.MchLaser.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.MchLaser.FormattingEnabled = True
+        Me.MchLaser.Items.AddRange(New Object() {"Check 1", "Check 2", "Check 3", "Check 4"})
+        Me.MchLaser.Location = New System.Drawing.Point(220, 32)
+        Me.MchLaser.Name = "MchLaser"
+        Me.MchLaser.Size = New System.Drawing.Size(147, 118)
+        Me.MchLaser.Sorted = True
+        Me.MchLaser.TabIndex = 4
         '
         'TxtAgePatient
         '
@@ -809,20 +907,6 @@ Partial Class NewDoctorConsult
         Me.CboSexPatien.Name = "CboSexPatien"
         Me.CboSexPatien.Size = New System.Drawing.Size(52, 28)
         Me.CboSexPatien.TabIndex = 5
-        '
-        'ChAddmitted
-        '
-        Me.ChAddmitted.AutoSize = True
-        Me.ChAddmitted.BackColor = System.Drawing.Color.Transparent
-        Me.ChAddmitted.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
-        Me.ChAddmitted.ForeColor = System.Drawing.Color.Blue
-        Me.ChAddmitted.Location = New System.Drawing.Point(798, 45)
-        Me.ChAddmitted.Name = "ChAddmitted"
-        Me.ChAddmitted.Size = New System.Drawing.Size(192, 24)
-        Me.ChAddmitted.TabIndex = 17
-        Me.ChAddmitted.Text = "Addmittid: room charge"
-        Me.ChAddmitted.UseVisualStyleBackColor = False
-        Me.ChAddmitted.Visible = False
         '
         'LblInvestPrice
         '
@@ -1113,7 +1197,7 @@ Partial Class NewDoctorConsult
         Me.Panel2.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel2.Location = New System.Drawing.Point(0, 0)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(1438, 784)
+        Me.Panel2.Size = New System.Drawing.Size(1436, 784)
         Me.Panel2.TabIndex = 0
         '
         'UiTab2
@@ -1122,7 +1206,7 @@ Partial Class NewDoctorConsult
         Me.UiTab2.Location = New System.Drawing.Point(0, 252)
         Me.UiTab2.Margin = New System.Windows.Forms.Padding(0)
         Me.UiTab2.Name = "UiTab2"
-        Me.UiTab2.Size = New System.Drawing.Size(1438, 532)
+        Me.UiTab2.Size = New System.Drawing.Size(1436, 532)
         Me.UiTab2.TabIndex = 1
         Me.UiTab2.TabPages.AddRange(New Janus.Windows.UI.Tab.UITabPage() {Me.UiTabPage1, Me.UiTabPage4, Me.UiTabPage3})
         Me.UiTab2.VisualStyle = Janus.Windows.UI.Tab.TabVisualStyle.Office2003
@@ -1155,7 +1239,7 @@ Partial Class NewDoctorConsult
         Me.UiTabPage1.Controls.Add(Me.CboManagerment)
         Me.UiTabPage1.Location = New System.Drawing.Point(1, 28)
         Me.UiTabPage1.Name = "UiTabPage1"
-        Me.UiTabPage1.Size = New System.Drawing.Size(1436, 503)
+        Me.UiTabPage1.Size = New System.Drawing.Size(1434, 503)
         Me.UiTabPage1.StateStyles.FormatStyle.FontSize = 12.0!
         Me.UiTabPage1.StateStyles.FormatStyle.ForeColor = System.Drawing.Color.Red
         Me.UiTabPage1.TabStop = True
@@ -1883,90 +1967,6 @@ Partial Class NewDoctorConsult
         Me.CboDiagLeftEye.TabIndex = 26
         Me.CboDiagLeftEye.Visible = False
         '
-        'MchLaborate
-        '
-        Me.MchLaborate.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-                    Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.MchLaborate.CheckOnClick = True
-        Me.MchLaborate.Enabled = False
-        Me.MchLaborate.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.MchLaborate.FormattingEnabled = True
-        Me.MchLaborate.Items.AddRange(New Object() {"Check 1", "Check 2", "Check 3", "Check 4"})
-        Me.MchLaborate.Location = New System.Drawing.Point(527, 30)
-        Me.MchLaborate.Name = "MchLaborate"
-        Me.MchLaborate.Size = New System.Drawing.Size(147, 118)
-        Me.MchLaborate.Sorted = True
-        Me.MchLaborate.TabIndex = 2
-        '
-        'ChLaser
-        '
-        Me.ChLaser.AutoSize = True
-        Me.ChLaser.BackColor = System.Drawing.Color.Transparent
-        Me.ChLaser.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
-        Me.ChLaser.ForeColor = System.Drawing.Color.Blue
-        Me.ChLaser.Location = New System.Drawing.Point(221, 8)
-        Me.ChLaser.Name = "ChLaser"
-        Me.ChLaser.Size = New System.Drawing.Size(68, 24)
-        Me.ChLaser.TabIndex = 3
-        Me.ChLaser.Text = "Laser"
-        Me.ChLaser.UseVisualStyleBackColor = False
-        '
-        'ChInvestigate
-        '
-        Me.ChInvestigate.AutoSize = True
-        Me.ChInvestigate.BackColor = System.Drawing.Color.Transparent
-        Me.ChInvestigate.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
-        Me.ChInvestigate.ForeColor = System.Drawing.Color.Blue
-        Me.ChInvestigate.Location = New System.Drawing.Point(375, 8)
-        Me.ChInvestigate.Name = "ChInvestigate"
-        Me.ChInvestigate.Size = New System.Drawing.Size(110, 24)
-        Me.ChInvestigate.TabIndex = 5
-        Me.ChInvestigate.Text = "Investigate:"
-        Me.ChInvestigate.UseVisualStyleBackColor = False
-        '
-        'ChLaborat
-        '
-        Me.ChLaborat.AutoSize = True
-        Me.ChLaborat.BackColor = System.Drawing.Color.Transparent
-        Me.ChLaborat.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
-        Me.ChLaborat.ForeColor = System.Drawing.Color.Blue
-        Me.ChLaborat.Location = New System.Drawing.Point(528, 8)
-        Me.ChLaborat.Name = "ChLaborat"
-        Me.ChLaborat.Size = New System.Drawing.Size(104, 24)
-        Me.ChLaborat.TabIndex = 1
-        Me.ChLaborat.Text = "Laboratory"
-        Me.ChLaborat.UseVisualStyleBackColor = False
-        '
-        'MChInvestigate
-        '
-        Me.MChInvestigate.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-                    Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.MChInvestigate.CheckOnClick = True
-        Me.MChInvestigate.Enabled = False
-        Me.MChInvestigate.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.MChInvestigate.FormattingEnabled = True
-        Me.MChInvestigate.Items.AddRange(New Object() {"Check 1", "Check 2", "Check 3", "Check 4"})
-        Me.MChInvestigate.Location = New System.Drawing.Point(373, 32)
-        Me.MChInvestigate.Name = "MChInvestigate"
-        Me.MChInvestigate.Size = New System.Drawing.Size(147, 118)
-        Me.MChInvestigate.Sorted = True
-        Me.MChInvestigate.TabIndex = 0
-        '
-        'MchLaser
-        '
-        Me.MchLaser.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-                    Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.MchLaser.CheckOnClick = True
-        Me.MchLaser.Enabled = False
-        Me.MchLaser.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.MchLaser.FormattingEnabled = True
-        Me.MchLaser.Items.AddRange(New Object() {"Check 1", "Check 2", "Check 3", "Check 4"})
-        Me.MchLaser.Location = New System.Drawing.Point(220, 32)
-        Me.MchLaser.Name = "MchLaser"
-        Me.MchLaser.Size = New System.Drawing.Size(147, 118)
-        Me.MchLaser.Sorted = True
-        Me.MchLaser.TabIndex = 4
-        '
         'UiTabPage3
         '
         Me.UiTabPage3.Controls.Add(Me.GridImageList)
@@ -2015,7 +2015,7 @@ Partial Class NewDoctorConsult
         Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripButton1, Me.ToolStripSeparator2, Me.BtnNewReferral, Me.ToolStripSeparator3, Me.BtnCertificate, Me.ToolStripSeparator5, Me.BtnViewHistory, Me.ToolStripSeparator4, Me.ToolStripButton2})
         Me.ToolStrip1.Location = New System.Drawing.Point(0, 0)
         Me.ToolStrip1.Name = "ToolStrip1"
-        Me.ToolStrip1.Size = New System.Drawing.Size(1440, 53)
+        Me.ToolStrip1.Size = New System.Drawing.Size(1438, 53)
         Me.ToolStrip1.TabIndex = 0
         Me.ToolStrip1.Text = "ToolStrip1"
         '
@@ -2112,7 +2112,7 @@ Partial Class NewDoctorConsult
         '
         Me.SplitContainer1.Panel2.Controls.Add(Me.AxAcroPDF1)
         Me.SplitContainer1.Panel2Collapsed = True
-        Me.SplitContainer1.Size = New System.Drawing.Size(1440, 786)
+        Me.SplitContainer1.Size = New System.Drawing.Size(1438, 786)
         Me.SplitContainer1.SplitterDistance = 974
         Me.SplitContainer1.TabIndex = 2
         '
@@ -2158,7 +2158,7 @@ Partial Class NewDoctorConsult
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(196, Byte), Integer), CType(CType(218, Byte), Integer), CType(CType(250, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(1440, 839)
+        Me.ClientSize = New System.Drawing.Size(1438, 839)
         Me.Controls.Add(Me.SplitContainer1)
         Me.Controls.Add(Me.ToolStrip1)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)

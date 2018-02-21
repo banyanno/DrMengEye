@@ -102,6 +102,10 @@ Partial Class DashboardPatientHistory
         Me.Label21 = New System.Windows.Forms.Label
         Me.Label22 = New System.Windows.Forms.Label
         Me.Label23 = New System.Windows.Forms.Label
+        Me.DtTo = New System.Windows.Forms.DateTimePicker
+        Me.Label6 = New System.Windows.Forms.Label
+        Me.Label5 = New System.Windows.Forms.Label
+        Me.DtFrom = New System.Windows.Forms.DateTimePicker
         Me.ToolStrip1.SuspendLayout()
         Me.SplitContainer1.Panel1.SuspendLayout()
         Me.SplitContainer1.Panel2.SuspendLayout()
@@ -194,6 +198,10 @@ Partial Class DashboardPatientHistory
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.DtTo)
+        Me.GroupBox1.Controls.Add(Me.Label6)
+        Me.GroupBox1.Controls.Add(Me.Label5)
+        Me.GroupBox1.Controls.Add(Me.DtFrom)
         Me.GroupBox1.Controls.Add(Me.GroupBox2)
         Me.GroupBox1.Controls.Add(Me.BtnFind)
         Me.GroupBox1.Controls.Add(Me.TxtTelephone)
@@ -220,9 +228,9 @@ Partial Class DashboardPatientHistory
         Me.GroupBox2.Controls.Add(Me.GridPatientInformation)
         Me.GroupBox2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox2.ForeColor = System.Drawing.Color.Blue
-        Me.GroupBox2.Location = New System.Drawing.Point(7, 236)
+        Me.GroupBox2.Location = New System.Drawing.Point(7, 308)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(282, 600)
+        Me.GroupBox2.Size = New System.Drawing.Size(282, 528)
         Me.GroupBox2.TabIndex = 9
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Patient List"
@@ -255,7 +263,7 @@ Partial Class DashboardPatientHistory
         Me.GridPatientInformation.SelectedFormatStyle.BackColorAlphaMode = Janus.Windows.GridEX.AlphaMode.Opaque
         Me.GridPatientInformation.SelectedInactiveFormatStyle.BackColor = System.Drawing.SystemColors.GrayText
         Me.GridPatientInformation.SelectedInactiveFormatStyle.BackColorAlphaMode = Janus.Windows.GridEX.AlphaMode.Opaque
-        Me.GridPatientInformation.Size = New System.Drawing.Size(276, 575)
+        Me.GridPatientInformation.Size = New System.Drawing.Size(276, 503)
         Me.GridPatientInformation.TabIndex = 3
         Me.GridPatientInformation.VisualStyle = Janus.Windows.GridEX.VisualStyle.Office2003
         '
@@ -268,7 +276,7 @@ Partial Class DashboardPatientHistory
         Me.BtnFind.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.BtnFind.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnFind.ForeColor = System.Drawing.Color.White
-        Me.BtnFind.Location = New System.Drawing.Point(9, 199)
+        Me.BtnFind.Location = New System.Drawing.Point(6, 259)
         Me.BtnFind.Name = "BtnFind"
         Me.BtnFind.Size = New System.Drawing.Size(116, 32)
         Me.BtnFind.TabIndex = 8
@@ -278,34 +286,34 @@ Partial Class DashboardPatientHistory
         'TxtTelephone
         '
         Me.TxtTelephone.Enabled = False
-        Me.TxtTelephone.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TxtTelephone.Location = New System.Drawing.Point(10, 166)
+        Me.TxtTelephone.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TxtTelephone.Location = New System.Drawing.Point(7, 226)
         Me.TxtTelephone.Name = "TxtTelephone"
-        Me.TxtTelephone.Size = New System.Drawing.Size(263, 26)
+        Me.TxtTelephone.Size = New System.Drawing.Size(263, 30)
         Me.TxtTelephone.TabIndex = 6
         '
         'TxtPatientName
         '
         Me.TxtPatientName.Enabled = False
         Me.TxtPatientName.Font = New System.Drawing.Font("Kh Battambang", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TxtPatientName.Location = New System.Drawing.Point(10, 103)
+        Me.TxtPatientName.Location = New System.Drawing.Point(7, 163)
         Me.TxtPatientName.Name = "TxtPatientName"
         Me.TxtPatientName.Size = New System.Drawing.Size(263, 37)
         Me.TxtPatientName.TabIndex = 5
         '
         'TxtPatientNo
         '
-        Me.TxtPatientNo.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TxtPatientNo.Location = New System.Drawing.Point(10, 40)
+        Me.TxtPatientNo.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TxtPatientNo.Location = New System.Drawing.Point(7, 100)
         Me.TxtPatientNo.Name = "TxtPatientNo"
-        Me.TxtPatientNo.Size = New System.Drawing.Size(263, 26)
+        Me.TxtPatientNo.Size = New System.Drawing.Size(263, 30)
         Me.TxtPatientNo.TabIndex = 4
         '
         'RadTelephone
         '
         Me.RadTelephone.AutoSize = True
         Me.RadTelephone.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.RadTelephone.Location = New System.Drawing.Point(10, 144)
+        Me.RadTelephone.Location = New System.Drawing.Point(7, 204)
         Me.RadTelephone.Name = "RadTelephone"
         Me.RadTelephone.Size = New System.Drawing.Size(98, 21)
         Me.RadTelephone.TabIndex = 2
@@ -317,7 +325,7 @@ Partial Class DashboardPatientHistory
         '
         Me.RadPatientName.AutoSize = True
         Me.RadPatientName.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.RadPatientName.Location = New System.Drawing.Point(10, 76)
+        Me.RadPatientName.Location = New System.Drawing.Point(7, 136)
         Me.RadPatientName.Name = "RadPatientName"
         Me.RadPatientName.Size = New System.Drawing.Size(115, 21)
         Me.RadPatientName.TabIndex = 1
@@ -330,7 +338,7 @@ Partial Class DashboardPatientHistory
         Me.RadPatientNo.AutoSize = True
         Me.RadPatientNo.Checked = True
         Me.RadPatientNo.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.RadPatientNo.Location = New System.Drawing.Point(10, 17)
+        Me.RadPatientNo.Location = New System.Drawing.Point(7, 77)
         Me.RadPatientNo.Name = "RadPatientNo"
         Me.RadPatientNo.Size = New System.Drawing.Size(96, 21)
         Me.RadPatientNo.TabIndex = 0
@@ -1044,6 +1052,42 @@ Partial Class DashboardPatientHistory
         Me.Label23.TabIndex = 0
         Me.Label23.Text = "RE"
         '
+        'DtTo
+        '
+        Me.DtTo.CustomFormat = "dd/MM/yyyy"
+        Me.DtTo.Format = System.Windows.Forms.DateTimePickerFormat.Custom
+        Me.DtTo.Location = New System.Drawing.Point(68, 51)
+        Me.DtTo.Name = "DtTo"
+        Me.DtTo.Size = New System.Drawing.Size(202, 26)
+        Me.DtTo.TabIndex = 18
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Location = New System.Drawing.Point(7, 57)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(31, 20)
+        Me.Label6.TabIndex = 20
+        Me.Label6.Text = "To:"
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Location = New System.Drawing.Point(7, 29)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(50, 20)
+        Me.Label5.TabIndex = 19
+        Me.Label5.Text = "From:"
+        '
+        'DtFrom
+        '
+        Me.DtFrom.CustomFormat = "dd/MM/yyyy"
+        Me.DtFrom.Format = System.Windows.Forms.DateTimePickerFormat.Custom
+        Me.DtFrom.Location = New System.Drawing.Point(68, 22)
+        Me.DtFrom.Name = "DtFrom"
+        Me.DtFrom.Size = New System.Drawing.Size(202, 26)
+        Me.DtFrom.TabIndex = 17
+        '
         'DashboardPatientHistory
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1165,5 +1209,9 @@ Partial Class DashboardPatientHistory
     Friend WithEvents BtnPrintPreview As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents TxtIOPLE As System.Windows.Forms.TextBox
     Friend WithEvents TxtIOPRE As System.Windows.Forms.TextBox
+    Friend WithEvents DtTo As System.Windows.Forms.DateTimePicker
+    Friend WithEvents Label6 As System.Windows.Forms.Label
+    Friend WithEvents Label5 As System.Windows.Forms.Label
+    Friend WithEvents DtFrom As System.Windows.Forms.DateTimePicker
 
 End Class

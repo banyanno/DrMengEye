@@ -25827,7 +25827,7 @@ Namespace DSOPERATIONNOTETableAdapters
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Private Sub InitCommandCollection()
-            Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(4) {}
+            Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(5) {}
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand
             Me._commandCollection(0).Connection = Me.Connection
             Me._commandCollection(0).CommandText = "SELECT OTNo, NewInPatientNo, PatientNo, NameKhmer, Age, Sex, Address, OperationTi"& _ 
@@ -25851,23 +25851,23 @@ Namespace DSOPERATIONNOTETableAdapters
                 " "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         Circulation, Compli, CreateDate, Status, DateOperate"& _ 
                 "d, Others, Waiting, DeleteOption, IOL_ID, IOL_ID_OLD, NameEng"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            V"& _ 
                 "iew_OTRegistration"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (Waiting = 3) AND (Status = 1) AND (DeleteOptio"& _ 
-                "n = 'False') AND (PatientNo = @PatientNo)"
+                "n = 'False') AND (PatientNo = @PatientNo) and"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"CreateDate between @DFrom and @DT"& _ 
+                "o"
             Me._commandCollection(2).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PatientNo", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "PatientNo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DFrom", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "CreateDate", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DTo", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "CreateDate", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(3) = New Global.System.Data.SqlClient.SqlCommand
             Me._commandCollection(3).Connection = Me.Connection
             Me._commandCollection(3).CommandText = "SELECT OTNo, NewInPatientNo, PatientNo, NameKhmer, Age, Sex, Address, OperationTi"& _ 
                 "me, Anesthesia, Anesthetist, Eye, OperationType, IOL, Surgeon, Assistant, Circul"& _ 
                 "ation, Compli, CreateDate, Status, DateOperated, Others, Waiting, DeleteOption, "& _ 
-                "IOL_ID, IOL_ID_OLD, NameEng FROM dbo.View_OTRegistration"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE Status='True'  A"& _ 
-                "ND DeleteOption='False' AND CAST(CONVERT(VARCHAR(10), DateOperated, 1) as DateTi"& _ 
-                "me) BETWEEN CAST(CONVERT(VARCHAR(10),CAST(@DateFrom AS DATETIME), 1) as Datetime"& _ 
-                ") AND CAST(CONVERT(VARCHAR(10),CAST(@DateTo  AS DATETIME), 1) as Datetime) AND P"& _ 
-                "atientNo=@PatientNo"
+                "IOL_ID, IOL_ID_OLD, NameEng FROM dbo.View_OTRegistration"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"where   (Waiting = 2) "& _ 
+                "AND (Status = 'False') AND (DeleteOption = 'False') AND CreateDate between @DFro"& _ 
+                "m and @DTo"
             Me._commandCollection(3).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateFrom", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateTo", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PatientNo", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "PatientNo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DFrom", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "CreateDate", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DTo", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "CreateDate", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(4) = New Global.System.Data.SqlClient.SqlCommand
             Me._commandCollection(4).Connection = Me.Connection
             Me._commandCollection(4).CommandText = "SELECT OTNo, NewInPatientNo, PatientNo, NameKhmer, Age, Sex, Address, OperationTi"& _ 
@@ -25876,10 +25876,24 @@ Namespace DSOPERATIONNOTETableAdapters
                 "IOL_ID, IOL_ID_OLD, NameEng FROM dbo.View_OTRegistration"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE Status='True'  A"& _ 
                 "ND DeleteOption='False' AND CAST(CONVERT(VARCHAR(10), DateOperated, 1) as DateTi"& _ 
                 "me) BETWEEN CAST(CONVERT(VARCHAR(10),CAST(@DateFrom AS DATETIME), 1) as Datetime"& _ 
-                ") AND CAST(CONVERT(VARCHAR(10),CAST(@DateTo  AS DATETIME), 1) as Datetime)"
+                ") AND CAST(CONVERT(VARCHAR(10),CAST(@DateTo  AS DATETIME), 1) as Datetime) AND P"& _ 
+                "atientNo=@PatientNo"
             Me._commandCollection(4).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(4).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateFrom", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(4).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateTo", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(4).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PatientNo", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "PatientNo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(5) = New Global.System.Data.SqlClient.SqlCommand
+            Me._commandCollection(5).Connection = Me.Connection
+            Me._commandCollection(5).CommandText = "SELECT OTNo, NewInPatientNo, PatientNo, NameKhmer, Age, Sex, Address, OperationTi"& _ 
+                "me, Anesthesia, Anesthetist, Eye, OperationType, IOL, Surgeon, Assistant, Circul"& _ 
+                "ation, Compli, CreateDate, Status, DateOperated, Others, Waiting, DeleteOption, "& _ 
+                "IOL_ID, IOL_ID_OLD, NameEng FROM dbo.View_OTRegistration"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE Status='True'  A"& _ 
+                "ND DeleteOption='False' AND CAST(CONVERT(VARCHAR(10), DateOperated, 1) as DateTi"& _ 
+                "me) BETWEEN CAST(CONVERT(VARCHAR(10),CAST(@DateFrom AS DATETIME), 1) as Datetime"& _ 
+                ") AND CAST(CONVERT(VARCHAR(10),CAST(@DateTo  AS DATETIME), 1) as Datetime)"
+            Me._commandCollection(5).CommandType = Global.System.Data.CommandType.Text
+            Me._commandCollection(5).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateFrom", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(5).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateTo", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -25929,9 +25943,19 @@ Namespace DSOPERATIONNOTETableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
-        Public Overloads Overridable Function FillBy1(ByVal dataTable As DSOPERATIONNOTE.View_OTRegistrationDataTable, ByVal PatientNo As Decimal) As Integer
+        Public Overloads Overridable Function FillBy1(ByVal dataTable As DSOPERATIONNOTE.View_OTRegistrationDataTable, ByVal PatientNo As Decimal, ByVal DFrom As Global.System.Nullable(Of Date), ByVal DTo As Global.System.Nullable(Of Date)) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(2)
             Me.Adapter.SelectCommand.Parameters(0).Value = CType(PatientNo,Decimal)
+            If (DFrom.HasValue = true) Then
+                Me.Adapter.SelectCommand.Parameters(1).Value = CType(DFrom.Value,Date)
+            Else
+                Me.Adapter.SelectCommand.Parameters(1).Value = Global.System.DBNull.Value
+            End If
+            If (DTo.HasValue = true) Then
+                Me.Adapter.SelectCommand.Parameters(2).Value = CType(DTo.Value,Date)
+            Else
+                Me.Adapter.SelectCommand.Parameters(2).Value = Global.System.DBNull.Value
+            End If
             If (Me.ClearBeforeFill = true) Then
                 dataTable.Clear
             End If
@@ -25942,9 +25966,61 @@ Namespace DSOPERATIONNOTETableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
-        Public Overloads Overridable Function SelectOperationNote(ByVal PatientNo As Decimal) As DSOPERATIONNOTE.View_OTRegistrationDataTable
+        Public Overloads Overridable Function SelectOperationNote(ByVal PatientNo As Decimal, ByVal DFrom As Global.System.Nullable(Of Date), ByVal DTo As Global.System.Nullable(Of Date)) As DSOPERATIONNOTE.View_OTRegistrationDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(2)
             Me.Adapter.SelectCommand.Parameters(0).Value = CType(PatientNo,Decimal)
+            If (DFrom.HasValue = true) Then
+                Me.Adapter.SelectCommand.Parameters(1).Value = CType(DFrom.Value,Date)
+            Else
+                Me.Adapter.SelectCommand.Parameters(1).Value = Global.System.DBNull.Value
+            End If
+            If (DTo.HasValue = true) Then
+                Me.Adapter.SelectCommand.Parameters(2).Value = CType(DTo.Value,Date)
+            Else
+                Me.Adapter.SelectCommand.Parameters(2).Value = Global.System.DBNull.Value
+            End If
+            Dim dataTable As DSOPERATIONNOTE.View_OTRegistrationDataTable = New DSOPERATIONNOTE.View_OTRegistrationDataTable
+            Me.Adapter.Fill(dataTable)
+            Return dataTable
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
+        Public Overloads Overridable Function FillByPatientOTDateToDate(ByVal dataTable As DSOPERATIONNOTE.View_OTRegistrationDataTable, ByVal DFrom As Global.System.Nullable(Of Date), ByVal DTo As Global.System.Nullable(Of Date)) As Integer
+            Me.Adapter.SelectCommand = Me.CommandCollection(3)
+            If (DFrom.HasValue = true) Then
+                Me.Adapter.SelectCommand.Parameters(0).Value = CType(DFrom.Value,Date)
+            Else
+                Me.Adapter.SelectCommand.Parameters(0).Value = Global.System.DBNull.Value
+            End If
+            If (DTo.HasValue = true) Then
+                Me.Adapter.SelectCommand.Parameters(1).Value = CType(DTo.Value,Date)
+            Else
+                Me.Adapter.SelectCommand.Parameters(1).Value = Global.System.DBNull.Value
+            End If
+            If (Me.ClearBeforeFill = true) Then
+                dataTable.Clear
+            End If
+            Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
+            Return returnValue
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
+        Public Overloads Overridable Function SelectPatientOTDateToDate(ByVal DFrom As Global.System.Nullable(Of Date), ByVal DTo As Global.System.Nullable(Of Date)) As DSOPERATIONNOTE.View_OTRegistrationDataTable
+            Me.Adapter.SelectCommand = Me.CommandCollection(3)
+            If (DFrom.HasValue = true) Then
+                Me.Adapter.SelectCommand.Parameters(0).Value = CType(DFrom.Value,Date)
+            Else
+                Me.Adapter.SelectCommand.Parameters(0).Value = Global.System.DBNull.Value
+            End If
+            If (DTo.HasValue = true) Then
+                Me.Adapter.SelectCommand.Parameters(1).Value = CType(DTo.Value,Date)
+            Else
+                Me.Adapter.SelectCommand.Parameters(1).Value = Global.System.DBNull.Value
+            End If
             Dim dataTable As DSOPERATIONNOTE.View_OTRegistrationDataTable = New DSOPERATIONNOTE.View_OTRegistrationDataTable
             Me.Adapter.Fill(dataTable)
             Return dataTable
@@ -25954,7 +26030,7 @@ Namespace DSOPERATIONNOTETableAdapters
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
         Public Overloads Overridable Function FillWithHistPNo(ByVal dataTable As DSOPERATIONNOTE.View_OTRegistrationDataTable, ByVal DateFrom As Date, ByVal DateTo As Date, ByVal PatientNo As Decimal) As Integer
-            Me.Adapter.SelectCommand = Me.CommandCollection(3)
+            Me.Adapter.SelectCommand = Me.CommandCollection(4)
             Me.Adapter.SelectCommand.Parameters(0).Value = CType(DateFrom,Date)
             Me.Adapter.SelectCommand.Parameters(1).Value = CType(DateTo,Date)
             Me.Adapter.SelectCommand.Parameters(2).Value = CType(PatientNo,Decimal)
@@ -25969,7 +26045,7 @@ Namespace DSOPERATIONNOTETableAdapters
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
         Public Overloads Overridable Function SelectWithHistPatientNo(ByVal DateFrom As Date, ByVal DateTo As Date, ByVal PatientNo As Decimal) As DSOPERATIONNOTE.View_OTRegistrationDataTable
-            Me.Adapter.SelectCommand = Me.CommandCollection(3)
+            Me.Adapter.SelectCommand = Me.CommandCollection(4)
             Me.Adapter.SelectCommand.Parameters(0).Value = CType(DateFrom,Date)
             Me.Adapter.SelectCommand.Parameters(1).Value = CType(DateTo,Date)
             Me.Adapter.SelectCommand.Parameters(2).Value = CType(PatientNo,Decimal)
@@ -25982,7 +26058,7 @@ Namespace DSOPERATIONNOTETableAdapters
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
         Public Overloads Overridable Function FillWithoutHistPno(ByVal dataTable As DSOPERATIONNOTE.View_OTRegistrationDataTable, ByVal DateFrom As Date, ByVal DateTo As Date) As Integer
-            Me.Adapter.SelectCommand = Me.CommandCollection(4)
+            Me.Adapter.SelectCommand = Me.CommandCollection(5)
             Me.Adapter.SelectCommand.Parameters(0).Value = CType(DateFrom,Date)
             Me.Adapter.SelectCommand.Parameters(1).Value = CType(DateTo,Date)
             If (Me.ClearBeforeFill = true) Then
@@ -25996,7 +26072,7 @@ Namespace DSOPERATIONNOTETableAdapters
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
         Public Overloads Overridable Function SelectWithoutHistPatientNo(ByVal DateFrom As Date, ByVal DateTo As Date) As DSOPERATIONNOTE.View_OTRegistrationDataTable
-            Me.Adapter.SelectCommand = Me.CommandCollection(4)
+            Me.Adapter.SelectCommand = Me.CommandCollection(5)
             Me.Adapter.SelectCommand.Parameters(0).Value = CType(DateFrom,Date)
             Me.Adapter.SelectCommand.Parameters(1).Value = CType(DateTo,Date)
             Dim dataTable As DSOPERATIONNOTE.View_OTRegistrationDataTable = New DSOPERATIONNOTE.View_OTRegistrationDataTable

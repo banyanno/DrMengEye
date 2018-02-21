@@ -52,6 +52,7 @@ Public Class UCPatientPayment
     Dim DA_HistoryFollowUp As New DSConsultHistoryTableAdapters.S_FOLLOWUPTableAdapter
     Dim DAFollowUP As New DSWaitingConsultTableAdapters.S_PATIENT_FOLLOWUPTableAdapter
     Dim DA_Doctor As New DSWaitingConsultTableAdapters.VUsersInGroupTableAdapter
+    Dim DA_MeetingDr As New DSConsultHistoryTableAdapters.S_DOCTOR_CONSULTTableAdapter
     Sub New(ByVal mainSubForm As MainTakeoInventory)
         ' This call is required by the Windows Form Designer.
         InitializeComponent()
@@ -749,6 +750,7 @@ Public Class UCPatientPayment
             PictureBox1.Image = Nothing
         End Try
         GridFollowDetial.DataSource = DA_HistoryFollowUp.SelectFollowUpByPatient(GridPatientInformation.GetRow.Cells("PatientNo").Value)
+        GridEXMeetDoctor.DataSource = DA_MeetingDr.SelectByPatientNo(GridPatientInformation.GetRow.Cells("PatientNo").Value)
         'Catch ex As Exception
 
         '    LblTotalConsult.Text = 0

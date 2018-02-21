@@ -34,9 +34,9 @@ Public Class UCOT_AND_IOLList
     End Sub
     Sub ShowOTData(ByVal PatientNo As String)
         If PatientNo = "" Then
-            DA_OP.FillBy(DS_OPERATION.View_OTRegistration)
+            DA_OP.FillByPatientOTDateToDate(DS_OPERATION.View_OTRegistration, DtFrom.Value.Date, DtTo.Value.Date)
         Else
-            DA_OP.FillBy1(DS_OPERATION.View_OTRegistration, EmptyString(PatientNo))
+            DA_OP.FillBy1(DS_OPERATION.View_OTRegistration, EmptyString(PatientNo), DtFrom.Value.Date, DtTo.Value.Date)
         End If
 
         GridOT.DataSource = DS_OPERATION.View_OTRegistration

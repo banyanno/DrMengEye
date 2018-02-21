@@ -22,8 +22,8 @@ Partial Class DashboardIncome
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim GridIncome_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(DashboardIncome))
+        Dim GridIncome_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout
         Dim GridService_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout
         Dim GridPrescription_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout
         Me.ToolStrip1 = New System.Windows.Forms.ToolStrip
@@ -32,6 +32,8 @@ Partial Class DashboardIncome
         Me.BtnPrintlabel = New System.Windows.Forms.ToolStripButton
         Me.ToolStripSeparator2 = New System.Windows.Forms.ToolStripSeparator
         Me.ToolStripButton1 = New System.Windows.Forms.ToolStripButton
+        Me.ToolStripSeparator3 = New System.Windows.Forms.ToolStripSeparator
+        Me.BtnSurgery = New System.Windows.Forms.ToolStripButton
         Me.SplitContainer1 = New System.Windows.Forms.SplitContainer
         Me.SplitContainer2 = New System.Windows.Forms.SplitContainer
         Me.AxAcroPDF1 = New AxAcroPDFLib.AxAcroPDF
@@ -41,16 +43,14 @@ Partial Class DashboardIncome
         Me.GridService = New Janus.Windows.GridEX.GridEX
         Me.GroupBox2 = New System.Windows.Forms.GroupBox
         Me.GridPrescription = New Janus.Windows.GridEX.GridEX
+        Me.CheckBox1 = New System.Windows.Forms.CheckBox
+        Me.CboDoctor1 = New System.Windows.Forms.ComboBox
         Me.ChReport = New System.Windows.Forms.CheckBox
         Me.btnView = New System.Windows.Forms.Button
         Me.DateTo = New System.Windows.Forms.DateTimePicker
         Me.DateFrom = New System.Windows.Forms.DateTimePicker
         Me.Label2 = New System.Windows.Forms.Label
         Me.Label1 = New System.Windows.Forms.Label
-        Me.ToolStripSeparator3 = New System.Windows.Forms.ToolStripSeparator
-        Me.BtnSurgery = New System.Windows.Forms.ToolStripButton
-        Me.CboDoctor1 = New System.Windows.Forms.ComboBox
-        Me.CheckBox1 = New System.Windows.Forms.CheckBox
         Me.ToolStrip1.SuspendLayout()
         Me.SplitContainer1.Panel1.SuspendLayout()
         Me.SplitContainer1.Panel2.SuspendLayout()
@@ -127,6 +127,22 @@ Partial Class DashboardIncome
         Me.ToolStripButton1.Size = New System.Drawing.Size(169, 59)
         Me.ToolStripButton1.Text = "Print Preview In-Come         "
         Me.ToolStripButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
+        '
+        'ToolStripSeparator3
+        '
+        Me.ToolStripSeparator3.Name = "ToolStripSeparator3"
+        Me.ToolStripSeparator3.Size = New System.Drawing.Size(6, 62)
+        '
+        'BtnSurgery
+        '
+        Me.BtnSurgery.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
+        Me.BtnSurgery.Font = New System.Drawing.Font("Segoe UI", 12.0!)
+        Me.BtnSurgery.ForeColor = System.Drawing.Color.Blue
+        Me.BtnSurgery.Image = CType(resources.GetObject("BtnSurgery.Image"), System.Drawing.Image)
+        Me.BtnSurgery.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.BtnSurgery.Name = "BtnSurgery"
+        Me.BtnSurgery.Size = New System.Drawing.Size(176, 59)
+        Me.BtnSurgery.Text = " Report   Dr. Surgery     "
         '
         'SplitContainer1
         '
@@ -293,6 +309,26 @@ Partial Class DashboardIncome
         Me.GridPrescription.TabIndex = 1
         Me.GridPrescription.TotalRow = Janus.Windows.GridEX.InheritableBoolean.[True]
         '
+        'CheckBox1
+        '
+        Me.CheckBox1.AutoSize = True
+        Me.CheckBox1.ForeColor = System.Drawing.Color.Blue
+        Me.CheckBox1.Location = New System.Drawing.Point(10, 126)
+        Me.CheckBox1.Name = "CheckBox1"
+        Me.CheckBox1.Size = New System.Drawing.Size(109, 17)
+        Me.CheckBox1.TabIndex = 17
+        Me.CheckBox1.Text = "Dr. Surgury report"
+        Me.CheckBox1.UseVisualStyleBackColor = True
+        '
+        'CboDoctor1
+        '
+        Me.CboDoctor1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CboDoctor1.FormattingEnabled = True
+        Me.CboDoctor1.Location = New System.Drawing.Point(10, 149)
+        Me.CboDoctor1.Name = "CboDoctor1"
+        Me.CboDoctor1.Size = New System.Drawing.Size(208, 28)
+        Me.CboDoctor1.TabIndex = 15
+        '
         'ChReport
         '
         Me.ChReport.AutoSize = True
@@ -360,42 +396,6 @@ Partial Class DashboardIncome
         Me.Label1.Size = New System.Drawing.Size(59, 13)
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "Date From:"
-        '
-        'ToolStripSeparator3
-        '
-        Me.ToolStripSeparator3.Name = "ToolStripSeparator3"
-        Me.ToolStripSeparator3.Size = New System.Drawing.Size(6, 62)
-        '
-        'BtnSurgery
-        '
-        Me.BtnSurgery.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
-        Me.BtnSurgery.Font = New System.Drawing.Font("Segoe UI", 12.0!)
-        Me.BtnSurgery.ForeColor = System.Drawing.Color.Blue
-        Me.BtnSurgery.Image = CType(resources.GetObject("BtnSurgery.Image"), System.Drawing.Image)
-        Me.BtnSurgery.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.BtnSurgery.Name = "BtnSurgery"
-        Me.BtnSurgery.Size = New System.Drawing.Size(129, 59)
-        Me.BtnSurgery.Text = "    Dr. Surgery     "
-        '
-        'CboDoctor1
-        '
-        Me.CboDoctor1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.CboDoctor1.FormattingEnabled = True
-        Me.CboDoctor1.Location = New System.Drawing.Point(10, 149)
-        Me.CboDoctor1.Name = "CboDoctor1"
-        Me.CboDoctor1.Size = New System.Drawing.Size(208, 28)
-        Me.CboDoctor1.TabIndex = 15
-        '
-        'CheckBox1
-        '
-        Me.CheckBox1.AutoSize = True
-        Me.CheckBox1.ForeColor = System.Drawing.Color.Blue
-        Me.CheckBox1.Location = New System.Drawing.Point(10, 126)
-        Me.CheckBox1.Name = "CheckBox1"
-        Me.CheckBox1.Size = New System.Drawing.Size(109, 17)
-        Me.CheckBox1.TabIndex = 17
-        Me.CheckBox1.Text = "Dr. Surgury report"
-        Me.CheckBox1.UseVisualStyleBackColor = True
         '
         'DashboardIncome
         '
