@@ -2,16 +2,17 @@
 <xs:schema id="DSItemPrice" targetNamespace="http://tempuri.org/DSItemPrice.xsd" xmlns:mstns="http://tempuri.org/DSItemPrice.xsd" xmlns="http://tempuri.org/DSItemPrice.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
   <xs:annotation>
     <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
-      <DataSource DefaultConnectionIndex="2" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="3" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
         <Connections>
           <Connection AppSettingsObjectName="MySettings" AppSettingsPropertyName="TakeoInventoryConnectionString" IsAppSettingsProperty="true" Modifier="Assembly" Name="TakeoInventoryConnectionString (MySettings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.HospitalMS.My.MySettings.GlobalReference.Default.TakeoInventoryConnectionString" Provider="System.Data.SqlClient" />
           <Connection AppSettingsObjectName="MySettings" AppSettingsPropertyName="TakeoInventoryConnectionString1" IsAppSettingsProperty="true" Modifier="Assembly" Name="TakeoInventoryConnectionString1 (MySettings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.HospitalMS.My.MySettings.GlobalReference.Default.TakeoInventoryConnectionString1" Provider="System.Data.SqlClient" />
-          <Connection AppSettingsObjectName="MySettings" AppSettingsPropertyName="TakeoDBConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="TakeoDBConnectionString (MySettings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.HospitalMS.My.MySettings.GlobalReference.Default.TakeoDBConnectionString" Provider="System.Data.SqlClient" />
+          <Connection AppSettingsObjectName="MySettings" AppSettingsPropertyName="TakeoDBConnectionString" IsAppSettingsProperty="true" Modifier="Assembly" Name="TakeoDBConnectionString (MySettings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.HospitalMS.My.MySettings.GlobalReference.Default.TakeoDBConnectionString" Provider="System.Data.SqlClient" />
+          <Connection AppSettingsObjectName="MySettings" AppSettingsPropertyName="AppConnection" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="AppConnection (MySettings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.HospitalMS.My.MySettings.GlobalReference.Default.AppConnection" Provider="System.Data.SqlClient" />
         </Connections>
         <Tables>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="tblItemPriceTableAdapter" GeneratorDataComponentClassName="tblItemPriceTableAdapter" Name="tblItemPrice" UserDataComponentName="tblItemPriceTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="TakeoDBConnectionString (MySettings)" DbObjectName="TakeoDB.dbo.tblItemPrice" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="AppConnection (MySettings)" DbObjectName="NgyMengDB.dbo.tblItemPrice" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
                     <CommandText>DELETE FROM [dbo].[tblItemPrice] WHERE (([ItemPriceID] = @Original_ItemPriceID) AND ((@IsNull_ItemID = 1 AND [ItemID] IS NULL) OR ([ItemID] = @Original_ItemID)) AND ((@IsNull_Price = 1 AND [Price] IS NULL) OR ([Price] = @Original_Price)) AND ((@IsNull_IsUSD = 1 AND [IsUSD] IS NULL) OR ([IsUSD] = @Original_IsUSD)) AND ((@IsNull_IsKHR = 1 AND [IsKHR] IS NULL) OR ([IsKHR] = @Original_IsKHR)) AND ((@IsNull_IsCurPrice = 1 AND [IsCurPrice] IS NULL) OR ([IsCurPrice] = @Original_IsCurPrice)) AND ((@IsNull_UserID = 1 AND [UserID] IS NULL) OR ([UserID] = @Original_UserID)) AND ((@IsNull_PriceDate = 1 AND [PriceDate] IS NULL) OR ([PriceDate] = @Original_PriceDate)))</CommandText>
@@ -99,7 +100,7 @@ SELECT ItemPriceID, ItemID, Price, IsUSD, IsKHR, IsCurPrice, UserID, PriceDate F
               <Mapping SourceColumn="PriceDate" DataSetColumn="PriceDate" />
             </Mappings>
             <Sources>
-              <DbSource ConnectionRef="TakeoDBConnectionString (MySettings)" DbObjectName="TakeoDB.dbo.tblItemPrice" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillBy" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetItemPriceDataByItemID" GeneratorSourceName="FillBy" GetMethodModifier="Public" GetMethodName="GetItemPriceDataByItemID" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetItemPriceDataByItemID" UserSourceName="FillBy">
+              <DbSource ConnectionRef="AppConnection (MySettings)" DbObjectName="NgyMengDB.dbo.tblItemPrice" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillBy" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetItemPriceDataByItemID" GeneratorSourceName="FillBy" GetMethodModifier="Public" GetMethodName="GetItemPriceDataByItemID" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetItemPriceDataByItemID" UserSourceName="FillBy">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT ItemPriceID, ItemID, Price, IsUSD, IsKHR, IsCurPrice, UserID, PriceDate FROM dbo.tblItemPrice
@@ -110,7 +111,7 @@ WHERE ItemID=@ItemID</CommandText>
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="TakeoDBConnectionString (MySettings)" DbObjectName="TakeoDB.dbo.tblItemPrice" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillBy1" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetCurItemPriceDataByItemID" GeneratorSourceName="FillBy1" GetMethodModifier="Public" GetMethodName="GetCurItemPriceDataByItemID" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetCurItemPriceDataByItemID" UserSourceName="FillBy1">
+              <DbSource ConnectionRef="AppConnection (MySettings)" DbObjectName="NgyMengDB.dbo.tblItemPrice" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillBy1" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetCurItemPriceDataByItemID" GeneratorSourceName="FillBy1" GetMethodModifier="Public" GetMethodName="GetCurItemPriceDataByItemID" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetCurItemPriceDataByItemID" UserSourceName="FillBy1">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT ItemPriceID, ItemID, Price, IsUSD, IsKHR, IsCurPrice, UserID, PriceDate FROM dbo.tblItemPrice
@@ -121,7 +122,7 @@ WHERE ItemID=@ItemID AND IsCurPrice =1</CommandText>
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="TakeoDBConnectionString (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="InsertItemPrice" Modifier="Public" Name="InsertItemPrice" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="InsertItemPrice">
+              <DbSource ConnectionRef="AppConnection (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="InsertItemPrice" Modifier="Public" Name="InsertItemPrice" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="InsertItemPrice">
                 <InsertCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>INSERT INTO [dbo].[tblItemPrice] ([ItemID], [Price], [IsUSD], [IsKHR], [IsCurPrice], [UserID], [PriceDate]) VALUES (@ItemID, @Price, @IsUSD, @IsKHR, @IsCurPrice, @UserID, @PriceDate);
@@ -142,7 +143,7 @@ WHERE ItemID=@ItemID AND IsCurPrice =1</CommandText>
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="VItemPriceOpticalShopTableAdapter" GeneratorDataComponentClassName="VItemPriceOpticalShopTableAdapter" Name="VItemPriceOpticalShop" UserDataComponentName="VItemPriceOpticalShopTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="TakeoDBConnectionString (MySettings)" DbObjectName="TakeoDB.dbo.VItemPriceOpticalShop" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="AppConnection (MySettings)" DbObjectName="NgyMengDB.dbo.VItemPriceOpticalShop" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT     ItemID, Barcode, ItemName, Price, IsUSD, IsKHR, IsCurPrice, Picture, UnitsInStock, DepartID
@@ -165,7 +166,7 @@ FROM         VItemPriceOpticalShop</CommandText>
               <Mapping SourceColumn="DepartID" DataSetColumn="DepartID" />
             </Mappings>
             <Sources>
-              <DbSource ConnectionRef="TakeoDBConnectionString (MySettings)" DbObjectName="KhmerSovietDB.dbo.VItemPriceOpticalShop" DbObjectType="View" FillMethodModifier="Public" FillMethodName="FillBy" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="SelectByItemID" GeneratorSourceName="FillBy" GetMethodModifier="Public" GetMethodName="SelectByItemID" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="SelectByItemID" UserSourceName="FillBy">
+              <DbSource ConnectionRef="AppConnection (MySettings)" DbObjectName="NgyMengDB.dbo.VItemPriceOpticalShop" DbObjectType="View" FillMethodModifier="Public" FillMethodName="FillBy" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="SelectByItemID" GeneratorSourceName="FillBy" GetMethodModifier="Public" GetMethodName="SelectByItemID" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="SelectByItemID" UserSourceName="FillBy">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT     ItemID, Barcode, ItemName, Price, IsUSD, IsKHR, IsCurPrice, Picture, UnitsInStock, DepartID
@@ -177,13 +178,52 @@ WHERE ItemID=@ItemID</CommandText>
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="TakeoDBConnectionString (MySettings)" DbObjectName="TakeoDB.dbo.VItemPriceOpticalShop" DbObjectType="View" FillMethodModifier="Public" FillMethodName="FillByBarcode" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByBarcode" GeneratorSourceName="FillByBarcode" GetMethodModifier="Public" GetMethodName="GetDataByBarcode" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByBarcode" UserSourceName="FillByBarcode">
+              <DbSource ConnectionRef="AppConnection (MySettings)" DbObjectName="NgyMengDB.dbo.VItemPriceOpticalShop" DbObjectType="View" FillMethodModifier="Public" FillMethodName="FillByBarcode" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByBarcode" GeneratorSourceName="FillByBarcode" GetMethodModifier="Public" GetMethodName="GetDataByBarcode" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByBarcode" UserSourceName="FillByBarcode">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT Barcode, DepartID, IsCurPrice, IsKHR, IsUSD, ItemID, ItemName, Picture, Price, UnitsInStock FROM VItemPriceOpticalShop WHERE (Barcode = @Barcode) AND  DepartID=@DepartID</CommandText>
                     <Parameters>
                       <Parameter AllowDbNull="true" AutogeneratedName="Barcode" ColumnName="Barcode" DataSourceName="TakeoDB.dbo.VItemPriceOpticalShop" DataTypeServer="nvarchar(50)" DbType="String" Direction="Input" ParameterName="@Barcode" Precision="0" ProviderType="NVarChar" Scale="0" Size="50" SourceColumn="Barcode" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="true" AutogeneratedName="DepartID" ColumnName="DepartID" DataSourceName="TakeoDB.dbo.VItemPriceOpticalShop" DataTypeServer="numeric(18, 0)" DbType="Decimal" Direction="Input" ParameterName="@DepartID" Precision="18" ProviderType="Decimal" Scale="0" Size="9" SourceColumn="DepartID" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="ViewExpireDateDetialTableAdapter" GeneratorDataComponentClassName="ViewExpireDateDetialTableAdapter" Name="ViewExpireDateDetial" UserDataComponentName="ViewExpireDateDetialTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="AppConnection (MySettings)" DbObjectName="NgyMengDB.dbo.ViewExpireDateDetial" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        ItemCode, ItemName, UnitsInStock, PROVIDER_ID, VenderName, EXPIRE_DATE, Barcode, InventoryID, ItemID
+FROM            ViewExpireDateDetial</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="ItemCode" DataSetColumn="ItemCode" />
+              <Mapping SourceColumn="ItemName" DataSetColumn="ItemName" />
+              <Mapping SourceColumn="UnitsInStock" DataSetColumn="UnitsInStock" />
+              <Mapping SourceColumn="PROVIDER_ID" DataSetColumn="PROVIDER_ID" />
+              <Mapping SourceColumn="VenderName" DataSetColumn="VenderName" />
+              <Mapping SourceColumn="EXPIRE_DATE" DataSetColumn="EXPIRE_DATE" />
+              <Mapping SourceColumn="Barcode" DataSetColumn="Barcode" />
+              <Mapping SourceColumn="InventoryID" DataSetColumn="InventoryID" />
+              <Mapping SourceColumn="ItemID" DataSetColumn="ItemID" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="AppConnection (MySettings)" DbObjectName="NgyMengDB.dbo.ViewExpireDateDetial" DbObjectType="View" FillMethodModifier="Public" FillMethodName="FillBy" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="SelectExpireByItemID" GeneratorSourceName="FillBy" GetMethodModifier="Public" GetMethodName="SelectExpireByItemID" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="SelectExpireByItemID" UserSourceName="FillBy">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        ItemID, ItemCode, ItemName, SUM(UnitsInStock) AS totalQTY, PROVIDER_ID, VenderName, EXPIRE_DATE, Barcode, InventoryID
+FROM            ViewExpireDateDetial
+WHERE        (ItemID = @ItemID)
+GROUP BY ItemID, ItemCode, ItemName, PROVIDER_ID, VenderName, EXPIRE_DATE, Barcode, InventoryID</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="ItemID" ColumnName="ItemID" DataSourceName="NgyMengDB.dbo.ViewExpireDateDetial" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@ItemID" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="ItemID" SourceColumnNullMapping="false" SourceVersion="Current" />
                     </Parameters>
                   </DbCommand>
                 </SelectCommand>
@@ -201,42 +241,81 @@ WHERE ItemID=@ItemID</CommandText>
         <xs:element name="tblItemPrice" msprop:Generator_UserTableName="tblItemPrice" msprop:Generator_RowDeletedName="tblItemPriceRowDeleted" msprop:Generator_RowChangedName="tblItemPriceRowChanged" msprop:Generator_RowClassName="tblItemPriceRow" msprop:Generator_RowChangingName="tblItemPriceRowChanging" msprop:Generator_RowEvArgName="tblItemPriceRowChangeEvent" msprop:Generator_RowEvHandlerName="tblItemPriceRowChangeEventHandler" msprop:Generator_TableClassName="tblItemPriceDataTable" msprop:Generator_TableVarName="tabletblItemPrice" msprop:Generator_RowDeletingName="tblItemPriceRowDeleting" msprop:Generator_TablePropName="tblItemPrice">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="ItemPriceID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_UserColumnName="ItemPriceID" msprop:Generator_ColumnVarNameInTable="columnItemPriceID" msprop:Generator_ColumnPropNameInRow="ItemPriceID" msprop:Generator_ColumnPropNameInTable="ItemPriceIDColumn" type="xs:decimal" />
-              <xs:element name="ItemID" msprop:Generator_UserColumnName="ItemID" msprop:Generator_ColumnVarNameInTable="columnItemID" msprop:Generator_ColumnPropNameInRow="ItemID" msprop:Generator_ColumnPropNameInTable="ItemIDColumn" type="xs:decimal" minOccurs="0" />
-              <xs:element name="Price" msprop:Generator_UserColumnName="Price" msprop:Generator_ColumnVarNameInTable="columnPrice" msprop:Generator_ColumnPropNameInRow="Price" msprop:Generator_ColumnPropNameInTable="PriceColumn" type="xs:decimal" minOccurs="0" />
-              <xs:element name="IsUSD" msprop:Generator_UserColumnName="IsUSD" msprop:Generator_ColumnVarNameInTable="columnIsUSD" msprop:Generator_ColumnPropNameInRow="IsUSD" msprop:Generator_ColumnPropNameInTable="IsUSDColumn" type="xs:boolean" minOccurs="0" />
-              <xs:element name="IsKHR" msprop:Generator_UserColumnName="IsKHR" msprop:Generator_ColumnVarNameInTable="columnIsKHR" msprop:Generator_ColumnPropNameInRow="IsKHR" msprop:Generator_ColumnPropNameInTable="IsKHRColumn" type="xs:boolean" minOccurs="0" />
-              <xs:element name="IsCurPrice" msprop:Generator_UserColumnName="IsCurPrice" msprop:Generator_ColumnVarNameInTable="columnIsCurPrice" msprop:Generator_ColumnPropNameInRow="IsCurPrice" msprop:Generator_ColumnPropNameInTable="IsCurPriceColumn" type="xs:boolean" minOccurs="0" />
-              <xs:element name="UserID" msprop:Generator_UserColumnName="UserID" msprop:Generator_ColumnVarNameInTable="columnUserID" msprop:Generator_ColumnPropNameInRow="UserID" msprop:Generator_ColumnPropNameInTable="UserIDColumn" type="xs:int" minOccurs="0" />
-              <xs:element name="PriceDate" msprop:Generator_UserColumnName="PriceDate" msprop:Generator_ColumnVarNameInTable="columnPriceDate" msprop:Generator_ColumnPropNameInRow="PriceDate" msprop:Generator_ColumnPropNameInTable="PriceDateColumn" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="ItemPriceID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_UserColumnName="ItemPriceID" msprop:Generator_ColumnPropNameInRow="ItemPriceID" msprop:Generator_ColumnVarNameInTable="columnItemPriceID" msprop:Generator_ColumnPropNameInTable="ItemPriceIDColumn" type="xs:decimal" />
+              <xs:element name="ItemID" msprop:Generator_UserColumnName="ItemID" msprop:Generator_ColumnPropNameInRow="ItemID" msprop:Generator_ColumnVarNameInTable="columnItemID" msprop:Generator_ColumnPropNameInTable="ItemIDColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Price" msprop:Generator_UserColumnName="Price" msprop:Generator_ColumnPropNameInRow="Price" msprop:Generator_ColumnVarNameInTable="columnPrice" msprop:Generator_ColumnPropNameInTable="PriceColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="IsUSD" msprop:Generator_UserColumnName="IsUSD" msprop:Generator_ColumnPropNameInRow="IsUSD" msprop:Generator_ColumnVarNameInTable="columnIsUSD" msprop:Generator_ColumnPropNameInTable="IsUSDColumn" type="xs:boolean" minOccurs="0" />
+              <xs:element name="IsKHR" msprop:Generator_UserColumnName="IsKHR" msprop:Generator_ColumnPropNameInRow="IsKHR" msprop:Generator_ColumnVarNameInTable="columnIsKHR" msprop:Generator_ColumnPropNameInTable="IsKHRColumn" type="xs:boolean" minOccurs="0" />
+              <xs:element name="IsCurPrice" msprop:Generator_UserColumnName="IsCurPrice" msprop:Generator_ColumnPropNameInRow="IsCurPrice" msprop:Generator_ColumnVarNameInTable="columnIsCurPrice" msprop:Generator_ColumnPropNameInTable="IsCurPriceColumn" type="xs:boolean" minOccurs="0" />
+              <xs:element name="UserID" msprop:Generator_UserColumnName="UserID" msprop:Generator_ColumnPropNameInRow="UserID" msprop:Generator_ColumnVarNameInTable="columnUserID" msprop:Generator_ColumnPropNameInTable="UserIDColumn" type="xs:int" minOccurs="0" />
+              <xs:element name="PriceDate" msprop:Generator_UserColumnName="PriceDate" msprop:Generator_ColumnPropNameInRow="PriceDate" msprop:Generator_ColumnVarNameInTable="columnPriceDate" msprop:Generator_ColumnPropNameInTable="PriceDateColumn" type="xs:dateTime" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
         <xs:element name="VItemPriceOpticalShop" msprop:Generator_UserTableName="VItemPriceOpticalShop" msprop:Generator_RowDeletedName="VItemPriceOpticalShopRowDeleted" msprop:Generator_RowChangedName="VItemPriceOpticalShopRowChanged" msprop:Generator_RowClassName="VItemPriceOpticalShopRow" msprop:Generator_RowChangingName="VItemPriceOpticalShopRowChanging" msprop:Generator_RowEvArgName="VItemPriceOpticalShopRowChangeEvent" msprop:Generator_RowEvHandlerName="VItemPriceOpticalShopRowChangeEventHandler" msprop:Generator_TableClassName="VItemPriceOpticalShopDataTable" msprop:Generator_TableVarName="tableVItemPriceOpticalShop" msprop:Generator_RowDeletingName="VItemPriceOpticalShopRowDeleting" msprop:Generator_TablePropName="VItemPriceOpticalShop">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="ItemID" msprop:Generator_UserColumnName="ItemID" msprop:Generator_ColumnVarNameInTable="columnItemID" msprop:Generator_ColumnPropNameInRow="ItemID" msprop:Generator_ColumnPropNameInTable="ItemIDColumn" type="xs:int" />
-              <xs:element name="Barcode" msprop:Generator_UserColumnName="Barcode" msprop:Generator_ColumnVarNameInTable="columnBarcode" msprop:Generator_ColumnPropNameInRow="Barcode" msprop:Generator_ColumnPropNameInTable="BarcodeColumn" minOccurs="0">
+              <xs:element name="ItemID" msprop:Generator_UserColumnName="ItemID" msprop:Generator_ColumnPropNameInRow="ItemID" msprop:Generator_ColumnVarNameInTable="columnItemID" msprop:Generator_ColumnPropNameInTable="ItemIDColumn" type="xs:int" />
+              <xs:element name="Barcode" msprop:Generator_UserColumnName="Barcode" msprop:Generator_ColumnPropNameInRow="Barcode" msprop:Generator_ColumnVarNameInTable="columnBarcode" msprop:Generator_ColumnPropNameInTable="BarcodeColumn" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="50" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="ItemName" msprop:Generator_UserColumnName="ItemName" msprop:Generator_ColumnVarNameInTable="columnItemName" msprop:Generator_ColumnPropNameInRow="ItemName" msprop:Generator_ColumnPropNameInTable="ItemNameColumn" minOccurs="0">
+              <xs:element name="ItemName" msprop:Generator_UserColumnName="ItemName" msprop:Generator_ColumnPropNameInRow="ItemName" msprop:Generator_ColumnVarNameInTable="columnItemName" msprop:Generator_ColumnPropNameInTable="ItemNameColumn" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="150" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="Price" msprop:Generator_UserColumnName="Price" msprop:Generator_ColumnVarNameInTable="columnPrice" msprop:Generator_ColumnPropNameInRow="Price" msprop:Generator_ColumnPropNameInTable="PriceColumn" type="xs:decimal" minOccurs="0" />
-              <xs:element name="IsUSD" msprop:Generator_UserColumnName="IsUSD" msprop:Generator_ColumnVarNameInTable="columnIsUSD" msprop:Generator_ColumnPropNameInRow="IsUSD" msprop:Generator_ColumnPropNameInTable="IsUSDColumn" type="xs:boolean" minOccurs="0" />
-              <xs:element name="IsKHR" msprop:Generator_UserColumnName="IsKHR" msprop:Generator_ColumnVarNameInTable="columnIsKHR" msprop:Generator_ColumnPropNameInRow="IsKHR" msprop:Generator_ColumnPropNameInTable="IsKHRColumn" type="xs:boolean" minOccurs="0" />
-              <xs:element name="IsCurPrice" msprop:Generator_UserColumnName="IsCurPrice" msprop:Generator_ColumnVarNameInTable="columnIsCurPrice" msprop:Generator_ColumnPropNameInRow="IsCurPrice" msprop:Generator_ColumnPropNameInTable="IsCurPriceColumn" type="xs:boolean" minOccurs="0" />
-              <xs:element name="Picture" msprop:Generator_UserColumnName="Picture" msprop:Generator_ColumnVarNameInTable="columnPicture" msprop:Generator_ColumnPropNameInRow="Picture" msprop:Generator_ColumnPropNameInTable="PictureColumn" type="xs:base64Binary" minOccurs="0" />
-              <xs:element name="UnitsInStock" msprop:Generator_UserColumnName="UnitsInStock" msprop:Generator_ColumnVarNameInTable="columnUnitsInStock" msprop:Generator_ColumnPropNameInRow="UnitsInStock" msprop:Generator_ColumnPropNameInTable="UnitsInStockColumn" type="xs:int" minOccurs="0" />
-              <xs:element name="DepartID" msprop:Generator_UserColumnName="DepartID" msprop:Generator_ColumnVarNameInTable="columnDepartID" msprop:Generator_ColumnPropNameInRow="DepartID" msprop:Generator_ColumnPropNameInTable="DepartIDColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Price" msprop:Generator_UserColumnName="Price" msprop:Generator_ColumnPropNameInRow="Price" msprop:Generator_ColumnVarNameInTable="columnPrice" msprop:Generator_ColumnPropNameInTable="PriceColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="IsUSD" msprop:Generator_UserColumnName="IsUSD" msprop:Generator_ColumnPropNameInRow="IsUSD" msprop:Generator_ColumnVarNameInTable="columnIsUSD" msprop:Generator_ColumnPropNameInTable="IsUSDColumn" type="xs:boolean" minOccurs="0" />
+              <xs:element name="IsKHR" msprop:Generator_UserColumnName="IsKHR" msprop:Generator_ColumnPropNameInRow="IsKHR" msprop:Generator_ColumnVarNameInTable="columnIsKHR" msprop:Generator_ColumnPropNameInTable="IsKHRColumn" type="xs:boolean" minOccurs="0" />
+              <xs:element name="IsCurPrice" msprop:Generator_UserColumnName="IsCurPrice" msprop:Generator_ColumnPropNameInRow="IsCurPrice" msprop:Generator_ColumnVarNameInTable="columnIsCurPrice" msprop:Generator_ColumnPropNameInTable="IsCurPriceColumn" type="xs:boolean" minOccurs="0" />
+              <xs:element name="Picture" msprop:Generator_UserColumnName="Picture" msprop:Generator_ColumnPropNameInRow="Picture" msprop:Generator_ColumnVarNameInTable="columnPicture" msprop:Generator_ColumnPropNameInTable="PictureColumn" type="xs:base64Binary" minOccurs="0" />
+              <xs:element name="UnitsInStock" msprop:Generator_UserColumnName="UnitsInStock" msprop:Generator_ColumnPropNameInRow="UnitsInStock" msprop:Generator_ColumnVarNameInTable="columnUnitsInStock" msprop:Generator_ColumnPropNameInTable="UnitsInStockColumn" type="xs:int" minOccurs="0" />
+              <xs:element name="DepartID" msprop:Generator_UserColumnName="DepartID" msprop:Generator_ColumnPropNameInRow="DepartID" msprop:Generator_ColumnVarNameInTable="columnDepartID" msprop:Generator_ColumnPropNameInTable="DepartIDColumn" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="ViewExpireDateDetial" msprop:Generator_UserTableName="ViewExpireDateDetial" msprop:Generator_RowDeletedName="ViewExpireDateDetialRowDeleted" msprop:Generator_TableClassName="ViewExpireDateDetialDataTable" msprop:Generator_RowChangedName="ViewExpireDateDetialRowChanged" msprop:Generator_RowClassName="ViewExpireDateDetialRow" msprop:Generator_RowChangingName="ViewExpireDateDetialRowChanging" msprop:Generator_RowEvArgName="ViewExpireDateDetialRowChangeEvent" msprop:Generator_RowEvHandlerName="ViewExpireDateDetialRowChangeEventHandler" msprop:Generator_TablePropName="ViewExpireDateDetial" msprop:Generator_TableVarName="tableViewExpireDateDetial" msprop:Generator_RowDeletingName="ViewExpireDateDetialRowDeleting">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ItemCode" msprop:Generator_UserColumnName="ItemCode" msprop:Generator_ColumnPropNameInRow="ItemCode" msprop:Generator_ColumnVarNameInTable="columnItemCode" msprop:Generator_ColumnPropNameInTable="ItemCodeColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ItemName" msprop:Generator_UserColumnName="ItemName" msprop:Generator_ColumnPropNameInRow="ItemName" msprop:Generator_ColumnVarNameInTable="columnItemName" msprop:Generator_ColumnPropNameInTable="ItemNameColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="UnitsInStock" msprop:Generator_UserColumnName="UnitsInStock" msprop:Generator_ColumnPropNameInRow="UnitsInStock" msprop:Generator_ColumnVarNameInTable="columnUnitsInStock" msprop:Generator_ColumnPropNameInTable="UnitsInStockColumn" type="xs:int" minOccurs="0" />
+              <xs:element name="PROVIDER_ID" msprop:Generator_UserColumnName="PROVIDER_ID" msprop:Generator_ColumnPropNameInRow="PROVIDER_ID" msprop:Generator_ColumnVarNameInTable="columnPROVIDER_ID" msprop:Generator_ColumnPropNameInTable="PROVIDER_IDColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="VenderName" msprop:Generator_UserColumnName="VenderName" msprop:Generator_ColumnPropNameInRow="VenderName" msprop:Generator_ColumnVarNameInTable="columnVenderName" msprop:Generator_ColumnPropNameInTable="VenderNameColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="EXPIRE_DATE" msprop:Generator_UserColumnName="EXPIRE_DATE" msprop:Generator_ColumnPropNameInRow="EXPIRE_DATE" msprop:Generator_ColumnVarNameInTable="columnEXPIRE_DATE" msprop:Generator_ColumnPropNameInTable="EXPIRE_DATEColumn" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="Barcode" msprop:Generator_UserColumnName="Barcode" msprop:Generator_ColumnPropNameInRow="Barcode" msprop:Generator_ColumnVarNameInTable="columnBarcode" msprop:Generator_ColumnPropNameInTable="BarcodeColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="InventoryID" msprop:Generator_UserColumnName="InventoryID" msprop:Generator_ColumnPropNameInRow="InventoryID" msprop:Generator_ColumnVarNameInTable="columnInventoryID" msprop:Generator_ColumnPropNameInTable="InventoryIDColumn" type="xs:int" />
+              <xs:element name="ItemID" msprop:Generator_UserColumnName="ItemID" msprop:Generator_ColumnPropNameInRow="ItemID" msprop:Generator_ColumnVarNameInTable="columnItemID" msprop:Generator_ColumnPropNameInTable="ItemIDColumn" type="xs:int" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

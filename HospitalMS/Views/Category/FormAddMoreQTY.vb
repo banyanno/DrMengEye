@@ -31,7 +31,7 @@
                 Me.CboItem.SelectedIndex = -1
                 Me.CboItem.Focus()
                 Me.TxtQTY.Text = "0"
-                CateQTY.RefreshListItemsDataToolStripMenuItem_Click(sender, e)
+                ' CateQTY.RefreshListItemsDataToolStripMenuItem_Click(sender, e)
             End If
         End If
 

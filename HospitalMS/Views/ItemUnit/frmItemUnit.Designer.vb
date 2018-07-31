@@ -53,7 +53,7 @@ Partial Class frmItemUnit
         Me.GroupBox1.Controls.Add(Me.Label1)
         Me.GroupBox1.Location = New System.Drawing.Point(19, 13)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(464, 127)
+        Me.GroupBox1.Size = New System.Drawing.Size(464, 88)
         Me.GroupBox1.TabIndex = 0
         Me.GroupBox1.TabStop = False
         '
@@ -130,7 +130,7 @@ Partial Class frmItemUnit
         '
         Me.txtTempItemUnitName.Enabled = False
         Me.txtTempItemUnitName.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtTempItemUnitName.Location = New System.Drawing.Point(12, 184)
+        Me.txtTempItemUnitName.Location = New System.Drawing.Point(19, 122)
         Me.txtTempItemUnitName.Name = "txtTempItemUnitName"
         Me.txtTempItemUnitName.Size = New System.Drawing.Size(175, 26)
         Me.txtTempItemUnitName.TabIndex = 18
@@ -142,7 +142,7 @@ Partial Class frmItemUnit
         Me.btnCancel.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btnCancel.ForeColor = System.Drawing.SystemColors.MenuText
         Me.btnCancel.Image = Global.HospitalMS.My.Resources.Resources.cancel
-        Me.btnCancel.Location = New System.Drawing.Point(398, 146)
+        Me.btnCancel.Location = New System.Drawing.Point(398, 107)
         Me.btnCancel.Name = "btnCancel"
         Me.btnCancel.Size = New System.Drawing.Size(85, 41)
         Me.btnCancel.TabIndex = 17
@@ -156,7 +156,7 @@ Partial Class frmItemUnit
         Me.btnSave.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btnSave.ForeColor = System.Drawing.SystemColors.MenuText
         Me.btnSave.Image = Global.HospitalMS.My.Resources.Resources.save
-        Me.btnSave.Location = New System.Drawing.Point(307, 146)
+        Me.btnSave.Location = New System.Drawing.Point(307, 107)
         Me.btnSave.Name = "btnSave"
         Me.btnSave.Size = New System.Drawing.Size(85, 41)
         Me.btnSave.TabIndex = 16
@@ -171,7 +171,7 @@ Partial Class frmItemUnit
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(206, 184)
+        Me.Label5.Location = New System.Drawing.Point(213, 122)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(38, 13)
         Me.Label5.TabIndex = 18
@@ -181,9 +181,9 @@ Partial Class frmItemUnit
         'frmItemUnit
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
-        Me.BackColor = System.Drawing.SystemColors.InactiveCaptionText
+        Me.BackColor = System.Drawing.SystemColors.Control
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.ClientSize = New System.Drawing.Size(500, 226)
+        Me.ClientSize = New System.Drawing.Size(500, 152)
         Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.btnCancel)
         Me.Controls.Add(Me.btnSave)

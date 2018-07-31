@@ -43,7 +43,6 @@ Public Class frmItem
     Public Barcode As String
     Public pItemID As Integer
     Public ReqDetailIDItemNotExistInHos As Double
-    Dim DA_ItemPrice As New DSItemPriceTableAdapters.tblItemPriceTableAdapter
 
     Public Sub New(ByVal mainItem As UCCategories)
         ' This call is required by the Windows Form Designer.
@@ -55,6 +54,16 @@ Public Class frmItem
         UCategory = mainItem
         DepartDataAdapter = New DSDepartmentTableAdapters.tblDepartmentTableAdapter
         ' Add any initialization after the InitializeComponent() call.
+        cbCate.SelectedIndex = -1
+        cbChemical.SelectedIndex = -1
+        cbContainer.SelectedIndex = -1
+
+        cbItemContainer.SelectedIndex = -1
+        cbLabourFac.SelectedIndex = -1
+        cbItemUnit.SelectedIndex = -1
+        cbCountry.SelectedIndex = -1
+
+
     End Sub
 
     Public Sub New()
@@ -93,7 +102,7 @@ Public Class frmItem
             End If
 
         Else 'Edit item
-            txtBarCode.ReadOnly = True
+            'txtBarCode.ReadOnly = True
             myRefresh()
             InitPriviledgeTab()
             Dim TblTemItem As DataTable = ItemListDataAdapter.GetDataByItemID(myItemID)
@@ -745,10 +754,11 @@ bm.Height), GraphicsUnit.Pixel)
         Dim myDonatorSupply As New tblVendorItemSupplyStatus
 
         ' Validation
-        If ValidateTextField(txtItemName, "Item name", ErrorItem) = False Then
-            'Or ValidateTextField(txtBarCode, "Barcode", ErrorItem) = False Then
+        If ValidateTextField(txtItemName, "Item name", ErrorItem) = False _
+        Or ValidateTextField(txtBarCode, "Barcode", ErrorItem) = False Then
             Exit Sub
         End If
+        If ValidateCombobox(cbCate, "Category", ErrorItem) = False Then Exit Sub
 
         If IsHopRecItem = False Then
 
@@ -763,10 +773,10 @@ bm.Height), GraphicsUnit.Pixel)
                     THIDataContext.getTHIDataContext.Transaction = trans
 
                     'Check validate item already exist by Barcode
-                    'If itemRepo.isItemExistInMainStock(txtBarCode.Text) Then
-                    '    MessageBox.Show("Item Barcode already registered", "", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                    '    Exit Sub
-                    'End If
+                    If itemRepo.isItemExistInMainStock(txtBarCode.Text) Then
+                        MessageBox.Show("Item Barcode already registered", "", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                        Exit Sub
+                    End If
                     Try
                         'item.ItemRegisterDate  
                         item.ItemName = txtItemName.Text
@@ -882,12 +892,11 @@ bm.Height), GraphicsUnit.Pixel)
                         '== End manage save expire date for item
 
                         '--- Update ItemCount in Category table
-                        DA_ItemPrice.InsertItemPrice(item.ItemID, EmptyString(TxtPrice.Text), True, False, True, 96, Now.Date)
                         Dim cate = From qCate In THIDataContext.getTHIDataContext.tblCategories Where qCate.CateID = CInt(cbCate.SelectedValue)
                         Dim myCategory As tblCategory = cate.SingleOrDefault
                         myCategory.ItemCount = myCategory.ItemCount + 1
                         THIDataContext.getTHIDataContext.SubmitChanges()
-                        TxtPrice.Text = "0"
+
                         trans.Commit()
                         itemTransMsgStatus = "True"
                         THIDataContext.getTHIDataContext.Connection.Close()
@@ -945,7 +954,7 @@ bm.Height), GraphicsUnit.Pixel)
 
                     '--- get item edit by itemID
                     Dim qItem = From myEditItem In THIDataContext.getTHIDataContext.tblItems Where myEditItem.ItemID = myItemID
-                    Dim myItem As tblItem = qItem.SingleOrDefault
+                    Dim myItem As tblItem = qItem.Single
 
                     Try
 
@@ -993,14 +1002,28 @@ bm.Height), GraphicsUnit.Pixel)
                         Else
                             myItem.UnitPrice = Val(TxtCost.Text)
                         End If
+                        '--- save item info
+                        THIDataContext.getTHIDataContext.Refresh(System.Data.Linq.RefreshMode.KeepChanges)
+                        THIDataContext.getTHIDataContext.SubmitChanges()
                         '--- Save Country
 
                         '--- Resgist item in Inventory
+
                         Dim centralStock = From CI In THIDataContext.getTHIDataContext.tblCentralInventories Where CI.ItemID = myItemID
-                        Dim mycentralStock As tblCentralInventory = centralStock.SingleOrDefault
-                        If txtStockAlertQty.Text <> "" Then mycentralStock.StockAlertQty = Val(txtStockAlertQty.Text)
-                        If txtExpireAlert.Text <> "" Then mycentralStock.ExpiredAlert = Val(txtExpireAlert.Text)
+
+                        Dim mycentralStock As tblCentralInventory = centralStock.Single
+                        If txtStockAlertQty.Text <> "" Then
+                            mycentralStock.StockAlertQty = Val(txtStockAlertQty.Text)
+                        End If
+
+                        If txtExpireAlert.Text <> "" Then
+                            mycentralStock.ExpiredAlert = Val(txtExpireAlert.Text)
+                        End If
+
+                        THIDataContext.getTHIDataContext.Refresh(System.Data.Linq.RefreshMode.KeepCurrentValues)
                         THIDataContext.getTHIDataContext.SubmitChanges()
+
+
 
                         '--- Save date expired of item
                         If dtpDateExpired.Checked = True Then
@@ -1048,7 +1071,7 @@ bm.Height), GraphicsUnit.Pixel)
                             '--- decrease field itemcount of old category
                             Dim cate1 = From qCate1 In THIDataContext.getTHIDataContext.tblCategories Where qCate1.CateID = myCateID
 
-                            Dim myCate1 As tblCategory = cate1.SingleOrDefault
+                            Dim myCate1 As tblCategory = cate1.Single
                             myCate1.ItemCount = myCate1.ItemCount - 1
                             THIDataContext.getTHIDataContext.SubmitChanges()
 
@@ -1075,7 +1098,7 @@ bm.Height), GraphicsUnit.Pixel)
                         MessageBox.Show("Save item successfully", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information)
                         Me.DialogResult = Windows.Forms.DialogResult.OK
                     Else
-                        MsgBox("Error update item.", MsgBoxStyle.Critical, "Error : " & itemTransMsgStatus)
+                        MsgBox("Error update item." & itemTransMsgStatus, MsgBoxStyle.Critical, "Error : " & itemTransMsgStatus)
                     End If
 
                 End If
@@ -1430,20 +1453,20 @@ bm.Height), GraphicsUnit.Pixel)
 
     Private Sub txtBarCode_Leave(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles txtBarCode.Leave
 
-        ''--- Check validate item already exist by Barcode
-        'If lblSaveOption.Text = "0" Then
-        '    If itemRepo.isItemExistInMainStock(txtBarCode.Text) Then
-        '        MessageBox.Show("Item Barcode already registered", "", MessageBoxButtons.OK, MessageBoxIcon.Information)
-        '        txtBarCode.Focus()
-        '    End If
-        'Else
-        '    If myBarcode <> txtBarCode.Text Then
-        '        If itemRepo.isItemExistInMainStock(txtBarCode.Text) Then
-        '            MessageBox.Show("Item Barcode already registered", "", MessageBoxButtons.OK, MessageBoxIcon.Information)
-        '            txtBarCode.Focus()
-        '        End If
-        '    End If
-        'End If
+        '--- Check validate item already exist by Barcode
+        If lblSaveOption.Text = "0" Then
+            If itemRepo.isItemExistInMainStock(txtBarCode.Text) Then
+                MessageBox.Show("Item Barcode already registered", "", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                txtBarCode.Focus()
+            End If
+        Else
+            If myBarcode <> txtBarCode.Text Then
+                If itemRepo.isItemExistInMainStock(txtBarCode.Text) Then
+                    MessageBox.Show("Item Barcode already registered", "", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                    txtBarCode.Focus()
+                End If
+            End If
+        End If
 
     End Sub
 
@@ -1484,7 +1507,4 @@ bm.Height), GraphicsUnit.Pixel)
 
 
 
-    Private Sub TxtPrice_KeyPress(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles TxtPrice.KeyPress
-        SetDisableKeyString(e)
-    End Sub
 End Class

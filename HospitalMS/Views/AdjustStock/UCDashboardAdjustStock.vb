@@ -16,21 +16,8 @@ Public Class UCDashboardAdjustStock
     End Sub
     Sub myRefresh()
 
-
-        'Dim User As Department_User = IUser.GetUID(CInt(USER_ID))
-
-        'If User.isHospitalManager = True And User.isMainStockManager = True Then
-        '    gridAdjustmentHistory.DataSource = DepartAdjustStockDataAdapter.GetData
-        '    Exit Sub
-        'End If
-
-        'If User.isMainStockManager = True Then
-        '    gridAdjustmentHistory.DataSource = DepartAdjustStockDataAdapter.GetDepartAdjustItem(MAIN_STOCK_DEPART_ID)
-        'ElseIf User.isHospitalManager = True Then
-        '    gridAdjustmentHistory.DataSource = DepartAdjustStockDataAdapter.GetAdjustmentDataByDepartID(MAIN_STOCK_DEPART_ID)        
-        'End If
         gridAdjustmentHistory.DataSource = DepartAdjustStockDataAdapter.SelectAdjustDateToDate(DateAdjFrom.Value.Date, DateAdjTo.Value.Date)
-        
+
 
 
     End Sub
@@ -57,55 +44,13 @@ Public Class UCDashboardAdjustStock
             THIDataContextAPPROVED.getTHIDataContext.Connection.Close()
             THIDataContextAPPROVED.getTHIDataContext.Connection.Open()
             Dim trans As DbTransaction = THIDataContextAPPROVED.getTHIDataContext.Connection.BeginTransaction
+            Dim DAUpdateQTYExpier As New DSRequestTableAdapters.ITEM_EXPIREDATE_DETAILTableAdapter
             THIDataContextAPPROVED.getTHIDataContext.Transaction = trans
 
             If MessageBox.Show("Are you sure to approve adjust item ?", "Save", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = Windows.Forms.DialogResult.Yes Then
                 Try
 
                     If CInt(gridAdjustmentHistory.GetValue("DepartID")) <> MAIN_STOCK_DEPART_ID Then
-
-
-
-                        'Dim myMainStock As New tblCentralInventory
-                        ''--- Query to particular record to cut balance in main stock 
-                        'Dim qaaa = From centralStock In THIDataContextAPPROVED.getTHIDataContext.tblCentralInventories Where centralStock.ItemID = CInt(gridAdjustmentHistory.GetValue("ItemID"))
-                        'myMainStock = qaaa.SingleOrDefault
-                        ''MsgBox(CDate(gridAdjustmentHistory.GetValue("AdjustDate")).Date & "  " & CDate(gridAdjustmentHistory.GetValue("AdjustDate")))
-                        ''========================= Management Begin item quantity before perform transaction =========================
-                        'Dim qBBT = (From BBT In THIDataContextAPPROVED.getTHIDataContext.tblBeginBalanceTraces Where BBT.Date.Value.Date = CDate(gridAdjustmentHistory.GetValue("AdjustDate")).Date And BBT.DepartID = CInt(DEPART_ID) And BBT.ItemID = Val(gridAdjustmentHistory.GetValue("ItemID")) Select BBT.BeginBalanceTraceID).Count
-                        'If qBBT = 0 Then
-                        '    '========================= Register Begin Balance of item (myRequestToDepartID) =========================                        
-                        '    Dim mytblBeginBalanceTrace As New tblBeginBalanceTrace
-                        '    mytblBeginBalanceTrace.Date = CDate(gridAdjustmentHistory.GetValue("AdjustDate"))
-                        '    mytblBeginBalanceTrace.DepartID = CInt(gridAdjustmentHistory.GetValue("DepartID"))
-                        '    mytblBeginBalanceTrace.BeginBalanceOfDay = myMainStock.UnitsInStock
-                        '    mytblBeginBalanceTrace.ItemID = CInt(gridAdjustmentHistory.GetValue("ItemID"))
-
-                        '    THIDataContextAPPROVED.getTHIDataContext.tblBeginBalanceTraces.InsertOnSubmit(mytblBeginBalanceTrace)
-                        '    THIDataContextAPPROVED.getTHIDataContext.SubmitChanges()
-                        'End If
-
-
-                        'Dim myDepartStock As New tblDeptStock
-                        '' move to particular record to cut balance in department stock
-                        'Dim qdepartStock = From departStock In THIDataContextAPPROVED.getTHIDataContext.tblDeptStocks Where departStock.DepartID = CInt(DEPART_ID) And departStock.ItemID = Val(gridAdjustmentHistory.GetValue("ItemID"))
-                        'myDepartStock = qdepartStock.SingleOrDefault
-
-                        '========================= Management Begin item quantity before perform transaction =========================
-                        'Dim qdep = (From BBT In THIDataContextAPPROVED.getTHIDataContext.tblBeginBalanceTraces Where BBT.Date.Value.Date = CDate(gridAdjustmentHistory.GetValue("AdjustDate")).Date And BBT.DepartID = CInt(gridAdjustmentHistory.GetValue("DepartID")) And BBT.ItemID = Val(gridAdjustmentHistory.GetValue("ItemID")) Select BBT.BeginBalanceTraceID).Count
-                        'If qdep = 0 Then
-                        '    '========================= Register Begin Balance of item (myRequestToDepartID) =========================                        
-                        '    Dim mytblBeginBalanceTrace As New tblBeginBalanceTrace
-                        '    mytblBeginBalanceTrace.Date = CDate(gridAdjustmentHistory.GetValue("AdjustDate")).Date
-                        '    mytblBeginBalanceTrace.DepartID = CInt(gridAdjustmentHistory.GetValue("DepartID"))
-                        '    mytblBeginBalanceTrace.BeginBalanceOfDay = myDepartStock.UnitsInStock
-                        '    mytblBeginBalanceTrace.ItemID = Val(gridAdjustmentHistory.GetValue("ItemID"))
-
-                        '    THIDataContextAPPROVED.getTHIDataContext.tblBeginBalanceTraces.InsertOnSubmit(mytblBeginBalanceTrace)
-                        '    THIDataContextAPPROVED.getTHIDataContext.SubmitChanges()
-                        'End If
-
-
                         '--- Update Quantity item in department stock
                         Dim q = From departStock In THIDataContextAPPROVED.getTHIDataContext.tblDeptStocks Where departStock.DepartID = CInt(gridAdjustmentHistory.GetValue("DepartID")) And departStock.ItemID = CInt(gridAdjustmentHistory.GetValue("ItemID"))
                         Dim TDepartStock As tblDeptStock = q.SingleOrDefault
@@ -176,11 +121,9 @@ Public Class UCDashboardAdjustStock
 
                         THIDataContextAPPROVED.getTHIDataContext.SubmitChanges()
 
-
-
                         trans.Commit()
                         THIDataContextAPPROVED.getTHIDataContext.Connection.Close()
-
+                        DAUpdateQTYExpier.UpdateItemAdjustment(CInt(gridAdjustmentHistory.GetRow.Cells("Difference").Value), CInt(gridAdjustmentHistory.GetRow.Cells("ExpireID").Value), CInt(gridAdjustmentHistory.GetRow.Cells("ItemID").Value))
                     End If
                 Catch ex As Exception
                     trans.Rollback()

@@ -322,3 +322,7 @@ C:\BanYanno\SoftProject\DrMengEye\HospitalMS\obj\x86\Debug\ca\HospitalMS.resourc
 C:\BanYanno\SoftProject\DrMengEye\HospitalMS\obj\x86\Debug\HospitalMS.exe
 C:\BanYanno\SoftProject\DrMengEye\HospitalMS\obj\x86\Debug\HospitalMS.xml
 C:\BanYanno\SoftProject\DrMengEye\HospitalMS\obj\x86\Debug\HospitalMS.pdb
+C:\BanYanno\SoftProject\DrMengEye\HospitalMS\obj\x86\Debug\HospitalMS.AdjustStockMainStock.resources
+C:\BanYanno\SoftProject\DrMengEye\HospitalMS\obj\x86\Debug\HospitalMS.EditeItemExpire.resources
+C:\BanYanno\SoftProject\DrMengEye\HospitalMS\obj\x86\Debug\HospitalMS.ReceivedItem.resources
+C:\BanYanno\SoftProject\DrMengEye\HospitalMS\obj\x86\Debug\HospitalMS.ForReceiveOrder.resources

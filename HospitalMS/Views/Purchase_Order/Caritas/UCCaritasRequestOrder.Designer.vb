@@ -22,7 +22,6 @@ Partial Class UCCaritasRequestOrder
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.components = New System.ComponentModel.Container
         Dim gridCaritasRequestOrder123_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(UCCaritasRequestOrder))
         Me.MenuStripCate = New System.Windows.Forms.MenuStrip
@@ -51,7 +50,6 @@ Partial Class UCCaritasRequestOrder
         Me.Label6 = New System.Windows.Forms.Label
         Me.BgRunReceived = New System.ComponentModel.BackgroundWorker
         Me.gridCaritasRequestOrder123 = New Janus.Windows.GridEX.GridEX
-        Me.FilterEditor1 = New Janus.Windows.FilterEditor.FilterEditor
         Me.MenuStripCate.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
@@ -308,36 +306,19 @@ Partial Class UCCaritasRequestOrder
         Me.gridCaritasRequestOrder123.HeaderFormatStyle.ForeColor = System.Drawing.Color.Blue
         Me.gridCaritasRequestOrder123.HideSelection = Janus.Windows.GridEX.HideSelection.HighlightInactive
         Me.gridCaritasRequestOrder123.Hierarchical = True
-        Me.gridCaritasRequestOrder123.Location = New System.Drawing.Point(0, 182)
+        Me.gridCaritasRequestOrder123.Location = New System.Drawing.Point(0, 134)
         Me.gridCaritasRequestOrder123.Name = "gridCaritasRequestOrder123"
         Me.gridCaritasRequestOrder123.RecordNavigator = True
         Me.gridCaritasRequestOrder123.RowHeaderContent = Janus.Windows.GridEX.RowHeaderContent.RowIndex
         Me.gridCaritasRequestOrder123.RowHeaders = Janus.Windows.GridEX.InheritableBoolean.[True]
-        Me.gridCaritasRequestOrder123.Size = New System.Drawing.Size(1044, 427)
+        Me.gridCaritasRequestOrder123.Size = New System.Drawing.Size(1044, 475)
         Me.gridCaritasRequestOrder123.TabIndex = 14
-        '
-        'FilterEditor1
-        '
-        Me.FilterEditor1.AutoApply = True
-        Me.FilterEditor1.BackColor = System.Drawing.Color.Transparent
-        Me.FilterEditor1.DefaultConditionOperator = Janus.Data.ConditionOperator.Equal
-        Me.FilterEditor1.Dock = System.Windows.Forms.DockStyle.Top
-        Me.FilterEditor1.InnerAreaStyle = Janus.Windows.UI.Dock.PanelInnerAreaStyle.UseFormatStyle
-        Me.FilterEditor1.Location = New System.Drawing.Point(0, 134)
-        Me.FilterEditor1.MinSize = New System.Drawing.Size(16, 45)
-        Me.FilterEditor1.Name = "FilterEditor1"
-        Me.FilterEditor1.Office2007ColorScheme = Janus.Windows.Common.Office2007ColorScheme.[Default]
-        Me.FilterEditor1.ScrollMode = Janus.Windows.UI.Dock.ScrollMode.Both
-        Me.FilterEditor1.ScrollStep = 15
-        Me.FilterEditor1.Size = New System.Drawing.Size(1044, 48)
-        Me.FilterEditor1.SourceControl = Me.gridCaritasRequestOrder123
         '
         'UCCaritasRequestOrder
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.Controls.Add(Me.gridCaritasRequestOrder123)
-        Me.Controls.Add(Me.FilterEditor1)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.MenuStripCate)
         Me.Name = "UCCaritasRequestOrder"
@@ -377,6 +358,5 @@ Partial Class UCCaritasRequestOrder
     Friend WithEvents BtnNotyetComplet As System.Windows.Forms.Button
     Friend WithEvents BgRunReceived As System.ComponentModel.BackgroundWorker
     Friend WithEvents gridCaritasRequestOrder123 As Janus.Windows.GridEX.GridEX
-    Friend WithEvents FilterEditor1 As Janus.Windows.FilterEditor.FilterEditor
 
 End Class

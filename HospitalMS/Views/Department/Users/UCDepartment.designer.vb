@@ -122,12 +122,11 @@ Partial Class UCDepartment
         '
         'LsDepartment
         '
-        Me.LsDepartment.BackColor = System.Drawing.Color.FromArgb(CType(CType(196, Byte), Integer), CType(CType(218, Byte), Integer), CType(CType(250, Byte), Integer))
-        Me.LsDepartment.BackgroundImageTiled = True
+        Me.LsDepartment.BackColor = System.Drawing.SystemColors.Control
         Me.LsDepartment.ContextMenuStrip = Me.ContextDepartment
         Me.LsDepartment.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.LsDepartment.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LsDepartment.ForeColor = System.Drawing.Color.Red
+        Me.LsDepartment.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LsDepartment.ForeColor = System.Drawing.Color.Blue
         Me.LsDepartment.HideSelection = False
         Me.LsDepartment.LargeImageList = Me.ImgList
         Me.LsDepartment.Location = New System.Drawing.Point(0, 0)
@@ -176,11 +175,11 @@ Partial Class UCDepartment
         '
         'LsPermistion
         '
-        Me.LsPermistion.BackColor = System.Drawing.Color.FromArgb(CType(CType(196, Byte), Integer), CType(CType(218, Byte), Integer), CType(CType(250, Byte), Integer))
+        Me.LsPermistion.BackColor = System.Drawing.SystemColors.Control
         Me.LsPermistion.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader5, Me.ColumnHeader6, Me.ColumnHeader7, Me.ColumnHeader8})
         Me.LsPermistion.Dock = System.Windows.Forms.DockStyle.Fill
         Me.LsPermistion.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LsPermistion.ForeColor = System.Drawing.Color.Red
+        Me.LsPermistion.ForeColor = System.Drawing.Color.Blue
         Me.LsPermistion.HideSelection = False
         Me.LsPermistion.LargeImageList = Me.ImgList
         Me.LsPermistion.Location = New System.Drawing.Point(2, 45)
@@ -224,9 +223,8 @@ Partial Class UCDepartment
         '
         'ToolStripButton1
         '
-        Me.ToolStripButton1.BackgroundImage = CType(resources.GetObject("ToolStripButton1.BackgroundImage"), System.Drawing.Image)
         Me.ToolStripButton1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.ToolStripButton1.ForeColor = System.Drawing.Color.White
+        Me.ToolStripButton1.ForeColor = System.Drawing.Color.Blue
         Me.ToolStripButton1.Image = Global.HospitalMS.My.Resources.Resources._new
         Me.ToolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.ToolStripButton1.Name = "ToolStripButton1"
@@ -240,9 +238,8 @@ Partial Class UCDepartment
         '
         'BtnMenuEdit
         '
-        Me.BtnMenuEdit.BackgroundImage = CType(resources.GetObject("BtnMenuEdit.BackgroundImage"), System.Drawing.Image)
         Me.BtnMenuEdit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.BtnMenuEdit.ForeColor = System.Drawing.Color.White
+        Me.BtnMenuEdit.ForeColor = System.Drawing.Color.Blue
         Me.BtnMenuEdit.Image = Global.HospitalMS.My.Resources.Resources.configuration_edit
         Me.BtnMenuEdit.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.BtnMenuEdit.Name = "BtnMenuEdit"
@@ -256,9 +253,8 @@ Partial Class UCDepartment
         '
         'BtnViewAllPermission
         '
-        Me.BtnViewAllPermission.BackgroundImage = CType(resources.GetObject("BtnViewAllPermission.BackgroundImage"), System.Drawing.Image)
         Me.BtnViewAllPermission.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.BtnViewAllPermission.ForeColor = System.Drawing.Color.White
+        Me.BtnViewAllPermission.ForeColor = System.Drawing.Color.Blue
         Me.BtnViewAllPermission.Image = Global.HospitalMS.My.Resources.Resources.view_refresh
         Me.BtnViewAllPermission.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.BtnViewAllPermission.Name = "BtnViewAllPermission"
@@ -282,11 +278,11 @@ Partial Class UCDepartment
         '
         'LsUser
         '
-        Me.LsUser.BackColor = System.Drawing.Color.FromArgb(CType(CType(196, Byte), Integer), CType(CType(218, Byte), Integer), CType(CType(250, Byte), Integer))
+        Me.LsUser.BackColor = System.Drawing.SystemColors.Control
         Me.LsUser.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader1, Me.ColumnHeader2, Me.ColumnHeader3, Me.ColumnHeader4})
         Me.LsUser.Dock = System.Windows.Forms.DockStyle.Fill
         Me.LsUser.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LsUser.ForeColor = System.Drawing.Color.Red
+        Me.LsUser.ForeColor = System.Drawing.Color.Blue
         Me.LsUser.HideSelection = False
         Me.LsUser.LargeImageList = Me.ImgList
         Me.LsUser.Location = New System.Drawing.Point(2, 45)
@@ -330,9 +326,8 @@ Partial Class UCDepartment
         '
         'BtnNewUser
         '
-        Me.BtnNewUser.BackgroundImage = CType(resources.GetObject("BtnNewUser.BackgroundImage"), System.Drawing.Image)
         Me.BtnNewUser.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.BtnNewUser.ForeColor = System.Drawing.Color.White
+        Me.BtnNewUser.ForeColor = System.Drawing.Color.Blue
         Me.BtnNewUser.Image = Global.HospitalMS.My.Resources.Resources.new_vendor
         Me.BtnNewUser.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.BtnNewUser.Name = "BtnNewUser"
@@ -346,9 +341,8 @@ Partial Class UCDepartment
         '
         'BtnEditUser
         '
-        Me.BtnEditUser.BackgroundImage = CType(resources.GetObject("BtnEditUser.BackgroundImage"), System.Drawing.Image)
         Me.BtnEditUser.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.BtnEditUser.ForeColor = System.Drawing.Color.White
+        Me.BtnEditUser.ForeColor = System.Drawing.Color.Blue
         Me.BtnEditUser.Image = Global.HospitalMS.My.Resources.Resources.configuration_edit
         Me.BtnEditUser.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.BtnEditUser.Name = "BtnEditUser"
@@ -362,9 +356,8 @@ Partial Class UCDepartment
         '
         'BtnChangePassword
         '
-        Me.BtnChangePassword.BackgroundImage = CType(resources.GetObject("BtnChangePassword.BackgroundImage"), System.Drawing.Image)
         Me.BtnChangePassword.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.BtnChangePassword.ForeColor = System.Drawing.Color.White
+        Me.BtnChangePassword.ForeColor = System.Drawing.Color.Blue
         Me.BtnChangePassword.Image = Global.HospitalMS.My.Resources.Resources.RightLeft2Red
         Me.BtnChangePassword.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.BtnChangePassword.Name = "BtnChangePassword"
@@ -378,9 +371,8 @@ Partial Class UCDepartment
         '
         'BtnViewAllUser
         '
-        Me.BtnViewAllUser.BackgroundImage = CType(resources.GetObject("BtnViewAllUser.BackgroundImage"), System.Drawing.Image)
         Me.BtnViewAllUser.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.BtnViewAllUser.ForeColor = System.Drawing.Color.White
+        Me.BtnViewAllUser.ForeColor = System.Drawing.Color.Blue
         Me.BtnViewAllUser.Image = Global.HospitalMS.My.Resources.Resources.view_refresh
         Me.BtnViewAllUser.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.BtnViewAllUser.Name = "BtnViewAllUser"
@@ -394,9 +386,8 @@ Partial Class UCDepartment
         '
         'BtnDeleteUser
         '
-        Me.BtnDeleteUser.BackgroundImage = CType(resources.GetObject("BtnDeleteUser.BackgroundImage"), System.Drawing.Image)
         Me.BtnDeleteUser.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.BtnDeleteUser.ForeColor = System.Drawing.Color.White
+        Me.BtnDeleteUser.ForeColor = System.Drawing.Color.Blue
         Me.BtnDeleteUser.Image = Global.HospitalMS.My.Resources.Resources.Remove
         Me.BtnDeleteUser.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.BtnDeleteUser.Name = "BtnDeleteUser"
@@ -409,7 +400,7 @@ Partial Class UCDepartment
         Me.ToolStrip1.BackColor = System.Drawing.Color.Transparent
         Me.ToolStrip1.Font = New System.Drawing.Font("Tahoma", 8.25!)
         Me.ToolStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden
-        Me.ToolStrip1.ImageScalingSize = New System.Drawing.Size(32, 32)
+        Me.ToolStrip1.ImageScalingSize = New System.Drawing.Size(15, 15)
         Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.BtnNew, Me.ToolStripSeparator1, Me.btnEdit, Me.ToolStripSeparator2, Me.BtnRefresh, Me.ToolStripSeparator3, Me.BtnPermission})
         Me.ToolStrip1.Location = New System.Drawing.Point(0, 0)
         Me.ToolStrip1.Name = "ToolStrip1"
@@ -421,14 +412,14 @@ Partial Class UCDepartment
         'BtnNew
         '
         Me.BtnNew.AutoSize = False
-        Me.BtnNew.BackgroundImage = Global.HospitalMS.My.Resources.Resources.mZihS
         Me.BtnNew.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.BtnNew.ForeColor = System.Drawing.Color.White
+        Me.BtnNew.ForeColor = System.Drawing.Color.Blue
         Me.BtnNew.Image = Global.HospitalMS.My.Resources.Resources.blue_new
         Me.BtnNew.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.BtnNew.Name = "BtnNew"
         Me.BtnNew.Size = New System.Drawing.Size(80, 31)
         Me.BtnNew.Text = "New "
+        Me.BtnNew.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
         '
         'ToolStripSeparator1
         '
@@ -438,14 +429,14 @@ Partial Class UCDepartment
         'btnEdit
         '
         Me.btnEdit.AutoSize = False
-        Me.btnEdit.BackgroundImage = CType(resources.GetObject("btnEdit.BackgroundImage"), System.Drawing.Image)
         Me.btnEdit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.btnEdit.ForeColor = System.Drawing.Color.White
+        Me.btnEdit.ForeColor = System.Drawing.Color.Blue
         Me.btnEdit.Image = Global.HospitalMS.My.Resources.Resources.configuration_edit
         Me.btnEdit.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.btnEdit.Name = "btnEdit"
         Me.btnEdit.Size = New System.Drawing.Size(70, 31)
         Me.btnEdit.Text = "   Edit   "
+        Me.btnEdit.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
         '
         'ToolStripSeparator2
         '
@@ -455,14 +446,14 @@ Partial Class UCDepartment
         'BtnRefresh
         '
         Me.BtnRefresh.AutoSize = False
-        Me.BtnRefresh.BackgroundImage = CType(resources.GetObject("BtnRefresh.BackgroundImage"), System.Drawing.Image)
         Me.BtnRefresh.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.BtnRefresh.ForeColor = System.Drawing.Color.White
+        Me.BtnRefresh.ForeColor = System.Drawing.Color.Blue
         Me.BtnRefresh.Image = Global.HospitalMS.My.Resources.Resources.view_refresh
         Me.BtnRefresh.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.BtnRefresh.Name = "BtnRefresh"
         Me.BtnRefresh.Size = New System.Drawing.Size(120, 30)
         Me.BtnRefresh.Text = "Refresh Data"
+        Me.BtnRefresh.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
         '
         'ToolStripSeparator3
         '
@@ -471,14 +462,14 @@ Partial Class UCDepartment
         '
         'BtnPermission
         '
-        Me.BtnPermission.BackgroundImage = CType(resources.GetObject("BtnPermission.BackgroundImage"), System.Drawing.Image)
         Me.BtnPermission.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.BtnPermission.ForeColor = System.Drawing.Color.White
+        Me.BtnPermission.ForeColor = System.Drawing.Color.Blue
         Me.BtnPermission.Image = Global.HospitalMS.My.Resources.Resources.process
         Me.BtnPermission.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.BtnPermission.Name = "BtnPermission"
-        Me.BtnPermission.Size = New System.Drawing.Size(134, 31)
+        Me.BtnPermission.Size = New System.Drawing.Size(102, 31)
         Me.BtnPermission.Text = "Permission Of Dep-"
+        Me.BtnPermission.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
         '
         'BgLoadingDepartment
         '
@@ -487,7 +478,7 @@ Partial Class UCDepartment
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(196, Byte), Integer), CType(CType(218, Byte), Integer), CType(CType(250, Byte), Integer))
+        Me.BackColor = System.Drawing.SystemColors.Control
         Me.Controls.Add(Me.SplitContainer1)
         Me.Controls.Add(Me.ToolStrip1)
         Me.Name = "UCDepartment"

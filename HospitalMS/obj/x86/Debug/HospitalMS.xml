@@ -482,6 +482,106 @@ Represents the connection and commands used to retrieve and save data.
 	<summary>
 Represents the connection and commands used to retrieve and save data.
 </summary>
+</member><member name="T:HospitalMS.DSInventoryClinic.RECEIVE_ITEM_TEM_DETAILDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:HospitalMS.DSInventoryClinic.tblItemDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:HospitalMS.DSInventoryClinic.ITEM_RECIEVE_DETIALDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:HospitalMS.DSInventoryClinic.ITEM_RECIEVE_MASTERDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:HospitalMS.DSInventoryClinic.RECEIVE_ITEM_TEM_DETAILRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:HospitalMS.DSInventoryClinic.tblItemRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:HospitalMS.DSInventoryClinic.ITEM_RECIEVE_DETIALRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:HospitalMS.DSInventoryClinic.ITEM_RECIEVE_MASTERRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:HospitalMS.DSInventoryClinic.RECEIVE_ITEM_TEM_DETAILRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:HospitalMS.DSInventoryClinic.tblItemRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:HospitalMS.DSInventoryClinic.ITEM_RECIEVE_DETIALRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:HospitalMS.DSInventoryClinic.ITEM_RECIEVE_MASTERRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:HospitalMS.DSInventoryClinic">
+	<summary>
+Represents a strongly typed in-memory cache of data.
+</summary>
+</member><member name="T:HospitalMS.DSInventoryClinicTableAdapters.RECEIVE_ITEM_TEM_DETAILTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:HospitalMS.DSInventoryClinicTableAdapters.tblItemTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:HospitalMS.DSInventoryClinicTableAdapters.ITEM_RECIEVE_DETIALTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:HospitalMS.DSInventoryClinicTableAdapters.ITEM_RECIEVE_MASTERTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="M:HospitalMS.DSInventoryClinicTableAdapters.TableAdapterManager.UpdateUpdatedRows(HospitalMS.DSInventoryClinic,System.Collections.Generic.List{System.Data.DataRow},System.Collections.Generic.List{System.Data.DataRow})">
+	<summary>
+Update rows in top-down order.
+</summary>
+</member><member name="M:HospitalMS.DSInventoryClinicTableAdapters.TableAdapterManager.UpdateInsertedRows(HospitalMS.DSInventoryClinic,System.Collections.Generic.List{System.Data.DataRow})">
+	<summary>
+Insert rows in top-down order.
+</summary>
+</member><member name="M:HospitalMS.DSInventoryClinicTableAdapters.TableAdapterManager.UpdateDeletedRows(HospitalMS.DSInventoryClinic,System.Collections.Generic.List{System.Data.DataRow})">
+	<summary>
+Delete rows in bottom-up order.
+</summary>
+</member><member name="M:HospitalMS.DSInventoryClinicTableAdapters.TableAdapterManager.GetRealUpdatedRows(System.Data.DataRow[],System.Collections.Generic.List{System.Data.DataRow})">
+	<summary>
+Remove inserted rows that become updated rows after calling TableAdapter.Update(inserted rows) first
+</summary>
+</member><member name="M:HospitalMS.DSInventoryClinicTableAdapters.TableAdapterManager.UpdateAll(HospitalMS.DSInventoryClinic)">
+	<summary>
+Update all changes to the dataset.
+</summary>
+</member><member name="T:HospitalMS.DSInventoryClinicTableAdapters.TableAdapterManager.UpdateOrderOption">
+	<summary>
+Update Order Option
+</summary>
+</member><member name="T:HospitalMS.DSInventoryClinicTableAdapters.TableAdapterManager.SelfReferenceComparer">
+	<summary>
+Used to sort self-referenced table's rows
+</summary>
+</member><member name="T:HospitalMS.DSInventoryClinicTableAdapters.TableAdapterManager">
+	<summary>
+TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
+</summary>
 </member><member name="T:HospitalMS.DSChemical.tblChemicalDataTable">
 	<summary>
 Represents the strongly named DataTable class.
@@ -1610,6 +1710,10 @@ Represents the strongly named DataTable class.
 	<summary>
 Represents the strongly named DataTable class.
 </summary>
+</member><member name="T:HospitalMS.DSDepartmentStock.ITEM_EXPIREDATE_DETAILDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
 </member><member name="T:HospitalMS.DSDepartmentStock.InitialItemDTDataTable">
 	<summary>
 Represents the strongly named DataTable class.
@@ -1626,6 +1730,10 @@ Represents strongly named DataRow class.
 	<summary>
 Represents strongly named DataRow class.
 </summary>
+</member><member name="T:HospitalMS.DSDepartmentStock.ITEM_EXPIREDATE_DETAILRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
 </member><member name="T:HospitalMS.DSDepartmentStock.InitialItemDTRow">
 	<summary>
 Represents strongly named DataRow class.
@@ -1639,6 +1747,10 @@ Row event argument class
 Row event argument class
 </summary>
 </member><member name="T:HospitalMS.DSDepartmentStock.VAdjustStockHistoryRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:HospitalMS.DSDepartmentStock.ITEM_EXPIREDATE_DETAILRowChangeEvent">
 	<summary>
 Row event argument class
 </summary>
@@ -1659,6 +1771,10 @@ Represents the connection and commands used to retrieve and save data.
 Represents the connection and commands used to retrieve and save data.
 </summary>
 </member><member name="T:HospitalMS.DSDepartmentStockTableAdapters.VAdjustStockHistoryTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:HospitalMS.DSDepartmentStockTableAdapters.ITEM_EXPIREDATE_DETAILTableAdapter">
 	<summary>
 Represents the connection and commands used to retrieve and save data.
 </summary>
@@ -3278,6 +3394,10 @@ Represents the strongly named DataTable class.
 	<summary>
 Represents the strongly named DataTable class.
 </summary>
+</member><member name="T:HospitalMS.DSItemPrice.ViewExpireDateDetialDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
 </member><member name="T:HospitalMS.DSItemPrice.tblItemPriceRow">
 	<summary>
 Represents strongly named DataRow class.
@@ -3286,11 +3406,19 @@ Represents strongly named DataRow class.
 	<summary>
 Represents strongly named DataRow class.
 </summary>
+</member><member name="T:HospitalMS.DSItemPrice.ViewExpireDateDetialRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
 </member><member name="T:HospitalMS.DSItemPrice.tblItemPriceRowChangeEvent">
 	<summary>
 Row event argument class
 </summary>
 </member><member name="T:HospitalMS.DSItemPrice.VItemPriceOpticalShopRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:HospitalMS.DSItemPrice.ViewExpireDateDetialRowChangeEvent">
 	<summary>
 Row event argument class
 </summary>
@@ -3303,6 +3431,10 @@ Represents a strongly typed in-memory cache of data.
 Represents the connection and commands used to retrieve and save data.
 </summary>
 </member><member name="T:HospitalMS.DSItemPriceTableAdapters.VItemPriceOpticalShopTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:HospitalMS.DSItemPriceTableAdapters.ViewExpireDateDetialTableAdapter">
 	<summary>
 Represents the connection and commands used to retrieve and save data.
 </summary>
@@ -5219,6 +5351,10 @@ Represents the strongly named DataTable class.
 	<summary>
 Represents the strongly named DataTable class.
 </summary>
+</member><member name="T:HospitalMS.DSRequest.ITEM_EXPIREDATE_DETAILDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
 </member><member name="T:HospitalMS.DSRequest.VRequestDepartmentDetailRow">
 	<summary>
 Represents strongly named DataRow class.
@@ -5239,6 +5375,10 @@ Represents strongly named DataRow class.
 	<summary>
 Represents strongly named DataRow class.
 </summary>
+</member><member name="T:HospitalMS.DSRequest.ITEM_EXPIREDATE_DETAILRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
 </member><member name="T:HospitalMS.DSRequest.VRequestDepartmentDetailRowChangeEvent">
 	<summary>
 Row event argument class
@@ -5256,6 +5396,10 @@ Row event argument class
 Row event argument class
 </summary>
 </member><member name="T:HospitalMS.DSRequest.VUsedWithUsedDetailRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:HospitalMS.DSRequest.ITEM_EXPIREDATE_DETAILRowChangeEvent">
 	<summary>
 Row event argument class
 </summary>
@@ -5280,6 +5424,10 @@ Represents the connection and commands used to retrieve and save data.
 Represents the connection and commands used to retrieve and save data.
 </summary>
 </member><member name="T:HospitalMS.DSRequestTableAdapters.VUsedWithUsedDetailTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:HospitalMS.DSRequestTableAdapters.ITEM_EXPIREDATE_DETAILTableAdapter">
 	<summary>
 Represents the connection and commands used to retrieve and save data.
 </summary>

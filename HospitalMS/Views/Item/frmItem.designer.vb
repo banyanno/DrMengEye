@@ -38,9 +38,6 @@ Partial Class frmItem
         Me.cIsShow = New System.Windows.Forms.DataGridViewCheckBoxColumn
         Me.BtnUnCheckAll = New System.Windows.Forms.Button
         Me.GroupBox4 = New System.Windows.Forms.GroupBox
-        Me.Label17 = New System.Windows.Forms.Label
-        Me.TxtPrice = New System.Windows.Forms.TextBox
-        Me.Label9 = New System.Windows.Forms.Label
         Me.Label2 = New System.Windows.Forms.Label
         Me.Label16 = New System.Windows.Forms.Label
         Me.txtBarCode = New System.Windows.Forms.TextBox
@@ -146,7 +143,7 @@ Partial Class frmItem
         Me.Label20.BackColor = System.Drawing.Color.Transparent
         Me.Label20.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label20.ForeColor = System.Drawing.Color.Red
-        Me.Label20.Location = New System.Drawing.Point(377, 24)
+        Me.Label20.Location = New System.Drawing.Point(377, 19)
         Me.Label20.Name = "Label20"
         Me.Label20.Size = New System.Drawing.Size(15, 20)
         Me.Label20.TabIndex = 49
@@ -166,18 +163,19 @@ Partial Class frmItem
         Me.UiTab1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.UiTab1.FlatBorderColor = System.Drawing.SystemColors.InactiveCaptionText
         Me.UiTab1.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!)
-        Me.UiTab1.Location = New System.Drawing.Point(0, 31)
+        Me.UiTab1.Location = New System.Drawing.Point(0, 45)
         Me.UiTab1.Name = "UiTab1"
         Me.UiTab1.Office2007ColorScheme = Janus.Windows.UI.Office2007ColorScheme.Black
-        Me.UiTab1.Size = New System.Drawing.Size(761, 681)
+        Me.UiTab1.Size = New System.Drawing.Size(759, 548)
         Me.UiTab1.TabIndex = 1
         Me.UiTab1.TabPages.AddRange(New Janus.Windows.UI.Tab.UITabPage() {Me.UiTabPage1, Me.UiTabPage2, Me.UiTabPage3})
-        Me.UiTab1.VisualStyle = Janus.Windows.UI.Tab.TabVisualStyle.Office2003
+        Me.UiTab1.VisualStyle = Janus.Windows.UI.Tab.TabVisualStyle.Normal
         '
         'UiTabPage1
         '
         Me.UiTabPage1.AutoScrollMargin = New System.Drawing.Size(1280, 1024)
         Me.UiTabPage1.Controls.Add(Me.GroupBox5)
+        Me.UiTabPage1.Controls.Add(Me.cbCate)
         Me.UiTabPage1.Controls.Add(Me.GroupBox4)
         Me.UiTabPage1.Controls.Add(Me.ckbMedicine)
         Me.UiTabPage1.Controls.Add(Me.GroupBox3)
@@ -189,10 +187,9 @@ Partial Class frmItem
         Me.UiTabPage1.Location = New System.Drawing.Point(1, 25)
         Me.UiTabPage1.Name = "UiTabPage1"
         Me.UiTabPage1.PanelFormatStyle.BackgroundImage = CType(resources.GetObject("UiTabPage1.PanelFormatStyle.BackgroundImage"), System.Drawing.Image)
-        Me.UiTabPage1.Size = New System.Drawing.Size(759, 655)
-        Me.UiTabPage1.StateStyles.FormatStyle.ForeColor = System.Drawing.Color.Red
+        Me.UiTabPage1.Size = New System.Drawing.Size(755, 520)
         Me.UiTabPage1.TabStop = True
-        Me.UiTabPage1.Text = "Item and Permission for Department"
+        Me.UiTabPage1.Text = "Item Information"
         '
         'GroupBox5
         '
@@ -206,7 +203,6 @@ Partial Class frmItem
         Me.GroupBox5.TabIndex = 49
         Me.GroupBox5.TabStop = False
         Me.GroupBox5.Text = "Permissions for Department"
-        Me.GroupBox5.Visible = False
         '
         'BtnCheckAll
         '
@@ -265,60 +261,26 @@ Partial Class frmItem
         'GroupBox4
         '
         Me.GroupBox4.BackColor = System.Drawing.Color.Transparent
-        Me.GroupBox4.Controls.Add(Me.Label17)
-        Me.GroupBox4.Controls.Add(Me.TxtPrice)
-        Me.GroupBox4.Controls.Add(Me.Label9)
         Me.GroupBox4.Controls.Add(Me.Label2)
         Me.GroupBox4.Controls.Add(Me.Label16)
         Me.GroupBox4.Controls.Add(Me.txtBarCode)
+        Me.GroupBox4.Controls.Add(Me.BtnCategories)
         Me.GroupBox4.Controls.Add(Me.PicItem)
         Me.GroupBox4.Controls.Add(Me.btnClearPic)
         Me.GroupBox4.Controls.Add(Me.btnBrowse)
         Me.GroupBox4.Controls.Add(Me.labelItemID)
         Me.GroupBox4.Controls.Add(Me.txtItemName)
         Me.GroupBox4.Controls.Add(Me.Label1)
+        Me.GroupBox4.Controls.Add(Me.Label5)
         Me.GroupBox4.Controls.Add(Me.Label12)
         Me.GroupBox4.Controls.Add(Me.Label20)
         Me.GroupBox4.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold)
-        Me.GroupBox4.ForeColor = System.Drawing.Color.Blue
         Me.GroupBox4.Location = New System.Drawing.Point(3, 3)
         Me.GroupBox4.Name = "GroupBox4"
-        Me.GroupBox4.Size = New System.Drawing.Size(739, 151)
+        Me.GroupBox4.Size = New System.Drawing.Size(739, 132)
         Me.GroupBox4.TabIndex = 0
         Me.GroupBox4.TabStop = False
         Me.GroupBox4.Text = "Item Information"
-        '
-        'Label17
-        '
-        Me.Label17.AutoSize = True
-        Me.Label17.BackColor = System.Drawing.Color.Transparent
-        Me.Label17.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
-        Me.Label17.Location = New System.Drawing.Point(250, 113)
-        Me.Label17.Name = "Label17"
-        Me.Label17.Size = New System.Drawing.Size(13, 13)
-        Me.Label17.TabIndex = 60
-        Me.Label17.Text = "$"
-        '
-        'TxtPrice
-        '
-        Me.TxtPrice.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.TxtPrice.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!)
-        Me.TxtPrice.Location = New System.Drawing.Point(110, 102)
-        Me.TxtPrice.Name = "TxtPrice"
-        Me.TxtPrice.Size = New System.Drawing.Size(137, 30)
-        Me.TxtPrice.TabIndex = 2
-        Me.TxtPrice.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
-        '
-        'Label9
-        '
-        Me.Label9.AutoSize = True
-        Me.Label9.BackColor = System.Drawing.Color.Transparent
-        Me.Label9.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
-        Me.Label9.Location = New System.Drawing.Point(9, 113)
-        Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(54, 13)
-        Me.Label9.TabIndex = 58
-        Me.Label9.Text = "Price Sell:"
         '
         'Label2
         '
@@ -337,7 +299,7 @@ Partial Class frmItem
         Me.Label16.AutoSize = True
         Me.Label16.BackColor = System.Drawing.Color.Transparent
         Me.Label16.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
-        Me.Label16.Location = New System.Drawing.Point(7, 29)
+        Me.Label16.Location = New System.Drawing.Point(7, 32)
         Me.Label16.Name = "Label16"
         Me.Label16.Size = New System.Drawing.Size(53, 13)
         Me.Label16.TabIndex = 46
@@ -345,9 +307,8 @@ Partial Class frmItem
         '
         'txtBarCode
         '
-        Me.txtBarCode.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.txtBarCode.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
-        Me.txtBarCode.Location = New System.Drawing.Point(109, 25)
+        Me.txtBarCode.Location = New System.Drawing.Point(109, 19)
         Me.txtBarCode.Name = "txtBarCode"
         Me.txtBarCode.Size = New System.Drawing.Size(265, 26)
         Me.txtBarCode.TabIndex = 0
@@ -356,7 +317,7 @@ Partial Class frmItem
         '
         Me.PicItem.BackColor = System.Drawing.Color.Transparent
         Me.PicItem.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.PicItem.Location = New System.Drawing.Point(398, 23)
+        Me.PicItem.Location = New System.Drawing.Point(398, 17)
         Me.PicItem.Name = "PicItem"
         Me.PicItem.Size = New System.Drawing.Size(166, 63)
         Me.PicItem.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
@@ -365,25 +326,21 @@ Partial Class frmItem
         '
         'btnClearPic
         '
-        Me.btnClearPic.BackgroundImage = CType(resources.GetObject("btnClearPic.BackgroundImage"), System.Drawing.Image)
-        Me.btnClearPic.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.btnClearPic.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
         Me.btnClearPic.Location = New System.Drawing.Point(580, 14)
         Me.btnClearPic.Name = "btnClearPic"
         Me.btnClearPic.Size = New System.Drawing.Size(91, 33)
-        Me.btnClearPic.TabIndex = 3
+        Me.btnClearPic.TabIndex = 2
         Me.btnClearPic.Text = "Clear"
         Me.btnClearPic.UseVisualStyleBackColor = True
         '
         'btnBrowse
         '
-        Me.btnBrowse.BackgroundImage = CType(resources.GetObject("btnBrowse.BackgroundImage"), System.Drawing.Image)
-        Me.btnBrowse.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.btnBrowse.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
         Me.btnBrowse.Location = New System.Drawing.Point(580, 51)
         Me.btnBrowse.Name = "btnBrowse"
         Me.btnBrowse.Size = New System.Drawing.Size(91, 30)
-        Me.btnBrowse.TabIndex = 4
+        Me.btnBrowse.TabIndex = 3
         Me.btnBrowse.Text = "Browse Picture"
         Me.btnBrowse.UseVisualStyleBackColor = True
         '
@@ -402,9 +359,8 @@ Partial Class frmItem
         '
         'txtItemName
         '
-        Me.txtItemName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.txtItemName.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!)
-        Me.txtItemName.Location = New System.Drawing.Point(109, 61)
+        Me.txtItemName.Location = New System.Drawing.Point(109, 55)
         Me.txtItemName.Name = "txtItemName"
         Me.txtItemName.Size = New System.Drawing.Size(265, 30)
         Me.txtItemName.TabIndex = 1
@@ -414,7 +370,7 @@ Partial Class frmItem
         Me.Label1.AutoSize = True
         Me.Label1.BackColor = System.Drawing.Color.Transparent
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
-        Me.Label1.Location = New System.Drawing.Point(7, 71)
+        Me.Label1.Location = New System.Drawing.Point(7, 72)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(101, 13)
         Me.Label1.TabIndex = 0
@@ -426,7 +382,7 @@ Partial Class frmItem
         Me.Label12.BackColor = System.Drawing.Color.Transparent
         Me.Label12.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label12.ForeColor = System.Drawing.Color.Red
-        Me.Label12.Location = New System.Drawing.Point(377, 66)
+        Me.Label12.Location = New System.Drawing.Point(377, 61)
         Me.Label12.Name = "Label12"
         Me.Label12.Size = New System.Drawing.Size(15, 20)
         Me.Label12.TabIndex = 29
@@ -437,7 +393,7 @@ Partial Class frmItem
         Me.ckbMedicine.AutoSize = True
         Me.ckbMedicine.BackColor = System.Drawing.Color.Transparent
         Me.ckbMedicine.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
-        Me.ckbMedicine.Location = New System.Drawing.Point(9, 171)
+        Me.ckbMedicine.Location = New System.Drawing.Point(9, 141)
         Me.ckbMedicine.Name = "ckbMedicine"
         Me.ckbMedicine.Size = New System.Drawing.Size(91, 24)
         Me.ckbMedicine.TabIndex = 42
@@ -455,12 +411,11 @@ Partial Class frmItem
         Me.GroupBox3.Controls.Add(Me.txtDescription)
         Me.GroupBox3.Controls.Add(Me.Label18)
         Me.GroupBox3.Controls.Add(Me.Label3)
-        Me.GroupBox3.Location = New System.Drawing.Point(3, 373)
+        Me.GroupBox3.Location = New System.Drawing.Point(3, 343)
         Me.GroupBox3.Name = "GroupBox3"
-        Me.GroupBox3.Size = New System.Drawing.Size(739, 229)
+        Me.GroupBox3.Size = New System.Drawing.Size(739, 176)
         Me.GroupBox3.TabIndex = 1
         Me.GroupBox3.TabStop = False
-        Me.GroupBox3.Text = "0"
         '
         'Label6
         '
@@ -470,16 +425,14 @@ Partial Class frmItem
         Me.Label6.Size = New System.Drawing.Size(46, 13)
         Me.Label6.TabIndex = 65
         Me.Label6.Text = "Cost $ : "
-        Me.Label6.Visible = False
         '
         'TxtCost
         '
         Me.TxtCost.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
         Me.TxtCost.Location = New System.Drawing.Point(452, 74)
         Me.TxtCost.Name = "TxtCost"
-        Me.TxtCost.Size = New System.Drawing.Size(255, 26)
+        Me.TxtCost.Size = New System.Drawing.Size(279, 26)
         Me.TxtCost.TabIndex = 64
-        Me.TxtCost.Visible = False
         '
         'dtpDateExpired
         '
@@ -490,29 +443,26 @@ Partial Class frmItem
         Me.dtpDateExpired.Location = New System.Drawing.Point(452, 31)
         Me.dtpDateExpired.Name = "dtpDateExpired"
         Me.dtpDateExpired.ShowCheckBox = True
-        Me.dtpDateExpired.Size = New System.Drawing.Size(255, 26)
+        Me.dtpDateExpired.Size = New System.Drawing.Size(279, 26)
         Me.dtpDateExpired.TabIndex = 0
         '
         'GroupBox6
         '
         Me.GroupBox6.BackColor = System.Drawing.Color.Transparent
         Me.GroupBox6.Controls.Add(Me.cbCountry)
-        Me.GroupBox6.Controls.Add(Me.cbCate)
         Me.GroupBox6.Controls.Add(Me.Label15)
         Me.GroupBox6.Controls.Add(Me.BtnUom)
-        Me.GroupBox6.Controls.Add(Me.BtnCategories)
         Me.GroupBox6.Controls.Add(Me.Label7)
         Me.GroupBox6.Controls.Add(Me.txtStockAlertQty)
         Me.GroupBox6.Controls.Add(Me.cbItemUnit)
         Me.GroupBox6.Controls.Add(Me.Label24)
-        Me.GroupBox6.Controls.Add(Me.Label5)
         Me.GroupBox6.Controls.Add(Me.txtExpireAlert)
         Me.GroupBox6.Controls.Add(Me.Label21)
         Me.GroupBox6.Controls.Add(Me.Label23)
         Me.GroupBox6.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold)
         Me.GroupBox6.Location = New System.Drawing.Point(6, 19)
         Me.GroupBox6.Name = "GroupBox6"
-        Me.GroupBox6.Size = New System.Drawing.Size(366, 194)
+        Me.GroupBox6.Size = New System.Drawing.Size(366, 152)
         Me.GroupBox6.TabIndex = 59
         Me.GroupBox6.TabStop = False
         Me.GroupBox6.Text = "Package Info"
@@ -521,7 +471,7 @@ Partial Class frmItem
         '
         Me.cbCountry.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
         Me.cbCountry.FormattingEnabled = True
-        Me.cbCountry.Location = New System.Drawing.Point(94, 83)
+        Me.cbCountry.Location = New System.Drawing.Point(94, 50)
         Me.cbCountry.Name = "cbCountry"
         Me.cbCountry.Size = New System.Drawing.Size(227, 28)
         Me.cbCountry.TabIndex = 65
@@ -530,16 +480,16 @@ Partial Class frmItem
         '
         Me.cbCate.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
         Me.cbCate.FormattingEnabled = True
-        Me.cbCate.Location = New System.Drawing.Point(95, 19)
+        Me.cbCate.Location = New System.Drawing.Point(112, 97)
         Me.cbCate.Name = "cbCate"
-        Me.cbCate.Size = New System.Drawing.Size(226, 28)
+        Me.cbCate.Size = New System.Drawing.Size(265, 28)
         Me.cbCate.TabIndex = 0
         '
         'Label15
         '
         Me.Label15.AutoSize = True
         Me.Label15.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
-        Me.Label15.Location = New System.Drawing.Point(244, 150)
+        Me.Label15.Location = New System.Drawing.Point(244, 129)
         Me.Label15.Name = "Label15"
         Me.Label15.Size = New System.Drawing.Size(99, 13)
         Me.Label15.TabIndex = 64
@@ -547,43 +497,37 @@ Partial Class frmItem
         '
         'BtnUom
         '
-        Me.BtnUom.BackgroundImage = CType(resources.GetObject("BtnUom.BackgroundImage"), System.Drawing.Image)
-        Me.BtnUom.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.BtnUom.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.BtnUom.Location = New System.Drawing.Point(327, 55)
+        Me.BtnUom.Location = New System.Drawing.Point(327, 19)
         Me.BtnUom.Name = "BtnUom"
-        Me.BtnUom.Size = New System.Drawing.Size(33, 25)
+        Me.BtnUom.Size = New System.Drawing.Size(32, 29)
         Me.BtnUom.TabIndex = 3
         Me.BtnUom.Text = "..."
-        Me.BtnUom.Visible = False
         '
         'BtnCategories
         '
-        Me.BtnCategories.BackgroundImage = CType(resources.GetObject("BtnCategories.BackgroundImage"), System.Drawing.Image)
-        Me.BtnCategories.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.BtnCategories.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.BtnCategories.Location = New System.Drawing.Point(326, 21)
+        Me.BtnCategories.Location = New System.Drawing.Point(378, 92)
         Me.BtnCategories.Name = "BtnCategories"
-        Me.BtnCategories.Size = New System.Drawing.Size(33, 25)
+        Me.BtnCategories.Size = New System.Drawing.Size(34, 31)
         Me.BtnCategories.TabIndex = 1
         Me.BtnCategories.Text = "..."
-        Me.BtnCategories.Visible = False
         '
         'Label7
         '
         Me.Label7.AutoSize = True
         Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
-        Me.Label7.Location = New System.Drawing.Point(5, 61)
+        Me.Label7.Location = New System.Drawing.Point(5, 28)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(39, 13)
+        Me.Label7.Size = New System.Drawing.Size(67, 13)
         Me.Label7.TabIndex = 14
-        Me.Label7.Text = "UoM : "
+        Me.Label7.Text = "Unit Measur:"
         '
         'txtStockAlertQty
         '
         Me.txtStockAlertQty.BackColor = System.Drawing.Color.PaleGoldenrod
         Me.txtStockAlertQty.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
-        Me.txtStockAlertQty.Location = New System.Drawing.Point(94, 118)
+        Me.txtStockAlertQty.Location = New System.Drawing.Point(94, 85)
         Me.txtStockAlertQty.Name = "txtStockAlertQty"
         Me.txtStockAlertQty.Size = New System.Drawing.Size(227, 26)
         Me.txtStockAlertQty.TabIndex = 8
@@ -592,7 +536,7 @@ Partial Class frmItem
         '
         Me.cbItemUnit.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
         Me.cbItemUnit.FormattingEnabled = True
-        Me.cbItemUnit.Location = New System.Drawing.Point(95, 52)
+        Me.cbItemUnit.Location = New System.Drawing.Point(95, 19)
         Me.cbItemUnit.Name = "cbItemUnit"
         Me.cbItemUnit.Size = New System.Drawing.Size(226, 28)
         Me.cbItemUnit.TabIndex = 2
@@ -601,7 +545,7 @@ Partial Class frmItem
         '
         Me.Label24.AutoSize = True
         Me.Label24.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
-        Me.Label24.Location = New System.Drawing.Point(3, 128)
+        Me.Label24.Location = New System.Drawing.Point(3, 95)
         Me.Label24.Name = "Label24"
         Me.Label24.Size = New System.Drawing.Size(68, 13)
         Me.Label24.TabIndex = 57
@@ -611,7 +555,7 @@ Partial Class frmItem
         '
         Me.Label5.AutoSize = True
         Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
-        Me.Label5.Location = New System.Drawing.Point(4, 29)
+        Me.Label5.Location = New System.Drawing.Point(8, 112)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(66, 13)
         Me.Label5.TabIndex = 10
@@ -621,7 +565,7 @@ Partial Class frmItem
         '
         Me.txtExpireAlert.BackColor = System.Drawing.Color.LightGreen
         Me.txtExpireAlert.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
-        Me.txtExpireAlert.Location = New System.Drawing.Point(94, 150)
+        Me.txtExpireAlert.Location = New System.Drawing.Point(94, 117)
         Me.txtExpireAlert.Name = "txtExpireAlert"
         Me.txtExpireAlert.Size = New System.Drawing.Size(144, 26)
         Me.txtExpireAlert.TabIndex = 9
@@ -630,7 +574,7 @@ Partial Class frmItem
         '
         Me.Label21.AutoSize = True
         Me.Label21.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
-        Me.Label21.Location = New System.Drawing.Point(4, 98)
+        Me.Label21.Location = New System.Drawing.Point(4, 63)
         Me.Label21.Name = "Label21"
         Me.Label21.Size = New System.Drawing.Size(55, 13)
         Me.Label21.TabIndex = 53
@@ -640,7 +584,7 @@ Partial Class frmItem
         '
         Me.Label23.AutoSize = True
         Me.Label23.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
-        Me.Label23.Location = New System.Drawing.Point(3, 159)
+        Me.Label23.Location = New System.Drawing.Point(3, 126)
         Me.Label23.Name = "Label23"
         Me.Label23.Size = New System.Drawing.Size(69, 13)
         Me.Label23.TabIndex = 55
@@ -651,7 +595,7 @@ Partial Class frmItem
         Me.lblSaveOption.AutoSize = True
         Me.lblSaveOption.BackColor = System.Drawing.SystemColors.Control
         Me.lblSaveOption.ForeColor = System.Drawing.SystemColors.WindowText
-        Me.lblSaveOption.Location = New System.Drawing.Point(381, 200)
+        Me.lblSaveOption.Location = New System.Drawing.Point(379, 149)
         Me.lblSaveOption.Name = "lblSaveOption"
         Me.lblSaveOption.Size = New System.Drawing.Size(13, 13)
         Me.lblSaveOption.TabIndex = 42
@@ -660,10 +604,11 @@ Partial Class frmItem
         '
         'txtDescription
         '
+        Me.txtDescription.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.txtDescription.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
         Me.txtDescription.Location = New System.Drawing.Point(452, 112)
         Me.txtDescription.Name = "txtDescription"
-        Me.txtDescription.Size = New System.Drawing.Size(280, 75)
+        Me.txtDescription.Size = New System.Drawing.Size(280, 59)
         Me.txtDescription.TabIndex = 8
         Me.txtDescription.Text = ""
         '
@@ -704,7 +649,7 @@ Partial Class frmItem
         Me.gbMedicine.Controls.Add(Me.Label8)
         Me.gbMedicine.Controls.Add(Me.Label13)
         Me.gbMedicine.Controls.Add(Me.Label11)
-        Me.gbMedicine.Location = New System.Drawing.Point(3, 177)
+        Me.gbMedicine.Location = New System.Drawing.Point(3, 147)
         Me.gbMedicine.Name = "gbMedicine"
         Me.gbMedicine.Size = New System.Drawing.Size(739, 192)
         Me.gbMedicine.TabIndex = 0
@@ -721,39 +666,30 @@ Partial Class frmItem
         '
         'BtnNewLaboratory
         '
-        Me.BtnNewLaboratory.BackgroundImage = CType(resources.GetObject("BtnNewLaboratory.BackgroundImage"), System.Drawing.Image)
-        Me.BtnNewLaboratory.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.BtnNewLaboratory.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.BtnNewLaboratory.Location = New System.Drawing.Point(700, 159)
+        Me.BtnNewLaboratory.Location = New System.Drawing.Point(700, 157)
         Me.BtnNewLaboratory.Name = "BtnNewLaboratory"
-        Me.BtnNewLaboratory.Size = New System.Drawing.Size(33, 25)
+        Me.BtnNewLaboratory.Size = New System.Drawing.Size(33, 29)
         Me.BtnNewLaboratory.TabIndex = 9
         Me.BtnNewLaboratory.Text = "..."
-        Me.BtnNewLaboratory.Visible = False
         '
         'BtnNewContaining
         '
-        Me.BtnNewContaining.BackgroundImage = CType(resources.GetObject("BtnNewContaining.BackgroundImage"), System.Drawing.Image)
-        Me.BtnNewContaining.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.BtnNewContaining.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.BtnNewContaining.Location = New System.Drawing.Point(663, 17)
+        Me.BtnNewContaining.Location = New System.Drawing.Point(663, 15)
         Me.BtnNewContaining.Name = "BtnNewContaining"
-        Me.BtnNewContaining.Size = New System.Drawing.Size(33, 25)
+        Me.BtnNewContaining.Size = New System.Drawing.Size(33, 29)
         Me.BtnNewContaining.TabIndex = 3
         Me.BtnNewContaining.Text = "..."
-        Me.BtnNewContaining.Visible = False
         '
         'BtnNewChemical
         '
-        Me.BtnNewChemical.BackgroundImage = CType(resources.GetObject("BtnNewChemical.BackgroundImage"), System.Drawing.Image)
-        Me.BtnNewChemical.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.BtnNewChemical.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.BtnNewChemical.Location = New System.Drawing.Point(308, 19)
+        Me.BtnNewChemical.Location = New System.Drawing.Point(308, 17)
         Me.BtnNewChemical.Name = "BtnNewChemical"
-        Me.BtnNewChemical.Size = New System.Drawing.Size(33, 25)
+        Me.BtnNewChemical.Size = New System.Drawing.Size(33, 30)
         Me.BtnNewChemical.TabIndex = 1
         Me.BtnNewChemical.Text = "..."
-        Me.BtnNewChemical.Visible = False
         '
         'btnDeleteChemical
         '
@@ -779,15 +715,12 @@ Partial Class frmItem
         '
         'BtnItemContaining
         '
-        Me.BtnItemContaining.BackgroundImage = CType(resources.GetObject("BtnItemContaining.BackgroundImage"), System.Drawing.Image)
-        Me.BtnItemContaining.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.BtnItemContaining.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.BtnItemContaining.Location = New System.Drawing.Point(333, 159)
+        Me.BtnItemContaining.Location = New System.Drawing.Point(333, 156)
         Me.BtnItemContaining.Name = "BtnItemContaining"
-        Me.BtnItemContaining.Size = New System.Drawing.Size(33, 25)
+        Me.BtnItemContaining.Size = New System.Drawing.Size(33, 30)
         Me.BtnItemContaining.TabIndex = 7
         Me.BtnItemContaining.Text = "..."
-        Me.BtnItemContaining.Visible = False
         '
         'cbItemContainer
         '
@@ -913,7 +846,7 @@ Partial Class frmItem
         'lblPicFilePath
         '
         Me.lblPicFilePath.AutoSize = True
-        Me.lblPicFilePath.Location = New System.Drawing.Point(324, 239)
+        Me.lblPicFilePath.Location = New System.Drawing.Point(324, 171)
         Me.lblPicFilePath.Name = "lblPicFilePath"
         Me.lblPicFilePath.Size = New System.Drawing.Size(0, 13)
         Me.lblPicFilePath.TabIndex = 45
@@ -1165,7 +1098,6 @@ Partial Class frmItem
         '
         'ToolStrip1
         '
-        Me.ToolStrip1.BackColor = System.Drawing.Color.Transparent
         Me.ToolStrip1.Font = New System.Drawing.Font("Tahoma", 10.0!)
         Me.ToolStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden
         Me.ToolStrip1.ImageScalingSize = New System.Drawing.Size(24, 24)
@@ -1175,51 +1107,52 @@ Partial Class frmItem
         Me.ToolStrip1.Location = New System.Drawing.Point(0, 0)
         Me.ToolStrip1.Name = "ToolStrip1"
         Me.ToolStrip1.Padding = New System.Windows.Forms.Padding(0, 0, 2, 0)
-        Me.ToolStrip1.Size = New System.Drawing.Size(761, 31)
+        Me.ToolStrip1.Size = New System.Drawing.Size(759, 45)
         Me.ToolStrip1.TabIndex = 0
         Me.ToolStrip1.Text = "ToolStrip1"
         '
         'menuSave
         '
-        Me.menuSave.BackgroundImage = Global.HospitalMS.My.Resources.Resources.mZihS
-        Me.menuSave.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.menuSave.CheckOnClick = True
-        Me.menuSave.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold)
-        Me.menuSave.ForeColor = System.Drawing.Color.White
+        Me.menuSave.Font = New System.Drawing.Font("Tahoma", 9.0!)
+        Me.menuSave.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.menuSave.Image = Global.HospitalMS.My.Resources.Resources.save
         Me.menuSave.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.menuSave.Name = "menuSave"
-        Me.menuSave.Size = New System.Drawing.Size(88, 28)
-        Me.menuSave.Text = "   Save   "
+        Me.menuSave.Size = New System.Drawing.Size(77, 42)
+        Me.menuSave.Text = "     Save     "
+        Me.menuSave.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
         '
         'ToolStripSeparator6
         '
         Me.ToolStripSeparator6.Name = "ToolStripSeparator6"
-        Me.ToolStripSeparator6.Size = New System.Drawing.Size(6, 31)
+        Me.ToolStripSeparator6.Size = New System.Drawing.Size(6, 45)
         '
         'menuCancel
         '
-        Me.menuCancel.BackgroundImage = Global.HospitalMS.My.Resources.Resources.mZihS
-        Me.menuCancel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.menuCancel.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold)
-        Me.menuCancel.ForeColor = System.Drawing.Color.White
+        Me.menuCancel.Font = New System.Drawing.Font("Tahoma", 9.0!)
+        Me.menuCancel.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.menuCancel.Image = Global.HospitalMS.My.Resources.Resources.cancel
         Me.menuCancel.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.menuCancel.Name = "menuCancel"
-        Me.menuCancel.Size = New System.Drawing.Size(98, 28)
-        Me.menuCancel.Text = "   Cancel   "
+        Me.menuCancel.Size = New System.Drawing.Size(86, 42)
+        Me.menuCancel.Text = "     Cancel     "
+        Me.menuCancel.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
         '
         'frmItem
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.AutoScroll = True
-        Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(196, Byte), Integer), CType(CType(218, Byte), Integer), CType(CType(250, Byte), Integer))
+        Me.BackColor = System.Drawing.SystemColors.Control
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.ClientSize = New System.Drawing.Size(761, 712)
+        Me.ClientSize = New System.Drawing.Size(759, 593)
         Me.Controls.Add(Me.UiTab1)
         Me.Controls.Add(Me.ToolStrip1)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
+        Me.MaximizeBox = False
+        Me.MinimizeBox = False
         Me.Name = "frmItem"
         Me.ShowInTaskbar = False
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
@@ -1345,7 +1278,4 @@ Partial Class frmItem
     Friend WithEvents GroupBox5 As System.Windows.Forms.GroupBox
     Friend WithEvents Label6 As System.Windows.Forms.Label
     Friend WithEvents TxtCost As System.Windows.Forms.TextBox
-    Friend WithEvents Label17 As System.Windows.Forms.Label
-    Friend WithEvents TxtPrice As System.Windows.Forms.TextBox
-    Friend WithEvents Label9 As System.Windows.Forms.Label
 End Class

@@ -2273,6 +2273,12 @@
     <Compile Include="Views\AccountPayable\UCMainAcountPayable.vb">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="Views\AdjustStock\AdjustStockMainStock.Designer.vb">
+      <DependentUpon>AdjustStockMainStock.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AdjustStock\AdjustStockMainStock.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Views\AdjustStock\UCDashboardAdjustStock.Designer.vb">
       <DependentUpon>UCDashboardAdjustStock.vb</DependentUpon>
     </Compile>
@@ -2390,10 +2396,22 @@
     <Compile Include="Views\Category\EditCost.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Views\Category\EditeItemExpire.Designer.vb">
+      <DependentUpon>EditeItemExpire.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Category\EditeItemExpire.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Views\Category\FormAddMoreQTY.Designer.vb">
       <DependentUpon>FormAddMoreQTY.vb</DependentUpon>
     </Compile>
     <Compile Include="Views\Category\FormAddMoreQTY.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Category\frmCategory.Designer.vb">
+      <DependentUpon>frmCategory.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Category\frmCategory.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Views\Category\UCCategories.designer.vb">
@@ -2542,12 +2560,6 @@
       <DependentUpon>frmDepartment.vb</DependentUpon>
     </Compile>
     <Compile Include="Views\Department\frmDepartment.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Views\Category\frmCategory.Designer.vb">
-      <DependentUpon>frmCategory.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Category\frmCategory.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Views\Department\Users\DataClassesUserManagment.designer.vb">
@@ -3043,6 +3055,17 @@
     <Compile Include="Views\Purchase_Order\Caritas\UCCaritasRequestOrder.vb">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="Views\Purchase_Order\ClinicOrder\DSInventoryClinic.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DSInventoryClinic.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Purchase_Order\ClinicOrder\ForReceiveOrder.Designer.vb">
+      <DependentUpon>ForReceiveOrder.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Purchase_Order\ClinicOrder\ForReceiveOrder.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Views\Purchase_Order\DSRequest.vb">
       <DependentUpon>DSRequest.xsd</DependentUpon>
     </Compile>
@@ -3130,6 +3153,12 @@
     </Compile>
     <Compile Include="Views\Purchase_Order\POReports\frmReportViewer.vb">
       <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Purchase_Order\ClinicOrder\ReceivedItem.Designer.vb">
+      <DependentUpon>ReceivedItem.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Purchase_Order\ClinicOrder\ReceivedItem.vb">
+      <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Views\Purchase_Order\UCDepartReceivedRequest.designer.vb">
       <DependentUpon>UCDepartReceivedRequest.vb</DependentUpon>
@@ -4318,6 +4347,9 @@
       <DependentUpon>UCMainAcountPayable.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\AdjustStock\AdjustStockMainStock.resx">
+      <DependentUpon>AdjustStockMainStock.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\AdjustStock\UCDashboardAdjustStock.resx">
       <DependentUpon>UCDashboardAdjustStock.vb</DependentUpon>
       <SubType>Designer</SubType>
@@ -4382,17 +4414,19 @@
       <DependentUpon>EditCost.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\Category\EditeItemExpire.resx">
+      <DependentUpon>EditeItemExpire.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\Category\FormAddMoreQTY.resx">
       <DependentUpon>FormAddMoreQTY.vb</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Views\Category\frmCategory.resx">
-      <DependentUpon>frmCategory.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Bardcode\UIBarcodeGenerator.resx">
       <DependentUpon>UIBarcodeGenerator.vb</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Category\frmCategory.resx">
+      <DependentUpon>frmCategory.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Category\UCCategories.resx">
       <DependentUpon>UCCategories.vb</DependentUpon>
@@ -4777,6 +4811,9 @@
       <DependentUpon>UCCaritasRequestOrder.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\Purchase_Order\ClinicOrder\ForReceiveOrder.resx">
+      <DependentUpon>ForReceiveOrder.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\Purchase_Order\frmAddRequestOrder.resx">
       <DependentUpon>frmAddRequestOrder.vb</DependentUpon>
       <SubType>Designer</SubType>
@@ -4824,6 +4861,9 @@
     <EmbeddedResource Include="Views\Purchase_Order\POReports\frmReportViewer.resx">
       <DependentUpon>frmReportViewer.vb</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Purchase_Order\ClinicOrder\ReceivedItem.resx">
+      <DependentUpon>ReceivedItem.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Purchase_Order\UCDepartReceivedRequest.resx">
       <DependentUpon>UCDepartReceivedRequest.vb</DependentUpon>
@@ -5863,6 +5903,17 @@
     </None>
     <None Include="Views\Purchase_Order\Caritas\DSHospitalRequestToCaritas.xss">
       <DependentUpon>DSHospitalRequestToCaritas.xsd</DependentUpon>
+    </None>
+    <None Include="Views\Purchase_Order\ClinicOrder\DSInventoryClinic.xsc">
+      <DependentUpon>DSInventoryClinic.xsd</DependentUpon>
+    </None>
+    <None Include="Views\Purchase_Order\ClinicOrder\DSInventoryClinic.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DSInventoryClinic.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Views\Purchase_Order\ClinicOrder\DSInventoryClinic.xss">
+      <DependentUpon>DSInventoryClinic.xsd</DependentUpon>
     </None>
     <None Include="Views\Purchase_Order\DSRequest.xsc">
       <DependentUpon>DSRequest.xsd</DependentUpon>

@@ -23,6 +23,24 @@ Partial Class MainTakeoInventory
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container
+        Dim TreeNode1 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Items", 2, 2)
+        Dim TreeNode2 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Check current stock", 14, 14)
+        Dim TreeNode3 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("End of Day", 15, 15)
+        Dim TreeNode4 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("In-House Used", 16, 16)
+        Dim TreeNode5 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Item Transaction Reports", 17, 17)
+        Dim TreeNode6 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Approved Adjust Stock", 12, 12)
+        Dim TreeNode7 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Clinic Order Item", 13, 13)
+        Dim TreeNode8 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Expire Date")
+        Dim TreeNode9 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Process Inventory", 10, 10, New System.Windows.Forms.TreeNode() {TreeNode1, TreeNode2, TreeNode3, TreeNode4, TreeNode5, TreeNode6, TreeNode7, TreeNode8})
+        Dim TreeNode10 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Barcode", 3, 3)
+        Dim TreeNode11 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Laboratory", 4, 4)
+        Dim TreeNode12 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Chemical", 8, 8)
+        Dim TreeNode13 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Container", 5, 5)
+        Dim TreeNode14 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Unit of Measurement", 7, 7)
+        Dim TreeNode15 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Vendor", 9, 9)
+        Dim TreeNode16 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Country", 6, 6)
+        Dim TreeNode17 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Inventory Setting", 11, 11, New System.Windows.Forms.TreeNode() {TreeNode10, TreeNode11, TreeNode12, TreeNode13, TreeNode14, TreeNode15, TreeNode16})
+        Dim TreeNode18 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Clinic Inventory:", 0, 0, New System.Windows.Forms.TreeNode() {TreeNode9, TreeNode17})
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(MainTakeoInventory))
         Dim BottonBarMain_Group_0 As Janus.Windows.ButtonBar.ButtonBarGroup = New Janus.Windows.ButtonBar.ButtonBarGroup
         Dim BottonBarMain_Item_0_0 As Janus.Windows.ButtonBar.ButtonBarItem = New Janus.Windows.ButtonBar.ButtonBarItem
@@ -75,27 +93,20 @@ Partial Class MainTakeoInventory
         Dim BottonBarMain_Item_5_3 As Janus.Windows.ButtonBar.ButtonBarItem = New Janus.Windows.ButtonBar.ButtonBarItem
         Dim BottonBarMain_Item_5_4 As Janus.Windows.ButtonBar.ButtonBarItem = New Janus.Windows.ButtonBar.ButtonBarItem
         Dim ButtonMainInventory_Group_0 As Janus.Windows.ButtonBar.ButtonBarGroup = New Janus.Windows.ButtonBar.ButtonBarGroup
-        Dim ButtonMainInventory_Item_0_0 As Janus.Windows.ButtonBar.ButtonBarItem = New Janus.Windows.ButtonBar.ButtonBarItem
-        Dim ButtonMainInventory_Item_0_1 As Janus.Windows.ButtonBar.ButtonBarItem = New Janus.Windows.ButtonBar.ButtonBarItem
-        Dim ButtonMainInventory_Item_0_2 As Janus.Windows.ButtonBar.ButtonBarItem = New Janus.Windows.ButtonBar.ButtonBarItem
-        Dim ButtonMainInventory_Item_0_3 As Janus.Windows.ButtonBar.ButtonBarItem = New Janus.Windows.ButtonBar.ButtonBarItem
-        Dim ButtonMainInventory_Item_0_4 As Janus.Windows.ButtonBar.ButtonBarItem = New Janus.Windows.ButtonBar.ButtonBarItem
-        Dim ButtonMainInventory_Item_0_5 As Janus.Windows.ButtonBar.ButtonBarItem = New Janus.Windows.ButtonBar.ButtonBarItem
-        Dim ButtonMainInventory_Item_0_6 As Janus.Windows.ButtonBar.ButtonBarItem = New Janus.Windows.ButtonBar.ButtonBarItem
-        Dim ButtonMainInventory_Item_0_7 As Janus.Windows.ButtonBar.ButtonBarItem = New Janus.Windows.ButtonBar.ButtonBarItem
         Dim ButtonMainInventory_Group_1 As Janus.Windows.ButtonBar.ButtonBarGroup = New Janus.Windows.ButtonBar.ButtonBarGroup
         Dim ButtonMainInventory_Item_1_0 As Janus.Windows.ButtonBar.ButtonBarItem = New Janus.Windows.ButtonBar.ButtonBarItem
         Dim ButtonMainInventory_Item_1_1 As Janus.Windows.ButtonBar.ButtonBarItem = New Janus.Windows.ButtonBar.ButtonBarItem
         Dim ButtonMainInventory_Item_1_2 As Janus.Windows.ButtonBar.ButtonBarItem = New Janus.Windows.ButtonBar.ButtonBarItem
         Dim ButtonMainInventory_Item_1_3 As Janus.Windows.ButtonBar.ButtonBarItem = New Janus.Windows.ButtonBar.ButtonBarItem
-        Dim MainuDepartmentInventory_Group_0 As Janus.Windows.ButtonBar.ButtonBarGroup = New Janus.Windows.ButtonBar.ButtonBarGroup
-        Dim MainuDepartmentInventory_Item_0_0 As Janus.Windows.ButtonBar.ButtonBarItem = New Janus.Windows.ButtonBar.ButtonBarItem
-        Dim MainuDepartmentInventory_Item_0_1 As Janus.Windows.ButtonBar.ButtonBarItem = New Janus.Windows.ButtonBar.ButtonBarItem
-        Dim MainuDepartmentInventory_Item_0_2 As Janus.Windows.ButtonBar.ButtonBarItem = New Janus.Windows.ButtonBar.ButtonBarItem
-        Dim MainuDepartmentInventory_Item_0_3 As Janus.Windows.ButtonBar.ButtonBarItem = New Janus.Windows.ButtonBar.ButtonBarItem
-        Dim MainuDepartmentInventory_Item_0_4 As Janus.Windows.ButtonBar.ButtonBarItem = New Janus.Windows.ButtonBar.ButtonBarItem
-        Dim MainuDepartmentInventory_Item_0_5 As Janus.Windows.ButtonBar.ButtonBarItem = New Janus.Windows.ButtonBar.ButtonBarItem
-        Dim MainuDepartmentInventory_Item_0_6 As Janus.Windows.ButtonBar.ButtonBarItem = New Janus.Windows.ButtonBar.ButtonBarItem
+        Dim ButtonMainInventory_Item_1_4 As Janus.Windows.ButtonBar.ButtonBarItem = New Janus.Windows.ButtonBar.ButtonBarItem
+        Dim ButtonMainInventory_Item_1_5 As Janus.Windows.ButtonBar.ButtonBarItem = New Janus.Windows.ButtonBar.ButtonBarItem
+        Dim ButtonMainInventory_Item_1_6 As Janus.Windows.ButtonBar.ButtonBarItem = New Janus.Windows.ButtonBar.ButtonBarItem
+        Dim ButtonMainInventory_Item_1_7 As Janus.Windows.ButtonBar.ButtonBarItem = New Janus.Windows.ButtonBar.ButtonBarItem
+        Dim ButtonMainInventory_Group_2 As Janus.Windows.ButtonBar.ButtonBarGroup = New Janus.Windows.ButtonBar.ButtonBarGroup
+        Dim ButtonMainInventory_Item_2_0 As Janus.Windows.ButtonBar.ButtonBarItem = New Janus.Windows.ButtonBar.ButtonBarItem
+        Dim ButtonMainInventory_Item_2_1 As Janus.Windows.ButtonBar.ButtonBarItem = New Janus.Windows.ButtonBar.ButtonBarItem
+        Dim ButtonMainInventory_Item_2_2 As Janus.Windows.ButtonBar.ButtonBarItem = New Janus.Windows.ButtonBar.ButtonBarItem
+        Dim ButtonMainInventory_Item_2_3 As Janus.Windows.ButtonBar.ButtonBarItem = New Janus.Windows.ButtonBar.ButtonBarItem
         Dim ButtonBarPreferences_Group_0 As Janus.Windows.ButtonBar.ButtonBarGroup = New Janus.Windows.ButtonBar.ButtonBarGroup
         Dim ButtonBarPreferences_Item_0_0 As Janus.Windows.ButtonBar.ButtonBarItem = New Janus.Windows.ButtonBar.ButtonBarItem
         Dim ButtonBarPreferences_Item_0_1 As Janus.Windows.ButtonBar.ButtonBarItem = New Janus.Windows.ButtonBar.ButtonBarItem
@@ -109,6 +120,7 @@ Partial Class MainTakeoInventory
         Dim ButtonBarPreferences_Item_0_9 As Janus.Windows.ButtonBar.ButtonBarItem = New Janus.Windows.ButtonBar.ButtonBarItem
         Dim ButtonBarPreferences_Item_0_10 As Janus.Windows.ButtonBar.ButtonBarItem = New Janus.Windows.ButtonBar.ButtonBarItem
         Dim ButtonBarPreferences_Item_0_11 As Janus.Windows.ButtonBar.ButtonBarItem = New Janus.Windows.ButtonBar.ButtonBarItem
+        Dim ButtonBarPreferences_Item_0_12 As Janus.Windows.ButtonBar.ButtonBarItem = New Janus.Windows.ButtonBar.ButtonBarItem
         Dim ButtonBarPreferences_Group_1 As Janus.Windows.ButtonBar.ButtonBarGroup = New Janus.Windows.ButtonBar.ButtonBarGroup
         Dim ButtonBarPreferences_Item_1_0 As Janus.Windows.ButtonBar.ButtonBarItem = New Janus.Windows.ButtonBar.ButtonBarItem
         Dim ButtonBarPreferences_Item_1_1 As Janus.Windows.ButtonBar.ButtonBarItem = New Janus.Windows.ButtonBar.ButtonBarItem
@@ -118,6 +130,14 @@ Partial Class MainTakeoInventory
         Dim ButtonBarPreferences_Item_1_5 As Janus.Windows.ButtonBar.ButtonBarItem = New Janus.Windows.ButtonBar.ButtonBarItem
         Dim ButtonBarPreferences_Item_1_6 As Janus.Windows.ButtonBar.ButtonBarItem = New Janus.Windows.ButtonBar.ButtonBarItem
         Dim ButtonBarPreferences_Item_1_7 As Janus.Windows.ButtonBar.ButtonBarItem = New Janus.Windows.ButtonBar.ButtonBarItem
+        Dim MainuDepartmentInventory_Group_0 As Janus.Windows.ButtonBar.ButtonBarGroup = New Janus.Windows.ButtonBar.ButtonBarGroup
+        Dim MainuDepartmentInventory_Item_0_0 As Janus.Windows.ButtonBar.ButtonBarItem = New Janus.Windows.ButtonBar.ButtonBarItem
+        Dim MainuDepartmentInventory_Item_0_1 As Janus.Windows.ButtonBar.ButtonBarItem = New Janus.Windows.ButtonBar.ButtonBarItem
+        Dim MainuDepartmentInventory_Item_0_2 As Janus.Windows.ButtonBar.ButtonBarItem = New Janus.Windows.ButtonBar.ButtonBarItem
+        Dim MainuDepartmentInventory_Item_0_3 As Janus.Windows.ButtonBar.ButtonBarItem = New Janus.Windows.ButtonBar.ButtonBarItem
+        Dim MainuDepartmentInventory_Item_0_4 As Janus.Windows.ButtonBar.ButtonBarItem = New Janus.Windows.ButtonBar.ButtonBarItem
+        Dim MainuDepartmentInventory_Item_0_5 As Janus.Windows.ButtonBar.ButtonBarItem = New Janus.Windows.ButtonBar.ButtonBarItem
+        Dim MainuDepartmentInventory_Item_0_6 As Janus.Windows.ButtonBar.ButtonBarItem = New Janus.Windows.ButtonBar.ButtonBarItem
         Dim ButtonBarOpticalShop_Group_0 As Janus.Windows.ButtonBar.ButtonBarGroup = New Janus.Windows.ButtonBar.ButtonBarGroup
         Dim ButtonBarOpticalShop_Item_0_0 As Janus.Windows.ButtonBar.ButtonBarItem = New Janus.Windows.ButtonBar.ButtonBarItem
         Dim ButtonBarOpticalShop_Item_0_1 As Janus.Windows.ButtonBar.ButtonBarItem = New Janus.Windows.ButtonBar.ButtonBarItem
@@ -129,6 +149,9 @@ Partial Class MainTakeoInventory
         Dim ButtonBarPharmacy_Group_0 As Janus.Windows.ButtonBar.ButtonBarGroup = New Janus.Windows.ButtonBar.ButtonBarGroup
         Dim ButtonBarPharmacy_Item_0_0 As Janus.Windows.ButtonBar.ButtonBarItem = New Janus.Windows.ButtonBar.ButtonBarItem
         Dim ButtonBarPharmacy_Item_0_1 As Janus.Windows.ButtonBar.ButtonBarItem = New Janus.Windows.ButtonBar.ButtonBarItem
+        Me.ButtonBarContainerControl1 = New Janus.Windows.ButtonBar.ButtonBarContainerControl
+        Me.TreeInventSetting = New System.Windows.Forms.TreeView
+        Me.ImgInventory = New System.Windows.Forms.ImageList(Me.components)
         Me.RibboStatusBar = New Janus.Windows.Ribbon.RibbonStatusBar
         Me.ImageStatusbar = New System.Windows.Forms.ImageList(Me.components)
         Me.DropDownCommand1 = New Janus.Windows.Ribbon.DropDownCommand
@@ -158,10 +181,6 @@ Partial Class MainTakeoInventory
         Me.uiPanel1Container = New Janus.Windows.UI.Dock.UIPanelInnerContainer
         Me.ButtonMainInventory = New Janus.Windows.ButtonBar.ButtonBar
         Me.ImageList2 = New System.Windows.Forms.ImageList(Me.components)
-        Me.uiDepartmentRequest = New Janus.Windows.UI.Dock.UIPanelGroup
-        Me.uiPanel6 = New Janus.Windows.UI.Dock.UIPanel
-        Me.uiPanel6Container = New Janus.Windows.UI.Dock.UIPanelInnerContainer
-        Me.MainuDepartmentInventory = New Janus.Windows.ButtonBar.ButtonBar
         Me.uiPreferences = New Janus.Windows.UI.Dock.UIPanelGroup
         Me.uiPanel7 = New Janus.Windows.UI.Dock.UIPanel
         Me.uiPanel7Container = New Janus.Windows.UI.Dock.UIPanelInnerContainer
@@ -170,6 +189,9 @@ Partial Class MainTakeoInventory
         Me.uiPanel8 = New Janus.Windows.UI.Dock.UIPanel
         Me.uiPanelMainContainer = New Janus.Windows.UI.Dock.UIPanelInnerContainer
         Me.PictureBox3 = New System.Windows.Forms.PictureBox
+        Me.uiPanel6 = New Janus.Windows.UI.Dock.UIPanel
+        Me.uiPanel6Container = New Janus.Windows.UI.Dock.UIPanelInnerContainer
+        Me.MainuDepartmentInventory = New Janus.Windows.ButtonBar.ButtonBar
         Me.uiPanel9 = New Janus.Windows.UI.Dock.UIPanel
         Me.uiPanel9Container = New Janus.Windows.UI.Dock.UIPanelInnerContainer
         Me.ButtonBarOpticalShop = New Janus.Windows.ButtonBar.ButtonBar
@@ -185,6 +207,7 @@ Partial Class MainTakeoInventory
         Me.uiPanel5 = New Janus.Windows.UI.Dock.UIPanelGroup
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
         Me.InitCheckConnection = New System.ComponentModel.BackgroundWorker
+        Me.ButtonBarContainerControl1.SuspendLayout()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.UiPanelManager1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.MenuBarLeft, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -199,12 +222,7 @@ Partial Class MainTakeoInventory
         Me.uiPanel1.SuspendLayout()
         Me.uiPanel1Container.SuspendLayout()
         CType(Me.ButtonMainInventory, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.uiDepartmentRequest, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.uiDepartmentRequest.SuspendLayout()
-        CType(Me.uiPanel6, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.uiPanel6.SuspendLayout()
-        Me.uiPanel6Container.SuspendLayout()
-        CType(Me.MainuDepartmentInventory, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.ButtonMainInventory.SuspendLayout()
         CType(Me.uiPreferences, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.uiPreferences.SuspendLayout()
         CType(Me.uiPanel7, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -217,6 +235,10 @@ Partial Class MainTakeoInventory
         Me.uiPanel8.SuspendLayout()
         Me.uiPanelMainContainer.SuspendLayout()
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.uiPanel6, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.uiPanel6.SuspendLayout()
+        Me.uiPanel6Container.SuspendLayout()
+        CType(Me.MainuDepartmentInventory, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.uiPanel9, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.uiPanel9.SuspendLayout()
         Me.uiPanel9Container.SuspendLayout()
@@ -230,6 +252,127 @@ Partial Class MainTakeoInventory
         Me.uiPanel3.SuspendLayout()
         CType(Me.uiPanel5, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
+        '
+        'ButtonBarContainerControl1
+        '
+        Me.ButtonBarContainerControl1.Controls.Add(Me.TreeInventSetting)
+        Me.ButtonBarContainerControl1.Location = New System.Drawing.Point(1, 1)
+        Me.ButtonBarContainerControl1.Name = "ButtonBarContainerControl1"
+        Me.ButtonBarContainerControl1.Size = New System.Drawing.Size(194, 423)
+        Me.ButtonBarContainerControl1.TabIndex = 2
+        '
+        'TreeInventSetting
+        '
+        Me.TreeInventSetting.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.TreeInventSetting.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.TreeInventSetting.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.TreeInventSetting.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TreeInventSetting.ForeColor = System.Drawing.Color.Navy
+        Me.TreeInventSetting.HideSelection = False
+        Me.TreeInventSetting.ImageIndex = 1
+        Me.TreeInventSetting.ImageList = Me.ImgInventory
+        Me.TreeInventSetting.Indent = 20
+        Me.TreeInventSetting.ItemHeight = 35
+        Me.TreeInventSetting.Location = New System.Drawing.Point(0, 0)
+        Me.TreeInventSetting.Name = "TreeInventSetting"
+        TreeNode1.ImageIndex = 2
+        TreeNode1.Name = "Items"
+        TreeNode1.SelectedImageIndex = 2
+        TreeNode1.Text = "Items"
+        TreeNode2.ImageIndex = 14
+        TreeNode2.Name = "Check current stock"
+        TreeNode2.SelectedImageIndex = 14
+        TreeNode2.Text = "Check current stock"
+        TreeNode3.ImageIndex = 15
+        TreeNode3.Name = "End of Day"
+        TreeNode3.SelectedImageIndex = 15
+        TreeNode3.Text = "End of Day"
+        TreeNode4.ImageIndex = 16
+        TreeNode4.Name = "In-House Used"
+        TreeNode4.SelectedImageIndex = 16
+        TreeNode4.Text = "In-House Used"
+        TreeNode5.ImageIndex = 17
+        TreeNode5.Name = "Item Transaction Reports"
+        TreeNode5.SelectedImageIndex = 17
+        TreeNode5.Text = "Item Transaction Reports"
+        TreeNode6.ImageIndex = 12
+        TreeNode6.Name = "Approved Adjust Stock"
+        TreeNode6.SelectedImageIndex = 12
+        TreeNode6.Text = "Approved Adjust Stock"
+        TreeNode7.ImageIndex = 13
+        TreeNode7.Name = "Clinic Order Item"
+        TreeNode7.SelectedImageIndex = 13
+        TreeNode7.Text = "Clinic Order Item"
+        TreeNode8.Name = "Expire Date"
+        TreeNode8.Text = "Expire Date"
+        TreeNode9.ImageIndex = 10
+        TreeNode9.Name = "Process Inventory"
+        TreeNode9.SelectedImageIndex = 10
+        TreeNode9.Text = "Process Inventory"
+        TreeNode10.ImageIndex = 3
+        TreeNode10.Name = "Barcode"
+        TreeNode10.SelectedImageIndex = 3
+        TreeNode10.Text = "Barcode"
+        TreeNode11.ImageIndex = 4
+        TreeNode11.Name = "Laboratory"
+        TreeNode11.SelectedImageIndex = 4
+        TreeNode11.Text = "Laboratory"
+        TreeNode12.ImageIndex = 8
+        TreeNode12.Name = "Chemical"
+        TreeNode12.SelectedImageIndex = 8
+        TreeNode12.Text = "Chemical"
+        TreeNode13.ImageIndex = 5
+        TreeNode13.Name = "Container"
+        TreeNode13.SelectedImageIndex = 5
+        TreeNode13.Text = "Container"
+        TreeNode14.ImageIndex = 7
+        TreeNode14.Name = "Unit of Measurement"
+        TreeNode14.SelectedImageIndex = 7
+        TreeNode14.Text = "Unit of Measurement"
+        TreeNode15.ImageIndex = 9
+        TreeNode15.Name = "Vendor"
+        TreeNode15.SelectedImageIndex = 9
+        TreeNode15.Text = "Vendor"
+        TreeNode16.ImageIndex = 6
+        TreeNode16.Name = "Country"
+        TreeNode16.SelectedImageIndex = 6
+        TreeNode16.Text = "Country"
+        TreeNode17.ImageIndex = 11
+        TreeNode17.Name = "Inventory Setting"
+        TreeNode17.SelectedImageIndex = 11
+        TreeNode17.Text = "Inventory Setting"
+        TreeNode18.ImageIndex = 0
+        TreeNode18.Name = "Clinic Inventory:"
+        TreeNode18.SelectedImageIndex = 0
+        TreeNode18.Text = "Clinic Inventory:"
+        Me.TreeInventSetting.Nodes.AddRange(New System.Windows.Forms.TreeNode() {TreeNode18})
+        Me.TreeInventSetting.SelectedImageIndex = 0
+        Me.TreeInventSetting.Size = New System.Drawing.Size(194, 423)
+        Me.TreeInventSetting.StateImageList = Me.ImgInventory
+        Me.TreeInventSetting.TabIndex = 0
+        '
+        'ImgInventory
+        '
+        Me.ImgInventory.ImageStream = CType(resources.GetObject("ImgInventory.ImageStream"), System.Windows.Forms.ImageListStreamer)
+        Me.ImgInventory.TransparentColor = System.Drawing.Color.Transparent
+        Me.ImgInventory.Images.SetKeyName(0, "icons8-doctors-bag-48.png")
+        Me.ImgInventory.Images.SetKeyName(1, "icons8-warehouse-64.png")
+        Me.ImgInventory.Images.SetKeyName(2, "Item.png")
+        Me.ImgInventory.Images.SetKeyName(3, "barcode.png")
+        Me.ImgInventory.Images.SetKeyName(4, "Chemical.png")
+        Me.ImgInventory.Images.SetKeyName(5, "container.png")
+        Me.ImgInventory.Images.SetKeyName(6, "country.png")
+        Me.ImgInventory.Images.SetKeyName(7, "Measurement.png")
+        Me.ImgInventory.Images.SetKeyName(8, "labo1.png")
+        Me.ImgInventory.Images.SetKeyName(9, "supply.png")
+        Me.ImgInventory.Images.SetKeyName(10, "flow.png")
+        Me.ImgInventory.Images.SetKeyName(11, "Setting.png")
+        Me.ImgInventory.Images.SetKeyName(12, "approved.png")
+        Me.ImgInventory.Images.SetKeyName(13, "clinicorder.png")
+        Me.ImgInventory.Images.SetKeyName(14, "currentstock.png")
+        Me.ImgInventory.Images.SetKeyName(15, "endofday.png")
+        Me.ImgInventory.Images.SetKeyName(16, "in-houseuse.png")
+        Me.ImgInventory.Images.SetKeyName(17, "transaction.png")
         '
         'RibboStatusBar
         '
@@ -403,11 +546,6 @@ Partial Class MainTakeoInventory
         Me.uiPanel1.Id = New System.Guid("1b49dac7-0160-4f43-bdd7-29f8b3394d47")
         Me.uiMainInventory.Panels.Add(Me.uiPanel1)
         Me.MenuBarLeft.Panels.Add(Me.uiMainInventory)
-        Me.uiDepartmentRequest.Id = New System.Guid("28f734a9-a108-41ab-b4ec-82aebee20d9c")
-        Me.uiDepartmentRequest.StaticGroup = True
-        Me.uiPanel6.Id = New System.Guid("3f2d9356-14a4-4d22-be18-640ad254ffaf")
-        Me.uiDepartmentRequest.Panels.Add(Me.uiPanel6)
-        Me.MenuBarLeft.Panels.Add(Me.uiDepartmentRequest)
         Me.uiPreferences.Id = New System.Guid("5ebe18f4-de20-4fe2-974d-b3085b19601e")
         Me.uiPreferences.StaticGroup = True
         Me.uiPanel7.Id = New System.Guid("a7450d47-7798-4b19-a4ab-387f858fc45e")
@@ -423,15 +561,13 @@ Partial Class MainTakeoInventory
         'Design Time Panel Info:
         '
         Me.UiPanelManager1.BeginPanelInfo()
-        Me.UiPanelManager1.AddDockPanelInfo(New System.Guid("65cb48f6-3b85-4e71-bdbc-e2a196562407"), Janus.Windows.UI.Dock.PanelGroupStyle.OutlookNavigator, Janus.Windows.UI.Dock.PanelDockStyle.Left, True, New System.Drawing.Size(171, 562), True)
+        Me.UiPanelManager1.AddDockPanelInfo(New System.Guid("65cb48f6-3b85-4e71-bdbc-e2a196562407"), Janus.Windows.UI.Dock.PanelGroupStyle.OutlookNavigator, Janus.Windows.UI.Dock.PanelDockStyle.Left, True, New System.Drawing.Size(202, 562), True)
         Me.UiPanelManager1.AddDockPanelInfo(New System.Guid("d3857c71-39f3-4397-824a-a8d0396cc6ac"), New System.Guid("65cb48f6-3b85-4e71-bdbc-e2a196562407"), 35, True)
         Me.UiPanelManager1.AddDockPanelInfo(New System.Guid("1283c2e3-b1fd-4377-bb50-473168b9e63c"), New System.Guid("65cb48f6-3b85-4e71-bdbc-e2a196562407"), Janus.Windows.UI.Dock.PanelGroupStyle.HorizontalTiles, True, 35, True)
         Me.UiPanelManager1.AddDockPanelInfo(New System.Guid("1b49dac7-0160-4f43-bdd7-29f8b3394d47"), New System.Guid("1283c2e3-b1fd-4377-bb50-473168b9e63c"), 109, True)
-        Me.UiPanelManager1.AddDockPanelInfo(New System.Guid("28f734a9-a108-41ab-b4ec-82aebee20d9c"), New System.Guid("65cb48f6-3b85-4e71-bdbc-e2a196562407"), Janus.Windows.UI.Dock.PanelGroupStyle.HorizontalTiles, True, 35, True)
-        Me.UiPanelManager1.AddDockPanelInfo(New System.Guid("3f2d9356-14a4-4d22-be18-640ad254ffaf"), New System.Guid("28f734a9-a108-41ab-b4ec-82aebee20d9c"), 391, True)
         Me.UiPanelManager1.AddDockPanelInfo(New System.Guid("5ebe18f4-de20-4fe2-974d-b3085b19601e"), New System.Guid("65cb48f6-3b85-4e71-bdbc-e2a196562407"), Janus.Windows.UI.Dock.PanelGroupStyle.HorizontalTiles, True, 35, True)
         Me.UiPanelManager1.AddDockPanelInfo(New System.Guid("a7450d47-7798-4b19-a4ab-387f858fc45e"), New System.Guid("5ebe18f4-de20-4fe2-974d-b3085b19601e"), 358, True)
-        Me.UiPanelManager1.AddDockPanelInfo(New System.Guid("b9208dc4-e67b-48d6-b795-0e17bb88ceb4"), Janus.Windows.UI.Dock.PanelGroupStyle.HorizontalTiles, Janus.Windows.UI.Dock.PanelDockStyle.Fill, True, New System.Drawing.Size(652, 562), True)
+        Me.UiPanelManager1.AddDockPanelInfo(New System.Guid("b9208dc4-e67b-48d6-b795-0e17bb88ceb4"), Janus.Windows.UI.Dock.PanelGroupStyle.HorizontalTiles, Janus.Windows.UI.Dock.PanelDockStyle.Fill, True, New System.Drawing.Size(621, 562), True)
         Me.UiPanelManager1.AddDockPanelInfo(New System.Guid("33756979-3bc8-4c3c-a345-44e21413c642"), New System.Guid("b9208dc4-e67b-48d6-b795-0e17bb88ceb4"), 519, True)
         Me.UiPanelManager1.AddFloatingPanelInfo(New System.Guid("65cb48f6-3b85-4e71-bdbc-e2a196562407"), Janus.Windows.UI.Dock.PanelGroupStyle.OutlookNavigator, True, New System.Drawing.Point(-1, -1), New System.Drawing.Size(-1, -1), False)
         Me.UiPanelManager1.AddFloatingPanelInfo(New System.Guid("1283c2e3-b1fd-4377-bb50-473168b9e63c"), Janus.Windows.UI.Dock.PanelGroupStyle.HorizontalTiles, True, New System.Drawing.Point(-1, -1), New System.Drawing.Size(-1, -1), False)
@@ -467,6 +603,7 @@ Partial Class MainTakeoInventory
         '
         'MenuBarLeft
         '
+        Me.MenuBarLeft.AllowOutlookButtonsResize = False
         Me.MenuBarLeft.BackColor = System.Drawing.SystemColors.ActiveCaption
         Me.MenuBarLeft.CaptionDisplayMode = Janus.Windows.UI.Dock.PanelCaptionDisplayMode.Text
         Me.MenuBarLeft.CloseButtonVisible = Janus.Windows.UI.InheritableBoolean.[False]
@@ -475,8 +612,9 @@ Partial Class MainTakeoInventory
         Me.MenuBarLeft.Location = New System.Drawing.Point(3, 3)
         Me.MenuBarLeft.Margin = New System.Windows.Forms.Padding(2)
         Me.MenuBarLeft.Name = "MenuBarLeft"
-        Me.MenuBarLeft.SelectedPanel = Me.TakeoEyeHospital
-        Me.MenuBarLeft.Size = New System.Drawing.Size(171, 562)
+        Me.MenuBarLeft.SelectedPanel = Me.uiMainInventory
+        Me.MenuBarLeft.ShowOutlookNavigatorConfigureMenu = False
+        Me.MenuBarLeft.Size = New System.Drawing.Size(202, 562)
         Me.MenuBarLeft.SplitterSize = 2
         Me.MenuBarLeft.TabDisplay = Janus.Windows.UI.Dock.TabDisplayMode.ImageAndText
         Me.MenuBarLeft.TabIndex = 4
@@ -488,11 +626,12 @@ Partial Class MainTakeoInventory
         'TakeoEyeHospital
         '
         Me.TakeoEyeHospital.BackColor = System.Drawing.SystemColors.ActiveCaption
+        Me.TakeoEyeHospital.Icon = CType(resources.GetObject("TakeoEyeHospital.Icon"), System.Drawing.Icon)
+        Me.TakeoEyeHospital.InnerAreaStyle = Janus.Windows.UI.Dock.PanelInnerAreaStyle.Window
         Me.TakeoEyeHospital.InnerContainer = Me.uiPanel4Container
-        Me.TakeoEyeHospital.LargeImageIndex = 7
         Me.TakeoEyeHospital.Location = New System.Drawing.Point(0, 0)
         Me.TakeoEyeHospital.Name = "TakeoEyeHospital"
-        Me.TakeoEyeHospital.Size = New System.Drawing.Size(167, 396)
+        Me.TakeoEyeHospital.Size = New System.Drawing.Size(198, 466)
         Me.TakeoEyeHospital.TabIndex = 4
         Me.TakeoEyeHospital.Text = "Hospital Management"
         Me.ToolTip1.SetToolTip(Me.TakeoEyeHospital, "Takeo Eye Hospital")
@@ -500,9 +639,9 @@ Partial Class MainTakeoInventory
         'uiPanel4Container
         '
         Me.uiPanel4Container.Controls.Add(Me.BottonBarMain)
-        Me.uiPanel4Container.Location = New System.Drawing.Point(1, 26)
+        Me.uiPanel4Container.Location = New System.Drawing.Point(1, 40)
         Me.uiPanel4Container.Name = "uiPanel4Container"
-        Me.uiPanel4Container.Size = New System.Drawing.Size(165, 370)
+        Me.uiPanel4Container.Size = New System.Drawing.Size(196, 426)
         Me.uiPanel4Container.TabIndex = 0
         '
         'BottonBarMain
@@ -511,7 +650,7 @@ Partial Class MainTakeoInventory
         Me.BottonBarMain.Dock = System.Windows.Forms.DockStyle.Fill
         Me.BottonBarMain.DropLineColor = System.Drawing.SystemColors.ControlLight
         Me.BottonBarMain.FlatBorderColor = System.Drawing.Color.Cornsilk
-        Me.BottonBarMain.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.0!)
+        Me.BottonBarMain.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!)
         Me.BottonBarMain.ForeColor = System.Drawing.Color.Navy
         BottonBarMain_Group_0.Cursor = System.Windows.Forms.Cursors.Hand
         BottonBarMain_Group_0.Icon = CType(resources.GetObject("BottonBarMain_Group_0.Icon"), System.Drawing.Icon)
@@ -798,7 +937,7 @@ Partial Class MainTakeoInventory
         Me.BottonBarMain.Office2007ColorScheme = Janus.Windows.ButtonBar.Office2007ColorScheme.Blue
         Me.BottonBarMain.Office2007CustomColor = System.Drawing.Color.BurlyWood
         Me.BottonBarMain.ShadowOnHover = True
-        Me.BottonBarMain.Size = New System.Drawing.Size(165, 370)
+        Me.BottonBarMain.Size = New System.Drawing.Size(196, 426)
         Me.BottonBarMain.SmallImageList = Me.ImageList1
         Me.BottonBarMain.TabIndex = 1
         Me.BottonBarMain.Text = "ButtonBar1"
@@ -826,11 +965,11 @@ Partial Class MainTakeoInventory
         'uiMainInventory
         '
         Me.uiMainInventory.BackColor = System.Drawing.SystemColors.Control
-        Me.uiMainInventory.LargeImageIndex = 2
+        Me.uiMainInventory.Icon = CType(resources.GetObject("uiMainInventory.Icon"), System.Drawing.Icon)
         Me.uiMainInventory.Location = New System.Drawing.Point(0, 0)
         Me.uiMainInventory.Margin = New System.Windows.Forms.Padding(2)
         Me.uiMainInventory.Name = "uiMainInventory"
-        Me.uiMainInventory.Size = New System.Drawing.Size(167, 396)
+        Me.uiMainInventory.Size = New System.Drawing.Size(198, 466)
         Me.uiMainInventory.TabIndex = 4
         Me.uiMainInventory.Text = "Main Inventory"
         Me.ToolTip1.SetToolTip(Me.uiMainInventory, "Main Inventory")
@@ -839,10 +978,10 @@ Partial Class MainTakeoInventory
         '
         Me.uiPanel1.CaptionVisible = Janus.Windows.UI.InheritableBoolean.[False]
         Me.uiPanel1.InnerContainer = Me.uiPanel1Container
-        Me.uiPanel1.Location = New System.Drawing.Point(0, 25)
+        Me.uiPanel1.Location = New System.Drawing.Point(0, 39)
         Me.uiPanel1.Margin = New System.Windows.Forms.Padding(2)
         Me.uiPanel1.Name = "uiPanel1"
-        Me.uiPanel1.Size = New System.Drawing.Size(167, 371)
+        Me.uiPanel1.Size = New System.Drawing.Size(198, 427)
         Me.uiPanel1.TabIndex = 4
         Me.uiPanel1.Text = "Panel 1"
         '
@@ -852,102 +991,105 @@ Partial Class MainTakeoInventory
         Me.uiPanel1Container.Location = New System.Drawing.Point(1, 1)
         Me.uiPanel1Container.Margin = New System.Windows.Forms.Padding(2)
         Me.uiPanel1Container.Name = "uiPanel1Container"
-        Me.uiPanel1Container.Size = New System.Drawing.Size(165, 369)
+        Me.uiPanel1Container.Size = New System.Drawing.Size(196, 425)
         Me.uiPanel1Container.TabIndex = 0
         '
         'ButtonMainInventory
         '
         Me.ButtonMainInventory.BackColor = System.Drawing.SystemColors.Control
+        Me.ButtonMainInventory.Controls.Add(Me.ButtonBarContainerControl1)
         Me.ButtonMainInventory.Dock = System.Windows.Forms.DockStyle.Fill
         Me.ButtonMainInventory.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ButtonMainInventory.ForeColor = System.Drawing.Color.DimGray
+        ButtonMainInventory_Group_0.Container = True
+        ButtonMainInventory_Group_0.ContainerControl = Me.ButtonBarContainerControl1
         ButtonMainInventory_Group_0.Cursor = System.Windows.Forms.Cursors.Hand
-        ButtonMainInventory_Item_0_0.Cursor = System.Windows.Forms.Cursors.Hand
-        ButtonMainInventory_Item_0_0.Enabled = False
-        ButtonMainInventory_Item_0_0.Icon = CType(resources.GetObject("ButtonMainInventory_Item_0_0.Icon"), System.Drawing.Icon)
-        ButtonMainInventory_Item_0_0.Key = "iItemCategory"
-        ButtonMainInventory_Item_0_0.Text = "Item Inventory"
-        ButtonMainInventory_Item_0_1.Cursor = System.Windows.Forms.Cursors.Hand
-        ButtonMainInventory_Item_0_1.Enabled = False
-        ButtonMainInventory_Item_0_1.Icon = CType(resources.GetObject("ButtonMainInventory_Item_0_1.Icon"), System.Drawing.Icon)
-        ButtonMainInventory_Item_0_1.Key = "IViewItemsAddDepartment"
-        ButtonMainInventory_Item_0_1.Text = "Check  Current  Stock For All Department "
-        ButtonMainInventory_Item_0_1.Visible = False
-        ButtonMainInventory_Item_0_2.Cursor = System.Windows.Forms.Cursors.Hand
-        ButtonMainInventory_Item_0_2.Enabled = False
-        ButtonMainInventory_Item_0_2.Icon = CType(resources.GetObject("ButtonMainInventory_Item_0_2.Icon"), System.Drawing.Icon)
-        ButtonMainInventory_Item_0_2.Key = "IRunEndOfday"
-        ButtonMainInventory_Item_0_2.Text = "End Of Day"
-        ButtonMainInventory_Item_0_2.Visible = False
-        ButtonMainInventory_Item_0_3.Cursor = System.Windows.Forms.Cursors.Hand
-        ButtonMainInventory_Item_0_3.Enabled = False
-        ButtonMainInventory_Item_0_3.Icon = CType(resources.GetObject("ButtonMainInventory_Item_0_3.Icon"), System.Drawing.Icon)
-        ButtonMainInventory_Item_0_3.Key = "IMSInhouseUsedItem"
-        ButtonMainInventory_Item_0_3.Text = "In-house Use"
-        ButtonMainInventory_Item_0_3.Visible = False
-        ButtonMainInventory_Item_0_4.Cursor = System.Windows.Forms.Cursors.Hand
-        ButtonMainInventory_Item_0_4.Enabled = False
-        ButtonMainInventory_Item_0_4.Icon = CType(resources.GetObject("ButtonMainInventory_Item_0_4.Icon"), System.Drawing.Icon)
-        ButtonMainInventory_Item_0_4.Key = "IBarcode"
-        ButtonMainInventory_Item_0_4.Text = "Barcode"
-        ButtonMainInventory_Item_0_4.Visible = False
-        ButtonMainInventory_Item_0_5.Cursor = System.Windows.Forms.Cursors.Hand
-        ButtonMainInventory_Item_0_5.Enabled = False
-        ButtonMainInventory_Item_0_5.Icon = CType(resources.GetObject("ButtonMainInventory_Item_0_5.Icon"), System.Drawing.Icon)
-        ButtonMainInventory_Item_0_5.Key = "iItemTransactionReport"
-        ButtonMainInventory_Item_0_5.Text = "Item Transaction Reports"
-        ButtonMainInventory_Item_0_5.Visible = False
-        ButtonMainInventory_Item_0_6.Cursor = System.Windows.Forms.Cursors.Hand
-        ButtonMainInventory_Item_0_6.Enabled = False
-        ButtonMainInventory_Item_0_6.Icon = CType(resources.GetObject("ButtonMainInventory_Item_0_6.Icon"), System.Drawing.Icon)
-        ButtonMainInventory_Item_0_6.Key = "iCabinet"
-        ButtonMainInventory_Item_0_6.Text = "Cabinet"
-        ButtonMainInventory_Item_0_6.Visible = False
-        ButtonMainInventory_Item_0_7.Cursor = System.Windows.Forms.Cursors.Hand
-        ButtonMainInventory_Item_0_7.Key = "iItemExpiredDate"
-        ButtonMainInventory_Item_0_7.LargeImageIndex = 0
-        ButtonMainInventory_Item_0_7.Text = "Item Expired Date"
-        ButtonMainInventory_Item_0_7.Visible = False
-        ButtonMainInventory_Group_0.Items.AddRange(New Janus.Windows.ButtonBar.ButtonBarItem() {ButtonMainInventory_Item_0_0, ButtonMainInventory_Item_0_1, ButtonMainInventory_Item_0_2, ButtonMainInventory_Item_0_3, ButtonMainInventory_Item_0_4, ButtonMainInventory_Item_0_5, ButtonMainInventory_Item_0_6, ButtonMainInventory_Item_0_7})
-        ButtonMainInventory_Group_0.Key = "MainInventory"
-        ButtonMainInventory_Group_0.StateStyles.FormatStyle.FontSize = 10.0!
-        ButtonMainInventory_Group_0.StateStyles.FormatStyle.ForeColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        ButtonMainInventory_Group_0.Text = "Main Inventory"
+        ButtonMainInventory_Group_0.Key = "Inventorty MS"
+        ButtonMainInventory_Group_0.Text = "Inventorty MS"
         ButtonMainInventory_Group_0.TextAlignment = Janus.Windows.ButtonBar.Alignment.Near
+        ButtonMainInventory_Group_0.View = Janus.Windows.ButtonBar.ButtonBarView.SmallIcons
         ButtonMainInventory_Group_1.Cursor = System.Windows.Forms.Cursors.Hand
         ButtonMainInventory_Item_1_0.Cursor = System.Windows.Forms.Cursors.Hand
         ButtonMainInventory_Item_1_0.Enabled = False
         ButtonMainInventory_Item_1_0.Icon = CType(resources.GetObject("ButtonMainInventory_Item_1_0.Icon"), System.Drawing.Icon)
-        ButtonMainInventory_Item_1_0.Key = "iMainTODep"
-        ButtonMainInventory_Item_1_0.Text = "Request To Department"
+        ButtonMainInventory_Item_1_0.Key = "iItemCategory"
+        ButtonMainInventory_Item_1_0.Text = "Item Inventory"
         ButtonMainInventory_Item_1_1.Cursor = System.Windows.Forms.Cursors.Hand
         ButtonMainInventory_Item_1_1.Enabled = False
         ButtonMainInventory_Item_1_1.Icon = CType(resources.GetObject("ButtonMainInventory_Item_1_1.Icon"), System.Drawing.Icon)
-        ButtonMainInventory_Item_1_1.Key = "iVeiwDepRequests"
-        ButtonMainInventory_Item_1_1.Text = "Approve Departement Request"
+        ButtonMainInventory_Item_1_1.Key = "IViewItemsAddDepartment"
+        ButtonMainInventory_Item_1_1.Text = "Check  Current  Stock For All Department "
         ButtonMainInventory_Item_1_2.Cursor = System.Windows.Forms.Cursors.Hand
         ButtonMainInventory_Item_1_2.Enabled = False
         ButtonMainInventory_Item_1_2.Icon = CType(resources.GetObject("ButtonMainInventory_Item_1_2.Icon"), System.Drawing.Icon)
-        ButtonMainInventory_Item_1_2.Key = "iDashboardAdjustStock"
-        ButtonMainInventory_Item_1_2.Text = "Approve Dep-Adjust Stock"
+        ButtonMainInventory_Item_1_2.Key = "IRunEndOfday"
+        ButtonMainInventory_Item_1_2.Text = "End Of Day"
         ButtonMainInventory_Item_1_3.Cursor = System.Windows.Forms.Cursors.Hand
         ButtonMainInventory_Item_1_3.Enabled = False
         ButtonMainInventory_Item_1_3.Icon = CType(resources.GetObject("ButtonMainInventory_Item_1_3.Icon"), System.Drawing.Icon)
-        ButtonMainInventory_Item_1_3.Key = "iHospitalRequestOrder"
-        ButtonMainInventory_Item_1_3.Text = "Hospital Request To Out Site"
-        ButtonMainInventory_Group_1.Items.AddRange(New Janus.Windows.ButtonBar.ButtonBarItem() {ButtonMainInventory_Item_1_0, ButtonMainInventory_Item_1_1, ButtonMainInventory_Item_1_2, ButtonMainInventory_Item_1_3})
-        ButtonMainInventory_Group_1.Key = "Request Dashboard"
+        ButtonMainInventory_Item_1_3.Key = "IMSInhouseUsedItem"
+        ButtonMainInventory_Item_1_3.Text = "In-house Use"
+        ButtonMainInventory_Item_1_4.Cursor = System.Windows.Forms.Cursors.Hand
+        ButtonMainInventory_Item_1_4.Enabled = False
+        ButtonMainInventory_Item_1_4.Icon = CType(resources.GetObject("ButtonMainInventory_Item_1_4.Icon"), System.Drawing.Icon)
+        ButtonMainInventory_Item_1_4.Key = "IBarcode"
+        ButtonMainInventory_Item_1_4.Text = "Barcode"
+        ButtonMainInventory_Item_1_5.Cursor = System.Windows.Forms.Cursors.Hand
+        ButtonMainInventory_Item_1_5.Enabled = False
+        ButtonMainInventory_Item_1_5.Icon = CType(resources.GetObject("ButtonMainInventory_Item_1_5.Icon"), System.Drawing.Icon)
+        ButtonMainInventory_Item_1_5.Key = "iItemTransactionReport"
+        ButtonMainInventory_Item_1_5.Text = "Item Transaction Reports"
+        ButtonMainInventory_Item_1_6.Cursor = System.Windows.Forms.Cursors.Hand
+        ButtonMainInventory_Item_1_6.Enabled = False
+        ButtonMainInventory_Item_1_6.Icon = CType(resources.GetObject("ButtonMainInventory_Item_1_6.Icon"), System.Drawing.Icon)
+        ButtonMainInventory_Item_1_6.Key = "iCabinet"
+        ButtonMainInventory_Item_1_6.Text = "Cabinet"
+        ButtonMainInventory_Item_1_7.Cursor = System.Windows.Forms.Cursors.Hand
+        ButtonMainInventory_Item_1_7.Key = "iItemExpiredDate"
+        ButtonMainInventory_Item_1_7.LargeImageIndex = 0
+        ButtonMainInventory_Item_1_7.Text = "Item Expired Date"
+        ButtonMainInventory_Group_1.Items.AddRange(New Janus.Windows.ButtonBar.ButtonBarItem() {ButtonMainInventory_Item_1_0, ButtonMainInventory_Item_1_1, ButtonMainInventory_Item_1_2, ButtonMainInventory_Item_1_3, ButtonMainInventory_Item_1_4, ButtonMainInventory_Item_1_5, ButtonMainInventory_Item_1_6, ButtonMainInventory_Item_1_7})
+        ButtonMainInventory_Group_1.Key = "MainInventory"
         ButtonMainInventory_Group_1.StateStyles.FormatStyle.FontSize = 10.0!
         ButtonMainInventory_Group_1.StateStyles.FormatStyle.ForeColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        ButtonMainInventory_Group_1.Text = "Request Dashboard"
+        ButtonMainInventory_Group_1.Text = "Main Inventory"
         ButtonMainInventory_Group_1.TextAlignment = Janus.Windows.ButtonBar.Alignment.Near
         ButtonMainInventory_Group_1.Visible = False
-        Me.ButtonMainInventory.Groups.AddRange(New Janus.Windows.ButtonBar.ButtonBarGroup() {ButtonMainInventory_Group_0, ButtonMainInventory_Group_1})
+        ButtonMainInventory_Group_2.Cursor = System.Windows.Forms.Cursors.Hand
+        ButtonMainInventory_Item_2_0.Cursor = System.Windows.Forms.Cursors.Hand
+        ButtonMainInventory_Item_2_0.Enabled = False
+        ButtonMainInventory_Item_2_0.Icon = CType(resources.GetObject("ButtonMainInventory_Item_2_0.Icon"), System.Drawing.Icon)
+        ButtonMainInventory_Item_2_0.Key = "iMainTODep"
+        ButtonMainInventory_Item_2_0.Text = "Request To Department"
+        ButtonMainInventory_Item_2_1.Cursor = System.Windows.Forms.Cursors.Hand
+        ButtonMainInventory_Item_2_1.Enabled = False
+        ButtonMainInventory_Item_2_1.Icon = CType(resources.GetObject("ButtonMainInventory_Item_2_1.Icon"), System.Drawing.Icon)
+        ButtonMainInventory_Item_2_1.Key = "iVeiwDepRequests"
+        ButtonMainInventory_Item_2_1.Text = "Approve Departement Request"
+        ButtonMainInventory_Item_2_2.Cursor = System.Windows.Forms.Cursors.Hand
+        ButtonMainInventory_Item_2_2.Enabled = False
+        ButtonMainInventory_Item_2_2.Icon = CType(resources.GetObject("ButtonMainInventory_Item_2_2.Icon"), System.Drawing.Icon)
+        ButtonMainInventory_Item_2_2.Key = "iDashboardAdjustStock"
+        ButtonMainInventory_Item_2_2.Text = "Approve Dep-Adjust Stock"
+        ButtonMainInventory_Item_2_3.Cursor = System.Windows.Forms.Cursors.Hand
+        ButtonMainInventory_Item_2_3.Enabled = False
+        ButtonMainInventory_Item_2_3.Icon = CType(resources.GetObject("ButtonMainInventory_Item_2_3.Icon"), System.Drawing.Icon)
+        ButtonMainInventory_Item_2_3.Key = "iHospitalRequestOrder"
+        ButtonMainInventory_Item_2_3.Text = "Hospital Request To Out Site"
+        ButtonMainInventory_Group_2.Items.AddRange(New Janus.Windows.ButtonBar.ButtonBarItem() {ButtonMainInventory_Item_2_0, ButtonMainInventory_Item_2_1, ButtonMainInventory_Item_2_2, ButtonMainInventory_Item_2_3})
+        ButtonMainInventory_Group_2.Key = "Request Dashboard"
+        ButtonMainInventory_Group_2.StateStyles.FormatStyle.FontSize = 10.0!
+        ButtonMainInventory_Group_2.StateStyles.FormatStyle.ForeColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
+        ButtonMainInventory_Group_2.Text = "Request Dashboard"
+        ButtonMainInventory_Group_2.TextAlignment = Janus.Windows.ButtonBar.Alignment.Near
+        ButtonMainInventory_Group_2.Visible = False
+        Me.ButtonMainInventory.Groups.AddRange(New Janus.Windows.ButtonBar.ButtonBarGroup() {ButtonMainInventory_Group_0, ButtonMainInventory_Group_1, ButtonMainInventory_Group_2})
+        Me.ButtonMainInventory.HeaderGroupVisible = False
         Me.ButtonMainInventory.LargeImageList = Me.ImageList2
         Me.ButtonMainInventory.Location = New System.Drawing.Point(0, 0)
         Me.ButtonMainInventory.Margin = New System.Windows.Forms.Padding(2)
         Me.ButtonMainInventory.Name = "ButtonMainInventory"
-        Me.ButtonMainInventory.Size = New System.Drawing.Size(165, 369)
+        Me.ButtonMainInventory.Size = New System.Drawing.Size(196, 425)
         Me.ButtonMainInventory.SmallImageSize = New System.Drawing.Size(30, 30)
         Me.ButtonMainInventory.TabIndex = 0
         Me.ButtonMainInventory.Text = "ButtonBar1"
@@ -961,105 +1103,13 @@ Partial Class MainTakeoInventory
         Me.ImageList2.Images.SetKeyName(0, "alarm.ico")
         Me.ImageList2.Images.SetKeyName(1, "alarm.png")
         '
-        'uiDepartmentRequest
-        '
-        Me.uiDepartmentRequest.Enabled = False
-        Me.uiDepartmentRequest.LargeImageIndex = 3
-        Me.uiDepartmentRequest.Location = New System.Drawing.Point(0, 0)
-        Me.uiDepartmentRequest.Margin = New System.Windows.Forms.Padding(2)
-        Me.uiDepartmentRequest.Name = "uiDepartmentRequest"
-        Me.uiDepartmentRequest.Size = New System.Drawing.Size(167, 396)
-        Me.uiDepartmentRequest.TabDisplay = Janus.Windows.UI.Dock.TabDisplayMode.ImageAndTextOnSelected
-        Me.uiDepartmentRequest.TabIndex = 4
-        Me.uiDepartmentRequest.Text = "Department Inventory"
-        Me.ToolTip1.SetToolTip(Me.uiDepartmentRequest, "Department Request")
-        Me.uiDepartmentRequest.Visible = False
-        '
-        'uiPanel6
-        '
-        Me.uiPanel6.CaptionVisible = Janus.Windows.UI.InheritableBoolean.[False]
-        Me.uiPanel6.InnerContainer = Me.uiPanel6Container
-        Me.uiPanel6.Location = New System.Drawing.Point(0, 25)
-        Me.uiPanel6.Margin = New System.Windows.Forms.Padding(2)
-        Me.uiPanel6.Name = "uiPanel6"
-        Me.uiPanel6.Size = New System.Drawing.Size(167, 371)
-        Me.uiPanel6.TabIndex = 4
-        Me.uiPanel6.Text = "Panel 6"
-        Me.uiPanel6.Visible = False
-        '
-        'uiPanel6Container
-        '
-        Me.uiPanel6Container.Controls.Add(Me.MainuDepartmentInventory)
-        Me.uiPanel6Container.Location = New System.Drawing.Point(1, 1)
-        Me.uiPanel6Container.Margin = New System.Windows.Forms.Padding(2)
-        Me.uiPanel6Container.Name = "uiPanel6Container"
-        Me.uiPanel6Container.Size = New System.Drawing.Size(165, 369)
-        Me.uiPanel6Container.TabIndex = 0
-        '
-        'MainuDepartmentInventory
-        '
-        Me.MainuDepartmentInventory.BackColor = System.Drawing.SystemColors.Control
-        Me.MainuDepartmentInventory.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.MainuDepartmentInventory.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.MainuDepartmentInventory.ForeColor = System.Drawing.SystemColors.Desktop
-        MainuDepartmentInventory_Item_0_0.Cursor = System.Windows.Forms.Cursors.Hand
-        MainuDepartmentInventory_Item_0_0.Enabled = False
-        MainuDepartmentInventory_Item_0_0.Icon = CType(resources.GetObject("MainuDepartmentInventory_Item_0_0.Icon"), System.Drawing.Icon)
-        MainuDepartmentInventory_Item_0_0.Key = "iDepRequest"
-        MainuDepartmentInventory_Item_0_0.Text = "Department Request"
-        MainuDepartmentInventory_Item_0_1.Cursor = System.Windows.Forms.Cursors.Hand
-        MainuDepartmentInventory_Item_0_1.Enabled = False
-        MainuDepartmentInventory_Item_0_1.Icon = CType(resources.GetObject("MainuDepartmentInventory_Item_0_1.Icon"), System.Drawing.Icon)
-        MainuDepartmentInventory_Item_0_1.Key = "iRequestDepToDep"
-        MainuDepartmentInventory_Item_0_1.Text = "View Request Dep to Department"
-        MainuDepartmentInventory_Item_0_2.Cursor = System.Windows.Forms.Cursors.Hand
-        MainuDepartmentInventory_Item_0_2.Enabled = False
-        MainuDepartmentInventory_Item_0_2.Icon = CType(resources.GetObject("MainuDepartmentInventory_Item_0_2.Icon"), System.Drawing.Icon)
-        MainuDepartmentInventory_Item_0_2.Key = "iCurrentStockDep"
-        MainuDepartmentInventory_Item_0_2.Text = "Current Stock In Department"
-        MainuDepartmentInventory_Item_0_3.Cursor = System.Windows.Forms.Cursors.Hand
-        MainuDepartmentInventory_Item_0_3.Enabled = False
-        MainuDepartmentInventory_Item_0_3.Icon = CType(resources.GetObject("MainuDepartmentInventory_Item_0_3.Icon"), System.Drawing.Icon)
-        MainuDepartmentInventory_Item_0_3.Key = "IDepEOD"
-        MainuDepartmentInventory_Item_0_3.Text = "Process Run End Of Day"
-        MainuDepartmentInventory_Item_0_3.Visible = False
-        MainuDepartmentInventory_Item_0_4.Cursor = System.Windows.Forms.Cursors.Hand
-        MainuDepartmentInventory_Item_0_4.Enabled = False
-        MainuDepartmentInventory_Item_0_4.Icon = CType(resources.GetObject("MainuDepartmentInventory_Item_0_4.Icon"), System.Drawing.Icon)
-        MainuDepartmentInventory_Item_0_4.Key = "IDInhouseUsedItem"
-        MainuDepartmentInventory_Item_0_4.Text = "Dep- Inhouse Used Item"
-        MainuDepartmentInventory_Item_0_4.Visible = False
-        MainuDepartmentInventory_Item_0_5.Cursor = System.Windows.Forms.Cursors.Hand
-        MainuDepartmentInventory_Item_0_5.Enabled = False
-        MainuDepartmentInventory_Item_0_5.Icon = CType(resources.GetObject("MainuDepartmentInventory_Item_0_5.Icon"), System.Drawing.Icon)
-        MainuDepartmentInventory_Item_0_5.Key = "iDepItemTransactionReport"
-        MainuDepartmentInventory_Item_0_5.Text = "Dep Item Transaction Reports"
-        MainuDepartmentInventory_Item_0_6.Cursor = System.Windows.Forms.Cursors.Hand
-        MainuDepartmentInventory_Item_0_6.Icon = CType(resources.GetObject("MainuDepartmentInventory_Item_0_6.Icon"), System.Drawing.Icon)
-        MainuDepartmentInventory_Item_0_6.Key = "iCabinet"
-        MainuDepartmentInventory_Item_0_6.Text = "Cabinet"
-        MainuDepartmentInventory_Item_0_6.Visible = False
-        MainuDepartmentInventory_Group_0.Items.AddRange(New Janus.Windows.ButtonBar.ButtonBarItem() {MainuDepartmentInventory_Item_0_0, MainuDepartmentInventory_Item_0_1, MainuDepartmentInventory_Item_0_2, MainuDepartmentInventory_Item_0_3, MainuDepartmentInventory_Item_0_4, MainuDepartmentInventory_Item_0_5, MainuDepartmentInventory_Item_0_6})
-        MainuDepartmentInventory_Group_0.Key = "Group1"
-        MainuDepartmentInventory_Group_0.Text = "Department Inventory"
-        Me.MainuDepartmentInventory.Groups.AddRange(New Janus.Windows.ButtonBar.ButtonBarGroup() {MainuDepartmentInventory_Group_0})
-        Me.MainuDepartmentInventory.Location = New System.Drawing.Point(0, 0)
-        Me.MainuDepartmentInventory.Margin = New System.Windows.Forms.Padding(2)
-        Me.MainuDepartmentInventory.Name = "MainuDepartmentInventory"
-        Me.MainuDepartmentInventory.Size = New System.Drawing.Size(165, 369)
-        Me.MainuDepartmentInventory.SmallImageSize = New System.Drawing.Size(30, 30)
-        Me.MainuDepartmentInventory.TabIndex = 0
-        Me.MainuDepartmentInventory.Text = "ButtonBar1"
-        Me.MainuDepartmentInventory.ThemedAreas = Janus.Windows.ButtonBar.ThemedArea.ScrollButton
-        Me.MainuDepartmentInventory.VisualStyle = Janus.Windows.ButtonBar.VisualStyle.Office2007
-        '
         'uiPreferences
         '
-        Me.uiPreferences.LargeImageIndex = 0
+        Me.uiPreferences.Icon = CType(resources.GetObject("uiPreferences.Icon"), System.Drawing.Icon)
         Me.uiPreferences.Location = New System.Drawing.Point(0, 0)
         Me.uiPreferences.Margin = New System.Windows.Forms.Padding(2)
         Me.uiPreferences.Name = "uiPreferences"
-        Me.uiPreferences.Size = New System.Drawing.Size(167, 396)
+        Me.uiPreferences.Size = New System.Drawing.Size(198, 466)
         Me.uiPreferences.TabDisplay = Janus.Windows.UI.Dock.TabDisplayMode.ImageAndTextOnSelected
         Me.uiPreferences.TabIndex = 4
         Me.uiPreferences.Text = "Clinic Parameter"
@@ -1071,10 +1121,10 @@ Partial Class MainTakeoInventory
         Me.uiPanel7.CaptionStyle = Janus.Windows.UI.Dock.PanelCaptionStyle.Light
         Me.uiPanel7.CaptionVisible = Janus.Windows.UI.InheritableBoolean.[False]
         Me.uiPanel7.InnerContainer = Me.uiPanel7Container
-        Me.uiPanel7.Location = New System.Drawing.Point(0, 25)
+        Me.uiPanel7.Location = New System.Drawing.Point(0, 39)
         Me.uiPanel7.Margin = New System.Windows.Forms.Padding(2)
         Me.uiPanel7.Name = "uiPanel7"
-        Me.uiPanel7.Size = New System.Drawing.Size(167, 371)
+        Me.uiPanel7.Size = New System.Drawing.Size(198, 427)
         Me.uiPanel7.TabIndex = 4
         Me.uiPanel7.Text = "Panel 7"
         '
@@ -1084,7 +1134,7 @@ Partial Class MainTakeoInventory
         Me.uiPanel7Container.Location = New System.Drawing.Point(1, 1)
         Me.uiPanel7Container.Margin = New System.Windows.Forms.Padding(2)
         Me.uiPanel7Container.Name = "uiPanel7Container"
-        Me.uiPanel7Container.Size = New System.Drawing.Size(165, 369)
+        Me.uiPanel7Container.Size = New System.Drawing.Size(196, 425)
         Me.uiPanel7Container.TabIndex = 0
         '
         'ButtonBarPreferences
@@ -1099,68 +1149,74 @@ Partial Class MainTakeoInventory
         ButtonBarPreferences_Item_0_0.Cursor = System.Windows.Forms.Cursors.Hand
         ButtonBarPreferences_Item_0_0.Enabled = False
         ButtonBarPreferences_Item_0_0.Icon = CType(resources.GetObject("ButtonBarPreferences_Item_0_0.Icon"), System.Drawing.Icon)
-        ButtonBarPreferences_Item_0_0.Key = "Doctor"
-        ButtonBarPreferences_Item_0_0.Text = "Doctor Operation"
+        ButtonBarPreferences_Item_0_0.Key = "iNewDepartment"
+        ButtonBarPreferences_Item_0_0.Text = "Department"
         ButtonBarPreferences_Item_0_1.Cursor = System.Windows.Forms.Cursors.Hand
         ButtonBarPreferences_Item_0_1.Enabled = False
         ButtonBarPreferences_Item_0_1.Icon = CType(resources.GetObject("ButtonBarPreferences_Item_0_1.Icon"), System.Drawing.Icon)
-        ButtonBarPreferences_Item_0_1.ImageAlignment = Janus.Windows.ButtonBar.Alignment.Center
-        ButtonBarPreferences_Item_0_1.Key = "Diagnosis"
-        ButtonBarPreferences_Item_0_1.Text = "List Diagnosis and Surguries"
+        ButtonBarPreferences_Item_0_1.Key = "Doctor"
+        ButtonBarPreferences_Item_0_1.Text = "Doctor Operation"
+        ButtonBarPreferences_Item_0_2.Cursor = System.Windows.Forms.Cursors.Hand
         ButtonBarPreferences_Item_0_2.Enabled = False
         ButtonBarPreferences_Item_0_2.Icon = CType(resources.GetObject("ButtonBarPreferences_Item_0_2.Icon"), System.Drawing.Icon)
-        ButtonBarPreferences_Item_0_2.Key = "Rate"
-        ButtonBarPreferences_Item_0_2.Text = "Rate Exchange"
-        ButtonBarPreferences_Item_0_2.Visible = False
+        ButtonBarPreferences_Item_0_2.ImageAlignment = Janus.Windows.ButtonBar.Alignment.Center
+        ButtonBarPreferences_Item_0_2.Key = "Diagnosis"
+        ButtonBarPreferences_Item_0_2.Text = "List Diagnosis and Surguries"
         ButtonBarPreferences_Item_0_3.Enabled = False
         ButtonBarPreferences_Item_0_3.Icon = CType(resources.GetObject("ButtonBarPreferences_Item_0_3.Icon"), System.Drawing.Icon)
-        ButtonBarPreferences_Item_0_3.Key = "User"
-        ButtonBarPreferences_Item_0_3.Text = "User Management"
+        ButtonBarPreferences_Item_0_3.Key = "Rate"
+        ButtonBarPreferences_Item_0_3.Text = "Rate Exchange"
         ButtonBarPreferences_Item_0_3.Visible = False
         ButtonBarPreferences_Item_0_4.Enabled = False
         ButtonBarPreferences_Item_0_4.Icon = CType(resources.GetObject("ButtonBarPreferences_Item_0_4.Icon"), System.Drawing.Icon)
-        ButtonBarPreferences_Item_0_4.Key = "ProvinceAndOccupation"
-        ButtonBarPreferences_Item_0_4.Text = "Province And Occupation Patient"
+        ButtonBarPreferences_Item_0_4.Key = "User"
+        ButtonBarPreferences_Item_0_4.Text = "User Management"
+        ButtonBarPreferences_Item_0_4.Visible = False
         ButtonBarPreferences_Item_0_5.Enabled = False
         ButtonBarPreferences_Item_0_5.Icon = CType(resources.GetObject("ButtonBarPreferences_Item_0_5.Icon"), System.Drawing.Icon)
-        ButtonBarPreferences_Item_0_5.Key = "BackupDatabase"
-        ButtonBarPreferences_Item_0_5.Text = "Backup Database"
-        ButtonBarPreferences_Item_0_5.Visible = False
-        ButtonBarPreferences_Item_0_6.Cursor = System.Windows.Forms.Cursors.Hand
+        ButtonBarPreferences_Item_0_5.Key = "ProvinceAndOccupation"
+        ButtonBarPreferences_Item_0_5.Text = "Province And Occupation Patient"
         ButtonBarPreferences_Item_0_6.Enabled = False
         ButtonBarPreferences_Item_0_6.Icon = CType(resources.GetObject("ButtonBarPreferences_Item_0_6.Icon"), System.Drawing.Icon)
-        ButtonBarPreferences_Item_0_6.Key = "ValueOfNewPatient"
-        ButtonBarPreferences_Item_0_6.Text = "Value Of New Patient"
+        ButtonBarPreferences_Item_0_6.Key = "BackupDatabase"
+        ButtonBarPreferences_Item_0_6.Text = "Backup Database"
         ButtonBarPreferences_Item_0_6.Visible = False
         ButtonBarPreferences_Item_0_7.Cursor = System.Windows.Forms.Cursors.Hand
         ButtonBarPreferences_Item_0_7.Enabled = False
         ButtonBarPreferences_Item_0_7.Icon = CType(resources.GetObject("ButtonBarPreferences_Item_0_7.Icon"), System.Drawing.Icon)
-        ButtonBarPreferences_Item_0_7.Key = "Valueofoldpatient"
-        ButtonBarPreferences_Item_0_7.Text = "Value of old patient"
+        ButtonBarPreferences_Item_0_7.Key = "ValueOfNewPatient"
+        ButtonBarPreferences_Item_0_7.Text = "Value Of New Patient"
         ButtonBarPreferences_Item_0_7.Visible = False
         ButtonBarPreferences_Item_0_8.Cursor = System.Windows.Forms.Cursors.Hand
         ButtonBarPreferences_Item_0_8.Enabled = False
         ButtonBarPreferences_Item_0_8.Icon = CType(resources.GetObject("ButtonBarPreferences_Item_0_8.Icon"), System.Drawing.Icon)
-        ButtonBarPreferences_Item_0_8.Key = "ReferralofTEH"
-        ButtonBarPreferences_Item_0_8.Text = "Referral of TEH"
+        ButtonBarPreferences_Item_0_8.Key = "Valueofoldpatient"
+        ButtonBarPreferences_Item_0_8.Text = "Value of old patient"
         ButtonBarPreferences_Item_0_8.Visible = False
         ButtonBarPreferences_Item_0_9.Cursor = System.Windows.Forms.Cursors.Hand
+        ButtonBarPreferences_Item_0_9.Enabled = False
         ButtonBarPreferences_Item_0_9.Icon = CType(resources.GetObject("ButtonBarPreferences_Item_0_9.Icon"), System.Drawing.Icon)
-        ButtonBarPreferences_Item_0_9.Key = "UsageLabel"
-        ButtonBarPreferences_Item_0_9.Text = "Print Label Setting"
+        ButtonBarPreferences_Item_0_9.Key = "ReferralofTEH"
+        ButtonBarPreferences_Item_0_9.Text = "Referral of TEH"
+        ButtonBarPreferences_Item_0_9.Visible = False
         ButtonBarPreferences_Item_0_10.Cursor = System.Windows.Forms.Cursors.Hand
         ButtonBarPreferences_Item_0_10.Icon = CType(resources.GetObject("ButtonBarPreferences_Item_0_10.Icon"), System.Drawing.Icon)
-        ButtonBarPreferences_Item_0_10.Key = "LaserInvestigate"
-        ButtonBarPreferences_Item_0_10.Text = "Laser and Investigate"
+        ButtonBarPreferences_Item_0_10.Key = "UsageLabel"
+        ButtonBarPreferences_Item_0_10.Text = "Print Label Setting"
         ButtonBarPreferences_Item_0_11.Cursor = System.Windows.Forms.Cursors.Hand
-        ButtonBarPreferences_Item_0_11.Image = CType(resources.GetObject("ButtonBarPreferences_Item_0_11.Image"), System.Drawing.Image)
-        ButtonBarPreferences_Item_0_11.Key = "Laboratory"
-        ButtonBarPreferences_Item_0_11.Text = "Laboratory"
-        ButtonBarPreferences_Group_0.Items.AddRange(New Janus.Windows.ButtonBar.ButtonBarItem() {ButtonBarPreferences_Item_0_0, ButtonBarPreferences_Item_0_1, ButtonBarPreferences_Item_0_2, ButtonBarPreferences_Item_0_3, ButtonBarPreferences_Item_0_4, ButtonBarPreferences_Item_0_5, ButtonBarPreferences_Item_0_6, ButtonBarPreferences_Item_0_7, ButtonBarPreferences_Item_0_8, ButtonBarPreferences_Item_0_9, ButtonBarPreferences_Item_0_10, ButtonBarPreferences_Item_0_11})
+        ButtonBarPreferences_Item_0_11.Icon = CType(resources.GetObject("ButtonBarPreferences_Item_0_11.Icon"), System.Drawing.Icon)
+        ButtonBarPreferences_Item_0_11.Key = "LaserInvestigate"
+        ButtonBarPreferences_Item_0_11.Text = "Laser and Investigate"
+        ButtonBarPreferences_Item_0_12.Cursor = System.Windows.Forms.Cursors.Hand
+        ButtonBarPreferences_Item_0_12.Image = CType(resources.GetObject("ButtonBarPreferences_Item_0_12.Image"), System.Drawing.Image)
+        ButtonBarPreferences_Item_0_12.Key = "Laboratory"
+        ButtonBarPreferences_Item_0_12.Text = "Laboratory"
+        ButtonBarPreferences_Group_0.Items.AddRange(New Janus.Windows.ButtonBar.ButtonBarItem() {ButtonBarPreferences_Item_0_0, ButtonBarPreferences_Item_0_1, ButtonBarPreferences_Item_0_2, ButtonBarPreferences_Item_0_3, ButtonBarPreferences_Item_0_4, ButtonBarPreferences_Item_0_5, ButtonBarPreferences_Item_0_6, ButtonBarPreferences_Item_0_7, ButtonBarPreferences_Item_0_8, ButtonBarPreferences_Item_0_9, ButtonBarPreferences_Item_0_10, ButtonBarPreferences_Item_0_11, ButtonBarPreferences_Item_0_12})
         ButtonBarPreferences_Group_0.Key = "EyePreferences"
         ButtonBarPreferences_Group_0.Text = "Clinic Parameter"
         ButtonBarPreferences_Group_0.TextAlignment = Janus.Windows.ButtonBar.Alignment.Near
         ButtonBarPreferences_Group_1.Cursor = System.Windows.Forms.Cursors.Hand
+        ButtonBarPreferences_Group_1.Enabled = False
         ButtonBarPreferences_Item_1_0.Cursor = System.Windows.Forms.Cursors.Hand
         ButtonBarPreferences_Item_1_0.Enabled = False
         ButtonBarPreferences_Item_1_0.Icon = CType(resources.GetObject("ButtonBarPreferences_Item_1_0.Icon"), System.Drawing.Icon)
@@ -1214,11 +1270,13 @@ Partial Class MainTakeoInventory
         ButtonBarPreferences_Group_1.Key = "InventoryPreferences"
         ButtonBarPreferences_Group_1.Text = "Preferences"
         ButtonBarPreferences_Group_1.TextAlignment = Janus.Windows.ButtonBar.Alignment.Near
+        ButtonBarPreferences_Group_1.View = Janus.Windows.ButtonBar.ButtonBarView.SmallIcons
+        ButtonBarPreferences_Group_1.Visible = False
         Me.ButtonBarPreferences.Groups.AddRange(New Janus.Windows.ButtonBar.ButtonBarGroup() {ButtonBarPreferences_Group_0, ButtonBarPreferences_Group_1})
         Me.ButtonBarPreferences.Location = New System.Drawing.Point(0, 0)
         Me.ButtonBarPreferences.Margin = New System.Windows.Forms.Padding(2)
         Me.ButtonBarPreferences.Name = "ButtonBarPreferences"
-        Me.ButtonBarPreferences.Size = New System.Drawing.Size(165, 369)
+        Me.ButtonBarPreferences.Size = New System.Drawing.Size(196, 425)
         Me.ButtonBarPreferences.SmallImageSize = New System.Drawing.Size(30, 30)
         Me.ButtonBarPreferences.TabIndex = 0
         Me.ButtonBarPreferences.Text = "ButtonBar1"
@@ -1230,10 +1288,10 @@ Partial Class MainTakeoInventory
         Me.uiPanel2.AutoHideButtonVisible = Janus.Windows.UI.InheritableBoolean.[False]
         Me.uiPanel2.CaptionVisible = Janus.Windows.UI.InheritableBoolean.[False]
         Me.uiPanel2.CloseButtonVisible = Janus.Windows.UI.InheritableBoolean.[False]
-        Me.uiPanel2.Location = New System.Drawing.Point(174, 3)
+        Me.uiPanel2.Location = New System.Drawing.Point(205, 3)
         Me.uiPanel2.Margin = New System.Windows.Forms.Padding(2)
         Me.uiPanel2.Name = "uiPanel2"
-        Me.uiPanel2.Size = New System.Drawing.Size(652, 562)
+        Me.uiPanel2.Size = New System.Drawing.Size(621, 562)
         Me.uiPanel2.TabIndex = 4
         Me.uiPanel2.Text = "Main Information"
         '
@@ -1244,7 +1302,7 @@ Partial Class MainTakeoInventory
         Me.uiPanel8.Location = New System.Drawing.Point(0, 0)
         Me.uiPanel8.Margin = New System.Windows.Forms.Padding(2)
         Me.uiPanel8.Name = "uiPanel8"
-        Me.uiPanel8.Size = New System.Drawing.Size(652, 562)
+        Me.uiPanel8.Size = New System.Drawing.Size(621, 562)
         Me.uiPanel8.TabIndex = 4
         Me.uiPanel8.Text = "Panel 8"
         '
@@ -1257,7 +1315,7 @@ Partial Class MainTakeoInventory
         Me.uiPanelMainContainer.Location = New System.Drawing.Point(1, 1)
         Me.uiPanelMainContainer.Margin = New System.Windows.Forms.Padding(2)
         Me.uiPanelMainContainer.Name = "uiPanelMainContainer"
-        Me.uiPanelMainContainer.Size = New System.Drawing.Size(650, 560)
+        Me.uiPanelMainContainer.Size = New System.Drawing.Size(619, 560)
         Me.uiPanelMainContainer.TabIndex = 0
         '
         'PictureBox3
@@ -1267,10 +1325,89 @@ Partial Class MainTakeoInventory
         Me.PictureBox3.Image = Global.HospitalMS.My.Resources.Resources.Eye_Health_System_Components
         Me.PictureBox3.Location = New System.Drawing.Point(0, 0)
         Me.PictureBox3.Name = "PictureBox3"
-        Me.PictureBox3.Size = New System.Drawing.Size(650, 560)
+        Me.PictureBox3.Size = New System.Drawing.Size(619, 560)
         Me.PictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PictureBox3.TabIndex = 0
         Me.PictureBox3.TabStop = False
+        '
+        'uiPanel6
+        '
+        Me.uiPanel6.CaptionVisible = Janus.Windows.UI.InheritableBoolean.[False]
+        Me.uiPanel6.InnerContainer = Me.uiPanel6Container
+        Me.uiPanel6.Location = New System.Drawing.Point(0, 25)
+        Me.uiPanel6.Margin = New System.Windows.Forms.Padding(2)
+        Me.uiPanel6.Name = "uiPanel6"
+        Me.uiPanel6.Size = New System.Drawing.Size(198, 409)
+        Me.uiPanel6.TabIndex = 4
+        Me.uiPanel6.Text = "Panel 6"
+        Me.uiPanel6.Visible = False
+        '
+        'uiPanel6Container
+        '
+        Me.uiPanel6Container.Controls.Add(Me.MainuDepartmentInventory)
+        Me.uiPanel6Container.Location = New System.Drawing.Point(0, 0)
+        Me.uiPanel6Container.Margin = New System.Windows.Forms.Padding(2)
+        Me.uiPanel6Container.Name = "uiPanel6Container"
+        Me.uiPanel6Container.Size = New System.Drawing.Size(198, 409)
+        Me.uiPanel6Container.TabIndex = 0
+        '
+        'MainuDepartmentInventory
+        '
+        Me.MainuDepartmentInventory.BackColor = System.Drawing.SystemColors.Control
+        Me.MainuDepartmentInventory.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.MainuDepartmentInventory.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.MainuDepartmentInventory.ForeColor = System.Drawing.SystemColors.Desktop
+        MainuDepartmentInventory_Item_0_0.Cursor = System.Windows.Forms.Cursors.Hand
+        MainuDepartmentInventory_Item_0_0.Enabled = False
+        MainuDepartmentInventory_Item_0_0.Icon = CType(resources.GetObject("MainuDepartmentInventory_Item_0_0.Icon"), System.Drawing.Icon)
+        MainuDepartmentInventory_Item_0_0.Key = "iDepRequest"
+        MainuDepartmentInventory_Item_0_0.Text = "Department Request"
+        MainuDepartmentInventory_Item_0_1.Cursor = System.Windows.Forms.Cursors.Hand
+        MainuDepartmentInventory_Item_0_1.Enabled = False
+        MainuDepartmentInventory_Item_0_1.Icon = CType(resources.GetObject("MainuDepartmentInventory_Item_0_1.Icon"), System.Drawing.Icon)
+        MainuDepartmentInventory_Item_0_1.Key = "iRequestDepToDep"
+        MainuDepartmentInventory_Item_0_1.Text = "View Request Dep to Department"
+        MainuDepartmentInventory_Item_0_2.Cursor = System.Windows.Forms.Cursors.Hand
+        MainuDepartmentInventory_Item_0_2.Enabled = False
+        MainuDepartmentInventory_Item_0_2.Icon = CType(resources.GetObject("MainuDepartmentInventory_Item_0_2.Icon"), System.Drawing.Icon)
+        MainuDepartmentInventory_Item_0_2.Key = "iCurrentStockDep"
+        MainuDepartmentInventory_Item_0_2.Text = "Current Stock In Department"
+        MainuDepartmentInventory_Item_0_3.Cursor = System.Windows.Forms.Cursors.Hand
+        MainuDepartmentInventory_Item_0_3.Enabled = False
+        MainuDepartmentInventory_Item_0_3.Icon = CType(resources.GetObject("MainuDepartmentInventory_Item_0_3.Icon"), System.Drawing.Icon)
+        MainuDepartmentInventory_Item_0_3.Key = "IDepEOD"
+        MainuDepartmentInventory_Item_0_3.Text = "Process Run End Of Day"
+        MainuDepartmentInventory_Item_0_3.Visible = False
+        MainuDepartmentInventory_Item_0_4.Cursor = System.Windows.Forms.Cursors.Hand
+        MainuDepartmentInventory_Item_0_4.Enabled = False
+        MainuDepartmentInventory_Item_0_4.Icon = CType(resources.GetObject("MainuDepartmentInventory_Item_0_4.Icon"), System.Drawing.Icon)
+        MainuDepartmentInventory_Item_0_4.Key = "IDInhouseUsedItem"
+        MainuDepartmentInventory_Item_0_4.Text = "Dep- Inhouse Used Item"
+        MainuDepartmentInventory_Item_0_4.Visible = False
+        MainuDepartmentInventory_Item_0_5.Cursor = System.Windows.Forms.Cursors.Hand
+        MainuDepartmentInventory_Item_0_5.Enabled = False
+        MainuDepartmentInventory_Item_0_5.Icon = CType(resources.GetObject("MainuDepartmentInventory_Item_0_5.Icon"), System.Drawing.Icon)
+        MainuDepartmentInventory_Item_0_5.Key = "iDepItemTransactionReport"
+        MainuDepartmentInventory_Item_0_5.Text = "Dep Item Transaction Reports"
+        MainuDepartmentInventory_Item_0_6.Cursor = System.Windows.Forms.Cursors.Hand
+        MainuDepartmentInventory_Item_0_6.Icon = CType(resources.GetObject("MainuDepartmentInventory_Item_0_6.Icon"), System.Drawing.Icon)
+        MainuDepartmentInventory_Item_0_6.Key = "iCabinet"
+        MainuDepartmentInventory_Item_0_6.Text = "Cabinet"
+        MainuDepartmentInventory_Item_0_6.Visible = False
+        MainuDepartmentInventory_Group_0.Items.AddRange(New Janus.Windows.ButtonBar.ButtonBarItem() {MainuDepartmentInventory_Item_0_0, MainuDepartmentInventory_Item_0_1, MainuDepartmentInventory_Item_0_2, MainuDepartmentInventory_Item_0_3, MainuDepartmentInventory_Item_0_4, MainuDepartmentInventory_Item_0_5, MainuDepartmentInventory_Item_0_6})
+        MainuDepartmentInventory_Group_0.Key = "Group1"
+        MainuDepartmentInventory_Group_0.Text = "Department Inventory"
+        Me.MainuDepartmentInventory.Groups.AddRange(New Janus.Windows.ButtonBar.ButtonBarGroup() {MainuDepartmentInventory_Group_0})
+        Me.MainuDepartmentInventory.Location = New System.Drawing.Point(0, 0)
+        Me.MainuDepartmentInventory.Margin = New System.Windows.Forms.Padding(2)
+        Me.MainuDepartmentInventory.Name = "MainuDepartmentInventory"
+        Me.MainuDepartmentInventory.Size = New System.Drawing.Size(198, 409)
+        Me.MainuDepartmentInventory.SmallImageSize = New System.Drawing.Size(30, 30)
+        Me.MainuDepartmentInventory.TabIndex = 0
+        Me.MainuDepartmentInventory.Text = "ButtonBar1"
+        Me.MainuDepartmentInventory.ThemedAreas = Janus.Windows.ButtonBar.ThemedArea.ScrollButton
+        Me.MainuDepartmentInventory.Visible = False
+        Me.MainuDepartmentInventory.VisualStyle = Janus.Windows.ButtonBar.VisualStyle.Office2007
         '
         'uiPanel9
         '
@@ -1479,6 +1616,7 @@ Partial Class MainTakeoInventory
         Me.Name = "MainTakeoInventory"
         Me.Text = "Eyes Hospital Management System"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
+        Me.ButtonBarContainerControl1.ResumeLayout(False)
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.UiPanelManager1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.MenuBarLeft, System.ComponentModel.ISupportInitialize).EndInit()
@@ -1493,12 +1631,7 @@ Partial Class MainTakeoInventory
         Me.uiPanel1.ResumeLayout(False)
         Me.uiPanel1Container.ResumeLayout(False)
         CType(Me.ButtonMainInventory, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.uiDepartmentRequest, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.uiDepartmentRequest.ResumeLayout(False)
-        CType(Me.uiPanel6, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.uiPanel6.ResumeLayout(False)
-        Me.uiPanel6Container.ResumeLayout(False)
-        CType(Me.MainuDepartmentInventory, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.ButtonMainInventory.ResumeLayout(False)
         CType(Me.uiPreferences, System.ComponentModel.ISupportInitialize).EndInit()
         Me.uiPreferences.ResumeLayout(False)
         CType(Me.uiPanel7, System.ComponentModel.ISupportInitialize).EndInit()
@@ -1511,6 +1644,10 @@ Partial Class MainTakeoInventory
         Me.uiPanel8.ResumeLayout(False)
         Me.uiPanelMainContainer.ResumeLayout(False)
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.uiPanel6, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.uiPanel6.ResumeLayout(False)
+        Me.uiPanel6Container.ResumeLayout(False)
+        CType(Me.MainuDepartmentInventory, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.uiPanel9, System.ComponentModel.ISupportInitialize).EndInit()
         Me.uiPanel9.ResumeLayout(False)
         Me.uiPanel9Container.ResumeLayout(False)
@@ -1533,7 +1670,6 @@ Partial Class MainTakeoInventory
     Friend WithEvents MenuBarLeft As Janus.Windows.UI.Dock.UIPanelGroup
     Friend WithEvents uiMainInventory As Janus.Windows.UI.Dock.UIPanelGroup
     Friend WithEvents uiPanel2 As Janus.Windows.UI.Dock.UIPanelGroup
-    Friend WithEvents uiDepartmentRequest As Janus.Windows.UI.Dock.UIPanelGroup
     Friend WithEvents uiPanel5 As Janus.Windows.UI.Dock.UIPanelGroup
     Friend WithEvents uiPreferences As Janus.Windows.UI.Dock.UIPanelGroup
     Friend WithEvents uiPanel7 As Janus.Windows.UI.Dock.UIPanel
@@ -1582,4 +1718,7 @@ Partial Class MainTakeoInventory
     Friend WithEvents ImageList2 As System.Windows.Forms.ImageList
     Friend WithEvents InitCheckConnection As System.ComponentModel.BackgroundWorker
     Friend WithEvents ImgMenu As System.Windows.Forms.ImageList
+    Friend WithEvents ButtonBarContainerControl1 As Janus.Windows.ButtonBar.ButtonBarContainerControl
+    Friend WithEvents TreeInventSetting As System.Windows.Forms.TreeView
+    Friend WithEvents ImgInventory As System.Windows.Forms.ImageList
 End Class

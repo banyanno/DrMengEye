@@ -32,16 +32,16 @@ Partial Class UCDashboardAdjustStock
         Me.ToolStrip1 = New System.Windows.Forms.ToolStrip
         Me.gridAdjustmentHistory = New Janus.Windows.GridEX.GridEX
         Me.GroupBox1 = New System.Windows.Forms.GroupBox
+        Me.DateAdjTo = New System.Windows.Forms.DateTimePicker
+        Me.DateAdjFrom = New System.Windows.Forms.DateTimePicker
+        Me.Label6 = New System.Windows.Forms.Label
+        Me.Label5 = New System.Windows.Forms.Label
         Me.GroupBox2 = New System.Windows.Forms.GroupBox
         Me.Label4 = New System.Windows.Forms.Label
         Me.Label3 = New System.Windows.Forms.Label
         Me.Label2 = New System.Windows.Forms.Label
         Me.ImageList1 = New System.Windows.Forms.ImageList(Me.components)
         Me.Label1 = New System.Windows.Forms.Label
-        Me.Label5 = New System.Windows.Forms.Label
-        Me.Label6 = New System.Windows.Forms.Label
-        Me.DateAdjFrom = New System.Windows.Forms.DateTimePicker
-        Me.DateAdjTo = New System.Windows.Forms.DateTimePicker
         Me.ToolStrip1.SuspendLayout()
         CType(Me.gridAdjustmentHistory, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
@@ -53,7 +53,7 @@ Partial Class UCDashboardAdjustStock
         Me.BtnApproved.Image = Global.HospitalMS.My.Resources.Resources.Approved
         Me.BtnApproved.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.BtnApproved.Name = "BtnApproved"
-        Me.BtnApproved.Size = New System.Drawing.Size(118, 31)
+        Me.BtnApproved.Size = New System.Drawing.Size(125, 31)
         Me.BtnApproved.Text = "Approve Adjust"
         '
         'ToolStripSeparator4
@@ -127,6 +127,44 @@ Partial Class UCDashboardAdjustStock
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Approve Adjust Information"
         '
+        'DateAdjTo
+        '
+        Me.DateAdjTo.CustomFormat = "dd/MM/yyyy"
+        Me.DateAdjTo.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.DateAdjTo.Format = System.Windows.Forms.DateTimePickerFormat.Custom
+        Me.DateAdjTo.Location = New System.Drawing.Point(292, 19)
+        Me.DateAdjTo.Name = "DateAdjTo"
+        Me.DateAdjTo.Size = New System.Drawing.Size(116, 26)
+        Me.DateAdjTo.TabIndex = 40
+        '
+        'DateAdjFrom
+        '
+        Me.DateAdjFrom.CustomFormat = "dd/MM/yyyy"
+        Me.DateAdjFrom.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.DateAdjFrom.Format = System.Windows.Forms.DateTimePickerFormat.Custom
+        Me.DateAdjFrom.Location = New System.Drawing.Point(83, 19)
+        Me.DateAdjFrom.Name = "DateAdjFrom"
+        Me.DateAdjFrom.Size = New System.Drawing.Size(116, 26)
+        Me.DateAdjFrom.TabIndex = 39
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Location = New System.Drawing.Point(222, 32)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(49, 13)
+        Me.Label6.TabIndex = 38
+        Me.Label6.Text = "Date To:"
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Location = New System.Drawing.Point(18, 32)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(59, 13)
+        Me.Label5.TabIndex = 37
+        Me.Label5.Text = "Date From:"
+        '
         'GroupBox2
         '
         Me.GroupBox2.Controls.Add(Me.Label4)
@@ -187,44 +225,6 @@ Partial Class UCDashboardAdjustStock
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(50, 43)
         Me.Label1.TabIndex = 0
-        '
-        'Label5
-        '
-        Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(18, 32)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(59, 13)
-        Me.Label5.TabIndex = 37
-        Me.Label5.Text = "Date From:"
-        '
-        'Label6
-        '
-        Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(222, 32)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(49, 13)
-        Me.Label6.TabIndex = 38
-        Me.Label6.Text = "Date To:"
-        '
-        'DateAdjFrom
-        '
-        Me.DateAdjFrom.CustomFormat = "dd/MM/yyyy"
-        Me.DateAdjFrom.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.DateAdjFrom.Format = System.Windows.Forms.DateTimePickerFormat.Custom
-        Me.DateAdjFrom.Location = New System.Drawing.Point(83, 19)
-        Me.DateAdjFrom.Name = "DateAdjFrom"
-        Me.DateAdjFrom.Size = New System.Drawing.Size(116, 26)
-        Me.DateAdjFrom.TabIndex = 39
-        '
-        'DateAdjTo
-        '
-        Me.DateAdjTo.CustomFormat = "dd/MM/yyyy"
-        Me.DateAdjTo.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.DateAdjTo.Format = System.Windows.Forms.DateTimePickerFormat.Custom
-        Me.DateAdjTo.Location = New System.Drawing.Point(292, 19)
-        Me.DateAdjTo.Name = "DateAdjTo"
-        Me.DateAdjTo.Size = New System.Drawing.Size(116, 26)
-        Me.DateAdjTo.TabIndex = 40
         '
         'UCDashboardAdjustStock
         '

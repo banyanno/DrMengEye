@@ -249,6 +249,7 @@ Partial Class frmAddCaritasRequestOrder
         '
         Me.DGVRequestItemsDetail.AllowUserToAddRows = False
         Me.DGVRequestItemsDetail.BackgroundColor = System.Drawing.SystemColors.Window
+        Me.DGVRequestItemsDetail.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.DGVRequestItemsDetail.ColumnHeadersHeight = 30
         Me.DGVRequestItemsDetail.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
         Me.DGVRequestItemsDetail.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.cItemNo, Me.cItemName, Me.cRQuantity, Me.cBarcode})
@@ -308,7 +309,7 @@ Partial Class frmAddCaritasRequestOrder
         Me.btnAddItemReDetail.Image = Global.HospitalMS.My.Resources.Resources._new
         Me.btnAddItemReDetail.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.btnAddItemReDetail.Name = "btnAddItemReDetail"
-        Me.btnAddItemReDetail.Size = New System.Drawing.Size(149, 22)
+        Me.btnAddItemReDetail.Size = New System.Drawing.Size(159, 22)
         Me.btnAddItemReDetail.Text = "Add Items Request Detail"
         '
         'ToolStripSeparator1
@@ -321,7 +322,7 @@ Partial Class frmAddCaritasRequestOrder
         Me.btnRemoveItem.Image = Global.HospitalMS.My.Resources.Resources.Close1
         Me.btnRemoveItem.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.btnRemoveItem.Name = "btnRemoveItem"
-        Me.btnRemoveItem.Size = New System.Drawing.Size(208, 22)
+        Me.btnRemoveItem.Size = New System.Drawing.Size(222, 22)
         Me.btnRemoveItem.Text = "Remove Selected Item Request Detail"
         '
         'btnCancel

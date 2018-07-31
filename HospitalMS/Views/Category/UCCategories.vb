@@ -11,6 +11,7 @@ Public Class UCCategories
     Dim ItemTableTemplate As DataTable
     Private THIDataContext As New BaseDataContext
     Dim ItemPriceDataAdapter As DSItemPriceTableAdapters.tblItemPriceTableAdapter
+    Dim ItemExpireDetial As New DSItemPriceTableAdapters.ViewExpireDateDetialTableAdapter
     Dim MTakeoInventory As MainTakeoInventory
     Dim ItemReqTransaction As DSHospitalRequestToCaritasTableAdapters.V_ITEM_REQ_TRANSTableAdapter
     Dim ItemProviderDataAdapter As DSCategoriesAndItemsTableAdapters.V_ITEM_PROVIDERTableAdapter
@@ -58,7 +59,7 @@ Public Class UCCategories
         FCategory.cateID = CInt(tNode.Tag)
 
         'In case that user select node text equal TakeoStockInventory implement function create new main category
-        If tNode.Text = "Inventory" Then
+        If tNode.Text = "TakeoStockInventory" Then
             FCategory.isCreateMainCate = True
         End If
         If FCategory.ShowDialog() = Windows.Forms.DialogResult.OK Then
@@ -92,7 +93,7 @@ Public Class UCCategories
             'Display data category TreeView
             TVCategories.Nodes.Clear()
             TVCategories.ImageList = ImageListCate
-            TVCategories.Nodes.Add(New TreeNode("Inventory"))
+            TVCategories.Nodes.Add(New TreeNode("TakeoStockInventory"))
             Dim tNode As New TreeNode
             tNode = TVCategories.Nodes(0)
 
@@ -121,7 +122,7 @@ Public Class UCCategories
         Else
             Dim tNode As New TreeNode
             tNode = TVCategories.SelectedNode
-            If tNode.Text = "Inventory" Then
+            If tNode.Text = "TakeoStockInventory" Then
                 gridItems.DataSource = ItemDataByCateIDAdapter.GetData
             Else
                 gridItems.DataSource = ItemDataByCateIDAdapter.GetItemDataByCateID(CInt(tNode.Tag))
@@ -250,7 +251,7 @@ Public Class UCCategories
     Private Sub menuAdjustStock_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles menuAdjustStock.Click
 
         '--- gridItems
-        Dim FAdjustStock As New frmAdjustStock
+        Dim FAdjustStock As New AdjustStockMainStock
         If Not gridItems.CurrentRow Is Nothing AndAlso gridItems.CurrentRow.RowType = RowType.Record Then
 
             FAdjustStock.isAdjustExistItem = True
@@ -438,6 +439,7 @@ Public Class UCCategories
     Sub RefreshGridItemInfo()
         Try
             'gridItems.WatermarkImage.Image = gridItems.SelectedItems(0).GetRow.Cells("Picture").Value
+            GridExpireDetail.DataSource = ItemExpireDetial.SelectExpireByItemID(Val(gridItems.SelectedItems(0).GetRow.Cells("ItemID").Value))
             gridItemPrice.DataSource = ItemPriceDataAdapter.GetItemPriceDataByItemID(Val(gridItems.SelectedItems(0).GetRow.Cells("ItemID").Value))
             gridItemChemical.DataSource = ItemChemicalDataAdapter.GetItemChemicalDataByItemID(Val(gridItems.SelectedItems(0).GetRow.Cells("ItemID").Value))
             gridItemRecTrans.DataSource = ItemReqTransaction.GetRecItemTransByItemID(Val(gridItems.SelectedItems(0).GetRow.Cells("ItemID").Value))
@@ -487,7 +489,7 @@ Public Class UCCategories
 
     End Sub
 
-    Public Sub RefreshListItemsDataToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles RefreshListItemsDataToolStripMenuItem.Click
+    Private Sub RefreshListItemsDataToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles RefreshListItemsDataToolStripMenuItem.Click
         BgLoadingCategories.RunWorkerAsync()
     End Sub
 
@@ -579,14 +581,17 @@ Public Class UCCategories
     End Sub
 
    
-    Private Sub BtnAddQuality_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnAddQuality.Click
-        Dim FAddQTY As New FormAddMoreQTY(Me)
-        FAddQTY.ShowDialog()
-    End Sub
+    
+   
 
-    Private Sub gridItems_RowDoubleClick(ByVal sender As System.Object, ByVal e As Janus.Windows.GridEX.RowActionEventArgs) Handles gridItems.RowDoubleClick
-        Dim FAddQTY As New FormAddMoreQTY(Me)
-        FAddQTY.CboItem.SelectedValue = CInt(gridItems.GetRow.Cells("ItemID").Value)
-        FAddQTY.ShowDialog()
+    Private Sub GridExpireDetail_RowDoubleClick(ByVal sender As System.Object, ByVal e As Janus.Windows.GridEX.RowActionEventArgs) Handles GridExpireDetail.RowDoubleClick
+        Dim FEditItemExpire As New EditeItemExpire
+        FEditItemExpire.LblExpireID.Text = GridExpireDetail.GetRow.Cells("InventoryID").Value
+        FEditItemExpire.LblItemName.Text = GridExpireDetail.GetRow.Cells("ItemName").Value
+        FEditItemExpire.TxtQTY.Text = GridExpireDetail.GetRow.Cells("UnitsInStock").Value
+        If FEditItemExpire.ShowDialog = DialogResult.OK Then
+            GridExpireDetail.DataSource = ItemExpireDetial.SelectExpireByItemID(gridItems.GetRow.Cells("ItemID").Value)
+            'Val(gridItems.SelectedItems(0).GetRow.Cells("ItemID").Value))
+        End If
     End Sub
 End Class

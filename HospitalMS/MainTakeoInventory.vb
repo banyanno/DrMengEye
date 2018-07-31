@@ -29,6 +29,7 @@ Public Class MainTakeoInventory
     Dim UPrescriptionList As UCPrescriptionList
     Dim UMedicineOutsideHospital As UCMedicineOutsideHospital
     Dim UCaritasRequestOrder As UCCaritasRequestOrder
+    Dim UReceivedItem As New ReceivedItem
     Dim UCountry As UCCountry
 
     Dim UOPStatisticReport As UCOpticalShopStatistic
@@ -241,8 +242,8 @@ Public Class MainTakeoInventory
         'Application.DoEvents()
         'UMedicineOutsideHospital = New UCMedicineOutsideHospital
         'Login.UpdateLabelStatus("Creating user interface 47.", True)
-        'Application.DoEvents()
-        'UCaritasRequestOrder = New UCCaritasRequestOrder
+        Application.DoEvents()
+        UCaritasRequestOrder = New UCCaritasRequestOrder
         Login.UpdateLabelStatus("Creating user interface 48.", True)
         Application.DoEvents()
         UCountry = New UCCountry
@@ -390,6 +391,7 @@ Public Class MainTakeoInventory
     End Sub
 
     Private Sub MainTakeoInventory_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        TreeInventSetting.ExpandAll()
         'DBtnSwitchUser.Text = "Log out user: " & UserGlobleVariable.EMPLOYEE_NAME.ToUpper
         'BtnDateTimeServer.Text = "Server Date: " & Format(ModGlobleVariable.GeteDateServer, "dd/MM/yyyy")
         'LblDepartmentLogin.Text = "User in department: " & UserGlobleVariable.DEPART_NAME.ToUpper
@@ -1025,5 +1027,49 @@ Public Class MainTakeoInventory
 
     Private Sub BottonBarMain_GroupSelected(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BottonBarMain.GroupSelected
         GeneralAddControl(uiPanelMainContainer, DasBK, "Ophthalmology Department")
+    End Sub
+
+    Private Sub TreeInventSetting_AfterSelect(ByVal sender As System.Object, ByVal e As System.Windows.Forms.TreeViewEventArgs) Handles TreeInventSetting.AfterSelect
+        Dim tNode As TreeNode = TreeInventSetting.SelectedNode
+        Select Case tNode.Text
+            Case "Items"
+                GeneralAddControl(uiPanelMainContainer, UCate, "Detail information of Item.")
+            Case "Check current stock"
+                GeneralAddControl(uiPanelMainContainer, UShowAllItemBalacne, "Show Balance information for all Departments.")
+            Case "End of Day"
+                GeneralAddControl(uiPanelMainContainer, URunEOD, "Main inventory Run End Of Day.")
+            Case "In-House Used"
+                GeneralAddControl(uiPanelMainContainer, UInhouseUsedITem, "Main Stock In-house Used Item Information.")
+            Case "Item Transaction Reports"
+                GeneralAddControl(uiPanelMainContainer, UReportItemTransaction, "Reports Item Transaction Information.")
+            Case "Approved Adjust Stock"
+                GeneralAddControl(uiPanelMainContainer, UDashboardAdjustStock, "Department items adjust stock.")
+            Case "Clinic Order Item"
+                GeneralAddControl(uiPanelMainContainer, UReceivedItem, "Hospital request order to Caritas.")
+            Case "Barcode"
+                GeneralAddControl(uiPanelMainContainer, UBarcode, "Generated Barcode For Item Information.")
+            Case "Laboratory"
+                GeneralAddControl(uiPanelMainContainer, ULabo, "Laboratory Information.")
+            Case "Chemical"
+                GeneralAddControl(uiPanelMainContainer, Chemical, "Chemical Information.")
+            Case "Container"
+                GeneralAddControl(uiPanelMainContainer, UContainer, "Container Information.")
+            Case "Unit of Measurement"
+                GeneralAddControl(uiPanelMainContainer, UItemUnit, "Item Unit Information.")
+            Case "Vendor"
+                CreateVendorForm()
+            Case "Country"
+                GeneralAddControl(uiPanelMainContainer, UCountry, "Country Information.")
+        End Select
+        'If tNode.Text = "Inventory" Then
+        '    gridItems.DataSource = ItemDataByCateIDAdapter.GetData
+        'Else
+        '    gridItems.DataSource = ItemDataByCateIDAdapter.GetItemDataByCateID(CInt(tNode.Tag))
+        '    lblCateName.Text = "Items in " & tNode.Text & " Category."
+        'End If
+
+        'Select Case TreeInventSetting.Nodes
+
+        'End Select
     End Sub
 End Class
